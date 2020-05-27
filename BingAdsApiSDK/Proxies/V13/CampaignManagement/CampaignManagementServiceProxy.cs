@@ -136,6 +136,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> LanguagesField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AdScheduleUseSearcherTimeZoneField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -508,6 +511,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public System.Nullable<bool> AdScheduleUseSearcherTimeZone
+        {
+            get
+            {
+                return this.AdScheduleUseSearcherTimeZoneField;
+            }
+            set
+            {
+                if ((this.AdScheduleUseSearcherTimeZoneField.Equals(value) != true))
+                {
+                    this.AdScheduleUseSearcherTimeZoneField = value;
+                    this.RaisePropertyChanged("AdScheduleUseSearcherTimeZone");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -539,6 +562,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.InheritFromParentBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetRoasBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxRoasBiddingScheme))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxConversionValueBiddingScheme))]
     public partial class BiddingScheme : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -597,7 +621,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13">CustomParameters Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13 for details.
-    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1037,7 +1061,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines an object that represents the target ROAS bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetroasbiddingscheme?view=bingads-13">TargetRoasBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetroasbiddingscheme?view=bingads-13 for details.
@@ -1056,7 +1080,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> TargetRoasField;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The maximum cost per click that you want to spend.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpc
@@ -1076,7 +1100,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The target return on ad spend (ROAS) that you want used by Microsoft Advertising to maximize conversions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetRoas
@@ -1097,7 +1121,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// This object is not in use and will be removed from a future version of the API.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxroasbiddingscheme?view=bingads-13">MaxRoasBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxroasbiddingscheme?view=bingads-13 for details.
@@ -1113,7 +1137,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpcField;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The MaxRoasBiddingScheme object is not in use and will be removed from a future version of the API.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpc
@@ -1128,6 +1152,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.MaxCpcField = value;
                     this.RaisePropertyChanged("MaxCpc");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxconversionvaluebiddingscheme?view=bingads-13">MaxConversionValueBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxconversionvaluebiddingscheme?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MaxConversionValueBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class MaxConversionValueBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> TargetRoasField;
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> TargetRoas
+        {
+            get
+            {
+                return this.TargetRoasField;
+            }
+            set
+            {
+                if ((this.TargetRoasField.Equals(value) != true))
+                {
+                    this.TargetRoasField = value;
+                    this.RaisePropertyChanged("TargetRoas");
                 }
             }
         }
@@ -1826,7 +1887,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2690,6 +2751,32 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional campaign properties that you can request when calling GetCampaignsByAccountId and GetCampaignsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignadditionalfield?view=bingads-13">CampaignAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignsByAccountId">GetCampaignsByAccountId</see> and <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum CampaignAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the AdScheduleUseSearcherTimeZone element be included within each returned Campaign object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdScheduleUseSearcherTimeZone = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MaxConversionValueBiddingScheme = 2,
+    }
+    
+    /// <summary>
     /// Defines an object that contains the negative site URLs of a campaign.
     /// </summary>
     /// <remarks>
@@ -2745,7 +2832,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed.
+        /// A list of URLs of the websites where you do not want your ads displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -2843,6 +2930,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AdScheduleUseSearcherTimeZoneField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -3196,6 +3286,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        public System.Nullable<bool> AdScheduleUseSearcherTimeZone
+        {
+            get
+            {
+                return this.AdScheduleUseSearcherTimeZoneField;
+            }
+            set
+            {
+                if ((this.AdScheduleUseSearcherTimeZoneField.Equals(value) != true))
+                {
+                    this.AdScheduleUseSearcherTimeZoneField = value;
+                    this.RaisePropertyChanged("AdScheduleUseSearcherTimeZone");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -3323,7 +3433,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/date?view=bingads-13">Date Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/date?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdGroup"/>, <see cref="Experiment"/> and <see cref="Schedule"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroup"/>, <see cref="Experiment"/>, <see cref="PromotionAdExtension"/> and <see cref="Schedule"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3562,6 +3672,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional ad group properties that you can request when calling GetAdGroupsByCampaignId and GetAdGroupsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adgroupadditionalfield?view=bingads-13">AdGroupAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adgroupadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdGroupsByCampaignId">GetAdGroupsByCampaignId</see> and <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AdGroupAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the AdScheduleUseSearcherTimeZone element be included within each returned AdGroup object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdScheduleUseSearcherTimeZone = 1,
+    }
+    
+    /// <summary>
     /// Defines an object that contains the negative site URLs of an ad group.
     /// </summary>
     /// <remarks>
@@ -3617,7 +3747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// A list of URLs of the websites on which you do not want your ads displayed.
+        /// A list of URLs of the websites where you do not want your ads displayed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> NegativeSites
@@ -4941,7 +5071,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13">AppUrl Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13 for details.
-    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5799,7 +5929,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The highest price that you want to pay each time someone clicks your ad.
+        /// The maximum amount that you want to pay each time someone clicks your ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Bid Bid
@@ -7094,6 +7224,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ActionAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.StructuredSnippetAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PriceAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PromotionAdExtension))]
     public partial class AdExtension : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -7254,7 +7385,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The number of times the contents of the ad extension has been updated.
+        /// Tracks the number of times the ad extension has been updated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Version
@@ -7720,6 +7851,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> LayoutsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TrackingUrlTemplateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -7806,7 +7940,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -7826,7 +7960,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -7846,7 +7980,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FinalUrlSuffix
@@ -7866,7 +8000,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -7926,7 +8060,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<string> Layouts
+        {
+            get
+            {
+                return this.LayoutsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LayoutsField, value) != true))
+                {
+                    this.LayoutsField = value;
+                    this.RaisePropertyChanged("Layouts");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -7946,7 +8100,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Not supported for image ad extensions.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
@@ -8437,7 +8591,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Important: If you are currently using Destination URLs, you must eventually replace them with Final URLs.
+        /// The URL of the webpage that users are taken to when they click the site link.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DestinationUrl
@@ -8497,7 +8651,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The mobile landing page URL.
+        /// The landing page URL for mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -8943,6 +9097,411 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         /// <summary>
         /// The tracking template to use as a default for all landing page URLs.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TrackingUrlTemplate
+        {
+            get
+            {
+                return this.TrackingUrlTemplateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TrackingUrlTemplateField, value) != true))
+                {
+                    this.TrackingUrlTemplateField = value;
+                    this.RaisePropertyChanged("TrackingUrlTemplate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Your custom collection of key and value parameters for URL tracking.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
+        {
+            get
+            {
+                return this.UrlCustomParametersField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlCustomParametersField, value) != true))
+                {
+                    this.UrlCustomParametersField = value;
+                    this.RaisePropertyChanged("UrlCustomParameters");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Promotion Extensions highlight special sales and offers in your text ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotionadextension?view=bingads-13">PromotionAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotionadextension?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PromotionAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class PromotionAdExtension : Microsoft.BingAds.V13.CampaignManagement.AdExtension
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PromotionDiscountModifier> DiscountModifierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> MoneyAmountOffField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> OrdersOverAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> PercentOffField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PromotionCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.Date PromotionEndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PromotionItemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PromotionOccasion> PromotionOccasionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.Date PromotionStartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TrackingUrlTemplateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        /// <summary>
+        /// The currency code for the promotion price or discount.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CurrencyCode
+        {
+            get
+            {
+                return this.CurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true))
+                {
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The promotion discount modifier.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PromotionDiscountModifier> DiscountModifier
+        {
+            get
+            {
+                return this.DiscountModifierField;
+            }
+            set
+            {
+                if ((this.DiscountModifierField.Equals(value) != true))
+                {
+                    this.DiscountModifierField = value;
+                    this.RaisePropertyChanged("DiscountModifier");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
+        {
+            get
+            {
+                return this.FinalAppUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalAppUrlsField, value) != true))
+                {
+                    this.FinalAppUrlsField = value;
+                    this.RaisePropertyChanged("FinalAppUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL for mobile devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalMobileUrls
+        {
+            get
+            {
+                return this.FinalMobileUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalMobileUrlsField, value) != true))
+                {
+                    this.FinalMobileUrlsField = value;
+                    this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalUrls
+        {
+            get
+            {
+                return this.FinalUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlsField, value) != true))
+                {
+                    this.FinalUrlsField = value;
+                    this.RaisePropertyChanged("FinalUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The language that the ad extension will be served in.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language
+        {
+            get
+            {
+                return this.LanguageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageField, value) != true))
+                {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The money off promotion value.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> MoneyAmountOff
+        {
+            get
+            {
+                return this.MoneyAmountOffField;
+            }
+            set
+            {
+                if ((this.MoneyAmountOffField.Equals(value) != true))
+                {
+                    this.MoneyAmountOffField = value;
+                    this.RaisePropertyChanged("MoneyAmountOff");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The orders over amount value appended to the promotion target.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> OrdersOverAmount
+        {
+            get
+            {
+                return this.OrdersOverAmountField;
+            }
+            set
+            {
+                if ((this.OrdersOverAmountField.Equals(value) != true))
+                {
+                    this.OrdersOverAmountField = value;
+                    this.RaisePropertyChanged("OrdersOverAmount");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The percent off promotion value in micros.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> PercentOff
+        {
+            get
+            {
+                return this.PercentOffField;
+            }
+            set
+            {
+                if ((this.PercentOffField.Equals(value) != true))
+                {
+                    this.PercentOffField = value;
+                    this.RaisePropertyChanged("PercentOff");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The promotion code appended to the promotion target.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PromotionCode
+        {
+            get
+            {
+                return this.PromotionCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromotionCodeField, value) != true))
+                {
+                    this.PromotionCodeField = value;
+                    this.RaisePropertyChanged("PromotionCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The end date helps to inform the promotion date or dates that will be displayed in the ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.Date PromotionEndDate
+        {
+            get
+            {
+                return this.PromotionEndDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromotionEndDateField, value) != true))
+                {
+                    this.PromotionEndDateField = value;
+                    this.RaisePropertyChanged("PromotionEndDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The promotion target or item.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PromotionItem
+        {
+            get
+            {
+                return this.PromotionItemField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromotionItemField, value) != true))
+                {
+                    this.PromotionItemField = value;
+                    this.RaisePropertyChanged("PromotionItem");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The promotion occasion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PromotionOccasion> PromotionOccasion
+        {
+            get
+            {
+                return this.PromotionOccasionField;
+            }
+            set
+            {
+                if ((this.PromotionOccasionField.Equals(value) != true))
+                {
+                    this.PromotionOccasionField = value;
+                    this.RaisePropertyChanged("PromotionOccasion");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The start date helps to inform the promotion date or dates that will be displayed in the ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.Date PromotionStartDate
+        {
+            get
+            {
+                return this.PromotionStartDateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromotionStartDateField, value) != true))
+                {
+                    this.PromotionStartDateField = value;
+                    this.RaisePropertyChanged("PromotionStartDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -9587,7 +10146,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved for future use.
+        /// The action type is either RenewNow or Reorder.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -9635,7 +10194,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         BookNow = 7,
         
         /// <summary>
-        /// Use the translated version of Browse in the action ad extension.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Browse = 8,
@@ -9695,7 +10254,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         EnrollNow = 17,
         
         /// <summary>
-        /// Use the translated version of Explore in the action ad extension.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Explore = 18,
@@ -9773,13 +10332,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         LogIn = 30,
         
         /// <summary>
-        /// Use the translated version of Message in the action ad extension.
+        /// Use the translated version of ContactUs in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Message = 31,
         
         /// <summary>
-        /// Use the translated version of NewCars in the action ad extension.
+        /// Use the translated version of ViewCars in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCars = 32,
@@ -9857,7 +10416,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SeeMenu = 44,
         
         /// <summary>
-        /// Use the translated version of SeeMore in the action ad extension.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeMore = 45,
@@ -9899,7 +10458,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SignUp = 51,
         
         /// <summary>
-        /// Use the translated version of StartFree in the action ad extension.
+        /// Use the translated version of FreeTrial in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartFree = 52,
@@ -9929,7 +10488,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         TryNow = 56,
         
         /// <summary>
-        /// Use the translated version of UsedCars in the action ad extension.
+        /// Use the translated version of ViewCars in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UsedCars = 57,
@@ -9941,7 +10500,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ViewCars = 58,
         
         /// <summary>
-        /// Use the translated version of ViewNow in the action ad extension.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewNow = 59,
@@ -9953,7 +10512,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ViewPlans = 60,
         
         /// <summary>
-        /// Use the translated version of VisitSite in the action ad extension.
+        /// Use the translated version of LearnMore in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VisitSite = 61,
@@ -10005,6 +10564,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VisitStore = 69,
+        
+        /// <summary>
+        /// Use the translated version of RenewNow in the action ad extension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RenewNow = 70,
+        
+        /// <summary>
+        /// Use the translated version of Reorder in the action ad extension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Reorder = 71,
     }
     
     /// <summary>
@@ -10177,7 +10748,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The mobile landing page URL.
+        /// The landing page URL for mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -10450,6 +11021,284 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PerNight = 7,
+    }
+    
+    /// <summary>
+    /// Defines the possible types of promotion discount modifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotiondiscountmodifier?view=bingads-13">PromotionDiscountModifier Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotiondiscountmodifier?view=bingads-13 for details.
+    /// <para>Used by <see cref="PromotionAdExtension"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PromotionDiscountModifier", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum PromotionDiscountModifier : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The promotion discount is modified with the "Up to" string prefix.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpTo = 1,
+        
+        /// <summary>
+        /// The promotion discount is not modified.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 2,
+    }
+    
+    /// <summary>
+    /// Defines the possible types of promotion occasions.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotionoccasion?view=bingads-13">PromotionOccasion Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/promotionoccasion?view=bingads-13 for details.
+    /// <para>Used by <see cref="PromotionAdExtension"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PromotionOccasion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum PromotionOccasion : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The "New Year's" promotion can run from December 1 through February 28.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewYears = 1,
+        
+        /// <summary>
+        /// The "Valentine's Day" promotion can run from January 15 through February 28.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ValentinesDay = 2,
+        
+        /// <summary>
+        /// The "Easter" promotion can run from March 1 through April 30.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Easter = 3,
+        
+        /// <summary>
+        /// The "Mother's Day" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MothersDay = 4,
+        
+        /// <summary>
+        /// The "Father's Day" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FathersDay = 5,
+        
+        /// <summary>
+        /// The "Labor Day" promotion can run from April 15 through September 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LaborDay = 6,
+        
+        /// <summary>
+        /// The "Back to School" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BackToSchool = 7,
+        
+        /// <summary>
+        /// The "Halloween" promotion can run from October 1 through November 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Halloween = 8,
+        
+        /// <summary>
+        /// The "Black Friday" promotion can run from October 15 through December 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BlackFriday = 9,
+        
+        /// <summary>
+        /// The "Cyber Monday" promotion can run from October 15 through December 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CyberMonday = 10,
+        
+        /// <summary>
+        /// The "Christmas" promotion can run from November 1 through January 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Christmas = 11,
+        
+        /// <summary>
+        /// The "Boxing Day" promotion can run from December 15 through January 15.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BoxingDay = 12,
+        
+        /// <summary>
+        /// The promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 13,
+        
+        /// <summary>
+        /// The "Independence Day" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IndependenceDay = 14,
+        
+        /// <summary>
+        /// The "National Day" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NationalDay = 15,
+        
+        /// <summary>
+        /// The "End of Season" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EndOfSeason = 16,
+        
+        /// <summary>
+        /// The "Winter Sale" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WinterSale = 17,
+        
+        /// <summary>
+        /// The "Summer Sale" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SummerSale = 18,
+        
+        /// <summary>
+        /// The "Fall Sale" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FallSale = 19,
+        
+        /// <summary>
+        /// The "Spring Sale" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpringSale = 20,
+        
+        /// <summary>
+        /// The "Ramadan" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ramadan = 21,
+        
+        /// <summary>
+        /// The "Eid al-Fitr" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EidAlFitr = 22,
+        
+        /// <summary>
+        /// The "Eid al-Adha" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EidAlAdha = 23,
+        
+        /// <summary>
+        /// The "Single's Day" promotion can run from October 15 through November 30.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SinglesDay = 24,
+        
+        /// <summary>
+        /// The "Women's Day" promotion can run from February 15 through March 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WomensDay = 25,
+        
+        /// <summary>
+        /// The "Holi" promotion can run from February 1 through March 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Holi = 26,
+        
+        /// <summary>
+        /// The "Parent's Day" promotion can run from April 15 through August 1.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ParentsDay = 27,
+        
+        /// <summary>
+        /// The "St.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StNicholasDay = 28,
+        
+        /// <summary>
+        /// The "Chinese New Year" promotion can run from January 15 through March 1.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChineseNewYear = 29,
+        
+        /// <summary>
+        /// The "Carnival" promotion can run from February 1 through March 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Carnival = 30,
+        
+        /// <summary>
+        /// The "Epiphany" promotion can run from December 15 through January 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Epiphany = 31,
+        
+        /// <summary>
+        /// The "Rosh Hashanah" promotion can run from August 15 through November 1.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RoshHashanah = 32,
+        
+        /// <summary>
+        /// The "Passover" promotion can run from February 15 through May 1.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Passover = 33,
+        
+        /// <summary>
+        /// The "Hanukkah" promotion can run from November 15 through January 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hanukkah = 34,
+        
+        /// <summary>
+        /// The "Diwali" promotion can run from September 1 through December 1.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Diwali = 35,
+        
+        /// <summary>
+        /// The "Navratri" promotion can run from September 15 through October 31.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Navratri = 36,
+        
+        /// <summary>
+        /// The "Songkran" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Songkran = 37,
+        
+        /// <summary>
+        /// The "Year-End Gift" promotion can run anytime according to your ad extension scheduling.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YearEndGift = 38,
     }
     
     /// <summary>
@@ -10989,6 +11838,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionAdExtension = 512,
+        
+        /// <summary>
+        /// An ad extension that highlights special sales and offers in your text ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PromotionAdExtension = 1024,
     }
     
     /// <summary>
@@ -11015,6 +11870,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisplayText = 2,
+        
+        /// <summary>
+        /// Request that the Layouts element be included within each returned ImageAdExtension object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Layouts = 4,
+        
+        /// <summary>
+        /// Request that the latest ActionAdExtensionActionType values be included within each returned ActionAdExtension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ActionTypesPhase3 = 8,
     }
     
     /// <summary>
@@ -11766,7 +12633,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/paging?view=bingads-13 for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportResults">GetImportResults</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see> and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12385,6 +13252,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimilarRemarketingList = 524288,
+        
+        /// <summary>
+        /// The ad group criterion is a combined list association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CombinedList = 1048576,
     }
     
     /// <summary>
@@ -12569,6 +13442,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.LocationIntentCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AudienceCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ProfileCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.StoreCriterion))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -13700,6 +14574,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/storecriterion?view=bingads-13">StoreCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/storecriterion?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StoreCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class StoreCriterion : Microsoft.BingAds.V13.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> StoreIdField;
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> StoreId
+        {
+            get
+            {
+                return this.StoreIdField;
+            }
+            set
+            {
+                if ((this.StoreIdField.Equals(value) != true))
+                {
+                    this.StoreIdField = value;
+                    this.RaisePropertyChanged("StoreId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines a condition that determines whether a product is selected from a customer's Microsoft Merchant Center catalog file.
     /// </summary>
     /// <remarks>
@@ -14213,6 +15124,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimilarRemarketingList = 16,
+        
+        /// <summary>
+        /// The audience is a combined list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CombinedList = 32,
     }
     
     /// <summary>
@@ -14610,7 +15527,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The unique identifier for the  Microsoft Merchant Center store.
+        /// The unique identifier for the Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
@@ -14944,6 +15861,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SharedListItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeSite))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeyword))]
     public partial class SharedListItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
@@ -15022,6 +15940,66 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a website URL where you do not want your ads displayed.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/negativesite?view=bingads-13">NegativeSite Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/negativesite?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NegativeSite", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class NegativeSite : Microsoft.BingAds.V13.CampaignManagement.SharedListItem
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UrlField;
+        
+        /// <summary>
+        /// The unique Microsoft Advertising identifier of the negative site.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URL of the website where you do not want your ads displayed.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Url
+        {
+            get
+            {
+                return this.UrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlField, value) != true))
+                {
+                    this.UrlField = value;
+                    this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines an object that contains a list of entity identifiers.
     /// </summary>
     /// <remarks>
@@ -15090,7 +16068,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/sharedentity?view=bingads-13">SharedEntity Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/sharedentity?view=bingads-13 for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntitiesByAccountId">GetSharedEntitiesByAccountId</see> and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntities">GetSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntitiesByAccountId">GetSharedEntitiesByAccountId</see> and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -15098,6 +16076,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.SharedList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
     public partial class SharedEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -15132,7 +16111,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The number of active associations between this object and an entity such as a campaign.
+        /// The number of active associations between this shared entity and another entity such as campaign or ad account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> AssociationCount
@@ -15255,6 +16234,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.DataContractAttribute(Name="SharedList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
     public partial class SharedList : Microsoft.BingAds.V13.CampaignManagement.SharedEntity
     {
         
@@ -15297,7 +16277,47 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an object that contains association information for a campaign and shared entity such as a negative keyword list.
+    /// Defines a website exclusion list in the manager account (customer) shared library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/placementexclusionlist?view=bingads-13">PlacementExclusionList Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/placementexclusionlist?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlacementExclusionList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class PlacementExclusionList : Microsoft.BingAds.V13.CampaignManagement.SharedList
+    {
+    }
+    
+    /// <summary>
+    /// Defines values that you can use to determine whether the remarketing list can only be associated with ad groups within one specified account, or can be associated with any ad groups across all of the customer's accounts.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/entityscope?view=bingads-13">EntityScope Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/entityscope?view=bingads-13 for details.
+    /// <para>Used by <see cref="Audience"/> and <see cref="ConversionGoal"/> data objects.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetListItemsBySharedList">GetListItemsBySharedList</see>, <see cref="CampaignManagementServiceClient.GetSharedEntities">GetSharedEntities</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see> and <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EntityScope", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum EntityScope : int
+    {
+        
+        /// <summary>
+        /// The remarketing list can only be associated with ad groups within one specified account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Account = 0,
+        
+        /// <summary>
+        /// The remarketing list can be associated with any ad groups across all of the customer's accounts.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Customer = 1,
+    }
+    
+    /// <summary>
+    /// Defines an object that associates a campaign to negative keyword list, or an ad account to a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/sharedentityassociation?view=bingads-13">SharedEntityAssociation Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/sharedentityassociation?view=bingads-13 for details.
@@ -15318,6 +16338,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EntityTypeField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> SharedEntityCustomerIdField;
+        
         private long SharedEntityIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -15336,7 +16359,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The system-generated identifier of the campaign that is associated with the shared entity.
+        /// The identifier of the campaign or ad account (according to EntityType) that is associated with the shared entity.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long EntityId
@@ -15376,7 +16399,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The system-generated identifier of the shared entity.
+        /// Determines the owner of a website exclusion list.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<long> SharedEntityCustomerId
+        {
+            get
+            {
+                return this.SharedEntityCustomerIdField;
+            }
+            set
+            {
+                if ((this.SharedEntityCustomerIdField.Equals(value) != true))
+                {
+                    this.SharedEntityCustomerIdField = value;
+                    this.RaisePropertyChanged("SharedEntityCustomerId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the shared entity.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long SharedEntityId
@@ -15396,7 +16439,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The type of the shared entity.
+        /// The type of shared entity.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SharedEntityType
@@ -15894,6 +16937,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimilarRemarketingList = 524288,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Store = 1048576,
+        
+        /// <summary>
+        /// The campaign criterion is a combined list association.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CombinedList = 2097152,
     }
     
     /// <summary>
@@ -16068,6 +17123,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.InMarketAudience))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ProductAudience))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.SimilarRemarketingList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CombinedList))]
     public partial class Audience : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -16647,28 +17703,40 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines values that you can use to determine whether the remarketing list can only be associated with ad groups within one specified account, or can be associated with any ad groups across all of the customer's accounts.
+    /// A combined list is an audience created from a combination of multiple existing audiences.
     /// </summary>
     /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/entityscope?view=bingads-13">EntityScope Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/entityscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="Audience"/> and <see cref="ConversionGoal"/> data objects.</para>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/combinedlist?view=bingads-13">CombinedList Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/combinedlist?view=bingads-13 for details.
     /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EntityScope", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum EntityScope : int
+    [System.Runtime.Serialization.DataContractAttribute(Name="CombinedList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class CombinedList : Microsoft.BingAds.V13.CampaignManagement.Audience
     {
         
-        /// <summary>
-        /// The remarketing list can only be associated with ad groups within one specified account.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Account = 0,
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CombinationRule> CombinationRulesField;
         
         /// <summary>
-        /// The remarketing list can be associated with any ad groups across all of the customer's accounts.
+        /// Logical conditions used to determine who to add to your combined list.
         /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Customer = 1,
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CombinationRule> CombinationRules
+        {
+            get
+            {
+                return this.CombinationRulesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CombinationRulesField, value) != true))
+                {
+                    this.CombinationRulesField = value;
+                    this.RaisePropertyChanged("CombinationRules");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -17661,6 +18729,123 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PastBuyers = 16,
+    }
+    
+    /// <summary>
+    /// A combination rule includes logical conditions used to determine who to add to your combined list.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/combinationrule?view=bingads-13">CombinationRule Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/combinationrule?view=bingads-13 for details.
+    /// <para>Used by <see cref="CombinedList"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CombinationRule", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class CombinationRule : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Collections.Generic.IList<long> AudienceIdsField;
+        
+        private Microsoft.BingAds.V13.CampaignManagement.LogicalOperator OperatorField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The list of audience identifiers to combine in a logical set.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<long> AudienceIds
+        {
+            get
+            {
+                return this.AudienceIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AudienceIdsField, value) != true))
+                {
+                    this.AudienceIdsField = value;
+                    this.RaisePropertyChanged("AudienceIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether to include or exclude any or all of the AudienceIds.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.CampaignManagement.LogicalOperator Operator
+        {
+            get
+            {
+                return this.OperatorField;
+            }
+            set
+            {
+                if ((this.OperatorField.Equals(value) != true))
+                {
+                    this.OperatorField = value;
+                    this.RaisePropertyChanged("Operator");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the supported set of logical operators for combined list audiences.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/logicaloperator?view=bingads-13">LogicalOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/logicaloperator?view=bingads-13 for details.
+    /// <para>Used by <see cref="CombinationRule"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LogicalOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum LogicalOperator : int
+    {
+        
+        /// <summary>
+        /// Include only customers who are in every single one of these audience lists.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        And = 1,
+        
+        /// <summary>
+        /// Include customers who are in any of these audience lists.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Or = 2,
+        
+        /// <summary>
+        /// Exclude customers who are in any of these audience lists.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Not = 3,
     }
     
     /// <summary>
@@ -19773,6 +20958,3108 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the base object of an import job.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importjob?view=bingads-13">ImportJob Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importjob?view=bingads-13 for details.
+    /// <para>Used by <see cref="ImportResult"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see> and <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportJob", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.GoogleImportJob))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FileImportJob))]
+    public partial class ImportJob : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> CreatedByUserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByUserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> CreatedDateTimeInUTCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.Frequency FrequencyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportOption ImportOptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> LastRunTimeInUTCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificationTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The unique identifier of the Microsoft Advertising user who created the import job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> CreatedByUserId
+        {
+            get
+            {
+                return this.CreatedByUserIdField;
+            }
+            set
+            {
+                if ((this.CreatedByUserIdField.Equals(value) != true))
+                {
+                    this.CreatedByUserIdField = value;
+                    this.RaisePropertyChanged("CreatedByUserId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The login user name of the Microsoft Advertising user who created the import job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedByUserName
+        {
+            get
+            {
+                return this.CreatedByUserNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CreatedByUserNameField, value) != true))
+                {
+                    this.CreatedByUserNameField = value;
+                    this.RaisePropertyChanged("CreatedByUserName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The date and time when the import job was created.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> CreatedDateTimeInUTC
+        {
+            get
+            {
+                return this.CreatedDateTimeInUTCField;
+            }
+            set
+            {
+                if ((this.CreatedDateTimeInUTCField.Equals(value) != true))
+                {
+                    this.CreatedDateTimeInUTCField = value;
+                    this.RaisePropertyChanged("CreatedDateTimeInUTC");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether the import job should be run once or scheduled on a recurring basis.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.Frequency Frequency
+        {
+            get
+            {
+                return this.FrequencyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FrequencyField, value) != true))
+                {
+                    this.FrequencyField = value;
+                    this.RaisePropertyChanged("Frequency");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The unique Microsoft Advertising identifier of the import job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The import options that are available via API.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportOption ImportOption
+        {
+            get
+            {
+                return this.ImportOptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImportOptionField, value) != true))
+                {
+                    this.ImportOptionField = value;
+                    this.RaisePropertyChanged("ImportOption");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The most recent import date and time for this job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastRunTimeInUTC
+        {
+            get
+            {
+                return this.LastRunTimeInUTCField;
+            }
+            set
+            {
+                if ((this.LastRunTimeInUTCField.Equals(value) != true))
+                {
+                    this.LastRunTimeInUTCField = value;
+                    this.RaisePropertyChanged("LastRunTimeInUTC");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The name of the import job
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether and how often you want to receive email notifications about the import job results.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NotificationType
+        {
+            get
+            {
+                return this.NotificationTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NotificationTypeField, value) != true))
+                {
+                    this.NotificationTypeField = value;
+                    this.RaisePropertyChanged("NotificationType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The status of the import job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StatusField, value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of the import job.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Determines whether an import job should be run once or scheduled on a recurring basis.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequency?view=bingads-13">Frequency Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequency?view=bingads-13 for details.
+    /// <para>Used by <see cref="ImportJob"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Frequency", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class Frequency : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CronField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TimeZoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Represents a simplified implementation of Cron frequency.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Cron
+        {
+            get
+            {
+                return this.CronField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CronField, value) != true))
+                {
+                    this.CronField = value;
+                    this.RaisePropertyChanged("Cron");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The time zone used for the import schedule.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TimeZone
+        {
+            get
+            {
+                return this.TimeZoneField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeZoneField, value) != true))
+                {
+                    this.TimeZoneField = value;
+                    this.RaisePropertyChanged("TimeZone");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The scheduling frequency type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the base object of an import option.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importoption?view=bingads-13">ImportOption Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importoption?view=bingads-13 for details.
+    /// <para>Used by <see cref="ImportJob"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportOption", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.GoogleImportOption))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FileImportOption))]
+    public partial class ImportOption : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
+        {
+            get
+            {
+                return this.ForwardCompatibilityMapField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ForwardCompatibilityMapField, value) != true))
+                {
+                    this.ForwardCompatibilityMapField = value;
+                    this.RaisePropertyChanged("ForwardCompatibilityMap");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of import option.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a Google import job that can be run once or scheduled on a recurring basis.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/googleimportjob?view=bingads-13">GoogleImportJob Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/googleimportjob?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GoogleImportJob", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class GoogleImportJob : Microsoft.BingAds.V13.CampaignManagement.ImportJob
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignAdGroupIds> CampaignAdGroupIdsField;
+        
+        private string CredentialIdField;
+        
+        private System.Nullable<long> GoogleAccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GoogleUserNameField;
+        
+        /// <summary>
+        /// The list of campaigns and their ad groups to import from Google Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignAdGroupIds> CampaignAdGroupIds
+        {
+            get
+            {
+                return this.CampaignAdGroupIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CampaignAdGroupIdsField, value) != true))
+                {
+                    this.CampaignAdGroupIdsField = value;
+                    this.RaisePropertyChanged("CampaignAdGroupIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Authorizes a Google Ads user to import accounts to Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string CredentialId
+        {
+            get
+            {
+                return this.CredentialIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CredentialIdField, value) != true))
+                {
+                    this.CredentialIdField = value;
+                    this.RaisePropertyChanged("CredentialId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The Google Ads account to import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Nullable<long> GoogleAccountId
+        {
+            get
+            {
+                return this.GoogleAccountIdField;
+            }
+            set
+            {
+                if ((this.GoogleAccountIdField.Equals(value) != true))
+                {
+                    this.GoogleAccountIdField = value;
+                    this.RaisePropertyChanged("GoogleAccountId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The Google account i.e., the Google user credentials with access to the Google Ads account.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string GoogleUserName
+        {
+            get
+            {
+                return this.GoogleUserNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.GoogleUserNameField, value) != true))
+                {
+                    this.GoogleUserNameField = value;
+                    this.RaisePropertyChanged("GoogleUserName");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportjob?view=bingads-13">FileImportJob Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportjob?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileImportJob", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class FileImportJob : Microsoft.BingAds.V13.CampaignManagement.ImportJob
+    {
+        
+        private string FileSourceField;
+        
+        private string FileUrlField;
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string FileSource
+        {
+            get
+            {
+                return this.FileSourceField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FileSourceField, value) != true))
+                {
+                    this.FileSourceField = value;
+                    this.RaisePropertyChanged("FileSource");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string FileUrl
+        {
+            get
+            {
+                return this.FileUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FileUrlField, value) != true))
+                {
+                    this.FileUrlField = value;
+                    this.RaisePropertyChanged("FileUrl");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the Google import options that are available via API.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/googleimportoption?view=bingads-13">GoogleImportOption Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/googleimportoption?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GoogleImportOption", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class GoogleImportOption : Microsoft.BingAds.V13.CampaignManagement.ImportOption
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AccountUrlOptionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AdjustmentForBidsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AdjustmentForCampaignBudgetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AssociatedStoreIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AssociatedUetTagIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> DeleteRemovedEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> EnableAutoCurrencyConversionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> EnableParentLocationMappingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewActiveAdsForExistingAdGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewActiveCampaignsAndChildEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewAdCustomizerFeedsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewAdGroupsAndChildEntitiesForExistingCampaignsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewAdSchedulesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewAppAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewAudienceTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewCallAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewCalloutAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewDemographicTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewDeviceTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewKeywordUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewKeywordsForExistingAdGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewLabelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewLocationAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewLocationTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewNegativeKeywordListsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewNegativeKeywordsForExistingParentsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewNegativeSitesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewPageFeedsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewPausedAdsForExistingAdGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewPausedCampaignsAndChildEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewPriceAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewProductFiltersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewReviewAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewSitelinkAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewStructuredSnippetAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewUrlOptionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> PauseCampaignsWithoutSupportedLocationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> PauseNewCampaignsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> RaiseBidsToMinimumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> RaiseCampaignBudgetsToMinimumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> RaiseProductGroupBidsToMinimumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> SearchAndDsaMixedCampaignAsSearchCampaignField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForCampaignNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForTrackingTemplatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SuffixForCampaignNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SuffixForTrackingTemplatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SuffixForUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAdCustomizerFeedsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAdGroupNetworkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAdSchedulesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAppAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAudienceTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateBiddingStrategiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateBidsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateCallAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateCalloutAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateCampaignAdGroupLanguagesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateCampaignBudgetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateCampaignNamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateDemographicTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateDeviceTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateKeywordUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateLabelsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateLocationAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateLocationTargetsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateNegativeKeywordListsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateNegativeSitesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdatePageFeedsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdatePriceAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateProductFiltersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateReviewAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateSitelinkAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateStatusForAdGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateStatusForAdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateStatusForCampaignsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateStatusForKeywordsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateStructuredSnippetAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateUrlOptionsField;
+        
+        /// <summary>
+        /// Import the account level tracking template and final URL suffix.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> AccountUrlOptions
+        {
+            get
+            {
+                return this.AccountUrlOptionsField;
+            }
+            set
+            {
+                if ((this.AccountUrlOptionsField.Equals(value) != true))
+                {
+                    this.AccountUrlOptionsField = value;
+                    this.RaisePropertyChanged("AccountUrlOptions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The percentage amount that you want to increase or decrease the new or existing Microsoft Advertising bids relative to your Google Ads bids.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> AdjustmentForBids
+        {
+            get
+            {
+                return this.AdjustmentForBidsField;
+            }
+            set
+            {
+                if ((this.AdjustmentForBidsField.Equals(value) != true))
+                {
+                    this.AdjustmentForBidsField = value;
+                    this.RaisePropertyChanged("AdjustmentForBids");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The percentage amount that you want to increase or decrease the new or existing Microsoft Advertising campaign budgets relative to your Google Ads campaign budgets.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> AdjustmentForCampaignBudgets
+        {
+            get
+            {
+                return this.AdjustmentForCampaignBudgetsField;
+            }
+            set
+            {
+                if ((this.AdjustmentForCampaignBudgetsField.Equals(value) != true))
+                {
+                    this.AdjustmentForCampaignBudgetsField = value;
+                    this.RaisePropertyChanged("AdjustmentForCampaignBudgets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the Microsoft Merchant Center store that you want to associate with imported product ads and product filters.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AssociatedStoreId
+        {
+            get
+            {
+                return this.AssociatedStoreIdField;
+            }
+            set
+            {
+                if ((this.AssociatedStoreIdField.Equals(value) != true))
+                {
+                    this.AssociatedStoreIdField = value;
+                    this.RaisePropertyChanged("AssociatedStoreId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the Universal Event Tracking tag (UetTag) that you want to associate with imported remarketing lists.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AssociatedUetTagId
+        {
+            get
+            {
+                return this.AssociatedUetTagIdField;
+            }
+            set
+            {
+                if ((this.AssociatedUetTagIdField.Equals(value) != true))
+                {
+                    this.AssociatedUetTagIdField = value;
+                    this.RaisePropertyChanged("AssociatedUetTagId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Removed Google Ads items will be deleted along with their associated sub-items.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> DeleteRemovedEntities
+        {
+            get
+            {
+                return this.DeleteRemovedEntitiesField;
+            }
+            set
+            {
+                if ((this.DeleteRemovedEntitiesField.Equals(value) != true))
+                {
+                    this.DeleteRemovedEntitiesField = value;
+                    this.RaisePropertyChanged("DeleteRemovedEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// If the currency in your Google Ads account does not match the currency in your Microsoft Advertising ad account, the imported bids and budgets will be converted to their equivalent currency in Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> EnableAutoCurrencyConversion
+        {
+            get
+            {
+                return this.EnableAutoCurrencyConversionField;
+            }
+            set
+            {
+                if ((this.EnableAutoCurrencyConversionField.Equals(value) != true))
+                {
+                    this.EnableAutoCurrencyConversionField = value;
+                    this.RaisePropertyChanged("EnableAutoCurrencyConversion");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Google Ads location targets that are unsupported by Microsoft Advertising are expanded in scope and mapped to parent location targets that are supported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> EnableParentLocationMapping
+        {
+            get
+            {
+                return this.EnableParentLocationMappingField;
+            }
+            set
+            {
+                if ((this.EnableParentLocationMappingField.Equals(value) != true))
+                {
+                    this.EnableParentLocationMappingField = value;
+                    this.RaisePropertyChanged("EnableParentLocationMapping");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new active ads within existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewActiveAdsForExistingAdGroups
+        {
+            get
+            {
+                return this.NewActiveAdsForExistingAdGroupsField;
+            }
+            set
+            {
+                if ((this.NewActiveAdsForExistingAdGroupsField.Equals(value) != true))
+                {
+                    this.NewActiveAdsForExistingAdGroupsField = value;
+                    this.RaisePropertyChanged("NewActiveAdsForExistingAdGroups");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import active campaigns that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewActiveCampaignsAndChildEntities
+        {
+            get
+            {
+                return this.NewActiveCampaignsAndChildEntitiesField;
+            }
+            set
+            {
+                if ((this.NewActiveCampaignsAndChildEntitiesField.Equals(value) != true))
+                {
+                    this.NewActiveCampaignsAndChildEntitiesField = value;
+                    this.RaisePropertyChanged("NewActiveCampaignsAndChildEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import ad customizer feeds that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewAdCustomizerFeeds
+        {
+            get
+            {
+                return this.NewAdCustomizerFeedsField;
+            }
+            set
+            {
+                if ((this.NewAdCustomizerFeedsField.Equals(value) != true))
+                {
+                    this.NewAdCustomizerFeedsField = value;
+                    this.RaisePropertyChanged("NewAdCustomizerFeeds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new ad groups within existing campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewAdGroupsAndChildEntitiesForExistingCampaigns
+        {
+            get
+            {
+                return this.NewAdGroupsAndChildEntitiesForExistingCampaignsField;
+            }
+            set
+            {
+                if ((this.NewAdGroupsAndChildEntitiesForExistingCampaignsField.Equals(value) != true))
+                {
+                    this.NewAdGroupsAndChildEntitiesForExistingCampaignsField = value;
+                    this.RaisePropertyChanged("NewAdGroupsAndChildEntitiesForExistingCampaigns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import ad schedules that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewAdSchedules
+        {
+            get
+            {
+                return this.NewAdSchedulesField;
+            }
+            set
+            {
+                if ((this.NewAdSchedulesField.Equals(value) != true))
+                {
+                    this.NewAdSchedulesField = value;
+                    this.RaisePropertyChanged("NewAdSchedules");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import app extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewAppAdExtensions
+        {
+            get
+            {
+                return this.NewAppAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewAppAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewAppAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewAppAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import campaign and ad group targets and exclusions for in-market audiences.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewAudienceTargets
+        {
+            get
+            {
+                return this.NewAudienceTargetsField;
+            }
+            set
+            {
+                if ((this.NewAudienceTargetsField.Equals(value) != true))
+                {
+                    this.NewAudienceTargetsField = value;
+                    this.RaisePropertyChanged("NewAudienceTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import call extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewCallAdExtensions
+        {
+            get
+            {
+                return this.NewCallAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewCallAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewCallAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewCallAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import callout extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewCalloutAdExtensions
+        {
+            get
+            {
+                return this.NewCalloutAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewCalloutAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewCalloutAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewCalloutAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import demographic targets that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewDemographicTargets
+        {
+            get
+            {
+                return this.NewDemographicTargetsField;
+            }
+            set
+            {
+                if ((this.NewDemographicTargetsField.Equals(value) != true))
+                {
+                    this.NewDemographicTargetsField = value;
+                    this.RaisePropertyChanged("NewDemographicTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import device targets that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewDeviceTargets
+        {
+            get
+            {
+                return this.NewDeviceTargetsField;
+            }
+            set
+            {
+                if ((this.NewDeviceTargetsField.Equals(value) != true))
+                {
+                    this.NewDeviceTargetsField = value;
+                    this.RaisePropertyChanged("NewDeviceTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The prerequisite option for importing new entities and settings into Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewEntities
+        {
+            get
+            {
+                return this.NewEntitiesField;
+            }
+            set
+            {
+                if ((this.NewEntitiesField.Equals(value) != true))
+                {
+                    this.NewEntitiesField = value;
+                    this.RaisePropertyChanged("NewEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new keyword landing page URLs.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewKeywordUrls
+        {
+            get
+            {
+                return this.NewKeywordUrlsField;
+            }
+            set
+            {
+                if ((this.NewKeywordUrlsField.Equals(value) != true))
+                {
+                    this.NewKeywordUrlsField = value;
+                    this.RaisePropertyChanged("NewKeywordUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new keywords within existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewKeywordsForExistingAdGroups
+        {
+            get
+            {
+                return this.NewKeywordsForExistingAdGroupsField;
+            }
+            set
+            {
+                if ((this.NewKeywordsForExistingAdGroupsField.Equals(value) != true))
+                {
+                    this.NewKeywordsForExistingAdGroupsField = value;
+                    this.RaisePropertyChanged("NewKeywordsForExistingAdGroups");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import labels that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewLabels
+        {
+            get
+            {
+                return this.NewLabelsField;
+            }
+            set
+            {
+                if ((this.NewLabelsField.Equals(value) != true))
+                {
+                    this.NewLabelsField = value;
+                    this.RaisePropertyChanged("NewLabels");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import location extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewLocationAdExtensions
+        {
+            get
+            {
+                return this.NewLocationAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewLocationAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewLocationAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewLocationAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import location targets that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewLocationTargets
+        {
+            get
+            {
+                return this.NewLocationTargetsField;
+            }
+            set
+            {
+                if ((this.NewLocationTargetsField.Equals(value) != true))
+                {
+                    this.NewLocationTargetsField = value;
+                    this.RaisePropertyChanged("NewLocationTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import negative keyword lists that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewNegativeKeywordLists
+        {
+            get
+            {
+                return this.NewNegativeKeywordListsField;
+            }
+            set
+            {
+                if ((this.NewNegativeKeywordListsField.Equals(value) != true))
+                {
+                    this.NewNegativeKeywordListsField = value;
+                    this.RaisePropertyChanged("NewNegativeKeywordLists");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new negative keywords for existing campaigns or existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewNegativeKeywordsForExistingParents
+        {
+            get
+            {
+                return this.NewNegativeKeywordsForExistingParentsField;
+            }
+            set
+            {
+                if ((this.NewNegativeKeywordsForExistingParentsField.Equals(value) != true))
+                {
+                    this.NewNegativeKeywordsForExistingParentsField = value;
+                    this.RaisePropertyChanged("NewNegativeKeywordsForExistingParents");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new negative sites for existing campaigns or existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewNegativeSites
+        {
+            get
+            {
+                return this.NewNegativeSitesField;
+            }
+            set
+            {
+                if ((this.NewNegativeSitesField.Equals(value) != true))
+                {
+                    this.NewNegativeSitesField = value;
+                    this.RaisePropertyChanged("NewNegativeSites");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import page feeds that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewPageFeeds
+        {
+            get
+            {
+                return this.NewPageFeedsField;
+            }
+            set
+            {
+                if ((this.NewPageFeedsField.Equals(value) != true))
+                {
+                    this.NewPageFeedsField = value;
+                    this.RaisePropertyChanged("NewPageFeeds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import paused ads along with your active ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewPausedAdsForExistingAdGroups
+        {
+            get
+            {
+                return this.NewPausedAdsForExistingAdGroupsField;
+            }
+            set
+            {
+                if ((this.NewPausedAdsForExistingAdGroupsField.Equals(value) != true))
+                {
+                    this.NewPausedAdsForExistingAdGroupsField = value;
+                    this.RaisePropertyChanged("NewPausedAdsForExistingAdGroups");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import paused campaigns along with your active campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewPausedCampaignsAndChildEntities
+        {
+            get
+            {
+                return this.NewPausedCampaignsAndChildEntitiesField;
+            }
+            set
+            {
+                if ((this.NewPausedCampaignsAndChildEntitiesField.Equals(value) != true))
+                {
+                    this.NewPausedCampaignsAndChildEntitiesField = value;
+                    this.RaisePropertyChanged("NewPausedCampaignsAndChildEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import price extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewPriceAdExtensions
+        {
+            get
+            {
+                return this.NewPriceAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewPriceAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewPriceAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewPriceAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import new product filters from your shopping campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewProductFilters
+        {
+            get
+            {
+                return this.NewProductFiltersField;
+            }
+            set
+            {
+                if ((this.NewProductFiltersField.Equals(value) != true))
+                {
+                    this.NewProductFiltersField = value;
+                    this.RaisePropertyChanged("NewProductFilters");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import review extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewReviewAdExtensions
+        {
+            get
+            {
+                return this.NewReviewAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewReviewAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewReviewAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewReviewAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import sitelink extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewSitelinkAdExtensions
+        {
+            get
+            {
+                return this.NewSitelinkAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewSitelinkAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewSitelinkAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewSitelinkAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import structured snippet extensions that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewStructuredSnippetAdExtensions
+        {
+            get
+            {
+                return this.NewStructuredSnippetAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewStructuredSnippetAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewStructuredSnippetAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewStructuredSnippetAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import tracking templates, custom parameters, and final URL suffix URL options with entities that have not previously been imported.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewUrlOptions
+        {
+            get
+            {
+                return this.NewUrlOptionsField;
+            }
+            set
+            {
+                if ((this.NewUrlOptionsField.Equals(value) != true))
+                {
+                    this.NewUrlOptionsField = value;
+                    this.RaisePropertyChanged("NewUrlOptions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// When enabled this option will pause imported campaigns in case all of their location targets are unsupported by Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> PauseCampaignsWithoutSupportedLocations
+        {
+            get
+            {
+                return this.PauseCampaignsWithoutSupportedLocationsField;
+            }
+            set
+            {
+                if ((this.PauseCampaignsWithoutSupportedLocationsField.Equals(value) != true))
+                {
+                    this.PauseCampaignsWithoutSupportedLocationsField = value;
+                    this.RaisePropertyChanged("PauseCampaignsWithoutSupportedLocations");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// This option will pause newly imported campaigns allowing you to review your campaigns before you get your campaigns up and running.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> PauseNewCampaigns
+        {
+            get
+            {
+                return this.PauseNewCampaignsField;
+            }
+            set
+            {
+                if ((this.PauseNewCampaignsField.Equals(value) != true))
+                {
+                    this.PauseNewCampaignsField = value;
+                    this.RaisePropertyChanged("PauseNewCampaigns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Due to differences in Microsoft Advertising and Google Ads minimum bid requirements any bids below the our minimum amount will automatically be raised during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> RaiseBidsToMinimum
+        {
+            get
+            {
+                return this.RaiseBidsToMinimumField;
+            }
+            set
+            {
+                if ((this.RaiseBidsToMinimumField.Equals(value) != true))
+                {
+                    this.RaiseBidsToMinimumField = value;
+                    this.RaisePropertyChanged("RaiseBidsToMinimum");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Due to differences in Microsoft Advertising and Google Ads minimum bid and budget requirements any budgets below our minimum amount will automatically be raised during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> RaiseCampaignBudgetsToMinimum
+        {
+            get
+            {
+                return this.RaiseCampaignBudgetsToMinimumField;
+            }
+            set
+            {
+                if ((this.RaiseCampaignBudgetsToMinimumField.Equals(value) != true))
+                {
+                    this.RaiseCampaignBudgetsToMinimumField = value;
+                    this.RaisePropertyChanged("RaiseCampaignBudgetsToMinimum");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// By enabling this option Microsoft Advertising will increase all product group bids to the minimum bid amount.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> RaiseProductGroupBidsToMinimum
+        {
+            get
+            {
+                return this.RaiseProductGroupBidsToMinimumField;
+            }
+            set
+            {
+                if ((this.RaiseProductGroupBidsToMinimumField.Equals(value) != true))
+                {
+                    this.RaiseProductGroupBidsToMinimumField = value;
+                    this.RaisePropertyChanged("RaiseProductGroupBidsToMinimum");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// If you enable this option, the service will only fetch search ads from mixed mode campaigns and import them as search campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> SearchAndDsaMixedCampaignAsSearchCampaign
+        {
+            get
+            {
+                return this.SearchAndDsaMixedCampaignAsSearchCampaignField;
+            }
+            set
+            {
+                if ((this.SearchAndDsaMixedCampaignAsSearchCampaignField.Equals(value) != true))
+                {
+                    this.SearchAndDsaMixedCampaignAsSearchCampaignField = value;
+                    this.RaisePropertyChanged("SearchAndDsaMixedCampaignAsSearchCampaign");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to find and replace a string within each campaign name during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForCampaignNames
+        {
+            get
+            {
+                return this.SearchAndReplaceForCampaignNamesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SearchAndReplaceForCampaignNamesField, value) != true))
+                {
+                    this.SearchAndReplaceForCampaignNamesField = value;
+                    this.RaisePropertyChanged("SearchAndReplaceForCampaignNames");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to find and replace a string within each tracking template during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForTrackingTemplates
+        {
+            get
+            {
+                return this.SearchAndReplaceForTrackingTemplatesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SearchAndReplaceForTrackingTemplatesField, value) != true))
+                {
+                    this.SearchAndReplaceForTrackingTemplatesField = value;
+                    this.RaisePropertyChanged("SearchAndReplaceForTrackingTemplates");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to find and replace a string within each final URL, mobile URL, and destination URL during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForUrls
+        {
+            get
+            {
+                return this.SearchAndReplaceForUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SearchAndReplaceForUrlsField, value) != true))
+                {
+                    this.SearchAndReplaceForUrlsField = value;
+                    this.RaisePropertyChanged("SearchAndReplaceForUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to insert a string at the end of each campaign name during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SuffixForCampaignNames
+        {
+            get
+            {
+                return this.SuffixForCampaignNamesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SuffixForCampaignNamesField, value) != true))
+                {
+                    this.SuffixForCampaignNamesField = value;
+                    this.RaisePropertyChanged("SuffixForCampaignNames");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to insert a string at the end of each tracking template during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SuffixForTrackingTemplates
+        {
+            get
+            {
+                return this.SuffixForTrackingTemplatesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SuffixForTrackingTemplatesField, value) != true))
+                {
+                    this.SuffixForTrackingTemplatesField = value;
+                    this.RaisePropertyChanged("SuffixForTrackingTemplates");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Set this option to insert a string at the end of each final URL, mobile URL, and destination URL during import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SuffixForUrls
+        {
+            get
+            {
+                return this.SuffixForUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SuffixForUrlsField, value) != true))
+                {
+                    this.SuffixForUrlsField = value;
+                    this.RaisePropertyChanged("SuffixForUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing ad customizer feeds.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateAdCustomizerFeeds
+        {
+            get
+            {
+                return this.UpdateAdCustomizerFeedsField;
+            }
+            set
+            {
+                if ((this.UpdateAdCustomizerFeedsField.Equals(value) != true))
+                {
+                    this.UpdateAdCustomizerFeedsField = value;
+                    this.RaisePropertyChanged("UpdateAdCustomizerFeeds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the ad distribution of existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateAdGroupNetwork
+        {
+            get
+            {
+                return this.UpdateAdGroupNetworkField;
+            }
+            set
+            {
+                if ((this.UpdateAdGroupNetworkField.Equals(value) != true))
+                {
+                    this.UpdateAdGroupNetworkField = value;
+                    this.RaisePropertyChanged("UpdateAdGroupNetwork");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing ad schedules.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateAdSchedules
+        {
+            get
+            {
+                return this.UpdateAdSchedulesField;
+            }
+            set
+            {
+                if ((this.UpdateAdSchedulesField.Equals(value) != true))
+                {
+                    this.UpdateAdSchedulesField = value;
+                    this.RaisePropertyChanged("UpdateAdSchedules");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing app extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateAppAdExtensions
+        {
+            get
+            {
+                return this.UpdateAppAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateAppAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateAppAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateAppAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing audience targets.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateAudienceTargets
+        {
+            get
+            {
+                return this.UpdateAudienceTargetsField;
+            }
+            set
+            {
+                if ((this.UpdateAudienceTargetsField.Equals(value) != true))
+                {
+                    this.UpdateAudienceTargetsField = value;
+                    this.RaisePropertyChanged("UpdateAudienceTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Update the existing campaign, ad group, and keyword bid strategies to match those currently in Google Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateBiddingStrategies
+        {
+            get
+            {
+                return this.UpdateBiddingStrategiesField;
+            }
+            set
+            {
+                if ((this.UpdateBiddingStrategiesField.Equals(value) != true))
+                {
+                    this.UpdateBiddingStrategiesField = value;
+                    this.RaisePropertyChanged("UpdateBiddingStrategies");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// When enabled this option allows you to update the existing keywords, auto-targets, and product ads bid types to match those currently in Google Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateBids
+        {
+            get
+            {
+                return this.UpdateBidsField;
+            }
+            set
+            {
+                if ((this.UpdateBidsField.Equals(value) != true))
+                {
+                    this.UpdateBidsField = value;
+                    this.RaisePropertyChanged("UpdateBids");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing call extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateCallAdExtensions
+        {
+            get
+            {
+                return this.UpdateCallAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateCallAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateCallAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateCallAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing callout extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateCalloutAdExtensions
+        {
+            get
+            {
+                return this.UpdateCalloutAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateCalloutAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateCalloutAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateCalloutAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the language of existing campaigns and ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateCampaignAdGroupLanguages
+        {
+            get
+            {
+                return this.UpdateCampaignAdGroupLanguagesField;
+            }
+            set
+            {
+                if ((this.UpdateCampaignAdGroupLanguagesField.Equals(value) != true))
+                {
+                    this.UpdateCampaignAdGroupLanguagesField = value;
+                    this.RaisePropertyChanged("UpdateCampaignAdGroupLanguages");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// When enabled this option fetches updates to existing campaign budgets that are now in Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateCampaignBudgets
+        {
+            get
+            {
+                return this.UpdateCampaignBudgetsField;
+            }
+            set
+            {
+                if ((this.UpdateCampaignBudgetsField.Equals(value) != true))
+                {
+                    this.UpdateCampaignBudgetsField = value;
+                    this.RaisePropertyChanged("UpdateCampaignBudgets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// By enabling this option Microsoft Advertising will update the names of previously imported campaigns if the name was updated in Google Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateCampaignNames
+        {
+            get
+            {
+                return this.UpdateCampaignNamesField;
+            }
+            set
+            {
+                if ((this.UpdateCampaignNamesField.Equals(value) != true))
+                {
+                    this.UpdateCampaignNamesField = value;
+                    this.RaisePropertyChanged("UpdateCampaignNames");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing demographic targets.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateDemographicTargets
+        {
+            get
+            {
+                return this.UpdateDemographicTargetsField;
+            }
+            set
+            {
+                if ((this.UpdateDemographicTargetsField.Equals(value) != true))
+                {
+                    this.UpdateDemographicTargetsField = value;
+                    this.RaisePropertyChanged("UpdateDemographicTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing device targets.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateDeviceTargets
+        {
+            get
+            {
+                return this.UpdateDeviceTargetsField;
+            }
+            set
+            {
+                if ((this.UpdateDeviceTargetsField.Equals(value) != true))
+                {
+                    this.UpdateDeviceTargetsField = value;
+                    this.RaisePropertyChanged("UpdateDeviceTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The prerequisite option for importing updated entities and settings into Microsoft Advertising.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateEntities
+        {
+            get
+            {
+                return this.UpdateEntitiesField;
+            }
+            set
+            {
+                if ((this.UpdateEntitiesField.Equals(value) != true))
+                {
+                    this.UpdateEntitiesField = value;
+                    this.RaisePropertyChanged("UpdateEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing keyword landing page URLs.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateKeywordUrls
+        {
+            get
+            {
+                return this.UpdateKeywordUrlsField;
+            }
+            set
+            {
+                if ((this.UpdateKeywordUrlsField.Equals(value) != true))
+                {
+                    this.UpdateKeywordUrlsField = value;
+                    this.RaisePropertyChanged("UpdateKeywordUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing labels.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateLabels
+        {
+            get
+            {
+                return this.UpdateLabelsField;
+            }
+            set
+            {
+                if ((this.UpdateLabelsField.Equals(value) != true))
+                {
+                    this.UpdateLabelsField = value;
+                    this.RaisePropertyChanged("UpdateLabels");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing location extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateLocationAdExtensions
+        {
+            get
+            {
+                return this.UpdateLocationAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateLocationAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateLocationAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateLocationAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing location targets.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateLocationTargets
+        {
+            get
+            {
+                return this.UpdateLocationTargetsField;
+            }
+            set
+            {
+                if ((this.UpdateLocationTargetsField.Equals(value) != true))
+                {
+                    this.UpdateLocationTargetsField = value;
+                    this.RaisePropertyChanged("UpdateLocationTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing negative keyword lists.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateNegativeKeywordLists
+        {
+            get
+            {
+                return this.UpdateNegativeKeywordListsField;
+            }
+            set
+            {
+                if ((this.UpdateNegativeKeywordListsField.Equals(value) != true))
+                {
+                    this.UpdateNegativeKeywordListsField = value;
+                    this.RaisePropertyChanged("UpdateNegativeKeywordLists");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to negative sites for existing campaigns and ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateNegativeSites
+        {
+            get
+            {
+                return this.UpdateNegativeSitesField;
+            }
+            set
+            {
+                if ((this.UpdateNegativeSitesField.Equals(value) != true))
+                {
+                    this.UpdateNegativeSitesField = value;
+                    this.RaisePropertyChanged("UpdateNegativeSites");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing page feeds.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdatePageFeeds
+        {
+            get
+            {
+                return this.UpdatePageFeedsField;
+            }
+            set
+            {
+                if ((this.UpdatePageFeedsField.Equals(value) != true))
+                {
+                    this.UpdatePageFeedsField = value;
+                    this.RaisePropertyChanged("UpdatePageFeeds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing price extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdatePriceAdExtensions
+        {
+            get
+            {
+                return this.UpdatePriceAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdatePriceAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdatePriceAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdatePriceAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// When enabled this option updates product filters in shopping campaigns to match those currently in Google Ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateProductFilters
+        {
+            get
+            {
+                return this.UpdateProductFiltersField;
+            }
+            set
+            {
+                if ((this.UpdateProductFiltersField.Equals(value) != true))
+                {
+                    this.UpdateProductFiltersField = value;
+                    this.RaisePropertyChanged("UpdateProductFilters");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing review extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateReviewAdExtensions
+        {
+            get
+            {
+                return this.UpdateReviewAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateReviewAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateReviewAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateReviewAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing sitelink extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateSitelinkAdExtensions
+        {
+            get
+            {
+                return this.UpdateSitelinkAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateSitelinkAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateSitelinkAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateSitelinkAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the status of existing ad groups.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateStatusForAdGroups
+        {
+            get
+            {
+                return this.UpdateStatusForAdGroupsField;
+            }
+            set
+            {
+                if ((this.UpdateStatusForAdGroupsField.Equals(value) != true))
+                {
+                    this.UpdateStatusForAdGroupsField = value;
+                    this.RaisePropertyChanged("UpdateStatusForAdGroups");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the status of existing ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateStatusForAds
+        {
+            get
+            {
+                return this.UpdateStatusForAdsField;
+            }
+            set
+            {
+                if ((this.UpdateStatusForAdsField.Equals(value) != true))
+                {
+                    this.UpdateStatusForAdsField = value;
+                    this.RaisePropertyChanged("UpdateStatusForAds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the status of existing campaigns.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateStatusForCampaigns
+        {
+            get
+            {
+                return this.UpdateStatusForCampaignsField;
+            }
+            set
+            {
+                if ((this.UpdateStatusForCampaignsField.Equals(value) != true))
+                {
+                    this.UpdateStatusForCampaignsField = value;
+                    this.RaisePropertyChanged("UpdateStatusForCampaigns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the status of existing keywords.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateStatusForKeywords
+        {
+            get
+            {
+                return this.UpdateStatusForKeywordsField;
+            }
+            set
+            {
+                if ((this.UpdateStatusForKeywordsField.Equals(value) != true))
+                {
+                    this.UpdateStatusForKeywordsField = value;
+                    this.RaisePropertyChanged("UpdateStatusForKeywords");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to existing structured snippet extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateStructuredSnippetAdExtensions
+        {
+            get
+            {
+                return this.UpdateStructuredSnippetAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateStructuredSnippetAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateStructuredSnippetAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateStructuredSnippetAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Import updates to the tracking templates, custom parameters, and final URL suffix of existing entities.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdateUrlOptions
+        {
+            get
+            {
+                return this.UpdateUrlOptionsField;
+            }
+            set
+            {
+                if ((this.UpdateUrlOptionsField.Equals(value) != true))
+                {
+                    this.UpdateUrlOptionsField = value;
+                    this.RaisePropertyChanged("UpdateUrlOptions");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportoption?view=bingads-13">FileImportOption Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportoption?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FileImportOption", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class FileImportOption : Microsoft.BingAds.V13.CampaignManagement.ImportOption
+    {
+    }
+    
+    /// <summary>
+    /// Defines the string search and replace Google import option.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importsearchandreplaceforstringproperty?view=bingads-13">ImportSearchAndReplaceForStringProperty Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importsearchandreplaceforstringproperty?view=bingads-13 for details.
+    /// <para>Used by <see cref="GoogleImportOption"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportSearchAndReplaceForStringProperty", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ImportSearchAndReplaceForStringProperty : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ReplaceStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SearchStringField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The replacement string to use in place of the search string.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ReplaceString
+        {
+            get
+            {
+                return this.ReplaceStringField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ReplaceStringField, value) != true))
+                {
+                    this.ReplaceStringField = value;
+                    this.RaisePropertyChanged("ReplaceString");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The string to find.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SearchString
+        {
+            get
+            {
+                return this.SearchStringField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SearchStringField, value) != true))
+                {
+                    this.SearchStringField = value;
+                    this.RaisePropertyChanged("SearchString");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Identifies a campaign and the list of its ad groups to include within the operation scope.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignadgroupids?view=bingads-13">CampaignAdGroupIds Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignadgroupids?view=bingads-13 for details.
+    /// <para>Used by <see cref="GoogleImportJob"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignAdGroupIds", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class CampaignAdGroupIds : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private System.Collections.Generic.IList<long> AdGroupIdsField;
+        
+        private long CampaignIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Identifies the list a campaign's ad groups to include within the operation scope.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<long> AdGroupIds
+        {
+            get
+            {
+                return this.AdGroupIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupIdsField, value) != true))
+                {
+                    this.AdGroupIdsField = value;
+                    this.RaisePropertyChanged("AdGroupIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Identifies a campaign to include within the operation scope.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Contains the status, run time, and statistical results for an import job that has run.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importresult?view=bingads-13">ImportResult Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importresult?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportResults">GetImportResults</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportResult", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ImportResult : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportEntityStatistics> EntityStatisticsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorLogUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportJob ImportJobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartTimeInUTCField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The statistical import results for each supported entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportEntityStatistics> EntityStatistics
+        {
+            get
+            {
+                return this.EntityStatisticsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.EntityStatisticsField, value) != true))
+                {
+                    this.EntityStatisticsField = value;
+                    this.RaisePropertyChanged("EntityStatistics");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URL where you can download the error logs.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorLogUrl
+        {
+            get
+            {
+                return this.ErrorLogUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ErrorLogUrlField, value) != true))
+                {
+                    this.ErrorLogUrlField = value;
+                    this.RaisePropertyChanged("ErrorLogUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
+        {
+            get
+            {
+                return this.ForwardCompatibilityMapField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ForwardCompatibilityMapField, value) != true))
+                {
+                    this.ForwardCompatibilityMapField = value;
+                    this.RaisePropertyChanged("ForwardCompatibilityMap");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The unique Microsoft Advertising identifier of the import result.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.IdField, value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The settings in effect at the time the import job was run.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportJob ImportJob
+        {
+            get
+            {
+                return this.ImportJobField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImportJobField, value) != true))
+                {
+                    this.ImportJobField = value;
+                    this.RaisePropertyChanged("ImportJob");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The date and time the import job was run.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartTimeInUTC
+        {
+            get
+            {
+                return this.StartTimeInUTCField;
+            }
+            set
+            {
+                if ((this.StartTimeInUTCField.Equals(value) != true))
+                {
+                    this.StartTimeInUTCField = value;
+                    this.RaisePropertyChanged("StartTimeInUTC");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The import job status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StatusField, value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The statistical import results for an entity type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importentitystatistics?view=bingads-13">ImportEntityStatistics Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importentitystatistics?view=bingads-13 for details.
+    /// <para>Used by <see cref="ImportResult"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportEntityStatistics", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ImportEntityStatistics : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> AdditionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ChangesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> DeletionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EntityTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ErrorsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> TotalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The count of items added during import of the entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Additions
+        {
+            get
+            {
+                return this.AdditionsField;
+            }
+            set
+            {
+                if ((this.AdditionsField.Equals(value) != true))
+                {
+                    this.AdditionsField = value;
+                    this.RaisePropertyChanged("Additions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The count of items changed or updated during import of the entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Changes
+        {
+            get
+            {
+                return this.ChangesField;
+            }
+            set
+            {
+                if ((this.ChangesField.Equals(value) != true))
+                {
+                    this.ChangesField = value;
+                    this.RaisePropertyChanged("Changes");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The count of items deleted during import of the entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Deletions
+        {
+            get
+            {
+                return this.DeletionsField;
+            }
+            set
+            {
+                if ((this.DeletionsField.Equals(value) != true))
+                {
+                    this.DeletionsField = value;
+                    this.RaisePropertyChanged("Deletions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of entity eligible for import.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EntityType
+        {
+            get
+            {
+                return this.EntityTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.EntityTypeField, value) != true))
+                {
+                    this.EntityTypeField = value;
+                    this.RaisePropertyChanged("EntityType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The count of errors during import of the entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Errors
+        {
+            get
+            {
+                return this.ErrorsField;
+            }
+            set
+            {
+                if ((this.ErrorsField.Equals(value) != true))
+                {
+                    this.ErrorsField = value;
+                    this.RaisePropertyChanged("Errors");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The total count of additions, changes, deletions, and errors during import of the entity type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Total
+        {
+            get
+            {
+                return this.TotalField;
+            }
+            set
+            {
+                if ((this.TotalField.Equals(value) != true))
+                {
+                    this.TotalField = value;
+                    this.RaisePropertyChanged("Total");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", ConfigurationName="Microsoft.BingAds.V13.CampaignManagement.ICampaignManagementService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICampaignManagementService
@@ -19939,7 +24226,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateCampaignsResponse> UpdateCampaignsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateCampaignsRequest request);
         
         /// <summary>
-        /// Gets the negative site URLs of the specified campaigns.
+        /// Gets the negative site URLs that are assigned directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -19957,7 +24244,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByCampaignIdsResponse GetNegativeSitesByCampaignIds(Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByCampaignIdsRequest request);
         
         /// <summary>
-        /// Gets the negative site URLs of the specified campaigns.
+        /// Gets the negative site URLs that are assigned directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -19971,7 +24258,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByCampaignIdsResponse> GetNegativeSitesByCampaignIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByCampaignIdsRequest request);
         
         /// <summary>
-        /// Sets the negative site URLs of the specified campaigns.
+        /// Sets the negative site URLs directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -19989,7 +24276,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.SetNegativeSitesToCampaignsResponse SetNegativeSitesToCampaigns(Microsoft.BingAds.V13.CampaignManagement.SetNegativeSitesToCampaignsRequest request);
         
         /// <summary>
-        /// Sets the negative site URLs of the specified campaigns.
+        /// Sets the negative site URLs directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -20207,7 +24494,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAdGroupsResponse> UpdateAdGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAdGroupsRequest request);
         
         /// <summary>
-        /// Gets the negative site URLs of the specified ad groups.
+        /// Gets the negative sites URLs that are assigned directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -20225,7 +24512,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByAdGroupIdsResponse GetNegativeSitesByAdGroupIds(Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByAdGroupIdsRequest request);
         
         /// <summary>
-        /// Gets the negative site URLs of the specified ad groups.
+        /// Gets the negative sites URLs that are assigned directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -20239,7 +24526,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByAdGroupIdsResponse> GetNegativeSitesByAdGroupIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetNegativeSitesByAdGroupIdsRequest request);
         
         /// <summary>
-        /// Sets the negative site URLs of the specified ad groups.
+        /// Sets the negative site URLs directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -20257,7 +24544,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.SetNegativeSitesToAdGroupsResponse SetNegativeSitesToAdGroups(Microsoft.BingAds.V13.CampaignManagement.SetNegativeSitesToAdGroupsRequest request);
         
         /// <summary>
-        /// Sets the negative site URLs of the specified ad groups.
+        /// Sets the negative site URLs directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -21519,7 +25806,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddNegativeKeywordsToEntitiesResponse> AddNegativeKeywordsToEntitiesAsync(Microsoft.BingAds.V13.CampaignManagement.AddNegativeKeywordsToEntitiesRequest request);
         
         /// <summary>
-        /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+        /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -21537,7 +25824,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetNegativeKeywordsByEntityIdsResponse GetNegativeKeywordsByEntityIds(Microsoft.BingAds.V13.CampaignManagement.GetNegativeKeywordsByEntityIdsRequest request);
         
         /// <summary>
-        /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+        /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -21583,7 +25870,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteNegativeKeywordsFromEntitiesResponse> DeleteNegativeKeywordsFromEntitiesAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteNegativeKeywordsFromEntitiesRequest request);
         
         /// <summary>
-        /// Gets the negative keyword lists from the account's library.
+        /// Gets negative keyword lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -21591,7 +25878,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The shared entities from the account's shared library, for example negative keyword lists.</returns>
+        /// <returns>The negative keyword lists from the shared library.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSharedEntitiesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSharedEntitiesByAccountIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -21601,7 +25888,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdResponse GetSharedEntitiesByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdRequest request);
         
         /// <summary>
-        /// Gets the negative keyword lists from the account's library.
+        /// Gets negative keyword lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -21609,13 +25896,45 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The shared entities from the account's shared library, for example negative keyword lists.</returns>
+        /// <returns>The negative keyword lists from the shared library.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSharedEntitiesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSharedEntitiesByAccountIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdResponse> GetSharedEntitiesByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdRequest request);
         
         /// <summary>
-        /// Adds a negative keyword list to the account's library.
+        /// Gets negative keyword lists or website exclusion lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The negative keyword lists or website exclusion lists.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetSharedEntities", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etSharedEntitiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etSharedEntitiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etSharedEntitiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesResponse GetSharedEntities(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesRequest request);
+        
+        /// <summary>
+        /// Gets negative keyword lists or website exclusion lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The negative keyword lists or website exclusion lists.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetSharedEntities", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etSharedEntitiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesResponse> GetSharedEntitiesAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesRequest request);
+        
+        /// <summary>
+        /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -21633,7 +25952,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.AddSharedEntityResponse AddSharedEntity(Microsoft.BingAds.V13.CampaignManagement.AddSharedEntityRequest request);
         
         /// <summary>
-        /// Adds a negative keyword list to the account's library.
+        /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -21647,7 +25966,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddSharedEntityResponse> AddSharedEntityAsync(Microsoft.BingAds.V13.CampaignManagement.AddSharedEntityRequest request);
         
         /// <summary>
-        /// Gets the negative keywords of a negative keyword list.
+        /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -21655,7 +25974,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of negative keywords.</returns>
+        /// <returns>The list of negative keywords or negative sites.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetListItemsBySharedList", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etListItemsBySharedListResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -21665,7 +25984,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListResponse GetListItemsBySharedList(Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListRequest request);
         
         /// <summary>
-        /// Gets the negative keywords of a negative keyword list.
+        /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -21673,13 +25992,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of negative keywords.</returns>
+        /// <returns>The list of negative keywords or negative sites.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetListItemsBySharedList", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etListItemsBySharedListResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListResponse> GetListItemsBySharedListAsync(Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListRequest request);
         
         /// <summary>
-        /// Adds negative keywords to the shared negative keyword list.
+        /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -21697,7 +26016,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.AddListItemsToSharedListResponse AddListItemsToSharedList(Microsoft.BingAds.V13.CampaignManagement.AddListItemsToSharedListRequest request);
         
         /// <summary>
-        /// Adds negative keywords to the shared negative keyword list.
+        /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -21711,7 +26030,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddListItemsToSharedListResponse> AddListItemsToSharedListAsync(Microsoft.BingAds.V13.CampaignManagement.AddListItemsToSharedListRequest request);
         
         /// <summary>
-        /// Updates negative keyword lists within the account's library.
+        /// Updates the negative keyword lists or website exclusion lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -21729,7 +26048,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.UpdateSharedEntitiesResponse UpdateSharedEntities(Microsoft.BingAds.V13.CampaignManagement.UpdateSharedEntitiesRequest request);
         
         /// <summary>
-        /// Updates negative keyword lists within the account's library.
+        /// Updates the negative keyword lists or website exclusion lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -21743,7 +26062,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateSharedEntitiesResponse> UpdateSharedEntitiesAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateSharedEntitiesRequest request);
         
         /// <summary>
-        /// Deletes negative keywords from a negative keyword list.
+        /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -21761,7 +26080,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.DeleteListItemsFromSharedListResponse DeleteListItemsFromSharedList(Microsoft.BingAds.V13.CampaignManagement.DeleteListItemsFromSharedListRequest request);
         
         /// <summary>
-        /// Deletes negative keywords from a negative keyword list.
+        /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -21775,7 +26094,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteListItemsFromSharedListResponse> DeleteListItemsFromSharedListAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteListItemsFromSharedListRequest request);
         
         /// <summary>
-        /// Sets the association between a campaign and a negative keyword list.
+        /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -21793,7 +26112,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.SetSharedEntityAssociationsResponse SetSharedEntityAssociations(Microsoft.BingAds.V13.CampaignManagement.SetSharedEntityAssociationsRequest request);
         
         /// <summary>
-        /// Sets the association between a campaign and a negative keyword list.
+        /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -21807,7 +26126,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SetSharedEntityAssociationsResponse> SetSharedEntityAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.SetSharedEntityAssociationsRequest request);
         
         /// <summary>
-        /// Removes the association between a negative keyword list and an entity such as a campaign.
+        /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -21825,7 +26144,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntityAssociationsResponse DeleteSharedEntityAssociations(Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntityAssociationsRequest request);
         
         /// <summary>
-        /// Removes the association between a negative keyword list and an entity such as a campaign.
+        /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -21839,7 +26158,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntityAssociationsResponse> DeleteSharedEntityAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntityAssociationsRequest request);
         
         /// <summary>
-        /// Gets shared entity associations for the specified negative keyword lists.
+        /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -21857,7 +26176,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsResponse GetSharedEntityAssociationsBySharedEntityIds(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsRequest request);
         
         /// <summary>
-        /// Gets shared entity associations for the specified negative keyword lists.
+        /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -21871,7 +26190,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsResponse> GetSharedEntityAssociationsBySharedEntityIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsBySharedEntityIdsRequest request);
         
         /// <summary>
-        /// Gets negative keyword list associations for the specified campaigns.
+        /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -21889,7 +26208,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsByEntityIdsResponse GetSharedEntityAssociationsByEntityIds(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsByEntityIdsRequest request);
         
         /// <summary>
-        /// Gets negative keyword list associations for the specified campaigns.
+        /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -21903,7 +26222,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsByEntityIdsResponse> GetSharedEntityAssociationsByEntityIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntityAssociationsByEntityIdsRequest request);
         
         /// <summary>
-        /// Deletes negative keyword lists from the account's library.
+        /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -21921,7 +26240,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntitiesResponse DeleteSharedEntities(Microsoft.BingAds.V13.CampaignManagement.DeleteSharedEntitiesRequest request);
         
         /// <summary>
-        /// Deletes negative keyword lists from the account's library.
+        /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -23065,6 +27384,166 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="SearchCompanies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
             "earchCompaniesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse> SearchCompaniesAsync(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request);
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved for future use.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetFileImportUploadUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etFileImportUploadUrlResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etFileImportUploadUrlAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etFileImportUploadUrlApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlResponse GetFileImportUploadUrl(Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlRequest request);
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved for future use.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetFileImportUploadUrl", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etFileImportUploadUrlResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlResponse> GetFileImportUploadUrlAsync(Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlRequest request);
+        
+        /// <summary>
+        /// Creates a new import job.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddImportJobs", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddImportJobsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddImportJobsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddImportJobsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.AddImportJobsResponse AddImportJobs(Microsoft.BingAds.V13.CampaignManagement.AddImportJobsRequest request);
+        
+        /// <summary>
+        /// Creates a new import job.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddImportJobs", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddImportJobsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddImportJobsResponse> AddImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.AddImportJobsRequest request);
+        
+        /// <summary>
+        /// Gets results for completed import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Contains the status, run time, and statistical results for each import that has run.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportResults", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportResultsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportResultsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportResultsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetImportResultsResponse GetImportResults(Microsoft.BingAds.V13.CampaignManagement.GetImportResultsRequest request);
+        
+        /// <summary>
+        /// Gets results for completed import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Contains the status, run time, and statistical results for each import that has run.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportResults", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportResultsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportResultsResponse> GetImportResultsAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportResultsRequest request);
+        
+        /// <summary>
+        /// Gets import jobs by their type and identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportJobsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportJobsByIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportJobsByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportJobsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsResponse GetImportJobsByIds(Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsRequest request);
+        
+        /// <summary>
+        /// Gets import jobs by their type and identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportJobsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportJobsByIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsResponse> GetImportJobsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsRequest request);
+        
+        /// <summary>
+        /// Deletes the import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteImportJobs", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteImportJobsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteImportJobsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteImportJobsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse DeleteImportJobs(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request);
+        
+        /// <summary>
+        /// Deletes the import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteImportJobs", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteImportJobsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse> DeleteImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request);
     }
     
     /// <summary>
@@ -23246,6 +27725,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned campaign.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByAccountIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -23263,7 +27748,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignType">The type of campaign to get, for example Search, Shopping, or DynamicSearchAds.</param>
-        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned campaign.</param>
+        public GetCampaignsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -23274,6 +27760,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.CampaignType = CampaignType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -23376,6 +27863,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned campaign.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetCampaignsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -23394,7 +27887,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AccountId">The identifier of the account that contains the campaigns to get.</param>
         /// <param name="CampaignIds">A maximum of 100 identifiers of the campaigns to get from the specified account.</param>
         /// <param name="CampaignType">The type of campaigns to get, for example Search, Shopping, or DynamicSearchAds.</param>
-        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned campaign.</param>
+        public GetCampaignsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> CampaignIds, Microsoft.BingAds.V13.CampaignManagement.CampaignType CampaignType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -23406,6 +27900,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.AccountId = AccountId;
             this.CampaignIds = CampaignIds;
             this.CampaignType = CampaignType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -23712,7 +28207,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative site URLs of the specified campaigns.
+    /// Gets the negative site URLs that are assigned directly to campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -23790,7 +28285,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative site URLs of the specified campaigns.
+    /// Gets the negative site URLs that are assigned directly to campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -23844,7 +28339,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Sets the negative site URLs of the specified campaigns.
+    /// Sets the negative site URLs directly to campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -23922,7 +28417,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Sets the negative site URLs of the specified campaigns.
+    /// Sets the negative site URLs directly to campaigns.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -24464,6 +28959,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> AdGroupIds;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad group.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -24481,7 +28982,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
         /// <param name="AdGroupIds">A maximum of 1,000 identifiers of the ad groups to get.</param>
-        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group.</param>
+        public GetAdGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AdGroupIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24492,6 +28994,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.CampaignId = CampaignId;
             this.AdGroupIds = AdGroupIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -24590,6 +29093,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public long CampaignId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad group.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdGroupsByCampaignIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -24606,7 +29115,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadgroupsbycampaignid?view=bingads-13">GetAdGroupsByCampaignIdRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getadgroupsbycampaignid?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CampaignId">The identifier of the campaign that contains the ad groups to get.</param>
-        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group.</param>
+        public GetAdGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -24616,6 +29126,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.CampaignId = CampaignId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -24814,7 +29325,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative site URLs of the specified ad groups.
+    /// Gets the negative sites URLs that are assigned directly to ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -24892,7 +29403,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative site URLs of the specified ad groups.
+    /// Gets the negative sites URLs that are assigned directly to ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -24946,7 +29457,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Sets the negative site URLs of the specified ad groups.
+    /// Sets the negative site URLs directly to ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -25024,7 +29535,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Sets the negative site URLs of the specified ad groups.
+    /// Sets the negative site URLs directly to ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -30122,7 +34633,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+    /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -30208,7 +34719,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+    /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -30378,7 +34889,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative keyword lists from the account's library.
+    /// Gets negative keyword lists.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -30412,7 +34923,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The type of shared entity to get from the account's library.
+        /// The type of shared entity to get from the ad account shared library.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public string SharedEntityType;
@@ -30433,7 +34944,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountIdRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedEntityType">The type of shared entity to get from the account's library.</param>
+        /// <param name="SharedEntityType">The type of shared entity to get from the ad account shared library.</param>
         public GetSharedEntitiesByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string SharedEntityType)
         {
             this.ApplicationToken = ApplicationToken;
@@ -30448,7 +34959,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative keyword lists from the account's library.
+    /// Gets negative keyword lists.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -30464,7 +34975,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// The shared entities from the account's shared library, for example negative keyword lists.
+        /// The negative keyword lists from the shared library.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities;
@@ -30485,7 +34996,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountIdResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedEntities">The shared entities from the account's shared library, for example negative keyword lists.</param>
+        /// <param name="SharedEntities">The negative keyword lists from the shared library.</param>
         public GetSharedEntitiesByAccountIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities)
         {
             this.TrackingId = TrackingId;
@@ -30494,7 +35005,131 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds a negative keyword list to the account's library.
+    /// Gets negative keyword lists or website exclusion lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSharedEntities">GetSharedEntities</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSharedEntitiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetSharedEntitiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The type of shared entity to get from the ad account or manager account (customer) library.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string SharedEntityType;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
+        
+        /// <summary>
+        /// Constructor for the GetSharedEntitiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntitiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        public GetSharedEntitiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetSharedEntitiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntitiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SharedEntityType">The type of shared entity to get from the ad account or manager account (customer) library.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public GetSharedEntitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.SharedEntityType = SharedEntityType;
+            this.SharedEntityScope = SharedEntityScope;
+        }
+    }
+    
+    /// <summary>
+    /// Gets negative keyword lists or website exclusion lists.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSharedEntities">GetSharedEntities</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetSharedEntitiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetSharedEntitiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The negative keyword lists or website exclusion lists.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities;
+        
+        /// <summary>
+        /// Constructor for the GetSharedEntitiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntitiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        public GetSharedEntitiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetSharedEntitiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntitiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SharedEntities">The negative keyword lists or website exclusion lists.</param>
+        public GetSharedEntitiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities)
+        {
+            this.TrackingId = TrackingId;
+            this.SharedEntities = SharedEntities;
+        }
+    }
+    
+    /// <summary>
+    /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -30528,16 +35163,22 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The negative keyword list to add to the account's shared library.
+        /// The negative keyword list or website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.SharedEntity SharedEntity;
         
         /// <summary>
-        /// The negative keywords to add to the negative keyword list.
+        /// The negative keywords to include with the new negative keyword list, or negative sites to include with the new website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the AddSharedEntityRequest request object.
@@ -30555,9 +35196,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntityRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedEntity">The negative keyword list to add to the account's shared library.</param>
-        /// <param name="ListItems">The negative keywords to add to the negative keyword list.</param>
-        public AddSharedEntityRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.SharedEntity SharedEntity, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems)
+        /// <param name="SharedEntity">The negative keyword list or website exclusion list.</param>
+        /// <param name="ListItems">The negative keywords to include with the new negative keyword list, or negative sites to include with the new website exclusion list.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public AddSharedEntityRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.SharedEntity SharedEntity, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30568,11 +35210,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.SharedEntity = SharedEntity;
             this.ListItems = ListItems;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Adds a negative keyword list to the account's library.
+    /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -30634,7 +35277,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets the negative keywords of a negative keyword list.
+    /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -30668,10 +35311,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The negative keyword list within the account's shared library, from which to get the negative keywords.
+        /// The negative keyword list or website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the GetListItemsBySharedListRequest request object.
@@ -30689,8 +35338,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedListRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedList">The negative keyword list within the account's shared library, from which to get the negative keywords.</param>
-        public GetListItemsBySharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList)
+        /// <param name="SharedList">The negative keyword list or website exclusion list.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public GetListItemsBySharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30700,11 +35350,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.SharedList = SharedList;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Gets the negative keywords of a negative keyword list.
+    /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -30720,7 +35371,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// The list of negative keywords.
+        /// The list of negative keywords or negative sites.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems;
@@ -30741,7 +35392,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedListResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ListItems">The list of negative keywords.</param>
+        /// <param name="ListItems">The list of negative keywords or negative sites.</param>
         public GetListItemsBySharedListResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems)
         {
             this.TrackingId = TrackingId;
@@ -30750,7 +35401,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds negative keywords to the shared negative keyword list.
+    /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -30784,16 +35435,22 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The negative keywords to add to the negative keyword list.
+        /// The negative keywords to add to the negative keyword list, or the negative sites to add to the website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems;
         
         /// <summary>
-        /// The negative keyword list to add to the account's shared library.
+        /// The negative keyword list or website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the AddListItemsToSharedListRequest request object.
@@ -30811,9 +35468,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedListRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ListItems">The negative keywords to add to the negative keyword list.</param>
-        /// <param name="SharedList">The negative keyword list to add to the account's shared library.</param>
-        public AddListItemsToSharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList)
+        /// <param name="ListItems">The negative keywords to add to the negative keyword list, or the negative sites to add to the website exclusion list.</param>
+        /// <param name="SharedList">The negative keyword list or website exclusion list.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public AddListItemsToSharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30824,11 +35482,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.ListItems = ListItems;
             this.SharedList = SharedList;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Adds negative keywords to the shared negative keyword list.
+    /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -30882,7 +35541,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Updates negative keyword lists within the account's library.
+    /// Updates the negative keyword lists or website exclusion lists.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -30916,10 +35575,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The negative keyword lists to update within the account's shared library.
+        /// The negative keyword lists or website exclusion lists to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the UpdateSharedEntitiesRequest request object.
@@ -30937,8 +35602,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntitiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedEntities">The negative keyword lists to update within the account's shared library.</param>
-        public UpdateSharedEntitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities)
+        /// <param name="SharedEntities">The negative keyword lists or website exclusion lists to update.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public UpdateSharedEntitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -30948,11 +35614,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.SharedEntities = SharedEntities;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Updates negative keyword lists within the account's library.
+    /// Updates the negative keyword lists or website exclusion lists.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -30998,7 +35665,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Deletes negative keywords from a negative keyword list.
+    /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -31032,16 +35699,22 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The list of identifiers of negative keywords to delete from the negative keyword list.
+        /// The list of identifiers of negative keywords to delete from the negative keyword list, or the negative sites to delete from the website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> ListItemIds;
         
         /// <summary>
-        /// The negative keyword list within the account's shared library, from which to delete the specified negative keywords.
+        /// The negative keyword list or website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the DeleteListItemsFromSharedListRequest request object.
@@ -31059,9 +35732,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedListRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ListItemIds">The list of identifiers of negative keywords to delete from the negative keyword list.</param>
-        /// <param name="SharedList">The negative keyword list within the account's shared library, from which to delete the specified negative keywords.</param>
-        public DeleteListItemsFromSharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ListItemIds, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList)
+        /// <param name="ListItemIds">The list of identifiers of negative keywords to delete from the negative keyword list, or the negative sites to delete from the website exclusion list.</param>
+        /// <param name="SharedList">The negative keyword list or website exclusion list.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public DeleteListItemsFromSharedListRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ListItemIds, Microsoft.BingAds.V13.CampaignManagement.SharedList SharedList, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31072,11 +35746,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.ListItemIds = ListItemIds;
             this.SharedList = SharedList;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Deletes negative keywords from a negative keyword list.
+    /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -31122,7 +35797,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Sets the association between a campaign and a negative keyword list.
+    /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -31156,10 +35831,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The list of campaign and negative keyword list associations.
+        /// The list of negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the SetSharedEntityAssociationsRequest request object.
@@ -31177,8 +35858,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociationsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Associations">The list of campaign and negative keyword list associations.</param>
-        public SetSharedEntityAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations)
+        /// <param name="Associations">The list of negative keyword list to campaign associations, or website exclusion list to ad account associations.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public SetSharedEntityAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31188,11 +35870,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.Associations = Associations;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Sets the association between a campaign and a negative keyword list.
+    /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -31238,7 +35921,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Removes the association between a negative keyword list and an entity such as a campaign.
+    /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -31272,10 +35955,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// An array of objects that associate a negative keyword list and an entity such as a campaign.
+        /// The list of negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the DeleteSharedEntityAssociationsRequest request object.
@@ -31293,8 +35982,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociationsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Associations">An array of objects that associate a negative keyword list and an entity such as a campaign.</param>
-        public DeleteSharedEntityAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations)
+        /// <param name="Associations">The list of negative keyword list to campaign associations, or website exclusion list to ad account associations.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public DeleteSharedEntityAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociation> Associations, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31304,11 +35994,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.Associations = Associations;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Removes the association between a negative keyword list and an entity such as a campaign.
+    /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -31354,7 +36045,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets shared entity associations for the specified negative keyword lists.
+    /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -31388,22 +36079,28 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The type of entity corresponding to the specified EntityIds element.
+        /// The type of entity corresponding to the specified SharedEntityIds element.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public string EntityType;
         
         /// <summary>
-        /// The list of negative keyword list identifiers to return associations with campaigns.
+        /// The list of either negative keyword list or website exclusion list identifiers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> SharedEntityIds;
         
         /// <summary>
-        /// The type of shared entity to get associations from the account's library.
+        /// The type of shared entity to get associations.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public string SharedEntityType;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the GetSharedEntityAssociationsBySharedEntityIdsRequest request object.
@@ -31421,10 +36118,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="EntityType">The type of entity corresponding to the specified EntityIds element.</param>
-        /// <param name="SharedEntityIds">The list of negative keyword list identifiers to return associations with campaigns.</param>
-        /// <param name="SharedEntityType">The type of shared entity to get associations from the account's library.</param>
-        public GetSharedEntityAssociationsBySharedEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string EntityType, System.Collections.Generic.IList<long> SharedEntityIds, string SharedEntityType)
+        /// <param name="EntityType">The type of entity corresponding to the specified SharedEntityIds element.</param>
+        /// <param name="SharedEntityIds">The list of either negative keyword list or website exclusion list identifiers.</param>
+        /// <param name="SharedEntityType">The type of shared entity to get associations.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public GetSharedEntityAssociationsBySharedEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string EntityType, System.Collections.Generic.IList<long> SharedEntityIds, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31436,11 +36134,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.EntityType = EntityType;
             this.SharedEntityIds = SharedEntityIds;
             this.SharedEntityType = SharedEntityType;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Gets shared entity associations for the specified negative keyword lists.
+    /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -31494,7 +36193,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets negative keyword list associations for the specified campaigns.
+    /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -31528,7 +36227,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The list of campaign identifiers to return shared negative keyword list associations.
+        /// The list of either campaign or ad account identifiers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> EntityIds;
@@ -31540,10 +36239,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string EntityType;
         
         /// <summary>
-        /// The type of shared entity to get associations from the account's library.
+        /// The type of shared entity to get associations.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public string SharedEntityType;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the GetSharedEntityAssociationsByEntityIdsRequest request object.
@@ -31561,10 +36266,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="EntityIds">The list of campaign identifiers to return shared negative keyword list associations.</param>
+        /// <param name="EntityIds">The list of either campaign or ad account identifiers.</param>
         /// <param name="EntityType">The type of entity corresponding to the specified EntityIds element.</param>
-        /// <param name="SharedEntityType">The type of shared entity to get associations from the account's library.</param>
-        public GetSharedEntityAssociationsByEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> EntityIds, string EntityType, string SharedEntityType)
+        /// <param name="SharedEntityType">The type of shared entity to get associations.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public GetSharedEntityAssociationsByEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> EntityIds, string EntityType, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31576,11 +36282,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.EntityIds = EntityIds;
             this.EntityType = EntityType;
             this.SharedEntityType = SharedEntityType;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Gets negative keyword list associations for the specified campaigns.
+    /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -31634,7 +36341,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Deletes negative keyword lists from the account's library.
+    /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -31668,10 +36375,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// The negative keyword lists to delete from the account's shared library, for example negative keyword lists.
+        /// The negative keyword lists or website exclusion lists to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities;
+        
+        /// <summary>
+        /// Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
         /// <summary>
         /// Constructor for the DeleteSharedEntitiesRequest request object.
@@ -31689,8 +36402,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntitiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SharedEntities">The negative keyword lists to delete from the account's shared library, for example negative keyword lists.</param>
-        public DeleteSharedEntitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities)
+        /// <param name="SharedEntities">The negative keyword lists or website exclusion lists to delete.</param>
+        /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
+        public DeleteSharedEntitiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedEntity> SharedEntities, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31700,11 +36414,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.SharedEntities = SharedEntities;
+            this.SharedEntityScope = SharedEntityScope;
         }
     }
     
     /// <summary>
-    /// Deletes negative keyword lists from the account's library.
+    /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -33352,7 +38067,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> AudienceIds;
         
         /// <summary>
-        /// One or more types of audiences to return.
+        /// The type of audiences to return.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.AudienceType Type;
@@ -33374,7 +38089,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getaudiencesbyids?view=bingads-13">GetAudiencesByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getaudiencesbyids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AudienceIds">A maximum of 100 identifiers of the requested audiences.</param>
-        /// <param name="Type">One or more types of audiences to return.</param>
+        /// <param name="Type">The type of audiences to return.</param>
         public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V13.CampaignManagement.AudienceType Type)
         {
             this.ApplicationToken = ApplicationToken;
@@ -33848,7 +38563,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> ConversionGoalIds;
         
         /// <summary>
-        /// One or more types of conversion goals to return.
+        /// The type of conversion goals to return.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes;
@@ -33876,7 +38591,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getconversiongoalsbyids?view=bingads-13">GetConversionGoalsByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getconversiongoalsbyids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ConversionGoalIds">A maximum of 100 identifiers of the conversion goals that you want to get.</param>
-        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
+        /// <param name="ConversionGoalTypes">The type of conversion goals to return.</param>
         /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned conversion goal.</param>
         public GetConversionGoalsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ConversionGoalIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields)
         {
@@ -33988,7 +38703,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> TagIds;
         
         /// <summary>
-        /// One or more types of conversion goals to return.
+        /// The type of conversion goals to return.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes;
@@ -34016,7 +38731,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getconversiongoalsbytagids?view=bingads-13">GetConversionGoalsByTagIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getconversiongoalsbytagids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="TagIds">A maximum of 100 tag identifiers that are used by the returned conversion goals.</param>
-        /// <param name="ConversionGoalTypes">One or more types of conversion goals to return.</param>
+        /// <param name="ConversionGoalTypes">The type of conversion goals to return.</param>
         /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned conversion goal.</param>
         public GetConversionGoalsByTagIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, Microsoft.BingAds.V13.CampaignManagement.ConversionGoalType ConversionGoalTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalAdditionalField> ReturnAdditionalFields)
         {
@@ -35848,7 +40563,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> ExperimentIds;
         
         /// <summary>
-        /// Determines the index and size of experiment results per page.
+        /// Reserved for future use.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo;
@@ -35870,7 +40585,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getexperimentsbyids?view=bingads-13">GetExperimentsByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getexperimentsbyids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ExperimentIds">The identifiers of the experiments to get.</param>
-        /// <param name="PageInfo">Determines the index and size of experiment results per page.</param>
+        /// <param name="PageInfo">Reserved for future use.</param>
         public GetExperimentsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ExperimentIds, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -36203,6 +40918,618 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetFileImportUploadUrl">GetFileImportUploadUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFileImportUploadUrlRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetFileImportUploadUrlRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Constructor for the GetFileImportUploadUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrlRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        public GetFileImportUploadUrlRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetFileImportUploadUrlRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrlRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        public GetFileImportUploadUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetFileImportUploadUrl">GetFileImportUploadUrl</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFileImportUploadUrlResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetFileImportUploadUrlResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string FileImportUploadUrl;
+        
+        /// <summary>
+        /// Constructor for the GetFileImportUploadUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrlResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        public GetFileImportUploadUrlResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetFileImportUploadUrlResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrlResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FileImportUploadUrl">Reserved for future use.</param>
+        public GetFileImportUploadUrlResponse(string TrackingId, string FileImportUploadUrl)
+        {
+            this.TrackingId = TrackingId;
+            this.FileImportUploadUrl = FileImportUploadUrl;
+        }
+    }
+    
+    /// <summary>
+    /// Creates a new import job.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddImportJobsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddImportJobsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The import jobs to create.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs;
+        
+        /// <summary>
+        /// Constructor for the AddImportJobsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        public AddImportJobsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddImportJobsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportJobs">The import jobs to create.</param>
+        public AddImportJobsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ImportJobs = ImportJobs;
+        }
+    }
+    
+    /// <summary>
+    /// Creates a new import job.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddImportJobsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddImportJobsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the import jobs that were added.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> ImportJobIds;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the AddImportJobsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        public AddImportJobsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddImportJobsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportJobIds">A list of unique system identifiers corresponding to the import jobs that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public AddImportJobsResponse(string TrackingId, System.Collections.Generic.IList<long> ImportJobIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.ImportJobIds = ImportJobIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Gets results for completed import jobs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportResults">GetImportResults</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportResultsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportResultsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The type of import job to get results.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string ImportType;
+        
+        /// <summary>
+        /// Determines the index and size of import results per page.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo;
+        
+        /// <summary>
+        /// Constructor for the GetImportResultsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResultsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportResultsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportResultsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResultsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportType">The type of import job to get results.</param>
+        /// <param name="PageInfo">Determines the index and size of import results per page.</param>
+        public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ImportType = ImportType;
+            this.PageInfo = PageInfo;
+        }
+    }
+    
+    /// <summary>
+    /// Gets results for completed import jobs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportResults">GetImportResults</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportResultsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportResultsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Contains the status, run time, and statistical results for each import that has run.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportResult> ImportResults;
+        
+        /// <summary>
+        /// Constructor for the GetImportResultsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResultsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportResultsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportResultsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResultsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportResults">Contains the status, run time, and statistical results for each import that has run.</param>
+        public GetImportResultsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportResult> ImportResults)
+        {
+            this.TrackingId = TrackingId;
+            this.ImportResults = ImportResults;
+        }
+    }
+    
+    /// <summary>
+    /// Gets import jobs by their type and identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportJobsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportJobsByIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifiers of the import jobs to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> ImportJobIds;
+        
+        /// <summary>
+        /// The type of import job to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public string ImportType;
+        
+        /// <summary>
+        /// Constructor for the GetImportJobsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportJobsByIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportJobsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportJobIds">The identifiers of the import jobs to get.</param>
+        /// <param name="ImportType">The type of import job to get.</param>
+        public GetImportJobsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ImportJobIds, string ImportType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ImportJobIds = ImportJobIds;
+            this.ImportType = ImportType;
+        }
+    }
+    
+    /// <summary>
+    /// Gets import jobs by their type and identifiers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportJobsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportJobsByIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The import jobs that matched the request criteria.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetImportJobsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportJobsByIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportJobsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportJobs">The import jobs that matched the request criteria.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public GetImportJobsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.ImportJobs = ImportJobs;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes the import jobs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteImportJobsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteImportJobsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifiers of the import jobs to delete.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> ImportJobIds;
+        
+        /// <summary>
+        /// The type of import job to delete.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public string ImportType;
+        
+        /// <summary>
+        /// Constructor for the DeleteImportJobsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteImportJobsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteImportJobsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportJobIds">The identifiers of the import jobs to delete.</param>
+        /// <param name="ImportType">The type of import job to delete.</param>
+        public DeleteImportJobsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ImportJobIds, string ImportType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ImportJobIds = ImportJobIds;
+            this.ImportType = ImportType;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes the import jobs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteImportJobsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteImportJobsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteImportJobsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteImportJobsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteImportJobsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public DeleteImportJobsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICampaignManagementServiceChannel : Microsoft.BingAds.V13.CampaignManagement.ICampaignManagementService, System.ServiceModel.IClientChannel
     {
@@ -36388,7 +41715,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative site URLs of the specified campaigns.
+        /// Gets the negative site URLs that are assigned directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -36403,7 +41730,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative site URLs of the specified campaigns.
+        /// Gets the negative site URLs that are assigned directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13">GetNegativeSitesByCampaignIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbycampaignids?view=bingads-13 for details.
@@ -36418,7 +41745,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the negative site URLs of the specified campaigns.
+        /// Sets the negative site URLs directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -36433,7 +41760,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the negative site URLs of the specified campaigns.
+        /// Sets the negative site URLs directly to campaigns.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13">SetNegativeSitesToCampaigns Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestocampaigns?view=bingads-13 for details.
@@ -36638,7 +41965,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative site URLs of the specified ad groups.
+        /// Gets the negative sites URLs that are assigned directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -36653,7 +41980,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative site URLs of the specified ad groups.
+        /// Gets the negative sites URLs that are assigned directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13">GetNegativeSitesByAdGroupIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativesitesbyadgroupids?view=bingads-13 for details.
@@ -36668,7 +41995,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the negative site URLs of the specified ad groups.
+        /// Sets the negative site URLs directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -36683,7 +42010,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the negative site URLs of the specified ad groups.
+        /// Sets the negative site URLs directly to ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13">SetNegativeSitesToAdGroups Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setnegativesitestoadgroups?view=bingads-13 for details.
@@ -37868,7 +43195,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+        /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -37883,7 +43210,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative keywords that are only associated with the specified campaigns or ad groups.
+        /// Gets the negative keywords that are assigned directly to campaigns or ad groups.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13">GetNegativeKeywordsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getnegativekeywordsbyentityids?view=bingads-13 for details.
@@ -37928,7 +43255,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative keyword lists from the account's library.
+        /// Gets negative keyword lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -37936,14 +43263,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The shared entities from the account's shared library, for example negative keyword lists.</returns>
+        /// <returns>The negative keyword lists from the shared library.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdResponse GetSharedEntitiesByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdRequest request)
         {
             return base.Channel.GetSharedEntitiesByAccountId(request);
         }
         
         /// <summary>
-        /// Gets the negative keyword lists from the account's library.
+        /// Gets negative keyword lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13">GetSharedEntitiesByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentitiesbyaccountid?view=bingads-13 for details.
@@ -37951,14 +43278,44 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The shared entities from the account's shared library, for example negative keyword lists.</returns>
+        /// <returns>The negative keyword lists from the shared library.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdResponse> GetSharedEntitiesByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesByAccountIdRequest request)
         {
             return base.Channel.GetSharedEntitiesByAccountIdAsync(request);
         }
         
         /// <summary>
-        /// Adds a negative keyword list to the account's library.
+        /// Gets negative keyword lists or website exclusion lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The negative keyword lists or website exclusion lists.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesResponse GetSharedEntities(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesRequest request)
+        {
+            return base.Channel.GetSharedEntities(request);
+        }
+        
+        /// <summary>
+        /// Gets negative keyword lists or website exclusion lists.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13">GetSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentities?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The negative keyword lists or website exclusion lists.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesResponse> GetSharedEntitiesAsync(Microsoft.BingAds.V13.CampaignManagement.GetSharedEntitiesRequest request)
+        {
+            return base.Channel.GetSharedEntitiesAsync(request);
+        }
+        
+        /// <summary>
+        /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -37973,7 +43330,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds a negative keyword list to the account's library.
+        /// Adds a negative keyword list to the ad account library, or adds a website exclusion list to the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntity Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
@@ -37988,7 +43345,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets the negative keywords of a negative keyword list.
+        /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -37996,14 +43353,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of negative keywords.</returns>
+        /// <returns>The list of negative keywords or negative sites.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListResponse GetListItemsBySharedList(Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListRequest request)
         {
             return base.Channel.GetListItemsBySharedList(request);
         }
         
         /// <summary>
-        /// Gets the negative keywords of a negative keyword list.
+        /// Gets the negative keywords of a negative keyword list, or negative sites of a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13">GetListItemsBySharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getlistitemsbysharedlist?view=bingads-13 for details.
@@ -38011,14 +43368,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of negative keywords.</returns>
+        /// <returns>The list of negative keywords or negative sites.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListResponse> GetListItemsBySharedListAsync(Microsoft.BingAds.V13.CampaignManagement.GetListItemsBySharedListRequest request)
         {
             return base.Channel.GetListItemsBySharedListAsync(request);
         }
         
         /// <summary>
-        /// Adds negative keywords to the shared negative keyword list.
+        /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -38033,7 +43390,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds negative keywords to the shared negative keyword list.
+        /// Adds negative keywords to a negative keyword list, or negative sites to a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13">AddListItemsToSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addlistitemstosharedlist?view=bingads-13 for details.
@@ -38048,7 +43405,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Updates negative keyword lists within the account's library.
+        /// Updates the negative keyword lists or website exclusion lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -38063,7 +43420,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Updates negative keyword lists within the account's library.
+        /// Updates the negative keyword lists or website exclusion lists.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13">UpdateSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatesharedentities?view=bingads-13 for details.
@@ -38078,7 +43435,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Deletes negative keywords from a negative keyword list.
+        /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -38093,7 +43450,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Deletes negative keywords from a negative keyword list.
+        /// Deletes negative keywords from a negative keyword list, or negative sites from a website exclusion list.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13">DeleteListItemsFromSharedList Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletelistitemsfromsharedlist?view=bingads-13 for details.
@@ -38108,7 +43465,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the association between a campaign and a negative keyword list.
+        /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -38123,7 +43480,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Sets the association between a campaign and a negative keyword list.
+        /// Sets the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13">SetSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/setsharedentityassociations?view=bingads-13 for details.
@@ -38138,7 +43495,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Removes the association between a negative keyword list and an entity such as a campaign.
+        /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -38153,7 +43510,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Removes the association between a negative keyword list and an entity such as a campaign.
+        /// Deletes the negative keyword list to campaign associations, or website exclusion list to ad account associations.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13">DeleteSharedEntityAssociations Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentityassociations?view=bingads-13 for details.
@@ -38168,7 +43525,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets shared entity associations for the specified negative keyword lists.
+        /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -38183,7 +43540,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets shared entity associations for the specified negative keyword lists.
+        /// Gets the negative keyword list to campaign associations by negative keyword list IDs, or website exclusion list to ad account associations by website exclusion list IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13">GetSharedEntityAssociationsBySharedEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbysharedentityids?view=bingads-13 for details.
@@ -38198,7 +43555,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets negative keyword list associations for the specified campaigns.
+        /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -38213,7 +43570,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets negative keyword list associations for the specified campaigns.
+        /// Gets the negative keyword list to campaign associations by campaign IDs, or website exclusion list to ad account associations by ad account IDs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13">GetSharedEntityAssociationsByEntityIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getsharedentityassociationsbyentityids?view=bingads-13 for details.
@@ -38228,7 +43585,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Deletes negative keyword lists from the account's library.
+        /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -38243,7 +43600,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Deletes negative keyword lists from the account's library.
+        /// Deletes negative keyword lists from the ad account library, or deletes website exclusion lists from the manager account (customer) library.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13">DeleteSharedEntities Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletesharedentities?view=bingads-13 for details.
@@ -39315,6 +44672,156 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse> SearchCompaniesAsync(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request)
         {
             return base.Channel.SearchCompaniesAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved for future use.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlResponse GetFileImportUploadUrl(Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlRequest request)
+        {
+            return base.Channel.GetFileImportUploadUrl(request);
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved for future use.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlResponse> GetFileImportUploadUrlAsync(Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlRequest request)
+        {
+            return base.Channel.GetFileImportUploadUrlAsync(request);
+        }
+        
+        /// <summary>
+        /// Creates a new import job.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.AddImportJobsResponse AddImportJobs(Microsoft.BingAds.V13.CampaignManagement.AddImportJobsRequest request)
+        {
+            return base.Channel.AddImportJobs(request);
+        }
+        
+        /// <summary>
+        /// Creates a new import job.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddImportJobsResponse> AddImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.AddImportJobsRequest request)
+        {
+            return base.Channel.AddImportJobsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets results for completed import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Contains the status, run time, and statistical results for each import that has run.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetImportResultsResponse GetImportResults(Microsoft.BingAds.V13.CampaignManagement.GetImportResultsRequest request)
+        {
+            return base.Channel.GetImportResults(request);
+        }
+        
+        /// <summary>
+        /// Gets results for completed import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Contains the status, run time, and statistical results for each import that has run.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportResultsResponse> GetImportResultsAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportResultsRequest request)
+        {
+            return base.Channel.GetImportResultsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets import jobs by their type and identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsResponse GetImportJobsByIds(Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsRequest request)
+        {
+            return base.Channel.GetImportJobsByIds(request);
+        }
+        
+        /// <summary>
+        /// Gets import jobs by their type and identifiers.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13">GetImportJobsByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportjobsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsResponse> GetImportJobsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportJobsByIdsRequest request)
+        {
+            return base.Channel.GetImportJobsByIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Deletes the import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse DeleteImportJobs(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request)
+        {
+            return base.Channel.DeleteImportJobs(request);
+        }
+        
+        /// <summary>
+        /// Deletes the import jobs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13">DeleteImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deleteimportjobs?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse> DeleteImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request)
+        {
+            return base.Channel.DeleteImportJobsAsync(request);
         }
     }
 }

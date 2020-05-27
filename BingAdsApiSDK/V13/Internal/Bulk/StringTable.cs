@@ -452,6 +452,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignPriority = "Priority";
         public const string LocalInventoryAdsEnabled = "LocalInventoryAdsEnabled";
 
+        // SPA
+        public const string CampaignNegativeStoreCriterion = "Campaign Negative Store Criterion";
+
         // CoOp
         public const string BidOption = "Bid Option";
         public const string BidBoostValue = "Bid Boost Value";
@@ -574,10 +577,28 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string ActionType = "Action Type";
         public const string ActionText = "Action Text";
 
+        //Promotion AdExtension
+        public const string PromotionAdExtension = "Promotion Ad Extension";
+        public const string AccountPromotionAdExtension = "Account Promotion Ad Extension";
+        public const string CampaignPromotionAdExtension = "Campaign Promotion Ad Extension";
+        public const string AdGroupPromotionAdExtension = "Ad Group Promotion Ad Extension";
+        public const string PromotionTarget = "Promotion Target";
+        public const string DiscountModifier = "Discount Modifier";
+        public const string PercentOff = "Percent Off";
+        public const string MoneyAmountOff = "Money Amount Off";
+        public const string PromotionCode = "Promotion Code";
+        public const string OrdersOverAmount = "Orders Over Amount";
+        public const string Occasion = "Occasion";
+        public const string PromotionStart = "Promotion Start";
+        public const string PromotionEnd = "Promotion End";
+        public const string CurrencyCode = "Currency Code";
+
+
         // AutoBidding
         public const string BidStrategyType = "Bid Strategy Type";
         public const string BidStrategyMaxCpc = "Bid Strategy MaxCpc";
         public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
+        public const string BidStrategyTargetRoas = "Bid Strategy TargetRoas";
         public const string InheritedBidStrategyType = "Inherited Bid Strategy Type";
 
         // Target and bid
@@ -663,7 +684,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         // Ad Extension Schedule
         public const string AdSchedule = "Ad Schedule";
+
+        // Use Searcher Time Zone
         public const string UseSearcherTimeZone = "Use Searcher Time Zone";
+        public const string AdScheduleUseSearcherTimeZone = "Ad Schedule Use Searcher Time Zone";
 
         // Dynamic Search Ad
         public const string DynamicSearchAd = "Dynamic Search Ad";

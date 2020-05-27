@@ -236,6 +236,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.AdGroup.FinalUrlSuffix.ToOptionalBulkString(c.AdGroup.Id),
                 (v, c) => c.AdGroup.FinalUrlSuffix = v.GetValueOrEmptyString()
             ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.AdScheduleUseSearcherTimeZone,
+                c => c.AdGroup.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(c.AdGroup.Id),
+                (v, c) => c.AdGroup.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

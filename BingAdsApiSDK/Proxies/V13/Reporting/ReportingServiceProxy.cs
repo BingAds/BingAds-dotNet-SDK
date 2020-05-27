@@ -5075,6 +5075,36 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 60,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 61,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 62,
+        
+        /// <summary>
+        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionSharePercent = 63,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToRankPercent = 64,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToBudgetPercent = 65,
     }
     
     /// <summary>
@@ -6642,6 +6672,36 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 80,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 81,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 82,
+        
+        /// <summary>
+        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionSharePercent = 83,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToRankPercent = 84,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToBudgetPercent = 85,
     }
     
     /// <summary>
@@ -7395,6 +7455,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 45,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 46,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 47,
     }
     
     /// <summary>
@@ -8453,6 +8525,36 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 73,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 74,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 75,
+        
+        /// <summary>
+        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionSharePercent = 76,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToRankPercent = 77,
+        
+        /// <summary>
+        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AudienceImpressionLostToBudgetPercent = 78,
     }
     
     /// <summary>
@@ -9105,6 +9207,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 68,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 69,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 70,
     }
     
     /// <summary>
@@ -9947,6 +10061,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 69,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 70,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 71,
     }
     
     /// <summary>
@@ -10692,6 +10818,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 52,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 53,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 54,
     }
     
     /// <summary>
@@ -11090,6 +11228,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 25,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 26,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 27,
     }
     
     /// <summary>
@@ -11415,6 +11565,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 25,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 26,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 27,
     }
     
     /// <summary>
@@ -11868,6 +12030,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 54,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 55,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 56,
     }
     
     /// <summary>
@@ -12295,6 +12469,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 42,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 43,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 44,
     }
     
     /// <summary>
@@ -12885,6 +13071,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 50,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 51,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 52,
     }
     
     /// <summary>
@@ -13310,6 +13508,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 34,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 35,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 36,
     }
     
     /// <summary>
@@ -14763,6 +14973,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 47,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 48,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 49,
     }
     
     /// <summary>
@@ -15225,6 +15447,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 44,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 45,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 46,
     }
     
     /// <summary>
@@ -15582,6 +15816,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 38,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 39,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 40,
     }
     
     /// <summary>
@@ -16038,6 +16284,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 43,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 44,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 45,
     }
     
     /// <summary>
@@ -16669,6 +16927,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 53,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 54,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 55,
     }
     
     /// <summary>
@@ -17311,6 +17581,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 74,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 75,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 76,
     }
     
     /// <summary>
@@ -17899,6 +18181,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 65,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 66,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 67,
     }
     
     /// <summary>
@@ -18403,10 +18697,22 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 51,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 52,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 53,
     }
     
     /// <summary>
-    /// Defines the criteria to use to filter the Bing Shopping product search query performance report data.
+    /// Defines the criteria to use to filter the product search query performance report data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-13">ProductSearchQueryPerformanceReportFilter Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-13 for details.
@@ -18917,6 +19223,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 45,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 46,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 47,
     }
     
     /// <summary>
@@ -19986,6 +20304,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 53,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 54,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 55,
     }
     
     /// <summary>
@@ -20524,6 +20854,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 49,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 50,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 51,
     }
     
     /// <summary>
@@ -20992,6 +21334,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 45,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 46,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 47,
     }
     
     /// <summary>
@@ -21457,6 +21811,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 43,
+        
+        /// <summary>
+        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 44,
+        
+        /// <summary>
+        /// The type of conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 45,
     }
     
     /// <summary>

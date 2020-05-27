@@ -154,7 +154,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // AdExtensions common
             StringTable.Version,
             StringTable.AdSchedule,
+            
+            // Use Searcher Time Zone
             StringTable.UseSearcherTimeZone,
+            StringTable.AdScheduleUseSearcherTimeZone,
 
             // Action ad extension
             StringTable.ActionType,
@@ -346,6 +349,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BidStrategyType,
             StringTable.BidStrategyMaxCpc,
             StringTable.BidStrategyTargetCpa,
+            StringTable.BidStrategyTargetRoas,
             StringTable.InheritedBidStrategyType,
 
             // Target and bid
@@ -387,6 +391,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,
             StringTable.StructuredSnippetValues,
+			
+			// Promotion Ad Extension
+            StringTable.PromotionTarget,
+            StringTable.DiscountModifier,
+            StringTable.PercentOff,
+            StringTable.MoneyAmountOff,
+            StringTable.PromotionCode,
+            StringTable.OrdersOverAmount,
+            StringTable.Occasion,
+            StringTable.PromotionStart,
+            StringTable.PromotionEnd,
+            StringTable.CurrencyCode,
 
             // Dynamic Search Ad
             StringTable.DomainLanguage,

@@ -54,7 +54,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a ad group level review ad extension. 
+    /// Represents an ad group level review ad extension. 
     /// This class exposes properties that can be read and written 
     /// as fields of the Ad Group Review Ad Extension record in a bulk file. 
     /// </para>

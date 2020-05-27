@@ -430,6 +430,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.Campaign.FinalUrlSuffix.ToOptionalBulkString(c.Campaign.Id),
                 (v, c) => c.Campaign.FinalUrlSuffix = v.GetValueOrEmptyString()
             ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.AdScheduleUseSearcherTimeZone,
+                c => c.Campaign.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(c.Campaign.Id),
+                (v, c) => c.Campaign.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -508,12 +513,15 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             string maxCpcRowValue;
             string targetCpaRowValue;
+            string targetRoasRowValue;
 
             values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetRoas, out targetRoasRowValue);
 
             var maxCpcValue = maxCpcRowValue.ParseBid();
             var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
+            var targetRoasValue = targetRoasRowValue.ParseOptional<double>();
 
             var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
             if (maxClicksBiddingScheme != null)
@@ -537,19 +545,44 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 }
                 else
                 {
-                    var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
-                    if (targetCpaBiddingScheme != null)
+                    var maxConversionValueBiddingScheme = biddingScheme as MaxConversionValueBiddingScheme;
+                    if (maxConversionValueBiddingScheme != null)
                     {
-                        c.Campaign.BiddingScheme = new TargetCpaBiddingScheme
+                        c.Campaign.BiddingScheme = new MaxConversionValueBiddingScheme
                         {
-                            MaxCpc = maxCpcValue,
-                            TargetCpa = targetCpaValue,
-                            Type = "TargetCpa",
+                            TargetRoas = targetRoasValue,
+                            Type = "MaxConversionValue",
                         };
                     }
                     else
                     {
-                        c.Campaign.BiddingScheme = biddingScheme;
+                        var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
+                        if (targetCpaBiddingScheme != null)
+                        {
+                            c.Campaign.BiddingScheme = new TargetCpaBiddingScheme
+                            {
+                                MaxCpc = maxCpcValue,
+                                TargetCpa = targetCpaValue,
+                                Type = "TargetCpa",
+                            };
+                        }
+                        else
+                        {
+                            var targetRoasBiddingScheme = biddingScheme as TargetRoasBiddingScheme;
+                            if (targetRoasBiddingScheme != null)
+                            {
+                                c.Campaign.BiddingScheme = new TargetRoasBiddingScheme
+                                {
+                                    MaxCpc = maxCpcValue,
+                                    TargetRoas = targetRoasValue,
+                                    Type = "TargetRoas",
+                                };
+                            }
+                            else
+                            {
+                                c.Campaign.BiddingScheme = biddingScheme;
+                            }
+                        }
                     }
                 } 
             }
@@ -580,11 +613,28 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 }
                 else
                 {
-                    var targetCpaBiddingScheme = c.Campaign.BiddingScheme as TargetCpaBiddingScheme;
-                    if (targetCpaBiddingScheme != null)
+                    var maxConversionValueBiddingScheme = c.Campaign.BiddingScheme as MaxConversionValueBiddingScheme;
+                    if (maxConversionValueBiddingScheme != null)
                     {
-                        values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                        values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
+                        values[StringTable.BidStrategyTargetRoas] = maxConversionValueBiddingScheme.TargetRoas.ToBulkString();
+                    }
+                    else
+                    {
+                        var targetCpaBiddingScheme = c.Campaign.BiddingScheme as TargetCpaBiddingScheme;
+                        if (targetCpaBiddingScheme != null)
+                        {
+                            values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
+                            values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
+                        }
+                        else
+                        {
+                            var targetRoasBiddingScheme = c.Campaign.BiddingScheme as TargetRoasBiddingScheme;
+                            if (targetRoasBiddingScheme != null)
+                            {
+                                values[StringTable.BidStrategyMaxCpc] = targetRoasBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
+                                values[StringTable.BidStrategyTargetRoas] = targetRoasBiddingScheme.TargetRoas.ToBulkString();
+                            }
+                        }
                     }
                 }
             }                

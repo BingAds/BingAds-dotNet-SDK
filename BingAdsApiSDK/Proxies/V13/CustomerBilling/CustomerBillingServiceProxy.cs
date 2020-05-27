@@ -1099,7 +1099,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// A code that identifies the country/region in which the account operates.
+        /// Reserved for internal use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BookingCountryCode

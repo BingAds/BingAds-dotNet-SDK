@@ -5991,7 +5991,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The identifier of the client advertiser account or client customer to manage.
+        /// The identifier of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<long> ClientEntityId
@@ -6011,7 +6011,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The number of the client advertiser account or client customer to manage.
+        /// The number of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string ClientEntityNumber
@@ -6031,7 +6031,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The name of the client advertiser account or client customer to manage.
+        /// The name of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string ClientEntityName
@@ -6945,7 +6945,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerRequest request);
         
         /// <summary>
-        /// Creates a new customer and account that rolls up to your reseller payment method.
+        /// Creates a new customer and account that rolls up to your aggregator payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
@@ -6963,7 +6963,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.SignupCustomerResponse SignupCustomer(Microsoft.BingAds.V13.CustomerManagement.SignupCustomerRequest request);
         
         /// <summary>
-        /// Creates a new customer and account that rolls up to your reseller payment method.
+        /// Creates a new customer and account that rolls up to your aggregator payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
@@ -8434,7 +8434,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Creates a new customer and account that rolls up to your reseller payment method.
+    /// Creates a new customer and account that rolls up to your aggregator payment method.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
@@ -8474,7 +8474,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
         /// <summary>
-        /// The customer identifier of the reseller that will manage this customer.
+        /// The customer identifier of the aggregator that will manage this customer.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<long> ParentCustomerId;
@@ -8497,7 +8497,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </remarks>
         /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
         /// <param name="Account">An AdvertiserAccount that specifies the details of the customer's primary account.</param>
-        /// <param name="ParentCustomerId">The customer identifier of the reseller that will manage this customer.</param>
+        /// <param name="ParentCustomerId">The customer identifier of the aggregator that will manage this customer.</param>
         public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8512,7 +8512,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Creates a new customer and account that rolls up to your reseller payment method.
+    /// Creates a new customer and account that rolls up to your aggregator payment method.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
@@ -11760,7 +11760,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Creates a new customer and account that rolls up to your reseller payment method.
+        /// Creates a new customer and account that rolls up to your aggregator payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
@@ -11775,7 +11775,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Creates a new customer and account that rolls up to your reseller payment method.
+        /// Creates a new customer and account that rolls up to your aggregator payment method.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.

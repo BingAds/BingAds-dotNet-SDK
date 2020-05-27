@@ -54,17 +54,17 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an ad group level callout ad extension. 
+    /// Represents an ad group level promotion ad extension. 
     /// This class exposes properties that can be read and written 
-    /// as fields of the Ad Group Callout Ad Extension record in a bulk file. 
+    /// as fields of the Ad Group Promotion Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Callout Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Promotion Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupCalloutAdExtension : BulkAdGroupAdExtensionAssociation
+    public class BulkAdGroupPromotionAdExtension : BulkAdGroupAdExtensionAssociation
     {
     }
 }

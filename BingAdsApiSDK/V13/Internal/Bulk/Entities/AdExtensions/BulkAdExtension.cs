@@ -136,7 +136,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkAdExtensionBase<T>>(StringTable.UseSearcherTimeZone,
-                c =>c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.UseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(),
+                c =>c.AdExtension.Scheduling == null ? null : c.AdExtension.Scheduling.UseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(c.AdExtension.Id),
                 (v, c) =>
                 {
                     if (c.AdExtension.Scheduling == null)

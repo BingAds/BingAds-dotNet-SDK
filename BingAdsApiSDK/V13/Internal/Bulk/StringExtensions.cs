@@ -713,6 +713,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new MaxConversionsBiddingScheme { Type = "MaxConversions" };
                 case "TargetCpa":
                     return new TargetCpaBiddingScheme { Type = "TargetCpa" };
+                case "MaxConversionValue":
+                    return new MaxConversionValueBiddingScheme { Type = "MaxConversionValue" };
+                case "TargetRoas":
+                    return new TargetRoasBiddingScheme { Type = "TargetRoas" };
                 default:
                     throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
             }
@@ -743,6 +747,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
             if (targetCpaBiddingScheme != null)
                 return "TargetCpa";
+            var maxConversionValueBiddingScheme = biddingScheme as MaxConversionValueBiddingScheme;
+            if (maxConversionValueBiddingScheme != null)
+                return "MaxConversionValue";
+            var targetRoasBiddingScheme = biddingScheme as TargetRoasBiddingScheme;
+            if (targetRoasBiddingScheme != null)
+                return "TargetRoas";
 
             throw new ArgumentException("Unknown bidding scheme");
         }
@@ -1122,18 +1132,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return feedCustomAttributeContracts;
         }
 
-        public static string ToUseSearcherTimeZoneBulkString(this bool? useSearcherTimeZone)
+        public static string ToUseSearcherTimeZoneBulkString(this bool? useSearcherTimeZone, long? id)
         {
             if (!useSearcherTimeZone.HasValue)
             {
-                return "delete_value";
+                return id > 0 ? DeleteValue : null;
             }
             return useSearcherTimeZone.Value ? "true" : "false";
         }
 
         public static bool? ParseUseSearcherTimeZone(this string s)
         {
-            if (string.IsNullOrEmpty(s))
+            if (string.IsNullOrEmpty(s) || s.Equals(DeleteValue))
             {
                 return null;
             }

@@ -61,6 +61,7 @@ using BulkAccountPriceAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAcco
 using BulkAccountReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAccountReviewAdExtension;
 using BulkAccountSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAccountSitelinkAdExtension;
 using BulkAccountStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAccountStructuredSnippetAdExtension;
+using BulkAccountPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAccountPromotionAdExtension;
 using BulkAdGroup = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroup;
 using BulkAdGroupActionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupActionAdExtension;
 using BulkAdGroupAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupAppAdExtension;
@@ -82,6 +83,7 @@ using BulkAdGroupPriceAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGr
 using BulkAdGroupReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupReviewAdExtension;
 using BulkAdGroupSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupSitelinkAdExtension;
 using BulkAdGroupStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupStructuredSnippetAdExtension;
+using BulkAdGroupPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupPromotionAdExtension;
 using BulkAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAppAdExtension;
 using BulkAppInstallAd = Microsoft.BingAds.V13.Bulk.Entities.BulkAppInstallAd;
 using BulkBudget = Microsoft.BingAds.V13.Bulk.Entities.BulkBudget;
@@ -108,6 +110,8 @@ using BulkCampaignProductScope = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaig
 using BulkCampaignReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignReviewAdExtension;
 using BulkCampaignSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignSitelinkAdExtension;
 using BulkCampaignStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignStructuredSnippetAdExtension;
+using BulkCampaignPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignPromotionAdExtension;
+using BulkCampaignNegativeStoreCriterion = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignNegativeStoreCriterion;
 using BulkCustomAudience = Microsoft.BingAds.V13.Bulk.Entities.BulkCustomAudience;
 using BulkDynamicSearchAd = Microsoft.BingAds.V13.Bulk.Entities.BulkDynamicSearchAd;
 using BulkError = Microsoft.BingAds.V13.Bulk.Entities.BulkError;
@@ -127,6 +131,7 @@ using BulkReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkReviewAdEx
 using BulkSharedNegativeKeyword = Microsoft.BingAds.V13.Bulk.Entities.BulkSharedNegativeKeyword;
 using BulkSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkSitelinkAdExtension;
 using BulkStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkStructuredSnippetAdExtension;
+using BulkPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkPromotionAdExtension;
 using BulkTextAd = Microsoft.BingAds.V13.Bulk.Entities.BulkTextAd;
 using UnknownBulkEntity = Microsoft.BingAds.V13.Bulk.Entities.UnknownBulkEntity;
 using BulkLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkLabel;
@@ -193,6 +198,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AccountStructuredSnippetAdExtension,    new EntityInfo(() => new BulkAccountStructuredSnippetAdExtension())},
                 {StringTable.CampaignStructuredSnippetAdExtension,    new EntityInfo(() => new BulkCampaignStructuredSnippetAdExtension())},
                 {StringTable.AdGroupStructuredSnippetAdExtension,     new EntityInfo(() => new BulkAdGroupStructuredSnippetAdExtension())},
+                {StringTable.PromotionAdExtension,  new EntityInfo(() => new BulkPromotionAdExtension()) },
+                {StringTable.AccountPromotionAdExtension,    new EntityInfo(() => new BulkAccountPromotionAdExtension())},
+                {StringTable.CampaignPromotionAdExtension,    new EntityInfo(() => new BulkCampaignPromotionAdExtension())},
+                {StringTable.AdGroupPromotionAdExtension,     new EntityInfo(() => new BulkAdGroupPromotionAdExtension())},			
                 {StringTable.PriceAdExtension,             new EntityInfo(() => new BulkPriceAdExtension()) },
                 {StringTable.AccountPriceAdExtension,     new EntityInfo(() => new BulkAccountPriceAdExtension())},
                 {StringTable.CampaignPriceAdExtension,     new EntityInfo(() => new BulkCampaignPriceAdExtension())},
@@ -247,6 +256,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupDynamicSearchAdTarget,  new EntityInfo(() => new BulkAdGroupDynamicSearchAdTarget())},
                 {StringTable.AdGroupNegativeDynamicSearchAdTarget, new EntityInfo(() => new BulkAdGroupNegativeDynamicSearchAdTarget())},
                 {StringTable.CampaignNegativeDynamicSearchAdTarget, new EntityInfo(() => new BulkCampaignNegativeDynamicSearchAdTarget())},
+
+
+                {StringTable.CampaignNegativeStoreCriterion, new EntityInfo(() => new BulkCampaignNegativeStoreCriterion())},
 
                 {StringTable.AdGroupAgeCriterion,  new EntityInfo(() => new BulkAdGroupAgeCriterion())},
                 {StringTable.AdGroupCompanyNameCriterion,  new EntityInfo(() => new BulkAdGroupCompanyNameCriterion())},

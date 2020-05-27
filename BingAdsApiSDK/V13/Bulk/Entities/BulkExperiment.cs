@@ -91,7 +91,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 ),
 
             new SimpleBulkMapping<BulkExperiment>(StringTable.EndDate,
-                c => c.Experiment.EndDate.ToDateBulkString(),
+                c => c.Experiment.EndDate.ToScheduleDateBulkString(c.Experiment.Id),
                 (v, c) => c.Experiment.EndDate = v.ParseDate()
                 ),
 
