@@ -66,95 +66,35 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkProductAudience : SingleRecordBulkEntity
+    public class BulkProductAudience : BulkAudience<ProductAudience>
     {
         /// <summary>
         /// The remarketing list.
         /// </summary>
-        public ProductAudience ProductAudience { get; set; }
-
-        /// <summary>
-        /// The status of the remarketing list.
-        /// The value is Active if the remarketing list is available to be associated with an ad group. 
-        /// The value is Deleted if the remarketing list is deleted, or should be deleted in a subsequent upload operation. 
-        /// Corresponds to the 'Status' field in the bulk file. 
-        /// </summary>
-        public Status? Status { get; set; }
+        public ProductAudience ProductAudience { get { return Audience; } set { Audience = value; } }
 
         private static readonly IBulkMapping<BulkProductAudience>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.Status,
-                c => c.Status.ToBulkString(),
-                (v, c) => c.Status = v.ParseOptional<Status>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.Id,
-                c => c.ProductAudience.Id.ToBulkString(),
-                (v, c) => c.ProductAudience.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.ParentId,
-                c => c.ProductAudience.ParentId.ToBulkString(),
-                (v, c) => c.ProductAudience.ParentId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.Audience,
-                c => c.ProductAudience.Name,
-                (v, c) => c.ProductAudience.Name = v
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.Description,
-                c => c.ProductAudience.Description,
-                (v, c) => c.ProductAudience.Description = v
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.MembershipDuration,
-                c => c.ProductAudience.MembershipDuration.ToBulkString(),
-                (v, c) => c.ProductAudience.MembershipDuration = v.ParseOptional<int>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.Scope,
-                c => c.ProductAudience.Scope.ToBulkString(),
-                (v, c) => c.ProductAudience.Scope = v.ParseOptional<EntityScope>()
-            ),
-
+        {           
             new SimpleBulkMapping<BulkProductAudience>(StringTable.TagId,
-                c => c.ProductAudience.TagId.ToBulkString(),
-                (v, c) => c.ProductAudience.TagId = v.ParseOptional<long>()
+                c => c.Audience.TagId.ToBulkString(),
+                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkProductAudience>(StringTable.ProductAudienceType,
-                c => c.ProductAudience.ProductAudienceType.ToBulkString(),
-                (v, c) => c.ProductAudience.ProductAudienceType = v.ParseOptional<ProductAudienceType>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.AudienceSearchSize,
-                c => c.ProductAudience.SearchSize.ToBulkString(),
-                (v, c) => c.ProductAudience.SearchSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.AudienceNetworkSize,
-                c => c.ProductAudience.AudienceNetworkSize.ToBulkString(),
-                (v, c) => c.ProductAudience.AudienceNetworkSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkProductAudience>(StringTable.SupportedCampaignTypes,
-                c => c.ProductAudience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
-                (v, c) => c.ProductAudience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
-            ),
+                c => c.Audience.ProductAudienceType.ToBulkString(),
+                (v, c) => c.Audience.ProductAudienceType = v.ParseOptional<ProductAudienceType>()
+            )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            ProductAudience = new ProductAudience { };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(ProductAudience, "ProductAudience");
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
     }

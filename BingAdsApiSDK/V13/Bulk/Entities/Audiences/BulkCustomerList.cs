@@ -57,32 +57,33 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a remarketing list that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkRemarketingList.RemarketingList"/> property that can be read and written as fields of the Remarketing List record in a bulk file. 
+    /// Represents a customer list that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkCustomerList.CustomerList"/> property that can be read and written as fields of the Customer List record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Remarketing List</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Customer List</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkRemarketingList : BulkAudience<RemarketingList>
+    public class BulkCustomerList : BulkAudience<Audience>
     {
         /// <summary>
-        /// The remarketing list.
+        /// Determines whether to Add, Remove, or Replace customer list items.
+        /// Corresponds to the 'Action Type' field in the bulk file. 
         /// </summary>
-        public RemarketingList RemarketingList { get { return Audience; } set { Audience = value; } }
+        public string ActionType { get; set; }
 
-        private static readonly IBulkMapping<BulkRemarketingList>[] Mappings =
+        /// <summary>
+        /// The customer list.
+        /// </summary>
+        public Audience CustomerList { get { return Audience; } set { Audience = value; } }
+
+        private static readonly IBulkMapping<BulkCustomerList>[] Mappings =
         {
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
-                c => c.Audience.TagId.ToBulkString(),
-                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
-                c => c.Audience.Rule.ToRemarketingRuleBulkString(),
-                (v, c) => c.Audience.Rule = v.ParseRemarketingRule()
+            new SimpleBulkMapping<BulkCustomerList>(StringTable.ActionType,
+                c => c.ActionType,
+                (v, c) => c.ActionType = v
             )
         };
 

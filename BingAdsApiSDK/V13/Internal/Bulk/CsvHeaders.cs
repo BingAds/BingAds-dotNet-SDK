@@ -351,6 +351,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BidStrategyTargetCpa,
             StringTable.BidStrategyTargetRoas,
             StringTable.InheritedBidStrategyType,
+            StringTable.BidStrategyTargetAdPosition,
+            StringTable.BidStrategyTargetImpressionShare,
 
             // Target and bid
             StringTable.TargetSetting,
@@ -368,6 +370,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AudienceNetworkSize,
             StringTable.SupportedCampaignTypes,
             StringTable.ProductAudienceType,
+            StringTable.CombinationRule,
 
             // Expanded Text Ad
             StringTable.TitlePart1,

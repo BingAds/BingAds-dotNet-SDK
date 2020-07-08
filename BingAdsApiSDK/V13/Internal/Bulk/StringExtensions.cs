@@ -85,6 +85,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static readonly Regex NumberOperatorPattern = new Regex("^(Equals|GreaterThan|LessThan|GreaterThanEqualTo|LessThanEqualTo) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
+        public static readonly Regex LogicalOperatorPattern = new Regex(@"^(AND|OR|NOT)\((.*?)\)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
         public static T Parse<T>(this string s, bool returnDefaultValueOnNullOrEmpty = false)
             where T : struct
         {
@@ -717,6 +719,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new MaxConversionValueBiddingScheme { Type = "MaxConversionValue" };
                 case "TargetRoas":
                     return new TargetRoasBiddingScheme { Type = "TargetRoas" };
+                case "TargetImpressionShare":
+                    return new TargetImpressionShareBiddingScheme { Type = "TargetImpressionShare" };
                 default:
                     throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
             }
@@ -729,31 +733,27 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return null;
             }
 
-            var enhancedCpcBiddingScheme = biddingScheme as EnhancedCpcBiddingScheme;
-            if (enhancedCpcBiddingScheme != null)
-                return "EnhancedCpc";
-            var inheritFromParentBiddingScheme = biddingScheme as InheritFromParentBiddingScheme;
-            if (inheritFromParentBiddingScheme != null)
-                return "InheritFromParent";
-            var manualCpcBiddingScheme = biddingScheme as ManualCpcBiddingScheme;
-            if (manualCpcBiddingScheme != null)
-                return "ManualCpc";
-            var maxClicksBiddingScheme = biddingScheme as MaxClicksBiddingScheme;
-            if (maxClicksBiddingScheme != null)
-                return "MaxClicks";
-            var maxConversionsBiddingScheme = biddingScheme as MaxConversionsBiddingScheme;
-            if (maxConversionsBiddingScheme != null)
-                return "MaxConversions";
-            var targetCpaBiddingScheme = biddingScheme as TargetCpaBiddingScheme;
-            if (targetCpaBiddingScheme != null)
-                return "TargetCpa";
-            var maxConversionValueBiddingScheme = biddingScheme as MaxConversionValueBiddingScheme;
-            if (maxConversionValueBiddingScheme != null)
-                return "MaxConversionValue";
-            var targetRoasBiddingScheme = biddingScheme as TargetRoasBiddingScheme;
-            if (targetRoasBiddingScheme != null)
-                return "TargetRoas";
-
+            switch (biddingScheme)
+            {
+                case EnhancedCpcBiddingScheme enhancedCpcBiddingScheme:
+                    return "EnhancedCpc";
+                case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
+                    return "InheritFromParent";
+                case ManualCpcBiddingScheme manualCpcBiddingScheme:
+                    return "ManualCpc";
+                case MaxClicksBiddingScheme maxClicksBiddingScheme:
+                    return "MaxClicks";
+                case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
+                    return "MaxConversions";
+                case TargetCpaBiddingScheme targetCpaBiddingScheme:
+                    return "TargetCpa";
+                case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
+                    return "MaxConversionValue";
+                case TargetRoasBiddingScheme targetRoasBiddingScheme:
+                    return "TargetRoas";
+                case TargetImpressionShareBiddingScheme TargetImpressionShareBiddingScheme:
+                    return "TargetImpressionShare";
+            }
             throw new ArgumentException("Unknown bidding scheme");
         }
 
@@ -1181,6 +1181,85 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             return s;
         }
+
+        public static string ToCombinationRulesBulkString(this IList<CombinationRule> combinationRules)
+        {
+            if (combinationRules == null || combinationRules.Count == 0)
+            {
+                return null;
+            }
+
+            return string.Join("&", combinationRules.Select(rule => $"{rule.Operator.ToBulkString().ToUpper()}({string.Join(",", rule.AudienceIds)})"));
+        }
+
+        public static List<CombinationRule> ParseCombinationRules(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+
+            return s.Split('&')
+                    .Where(token => !string.IsNullOrWhiteSpace(token) && token != "&")
+                    .Select(ParseCombinationRule)
+                    .Where(c => c != null)
+                    .ToList();
+        }
+
+        private static CombinationRule ParseCombinationRule(string ruleItemStr)
+        {
+            if (string.IsNullOrEmpty(ruleItemStr))
+            {
+                return null;
+            }
+
+            var match = LogicalOperatorPattern.Match(ruleItemStr);
+
+            if (!match.Success)
+            {
+                throw new ArgumentException(string.Format("Invalid Rule Item: {0}", ruleItemStr));
+            }
+
+            return new CombinationRule
+            {
+                Operator = ParseLogicalOperator(match.Groups[1].Value),
+                AudienceIds = ParseAudienceIds(match.Groups[2].Value),
+            };
+        }
+
+        public static IList<long> ParseAudienceIds(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            return s.Split(',')
+                .Where(token => !string.IsNullOrWhiteSpace(token) && token != "&")
+                .Select(long.Parse)
+                .ToList();
+        }
+
+        private static LogicalOperator ParseLogicalOperator(string strOperator)
+        {
+            strOperator = strOperator.ToLower();
+
+            switch (strOperator)
+            {
+                case "and":
+                    return LogicalOperator.And;
+
+                case "not":
+                    return LogicalOperator.Not;
+
+                case "or":
+                    return LogicalOperator.Or;
+
+                default:
+                    throw new ArgumentException(string.Format("Invalid Logical Operator: {0}", strOperator));
+            }
+        }
+
 
         public static string ToRemarketingRuleBulkString(this RemarketingRule remarketingRule)
         {

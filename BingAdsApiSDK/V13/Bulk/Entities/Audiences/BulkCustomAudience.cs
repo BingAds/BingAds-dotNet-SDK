@@ -66,86 +66,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCustomAudience : SingleRecordBulkEntity
+    public class BulkCustomAudience : BulkAudience<CustomAudience>
     {
         /// <summary>
         /// The custom audience.
         /// </summary>
-        public CustomAudience CustomAudience { get; set; }
+        public CustomAudience CustomAudience { get { return Audience; } set { Audience = value; } }
 
-        /// <summary>
-        /// The status of the custom audience.
-        /// The value is Active if the custom audience is available to be associated with an ad group. 
-        /// The value is Deleted if the custom audience is deleted, or should be deleted in a subsequent upload operation. 
-        /// Corresponds to the 'Status' field in the bulk file. 
-        /// </summary>
-        public Status? Status { get; set; }
-
-        private static readonly IBulkMapping<BulkCustomAudience>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.Status,
-                c => c.Status.ToBulkString(),
-                (v, c) => c.Status = v.ParseOptional<Status>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.Id,
-                c => c.CustomAudience.Id.ToBulkString(),
-                (v, c) => c.CustomAudience.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.ParentId,
-                c => c.CustomAudience.ParentId.ToBulkString(),
-                (v, c) => c.CustomAudience.ParentId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.Audience,
-                c => c.CustomAudience.Name,
-                (v, c) => c.CustomAudience.Name = v
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.Description,
-                c => c.CustomAudience.Description,
-                (v, c) => c.CustomAudience.Description = v
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.MembershipDuration,
-                c => c.CustomAudience.MembershipDuration.ToBulkString(),
-                (v, c) => c.CustomAudience.MembershipDuration = v.ParseOptional<int>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.Scope,
-                c => c.CustomAudience.Scope.ToBulkString(),
-                (v, c) => c.CustomAudience.Scope = v.ParseOptional<EntityScope>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.AudienceSearchSize,
-                c => c.CustomAudience.SearchSize.ToBulkString(),
-                (v, c) => c.CustomAudience.SearchSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.AudienceNetworkSize,
-                c => c.CustomAudience.AudienceNetworkSize.ToBulkString(),
-                (v, c) => c.CustomAudience.AudienceNetworkSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCustomAudience>(StringTable.SupportedCampaignTypes,
-                c => c.CustomAudience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
-                (v, c) => c.CustomAudience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
-            ),
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            CustomAudience = new CustomAudience { };
-
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(CustomAudience, "CustomAudience");
-
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }

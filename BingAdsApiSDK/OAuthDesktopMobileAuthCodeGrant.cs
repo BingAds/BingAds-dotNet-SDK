@@ -86,8 +86,9 @@ namespace Microsoft.BingAds
         public OAuthDesktopMobileAuthCodeGrant(
             string clientId, 
             ApiEnvironment environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, null, null, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, null, null, environment, requireLiveConnect, tenant)
         {
         }
 
@@ -109,8 +110,9 @@ namespace Microsoft.BingAds
             string clientId, 
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, null, null, refreshToken, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, null, null, refreshToken, environment, requireLiveConnect, tenant)
         {
         }
 
@@ -131,8 +133,9 @@ namespace Microsoft.BingAds
             string clientId, 
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, null, null, oauthTokens, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, null, null, oauthTokens, environment, requireLiveConnect, tenant)
         {
         }
 
@@ -141,8 +144,9 @@ namespace Microsoft.BingAds
             Uri redirectUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect = false)
-            : base(clientId, null, redirectUri, oauthService, env, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, null, redirectUri, oauthService, env, requireLiveConnect, tenant)
         {
         }
     }

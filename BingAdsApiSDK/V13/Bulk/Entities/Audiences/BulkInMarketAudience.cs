@@ -66,86 +66,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkInMarketAudience : SingleRecordBulkEntity
+    public class BulkInMarketAudience : BulkAudience<InMarketAudience>
     {
         /// <summary>
         /// The in market audience.
         /// </summary>
-        public InMarketAudience InMarketAudience { get; set; }
+        public InMarketAudience InMarketAudience { get { return Audience; } set { Audience = value; } }
 
-        /// <summary>
-        /// The status of the in market audience.
-        /// The value is Active if the in market audience is available to be associated with an ad group. 
-        /// The value is Deleted if the in market audience is deleted, or should be deleted in a subsequent upload operation. 
-        /// Corresponds to the 'Status' field in the bulk file. 
-        /// </summary>
-        public Status? Status { get; set; }
-
-        private static readonly IBulkMapping<BulkInMarketAudience>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Status,
-                c => c.Status.ToBulkString(),
-                (v, c) => c.Status = v.ParseOptional<Status>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Id,
-                c => c.InMarketAudience.Id.ToBulkString(),
-                (v, c) => c.InMarketAudience.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.ParentId,
-                c => c.InMarketAudience.ParentId.ToBulkString(),
-                (v, c) => c.InMarketAudience.ParentId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Audience,
-                c => c.InMarketAudience.Name,
-                (v, c) => c.InMarketAudience.Name = v
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Description,
-                c => c.InMarketAudience.Description,
-                (v, c) => c.InMarketAudience.Description = v
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.MembershipDuration,
-                c => c.InMarketAudience.MembershipDuration.ToBulkString(),
-                (v, c) => c.InMarketAudience.MembershipDuration = v.ParseOptional<int>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.Scope,
-                c => c.InMarketAudience.Scope.ToBulkString(),
-                (v, c) => c.InMarketAudience.Scope = v.ParseOptional<EntityScope>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.AudienceSearchSize,
-                c => c.InMarketAudience.SearchSize.ToBulkString(),
-                (v, c) => c.InMarketAudience.SearchSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.AudienceNetworkSize,
-                c => c.InMarketAudience.AudienceNetworkSize.ToBulkString(),
-                (v, c) => c.InMarketAudience.AudienceNetworkSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkInMarketAudience>(StringTable.SupportedCampaignTypes,
-                c => c.InMarketAudience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
-                (v, c) => c.InMarketAudience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
-            ),
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            InMarketAudience = new InMarketAudience { };
-
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(InMarketAudience, "InMarketAudience");
-
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }

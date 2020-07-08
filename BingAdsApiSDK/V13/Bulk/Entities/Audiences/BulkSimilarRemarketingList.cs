@@ -67,90 +67,30 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkSimilarRemarketingList : SingleRecordBulkEntity
+    public class BulkSimilarRemarketingList : BulkAudience<SimilarRemarketingList>
     {
         /// <summary>
         /// The Similar Remarketing List.
         /// </summary>
-        public SimilarRemarketingList SimilarRemarketingList { get; set; }
-
-        /// <summary>
-        /// The status of the Similar Remarketing List.
-        /// The value is Active if the Similar Remarketing List is available to be associated with an ad group. 
-        /// The value is Deleted if the Similar Remarketing List is deleted. 
-        /// Corresponds to the 'Status' field in the bulk file. 
-        /// </summary>
-        public Status? Status { get; set; }
+        public SimilarRemarketingList SimilarRemarketingList { get { return Audience; } set { Audience = value; } }
 
         private static readonly IBulkMapping<BulkSimilarRemarketingList>[] Mappings =
         {
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.Status,
-                c => c.Status.ToBulkString(),
-                (v, c) => c.Status = v.ParseOptional<Status>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.Id,
-                c => c.SimilarRemarketingList.Id.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.ParentId,
-                c => c.SimilarRemarketingList.ParentId.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.ParentId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.Audience,
-                c => c.SimilarRemarketingList.Name,
-                (v, c) => c.SimilarRemarketingList.Name = v
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.Description,
-                c => c.SimilarRemarketingList.Description,
-                (v, c) => c.SimilarRemarketingList.Description = v
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.MembershipDuration,
-                c => c.SimilarRemarketingList.MembershipDuration.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.MembershipDuration = v.ParseOptional<int>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.Scope,
-                c => c.SimilarRemarketingList.Scope.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.Scope = v.ParseOptional<EntityScope>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.AudienceSearchSize,
-                c => c.SimilarRemarketingList.SearchSize.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.SearchSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.AudienceNetworkSize,
-                c => c.SimilarRemarketingList.AudienceNetworkSize.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.AudienceNetworkSize = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.SupportedCampaignTypes,
-                c => c.SimilarRemarketingList.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
-                (v, c) => c.SimilarRemarketingList.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
-            ),
-
             new SimpleBulkMapping<BulkSimilarRemarketingList>(StringTable.SourceId,
-                c => c.SimilarRemarketingList.SourceId.ToBulkString(),
-                (v, c) => c.SimilarRemarketingList.SourceId = v.Parse<long>()
+                c => c.Audience.SourceId.ToBulkString(),
+                (v, c) => c.Audience.SourceId = v.Parse<long>()
             ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            SimilarRemarketingList = new SimilarRemarketingList { };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(SimilarRemarketingList, typeof(SimilarRemarketingList).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
     }

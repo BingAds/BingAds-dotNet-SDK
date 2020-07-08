@@ -47,55 +47,25 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
-using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using System;
 using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-// ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a remarketing list that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkRemarketingList.RemarketingList"/> property that can be read and written as fields of the Remarketing List record in a bulk file. 
+    /// Represents an Ad Group Customer List Association that can be read or written in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Remarketing List</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Customer List Association</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkRemarketingList : BulkAudience<RemarketingList>
+    public class BulkAdGroupCustomerListAssociation : BulkAdGroupAudienceAssociation
     {
-        /// <summary>
-        /// The remarketing list.
-        /// </summary>
-        public RemarketingList RemarketingList { get { return Audience; } set { Audience = value; } }
-
-        private static readonly IBulkMapping<BulkRemarketingList>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
-                c => c.Audience.TagId.ToBulkString(),
-                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
-                c => c.Audience.Rule.ToRemarketingRuleBulkString(),
-                (v, c) => c.Audience.Rule = v.ParseRemarketingRule()
-            )
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            base.ProcessMappingsFromRowValues(values);
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }

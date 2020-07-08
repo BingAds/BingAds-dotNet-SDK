@@ -92,7 +92,7 @@ namespace Microsoft.BingAds.Internal.OAuth
         /// <param name="oAuthParameters">OAuth parameters for authorization server call</param>
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received</exception>
         /// <returns>OAuth tokens</returns>
-        public async Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, bool requireLiveConnect)
+        public async Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, bool requireLiveConnect, string tenant, List<KeyValuePair<string, string>> additionalParams)
         {
             OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, requireLiveConnect);
 
@@ -113,8 +113,21 @@ namespace Microsoft.BingAds.Internal.OAuth
             {
                 values.Add(new KeyValuePair<string, string>("client_secret", oAuthParameters.ClientSecret));
             }
-            
-            var response = await _httpService.PostAsync(new Uri(EndpointUrls[endpointType].OAuthTokenUrl), values, TimeSpan.FromSeconds(100)).ConfigureAwait(false);
+
+            if (additionalParams != null)
+            {
+                values.AddRange(additionalParams);
+            }
+
+            var OAuthTokenUrl = EndpointUrls[endpointType].OAuthTokenUrl;
+
+            if (endpointType == OAuthEndpointType.ProductionMSIdentityV2 && !(string.IsNullOrEmpty(tenant)))
+            {
+                OAuthTokenUrl = OAuthTokenUrl.Replace("common", tenant);
+            }
+
+            var response = await _httpService.PostAsync(new Uri(OAuthTokenUrl), values, TimeSpan.FromSeconds(100)).ConfigureAwait(false);
+
 
             var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
 
@@ -141,8 +154,8 @@ namespace Microsoft.BingAds.Internal.OAuth
         public Uri RedirectionUri(bool requireLiveConnect)
         {
             OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, requireLiveConnect);
-
-            return new Uri(EndpointUrls[endpointType].RedirectUrl);
+            var redirectUrl = EndpointUrls[endpointType].RedirectUrl;
+            return new Uri(redirectUrl);
         }
 
         private static OAuthEndpointType GetOAuthEndpointType(ApiEnvironment env, bool requireLiveConnect)
@@ -159,12 +172,18 @@ namespace Microsoft.BingAds.Internal.OAuth
             return endpointType;
         }
         
-        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env, bool requireLiveConnect)
+        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env, bool requireLiveConnect, string tenant)
         {
             OAuthEndpointType endpointType = GetOAuthEndpointType(env, requireLiveConnect);
-            
+
+            var authorizationEndpointUrl = EndpointUrls[endpointType].AuthorizationEndpointUrl;
+
+            if (endpointType == OAuthEndpointType.ProductionMSIdentityV2 && !(string.IsNullOrEmpty(tenant)))
+            {
+                authorizationEndpointUrl = authorizationEndpointUrl.Replace("common", tenant);
+            }
             return new Uri(string.Format(
-                    EndpointUrls[endpointType].AuthorizationEndpointUrl,
+                    authorizationEndpointUrl,
                     parameters.ClientId,
                     parameters.ResponseType,
                     parameters.RedirectUri) + (string.IsNullOrEmpty(parameters.State) ? "" : string.Format("&state={0}", parameters.State)));

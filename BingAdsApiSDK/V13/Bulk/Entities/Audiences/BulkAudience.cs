@@ -57,44 +57,94 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a remarketing list that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkRemarketingList.RemarketingList"/> property that can be read and written as fields of the Remarketing List record in a bulk file. 
+    /// Represents a base audience that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkAudience.Audience"/> property that can be read and written as fields of the Audience record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Remarketing List</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Audience</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkRemarketingList : BulkAudience<RemarketingList>
+    public abstract class BulkAudience<T> : SingleRecordBulkEntity where T : Audience, new()
     {
         /// <summary>
-        /// The remarketing list.
+        /// The audience.
         /// </summary>
-        public RemarketingList RemarketingList { get { return Audience; } set { Audience = value; } }
+        protected T Audience { get; set; }
 
-        private static readonly IBulkMapping<BulkRemarketingList>[] Mappings =
+        /// <summary>
+        /// The status of the audience.
+        /// The value is Active if the audience is available to be associated with an ad group. 
+        /// The value is Deleted if the audience is deleted, or should be deleted in a subsequent upload operation. 
+        /// Corresponds to the 'Status' field in the bulk file. 
+        /// </summary>
+        public Status? Status { get; set; }
+
+        private static readonly IBulkMapping<BulkAudience<T>>[] Mappings =
         {
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
-                c => c.Audience.TagId.ToBulkString(),
-                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.Status,
+                c => c.Status.ToBulkString(),
+                (v, c) => c.Status = v.ParseOptional<Status>()
             ),
 
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
-                c => c.Audience.Rule.ToRemarketingRuleBulkString(),
-                (v, c) => c.Audience.Rule = v.ParseRemarketingRule()
-            )
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.Id,
+                c => c.Audience.Id.ToBulkString(),
+                (v, c) => c.Audience.Id = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.ParentId,
+                c => c.Audience.ParentId.ToBulkString(),
+                (v, c) => c.Audience.ParentId = v.Parse<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.Audience,
+                c => c.Audience.Name,
+                (v, c) => c.Audience.Name = v
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.Description,
+                c => c.Audience.Description,
+                (v, c) => c.Audience.Description = v
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.MembershipDuration,
+                c => c.Audience.MembershipDuration.ToBulkString(),
+                (v, c) => c.Audience.MembershipDuration = v.ParseOptional<int>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.Scope,
+                c => c.Audience.Scope.ToBulkString(),
+                (v, c) => c.Audience.Scope = v.ParseOptional<EntityScope>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.AudienceSearchSize,
+                c => c.Audience.SearchSize.ToBulkString(),
+                (v, c) => c.Audience.SearchSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.AudienceNetworkSize,
+                c => c.Audience.AudienceNetworkSize.ToBulkString(),
+                (v, c) => c.Audience.AudienceNetworkSize = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAudience<T>>(StringTable.SupportedCampaignTypes,
+                c => c.Audience.SupportedCampaignTypes.WriteAudienceSupportedCampaignTypes(";"),
+                (v, c) => c.Audience.SupportedCampaignTypes = v.ParseAudienceSupportedCampaignTypes()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            base.ProcessMappingsFromRowValues(values);
+            Audience = new T();
+
             values.ConvertToEntity(this, Mappings);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+            ValidatePropertyNotNull(Audience, typeof(T).Name);
+
             this.ConvertToValues(values, Mappings);
         }
     }

@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -57,44 +57,72 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a remarketing list that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkRemarketingList.RemarketingList"/> property that can be read and written as fields of the Remarketing List record in a bulk file. 
+    /// Represents a customer list that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkCustomerListItem.CustomerList"/> property that can be read and written as fields of the Customer List record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Remarketing List</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Customer List</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkRemarketingList : BulkAudience<RemarketingList>
+    public class BulkCustomerListItem : SingleRecordBulkEntity
     {
         /// <summary>
-        /// The remarketing list.
+        /// The ID of the parent Customer List audience.
+        /// Corresponds to the 'Text' field in the bulk file. 
         /// </summary>
-        public RemarketingList RemarketingList { get { return Audience; } set { Audience = value; } }
+        public long ParentId { get; set; }
 
-        private static readonly IBulkMapping<BulkRemarketingList>[] Mappings =
+        /// <summary>
+        /// The name of the parent Customer List audience.
+        /// Corresponds to the 'Text' field in the bulk file. 
+        /// </summary>
+        public string Audience { get; set; }
+
+        /// <summary>
+        /// Determines whether the 'Text' represents a CRMID or hashed Email value.
+        /// Corresponds to the 'Sub Type' field in the bulk file. 
+        /// </summary>
+        public string SubType { get; set; }
+
+        /// <summary>
+        /// The CRMID or hashed Email value.
+        /// Corresponds to the 'Text' field in the bulk file. 
+        /// </summary>
+        public string Text { get; set; }
+
+
+        private static readonly IBulkMapping<BulkCustomerListItem>[] Mappings =
         {
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
-                c => c.Audience.TagId.ToBulkString(),
-                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
+            new SimpleBulkMapping<BulkCustomerListItem>(StringTable.ParentId,
+                c => c.ParentId.ToBulkString(),
+                (v, c) => c.ParentId = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
-                c => c.Audience.Rule.ToRemarketingRuleBulkString(),
-                (v, c) => c.Audience.Rule = v.ParseRemarketingRule()
-            )
+            new SimpleBulkMapping<BulkCustomerListItem>(StringTable.Audience,
+                c => c.Audience,
+                (v, c) => c.Audience = v
+            ),
+
+            new SimpleBulkMapping<BulkCustomerListItem>(StringTable.SubType,
+                c => c.SubType,
+                (v, c) => c.SubType = v
+            ),
+
+            new SimpleBulkMapping<BulkCustomerListItem>(StringTable.Text,
+                c => c.Text,
+                (v, c) => c.Text = v
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
     }

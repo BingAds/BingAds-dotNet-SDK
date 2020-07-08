@@ -58,11 +58,12 @@ namespace Microsoft.BingAds.Internal
 {
     internal class HttpService : IHttpService
     {
+        private static readonly string UserAgent = string.Format("BingAdsSDK.NET_{0}", typeof(UserAgentBehavior).Assembly.GetName().Version);
 
         public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
         {
             var client = new HttpClient { Timeout = timeout };
-
+            client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
             return client.PostAsync(requestUri, new FormUrlEncodedContent(formValues));
         }
 

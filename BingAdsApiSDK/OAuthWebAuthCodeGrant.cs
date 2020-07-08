@@ -106,8 +106,9 @@ namespace Microsoft.BingAds
             string clientSecret, 
             Uri redirectionUri, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, clientSecret, redirectionUri, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, clientSecret, redirectionUri, environment, requireLiveConnect, tenant)
         {
             if (redirectionUri == null)
             {
@@ -154,8 +155,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, requireLiveConnect, tenant)
         {
             if (clientSecret == null)
             {
@@ -198,8 +200,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             OAuthTokens oAuthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, requireLiveConnect, tenant)
         {
             if (clientSecret == null)
             {
@@ -213,8 +216,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect)
-            : base(clientId, clientSecret, redirectionUri, oauthService, env, requireLiveConnect)
+            bool requireLiveConnect,
+            string tenant="common")
+            : base(clientId, clientSecret, redirectionUri, oauthService, env, requireLiveConnect, tenant)
         {
         }
     }

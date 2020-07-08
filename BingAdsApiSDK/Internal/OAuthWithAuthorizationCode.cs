@@ -126,8 +126,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             string refreshToken, 
             ApiEnvironment? environment,
-            bool requireLiveConnect)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect)
+            bool requireLiveConnect,
+            string tenant)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect, tenant)
         {
             if (refreshToken == null)
             {
@@ -169,8 +170,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment,
-            bool requireLiveConnect)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect)
+            bool requireLiveConnect,
+            string tenant)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect, tenant)
         {
             if (oauthTokens == null || oauthTokens.RefreshToken == null)
             {
@@ -207,12 +209,13 @@ namespace Microsoft.BingAds.Internal
             string optionalClientSecret, 
             Uri redirectionUri, 
             ApiEnvironment? environment,
-            bool requireLiveConnect)
-            :  base(clientId, environment, requireLiveConnect)
+            bool requireLiveConnect, 
+            string tenant)
+            :  base(clientId, environment, requireLiveConnect, tenant)
         {
             _optionalClientSecret = optionalClientSecret;
             _oauthService = new UriOAuthService(Environment);
-            _redirectionUri = redirectionUri?? _oauthService.RedirectionUri(requireLiveConnect);
+            _redirectionUri = redirectionUri ?? _oauthService.RedirectionUri(requireLiveConnect);
         }
 
         internal OAuthWithAuthorizationCode(
@@ -221,8 +224,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect)
-            : base(clientId, env, requireLiveConnect)
+            bool requireLiveConnect, 
+            string tenant)
+            : base(clientId, env, requireLiveConnect, tenant)
         {
             if (redirectionUri == null)
             {
@@ -248,7 +252,8 @@ namespace Microsoft.BingAds.Internal
                 State = State,
             }, 
             Environment, 
-            RequireLiveConnect);
+            RequireLiveConnect, 
+            Tenant);
         }
 
         /// <summary>
@@ -263,7 +268,7 @@ namespace Microsoft.BingAds.Internal
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>      
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>  
-        public async Task<OAuthTokens> RequestAccessAndRefreshTokensAsync(Uri responseUri)
+        public async Task<OAuthTokens> RequestAccessAndRefreshTokensAsync(Uri responseUri, List<KeyValuePair<string, string>> additionalParams = null)
         {
             if (responseUri == null)
             {
@@ -303,7 +308,9 @@ namespace Microsoft.BingAds.Internal
                 GrantType = "authorization_code",
                 GrantParamName = "code",
                 GrantValue = code,
-            }, RequireLiveConnect).ConfigureAwait(false);
+            }, 
+            RequireLiveConnect,
+            Tenant, additionalParams).ConfigureAwait(false);
 
             RaiseNewTokensReceivedEvent();
 
@@ -322,7 +329,7 @@ namespace Microsoft.BingAds.Internal
         /// </remarks>
         /// <returns>A task that represents the asynchronous operation. The task result will be an <see cref="OAuthTokens"/> object.</returns>        
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received due to an error received from the Microsoft Account authorization server.</exception>
-        public async Task<OAuthTokens> RequestAccessAndRefreshTokensAsync(string refreshToken)
+        public async Task<OAuthTokens> RequestAccessAndRefreshTokensAsync(string refreshToken, List<KeyValuePair<string, string>> additionalParams = null)
         {
             if (refreshToken == null)
             {
@@ -337,7 +344,10 @@ namespace Microsoft.BingAds.Internal
                 GrantType = "refresh_token",
                 GrantParamName = "refresh_token",
                 GrantValue = refreshToken,
-            }, RequireLiveConnect).ConfigureAwait(false);
+            }, 
+            RequireLiveConnect,
+            Tenant,
+            additionalParams).ConfigureAwait(false);
 
             RaiseNewTokensReceivedEvent();
 

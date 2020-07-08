@@ -100,8 +100,9 @@ namespace Microsoft.BingAds
         public OAuthDesktopMobileImplicitGrant(
             string clientId, 
             ApiEnvironment? environment = ApiEnvironment.Production, 
-            bool requireLiveConnect = false)
-            : base(clientId, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, environment, requireLiveConnect, tenant)
         {
             _oauthService = new UriOAuthService(Environment);
             _redirectionUri = _oauthService.RedirectionUri(requireLiveConnect);
@@ -124,8 +125,9 @@ namespace Microsoft.BingAds
             string clientId, 
             OAuthTokens oAuthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false)
-            : base(clientId, environment, requireLiveConnect)
+            bool requireLiveConnect = false,
+            string tenant = "common")
+            : base(clientId, environment, requireLiveConnect, tenant)
         {
             OAuthTokens = oAuthTokens;
         }
@@ -141,10 +143,11 @@ namespace Microsoft.BingAds
                 ClientId = ClientId,
                 ResponseType = "token",
                 RedirectUri = RedirectionUri,
-                State = State,
+                State = State
             }, 
             Environment,
-            RequireLiveConnect);
+            RequireLiveConnect,
+            Tenant);
             
         }
 

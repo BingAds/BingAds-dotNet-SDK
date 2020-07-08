@@ -85,6 +85,11 @@ namespace Microsoft.BingAds.Internal
         public ApiEnvironment Environment { get; }
 
         /// <summary>
+        /// Determines whether or not to use a custom tenant via MS Identity in production.
+        /// </summary>
+        public string Tenant { get;  }
+
+        /// <summary>
         /// The URI to which the user of the app will be redirected after receiving user consent.
         /// </summary>
         public abstract Uri RedirectionUri { get; }
@@ -100,7 +105,7 @@ namespace Microsoft.BingAds.Internal
         /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, bool requireLiveConnect)
+        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, bool requireLiveConnect, string tenant)
         {
             if (clientId == null)
             {
@@ -119,6 +124,8 @@ namespace Microsoft.BingAds.Internal
             }
 
             RequireLiveConnect = requireLiveConnect;
+
+            Tenant = tenant;
 
         }
         

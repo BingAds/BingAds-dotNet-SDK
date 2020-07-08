@@ -563,6 +563,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetRoasBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxRoasBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxConversionValueBiddingScheme))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetImpressionShareBiddingScheme))]
     public partial class BiddingScheme : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -621,7 +622,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13">CustomParameters Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13 for details.
-    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="FilterLinkAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1158,7 +1159,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines an object that represents the maximum conversion value bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxconversionvaluebiddingscheme?view=bingads-13">MaxConversionValueBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/maxconversionvaluebiddingscheme?view=bingads-13 for details.
@@ -1195,11 +1196,94 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetimpressionsharebiddingscheme?view=bingads-13">TargetImpressionShareBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetimpressionsharebiddingscheme?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TargetImpressionShareBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class TargetImpressionShareBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpcField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TargetAdPositionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> TargetImpressionShareField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpc
+        {
+            get
+            {
+                return this.MaxCpcField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MaxCpcField, value) != true))
+                {
+                    this.MaxCpcField = value;
+                    this.RaisePropertyChanged("MaxCpc");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TargetAdPosition
+        {
+            get
+            {
+                return this.TargetAdPositionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TargetAdPositionField, value) != true))
+                {
+                    this.TargetAdPositionField = value;
+                    this.RaisePropertyChanged("TargetAdPosition");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> TargetImpressionShare
+        {
+            get
+            {
+                return this.TargetImpressionShareField;
+            }
+            set
+            {
+                if ((this.TargetImpressionShareField.Equals(value) != true))
+                {
+                    this.TargetImpressionShareField = value;
+                    this.RaisePropertyChanged("TargetImpressionShare");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// The highest price that you want to pay each time someone clicks your ad.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/bid?view=bingads-13">Bid Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/bid?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdGroup"/>, <see cref="Keyword"/>, <see cref="MaxClicksBiddingScheme"/>, <see cref="MaxConversionsBiddingScheme"/>, <see cref="MaxRoasBiddingScheme"/>, <see cref="TargetCpaBiddingScheme"/> and <see cref="TargetRoasBiddingScheme"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroup"/>, <see cref="Keyword"/>, <see cref="MaxClicksBiddingScheme"/>, <see cref="MaxConversionsBiddingScheme"/>, <see cref="MaxRoasBiddingScheme"/>, <see cref="TargetCpaBiddingScheme"/>, <see cref="TargetImpressionShareBiddingScheme"/> and <see cref="TargetRoasBiddingScheme"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1391,7 +1475,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Helps determine which Microsoft Shopping campaign  serves ads, in the event that two or more campaigns use the product catalog feed from the same Microsoft Merchant Center store.
+        /// Helps determine which Microsoft Shopping campaign serves ads, in the event that two or more campaigns use the product catalog feed from the same Microsoft Merchant Center store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> Priority
@@ -2770,10 +2854,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         AdScheduleUseSearcherTimeZone = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the MaxConversionValueBiddingScheme object be returned within the BiddingScheme element of each returned Campaign object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MaxConversionValueBiddingScheme = 2,
+        
+        /// <summary>
+        /// Request that the TargetImpressionShareBiddingScheme object be returned within the BiddingScheme element of each returned Campaign object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetImpressionShareBiddingScheme = 4,
     }
     
     /// <summary>
@@ -7225,6 +7315,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.StructuredSnippetAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PriceAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PromotionAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FilterLinkAdExtension))]
     public partial class AdExtension : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -9381,7 +9472,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The percent off promotion value in micros.
+        /// The percent off promotion value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> PercentOff
@@ -9522,6 +9613,181 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         /// <summary>
         /// Your custom collection of key and value parameters for URL tracking.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
+        {
+            get
+            {
+                return this.UrlCustomParametersField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlCustomParametersField, value) != true))
+                {
+                    this.UrlCustomParametersField = value;
+                    this.RaisePropertyChanged("UrlCustomParameters");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/filterlinkadextension?view=bingads-13">FilterLinkAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/filterlinkadextension?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FilterLinkAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class FilterLinkAdExtension : Microsoft.BingAds.V13.CampaignManagement.AdExtension
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionHeaderType> AdExtensionHeaderTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> TextsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TrackingUrlTemplateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionHeaderType> AdExtensionHeaderType
+        {
+            get
+            {
+                return this.AdExtensionHeaderTypeField;
+            }
+            set
+            {
+                if ((this.AdExtensionHeaderTypeField.Equals(value) != true))
+                {
+                    this.AdExtensionHeaderTypeField = value;
+                    this.RaisePropertyChanged("AdExtensionHeaderType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalMobileUrls
+        {
+            get
+            {
+                return this.FinalMobileUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalMobileUrlsField, value) != true))
+                {
+                    this.FinalMobileUrlsField = value;
+                    this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalUrls
+        {
+            get
+            {
+                return this.FinalUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlsField, value) != true))
+                {
+                    this.FinalUrlsField = value;
+                    this.RaisePropertyChanged("FinalUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Language
+        {
+            get
+            {
+                return this.LanguageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LanguageField, value) != true))
+                {
+                    this.LanguageField = value;
+                    this.RaisePropertyChanged("Language");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Texts
+        {
+            get
+            {
+                return this.TextsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextsField, value) != true))
+                {
+                    this.TextsField = value;
+                    this.RaisePropertyChanged("Texts");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TrackingUrlTemplate
+        {
+            get
+            {
+                return this.TrackingUrlTemplateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TrackingUrlTemplateField, value) != true))
+                {
+                    this.TrackingUrlTemplateField = value;
+                    this.RaisePropertyChanged("TrackingUrlTemplate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
@@ -11302,6 +11568,121 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionheadertype?view=bingads-13">AdExtensionHeaderType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionheadertype?view=bingads-13 for details.
+    /// <para>Used by <see cref="FilterLinkAdExtension"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionHeaderType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AdExtensionHeaderType : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Amenities = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Brands = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Courses = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DegreePrograms = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Destinations = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeaturedHotels = 6,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goods = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InsuranceCoverage = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Items = 9,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Models = 10,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Neighborhoods = 11,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Services = 12,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ServiceCatalog = 13,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shows = 14,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Styles = 15,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Types = 16,
+    }
+    
+    /// <summary>
     /// Defines an object that identifies an ad extension revision.
     /// </summary>
     /// <remarks>
@@ -11844,6 +12225,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PromotionAdExtension = 1024,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FilterLinkAdExtension = 2048,
     }
     
     /// <summary>
@@ -13845,7 +14232,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a campaign level product scope with list of conditions that help determine whether a product from the Microsoft Merchant Center store gets served as a product ad.
+    /// Defines a campaign level product scope with list of conditions that help determine which items from your catalog to include in the campaign e.g., filter by brand or condition.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/productscope?view=bingads-13">ProductScope Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/productscope?view=bingads-13 for details.
@@ -18824,7 +19211,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <para>Used by <see cref="CombinationRule"/> data object.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="LogicalOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum LogicalOperator : int
     {

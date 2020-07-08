@@ -57,32 +57,27 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a remarketing list that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkRemarketingList.RemarketingList"/> property that can be read and written as fields of the Remarketing List record in a bulk file. 
+    /// Represents a combined list that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkCombinedList.CombinedList"/> property that can be read and written as fields of the Combined List record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Remarketing List</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Combined List</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkRemarketingList : BulkAudience<RemarketingList>
+    public class BulkCombinedList : BulkAudience<CombinedList>
     {
         /// <summary>
-        /// The remarketing list.
+        /// The combined list.
         /// </summary>
-        public RemarketingList RemarketingList { get { return Audience; } set { Audience = value; } }
+        public CombinedList CombinedList { get { return Audience; } set { Audience = value; } }
 
-        private static readonly IBulkMapping<BulkRemarketingList>[] Mappings =
+        private static readonly IBulkMapping<BulkCombinedList>[] Mappings =
         {
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.TagId,
-                c => c.Audience.TagId.ToBulkString(),
-                (v, c) => c.Audience.TagId = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkRemarketingList>(StringTable.RemarketingRule,
-                c => c.Audience.Rule.ToRemarketingRuleBulkString(),
-                (v, c) => c.Audience.Rule = v.ParseRemarketingRule()
+            new SimpleBulkMapping<BulkCombinedList>(StringTable.CombinationRule,
+                c => c.Audience.CombinationRules.ToCombinationRulesBulkString(),
+                (v, c) => c.Audience.CombinationRules = v.ParseCombinationRules()
             )
         };
 

@@ -600,6 +600,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";
         public const string BidStrategyTargetRoas = "Bid Strategy TargetRoas";
         public const string InheritedBidStrategyType = "Inherited Bid Strategy Type";
+        public const string BidStrategyTargetAdPosition = "Bid Strategy TargetAdPosition";
+        public const string BidStrategyTargetImpressionShare = "Bid Strategy TargetImpressionShare";
 
         // Target and bid
         public const string TargetSetting = "Target Setting";
@@ -631,6 +633,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupNegativeSimilarRemarketingListAssociation = "Ad Group Negative Similar Remarketing List Association";
         public const string CampaignSimilarRemarketingListAssociation = "Campaign Similar Remarketing List Association";
         public const string CampaignNegativeSimilarRemarketingListAssociation = "Campaign Negative Similar Remarketing List Association";
+        public const string CombinedList = "Combined List";
+        public const string AdGroupCombinedListAssociation = "Ad Group Combined List Association";
+        public const string AdGroupNegativeCombinedListAssociation = "Ad Group Negative Combined List Association";
+        public const string CampaignCombinedListAssociation = "Campaign Combined List Association";
+        public const string CampaignNegativeCombinedListAssociation = "Campaign Negative Combined List Association";
         public const string Description = "Description";
         public const string MembershipDuration = "Membership Duration";
         public const string Scope = "Scope";
@@ -642,7 +649,13 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AudienceNetworkSize = "Audience Network Size";
         public const string SupportedCampaignTypes = "Supported Campaign Types";
         public const string ProductAudienceType = "Product Audience Type";
-
+        public const string CombinationRule = "Combination Rule";
+        public const string CustomerList = "Customer List";
+        public const string CustomerListItem = "Customer List Item";
+        public const string AdGroupCustomerListAssociation = "Ad Group Customer List Association";
+        public const string AdGroupNegativeCustomerListAssociation = "Ad Group Negative Customer List Association";
+        public const string CampaignCustomerListAssociation = "Campaign Customer List Association";
+        public const string CampaignNegativeCustomerListAssociation = "Campaign Negative Customer List Association";
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";

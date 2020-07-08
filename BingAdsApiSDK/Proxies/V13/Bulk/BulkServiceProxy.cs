@@ -513,19 +513,19 @@ namespace Microsoft.BingAds.V13.Bulk
         AdGroupNegativeInMarketAudienceAssociations = 63,
         
         /// <summary>
-        /// Include Combined List, Custom Audience, In Market Audience, Product Audience, Remarketing List, and Similar Remarketing List records in the download data.
+        /// Include Combined List, Custom Audience, Customer List, In Market Audience, Product Audience, Remarketing List, and Similar Remarketing List records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audiences = 64,
         
         /// <summary>
-        /// Include Ad Group Combined List Association, Ad Group Custom Audience Association, Ad Group In Market Audience Association, Ad Group Product Audience Association, Ad Group Remarketing List Association, and Ad Group Similar Remarketing List Association records in the download data.
+        /// Include Ad Group Combined List Association, Ad Group Custom Audience Association, Ad Group Customer List Association, Ad Group In Market Audience Association, Ad Group Product Audience Association, Ad Group Remarketing List Association, and Ad Group Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAudienceAssociations = 65,
         
         /// <summary>
-        /// Include Ad Group Negative Combined List Association, Ad Group Negative Custom Audience Association, Ad Group Negative In Market Audience Association, Ad Group Negative Product Audience Association, Ad Group Negative Remarketing List Association, and Ad Group Negative Similar Remarketing List Association records in the download data.
+        /// Include Ad Group Negative Combined List Association, Ad Group Negative Custom Audience Association, Ad Group Negative Customer List Association, Ad Group Negative In Market Audience Association, Ad Group Negative Product Audience Association, Ad Group Negative Remarketing List Association, and Ad Group Negative Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeAudienceAssociations = 66,
@@ -693,13 +693,13 @@ namespace Microsoft.BingAds.V13.Bulk
         ResponsiveSearchAdLabels = 93,
         
         /// <summary>
-        /// Include Campaign Combined List Association, Campaign Custom Audience Association, Campaign In Market Audience Association, Campaign Product Audience Association, Campaign Remarketing List Association, and Campaign Similar Remarketing List Association records in the download data.
+        /// Include Campaign Combined List Association, Campaign Custom Audience Association, Campaign Customer List Association, Campaign In Market Audience Association, Campaign Product Audience Association, Campaign Remarketing List Association, and Campaign Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignAudienceAssociations = 94,
         
         /// <summary>
-        /// Include Campaign Negative Combined List Association, Campaign Negative Custom Audience Association, Campaign Negative In Market Audience Association, Campaign Negative Product Audience Association, Campaign Negative Remarketing List Association, and Campaign Negative Similar Remarketing List Association records in the download data.
+        /// Include Campaign Negative Combined List Association, Campaign Negative Custom Audience Association, Campaign Negative Customer List Association, Campaign Negative In Market Audience Association, Campaign Negative Product Audience Association, Campaign Negative Remarketing List Association, and Campaign Negative Similar Remarketing List Association records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeAudienceAssociations = 95,
@@ -835,6 +835,66 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeCombinedListAssociations = 117,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Images = 118,
+        
+        /// <summary>
+        /// Include Customer List records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerLists = 119,
+        
+        /// <summary>
+        /// Include Ad Group Customer List Association records in the download that each represent the association relationship between an ad group and a customer list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupCustomerListAssociations = 120,
+        
+        /// <summary>
+        /// Include Ad Group Negative Customer List Association records in the download that each represent the association relationship between an ad group and a customer list exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupNegativeCustomerListAssociations = 121,
+        
+        /// <summary>
+        /// Include Campaign Customer List Association records in the download that each represent the association relationship between a campaign and a customer list.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignCustomerListAssociations = 122,
+        
+        /// <summary>
+        /// Include Campaign Negative Customer List Association records in the download that each represent the association relationship between a campaign and a customer list exclusion.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeCustomerListAssociations = 123,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FilterLinkAdExtensions = 124,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountFilterLinkAdExtensions = 125,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignFilterLinkAdExtensions = 126,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupFilterLinkAdExtensions = 127,
     }
     
     /// <summary>
