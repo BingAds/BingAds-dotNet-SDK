@@ -132,7 +132,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("-----\nAddSharedEntity:");
                 var addSharedEntityResponse = await CampaignManagementExampleHelper.AddSharedEntityAsync(
                     sharedEntity: negativeKeywordList, 
-                    listItems: negativeKeywords);
+                    listItems: negativeKeywords,
+                    sharedEntityScope: EntityScope.Account);
                 var sharedEntityId = addSharedEntityResponse.SharedEntityId;
                 long[] listItemIds = addSharedEntityResponse.ListItemIds.ToArray();
 
@@ -159,7 +160,8 @@ namespace BingAdsExamplesLibrary.V13
 
                 OutputStatusMessage("-----\nSetSharedEntityAssociations:");
                 var partialErrors = (await CampaignManagementExampleHelper.SetSharedEntityAssociationsAsync(
-                    associations: associations)).PartialErrors;
+                    associations: associations,
+                    sharedEntityScope: EntityScope.Account)).PartialErrors;
                 OutputStatusMessage(string.Format(
                     "Associated CampaignId {0} with Negative Keyword List Id {1}.",
                     campaignId, sharedEntityId)
@@ -178,7 +180,8 @@ namespace BingAdsExamplesLibrary.V13
 
                 OutputStatusMessage("-----\nDeleteSharedEntities:");
                 partialErrors = (await CampaignManagementExampleHelper.DeleteSharedEntitiesAsync(
-                    sharedEntities: new SharedEntity[] { new NegativeKeywordList { Id = sharedEntityId } }))?.PartialErrors;
+                    sharedEntities: new SharedEntity[] { new NegativeKeywordList { Id = sharedEntityId } },
+                    sharedEntityScope: EntityScope.Account))?.PartialErrors;
                 OutputStatusMessage(string.Format("Deleted Negative Keyword List Id {0}", sharedEntityId));
             }
             // Catch authentication exceptions

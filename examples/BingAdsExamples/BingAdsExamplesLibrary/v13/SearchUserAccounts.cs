@@ -23,7 +23,7 @@ namespace BingAdsExamplesLibrary.V13
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
-                
+
                 CustomerManagementExampleHelper CustomerManagementExampleHelper = new CustomerManagementExampleHelper(
                     OutputStatusMessageDefault: this.OutputStatusMessage);
                 CustomerManagementExampleHelper.CustomerManagementService = new ServiceClient<ICustomerManagementService>(

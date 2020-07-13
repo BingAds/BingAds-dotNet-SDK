@@ -40,7 +40,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("-----\nGetCampaignsByAccountId:");
                 var campaigns = (await CampaignManagementExampleHelper.GetCampaignsByAccountIdAsync(
                     accountId: authorizationData.AccountId,
-                    campaignType: AllCampaignTypes)).Campaigns;
+                    campaignType: AllCampaignTypes,
+                    returnAdditionalFields: CampaignAdditionalField.AdScheduleUseSearcherTimeZone)).Campaigns;
                 OutputStatusMessage("Campaigns:");
                 CampaignManagementExampleHelper.OutputArrayOfCampaign(campaigns);
 

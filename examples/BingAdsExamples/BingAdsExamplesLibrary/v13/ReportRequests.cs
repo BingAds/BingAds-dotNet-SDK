@@ -46,7 +46,7 @@ namespace BingAdsExamplesLibrary.V13
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
-
+                
                 ReportingServiceManager = new ReportingServiceManager(
                     authorizationData: authorizationData, 
                     apiEnvironment: environment);
