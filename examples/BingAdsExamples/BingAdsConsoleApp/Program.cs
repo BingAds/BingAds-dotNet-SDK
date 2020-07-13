@@ -13,8 +13,8 @@ using System.IO;
 using Microsoft.BingAds.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Debug;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace BingAdsConsoleApp
 {
@@ -132,11 +132,16 @@ namespace BingAdsConsoleApp
             else
             {
                 // You must request user consent at least once through a web browser control. 
+                var codeVerifier = "mycodeverifiermycodeverifiermycodeverifiermycodeverifiermycodeverifier";
+                Console.SetIn(new StreamReader(Console.OpenStandardInput(8192)));
+                
                 Console.WriteLine(string.Format(
                     "Open a new web browser and navigate to {0}\n\n" +
                     "Grant consent in the web browser for the application to access " +
                     "your advertising accounts, and then enter the response URI that includes " +
-                    "the authorization 'code' parameter: \n", oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint())
+                    "the authorization 'code' parameter: \n", 
+                    oAuthDesktopMobileAuthCodeGrant.GetAuthorizationEndpoint() +
+                    "&code_challenge_method=plain&code_challenge=" + codeVerifier)
                 );
                 
                 // After consent has been granted, read the reponse URI that should contain the authorization code.
@@ -146,7 +151,13 @@ namespace BingAdsConsoleApp
                     throw new HttpRequestException("The OAuth response state does not match the client request state.");
 
                 // Request access and refresh tokens.
-                oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri).Wait();
+                var additionalParams = new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>(
+                        "code_verifier",
+                        codeVerifier)
+                };
+                oAuthDesktopMobileAuthCodeGrant.RequestAccessAndRefreshTokensAsync(responseUri, additionalParams).Wait();
 
                 // Store the refresh token for future use as needed. 
                 SaveRefreshToken(oAuthDesktopMobileAuthCodeGrant.OAuthTokens.RefreshToken);
