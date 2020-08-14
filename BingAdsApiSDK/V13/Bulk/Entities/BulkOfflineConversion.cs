@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a label that can be read or written in a bulk file. 
+    /// Represents a offline conversion that can be read or written in a bulk file. 
     /// This class exposes the <see cref="BulkOfflineConversion.OfflineConversion"/> property that can be read and written as fields of the OfflineConversion record in a bulk file. 
     /// </para>
     /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">OfflineConversion</see>. </para>
@@ -73,6 +73,43 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// The offline conversion.
         /// </summary>
         public OfflineConversion OfflineConversion { get; set; }
+
+        /// <summary>
+        /// The offline conversion adjustment value.
+        /// Corresponds to the 'Adjustment Value' field in the bulk file. 
+        /// </summary>
+        public double? AdjustmentValue { get; set; }
+
+        /// <summary>
+        /// The offline conversion adjustment time.
+        /// Corresponds to the 'Adjustment Time' field in the bulk file. 
+        /// </summary>
+        public DateTime? AdjustmentTime { get; set; }
+
+        /// <summary>
+        /// The offline conversion adjustment currency code.
+        /// Corresponds to the 'Adjustment Currency Code' field in the bulk file. 
+        /// </summary>
+        public string AdjustmentCurrencyCode { get; set; }
+
+        /// <summary>
+        /// The offline conversion adjustment type.
+        /// Corresponds to the 'Adjustment Type' field in the bulk file. 
+        /// </summary>
+        public string AdjustmentType { get; set; }
+
+        /// <summary>
+        /// The offline conversion External Attribution Model.
+        /// Corresponds to the 'External Attribution Model' field in the bulk file. 
+        /// </summary>
+        public string ExternalAttributionModel { get; set; }
+
+        /// <summary>
+        /// The offline conversion External Attribution Credit.
+        /// Corresponds to the 'External Attribution Credit' field in the bulk file. 
+        /// </summary>
+        public double? ExternalAttributionCredit { get; set; }
+          
 
         private static readonly IBulkMapping<BulkOfflineConversion>[] Mappings =
         {
@@ -99,6 +136,36 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkOfflineConversion>(StringTable.MicrosoftClickId,
                 c => c.OfflineConversion.MicrosoftClickId,
                 (v, c) => c.OfflineConversion.MicrosoftClickId = v
+            ),
+            
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.AdjustmentValue,
+                c => c.AdjustmentValue.ToBulkString(),
+                (v, c) => c.AdjustmentValue = v.ParseOptional<double>()
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.AdjustmentTime,
+                c => c.AdjustmentTime.ToDateTimeBulkString(null),
+                (v, c) => c.AdjustmentTime = v.ParseDateTime()
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.AdjustmentCurrencyCode,
+                c => c.AdjustmentCurrencyCode,
+                (v, c) => c.AdjustmentCurrencyCode = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.AdjustmentType,
+                c => c.AdjustmentType,
+                (v, c) => c.AdjustmentType = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ExternalAttributionModel,
+                c => c.ExternalAttributionModel,
+                (v, c) => c.ExternalAttributionModel = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.ExternalAttributionCredit,
+                c => c.ExternalAttributionCredit.ToBulkString(),
+                (v, c) => c.ExternalAttributionCredit = v.ParseOptional<double>()
             ),
         };
 

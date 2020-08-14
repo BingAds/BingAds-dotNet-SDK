@@ -110,7 +110,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the account.
+        /// The system-generated identifier of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
@@ -821,7 +821,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the account.
+        /// The system-generated identifier of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Nullable<long> Id
@@ -921,7 +921,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
+        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string Number
@@ -1396,7 +1396,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the address object.
+        /// The system-generated identifier of the address object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -2907,7 +2907,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the customer.
+        /// The system-generated identifier of the customer.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -3081,7 +3081,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated customer identifier.
+        /// The system-generated customer identifier.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -3606,6 +3606,579 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 1,
+    }
+    
+    /// <summary>
+    /// Defines an invitation for a user to sign up for Microsoft Advertising.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13">UserInvitation Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see>, <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> and <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInvitation", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class UserInvitation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RoleIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> AccountIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ExpirationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CustomerManagement.LCID LcidField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// A system-generated unique identifier for the user invitation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The first name of the user.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public string FirstName
+        {
+            get
+            {
+                return this.FirstNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true))
+                {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The last name of the user.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string LastName
+        {
+            get
+            {
+                return this.LastNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true))
+                {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The email address corresponding to the user's Microsoft account.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string Email
+        {
+            get
+            {
+                return this.EmailField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.EmailField, value) != true))
+                {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the customer this user is invited to manage.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public long CustomerId
+        {
+            get
+            {
+                return this.CustomerIdField;
+            }
+            set
+            {
+                if ((this.CustomerIdField.Equals(value) != true))
+                {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The role that the user has for each customer or list of accounts.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int RoleId
+        {
+            get
+            {
+                return this.RoleIdField;
+            }
+            set
+            {
+                if ((this.RoleIdField.Equals(value) != true))
+                {
+                    this.RoleIdField = value;
+                    this.RaisePropertyChanged("RoleId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// An array of identifiers of the accounts that the user can manage.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Collections.Generic.IList<long> AccountIds
+        {
+            get
+            {
+                return this.AccountIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountIdsField, value) != true))
+                {
+                    this.AccountIdsField = value;
+                    this.RaisePropertyChanged("AccountIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The date and time that the user invitation will expire.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.DateTime ExpirationDate
+        {
+            get
+            {
+                return this.ExpirationDateField;
+            }
+            set
+            {
+                if ((this.ExpirationDateField.Equals(value) != true))
+                {
+                    this.ExpirationDateField = value;
+                    this.RaisePropertyChanged("ExpirationDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The locale to use when sending correspondence to the user by email or postal mail.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public Microsoft.BingAds.V13.CustomerManagement.LCID Lcid
+        {
+            get
+            {
+                return this.LcidField;
+            }
+            set
+            {
+                if ((this.LcidField.Equals(value) != true))
+                {
+                    this.LcidField = value;
+                    this.RaisePropertyChanged("Lcid");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines a selection of locale values.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13">LCID Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13 for details.
+    /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LCID", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    public enum LCID : int
+    {
+        
+        /// <summary>
+        /// Arabic (Saudi Arabia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicSaudiArabia = 1025,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicAlgeria = 5121,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicBahrain = 15361,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicEgypt = 3073,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicIraq = 2049,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicJordan = 11265,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicKuwait = 13313,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicLebanon = 12289,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicLibya = 4097,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicMorocco = 6145,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicOman = 8193,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicQatar = 16385,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicTunisia = 7169,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicUnitedArabEmirates = 14337,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ArabicYemen = 9217,
+        
+        /// <summary>
+        /// Chinese (Taiwan)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChineseTaiwan = 1028,
+        
+        /// <summary>
+        /// Danish (Denmark)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DanishDenmark = 1030,
+        
+        /// <summary>
+        /// German (Germany)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GermanGermany = 1031,
+        
+        /// <summary>
+        /// English (United States)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishUS = 1033,
+        
+        /// <summary>
+        /// Spanish (Spain)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishSpain = 1034,
+        
+        /// <summary>
+        /// Finnish (Finland)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinnishFinland = 1035,
+        
+        /// <summary>
+        /// French (France)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FrenchFrance = 1036,
+        
+        /// <summary>
+        /// Hebrew (Israel)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HebrewIsrael = 1037,
+        
+        /// <summary>
+        /// Italian (Italy)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ItalianItaly = 1040,
+        
+        /// <summary>
+        /// Korean (Korea)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KoreanKorea = 1042,
+        
+        /// <summary>
+        /// Dutch (Netherlands)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DutchNetherlands = 1043,
+        
+        /// <summary>
+        /// Norwegian (Norway)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NorwegianNorway = 1044,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PortugueseBrazil = 1046,
+        
+        /// <summary>
+        /// Russian (Russia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RussianRussia = 1049,
+        
+        /// <summary>
+        /// Swedish (Sweden)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SwedishSweden = 1053,
+        
+        /// <summary>
+        /// English (Thailand)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishThailand = 1054,
+        
+        /// <summary>
+        /// English (Indonesia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishIndonesia = 1057,
+        
+        /// <summary>
+        /// English (Vietnam)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishVietnam = 1066,
+        
+        /// <summary>
+        /// German (Switzerland)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GermanSwitzerland = 2055,
+        
+        /// <summary>
+        /// English (United Kingdom)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishUK = 2057,
+        
+        /// <summary>
+        /// Spanish (Mexico)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishMexico = 2058,
+        
+        /// <summary>
+        /// Chinese (Hong Kong)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChineseHongKong = 3076,
+        
+        /// <summary>
+        /// German (Austria)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GermanAustria = 3079,
+        
+        /// <summary>
+        /// English (Australia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishAustralia = 3081,
+        
+        /// <summary>
+        /// French (Canada)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FrenchCanada = 3084,
+        
+        /// <summary>
+        /// English (Canada)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishCanada = 4105,
+        
+        /// <summary>
+        /// English (New Zealand)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishNewZealand = 5129,
+        
+        /// <summary>
+        /// The corresponding LCID type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishIreland = 6153,
+        
+        /// <summary>
+        /// Spanish (Venezuela)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishVenezuela = 8202,
+        
+        /// <summary>
+        /// Spanish (Colombia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishColombia = 9226,
+        
+        /// <summary>
+        /// Spanish (Peru)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishPeru = 10250,
+        
+        /// <summary>
+        /// Spanish (Argentina)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishArgentina = 11274,
+        
+        /// <summary>
+        /// English (Philippines)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishPhilippines = 13321,
+        
+        /// <summary>
+        /// Spanish (Chile)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SpanishChile = 13322,
+        
+        /// <summary>
+        /// English (India)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishIndia = 16393,
+        
+        /// <summary>
+        /// English (Malaysia)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishMalaysia = 17417,
+        
+        /// <summary>
+        /// English (Singapore)
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnglishSingapore = 18441,
     }
     
     /// <summary>
@@ -4197,7 +4770,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the object.
+        /// The system-generated identifier of the object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -4396,331 +4969,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    /// <summary>
-    /// Defines a selection of locale values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13">LCID Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/lcid?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
-    /// </remarks>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="LCID", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
-    public enum LCID : int
-    {
-        
-        /// <summary>
-        /// Arabic (Saudi Arabia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicSaudiArabia = 1025,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicAlgeria = 5121,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicBahrain = 15361,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicEgypt = 3073,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicIraq = 2049,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicJordan = 11265,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicKuwait = 13313,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicLebanon = 12289,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicLibya = 4097,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicMorocco = 6145,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicOman = 8193,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicQatar = 16385,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicTunisia = 7169,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicUnitedArabEmirates = 14337,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ArabicYemen = 9217,
-        
-        /// <summary>
-        /// Chinese (Taiwan)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ChineseTaiwan = 1028,
-        
-        /// <summary>
-        /// Danish (Denmark)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DanishDenmark = 1030,
-        
-        /// <summary>
-        /// German (Germany)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        GermanGermany = 1031,
-        
-        /// <summary>
-        /// English (United States)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishUS = 1033,
-        
-        /// <summary>
-        /// Spanish (Spain)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishSpain = 1034,
-        
-        /// <summary>
-        /// Finnish (Finland)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FinnishFinland = 1035,
-        
-        /// <summary>
-        /// French (France)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FrenchFrance = 1036,
-        
-        /// <summary>
-        /// Hebrew (Israel)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HebrewIsrael = 1037,
-        
-        /// <summary>
-        /// Italian (Italy)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ItalianItaly = 1040,
-        
-        /// <summary>
-        /// Korean (Korea)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        KoreanKorea = 1042,
-        
-        /// <summary>
-        /// Dutch (Netherlands)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        DutchNetherlands = 1043,
-        
-        /// <summary>
-        /// Norwegian (Norway)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NorwegianNorway = 1044,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PortugueseBrazil = 1046,
-        
-        /// <summary>
-        /// Russian (Russia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        RussianRussia = 1049,
-        
-        /// <summary>
-        /// Swedish (Sweden)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SwedishSweden = 1053,
-        
-        /// <summary>
-        /// English (Thailand)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishThailand = 1054,
-        
-        /// <summary>
-        /// English (Indonesia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishIndonesia = 1057,
-        
-        /// <summary>
-        /// English (Vietnam)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishVietnam = 1066,
-        
-        /// <summary>
-        /// German (Switzerland)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        GermanSwitzerland = 2055,
-        
-        /// <summary>
-        /// English (United Kingdom)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishUK = 2057,
-        
-        /// <summary>
-        /// Spanish (Mexico)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishMexico = 2058,
-        
-        /// <summary>
-        /// Chinese (Hong Kong)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ChineseHongKong = 3076,
-        
-        /// <summary>
-        /// German (Austria)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        GermanAustria = 3079,
-        
-        /// <summary>
-        /// English (Australia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishAustralia = 3081,
-        
-        /// <summary>
-        /// French (Canada)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        FrenchCanada = 3084,
-        
-        /// <summary>
-        /// English (Canada)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishCanada = 4105,
-        
-        /// <summary>
-        /// English (New Zealand)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishNewZealand = 5129,
-        
-        /// <summary>
-        /// The corresponding LCID type.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishIreland = 6153,
-        
-        /// <summary>
-        /// Spanish (Venezuela)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishVenezuela = 8202,
-        
-        /// <summary>
-        /// Spanish (Colombia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishColombia = 9226,
-        
-        /// <summary>
-        /// Spanish (Peru)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishPeru = 10250,
-        
-        /// <summary>
-        /// Spanish (Argentina)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishArgentina = 11274,
-        
-        /// <summary>
-        /// English (Philippines)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishPhilippines = 13321,
-        
-        /// <summary>
-        /// Spanish (Chile)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SpanishChile = 13322,
-        
-        /// <summary>
-        /// English (India)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishIndia = 16393,
-        
-        /// <summary>
-        /// English (Malaysia)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishMalaysia = 17417,
-        
-        /// <summary>
-        /// English (Singapore)
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        EnglishSingapore = 18441,
     }
     
     /// <summary>
@@ -5051,7 +5299,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the user.
+        /// The system-generated identifier of the user.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
@@ -5233,7 +5481,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the customer that manages or owns the account.
+        /// The system-generated identifier of the customer that manages or owns the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
@@ -5273,7 +5521,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the account.
+        /// The system-generated identifier of the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public long AccountId
@@ -5313,7 +5561,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
+        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string AccountNumber
@@ -6497,254 +6745,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkFailed = 13,
-    }
-    
-    /// <summary>
-    /// Defines an invitation for a user to sign up for Microsoft Advertising.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13">UserInvitation Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/userinvitation?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> and <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operations.</para>
-    /// </remarks>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInvitation", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
-    [System.SerializableAttribute()]
-    public partial class UserInvitation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long CustomerIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RoleIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<long> AccountIdsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime ExpirationDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.V13.CustomerManagement.LCID LcidField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        /// <summary>
-        /// A system generated unique identifier for the user invitation.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Id
-        {
-            get
-            {
-                return this.IdField;
-            }
-            set
-            {
-                if ((this.IdField.Equals(value) != true))
-                {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The first name of the user.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
-        public string FirstName
-        {
-            get
-            {
-                return this.FirstNameField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FirstNameField, value) != true))
-                {
-                    this.FirstNameField = value;
-                    this.RaisePropertyChanged("FirstName");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The last name of the user.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
-        public string LastName
-        {
-            get
-            {
-                return this.LastNameField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.LastNameField, value) != true))
-                {
-                    this.LastNameField = value;
-                    this.RaisePropertyChanged("LastName");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The email address corresponding to the user's Microsoft account.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public string Email
-        {
-            get
-            {
-                return this.EmailField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.EmailField, value) != true))
-                {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The identifier of the customer this user is invited to manage.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
-        public long CustomerId
-        {
-            get
-            {
-                return this.CustomerIdField;
-            }
-            set
-            {
-                if ((this.CustomerIdField.Equals(value) != true))
-                {
-                    this.CustomerIdField = value;
-                    this.RaisePropertyChanged("CustomerId");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The role that the user has for each customer or list of accounts.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public int RoleId
-        {
-            get
-            {
-                return this.RoleIdField;
-            }
-            set
-            {
-                if ((this.RoleIdField.Equals(value) != true))
-                {
-                    this.RoleIdField = value;
-                    this.RaisePropertyChanged("RoleId");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// An array of identifiers of the accounts that the user can manage.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
-        public System.Collections.Generic.IList<long> AccountIds
-        {
-            get
-            {
-                return this.AccountIdsField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.AccountIdsField, value) != true))
-                {
-                    this.AccountIdsField = value;
-                    this.RaisePropertyChanged("AccountIds");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The date and time that the user invitation will expire.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-        public System.DateTime ExpirationDate
-        {
-            get
-            {
-                return this.ExpirationDateField;
-            }
-            set
-            {
-                if ((this.ExpirationDateField.Equals(value) != true))
-                {
-                    this.ExpirationDateField = value;
-                    this.RaisePropertyChanged("ExpirationDate");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// The locale to use when sending correspondence to the user by email or postal mail.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
-        public Microsoft.BingAds.V13.CustomerManagement.LCID Lcid
-        {
-            get
-            {
-                return this.LcidField;
-            }
-            set
-            {
-                if ((this.LcidField.Equals(value) != true))
-                {
-                    this.LcidField = value;
-                    this.RaisePropertyChanged("Lcid");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -8480,6 +8480,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Nullable<long> ParentCustomerId;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
+        public Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation;
+        
+        /// <summary>
         /// Constructor for the SignupCustomerRequest request object.
         /// </summary>
         /// <remarks>
@@ -8498,7 +8504,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
         /// <param name="Account">An AdvertiserAccount that specifies the details of the customer's primary account.</param>
         /// <param name="ParentCustomerId">The customer identifier of the aggregator that will manage this customer.</param>
-        public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId)
+        /// <param name="UserInvitation">Reserved.</param>
+        public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -8508,6 +8515,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.Customer = Customer;
             this.Account = Account;
             this.ParentCustomerId = ParentCustomerId;
+            this.UserInvitation = UserInvitation;
         }
     }
     

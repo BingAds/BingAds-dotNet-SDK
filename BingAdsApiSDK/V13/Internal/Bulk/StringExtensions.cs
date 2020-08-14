@@ -757,7 +757,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             throw new ArgumentException("Unknown bidding scheme");
         }
 
-        public static List<string> ParseStructuredSnippetValues(this string s)
+         public static List<string> ParseDelimitedStrings(this string s)
         {
             if (string.IsNullOrWhiteSpace(s))
             {
@@ -771,7 +771,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return values;           
         }
 
-        public static string WriteStructuredSnippetValues(this IList<string> values, string seperator)
+        public static string WriteDelimitedStrings(this IList<string> values, string seperator)
         {
             if (values == null || values.Count == 0)
             {

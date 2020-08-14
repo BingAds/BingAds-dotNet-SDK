@@ -777,7 +777,7 @@ namespace Microsoft.BingAds.V13.Bulk
         FeedItems = 107,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Negative Store Criterion records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeStoreCriterions = 108,
@@ -837,7 +837,7 @@ namespace Microsoft.BingAds.V13.Bulk
         CampaignNegativeCombinedListAssociations = 117,
         
         /// <summary>
-        /// Reserved.
+        /// Include Image records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Images = 118,

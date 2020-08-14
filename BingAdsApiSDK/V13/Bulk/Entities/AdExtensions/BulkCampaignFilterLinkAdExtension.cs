@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,67 +47,24 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
-using Microsoft.BingAds.V13.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a structured snippet ad extension. 
-    /// This class exposes the <see cref="BulkStructuredSnippetAdExtension.StructuredSnippetAdExtension"/> property that can be read and written 
-    /// as fields of the Structured Snippet Ad Extension record in a bulk file. 
+    /// Represents a campaign level filter link ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Campaign Filter Link Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Structured Snippet Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Filter Link Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkStructuredSnippetAdExtension : BulkAdExtensionBase<StructuredSnippetAdExtension>
+    public class BulkCampaignFilterLinkAdExtension : BulkCampaignAdExtensionAssociation
     {
-        /// <summary>
-        /// The structured snippet ad extension.
-        /// </summary>
-        public StructuredSnippetAdExtension StructuredSnippetAdExtension
-        {
-            get { return AdExtension; }
-            set { AdExtension = value; }
-        }
-
-        private static readonly IBulkMapping<BulkStructuredSnippetAdExtension>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkStructuredSnippetAdExtension>(StringTable.StructuredSnippetHeader,
-                c => c.StructuredSnippetAdExtension.Header,
-                (v, c) => c.StructuredSnippetAdExtension.Header = v),
-
-            new SimpleBulkMapping<BulkStructuredSnippetAdExtension>(StringTable.StructuredSnippetValues,
-                c => c.StructuredSnippetAdExtension.Values.WriteDelimitedStrings(";"),
-                (v, c) => c.StructuredSnippetAdExtension.Values = v.ParseDelimitedStrings())
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            StructuredSnippetAdExtension = new StructuredSnippetAdExtension
-            {
-                Type = "StructuredSnippetAdExtension",
-            };
-
-            base.ProcessMappingsFromRowValues(values);
-
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(StructuredSnippetAdExtension, "StructuredSnippetAdExtension");
-
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
-
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }

@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -58,101 +58,81 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an image ad extension that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkImageAdExtension.ImageAdExtension"/> property that can be read and written 
-    /// as fields of the Image Ad Extension record in a bulk file. 
+    /// Represents a filter link ad extension that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkFilterLinkAdExtension.FilterLinkAdExtension"/> property that can be read and written 
+    /// as fields of the Filter Link Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Image Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Filter Link Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkImageAdExtension : BulkAdExtensionBase<ImageAdExtension>
+    public class BulkFilterLinkAdExtension : BulkAdExtensionBase<FilterLinkAdExtension>
     {
         /// <summary>
-        /// The image ad extension.
+        /// The filter link ad extension.
         /// </summary>
-        public ImageAdExtension ImageAdExtension
+        public FilterLinkAdExtension FilterLinkAdExtension
         {
             get { return AdExtension; }
             set { AdExtension = value; }
         }
 
-        private static readonly IBulkMapping<BulkImageAdExtension>[] Mappings =
+        private static readonly IBulkMapping<BulkFilterLinkAdExtension>[] Mappings =
         {
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.DestinationUrl,
-                c => c.ImageAdExtension.DestinationUrl.ToOptionalBulkString(c.ImageAdExtension.Id),
-                (v, c) => c.ImageAdExtension.DestinationUrl = v.GetValueOrEmptyString()
-            ), 
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.AltText,
-                c => c.ImageAdExtension.AlternativeText,
-                (v, c) => c.ImageAdExtension.AlternativeText = v
-            ), 
-
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.MediaIds,
-                c =>
-                {
-                    if (c.ImageAdExtension.ImageMediaIds == null || c.ImageAdExtension.ImageMediaIds.Count == 0)
-                    {
-                        return null;
-                    }
-                    return string.Join(";", c.ImageAdExtension.ImageMediaIds);
-                },
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.AdExtensionHeaderType,
+                c => c.FilterLinkAdExtension.AdExtensionHeaderType.ToBulkString(),
                 (v, c) =>
                 {
-                    if (!string.IsNullOrEmpty(v))
+                    var extension = c.FilterLinkAdExtension as FilterLinkAdExtension;
+
+                    if (extension == null) return;
+
+                    AdExtensionHeaderType? adExtensionHeaderType = v.ParseOptional<AdExtensionHeaderType>();
+                    if (adExtensionHeaderType != null)
                     {
-                        c.ImageAdExtension.ImageMediaIds = v.Split(';').Select(long.Parse).ToList();
+                        c.FilterLinkAdExtension.AdExtensionHeaderType = (AdExtensionHeaderType)adExtensionHeaderType;
                     }
                 }
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.FinalUrl,
-                c => c.ImageAdExtension.FinalUrls.WriteUrls("; ", c.ImageAdExtension.Id),
-                (v, c) => c.ImageAdExtension.FinalUrls = v.ParseUrls()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.Language,
+                c => c.FilterLinkAdExtension.Language,
+                (v, c) => c.FilterLinkAdExtension.Language = v
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.FinalMobileUrl,
-                c => c.ImageAdExtension.FinalMobileUrls.WriteUrls("; ", c.ImageAdExtension.Id),
-                (v, c) => c.ImageAdExtension.FinalMobileUrls = v.ParseUrls()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.Texts,
+                c => c.FilterLinkAdExtension.Texts.WriteDelimitedStrings(";"),
+                (v, c) => c.FilterLinkAdExtension.Texts = v.ParseDelimitedStrings()
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.TrackingTemplate,
-                c => c.ImageAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.ImageAdExtension.Id),
-                (v, c) => c.ImageAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalUrl,
+                c => c.FilterLinkAdExtension.FinalUrls.WriteUrls("; ", c.FilterLinkAdExtension.Id),
+                (v, c) => c.FilterLinkAdExtension.FinalUrls = v.ParseUrls()
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.CustomParameter,
-                c => c.ImageAdExtension.UrlCustomParameters.ToBulkString(c.ImageAdExtension.Id),
-                (v, c) => c.ImageAdExtension.UrlCustomParameters = v.ParseCustomParameters()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalMobileUrl,
+                c => c.FilterLinkAdExtension.FinalMobileUrls.WriteUrls("; ", c.FilterLinkAdExtension.Id),
+                (v, c) => c.FilterLinkAdExtension.FinalMobileUrls = v.ParseUrls()
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.FinalUrlSuffix,
-                c => c.ImageAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
-                (v, c) => c.ImageAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
-            ),
-            
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.Images,
-                c => c.ImageAdExtension.Images == null ? null : c.ImageAdExtension.Images.ToImageAssetLinksBulkString(),
-                (v, c) => c.ImageAdExtension.Images = v.ParseImageAssetLinks()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.TrackingTemplate,
+                c => c.FilterLinkAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.FilterLinkAdExtension.Id),
+                (v, c) => c.FilterLinkAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.Layouts,
-                c => c.ImageAdExtension.Layouts.WriteDelimitedStrings(";"),
-                (v, c) => c.ImageAdExtension.Layouts = v.ParseDelimitedStrings()
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.CustomParameter,
+                c => c.FilterLinkAdExtension.UrlCustomParameters.ToBulkString(c.FilterLinkAdExtension.Id),
+                (v, c) => c.FilterLinkAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
-            new SimpleBulkMapping<BulkImageAdExtension>(StringTable.DisplayText,
-                c => c.ImageAdExtension.DisplayText.ToOptionalBulkString(c.AdExtension.Id),
-                (v, c) => c.ImageAdExtension.DisplayText = v.GetValueOrEmptyString()
-            ),
-        }; 
+        };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            ImageAdExtension = new ImageAdExtension { Type = "ImageAdExtension" };
+            FilterLinkAdExtension = new FilterLinkAdExtension { Type = "FilterLinkAdExtension" };
 
             base.ProcessMappingsFromRowValues(values);
 
@@ -161,7 +141,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(ImageAdExtension, "ImageAdExtension");
+            ValidatePropertyNotNull(FilterLinkAdExtension, "FilterLinkAdExtension");
 
             base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 

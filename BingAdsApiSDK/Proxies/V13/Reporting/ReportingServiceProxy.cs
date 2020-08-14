@@ -128,6 +128,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.ReportFormat> FormatField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FormatVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ReportNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -166,7 +169,7 @@ namespace Microsoft.BingAds.V13.Reporting
         }
         
         /// <summary>
-        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2019 Microsoft Corporation.
+        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2020 Microsoft Corporation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportFooter
@@ -221,6 +224,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.FormatField = value;
                     this.RaisePropertyChanged("Format");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines the format for certain fields in the downloaded report file.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FormatVersion
+        {
+            get
+            {
+                return this.FormatVersionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FormatVersionField, value) != true))
+                {
+                    this.FormatVersionField = value;
+                    this.RaisePropertyChanged("FormatVersion");
                 }
             }
         }
@@ -4891,7 +4914,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -4951,7 +4974,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AccountStatus = 39,
         
         /// <summary>
-        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent.
+        /// Clicks that are filtered by general methods, such as deny lists and activity-based detection, and that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 40,
@@ -6434,7 +6457,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 40,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 41,
@@ -6524,7 +6547,7 @@ namespace Microsoft.BingAds.V13.Reporting
         BudgetAssociationStatus = 55,
         
         /// <summary>
-        /// Clicks that are filtered by general methods, such as blacklists and activity-based detection, and that exhibit a low likelihood of commercial intent.
+        /// Clicks that are filtered by general methods, such as deny lists and activity-based detection, and that exhibit a low likelihood of commercial intent.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 56,
@@ -8311,7 +8334,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 37,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 38,
@@ -8975,7 +8998,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -9901,7 +9924,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 42,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 43,
@@ -10658,7 +10681,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 25,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
@@ -11882,7 +11905,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -12357,7 +12380,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 23,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 24,
@@ -12947,7 +12970,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -14849,7 +14872,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -15341,7 +15364,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -16184,7 +16207,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 26,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
@@ -17223,7 +17246,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Language = 14,
         
         /// <summary>
-        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// The unique identifier provided by a merchant for each product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 15,
@@ -17397,19 +17420,19 @@ namespace Microsoft.BingAds.V13.Reporting
         RevenuePerConversion = 43,
         
         /// <summary>
-        /// The report will include a column that contains the merchant or store name that offers the product.
+        /// The merchant or store name that offers the product.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SellerName = 44,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.
+        /// The language for the product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 45,
         
         /// <summary>
-        /// The report will include a column that contains the country of sale for the product catalog.
+        /// The country of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 46,
@@ -17451,7 +17474,7 @@ namespace Microsoft.BingAds.V13.Reporting
         BenchmarkCtr = 52,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 53,
@@ -17593,6 +17616,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 76,
+        
+        /// <summary>
+        /// The product purchased from your catalog or via your retail partner.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductBought = 77,
+        
+        /// <summary>
+        /// The quantity of the product purchased (ProductBought) from your catalog or via your retail partner.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QuantityBought = 78,
     }
     
     /// <summary>
@@ -17973,7 +18008,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 30,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
@@ -18009,13 +18044,13 @@ namespace Microsoft.BingAds.V13.Reporting
         RevenuePerAssist = 36,
         
         /// <summary>
-        /// The report will include a column that contains the language for the product offer.
+        /// The language for the product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 37,
         
         /// <summary>
-        /// The report will include a column that contains the country of sale for the product catalog.
+        /// The country of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 38,
@@ -18567,7 +18602,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 29,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
@@ -19039,7 +19074,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 14,
         
         /// <summary>
-        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// The unique identifier provided by a merchant for each product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 15,
@@ -19523,7 +19558,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupStatus = 9,
         
         /// <summary>
-        /// The report will include a column that contains the unique identifier provided by a merchant for each product offer.
+        /// The unique identifier provided by a merchant for each product offer.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 10,
@@ -20138,7 +20173,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 25,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
@@ -20694,7 +20729,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 22,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 23,
@@ -21144,7 +21179,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 13,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 14,
@@ -21663,7 +21698,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Network = 18,
         
         /// <summary>
-        /// The report will include a column that indicates whether the ad impression appeared in a top position or elsewhere.
+        /// Indicates whether the ad impression appeared in a top position or elsewhere.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 19,

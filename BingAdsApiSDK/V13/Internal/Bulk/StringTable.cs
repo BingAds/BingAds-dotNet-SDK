@@ -323,7 +323,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Radius = "Radius";
         public const string Unit = "Unit";
 
-        public const string SiteLinksAdExtension = "Sitelink Ad Extension";
         public const string LocationAdExtension = "Location Ad Extension";
         public const string CallAdExtension = "Call Ad Extension";
         public const string ImageAdExtension = "Image Ad Extension";
@@ -336,16 +335,27 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AccountImageAdExtension = "Account Image Ad Extension";
         public const string CampaignImageAdExtension = "Campaign Image Ad Extension";
         public const string AdGroupImageAdExtension = "Ad Group Image Ad Extension";
+        public const string Layouts = "Layouts";
+        public const string DisplayText = "Display Text";
 
-        // Site link ad extensions
+        // Filter Link ad extension
+        public const string FilterLinkAdExtension = "Filter Link Ad Extension";
+        public const string AccountFilterLinkAdExtension = "Account Filter Link Ad Extension";
+        public const string CampaignFilterLinkAdExtension = "Campaign Filter Link Ad Extension";
+        public const string AdGroupFilterLinkAdExtension = "Ad Group Filter Link Ad Extension";
+        public const string AdExtensionHeaderType = "AdExtension Header Type";
+        public const string Texts = "Texts";
+
+        // Sitelink Ad Extension
+        public const string SitelinkAdExtension = "Sitelink Ad Extension";
+        public const string AccountSitelinkAdExtension = "Account Sitelink Ad Extension";
+        public const string CampaignSitelinkAdExtension = "Campaign Sitelink Ad Extension";
+        public const string AdGroupSitelinkAdExtension = "Ad Group Sitelink Ad Extension";
         public const string SiteLinkExtensionOrder = "Sitelink Extension Order";
         public const string SiteLinkDisplayText = "Sitelink Extension Link Text";
         public const string SiteLinkDestinationUrl = "Sitelink Extension Destination Url";
         public const string SiteLinkDescription1 = "Sitelink Extension Description1";
         public const string SiteLinkDescription2 = "Sitelink Extension Description2";
-
-        public const string CampaignSiteLinksAdExtension = "Campaign Sitelink Ad Extension";
-        public const string AdGroupSiteLinksAdExtension = "AdGroup Sitelink Ad Extension";
 
         // location ad extensions
         public const string AddressLine1 = "Address Line 1";
@@ -678,8 +688,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string SquareImageMediaId = "Square Image Media Id";
         public const string SquareLogoMediaId = "Square Logo Media Id";
 
+
         // Responsive Search Ad
         public const string ResponsiveSearchAd = "Responsive Search Ad";
+
+        // Image
+        public const string Image = "Image";
+        public const string Height = "Height";
+        public const string Width = "Width";
 
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
@@ -688,12 +704,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string StructuredSnippetAdExtension = "Structured Snippet Ad Extension";
         public const string StructuredSnippetHeader = "Structured Snippet Header";
         public const string StructuredSnippetValues = "Structured Snippet Values";
-
-        // Sitelink Ad Extension
-        public const string SitelinkAdExtension = "Sitelink Ad Extension";
-        public const string AccountSitelinkAdExtension = "Account Sitelink Ad Extension";
-        public const string CampaignSitelinkAdExtension = "Campaign Sitelink Ad Extension";
-        public const string AdGroupSitelinkAdExtension = "Ad Group Sitelink Ad Extension";
 
         // Ad Extension Schedule
         public const string AdSchedule = "Ad Schedule";
@@ -768,6 +778,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string ConversionTime = "Conversion Time";
         public const string ConversionValue = "Conversion Value";
         public const string MicrosoftClickId = "Microsoft Click Id";
+        public const string AdjustmentValue = "Adjustment Value";
+        public const string AdjustmentTime = "Adjustment Time";
+        public const string AdjustmentCurrencyCode = "Adjustment Currency Code";
+        public const string AdjustmentType = "Adjustment Type";
+        public const string ExternalAttributionModel = "External Attribution Model";
+        public const string ExternalAttributionCredit = "External Attribution Credit";
 
         // Final Url Suffix
         public const string FinalUrlSuffix = "Final Url Suffix";

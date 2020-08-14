@@ -1159,7 +1159,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// A system generated identifier that identifies the insertion order.
+        /// A system-generated identifier that identifies the insertion order.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -1379,7 +1379,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// The system generated account number that is used to identify the account in the Microsoft Advertising web application.
+        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public string AccountNumber

@@ -1,4 +1,4 @@
-//=====================================================================================================================================================
+﻿//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -48,91 +48,124 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.BingAds.V13.Internal;
 using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
-using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a budget that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkBudget.Budget"/> property that can be read and written as fields of the Budget record in a bulk file. 
+    /// Represents an image that can be read or written in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Budget</see>. </para>
+    /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the Image record in a bulk file.
+    /// For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Image</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkBudget : SingleRecordBulkEntity
+    public class BulkImage : SingleRecordBulkEntity
     {
         /// <summary>
-        /// The identifier of the account that contains the budget.
+        /// The identifier of the image.
+        /// Corresponds to the 'Id' field in the bulk file. 
+        /// </summary>
+        public long Id { get; set; }
+
+        /// <summary>
+        /// The identifier of the account that contains the campaign.
         /// Corresponds to the 'Parent Id' field in the bulk file. 
         /// </summary>
         public long AccountId { get; set; }
 
         /// <summary>
-        /// Defines a budget within an account. 
+        /// The image Text.
+        /// Corresponds to the 'Text' field in the bulk file. 
         /// </summary>
-        public Budget Budget { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
-        /// The status for the bulk budget.
+        /// The image sub type.
+        /// Corresponds to the 'Sub Type' field in the bulk file. 
+        /// </summary>
+        public string SubType { get; set; }
+
+        /// <summary>
+        /// The image Url.
+        /// Corresponds to the 'Url' field in the bulk file. 
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
+        /// The image height.
+        /// Corresponds to the 'Height' field in the bulk file. 
+        /// </summary>
+        public int? Height { get; set; }
+
+        /// <summary>
+        /// The image width.
+        /// Corresponds to the 'Width' field in the bulk file. 
+        /// </summary>
+        public int? Width { get; set; }
+
+        /// <summary>
+        /// The status for the bulk image.
         /// </summary>
         public Status? Status { get; set; }
 
-        private static readonly IBulkMapping<BulkBudget>[] Mappings =
+        private static readonly IBulkMapping<BulkImage>[] Mappings =
         {
-            new SimpleBulkMapping<BulkBudget>(StringTable.Id,
-                c => c.Budget.Id.ToBulkString(),
-                (v, c) => c.Budget.Id = v.ParseOptional<long>()
-                ),
+            new SimpleBulkMapping<BulkImage>(StringTable.Id,
+                c => c.Id.ToBulkString(),
+                (v, c) => c.Id = v.Parse<long>()
+            ),
 
-            new SimpleBulkMapping<BulkBudget>(StringTable.ParentId,
+            new SimpleBulkMapping<BulkImage>(StringTable.ParentId,
                 c => c.AccountId.ToBulkString(),
                 (v, c) => c.AccountId = v.Parse<long>()
-                ),
+            ),
 
-            new SimpleBulkMapping<BulkBudget>(StringTable.Status,
+            new SimpleBulkMapping<BulkImage>(StringTable.Status,
                 c => c.Status.ToBulkString(),
                 (v, c) => c.Status = v.ParseOptional<Status>()
-                ),
+            ),
 
-            new SimpleBulkMapping<BulkBudget>(StringTable.BudgetName,
-                c => c.Budget.Name,
-                (v, c) => c.Budget.Name = v
-                ),
+            new SimpleBulkMapping<BulkImage>(StringTable.SubType,
+                c => c.SubType,
+                (v, c) => c.SubType = v
+            ),
 
-            new SimpleBulkMapping<BulkBudget>(StringTable.BudgetType,
-                c => c.Budget.BudgetType.ToBulkString(),
-                (v, c) => c.Budget.BudgetType = v.ParseOptional<BudgetLimitType>()
-                ),
+            new SimpleBulkMapping<BulkImage>(StringTable.Text,
+                c => c.Text,
+                (v, c) => c.Text = v
+            ),
 
-            new SimpleBulkMapping<BulkBudget>(StringTable.Budget,
-                c => c.Budget.Amount.ToBulkString(),
-                (v, c) => c.Budget.Amount = v.ParseOptional<decimal>()
-                ),
+            new SimpleBulkMapping<BulkImage>(StringTable.Url,
+                c => c.Url,
+                (v, c) => c.Url = v
+            ),
 
+            new SimpleBulkMapping<BulkImage>(StringTable.Height,
+                c => c.Height.ToBulkString(),
+                (v, c) => c.Height = v.ParseOptional<int>()
+            ),
+
+            new SimpleBulkMapping<BulkImage>(StringTable.Width,
+                c => c.Width.ToBulkString(),
+                (v, c) => c.Width = v.ParseOptional<int>()
+            ),
         };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            Budget = new Budget();
-
-            values.ConvertToEntity(this, Mappings);
-        }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(Budget, "Budget");
-
             this.ConvertToValues(values, Mappings);
+        }
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            values.ConvertToEntity(this, Mappings);
         }
     }
 }

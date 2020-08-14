@@ -192,7 +192,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // Image ad extension
             StringTable.AltText,
             StringTable.MediaIds,
+            StringTable.Layouts,
+            StringTable.DisplayText,
+            
+            // Filter link ad extension
+            StringTable.AdExtensionHeaderType,
+            StringTable.Texts,
 
+            // Editorial rejection reasons
             StringTable.PublisherCountries,
     
             // Product scope
@@ -341,6 +348,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.IsExact,
             StringTable.Source,
             StringTable.Url,
+            
+            // Image
+            StringTable.Height,
+            StringTable.Width,
 
             // Callout Ad Extension
             StringTable.CalloutText,
@@ -427,6 +438,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.ConversionTime,
             StringTable.ConversionValue,
             StringTable.MicrosoftClickId,
+            StringTable.AdjustmentValue,
+            StringTable.AdjustmentTime,
+            StringTable.AdjustmentCurrencyCode,
+            StringTable.AdjustmentType,
+            StringTable.ExternalAttributionCredit,
+            StringTable.ExternalAttributionModel,
             
             // Account
             StringTable.MSCLKIDAutoTaggingEnabled,

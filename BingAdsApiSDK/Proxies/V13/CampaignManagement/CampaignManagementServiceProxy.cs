@@ -232,7 +232,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the Experiment.
+        /// The system-generated identifier of the Experiment.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ExperimentId
@@ -1721,7 +1721,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The flat amount of your Sponsored Products bid.
+        /// The fixed bid maximum.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> BidMaxValue
@@ -1971,7 +1971,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3177,7 +3177,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The system generated identifier of the ad group.
+        /// The system-generated identifier of the ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -3656,7 +3656,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SyndicatedSearchOnly = 2,
         
         /// <summary>
-        /// Reserved for future use.
+        /// Display ads on the Retailer Network only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InHousePromotion = 3,
@@ -4909,7 +4909,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Because audience ads are responsive, you can create multiple image assets with different sizes and aspect ratios so they can flexibly display across a variety of publishers and placements.
+        /// Image assets with different sizes and aspect ratios so they can flexibly display across a variety of publishers and placements.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Images
@@ -8011,7 +8011,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The display text of your image extension.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string DisplayText
@@ -8051,7 +8051,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The landing page URL for mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -8071,7 +8071,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FinalUrlSuffix
@@ -8091,7 +8091,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -8131,7 +8131,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Image assets with different sizes and aspect ratios so they can flexibly display across a variety of publishers and placements.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Images
@@ -8151,7 +8151,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The list of eligible image layouts.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<string> Layouts
@@ -8171,7 +8171,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -8191,7 +8191,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Your custom collection of key and value parameters for URL tracking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
@@ -9667,7 +9667,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
         
         /// <summary>
-        /// Reserved.
+        /// The header that is appended with a colon (:) and precedes the filter link values.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionHeaderType> AdExtensionHeaderType
@@ -9747,7 +9747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The text values that follow after the Header: component.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Texts
@@ -11601,85 +11601,199 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Courses = 3,
+        Classes = 3,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        DegreePrograms = 4,
+        Courses = 4,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Destinations = 5,
+        DailyRates = 5,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        FeaturedHotels = 6,
+        DegreePrograms = 6,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Goods = 7,
+        Departments = 7,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        InsuranceCoverage = 8,
+        Destinations = 8,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Items = 9,
+        FeaturedHotels = 9,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Models = 10,
+        Goods = 10,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Neighborhoods = 11,
+        Grades = 11,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Services = 12,
+        Highlights = 12,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ServiceCatalog = 13,
+        InsuranceCoverage = 13,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Shows = 14,
+        Items = 14,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Styles = 15,
+        Languages = 15,
         
         /// <summary>
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Types = 16,
+        Locations = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Models = 17,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Neighborhoods = 18,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Prices = 19,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Rates = 20,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ratings = 21,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SchoolDistricts = 22,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Services = 23,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ServiceCatalog = 24,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shows = 25,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Sizes = 26,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Styles = 27,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tools = 28,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Topics = 29,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Types = 30,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vacations = 31,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vehicles = 32,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        What = 33,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Who = 34,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Why = 35,
     }
     
     /// <summary>
@@ -12952,7 +13066,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an image object that can be added to an account's media library.
+    /// Defines an image that can be added to an account's media library.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/image?view=bingads-13">Image Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/image?view=bingads-13 for details.
@@ -14961,7 +15075,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines a criterion to exclude one Microsoft Merchant Center store from your shopping campaign for brands.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/storecriterion?view=bingads-13">StoreCriterion Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/storecriterion?view=bingads-13 for details.
@@ -14977,7 +15091,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> StoreIdField;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The system-generated identifier of the Microsoft Merchant Center store to exclude.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> StoreId
@@ -16038,7 +16152,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The Microsoft Merchant Center store supports Cooperative campaigns.
+        /// The Microsoft Merchant Center store supports Shopping Campaigns for Brands.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CoOp = 1,
@@ -17326,7 +17440,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SimilarRemarketingList = 524288,
         
         /// <summary>
-        /// Reserved for future use.
+        /// The campaign criterion is a store criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Store = 1048576,
@@ -19542,6 +19656,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionWindowInMinutes = 1,
+        
+        /// <summary>
+        /// Request that the IsExternallyAttributed element be included within each returned OfflineConversionGoal object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsExternallyAttributed = 2,
     }
     
     /// <summary>
@@ -20382,6 +20502,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.SerializableAttribute()]
     public partial class OfflineConversionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
     {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsExternallyAttributedField;
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsExternallyAttributed
+        {
+            get
+            {
+                return this.IsExternallyAttributedField;
+            }
+            set
+            {
+                if ((this.IsExternallyAttributedField.Equals(value) != true))
+                {
+                    this.IsExternallyAttributedField = value;
+                    this.RaisePropertyChanged("IsExternallyAttributed");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -20620,6 +20763,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> ConversionValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> ExternalAttributionCreditField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ExternalAttributionModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MicrosoftClickIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -20710,6 +20859,248 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ConversionValueField = value;
                     this.RaisePropertyChanged("ConversionValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> ExternalAttributionCredit
+        {
+            get
+            {
+                return this.ExternalAttributionCreditField;
+            }
+            set
+            {
+                if ((this.ExternalAttributionCreditField.Equals(value) != true))
+                {
+                    this.ExternalAttributionCreditField = value;
+                    this.RaisePropertyChanged("ExternalAttributionCredit");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ExternalAttributionModel
+        {
+            get
+            {
+                return this.ExternalAttributionModelField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ExternalAttributionModelField, value) != true))
+                {
+                    this.ExternalAttributionModelField = value;
+                    this.RaisePropertyChanged("ExternalAttributionModel");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The MSCLKID for the offline conversion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MicrosoftClickId
+        {
+            get
+            {
+                return this.MicrosoftClickIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MicrosoftClickIdField, value) != true))
+                {
+                    this.MicrosoftClickIdField = value;
+                    this.RaisePropertyChanged("MicrosoftClickId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object to retract or restate an offline conversion via the ApplyOfflineConversionAdjustments operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/offlineconversionadjustment?view=bingads-13">OfflineConversionAdjustment Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/offlineconversionadjustment?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OfflineConversionAdjustment", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class OfflineConversionAdjustment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdjustmentCurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime AdjustmentTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdjustmentTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> AdjustmentValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConversionNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ConversionTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MicrosoftClickIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The currency code for the restated offline conversion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdjustmentCurrencyCode
+        {
+            get
+            {
+                return this.AdjustmentCurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdjustmentCurrencyCodeField, value) != true))
+                {
+                    this.AdjustmentCurrencyCodeField = value;
+                    this.RaisePropertyChanged("AdjustmentCurrencyCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The date and time when the adjustment occurred.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime AdjustmentTime
+        {
+            get
+            {
+                return this.AdjustmentTimeField;
+            }
+            set
+            {
+                if ((this.AdjustmentTimeField.Equals(value) != true))
+                {
+                    this.AdjustmentTimeField = value;
+                    this.RaisePropertyChanged("AdjustmentTime");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Determines whether to retract or restate the offline conversion.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdjustmentType
+        {
+            get
+            {
+                return this.AdjustmentTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdjustmentTypeField, value) != true))
+                {
+                    this.AdjustmentTypeField = value;
+                    this.RaisePropertyChanged("AdjustmentType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The adjusted offline conversion value.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> AdjustmentValue
+        {
+            get
+            {
+                return this.AdjustmentValueField;
+            }
+            set
+            {
+                if ((this.AdjustmentValueField.Equals(value) != true))
+                {
+                    this.AdjustmentValueField = value;
+                    this.RaisePropertyChanged("AdjustmentValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The conversion goal name.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConversionName
+        {
+            get
+            {
+                return this.ConversionNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ConversionNameField, value) != true))
+                {
+                    this.ConversionNameField = value;
+                    this.RaisePropertyChanged("ConversionName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The date and time when the original offline conversion occurred.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ConversionTime
+        {
+            get
+            {
+                return this.ConversionTimeField;
+            }
+            set
+            {
+                if ((this.ConversionTimeField.Equals(value) != true))
+                {
+                    this.ConversionTimeField = value;
+                    this.RaisePropertyChanged("ConversionTime");
                 }
             }
         }
@@ -22115,6 +22506,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> NewProductFiltersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewPromotionAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> NewReviewAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -22233,6 +22627,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateProductFiltersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdatePromotionAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateReviewAdExtensionsField;
@@ -22914,6 +23311,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.NewProductFiltersField = value;
                     this.RaisePropertyChanged("NewProductFilters");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewPromotionAdExtensions
+        {
+            get
+            {
+                return this.NewPromotionAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewPromotionAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewPromotionAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewPromotionAdExtensions");
                 }
             }
         }
@@ -23714,6 +24131,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.UpdateProductFiltersField = value;
                     this.RaisePropertyChanged("UpdateProductFilters");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> UpdatePromotionAdExtensions
+        {
+            get
+            {
+                return this.UpdatePromotionAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdatePromotionAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdatePromotionAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdatePromotionAdExtensions");
                 }
             }
         }
@@ -27324,6 +27761,38 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionsResponse> ApplyOfflineConversionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionsRequest request);
         
         /// <summary>
+        /// Applies offline conversion adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOfflineConversionAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "pplyOfflineConversionAdjustmentsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "pplyOfflineConversionAdjustmentsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "pplyOfflineConversionAdjustmentsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsResponse ApplyOfflineConversionAdjustments(Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsRequest request);
+        
+        /// <summary>
+        /// Applies offline conversion adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ApplyOfflineConversionAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "pplyOfflineConversionAdjustmentsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsResponse> ApplyOfflineConversionAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsRequest request);
+        
+        /// <summary>
         /// Adds one or more labels to an account.
         /// </summary>
         /// <remarks>
@@ -27836,7 +28305,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddImportJobsResponse> AddImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.AddImportJobsRequest request);
         
         /// <summary>
-        /// Gets results for completed import jobs.
+        /// Gets results for import jobs completed within the last 90 days.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
@@ -27854,7 +28323,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetImportResultsResponse GetImportResults(Microsoft.BingAds.V13.CampaignManagement.GetImportResultsRequest request);
         
         /// <summary>
-        /// Gets results for completed import jobs.
+        /// Gets results for import jobs completed within the last 90 days.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
@@ -39545,6 +40014,122 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Applies offline conversion adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOfflineConversionAdjustmentsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class ApplyOfflineConversionAdjustmentsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The offline conversion adjustments to apply.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.OfflineConversionAdjustment> OfflineConversionAdjustments;
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustmentsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        public ApplyOfflineConversionAdjustmentsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustmentsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="OfflineConversionAdjustments">The offline conversion adjustments to apply.</param>
+        public ApplyOfflineConversionAdjustmentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.OfflineConversionAdjustment> OfflineConversionAdjustments)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.OfflineConversionAdjustments = OfflineConversionAdjustments;
+        }
+    }
+    
+    /// <summary>
+    /// Applies offline conversion adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyOfflineConversionAdjustmentsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class ApplyOfflineConversionAdjustmentsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustmentsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        public ApplyOfflineConversionAdjustmentsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ApplyOfflineConversionAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustmentsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public ApplyOfflineConversionAdjustmentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
     /// Adds one or more labels to an account.
     /// </summary>
     /// <remarks>
@@ -41537,7 +42122,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Gets results for completed import jobs.
+    /// Gets results for import jobs completed within the last 90 days.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
@@ -41583,6 +42168,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo;
         
         /// <summary>
+        /// The identifiers of the import jobs to get results.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Collections.Generic.IList<long> ImportJobIds;
+        
+        /// <summary>
         /// Constructor for the GetImportResultsRequest request object.
         /// </summary>
         /// <remarks>
@@ -41600,7 +42191,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="ImportType">The type of import job to get results.</param>
         /// <param name="PageInfo">Determines the index and size of import results per page.</param>
-        public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo)
+        /// <param name="ImportJobIds">The identifiers of the import jobs to get results.</param>
+        public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo, System.Collections.Generic.IList<long> ImportJobIds)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -41611,11 +42203,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.ImportType = ImportType;
             this.PageInfo = PageInfo;
+            this.ImportJobIds = ImportJobIds;
         }
     }
     
     /// <summary>
-    /// Gets results for completed import jobs.
+    /// Gets results for import jobs completed within the last 90 days.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
@@ -44641,6 +45234,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Applies offline conversion adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsResponse ApplyOfflineConversionAdjustments(Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsRequest request)
+        {
+            return base.Channel.ApplyOfflineConversionAdjustments(request);
+        }
+        
+        /// <summary>
+        /// Applies offline conversion adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13">ApplyOfflineConversionAdjustments Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyofflineconversionadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsResponse> ApplyOfflineConversionAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyOfflineConversionAdjustmentsRequest request)
+        {
+            return base.Channel.ApplyOfflineConversionAdjustmentsAsync(request);
+        }
+        
+        /// <summary>
         /// Adds one or more labels to an account.
         /// </summary>
         /// <remarks>
@@ -45121,7 +45744,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets results for completed import jobs.
+        /// Gets results for import jobs completed within the last 90 days.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
@@ -45136,7 +45759,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Gets results for completed import jobs.
+        /// Gets results for import jobs completed within the last 90 days.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13">GetImportResults Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportresults?view=bingads-13 for details.
