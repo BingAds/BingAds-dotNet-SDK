@@ -1977,6 +1977,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("ExcludeReportFooter: {0}", dataObject.ExcludeReportFooter));
                 OutputStatusMessage(string.Format("ExcludeReportHeader: {0}", dataObject.ExcludeReportHeader));
                 OutputStatusMessage(string.Format("Format: {0}", dataObject.Format));
+                OutputStatusMessage(string.Format("FormatVersion: {0}", dataObject.FormatVersion));
                 OutputStatusMessage(string.Format("ReportName: {0}", dataObject.ReportName));
                 OutputStatusMessage(string.Format("ReturnOnlyCompleteData: {0}", dataObject.ReturnOnlyCompleteData));
                 var accountperformancereportrequest = dataObject as AccountPerformanceReportRequest;

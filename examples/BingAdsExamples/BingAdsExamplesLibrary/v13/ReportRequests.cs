@@ -46,7 +46,7 @@ namespace BingAdsExamplesLibrary.V13
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
-
+                
                 ReportingServiceManager = new ReportingServiceManager(
                     authorizationData: authorizationData, 
                     apiEnvironment: environment);
@@ -613,7 +613,6 @@ namespace BingAdsExamplesLibrary.V13
                     AdPerformanceReportColumn.Assists,
                     AdPerformanceReportColumn.CampaignName,
                     AdPerformanceReportColumn.Language,
-                    AdPerformanceReportColumn.Spend,
                     AdPerformanceReportColumn.Impressions,
                     AdPerformanceReportColumn.Clicks,
                     AdPerformanceReportColumn.Spend
@@ -660,7 +659,6 @@ namespace BingAdsExamplesLibrary.V13
                     AgeGenderAudienceReportColumn.Assists,
                     AgeGenderAudienceReportColumn.CampaignName,
                     AgeGenderAudienceReportColumn.Language,
-                    AgeGenderAudienceReportColumn.Spend,
                     AgeGenderAudienceReportColumn.Impressions,
                     AgeGenderAudienceReportColumn.Clicks,
                     AgeGenderAudienceReportColumn.Spend
@@ -973,7 +971,6 @@ namespace BingAdsExamplesLibrary.V13
                     ProductDimensionPerformanceReportColumn.ProductType3,
                     ProductDimensionPerformanceReportColumn.ProductType4,
                     ProductDimensionPerformanceReportColumn.ProductType5,
-                    ProductDimensionPerformanceReportColumn.Spend,
                     ProductDimensionPerformanceReportColumn.Title,
                     ProductDimensionPerformanceReportColumn.Impressions,
                     ProductDimensionPerformanceReportColumn.Clicks,

@@ -100,7 +100,8 @@ namespace BingAdsExamplesLibrary.V13
                 var signupCustomerResponse = await CustomerManagementExampleHelper.SignupCustomerAsync(
                     customer: customer,
                     account: account,
-                    parentCustomerId: user.CustomerId);
+                    parentCustomerId: user.CustomerId,
+                    userInvitation: null);
 
                 OutputStatusMessage("New Customer and Account:");
 
