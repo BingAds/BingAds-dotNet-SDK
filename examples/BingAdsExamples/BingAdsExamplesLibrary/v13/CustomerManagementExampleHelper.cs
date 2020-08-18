@@ -264,13 +264,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<SignupCustomerResponse> SignupCustomerAsync(
             Customer customer,
             AdvertiserAccount account,
-            long? parentCustomerId)
+            long? parentCustomerId,
+            UserInvitation userInvitation)
         {
             var request = new SignupCustomerRequest
             {
                 Customer = customer,
                 Account = account,
-                ParentCustomerId = parentCustomerId
+                ParentCustomerId = parentCustomerId,
+                UserInvitation = userInvitation
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.SignupCustomerAsync(r), request));
@@ -1185,24 +1187,6 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
-        public void OutputEmailFormat(EmailFormat valueSet)
-        {
-            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
-            foreach (var value in Enum.GetValues(typeof(EmailFormat)))
-            {
-                OutputStatusMessage(value.ToString());
-            }
-        }
-        public void OutputArrayOfEmailFormat(IList<EmailFormat> valueSets)
-        {
-            if (null != valueSets)
-            {
-                foreach (var valueSet in valueSets)
-                {
-                    OutputEmailFormat(valueSet);
-                }
-            }
-        }
         public void OutputLCID(LCID valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -1218,6 +1202,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputLCID(valueSet);
+                }
+            }
+        }
+        public void OutputEmailFormat(EmailFormat valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(EmailFormat)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfEmailFormat(IList<EmailFormat> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputEmailFormat(valueSet);
                 }
             }
         }
