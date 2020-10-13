@@ -291,7 +291,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the base object from which all fault detail objects derive.
+    /// Defines the base object from which all Customer Billing fault detail objects derive.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/applicationfault?view=bingads-13 for details.
@@ -357,7 +357,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines a Customer Billing API fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/apifault?view=bingads-13">ApiFault Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/apifault?view=bingads-13 for details.
@@ -395,7 +395,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines a Customer Billing API batch fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/apibatchfault?view=bingads-13">ApiBatchFault Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/apibatchfault?view=bingads-13 for details.
@@ -432,7 +432,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
+    /// Defines a Customer Billing Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/adapifaultdetail?view=bingads-13 for details.
@@ -469,7 +469,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Customer Billing Ad API error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/adapierror?view=bingads-13 for details.
@@ -602,7 +602,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Customer Billing operation error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/operationerror?view=bingads-13 for details.
@@ -640,7 +640,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// A numeric error code that identifies the error
+        /// A numeric error code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
@@ -712,7 +712,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
+    /// Defines a Customer Billing batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/batcherror?view=bingads-13 for details.

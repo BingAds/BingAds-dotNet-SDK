@@ -1473,7 +1473,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines the base object from which all fault detail objects derive.
+    /// Defines the base object from which all Ad Insight fault detail objects derive.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/applicationfault?view=bingads-13 for details.
@@ -1538,7 +1538,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines an Ad Insight API fault detail object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/apifaultdetail?view=bingads-13 for details.
@@ -1598,7 +1598,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
+    /// Defines an Ad Insight Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapifaultdetail?view=bingads-13 for details.
@@ -1635,7 +1635,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines an Ad Insight Ad API error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/adapierror?view=bingads-13 for details.
@@ -1768,7 +1768,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
+    /// Defines an Ad Insight batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13 for details.
@@ -1924,7 +1924,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines an Ad Insight operation error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/operationerror?view=bingads-13 for details.
@@ -1965,7 +1965,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// A numeric error code that identifies the error
+        /// A numeric error code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
@@ -11716,7 +11716,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string PublisherCountry;
         
         /// <summary>
-        /// A list of one or more of the following device types: Computers, NonSmartphones, Smartphones, Tablets.
+        /// An array of devices for which you want to get demographics data.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
         public System.Collections.Generic.IList<string> Device;
@@ -11740,7 +11740,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <param name="Keywords">An array of keywords for which you want to get demographics data.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
         /// <param name="PublisherCountry">The country code of the country/region to use as the source of the demographics data.</param>
-        /// <param name="Device">A list of one or more of the following device types: Computers, NonSmartphones, Smartphones, Tablets.</param>
+        /// <param name="Device">An array of devices for which you want to get demographics data.</param>
         public GetKeywordDemographicsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> Keywords, string Language, string PublisherCountry, System.Collections.Generic.IList<string> Device)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11856,7 +11856,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string PublisherCountry;
         
         /// <summary>
-        /// A list of one or more of the following device types: Computers, NonSmartphones, Smartphones, Tablets.
+        /// An array of devices for which you want to get geographical location information.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
         public System.Collections.Generic.IList<string> Device;
@@ -11898,7 +11898,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <param name="Keywords">An array of keywords for which you want to get geographical location information.</param>
         /// <param name="Language">The language in which the keywords are written.</param>
         /// <param name="PublisherCountry">The country code of the country/region to use as the source of the location data.</param>
-        /// <param name="Device">A list of one or more of the following device types: Computers, NonSmartphones, Smartphones, Tablets.</param>
+        /// <param name="Device">An array of devices for which you want to get geographical location information.</param>
         /// <param name="Level">The level at which to aggregate the geographical location data.</param>
         /// <param name="ParentCountry">The country from which the search originated.</param>
         /// <param name="MaxLocations">The maximum number of locations to return.</param>

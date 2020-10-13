@@ -5046,7 +5046,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionSharePercent = 51,
         
         /// <summary>
-        /// The percentage of times your ad was in the first position of all returned ads, out of the total impressions available in your target market.
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 52,
@@ -6565,7 +6565,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CampaignLabels = 58,
         
         /// <summary>
-        /// The estimated percentage of impressions that your campaign received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 59,
@@ -6637,7 +6637,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionSharePercent = 70,
         
         /// <summary>
-        /// The percentage of times your ad was in the first position of all returned ads, out of the total impressions available in your target market.
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 71,
@@ -6725,6 +6725,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 85,
+        
+        /// <summary>
+        /// Your click-through rate divided by the average click-through rate of all ads that appear in the same sections of websites that show your ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RelativeCtr = 86,
     }
     
     /// <summary>
@@ -8418,7 +8424,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupLabels = 51,
         
         /// <summary>
-        /// The estimated percentage of impressions that your ad group received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 52,
@@ -8490,7 +8496,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionSharePercent = 63,
         
         /// <summary>
-        /// The percentage of times your ad was in the first position of all returned ads, out of the total impressions available in your target market.
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 64,
@@ -8578,6 +8584,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 78,
+        
+        /// <summary>
+        /// Your click-through rate divided by the average click-through rate of all ads that appear in the same sections of websites that show your ads.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RelativeCtr = 79,
+        
+        /// <summary>
+        /// The ad group type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupType = 80,
     }
     
     /// <summary>
@@ -16868,7 +16886,7 @@ namespace Microsoft.BingAds.V13.Reporting
         KeywordLabels = 39,
         
         /// <summary>
-        /// The estimated percentage of impressions that your campaign received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
+        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 40,
@@ -16910,7 +16928,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionSharePercent = 46,
         
         /// <summary>
-        /// The percentage of times your ad was in the first position of all returned ads, out of the total impressions available in your target market.
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 47,
@@ -21861,7 +21879,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines the base object from which all fault detail objects derive.
+    /// Defines the base object from which all Reporting fault detail objects derive.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/applicationfault?view=bingads-13 for details.
@@ -21926,7 +21944,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines a Reporting API fault detail object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/apifaultdetail?view=bingads-13 for details.
@@ -21986,7 +22004,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
+    /// Defines a Reporting Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adapifaultdetail?view=bingads-13 for details.
@@ -22023,7 +22041,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Reporting Ad API error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/adapierror?view=bingads-13 for details.
@@ -22156,7 +22174,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
+    /// Defines a Reporting batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/batcherror?view=bingads-13 for details.
@@ -22312,7 +22330,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Reporting operation error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/reporting-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/reporting-service/operationerror?view=bingads-13 for details.
@@ -22353,7 +22371,7 @@ namespace Microsoft.BingAds.V13.Reporting
         }
         
         /// <summary>
-        /// A numeric error code that identifies the error
+        /// A numeric error code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code

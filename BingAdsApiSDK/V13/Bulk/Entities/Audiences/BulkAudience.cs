@@ -95,7 +95,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkAudience<T>>(StringTable.ParentId,
                 c => c.Audience.ParentId.ToBulkString(),
-                (v, c) => c.Audience.ParentId = v.Parse<long>()
+                (v, c) => c.Audience.ParentId = v.ParseOptional<long>()
             ),
 
             new SimpleBulkMapping<BulkAudience<T>>(StringTable.Audience,

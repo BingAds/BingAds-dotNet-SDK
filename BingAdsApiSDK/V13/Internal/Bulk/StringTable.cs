@@ -231,6 +231,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";
+        public const string AdGroupType = "Ad Group Type";
 
         public const string TextAd = "Text Ad";
         public const string MobileAd = "Mobile Ad";

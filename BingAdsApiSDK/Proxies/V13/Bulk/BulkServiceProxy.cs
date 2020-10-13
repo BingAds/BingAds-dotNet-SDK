@@ -873,25 +873,25 @@ namespace Microsoft.BingAds.V13.Bulk
         CampaignNegativeCustomerListAssociations = 123,
         
         /// <summary>
-        /// Reserved.
+        /// Include Filter Link Ad Extension records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilterLinkAdExtensions = 124,
         
         /// <summary>
-        /// Reserved.
+        /// Include Account Filter Link Ad Extension records in the download that represents the association relationship between an account and a filter link ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountFilterLinkAdExtensions = 125,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Filter Link Ad Extension records in the download that represents the association relationship between a campaign and a filter link ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignFilterLinkAdExtensions = 126,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Filter Link Ad Extension records in the download that each represent the association relationship between an ad group and a filter link ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupFilterLinkAdExtensions = 127,
@@ -923,7 +923,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines the base object from which all fault detail objects derive.
+    /// Defines the base object from which all Bulk fault detail objects derive.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/applicationfault?view=bingads-13 for details.
@@ -988,7 +988,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines a Bulk API fault detail object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/apifaultdetail?view=bingads-13 for details.
@@ -1048,7 +1048,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
+    /// Defines a Bulk Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/adapifaultdetail?view=bingads-13 for details.
@@ -1085,7 +1085,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Bulk Ad API error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/adapierror?view=bingads-13 for details.
@@ -1218,7 +1218,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
+    /// Defines a Bulk batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/batcherror?view=bingads-13 for details.
@@ -1444,7 +1444,7 @@ namespace Microsoft.BingAds.V13.Bulk
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Bulk operation error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/bulk-service/operationerror?view=bingads-13 for details.

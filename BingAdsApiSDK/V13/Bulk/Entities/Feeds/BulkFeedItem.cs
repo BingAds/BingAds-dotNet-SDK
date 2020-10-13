@@ -104,7 +104,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
         /// <summary>
         /// The custom attributes for your feed item.
         /// Corresponds to the 'Custom Attributes' field in the bulk file. 
-        /// </summary
+        /// </summary>
         public string CustomAttributes { get; set; }
         
         /// <summary>

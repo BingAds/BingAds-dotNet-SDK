@@ -238,8 +238,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.AdScheduleUseSearcherTimeZone,
-                c => c.AdGroup.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(c.AdGroup.Id),
+                c => c.AdGroup.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(null),
                 (v, c) => c.AdGroup.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
+            ),
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.AdGroupType,
+                c => c.AdGroup.AdGroupType,
+                (v, c) => c.AdGroup.AdGroupType = v
             ),
         };
 

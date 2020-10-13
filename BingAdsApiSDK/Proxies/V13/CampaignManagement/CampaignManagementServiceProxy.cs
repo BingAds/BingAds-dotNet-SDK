@@ -452,7 +452,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The settings will vary by campaign type.
+        /// The supported settings that vary by campaign type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
@@ -1536,7 +1536,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the campaign level settings for a Dynamic Search Ads campaign.
+    /// Defines the Dynamic Search Ads setting for a campaign.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/dynamicsearchadssetting?view=bingads-13">DynamicSearchAdsSetting Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/dynamicsearchadssetting?view=bingads-13 for details.
@@ -1966,7 +1966,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
+    /// Defines a Campaign Management batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
@@ -2323,7 +2323,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the base object from which all fault detail objects derive.
+    /// Defines the base object from which all Campaign Management fault detail objects derive.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applicationfault?view=bingads-13 for details.
@@ -2389,7 +2389,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
+    /// Defines a Campaign Management API fault object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/apifaultdetail?view=bingads-13 for details.
@@ -2532,7 +2532,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a fault object that operations return when generic errors occur, such as an authentication error.
+    /// Defines a Campaign Management Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adapifaultdetail?view=bingads-13 for details.
@@ -2569,7 +2569,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Campaign Management Ad API error object that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adapierror?view=bingads-13">AdApiError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adapierror?view=bingads-13 for details.
@@ -2702,7 +2702,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines an error object that contains the details that explain why the service operation failed.
+    /// Defines a Campaign Management operation error that contains the details that explain why the service operation failed.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/operationerror?view=bingads-13">OperationError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/operationerror?view=bingads-13 for details.
@@ -2743,7 +2743,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// A numeric error code that identifies the error
+        /// A numeric error code that identifies the error.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
@@ -2864,6 +2864,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetImpressionShareBiddingScheme = 4,
+        
+        /// <summary>
+        /// Request that the TargetSetting object be returned within the Settings element of each returned Campaign object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetSetting = 8,
     }
     
     /// <summary>
@@ -3023,6 +3029,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> AdScheduleUseSearcherTimeZoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdGroupTypeField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -3392,6 +3401,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.AdScheduleUseSearcherTimeZoneField = value;
                     this.RaisePropertyChanged("AdScheduleUseSearcherTimeZone");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The ad group type.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        public string AdGroupType
+        {
+            get
+            {
+                return this.AdGroupTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupTypeField, value) != true))
+                {
+                    this.AdGroupTypeField = value;
+                    this.RaisePropertyChanged("AdGroupType");
                 }
             }
         }
@@ -3779,6 +3808,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdScheduleUseSearcherTimeZone = 1,
+        
+        /// <summary>
+        /// Request that the AdGroupType element be included within each returned AdGroup object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupType = 2,
     }
     
     /// <summary>
@@ -6584,7 +6619,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible types of entities.
+    /// Defines entity types for association and editorial service operations.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/entitytype?view=bingads-13">EntityType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/entitytype?view=bingads-13 for details.
@@ -6596,25 +6631,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved for future use.
+        /// The entity is a campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 1,
         
         /// <summary>
-        /// Reserved for future use.
+        /// The entity is an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 2,
         
         /// <summary>
-        /// Request editorial appeal or status for ads.
+        /// The entity is an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ad = 3,
         
         /// <summary>
-        /// Request editorial appeal or status for keywords.
+        /// The entity is a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
@@ -9056,7 +9091,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The snippet values that follow after the Header: component.
+        /// The snippet values that follow after the Header component of the ad that is shown.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Values
@@ -9633,7 +9668,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Filter Link Extensions pair one header with between 3 and 10 clickable text values that tell customers more about your business.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/filterlinkadextension?view=bingads-13">FilterLinkAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/filterlinkadextension?view=bingads-13 for details.
@@ -9652,6 +9687,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<string> FinalMobileUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<string> FinalUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -9667,7 +9705,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
         
         /// <summary>
-        /// The header that is appended with a colon (:) and precedes the filter link values.
+        /// The header that is appended with a colon (:) and precedes the filter link values in the ad that is shown.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdExtensionHeaderType> AdExtensionHeaderType
@@ -9687,7 +9725,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The landing page URL for mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -9707,7 +9745,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -9727,7 +9785,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The language you want to use for the filter link headers.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Language
@@ -9747,7 +9805,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The text values that follow after the Header: component.
+        /// The text values that follow after the AdExtensionHeaderType component of the ad that is shown.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Texts
@@ -9767,7 +9825,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -9787,7 +9845,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Your custom collection of key and value parameters for URL tracking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
@@ -11568,7 +11626,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible types of ad extension headers.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionheadertype?view=bingads-13">AdExtensionHeaderType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adextensionheadertype?view=bingads-13 for details.
@@ -11580,220 +11638,226 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Amenities in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Amenities = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Brands in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brands = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Classes in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Classes = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Courses in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Courses = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of DailyRates in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DailyRates = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of DegreePrograms in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DegreePrograms = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Departments in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Departments = 7,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Destinations in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Destinations = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of FeaturedHotels in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FeaturedHotels = 9,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Goods in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goods = 10,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Grades in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Grades = 11,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Highlights in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Highlights = 12,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of InsuranceCoverage in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InsuranceCoverage = 13,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Items in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Items = 14,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Languages in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Languages = 15,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Locations in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Locations = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Models in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Models = 17,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Neighborhoods in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Neighborhoods = 18,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Prices in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Prices = 19,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Rates in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rates = 20,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Ratings in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ratings = 21,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SchoolDistricts in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SchoolDistricts = 22,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Services in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Services = 23,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ServiceCatalog in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ServiceCatalog = 24,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Shows in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Shows = 25,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Sizes in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sizes = 26,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Styles in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Styles = 27,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Tools in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tools = 28,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Topics in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Topics = 29,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Types in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Types = 30,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Vacations in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vacations = 31,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Vehicles in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vehicles = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of What in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         What = 33,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Who in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Who = 34,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Why in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Why = 35,
+        
+        /// <summary>
+        /// Use the translated version of Deals in the ad extension header.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deals = 36,
     }
     
     /// <summary>
@@ -12341,7 +12405,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         PromotionAdExtension = 1024,
         
         /// <summary>
-        /// Reserved.
+        /// An ad extension that pairs one header with between 3 and 10 clickable text values that tell customers more about your business.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilterLinkAdExtension = 2048,
@@ -15961,6 +16025,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines a list of optional store properties that you can request when calling GetBMCStoresByCustomerId.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/bmcstoreadditionalfield?view=bingads-13">BMCStoreAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/bmcstoreadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetBMCStoresByCustomerId">GetBMCStoresByCustomerId</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BMCStoreAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum BMCStoreAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the service return global stores with SubType set to GlobalStore.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GlobalStore = 1,
+    }
+    
+    /// <summary>
     /// Defines a Microsoft Merchant Center store.
     /// </summary>
     /// <remarks>
@@ -16156,6 +16240,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CoOp = 1,
+        
+        /// <summary>
+        /// With Shopping Campaigns for Brands the global store encompasses all linked stores under the current manager account.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GlobalStore = 2,
     }
     
     /// <summary>
@@ -19662,6 +19752,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IsExternallyAttributed = 2,
+        
+        /// <summary>
+        /// Request that the GoalCategory element be included within each returned ConversionGoal object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalCategory = 4,
     }
     
     /// <summary>
@@ -19696,6 +19792,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> ExcludeFromBiddingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalCategory> GoalCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
@@ -19792,6 +19891,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ExcludeFromBiddingField = value;
                     this.RaisePropertyChanged("ExcludeFromBidding");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The category used to segment the conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionGoalCategory> GoalCategory
+        {
+            get
+            {
+                return this.GoalCategoryField;
+            }
+            set
+            {
+                if ((this.GoalCategoryField.Equals(value) != true))
+                {
+                    this.GoalCategoryField = value;
+                    this.RaisePropertyChanged("GoalCategory");
                 }
             }
         }
@@ -20564,6 +20683,115 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unique = 1,
+    }
+    
+    /// <summary>
+    /// Defines categories used to segment conversion goals.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/conversiongoalcategory?view=bingads-13">ConversionGoalCategory Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/conversiongoalcategory?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ConversionGoalCategory", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum ConversionGoalCategory : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The category has not yet been set.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 1,
+        
+        /// <summary>
+        /// Segment by the "Purchase" sales category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Purchase = 2,
+        
+        /// <summary>
+        /// Segment by the "Add to cart" sales category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AddToCart = 3,
+        
+        /// <summary>
+        /// Segment by the "Begin checkout" sales category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BeginCheckout = 4,
+        
+        /// <summary>
+        /// Segment by the "Subscribe" sales category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscribe = 5,
+        
+        /// <summary>
+        /// Segment by the "Submit lead form" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SubmitLeadForm = 6,
+        
+        /// <summary>
+        /// Segment by the "Book appointment" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BookAppointment = 7,
+        
+        /// <summary>
+        /// Segment by the "Sign-up" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Signup = 8,
+        
+        /// <summary>
+        /// Segment by the "Request quote" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RequestQuote = 9,
+        
+        /// <summary>
+        /// Segment by the "Get directions" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetDirections = 10,
+        
+        /// <summary>
+        /// Segment by the "Outbound click" leads category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OutboundClick = 11,
+        
+        /// <summary>
+        /// Segment by the "Contact" category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Contact = 12,
+        
+        /// <summary>
+        /// Segment by the "Page view" category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PageView = 13,
+        
+        /// <summary>
+        /// Segment by the "Download" sales category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Download = 14,
+        
+        /// <summary>
+        /// Segment by the "Other" category.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 15,
     }
     
     /// <summary>
@@ -23316,7 +23544,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Import promotion extensions that have not previously been imported.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> NewPromotionAdExtensions
@@ -23516,7 +23744,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// If you enable this option, the service will only fetch search ads from mixed mode campaigns and import them as search campaigns.
+        /// If you enable this option, the service will only fetch search ads from mixed campaigns and import them as search campaigns.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> SearchAndDsaMixedCampaignAsSearchCampaign
@@ -24136,7 +24364,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Import updates to existing promotion extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> UpdatePromotionAdExtensions
@@ -24500,6 +24728,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Reserved for future use.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importadditionalfield?view=bingads-13">ImportAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see> and <see cref="CampaignManagementServiceClient.GetImportResults">GetImportResults</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum ImportAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Reserved for internal use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
     }
     
     /// <summary>
@@ -35290,6 +35538,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
+        /// The list of additional stores that you want included.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BMCStoreAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetBMCStoresByCustomerIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -35305,7 +35559,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13">GetBMCStoresByCustomerIdRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbmcstoresbycustomerid?view=bingads-13 for details.
         /// </remarks>
-        public GetBMCStoresByCustomerIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
+        /// <param name="ReturnAdditionalFields">The list of additional stores that you want included.</param>
+        public GetBMCStoresByCustomerIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BMCStoreAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -35314,6 +35569,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.DeveloperToken = DeveloperToken;
             this.Password = Password;
             this.UserName = UserName;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -42174,6 +42430,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> ImportJobIds;
         
         /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetImportResultsRequest request object.
         /// </summary>
         /// <remarks>
@@ -42192,7 +42454,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="ImportType">The type of import job to get results.</param>
         /// <param name="PageInfo">Determines the index and size of import results per page.</param>
         /// <param name="ImportJobIds">The identifiers of the import jobs to get results.</param>
-        public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo, System.Collections.Generic.IList<long> ImportJobIds)
+        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo, System.Collections.Generic.IList<long> ImportJobIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -42204,6 +42467,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.ImportType = ImportType;
             this.PageInfo = PageInfo;
             this.ImportJobIds = ImportJobIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -42300,6 +42564,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string ImportType;
         
         /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetImportJobsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -42317,7 +42587,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="ImportJobIds">The identifiers of the import jobs to get.</param>
         /// <param name="ImportType">The type of import job to get.</param>
-        public GetImportJobsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ImportJobIds, string ImportType)
+        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        public GetImportJobsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ImportJobIds, string ImportType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -42328,6 +42599,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.ImportJobIds = ImportJobIds;
             this.ImportType = ImportType;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

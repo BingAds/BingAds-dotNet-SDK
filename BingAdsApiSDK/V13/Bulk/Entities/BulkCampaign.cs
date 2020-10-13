@@ -123,9 +123,14 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             switch (Campaign.CampaignType)
             {
                 case CampaignType.Search:
+                case CampaignType.DynamicSearchAds:
                     {
                         Campaign.Settings = new List<Setting>
                         {
+                            new DynamicSearchAdsSetting
+                            {
+                                Type = typeof(DynamicSearchAdsSetting).Name
+                            },
                             new TargetSetting
                             {
                                 Type = typeof(TargetSetting).Name,
@@ -141,21 +146,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                             new ShoppingSetting
                             {
                                 Type = typeof(ShoppingSetting).Name,
-                            },
-                            new TargetSetting
-                            {
-                                Type = typeof(TargetSetting).Name,
-                            },
-                        };
-                    }
-                    break;
-                case CampaignType.DynamicSearchAds:
-                    {
-                        Campaign.Settings = new List<Setting>
-                        {
-                            new DynamicSearchAdsSetting
-                            {
-                                Type = typeof(DynamicSearchAdsSetting).Name,
                             },
                             new TargetSetting
                             {
@@ -432,7 +422,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.AdScheduleUseSearcherTimeZone,
-                c => c.Campaign.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(c.Campaign.Id),
+                c => c.Campaign.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(null),
                 (v, c) => c.Campaign.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
             ),
         };

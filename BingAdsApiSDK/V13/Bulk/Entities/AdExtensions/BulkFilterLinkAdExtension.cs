@@ -127,6 +127,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.FilterLinkAdExtension.UrlCustomParameters.ToBulkString(c.FilterLinkAdExtension.Id),
                 (v, c) => c.FilterLinkAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
+            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.FilterLinkAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.FilterLinkAdExtension.Id),
+                (v, c) => c.FilterLinkAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
 
         };
 

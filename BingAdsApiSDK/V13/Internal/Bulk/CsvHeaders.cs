@@ -106,6 +106,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdRotation,
             StringTable.CpcBid,   
             StringTable.PrivacyStatus,
+            StringTable.AdGroupType,
             
             // Ads
             StringTable.Title,
