@@ -895,6 +895,36 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupFilterLinkAdExtensions = 127,
+        
+        /// <summary>
+        /// Include Flyer Ad Extension records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FlyerAdExtensions = 128,
+        
+        /// <summary>
+        /// Include Account Flyer Ad Extension records in the download that represents the association relationship between an account and a flyer ad extension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountFlyerAdExtensions = 129,
+        
+        /// <summary>
+        /// Include Campaign Flyer Ad Extension records in the download that represents the association relationship between a campaign and a flyer ad extension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignFlyerAdExtensions = 130,
+        
+        /// <summary>
+        /// Include Ad Group Flyer Ad Extension records in the download that each represent the association relationship between an ad group and a flyer ad extension.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupFlyerAdExtensions = 131,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PortfolioBidStrategies = 132,
     }
     
     /// <summary>

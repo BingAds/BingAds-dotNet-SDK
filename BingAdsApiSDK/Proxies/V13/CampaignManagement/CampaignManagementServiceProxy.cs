@@ -139,6 +139,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> AdScheduleUseSearcherTimeZoneField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> BidStrategyIdField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -531,6 +534,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        public System.Nullable<long> BidStrategyId
+        {
+            get
+            {
+                return this.BidStrategyIdField;
+            }
+            set
+            {
+                if ((this.BidStrategyIdField.Equals(value) != true))
+                {
+                    this.BidStrategyIdField = value;
+                    this.RaisePropertyChanged("BidStrategyId");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -548,7 +571,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/biddingscheme?view=bingads-13">BiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/biddingscheme?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdGroup"/>, <see cref="Campaign"/> and <see cref="Keyword"/> data objects.</para>
+    /// <para>Used by <see cref="AdGroup"/>, <see cref="BidStrategy"/>, <see cref="Campaign"/> and <see cref="Keyword"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -559,6 +582,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetCpaBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpcBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.EnhancedCpcBiddingScheme))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpvBiddingScheme))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpmBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.InheritFromParentBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetRoasBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxRoasBiddingScheme))]
@@ -622,7 +647,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13">CustomParameters Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13 for details.
-    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="FilterLinkAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="FilterLinkAdExtension"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1025,6 +1050,34 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the ManualCpvBiddingScheme Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpvbiddingscheme?view=bingads-13">ManualCpvBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpvbiddingscheme?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ManualCpvBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ManualCpvBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
+    {
+    }
+    
+    /// <summary>
+    /// Defines the ManualCpmBiddingScheme Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpmbiddingscheme?view=bingads-13">ManualCpmBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpmbiddingscheme?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ManualCpmBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ManualCpmBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
+    {
+    }
+    
+    /// <summary>
     /// Defines an object that represents the inherit from parent bid strategy type.
     /// </summary>
     /// <remarks>
@@ -1196,7 +1249,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// TargetImpressionShareBiddingScheme is reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetimpressionsharebiddingscheme?view=bingads-13">TargetImpressionShareBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/targetimpressionsharebiddingscheme?view=bingads-13 for details.
@@ -1971,7 +2024,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see> and <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2870,6 +2923,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetSetting = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyId = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CpvCpmBiddingScheme = 32,
     }
     
     /// <summary>
@@ -4835,6 +4900,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> ImpressionTrackingUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.AssetLink LongHeadlineField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -4959,6 +5027,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ImagesField = value;
                     this.RaisePropertyChanged("Images");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URLs for 1x1 impression tracking pixels.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<string> ImpressionTrackingUrls
+        {
+            get
+            {
+                return this.ImpressionTrackingUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImpressionTrackingUrlsField, value) != true))
+                {
+                    this.ImpressionTrackingUrlsField = value;
+                    this.RaisePropertyChanged("ImpressionTrackingUrls");
                 }
             }
         }
@@ -5196,7 +5284,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13">AppUrl Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13 for details.
-    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PromotionAdExtension"/> and <see cref="SitelinkAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5968,6 +6056,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines a list of optional ad properties that you can request when calling GetAdsByAdGroupId, GetAdsByEditorialStatus, and GetAdsByIds.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/adadditionalfield?view=bingads-13">AdAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/adadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAdsByAdGroupId">GetAdsByAdGroupId</see>, <see cref="CampaignManagementServiceClient.GetAdsByEditorialStatus">GetAdsByEditorialStatus</see> and <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see> service operations.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AdAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the ImpressionTrackingUrls element be included within each returned ResponsiveAd object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionTrackingUrls = 1,
     }
     
     /// <summary>
@@ -7351,6 +7459,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PriceAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PromotionAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FilterLinkAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FlyerAdExtension))]
     public partial class AdExtension : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -9866,6 +9975,273 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Flyer Extensions enable advertisers to distribute product or store catalogues (flyers) to potential customers.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/flyeradextension?view=bingads-13">FlyerAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/flyeradextension?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FlyerAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class FlyerAdExtension : Microsoft.BingAds.V13.CampaignManagement.AdExtension
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FlyerNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> ImageMediaIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> ImageMediaUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> StoreIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TrackingUrlTemplateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        /// <summary>
+        /// Description that can be used by the advertiser, agency, or account manager to track, label, or manage flyer extensions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true))
+                {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
+        {
+            get
+            {
+                return this.FinalAppUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalAppUrlsField, value) != true))
+                {
+                    this.FinalAppUrlsField = value;
+                    this.RaisePropertyChanged("FinalAppUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL for mobile devices.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalMobileUrls
+        {
+            get
+            {
+                return this.FinalMobileUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalMobileUrlsField, value) != true))
+                {
+                    this.FinalMobileUrlsField = value;
+                    this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalUrls
+        {
+            get
+            {
+                return this.FinalUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlsField, value) != true))
+                {
+                    this.FinalUrlsField = value;
+                    this.RaisePropertyChanged("FinalUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The flyer name.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FlyerName
+        {
+            get
+            {
+                return this.FlyerNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FlyerNameField, value) != true))
+                {
+                    this.FlyerNameField = value;
+                    this.RaisePropertyChanged("FlyerName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the image to include in the ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> ImageMediaIds
+        {
+            get
+            {
+                return this.ImageMediaIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImageMediaIdsField, value) != true))
+                {
+                    this.ImageMediaIdsField = value;
+                    this.RaisePropertyChanged("ImageMediaIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The URL of the media that you already added.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> ImageMediaUrls
+        {
+            get
+            {
+                return this.ImageMediaUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImageMediaUrlsField, value) != true))
+                {
+                    this.ImageMediaUrlsField = value;
+                    this.RaisePropertyChanged("ImageMediaUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The unique identifier of a Microsoft Merchant Center store used for product ads.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> StoreId
+        {
+            get
+            {
+                return this.StoreIdField;
+            }
+            set
+            {
+                if ((this.StoreIdField.Equals(value) != true))
+                {
+                    this.StoreIdField = value;
+                    this.RaisePropertyChanged("StoreId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TrackingUrlTemplate
+        {
+            get
+            {
+                return this.TrackingUrlTemplateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TrackingUrlTemplateField, value) != true))
+                {
+                    this.TrackingUrlTemplateField = value;
+                    this.RaisePropertyChanged("TrackingUrlTemplate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Your custom collection of key and value parameters for URL tracking.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
+        {
+            get
+            {
+                return this.UrlCustomParametersField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlCustomParametersField, value) != true))
+                {
+                    this.UrlCustomParametersField = value;
+                    this.RaisePropertyChanged("UrlCustomParameters");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the possible status values of an ad extension.
     /// </summary>
     /// <remarks>
@@ -10134,7 +10510,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a postal address.
+    /// Defines a postal address for location ad extensions.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/address?view=bingads-13">Address Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/address?view=bingads-13 for details.
@@ -12409,6 +12785,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilterLinkAdExtension = 2048,
+        
+        /// <summary>
+        /// An ad extension that enables advertisers to distribute product or store catalogues (flyers) to potential customers.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FlyerAdExtension = 4096,
     }
     
     /// <summary>
@@ -13194,7 +13576,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines a paging object that you can use to request objects in batches.
+    /// Defines a paging object to request Campaign Management objects in batches.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/paging?view=bingads-13 for details.
@@ -16595,7 +16977,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/idcollection?view=bingads-13">IdCollection Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/idcollection?view=bingads-13 for details.
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see> and <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddNegativeKeywordsToEntities">AddNegativeKeywordsToEntities</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see> and <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17668,6 +18050,139 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         /// <summary>
         /// The name of the budget.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the BidStrategy Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/bidstrategy?view=bingads-13">BidStrategy Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/bidstrategy?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see> and <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BidStrategy", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class BidStrategy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> AssociationCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.BiddingScheme BiddingSchemeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> AssociationCount
+        {
+            get
+            {
+                return this.AssociationCountField;
+            }
+            set
+            {
+                if ((this.AssociationCountField.Equals(value) != true))
+                {
+                    this.AssociationCountField = value;
+                    this.RaisePropertyChanged("AssociationCount");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.BiddingScheme BiddingScheme
+        {
+            get
+            {
+                return this.BiddingSchemeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.BiddingSchemeField, value) != true))
+                {
+                    this.BiddingSchemeField = value;
+                    this.RaisePropertyChanged("BiddingScheme");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
@@ -21366,7 +21881,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Labels let you organize campaigns, ad groups, ads, and keywords into groups based on whatever is important to you.
+    /// Defines a label object to organize campaigns, ad groups, ads, and keywords into groups.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/label?view=bingads-13">Label Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/label?view=bingads-13 for details.
@@ -22008,6 +22523,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NotificationEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NotificationTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -22184,6 +22702,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string NotificationEmail
+        {
+            get
+            {
+                return this.NotificationEmailField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NotificationEmailField, value) != true))
+                {
+                    this.NotificationEmailField = value;
+                    this.RaisePropertyChanged("NotificationEmail");
                 }
             }
         }
@@ -22564,7 +23102,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// FileImportJob is reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportjob?view=bingads-13">FileImportJob Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportjob?view=bingads-13 for details.
@@ -22648,6 +23186,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> AssociatedUetTagIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AutoDeviceBidOptimizationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> DeleteRemovedEntitiesField;
@@ -22979,6 +23520,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.AssociatedUetTagIdField = value;
                     this.RaisePropertyChanged("AssociatedUetTagId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> AutoDeviceBidOptimization
+        {
+            get
+            {
+                return this.AutoDeviceBidOptimizationField;
+            }
+            set
+            {
+                if ((this.AutoDeviceBidOptimizationField.Equals(value) != true))
+                {
+                    this.AutoDeviceBidOptimizationField = value;
+                    this.RaisePropertyChanged("AutoDeviceBidOptimization");
                 }
             }
         }
@@ -24545,7 +25106,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// FileImportOption is reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportoption?view=bingads-13">FileImportOption Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/fileimportoption?view=bingads-13 for details.
@@ -24731,7 +25292,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// Defines a list of optional import properties that you can request when calling GetImportJobsByIds and GetImportResults.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importadditionalfield?view=bingads-13">ImportAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importadditionalfield?view=bingads-13 for details.
@@ -24748,6 +25309,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
+        
+        /// <summary>
+        /// Request that the NotificationEmail element be included within each returned GoogleImportJob object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotificationEmail = 1,
+        
+        /// <summary>
+        /// Request that the AutoDeviceBidOptimization element be included within each returned GoogleImportOption object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AutoDeviceBidOptimization = 2,
     }
     
     /// <summary>
@@ -25129,6 +25702,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Defines the supported import entity types.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/importentitytype?view=bingads-13">ImportEntityType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/importentitytype?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImportEntityType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum ImportEntityType : int
+    {
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// The import entity is a campaign.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Campaign = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -27625,6 +28223,166 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBudgetIdsRequest request);
         
         /// <summary>
+        /// Defines the AddBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddBidStrategiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddBidStrategiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddBidStrategiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesResponse AddBidStrategies(Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the AddBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddBidStrategiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesResponse> AddBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the UpdateBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateBidStrategiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateBidStrategiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateBidStrategiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesResponse UpdateBidStrategies(Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the UpdateBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateBidStrategiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesResponse> UpdateBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the DeleteBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteBidStrategiesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteBidStrategiesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteBidStrategiesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesResponse DeleteBidStrategies(Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the DeleteBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteBidStrategies", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteBidStrategiesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesResponse> DeleteBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesRequest request);
+        
+        /// <summary>
+        /// Defines the GetBidStrategiesByIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetBidStrategiesByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etBidStrategiesByIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etBidStrategiesByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etBidStrategiesByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsResponse GetBidStrategiesByIds(Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsRequest request);
+        
+        /// <summary>
+        /// Defines the GetBidStrategiesByIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetBidStrategiesByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etBidStrategiesByIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsResponse> GetBidStrategiesByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsRequest request);
+        
+        /// <summary>
+        /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignIdsByBidStrategyIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etCampaignIdsByBidStrategyIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etCampaignIdsByBidStrategyIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etCampaignIdsByBidStrategyIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse GetCampaignIdsByBidStrategyIds(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request);
+        
+        /// <summary>
+        /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetCampaignIdsByBidStrategyIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etCampaignIdsByBidStrategyIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse> GetCampaignIdsByBidStrategyIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request);
+        
+        /// <summary>
         /// Adds one or more audiences.
         /// </summary>
         /// <remarks>
@@ -28489,7 +29247,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesResponse> SearchCompaniesAsync(Microsoft.BingAds.V13.CampaignManagement.SearchCompaniesRequest request);
         
         /// <summary>
-        /// Reserved for future use.
+        /// GetFileImportUploadUrl is reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -28507,7 +29265,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlResponse GetFileImportUploadUrl(Microsoft.BingAds.V13.CampaignManagement.GetFileImportUploadUrlRequest request);
         
         /// <summary>
-        /// Reserved for future use.
+        /// GetFileImportUploadUrl is reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -28647,6 +29405,38 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="DeleteImportJobs", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteImportJobsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse> DeleteImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request);
+        
+        /// <summary>
+        /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportEntityIdsMapping", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportEntityIdsMappingResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportEntityIdsMappingAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportEntityIdsMappingApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingResponse GetImportEntityIdsMapping(Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingRequest request);
+        
+        /// <summary>
+        /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetImportEntityIdsMapping", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etImportEntityIdsMappingResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingResponse> GetImportEntityIdsMappingAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingRequest request);
     }
     
     /// <summary>
@@ -31132,6 +31922,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdsByEditorialStatusRequest request object.
         /// </summary>
         /// <remarks>
@@ -31150,7 +31946,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AdGroupId">The identifier of the ad group to retrieve the ads from.</param>
         /// <param name="EditorialStatus">The editorial review status that the ads must have to be returned.</param>
         /// <param name="AdTypes">One or more types of ads to return.</param>
-        public GetAdsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V13.CampaignManagement.AdEditorialStatus EditorialStatus, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes)
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V13.CampaignManagement.AdEditorialStatus EditorialStatus, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31162,6 +31959,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.AdGroupId = AdGroupId;
             this.EditorialStatus = EditorialStatus;
             this.AdTypes = AdTypes;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -31264,6 +32062,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdsByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -31282,7 +32086,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AdGroupId">The identifier of the ad group that contains the ads to get.</param>
         /// <param name="AdIds">A maximum of 20 identifiers of the requested ads.</param>
         /// <param name="AdTypes">One or more types of ads to return.</param>
-        public GetAdsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> AdIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes)
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
+        public GetAdsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> AdIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31294,6 +32099,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.AdGroupId = AdGroupId;
             this.AdIds = AdIds;
             this.AdTypes = AdTypes;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -31398,6 +32204,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned ad.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAdsByAdGroupIdRequest request object.
         /// </summary>
         /// <remarks>
@@ -31415,7 +32227,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="AdGroupId">The identifier of the ad group to retrieve the ads from.</param>
         /// <param name="AdTypes">One or more ad types to retrieve.</param>
-        public GetAdsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad.</param>
+        public GetAdsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdType> AdTypes, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -31426,6 +32239,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.AdTypes = AdTypes;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -38782,6 +39596,610 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the AddBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddBidStrategiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddBidStrategiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies;
+        
+        /// <summary>
+        /// Constructor for the AddBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public AddBidStrategiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategies">Reserved.</param>
+        public AddBidStrategiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.BidStrategies = BidStrategies;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the AddBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddBidStrategiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddBidStrategiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<System.Nullable<long>> BidStrategyIds;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the AddBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public AddBidStrategiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategyIds">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public AddBidStrategiesResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> BidStrategyIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.BidStrategyIds = BidStrategyIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the UpdateBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateBidStrategiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateBidStrategiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies;
+        
+        /// <summary>
+        /// Constructor for the UpdateBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateBidStrategiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategies">Reserved.</param>
+        public UpdateBidStrategiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.BidStrategies = BidStrategies;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the UpdateBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateBidStrategiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateBidStrategiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the UpdateBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateBidStrategiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public UpdateBidStrategiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the DeleteBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteBidStrategiesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteBidStrategiesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> BidStrategyIds;
+        
+        /// <summary>
+        /// Constructor for the DeleteBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteBidStrategiesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteBidStrategiesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategiesRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategyIds">Reserved.</param>
+        public DeleteBidStrategiesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> BidStrategyIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.BidStrategyIds = BidStrategyIds;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the DeleteBidStrategies Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteBidStrategiesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteBidStrategiesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteBidStrategiesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteBidStrategiesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategiesResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public DeleteBidStrategiesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the GetBidStrategiesByIds Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidStrategiesByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetBidStrategiesByIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> BidStrategyIds;
+        
+        /// <summary>
+        /// Constructor for the GetBidStrategiesByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetBidStrategiesByIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetBidStrategiesByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategyIds">Reserved.</param>
+        public GetBidStrategiesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> BidStrategyIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.BidStrategyIds = BidStrategyIds;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the GetBidStrategiesByIds Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBidStrategiesByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetBidStrategiesByIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetBidStrategiesByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetBidStrategiesByIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetBidStrategiesByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategies">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public GetBidStrategiesByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BidStrategy> BidStrategies, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.BidStrategies = BidStrategies;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignIdsByBidStrategyIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetCampaignIdsByBidStrategyIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> BidStrategyIds;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignIdsByBidStrategyIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetCampaignIdsByBidStrategyIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignIdsByBidStrategyIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="BidStrategyIds">Reserved.</param>
+        public GetCampaignIdsByBidStrategyIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> BidStrategyIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.BidStrategyIds = BidStrategyIds;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCampaignIdsByBidStrategyIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetCampaignIdsByBidStrategyIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.IdCollection> CampaignIdCollection;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetCampaignIdsByBidStrategyIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetCampaignIdsByBidStrategyIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetCampaignIdsByBidStrategyIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignIdCollection">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public GetCampaignIdsByBidStrategyIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.IdCollection> CampaignIdCollection, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.CampaignIdCollection = CampaignIdCollection;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
     /// Adds one or more audiences.
     /// </summary>
     /// <remarks>
@@ -42146,7 +43564,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// GetFileImportUploadUrl is reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -42208,7 +43626,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved for future use.
+    /// GetFileImportUploadUrl is reserved for future use.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -42346,7 +43764,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> ImportJobIds;
         
         /// <summary>
-        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// A list of BatchError objects that contain details for any list item requests that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -42368,7 +43786,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13">AddImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addimportjobs?view=bingads-13 for details.
         /// </remarks>
         /// <param name="ImportJobIds">A list of unique system identifiers corresponding to the import jobs that were added.</param>
-        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        /// <param name="PartialErrors">A list of BatchError objects that contain details for any list item requests that were not successful.</param>
         public AddImportJobsResponse(string TrackingId, System.Collections.Generic.IList<long> ImportJobIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -42430,7 +43848,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> ImportJobIds;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields;
@@ -42454,7 +43872,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="ImportType">The type of import job to get results.</param>
         /// <param name="PageInfo">Determines the index and size of import results per page.</param>
         /// <param name="ImportJobIds">The identifiers of the import jobs to get results.</param>
-        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetImportResultsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo, System.Collections.Generic.IList<long> ImportJobIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -42564,7 +43982,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string ImportType;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields;
@@ -42587,7 +44005,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="ImportJobIds">The identifiers of the import jobs to get.</param>
         /// <param name="ImportType">The type of import job to get.</param>
-        /// <param name="ReturnAdditionalFields">Reserved for future use.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetImportJobsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> ImportJobIds, string ImportType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ImportAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -42777,6 +44195,146 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public DeleteImportJobsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportEntityIdsMappingRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportEntityIdsMappingRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The type of import job to get entity ID mappings.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string ImportType;
+        
+        /// <summary>
+        /// The source entity IDs that you want mapped to Microsoft Advertising entity IDs.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<long> SourceEntityIds;
+        
+        /// <summary>
+        /// The type of entity to get ID mappings.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType;
+        
+        /// <summary>
+        /// Constructor for the GetImportEntityIdsMappingRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMappingRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportEntityIdsMappingRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportEntityIdsMappingRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMappingRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ImportType">The type of import job to get entity ID mappings.</param>
+        /// <param name="SourceEntityIds">The source entity IDs that you want mapped to Microsoft Advertising entity IDs.</param>
+        /// <param name="ImportEntityType">The type of entity to get ID mappings.</param>
+        public GetImportEntityIdsMappingRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, System.Collections.Generic.IList<long> SourceEntityIds, Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ImportType = ImportType;
+            this.SourceEntityIds = SourceEntityIds;
+            this.ImportEntityType = ImportEntityType;
+        }
+    }
+    
+    /// <summary>
+    /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetImportEntityIdsMappingResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetImportEntityIdsMappingResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// The resulting list of key and value pairs.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, long>> EntityIdsMapping;
+        
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetImportEntityIdsMappingResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMappingResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        public GetImportEntityIdsMappingResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetImportEntityIdsMappingResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMappingResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="EntityIdsMapping">The resulting list of key and value pairs.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
+        public GetImportEntityIdsMappingResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, long>> EntityIdsMapping, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.EntityIdsMapping = EntityIdsMapping;
             this.PartialErrors = PartialErrors;
         }
     }
@@ -45146,6 +46704,156 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Defines the AddBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesResponse AddBidStrategies(Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesRequest request)
+        {
+            return base.Channel.AddBidStrategies(request);
+        }
+        
+        /// <summary>
+        /// Defines the AddBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13">AddBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addbidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesResponse> AddBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.AddBidStrategiesRequest request)
+        {
+            return base.Channel.AddBidStrategiesAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the UpdateBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesResponse UpdateBidStrategies(Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesRequest request)
+        {
+            return base.Channel.UpdateBidStrategies(request);
+        }
+        
+        /// <summary>
+        /// Defines the UpdateBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13">UpdateBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesResponse> UpdateBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateBidStrategiesRequest request)
+        {
+            return base.Channel.UpdateBidStrategiesAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the DeleteBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesResponse DeleteBidStrategies(Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesRequest request)
+        {
+            return base.Channel.DeleteBidStrategies(request);
+        }
+        
+        /// <summary>
+        /// Defines the DeleteBidStrategies Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13">DeleteBidStrategies Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletebidstrategies?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesResponse> DeleteBidStrategiesAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteBidStrategiesRequest request)
+        {
+            return base.Channel.DeleteBidStrategiesAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the GetBidStrategiesByIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsResponse GetBidStrategiesByIds(Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsRequest request)
+        {
+            return base.Channel.GetBidStrategiesByIds(request);
+        }
+        
+        /// <summary>
+        /// Defines the GetBidStrategiesByIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13">GetBidStrategiesByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getbidstrategiesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsResponse> GetBidStrategiesByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetBidStrategiesByIdsRequest request)
+        {
+            return base.Channel.GetBidStrategiesByIdsAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse GetCampaignIdsByBidStrategyIds(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request)
+        {
+            return base.Channel.GetCampaignIdsByBidStrategyIds(request);
+        }
+        
+        /// <summary>
+        /// Defines the GetCampaignIdsByBidStrategyIds Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13">GetCampaignIdsByBidStrategyIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getcampaignidsbybidstrategyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse> GetCampaignIdsByBidStrategyIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request)
+        {
+            return base.Channel.GetCampaignIdsByBidStrategyIdsAsync(request);
+        }
+        
+        /// <summary>
         /// Adds one or more audiences.
         /// </summary>
         /// <remarks>
@@ -45956,7 +47664,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// GetFileImportUploadUrl is reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -45971,7 +47679,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// GetFileImportUploadUrl is reserved for future use.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13">GetFileImportUploadUrl Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getfileimportuploadurl?view=bingads-13 for details.
@@ -46103,6 +47811,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsResponse> DeleteImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteImportJobsRequest request)
         {
             return base.Channel.DeleteImportJobsAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingResponse GetImportEntityIdsMapping(Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingRequest request)
+        {
+            return base.Channel.GetImportEntityIdsMapping(request);
+        }
+        
+        /// <summary>
+        /// Gets mappings of your source entity IDs to Microsoft Advertising entity IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13">GetImportEntityIdsMapping Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getimportentityidsmapping?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingResponse> GetImportEntityIdsMappingAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingRequest request)
+        {
+            return base.Channel.GetImportEntityIdsMappingAsync(request);
         }
     }
 }

@@ -748,6 +748,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> SoldToPaymentInstrumentIdField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CustomerManagement.AccountTaxCertificate TaxCertificateField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1280,6 +1283,26 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
+        public Microsoft.BingAds.V13.CustomerManagement.AccountTaxCertificate TaxCertificate
+        {
+            get
+            {
+                return this.TaxCertificateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TaxCertificateField, value) != true))
+                {
+                    this.TaxCertificateField = value;
+                    this.RaisePropertyChanged("TaxCertificate");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -1293,7 +1316,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a postal address.
+    /// Defines a postal address for accounts and user contact information.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/address?view=bingads-13">Address Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/address?view=bingads-13 for details.
@@ -1571,6 +1594,116 @@ namespace Microsoft.BingAds.V13.CustomerManagement
                 {
                     this.BusinessNameField = value;
                     this.RaisePropertyChanged("BusinessName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the AccountTaxCertificate Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accounttaxcertificate?view=bingads-13">AccountTaxCertificate Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accounttaxcertificate?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountTaxCertificate", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class AccountTaxCertificate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TaxCertificateBlobContainerNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, byte[]>> TaxCertificatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CustomerManagement.TaxCertificateStatus> StatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TaxCertificateBlobContainerName
+        {
+            get
+            {
+                return this.TaxCertificateBlobContainerNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TaxCertificateBlobContainerNameField, value) != true))
+                {
+                    this.TaxCertificateBlobContainerNameField = value;
+                    this.RaisePropertyChanged("TaxCertificateBlobContainerName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, byte[]>> TaxCertificates
+        {
+            get
+            {
+                return this.TaxCertificatesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TaxCertificatesField, value) != true))
+                {
+                    this.TaxCertificatesField = value;
+                    this.RaisePropertyChanged("TaxCertificates");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.TaxCertificateStatus> Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((this.StatusField.Equals(value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
                 }
             }
         }
@@ -2990,6 +3123,37 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/taxcertificatestatus?view=bingads-13">TaxCertificateStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/taxcertificatestatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="AccountTaxCertificate"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TaxCertificateStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    public enum TaxCertificateStatus : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Valid = 174,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Invalid = 175,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Pending = 176,
+    }
+    
+    /// <summary>
     /// Defines a customer object that contains one or more Microsoft Advertising accounts.
     /// </summary>
     /// <remarks>
@@ -4179,6 +4343,26 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional account properties that you can request when calling GetAccount.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountAdditionalField", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    public enum AccountAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the TaxCertificate element be included within each returned AdvertiserAccount object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TaxCertificate = 1,
     }
     
     /// <summary>
@@ -6040,7 +6224,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a paging object that you can use to request objects in batches.
+    /// Defines a paging object to request Customer Management objects in batches.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/paging?view=bingads-13 for details.
@@ -8632,6 +8816,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public long AccountId;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned account.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAccountRequest request object.
         /// </summary>
         /// <remarks>
@@ -8648,7 +8838,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getaccount?view=bingads-13 for details.
         /// </remarks>
         /// <param name="AccountId">The identifier of the account to get.</param>
-        public GetAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
+        public GetAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -8656,6 +8847,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AccountId = AccountId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

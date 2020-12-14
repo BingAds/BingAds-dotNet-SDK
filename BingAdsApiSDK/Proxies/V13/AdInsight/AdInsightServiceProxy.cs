@@ -2584,7 +2584,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines a selection of currency values.
+    /// Defines currency codes for the Ad Insight service.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/currencycode?view=bingads-13 for details.
@@ -7169,7 +7169,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines the possible search networks on which an ad can display.
+    /// Defines the possible networks used for keyword research.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/networktype?view=bingads-13">NetworkType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/networktype?view=bingads-13 for details.
@@ -7277,6 +7277,26 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Device = 70,
+    }
+    
+    /// <summary>
+    /// Defines a list of optional auction insight KPI properties that you can request when calling GetAuctionInsightData.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightkpiadditionalfield?view=bingads-13">AuctionInsightKpiAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/auctioninsightkpiadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetAuctionInsightData">GetAuctionInsightData</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AuctionInsightKpiAdditionalField", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    public enum AuctionInsightKpiAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Request that the AbsoluteTopOfPageRate element be included within each returned AuctionInsightKpi object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopOfPageRate = 1,
     }
     
     /// <summary>
@@ -7560,6 +7580,9 @@ namespace Microsoft.BingAds.V13.AdInsight
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double OutrankingShareField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AbsoluteTopOfPageRateField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -7708,6 +7731,26 @@ namespace Microsoft.BingAds.V13.AdInsight
                 {
                     this.OutrankingShareField = value;
                     this.RaisePropertyChanged("OutrankingShare");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The number of times an ad is shown as the very first ad above the organic search results, divided by the total number of impressions it actually received.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public double AbsoluteTopOfPageRate
+        {
+            get
+            {
+                return this.AbsoluteTopOfPageRateField;
+            }
+            set
+            {
+                if ((this.AbsoluteTopOfPageRateField.Equals(value) != true))
+                {
+                    this.AbsoluteTopOfPageRateField = value;
+                    this.RaisePropertyChanged("AbsoluteTopOfPageRate");
                 }
             }
         }
@@ -8626,7 +8669,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines a negative keyword with match type.
+    /// Defines a negative keyword with match type for traffic estimates.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/negativekeyword?view=bingads-13">NegativeKeyword Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/negativekeyword?view=bingads-13 for details.
@@ -12364,6 +12407,12 @@ namespace Microsoft.BingAds.V13.AdInsight
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.SearchParameter> SearchParameters;
         
         /// <summary>
+        /// The list of additional properties that you want included within each returned auction insight KPI.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.AdInsight.AuctionInsightKpiAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAuctionInsightDataRequest request object.
         /// </summary>
         /// <remarks>
@@ -12382,7 +12431,8 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <param name="EntityType">The entity level that you want to request auction insight data.</param>
         /// <param name="EntityIds">The Microsoft Advertising identifiers for up to 200 campaigns, ad groups, or keywords.</param>
         /// <param name="SearchParameters">The search parameters define your criteria and filters for the auction insight data.</param>
-        public GetAuctionInsightDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.AdInsight.EntityType EntityType, System.Collections.Generic.IList<long> EntityIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.SearchParameter> SearchParameters)
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned auction insight KPI.</param>
+        public GetAuctionInsightDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.AdInsight.EntityType EntityType, System.Collections.Generic.IList<long> EntityIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.SearchParameter> SearchParameters, System.Nullable<Microsoft.BingAds.V13.AdInsight.AuctionInsightKpiAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -12394,6 +12444,7 @@ namespace Microsoft.BingAds.V13.AdInsight
             this.EntityType = EntityType;
             this.EntityIds = EntityIds;
             this.SearchParameters = SearchParameters;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

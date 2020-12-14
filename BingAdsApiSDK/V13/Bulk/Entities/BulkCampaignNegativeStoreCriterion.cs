@@ -107,7 +107,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.CampaignName = v
             ),
             
-            new SimpleBulkMapping<BulkCampaignNegativeStoreCriterion>(StringTable.BingMerchantCenterId,
+            new SimpleBulkMapping<BulkCampaignNegativeStoreCriterion>(StringTable.MerchantCenterId,
                 c =>
                 {
                     var store = c.NegativeCampaignCriterion.Criterion as StoreCriterion;

@@ -199,12 +199,16 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // Filter link ad extension
             StringTable.AdExtensionHeaderType,
             StringTable.Texts,
+            
+            // Flyer ad extension
+            StringTable.FlyerName,
+            StringTable.MediaUrls,
 
             // Editorial rejection reasons
             StringTable.PublisherCountries,
     
             // Product scope
-            StringTable.BingMerchantCenterId, 
+            StringTable.MerchantCenterId, 
             StringTable.ProductCondition1,
             StringTable.ProductValue1,
             StringTable.ProductCondition2,
@@ -402,6 +406,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.LongHeadline,
             StringTable.SquareImageMediaId,
             StringTable.SquareLogoMediaId,
+            StringTable.ImpressionTrackingUrls,
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,

@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,95 +47,113 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using Microsoft.BingAds.V13.Internal;
 using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a filter link ad extension that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkFilterLinkAdExtension.FilterLinkAdExtension"/> property that can be read and written 
-    /// as fields of the Filter Link Ad Extension record in a bulk file. 
+    /// Represents a flyer ad extension. 
+    /// This class exposes the <see cref="FlyerAdExtension"/> property that can be read and written 
+    /// as fields of the Flyer Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Filter Link Ad Extension</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Flyer Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkFilterLinkAdExtension : BulkAdExtensionBase<FilterLinkAdExtension>
+    public class BulkFlyerAdExtension : BulkAdExtensionBase<FlyerAdExtension>
     {
         /// <summary>
-        /// The filter link ad extension.
+        /// The flyer ad extension.
         /// </summary>
-        public FilterLinkAdExtension FilterLinkAdExtension
+        public FlyerAdExtension FlyerAdExtension
         {
             get { return AdExtension; }
             set { AdExtension = value; }
         }
 
-        private static readonly IBulkMapping<BulkFilterLinkAdExtension>[] Mappings =
+        private static readonly IBulkMapping<BulkFlyerAdExtension>[] Mappings =
         {
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.FlyerName,
+                c => c.FlyerAdExtension.FlyerName,
+                (v, c) => c.FlyerAdExtension.FlyerName = v
+            ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.AdExtensionHeaderType,
-                c => c.FilterLinkAdExtension.AdExtensionHeaderType.ToBulkString(),
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.MerchantCenterId,
+                c => c.FlyerAdExtension.StoreId.ToBulkString(),
+                (v, c) => c.FlyerAdExtension.StoreId = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.Description,
+                c => c.FlyerAdExtension.Description,
+                (v, c) => c.FlyerAdExtension.Description = v
+            ),
+            
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.MediaIds,
+                c =>
+                {
+                    if (c.FlyerAdExtension.ImageMediaIds == null || c.FlyerAdExtension.ImageMediaIds.Count == 0)
+                    {
+                        return null;
+                    }
+                    return string.Join(";", c.FlyerAdExtension.ImageMediaIds);
+                },
                 (v, c) =>
                 {
-                    var extension = c.FilterLinkAdExtension as FilterLinkAdExtension;
-
-                    if (extension == null) return;
-
-                    AdExtensionHeaderType? adExtensionHeaderType = v.ParseOptional<AdExtensionHeaderType>();
-                    if (adExtensionHeaderType != null)
+                    if (!string.IsNullOrEmpty(v))
                     {
-                        c.FilterLinkAdExtension.AdExtensionHeaderType = (AdExtensionHeaderType)adExtensionHeaderType;
+                        c.FlyerAdExtension.ImageMediaIds = v.Split(';').Select(long.Parse).ToList();
                     }
                 }
             ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.Language,
-                c => c.FilterLinkAdExtension.Language,
-                (v, c) => c.FilterLinkAdExtension.Language = v
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.MediaUrls,
+                c => c.FlyerAdExtension.ImageMediaUrls.WriteUrls("; ", c.FlyerAdExtension.Id),
+                (v, c) => c.FlyerAdExtension.ImageMediaUrls = v.ParseUrls()
+            ), 
+            
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.FinalUrl,
+                c => c.FlyerAdExtension.FinalUrls.WriteUrls("; ", c.FlyerAdExtension.Id),
+                (v, c) => c.FlyerAdExtension.FinalUrls = v.ParseUrls()
             ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.Texts,
-                c => c.FilterLinkAdExtension.Texts.WriteDelimitedStrings(";"),
-                (v, c) => c.FilterLinkAdExtension.Texts = v.ParseDelimitedStrings()
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.FinalMobileUrl,
+                c => c.FlyerAdExtension.FinalMobileUrls.WriteUrls("; ", c.FlyerAdExtension.Id),
+                (v, c) => c.FlyerAdExtension.FinalMobileUrls = v.ParseUrls()
             ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalUrl,
-                c => c.FilterLinkAdExtension.FinalUrls.WriteUrls("; ", c.FilterLinkAdExtension.Id),
-                (v, c) => c.FilterLinkAdExtension.FinalUrls = v.ParseUrls()
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.TrackingTemplate,
+                c => c.FlyerAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.FlyerAdExtension.Id),
+                (v, c) => c.FlyerAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
             ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalMobileUrl,
-                c => c.FilterLinkAdExtension.FinalMobileUrls.WriteUrls("; ", c.FilterLinkAdExtension.Id),
-                (v, c) => c.FilterLinkAdExtension.FinalMobileUrls = v.ParseUrls()
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.CustomParameter,
+                c => c.FlyerAdExtension.UrlCustomParameters.ToBulkString(c.FlyerAdExtension.Id),
+                (v, c) => c.FlyerAdExtension.UrlCustomParameters = v.ParseCustomParameters()
             ),
 
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.TrackingTemplate,
-                c => c.FilterLinkAdExtension.TrackingUrlTemplate.ToOptionalBulkString(c.FilterLinkAdExtension.Id),
-                (v, c) => c.FilterLinkAdExtension.TrackingUrlTemplate = v.GetValueOrEmptyString()
-            ),
-
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.CustomParameter,
-                c => c.FilterLinkAdExtension.UrlCustomParameters.ToBulkString(c.FilterLinkAdExtension.Id),
-                (v, c) => c.FilterLinkAdExtension.UrlCustomParameters = v.ParseCustomParameters()
-            ),
-            new SimpleBulkMapping<BulkFilterLinkAdExtension>(StringTable.FinalUrlSuffix,
-                c => c.FilterLinkAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.FilterLinkAdExtension.Id),
-                (v, c) => c.FilterLinkAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
+            new SimpleBulkMapping<BulkFlyerAdExtension>(StringTable.FinalUrlSuffix,
+                c => c.FlyerAdExtension.FinalUrlSuffix.ToOptionalBulkString(c.AdExtension.Id),
+                (v, c) => c.FlyerAdExtension.FinalUrlSuffix = v.GetValueOrEmptyString()
             )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            FilterLinkAdExtension = new FilterLinkAdExtension { Type = "FilterLinkAdExtension" };
+            FlyerAdExtension = new FlyerAdExtension
+            {
+                Type = "FlyerAdExtension",
+            };
 
             base.ProcessMappingsFromRowValues(values);
 
@@ -144,7 +162,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(FilterLinkAdExtension, "FilterLinkAdExtension");
+            ValidatePropertyNotNull(FlyerAdExtension, "FlyerAdExtension");
 
             base.ProcessMappingsToRowValues(values, excludeReadonlyData);
 

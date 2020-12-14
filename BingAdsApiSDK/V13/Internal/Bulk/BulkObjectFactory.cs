@@ -218,6 +218,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AccountPriceAdExtension,     new EntityInfo(() => new BulkAccountPriceAdExtension())},
                 {StringTable.CampaignPriceAdExtension,     new EntityInfo(() => new BulkCampaignPriceAdExtension())},
                 {StringTable.AdGroupPriceAdExtension,      new EntityInfo(() => new BulkAdGroupPriceAdExtension())},
+                {StringTable.FlyerAdExtension,  new EntityInfo(() => new BulkFlyerAdExtension()) },
+                {StringTable.AccountFlyerAdExtension,    new EntityInfo(() => new BulkAccountFlyerAdExtension())},
+                {StringTable.CampaignFlyerAdExtension,    new EntityInfo(() => new BulkCampaignFlyerAdExtension())},
+                {StringTable.AdGroupFlyerAdExtension,     new EntityInfo(() => new BulkAdGroupFlyerAdExtension())},
                 {"Campaign Negative Site",                  new EntityInfo(() => new BulkCampaignNegativeSite(),                StringTable.Website,                () => new BulkCampaignNegativeSitesIdentifier())},
                 {"Ad Group Negative Site",                  new EntityInfo(() => new BulkAdGroupNegativeSite(),                 StringTable.Website,                () => new BulkAdGroupNegativeSitesIdentifier())},
                 

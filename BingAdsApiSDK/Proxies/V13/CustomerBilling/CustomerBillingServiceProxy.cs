@@ -2263,7 +2263,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines a paging object that you can use to request objects in batches.
+    /// Defines a paging object to request Customer Billing objects in batches.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/paging?view=bingads-13 for details.

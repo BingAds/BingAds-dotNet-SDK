@@ -85,7 +85,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static readonly Regex NumberOperatorPattern = new Regex("^(Equals|GreaterThan|LessThan|GreaterThanEqualTo|LessThanEqualTo) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
-        public static readonly Regex LogicalOperatorPattern = new Regex(@"^(AND|OR|NOT)\((.*?)\)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+        public static readonly Regex LogicalOperatorPattern = new Regex(@"^(AND|OR|NOT)\((.*?)\)$", RegexOptions.CultureInvariant | RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         public static T Parse<T>(this string s, bool returnDefaultValueOnNullOrEmpty = false)
             where T : struct
@@ -771,11 +771,16 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return values;           
         }
 
-        public static string WriteDelimitedStrings(this IList<string> values, string seperator)
+        public static string WriteDelimitedStrings(this IList<string> values, string seperator, long? id = null)
         {
-            if (values == null || values.Count == 0)
+            if (values == null)
             {
                 return null;
+            }
+            
+            if (values.Count == 0)
+            {
+                return id > 0 ? DeleteValue : null;
             }
 
             var text = string.Join(seperator, values);

@@ -7496,6 +7496,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 48,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 49,
     }
     
     /// <summary>
@@ -9260,6 +9272,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 70,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 71,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 72,
     }
     
     /// <summary>
@@ -10114,6 +10138,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 71,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 72,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 73,
     }
     
     /// <summary>
@@ -10871,6 +10907,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 54,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 55,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 56,
     }
     
     /// <summary>
@@ -11281,6 +11329,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 27,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 28,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 29,
     }
     
     /// <summary>
@@ -11618,6 +11678,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 27,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 28,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 29,
     }
     
     /// <summary>
@@ -12083,6 +12155,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 56,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 57,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 58,
     }
     
     /// <summary>
@@ -12522,6 +12606,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 44,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 45,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 46,
     }
     
     /// <summary>
@@ -13124,6 +13220,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 52,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 53,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 54,
     }
     
     /// <summary>
@@ -15869,6 +15977,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 40,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 41,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 42,
     }
     
     /// <summary>
@@ -17646,6 +17766,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QuantityBought = 78,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 79,
     }
     
     /// <summary>
@@ -18246,6 +18372,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 67,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 68,
     }
     
     /// <summary>
@@ -18762,6 +18894,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 53,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 54,
     }
     
     /// <summary>
@@ -19288,6 +19426,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 48,
     }
     
     /// <summary>
@@ -20369,6 +20513,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 55,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 56,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 57,
     }
     
     /// <summary>
@@ -20919,6 +21075,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 51,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 52,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 53,
     }
     
     /// <summary>
@@ -21399,6 +21567,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 48,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 49,
     }
     
     /// <summary>
@@ -21876,6 +22056,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 45,
+        
+        /// <summary>
+        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionRatePercent = 46,
+        
+        /// <summary>
+        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionRatePercent = 47,
     }
     
     /// <summary>

@@ -402,7 +402,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string ProductValue5 = "Product Value 5";
         public const string ProductValue6 = "Product Value 6";
         public const string ProductValue7 = "Product Value 7";
-        public const string BingMerchantCenterId = "Store Id";
+        public const string MerchantCenterId = "Store Id";
 
         // App Ad Extension        
         public const string AppAdExtension = "App Ad Extension";
@@ -412,6 +412,15 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignAppAdExtension = "Campaign App Ad Extension";
         public const string AdGroupAppAdExtension = "Ad Group App Ad Extension";
         public const string IsTrackingEnabled = "Tracking Enabled";
+
+        // Flyer Ad Extension
+        public const string FlyerAdExtension = "Flyer Ad Extension";
+        public const string AccountFlyerAdExtension = "Account Flyer Ad Extension";
+        public const string CampaignFlyerAdExtension = "Campaign Flyer Ad Extension";
+        public const string AdGroupFlyerAdExtension = "Ad Group Flyer Ad Extension";
+        public const string FlyerName = "Flyer Name";
+        public const string MediaUrls = "Media Urls";
+
 
         // misc stuff
         public const string EntityActiveStatus = "Active";
@@ -688,6 +697,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string LongHeadline = "Long Headline";
         public const string SquareImageMediaId = "Square Image Media Id";
         public const string SquareLogoMediaId = "Square Logo Media Id";
+        public const string ImpressionTrackingUrls = "Impression Tracking Urls";
 
 
         // Responsive Search Ad

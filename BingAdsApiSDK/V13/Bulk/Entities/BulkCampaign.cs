@@ -244,7 +244,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.Campaign.AudienceAdsBidAdjustment = v.ParseOptional<int>()
             ), 
 
-            new SimpleBulkMapping<BulkCampaign>(StringTable.BingMerchantCenterId,
+            new SimpleBulkMapping<BulkCampaign>(StringTable.MerchantCenterId,
                 c =>
                 {
                     var setting = (c.GetCampaignSetting(typeof(ShoppingSetting))) as ShoppingSetting;

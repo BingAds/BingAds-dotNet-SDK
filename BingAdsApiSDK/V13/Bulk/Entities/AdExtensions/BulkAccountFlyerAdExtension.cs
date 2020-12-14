@@ -47,94 +47,24 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
-using Microsoft.BingAds.V13.CampaignManagement;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a responsive ad. 
-    /// This class exposes the <see cref="BulkResponsiveAd.ResponsiveAd"/> property that can be read and written as fields of the Responsive Ad record in a bulk file. 
+    /// Represents an account level flyer ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Account Flyer Ad Extension record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Responsive Ad</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Account Flyer Ad Extension</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkResponsiveAd : BulkAd<ResponsiveAd>
+    public class BulkAccountFlyerAdExtension : BulkAccountAdExtensionAssociation
     {
-        /// <summary>
-        /// <para>
-        /// The responsive ad. 
-        /// </para>
-        /// </summary>
-        public ResponsiveAd ResponsiveAd
-        {
-            get { return Ad; }
-            set { Ad = value; }
-        }
-
-        private static readonly IBulkMapping<BulkResponsiveAd>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.BusinessName,
-                c => c.ResponsiveAd.BusinessName,
-                (v, c) => c.ResponsiveAd.BusinessName = v
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.CallToAction,
-                c => c.ResponsiveAd.CallToAction.ToBulkString(),
-                (v, c) => c.ResponsiveAd.CallToAction = v.ParseOptional<CallToAction>()
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Headline,
-                c => c.ResponsiveAd.Headline,
-                (v, c) => c.ResponsiveAd.Headline = v
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Images,
-                c => c.ResponsiveAd.Images == null ? null : c.ResponsiveAd.Images.ToImageAssetLinksBulkString(),
-                (v, c) => c.ResponsiveAd.Images = v.ParseImageAssetLinks()
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.LongHeadline,
-                c => c.ResponsiveAd.LongHeadlineString,
-                (v, c) => c.ResponsiveAd.LongHeadlineString = v
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Text,
-                c => c.ResponsiveAd.Text,
-                (v, c) => c.ResponsiveAd.Text = v
-            ),
-
-            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.ImpressionTrackingUrls,
-                c => c.ResponsiveAd.ImpressionTrackingUrls.WriteDelimitedStrings(";", c.ResponsiveAd.Id),
-                (v, c) => c.ResponsiveAd.ImpressionTrackingUrls = v.ParseDelimitedStrings()
-            ),
-        };
-
-        internal override void ProcessMappingsFromRowValues(RowValues values)
-        {
-            ResponsiveAd = new ResponsiveAd { Type = AdType.ResponsiveAd };
-
-            base.ProcessMappingsFromRowValues(values);
-
-            values.ConvertToEntity(this, Mappings);
-        }
-        
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            ValidatePropertyNotNull(ResponsiveAd, "ResponsiveAd");
-
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
-
-            this.ConvertToValues(values, Mappings);
-        }
     }
 }
