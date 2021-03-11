@@ -47,64 +47,103 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.V13.CampaignManagement;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.BingAds.V13.Internal;
 using Microsoft.BingAds.V13.Internal.Bulk;
-using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property with GenderCriterion that can be read and written as fields of the Ad Group Negative Gender Criterion record in a bulk file. 
+    /// Represents a bid strategy that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkBidStrategy.BidStrategy"/> property that can be read and written as fields of the BidStrategy record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Gender Criterion</see>. </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Bid Strategy</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeGenderCriterion : BulkAdGroupNegativeCriterion
-    {   
-        private static readonly IBulkMapping<BulkAdGroupNegativeGenderCriterion>[] Mappings =
+    public class BulkBidStrategy : SingleRecordBulkEntity
+    {
+        /// <summary>
+        /// The identifier of the account that contains the bid strategy.
+        /// Corresponds to the 'Parent Id' field in the bulk file. 
+        /// </summary>
+        public long AccountId { get; set; }
+
+        /// <summary>
+        /// Defines a bid strategy within an account. 
+        /// </summary>
+        public BidStrategy BidStrategy { get; set; }
+
+        /// <summary>
+        /// The status for the bulk bid strategy.
+        /// </summary>
+        public Status? Status { get; set; }
+
+        private static readonly IBulkMapping<BulkBidStrategy>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeGenderCriterion>(StringTable.Target,
-                c =>
-                {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.Id,
+                c => c.BidStrategy.Id.ToBulkString(),
+                (v, c) => c.BidStrategy.Id = v.ParseOptional<long>()
+                ),
 
-                    return genderCriterion?.GenderType.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.ParentId,
+                c => c.AccountId.ToBulkString(),
+                (v, c) => c.AccountId = v.Parse<long>()
+                ),
 
-                    if (genderCriterion != null && v.ParseOptional<GenderType>() != null)
-                    {
-                        genderCriterion.GenderType = v.Parse<GenderType>();
-                    }
-                }
-            ),
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.Status,
+                c => c.Status.ToBulkString(),
+                (v, c) => c.Status = v.ParseOptional<Status>()
+                ),
+            
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.CampaignType,
+                c => c.BidStrategy.AssociatedCampaignType.ToBulkString(),
+                (v, c) => c.BidStrategy.AssociatedCampaignType = v.ParseOptional<CampaignType>()
+                ),
+
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.BidStrategyName,
+                c => c.BidStrategy.Name,
+                (v, c) => c.BidStrategy.Name = v
+                ),
+            
+            new ComplexBulkMapping<BulkBidStrategy>(BiddingSchemeToCsv, CsvToBiddingScheme)
         };
-
-        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
-        {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
-            this.ConvertToValues(values, Mappings);
-        }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            base.ProcessMappingsFromRowValues(values);
+            BidStrategy = new BidStrategy();
             values.ConvertToEntity(this, Mappings);
         }
 
-        protected override Criterion CreateCriterion()
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            return new GenderCriterion()
+            ValidatePropertyNotNull(BidStrategy, "BidStrategy");
+
+            this.ConvertToValues(values, Mappings);
+        }
+
+        
+        private static void CsvToBiddingScheme(RowValues values, BulkBidStrategy c)
+        {
+            c.BidStrategy.BiddingScheme = values.ReadBiddingSchemaFromValues();
+        }
+
+        private static void BiddingSchemeToCsv(BulkBidStrategy c, RowValues values)
+        {
+            if (c.BidStrategy.BiddingScheme == null)
             {
-                Type = typeof(GenderCriterion).Name,
-            };
+                return;
+            }
+
+            c.BidStrategy.BiddingScheme.WriteToValues(values, c.BidStrategy.Id);
         }
     }
 }

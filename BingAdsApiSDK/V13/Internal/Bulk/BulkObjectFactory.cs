@@ -93,6 +93,7 @@ using BulkAdGroupPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.Bulk
 using BulkAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAppAdExtension;
 using BulkAppInstallAd = Microsoft.BingAds.V13.Bulk.Entities.BulkAppInstallAd;
 using BulkBudget = Microsoft.BingAds.V13.Bulk.Entities.BulkBudget;
+using BulkBidStrategy = Microsoft.BingAds.V13.Bulk.Entities.BulkBidStrategy;
 using BulkImage = Microsoft.BingAds.V13.Bulk.Entities.BulkImage;
 using BulkFeed = Microsoft.BingAds.V13.Bulk.Entities.Feeds.BulkFeed;
 using BulkFeedItem = Microsoft.BingAds.V13.Bulk.Entities.Feeds.BulkFeedItem;
@@ -176,7 +177,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.ExpandedTextAd,                new EntityInfo(() => new BulkExpandedTextAd())},
                 {StringTable.ResponsiveAd,                new EntityInfo(() => new BulkResponsiveAd())},
                 {StringTable.ResponsiveSearchAd,                new EntityInfo(() => new BulkResponsiveSearchAd())},
-                {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},                
+                {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},
                  {StringTable.ImageAdExtension,              new EntityInfo(() => new BulkImageAdExtension())},
                 {StringTable.AccountImageAdExtension,      new EntityInfo(() => new BulkAccountImageAdExtension())},
                 {StringTable.CampaignImageAdExtension,      new EntityInfo(() => new BulkCampaignImageAdExtension())},
@@ -184,8 +185,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.LocationAdExtension,           new EntityInfo(() => new BulkLocationAdExtension())},
                 {StringTable.AccountLocationAdExtension,   new EntityInfo(() => new BulkAccountLocationAdExtension())},
                 {StringTable.CampaignLocationAdExtension,   new EntityInfo(() => new BulkCampaignLocationAdExtension())},
-                {StringTable.CallAdExtension,               new EntityInfo(() => new BulkCallAdExtension())},            
-                {StringTable.CampaignCallAdExtension,       new EntityInfo(() => new BulkCampaignCallAdExtension())},            
+                {StringTable.CallAdExtension,               new EntityInfo(() => new BulkCallAdExtension())},
+                {StringTable.CampaignCallAdExtension,       new EntityInfo(() => new BulkCampaignCallAdExtension())},
                 {StringTable.AppAdExtension,                new EntityInfo(() => new BulkAppAdExtension())},
                 {StringTable.AccountAppAdExtension,        new EntityInfo(() => new BulkAccountAppAdExtension())},
                 {StringTable.CampaignAppAdExtension,        new EntityInfo(() => new BulkCampaignAppAdExtension())},
@@ -213,7 +214,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.PromotionAdExtension,  new EntityInfo(() => new BulkPromotionAdExtension()) },
                 {StringTable.AccountPromotionAdExtension,    new EntityInfo(() => new BulkAccountPromotionAdExtension())},
                 {StringTable.CampaignPromotionAdExtension,    new EntityInfo(() => new BulkCampaignPromotionAdExtension())},
-                {StringTable.AdGroupPromotionAdExtension,     new EntityInfo(() => new BulkAdGroupPromotionAdExtension())},			
+                {StringTable.AdGroupPromotionAdExtension,     new EntityInfo(() => new BulkAdGroupPromotionAdExtension())},
                 {StringTable.PriceAdExtension,             new EntityInfo(() => new BulkPriceAdExtension()) },
                 {StringTable.AccountPriceAdExtension,     new EntityInfo(() => new BulkAccountPriceAdExtension())},
                 {StringTable.CampaignPriceAdExtension,     new EntityInfo(() => new BulkCampaignPriceAdExtension())},
@@ -224,7 +225,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupFlyerAdExtension,     new EntityInfo(() => new BulkAdGroupFlyerAdExtension())},
                 {"Campaign Negative Site",                  new EntityInfo(() => new BulkCampaignNegativeSite(),                StringTable.Website,                () => new BulkCampaignNegativeSitesIdentifier())},
                 {"Ad Group Negative Site",                  new EntityInfo(() => new BulkAdGroupNegativeSite(),                 StringTable.Website,                () => new BulkAdGroupNegativeSitesIdentifier())},
-                
+
                 {StringTable.NegativeKeywordList,           new EntityInfo(() => new BulkNegativeKeywordList())},
                 {StringTable.ListNegativeKeyword,           new EntityInfo(() => new BulkSharedNegativeKeyword())},
                 {StringTable.CampaignNegativeKeywordList,   new EntityInfo(() => new BulkCampaignNegativeKeywordList())},
@@ -274,8 +275,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.SitelinkAdExtension,          new EntityInfo(() => new BulkSitelinkAdExtension())},
                 {StringTable.AccountSitelinkAdExtension,  new EntityInfo(() => new BulkAccountSitelinkAdExtension())},
                 {StringTable.CampaignSitelinkAdExtension,  new EntityInfo(() => new BulkCampaignSitelinkAdExtension())},
-                {StringTable.AdGroupSitelinkAdExtension,   new EntityInfo(() => new BulkAdGroupSitelinkAdExtension())}, 
+                {StringTable.AdGroupSitelinkAdExtension,   new EntityInfo(() => new BulkAdGroupSitelinkAdExtension())},
                 {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())},
+                {StringTable.BidStrategy,                        new EntityInfo(() => new BulkBidStrategy())},                
                 {StringTable.Image,                        new EntityInfo(() => new BulkImage())},
                 {StringTable.Feed,                        new EntityInfo(() => new BulkFeed())},
                 {StringTable.FeedItem,                        new EntityInfo(() => new BulkFeedItem())},
@@ -351,7 +353,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {
                     var identifier = pair.Value.CreateIdentifierFunc();
 
-                     TypeReverseMap[identifier.GetType()] = pair.Key;                   
+                     TypeReverseMap[identifier.GetType()] = pair.Key;
                 }
             }
         }
@@ -387,7 +389,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             if (!IndividualEntityMap.TryGetValue(type, out info))
             {
                 return new UnknownBulkEntity();
-            }            
+            }
 
             if (values[StringTable.Status] == "Deleted" &&
                 !string.IsNullOrEmpty(info.DeleteAllColumnName) &&

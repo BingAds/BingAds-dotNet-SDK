@@ -68,7 +68,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             //StringTable.MediaId,
         };
 
-        public static readonly string[] Headers = 
+        public static readonly string[] Headers =
         {
             // common
             StringTable.Type,
@@ -83,7 +83,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.ClientId,
             StringTable.LastModifiedTime,
             StringTable.Language,
-            
+
             // campaign
             StringTable.TimeZone,
             StringTable.BudgetId,
@@ -91,6 +91,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.Budget,
             StringTable.BudgetType,
             StringTable.LocalInventoryAdsEnabled,
+            StringTable.FeedId,
 
             // experiment
             StringTable.TrafficSplitPercent,
@@ -104,10 +105,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.EndDate,
             StringTable.NetworkDistribution,
             StringTable.AdRotation,
-            StringTable.CpcBid,   
+            StringTable.CpcBid,
             StringTable.PrivacyStatus,
             StringTable.AdGroupType,
-            
+
             // Ads
             StringTable.Title,
             StringTable.Text,
@@ -123,7 +124,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.EditorialAppealStatus,
             StringTable.DevicePreference,
             StringTable.AdFormatPreference,
-            
+
             // Keywords
             StringTable.Keyword,
             StringTable.MatchType,
@@ -141,7 +142,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.Radius,
             StringTable.Unit,
             StringTable.BusinessId,
-          
+
             // DayTime target
             StringTable.FromHour,
             StringTable.FromMinute,
@@ -155,7 +156,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // AdExtensions common
             StringTable.Version,
             StringTable.AdSchedule,
-            
+
             // Use Searcher Time Zone
             StringTable.UseSearcherTimeZone,
             StringTable.AdScheduleUseSearcherTimeZone,
@@ -195,20 +196,20 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.MediaIds,
             StringTable.Layouts,
             StringTable.DisplayText,
-            
+
             // Filter link ad extension
             StringTable.AdExtensionHeaderType,
             StringTable.Texts,
-            
+
             // Flyer ad extension
             StringTable.FlyerName,
             StringTable.MediaUrls,
 
             // Editorial rejection reasons
             StringTable.PublisherCountries,
-    
+
             // Product scope
-            StringTable.MerchantCenterId, 
+            StringTable.MerchantCenterId,
             StringTable.ProductCondition1,
             StringTable.ProductValue1,
             StringTable.ProductCondition2,
@@ -254,7 +255,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.ParentAdGroupCriterionId,
             StringTable.CampaignType,
             StringTable.CampaignPriority,
-            
+
             // CoOp
             StringTable.BidOption,
             StringTable.BidBoostValue,
@@ -353,7 +354,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.IsExact,
             StringTable.Source,
             StringTable.Url,
-            
+
             // Image
             StringTable.Height,
             StringTable.Width,
@@ -362,6 +363,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.CalloutText,
 
             // AutoBidding
+            StringTable.BidStrategyId,
+            StringTable.BidStrategyName,
             StringTable.BidStrategyType,
             StringTable.BidStrategyMaxCpc,
             StringTable.BidStrategyTargetCpa,
@@ -411,8 +414,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,
             StringTable.StructuredSnippetValues,
-			
-			// Promotion Ad Extension
+
+            // Promotion Ad Extension
             StringTable.PromotionTarget,
             StringTable.DiscountModifier,
             StringTable.PercentOff,
@@ -450,12 +453,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdjustmentType,
             StringTable.ExternalAttributionCredit,
             StringTable.ExternalAttributionModel,
-            
+
             // Account
             StringTable.MSCLKIDAutoTaggingEnabled,
             StringTable.IncludeViewThroughConversions,
             StringTable.ProfileExpansionEnabled,
-            
+
             //Final Url Suffix
             StringTable.FinalUrlSuffix,
 

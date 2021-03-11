@@ -64,52 +64,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeAgeCriterion : SingleRecordBulkEntity
+    public class BulkAdGroupNegativeAgeCriterion : BulkAdGroupNegativeCriterion
     {
-        /// <summary>
-        /// Defines a Negative Ad Group Criterion.
-        /// </summary>
-        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The name of the ad group that contains the criterion.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
-
         private static readonly IBulkMapping<BulkAdGroupNegativeAgeCriterion>[] Mappings =
-        {
-            new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.Status,
-                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.Id,
-                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.ParentId,
-                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-                        
+        {               
             new SimpleBulkMapping<BulkAdGroupNegativeAgeCriterion>(StringTable.Target,
                 c =>
                 {
@@ -131,23 +89,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
-            {
-                Criterion = new AgeCriterion()
-                {
-                    Type = typeof(AgeCriterion).Name,
-                },
-                Type = typeof(NegativeAdGroupCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new AgeCriterion()
+            {
+                Type = typeof(AgeCriterion).Name,
+            };
         }
     }
 }

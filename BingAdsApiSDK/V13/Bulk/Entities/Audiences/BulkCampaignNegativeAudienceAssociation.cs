@@ -64,19 +64,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkCampaignNegativeProductAudienceAssociation"/>
     /// <seealso cref="BulkCampaignNegativeRemarketingListAssociation"/>
     /// <seealso cref="BulkCampaignNegativeSimilarRemarketingListAssociation"/>
-    public class BulkCampaignNegativeAudienceAssociation : SingleRecordBulkEntity
+    public class BulkCampaignNegativeAudienceAssociation : BulkCampaignNegativeCriterion
     {
-        /// <summary>
-        /// Defines a Negative Campaign Criterion.
-        /// </summary>
-        public NegativeCampaignCriterion NegativeCampaignCriterion { get; set; }
-
-        /// <summary>
-        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign</see> that is associated with the audience.
-        /// Corresponds to the 'Campaign' field in the bulk file.
-        /// </summary>
-        public string CampaignName { get; set; }
-
         /// <summary>
         /// The name of the Audience
         /// Corresponds to the "Audience" field in the bulk file.
@@ -85,26 +74,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         private static readonly IBulkMapping<BulkCampaignNegativeAudienceAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkCampaignNegativeAudienceAssociation>(StringTable.Status,
-                c => c.NegativeCampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignNegativeAudienceAssociation>(StringTable.Id,
-                c => c.NegativeCampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeCampaignCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignNegativeAudienceAssociation>(StringTable.ParentId,
-                c => c.NegativeCampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.NegativeCampaignCriterion.CampaignId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignNegativeAudienceAssociation>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
             new SimpleBulkMapping<BulkCampaignNegativeAudienceAssociation>(StringTable.Audience,
                 c => c.AudienceName,
                 (v, c) => c.AudienceName = v
@@ -131,23 +100,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(NegativeCampaignCriterion, typeof(NegativeCampaignCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            NegativeCampaignCriterion = new NegativeCampaignCriterion
-            {
-                Criterion = new AudienceCriterion()
-                {
-                    Type = typeof(AudienceCriterion).Name,
-                },
-                Type = typeof(NegativeCampaignCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new AudienceCriterion()
+            {
+                Type = typeof(AudienceCriterion).Name,
+            };
         }
     }
 }

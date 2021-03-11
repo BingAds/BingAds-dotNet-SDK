@@ -56,55 +56,77 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property with GenderCriterion that can be read and written as fields of the Ad Group Negative Gender Criterion record in a bulk file. 
+    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property that can be read and written as fields of the Ad Group Negative Criterion record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Gender Criterion</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeGenderCriterion : BulkAdGroupNegativeCriterion
-    {   
-        private static readonly IBulkMapping<BulkAdGroupNegativeGenderCriterion>[] Mappings =
+    public abstract class BulkAdGroupNegativeCriterion : SingleRecordBulkEntity
+    {
+        /// <summary>
+        /// Defines a Negative Ad Group Criterion.
+        /// </summary>
+        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
+
+        /// <summary>
+        /// The name of the campaign that contains the ad group.
+        /// Corresponds to the 'Campaign' field in the bulk file. 
+        /// </summary>
+        public string CampaignName { get; set; }
+
+        /// <summary>
+        /// The name of the ad group that contains the criterion.
+        /// Corresponds to the 'Ad Group' field in the bulk file.
+        /// </summary>
+        public string AdGroupName { get; set; }
+
+        private static readonly IBulkMapping<BulkAdGroupNegativeCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeGenderCriterion>(StringTable.Target,
-                c =>
-                {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
-
-                    return genderCriterion?.GenderType.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
-
-                    if (genderCriterion != null && v.ParseOptional<GenderType>() != null)
-                    {
-                        genderCriterion.GenderType = v.Parse<GenderType>();
-                    }
-                }
+            new SimpleBulkMapping<BulkAdGroupNegativeCriterion>(StringTable.Status,
+                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
             ),
+
+            new SimpleBulkMapping<BulkAdGroupNegativeCriterion>(StringTable.Id,
+                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupNegativeCriterion>(StringTable.ParentId,
+                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupNegativeCriterion>(StringTable.Campaign,
+                c => c.CampaignName,
+                (v, c) => c.CampaignName = v
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupNegativeCriterion>(StringTable.AdGroup,
+                c => c.AdGroupName,
+                (v, c) => c.AdGroupName = v
+            )
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
+
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            base.ProcessMappingsFromRowValues(values);
+            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
+            {
+                Criterion = CreateCriterion(),
+                Type = typeof(NegativeAdGroupCriterion).Name
+            };
             values.ConvertToEntity(this, Mappings);
         }
 
-        protected override Criterion CreateCriterion()
-        {
-            return new GenderCriterion()
-            {
-                Type = typeof(GenderCriterion).Name,
-            };
-        }
+        protected abstract Criterion CreateCriterion();
     }
 }

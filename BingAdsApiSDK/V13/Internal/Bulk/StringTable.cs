@@ -281,6 +281,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public const string PhysicalIntent = "Physical Intent";
 
+        public const string FeedId = "Feed Id";
+
         public const string Bid = "Bid";
 
         public const string Profile = "Profile";
@@ -615,6 +617,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
 
         // AutoBidding
+        public const string BidStrategy = "Bid Strategy";
+        public const string BidStrategyId = "Bid Strategy Id";
+        public const string BidStrategyName = "Bid Strategy Name";
         public const string BidStrategyType = "Bid Strategy Type";
         public const string BidStrategyMaxCpc = "Bid Strategy MaxCpc";
         public const string BidStrategyTargetCpa = "Bid Strategy TargetCpa";

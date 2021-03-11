@@ -64,25 +64,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkAdGroupProductAudienceAssociation"/>
     /// <seealso cref="BulkAdGroupRemarketingListAssociation"/>
     /// <seealso cref="BulkAdGroupSimilarRemarketingListAssociation"/>
-    public class BulkAdGroupAudienceAssociation : SingleRecordBulkEntity
+    public class BulkAdGroupAudienceAssociation : BulkAdGroupBiddableCriterion
     {
-        /// <summary>
-        /// Defines an Biddable Ad Group Criterion.
-        /// </summary>
-        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group</see> that is associated with the audience.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
-
         /// <summary>
         /// The name of the Audience
         /// Corresponds to the "Audience" field in the bulk file.
@@ -91,59 +74,9 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         private static readonly IBulkMapping<BulkAdGroupAudienceAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.Status,
-                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.Id,
-                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.ParentId,
-                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-
             new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.Audience,
                 c => c.AudienceName,
                 (v, c) => c.AudienceName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.BidAdjustment,
-                c =>
-                {
-                    if (c.BiddableAdGroupCriterion == null) return null;
-
-                    var multiplicativeBid = c.BiddableAdGroupCriterion.CriterionBid as BidMultiplier;
-
-                    return multiplicativeBid?.Multiplier.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    if (c.BiddableAdGroupCriterion == null) return;
-
-                    double? multiplier = v.ParseOptional<double>();
-                    if (multiplier != null)
-                    {
-                        ((BidMultiplier) c.BiddableAdGroupCriterion.CriterionBid).Multiplier = multiplier.Value;
-                    }
-                    else
-                    {
-                        c.BiddableAdGroupCriterion.CriterionBid = null;
-                    }
-                }
             ),
 
             new SimpleBulkMapping<BulkAdGroupAudienceAssociation>(StringTable.AudienceId,
@@ -167,27 +100,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
-            {
-                Criterion = new AudienceCriterion()
-                {
-                    Type = typeof(AudienceCriterion).Name,
-                },
-                CriterionBid = new BidMultiplier
-                {
-                    Type = typeof(BidMultiplier).Name,
-                },
-                Type = typeof(BiddableAdGroupCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new AudienceCriterion()
+            {
+                Type = typeof(AudienceCriterion).Name,
+            };
         }
     }
 }

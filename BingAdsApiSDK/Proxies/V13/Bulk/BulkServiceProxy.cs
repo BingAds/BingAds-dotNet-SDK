@@ -924,7 +924,7 @@ namespace Microsoft.BingAds.V13.Bulk
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        PortfolioBidStrategies = 132,
+        BidStrategies = 132,
     }
     
     /// <summary>

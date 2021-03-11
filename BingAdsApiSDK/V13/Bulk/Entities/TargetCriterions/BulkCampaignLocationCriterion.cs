@@ -64,69 +64,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignLocationCriterion : SingleRecordBulkEntity
+    public class BulkCampaignLocationCriterion : BulkCampaignBiddableCriterion
     {
-        /// <summary>
-        /// Defines a Biddable Campaign Criterion.
-        /// </summary>
-        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the Campaign.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
         private static readonly IBulkMapping<BulkCampaignLocationCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.Status,
-                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.Id,
-                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.ParentId,
-                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
-            ),
-            new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.BidAdjustment,
-                c =>
-                {
-                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
-
-                    if (criterion == null) return null;
-
-                    var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
-
-                    return multiplicativeBid?.Multiplier.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
-
-                    if (criterion == null) return;
-
-                    double? multiplier = v.ParseOptional<double>();
-                    if (multiplier != null)
-                    {
-                        ((BidMultiplier) criterion.CriterionBid).Multiplier = multiplier.Value;
-                    }
-                    else
-                    {
-                        criterion.CriterionBid = null;
-                    }
-                }
-            ),
-
             new SimpleBulkMapping<BulkCampaignLocationCriterion>(StringTable.Target,
                 c =>
                 {
@@ -184,27 +125,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            BiddableCampaignCriterion = new BiddableCampaignCriterion
-            {
-                Criterion = new LocationCriterion()
-                {
-                    Type = typeof(LocationCriterion).Name,
-                },
-                CriterionBid = new BidMultiplier
-                {
-                    Type = typeof(BidMultiplier).Name,
-                },
-                Type = typeof(BiddableCampaignCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new LocationCriterion()
+            {
+                Type = typeof(LocationCriterion).Name,
+            };
         }
     }
 }

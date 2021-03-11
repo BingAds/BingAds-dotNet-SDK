@@ -5010,7 +5010,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ClickSharePercent = 45,
         
         /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all ads shown, out of the total impressions available in the market you were targeting.
+        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 46,
@@ -5128,6 +5128,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 65,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 66,
     }
     
     /// <summary>
@@ -6589,7 +6595,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ClickSharePercent = 62,
         
         /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all ads shown, out of the total impressions available in the market you were targeting.
+        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 63,
@@ -6731,6 +6737,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RelativeCtr = 86,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 87,
     }
     
     /// <summary>
@@ -7508,6 +7520,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 50,
     }
     
     /// <summary>
@@ -7800,6 +7818,84 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TraditionalChinese = 65536,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Greek.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Greek = 131072,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Polish.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Polish = 262144,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Czech.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Czech = 524288,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Romanian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Romanian = 1048576,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Hungarian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hungarian = 2097152,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Slovak.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovak = 4194304,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Bulgarian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bulgarian = 8388608,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Croatian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Croatian = 16777216,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Lithuanian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lithuanian = 33554432,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Slovakian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovenian = 67108864,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Estonian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Estonian = 134217728,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Latvian.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Latvian = 268435456,
+        
+        /// <summary>
+        /// The report will contain data for ads that were viewed in Maltese.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Maltese = 536870912,
     }
     
     /// <summary>
@@ -8460,7 +8556,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ClickSharePercent = 55,
         
         /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all ads shown, out of the total impressions available in the market you were targeting.
+        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 56,
@@ -8608,6 +8704,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupType = 80,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 81,
     }
     
     /// <summary>
@@ -9284,6 +9386,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 72,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 73,
     }
     
     /// <summary>
@@ -10150,6 +10258,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 73,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 74,
     }
     
     /// <summary>
@@ -10919,6 +11033,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 56,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 57,
     }
     
     /// <summary>
@@ -12167,6 +12287,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 58,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 59,
     }
     
     /// <summary>
@@ -12618,6 +12744,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 47,
     }
     
     /// <summary>
@@ -13232,6 +13364,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 54,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 55,
     }
     
     /// <summary>
@@ -15134,6 +15272,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 50,
     }
     
     /// <summary>
@@ -15608,6 +15752,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 47,
     }
     
     /// <summary>
@@ -15989,6 +16139,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 42,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 43,
     }
     
     /// <summary>
@@ -16457,6 +16613,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 45,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 46,
     }
     
     /// <summary>
@@ -17036,7 +17198,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionShareLostToBudgetPercent = 44,
         
         /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all ads shown, out of the total impressions available in the market you were targeting.
+        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 45,
@@ -17100,6 +17262,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 55,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 56,
     }
     
     /// <summary>
@@ -17772,6 +17940,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 79,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 80,
     }
     
     /// <summary>
@@ -18378,6 +18552,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 68,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 69,
     }
     
     /// <summary>
@@ -18900,6 +19080,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 54,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 55,
     }
     
     /// <summary>
@@ -19432,6 +19618,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 48,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 49,
     }
     
     /// <summary>
@@ -19915,13 +20107,13 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupName = 2,
         
         /// <summary>
-        /// The start time of the call.
+        /// The start time of the call expressed in Coordinated Universal Time (UTC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartTime = 3,
         
         /// <summary>
-        /// The end time of the call.
+        /// The end time of the call expressed in Coordinated Universal Time (UTC).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EndTime = 4,
@@ -20525,6 +20717,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 57,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 58,
     }
     
     /// <summary>
@@ -21087,6 +21285,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 53,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 54,
     }
     
     /// <summary>
@@ -21579,6 +21783,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 50,
     }
     
     /// <summary>
@@ -22068,6 +22278,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 47,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 48,
     }
     
     /// <summary>

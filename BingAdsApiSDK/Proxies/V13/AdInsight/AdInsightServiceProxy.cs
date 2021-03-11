@@ -9217,7 +9217,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The estimated average CPC.
+        /// The estimated average position on the web page for ads that were delivered.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double AveragePosition

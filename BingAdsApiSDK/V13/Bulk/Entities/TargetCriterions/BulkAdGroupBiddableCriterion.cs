@@ -56,55 +56,112 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// This class exposes the <see cref="NegativeAdGroupCriterion"/> property with GenderCriterion that can be read and written as fields of the Ad Group Negative Gender Criterion record in a bulk file. 
+    /// This class exposes the <see cref="BiddableAdGroupCriterion"/> property that can be read and written as fields of the Biddable Ad Group Criterion record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Negative Gender Criterion</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeGenderCriterion : BulkAdGroupNegativeCriterion
-    {   
-        private static readonly IBulkMapping<BulkAdGroupNegativeGenderCriterion>[] Mappings =
+    public abstract class BulkAdGroupBiddableCriterion : SingleRecordBulkEntity
+    {
+        /// <summary>
+        /// Defines a Biddable Ad Group Criterion.
+        /// </summary>
+        public BiddableAdGroupCriterion BiddableAdGroupCriterion { get; set; }
+
+        /// <summary>
+        /// The name of the campaign that contains the ad group.
+        /// Corresponds to the 'Campaign' field in the bulk file. 
+        /// </summary>
+        public string CampaignName { get; set; }
+
+        /// <summary>
+        /// The name of the ad group that contains the criterion.
+        /// Corresponds to the 'Ad Group' field in the bulk file.
+        /// </summary>
+        public string AdGroupName { get; set; }
+
+        private static readonly IBulkMapping<BulkAdGroupBiddableCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeGenderCriterion>(StringTable.Target,
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.Status,
+                c => c.BiddableAdGroupCriterion.Status.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.Id,
+                c => c.BiddableAdGroupCriterion.Id.ToBulkString(),
+                (v, c) => c.BiddableAdGroupCriterion.Id = v.ParseOptional<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.ParentId,
+                c => c.BiddableAdGroupCriterion.AdGroupId.ToBulkString(true),
+                (v, c) => c.BiddableAdGroupCriterion.AdGroupId = v.Parse<long>()
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.Campaign,
+                c => c.CampaignName,
+                (v, c) => c.CampaignName = v
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.AdGroup,
+                c => c.AdGroupName,
+                (v, c) => c.AdGroupName = v
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.BidAdjustment,
                 c =>
                 {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
-                    return genderCriterion?.GenderType.ToBulkString();
+                    if (criterion == null) return null;
+
+                    var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
+
+                    return multiplicativeBid?.Multiplier.ToBulkString();
                 },
                 (v, c) =>
                 {
-                    var genderCriterion = c.NegativeAdGroupCriterion.Criterion as GenderCriterion;
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
 
-                    if (genderCriterion != null && v.ParseOptional<GenderType>() != null)
+                    if (criterion == null) return;
+
+                    double? multiplier = v.ParseOptional<double>();
+                    if (multiplier != null)
                     {
-                        genderCriterion.GenderType = v.Parse<GenderType>();
+                        ((BidMultiplier) criterion.CriterionBid).Multiplier = multiplier.Value;
+                    }
+                    else
+                    {
+                        criterion.CriterionBid = null;
                     }
                 }
-            ),
+            )
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+            ValidatePropertyNotNull(BiddableAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
+
             this.ConvertToValues(values, Mappings);
         }
 
+        protected abstract Criterion CreateCriterion();
+
+
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            base.ProcessMappingsFromRowValues(values);
-            values.ConvertToEntity(this, Mappings);
-        }
-
-        protected override Criterion CreateCriterion()
-        {
-            return new GenderCriterion()
+            BiddableAdGroupCriterion = new BiddableAdGroupCriterion
             {
-                Type = typeof(GenderCriterion).Name,
+                Criterion = CreateCriterion(),
+                CriterionBid = new BidMultiplier
+                {
+                    Type = typeof(BidMultiplier).Name,
+                },
+                Type = typeof(BiddableAdGroupCriterion).Name
             };
+
+            values.ConvertToEntity(this, Mappings);
         }
     }
 }

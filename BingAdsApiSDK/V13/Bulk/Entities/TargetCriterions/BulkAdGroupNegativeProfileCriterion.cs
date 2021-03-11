@@ -65,25 +65,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupNegativeProfileCriterion : SingleRecordBulkEntity
+    public class BulkAdGroupNegativeProfileCriterion : BulkAdGroupNegativeCriterion
     {
-        /// <summary>
-        /// Defines a Biddable Ad Group Criterion.
-        /// </summary>
-        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The name of the ad group that contains the criterion.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
-
         /// <summary>
         /// The display name of the profile.
         /// Corresponds to the 'Profile' field in the bulk file.
@@ -92,31 +75,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         private static readonly IBulkMapping<BulkAdGroupNegativeProfileCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Status,
-                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Id,
-                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.ParentId,
-                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-
             new SimpleBulkMapping<BulkAdGroupNegativeProfileCriterion>(StringTable.Profile,
                 c => c.ProfileName,
                 (v, c) => c.ProfileName = v
@@ -143,24 +101,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(BiddableAdGroupCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
-            {
-                Criterion = new ProfileCriterion()
-                {
-                    Type = typeof(ProfileCriterion).Name,
-                    ProfileType = GetProfileType()
-                },
-                Type = typeof(NegativeAdGroupCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new ProfileCriterion()
+            {
+                Type = typeof(ProfileCriterion).Name,
+                ProfileType = GetProfileType()
+            };
         }
 
         protected virtual ProfileType GetProfileType()

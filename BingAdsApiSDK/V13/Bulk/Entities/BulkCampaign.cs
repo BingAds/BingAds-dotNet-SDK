@@ -83,6 +83,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         public Campaign Campaign { get; set; }
 
         ///<summary>
+        /// The bid strategy name for the campaign.
+        /// </summary>
+        public string BidStrategyName { get; set; }
+
+        ///<summary>
         /// The budget name for the campaign.
         /// </summary>
         public string BudgetName { get; set; }
@@ -139,6 +144,20 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                     break;
                 case CampaignType.Shopping:
+                    {
+                        Campaign.Settings = new List<Setting>
+                        {
+                            new ShoppingSetting
+                            {
+                                Type = typeof(ShoppingSetting).Name,
+                            },
+                            new TargetSetting
+                            {
+                                Type = typeof(TargetSetting).Name,
+                            },
+                        };
+                    }
+                    break;
                 case CampaignType.Audience:
                     {
                         Campaign.Settings = new List<Setting>
@@ -150,6 +169,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                             new TargetSetting
                             {
                                 Type = typeof(TargetSetting).Name,
+                            },
+                            new DynamicFeedSetting
+                            {
+                                Type = typeof(DynamicFeedSetting).Name,
                             },
                         };
                     }
@@ -239,6 +262,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.BudgetName= v
             ),
 
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyName,
+                c => c.BidStrategyName,
+                (v, c) => c.BidStrategyName= v
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyId,
+                c => c.Campaign.BidStrategyId.ToBulkString(),
+                (v, c) => c.Campaign.BidStrategyId = v.ParseOptional<long>()
+            ),
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidAdjustment,
                 c => c.Campaign.AudienceAdsBidAdjustment.ToBulkString(),
                 (v, c) => c.Campaign.AudienceAdsBidAdjustment = v.ParseOptional<int>()
@@ -257,6 +290,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     if(storeId != null && setting != null)
                     {
                         setting.StoreId = storeId;
+                    }
+                }
+            ), 
+            
+            new SimpleBulkMapping<BulkCampaign>(StringTable.FeedId,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicFeedSetting))) as DynamicFeedSetting;
+                    return setting == null ? null : setting.FeedId.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicFeedSetting), true)) as DynamicFeedSetting;
+                    var feedId = v.ParseOptional<long>();
+                    if(feedId != null && setting != null)
+                    {
+                        setting.FeedId = feedId;
                     }
                 }
             ), 
@@ -491,88 +541,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         }
 
         private static void CsvToBiddingScheme(RowValues values, BulkCampaign c)
-        {
-            string bidStrategyTypeRowValue;
-            
-            BiddingScheme biddingScheme;
-
-            if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
-            {
-                return;
-            }
-
-            string maxCpcRowValue;
-            string targetCpaRowValue;
-            string targetRoasRowValue;
-            string targetAdPositionRowValue;
-            string targetImpressionShareRowValue;
-
-            values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
-            values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
-            values.TryGetValue(StringTable.BidStrategyTargetRoas, out targetRoasRowValue);
-            values.TryGetValue(StringTable.BidStrategyTargetAdPosition, out targetAdPositionRowValue);
-            values.TryGetValue(StringTable.BidStrategyTargetImpressionShare, out targetImpressionShareRowValue);
-
-            var maxCpcValue = maxCpcRowValue.ParseBid();
-            var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
-            var targetRoasValue = targetRoasRowValue.ParseOptional<double>();
-            var targetAdPositionValue = targetAdPositionRowValue;
-            var targetImpressionShareValue = targetImpressionShareRowValue.ParseOptional<double>();
-
-            switch (biddingScheme)
-            {
-                case MaxClicksBiddingScheme maxClicksBiddingScheme:
-                    c.Campaign.BiddingScheme = new MaxClicksBiddingScheme
-                    {
-                        MaxCpc = maxCpcValue,
-                        Type = "MaxClicks",
-                    };
-                    break;
-                case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
-                    c.Campaign.BiddingScheme = new MaxConversionsBiddingScheme
-                    {
-                        MaxCpc = maxCpcValue,
-                        Type = "MaxConversions",
-                    };
-                    break;
-                case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
-
-                    c.Campaign.BiddingScheme = new MaxConversionValueBiddingScheme
-                    {
-                        TargetRoas = targetRoasValue,
-                        Type = "MaxConversionValue",
-                    };
-                    break;
-                case TargetCpaBiddingScheme targetCpaBiddingScheme:
-
-                    c.Campaign.BiddingScheme = new TargetCpaBiddingScheme
-                    {
-                        MaxCpc = maxCpcValue,
-                        TargetCpa = targetCpaValue,
-                        Type = "TargetCpa",
-                    };
-                    break;
-                case TargetRoasBiddingScheme targetRoasBiddingScheme:
-                    c.Campaign.BiddingScheme = new TargetRoasBiddingScheme
-                    {
-                        MaxCpc = maxCpcValue,
-                        TargetRoas = targetRoasValue,
-                        Type = "TargetRoas",
-                    };
-                    break;
-                case TargetImpressionShareBiddingScheme targetImpressionShareBiddingScheme:
-                    c.Campaign.BiddingScheme = new TargetImpressionShareBiddingScheme
-                    {
-                        MaxCpc = maxCpcValue,
-                        TargetAdPosition = targetAdPositionValue,
-                        TargetImpressionShare = targetImpressionShareValue,
-                        Type = "TargetImpressionShare",
-                    };
-                    break;
-                default:
-                    c.Campaign.BiddingScheme = biddingScheme;
-                    break;
-            }
+        {            
+            c.Campaign.BiddingScheme = values.ReadBiddingSchemaFromValues();
         }
 
         private static void BiddingSchemeToCsv(BulkCampaign c, RowValues values)
@@ -584,34 +554,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 return;
             }
 
-            values[StringTable.BidStrategyType] = biddingScheme.ToBiddingSchemeBulkString();
-            switch (biddingScheme)
-            {
-                case MaxClicksBiddingScheme maxClicksBiddingScheme:
-                    values[StringTable.BidStrategyMaxCpc] = maxClicksBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                    break;
-                case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
-                    values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                    break;
-                case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
-                    values[StringTable.BidStrategyTargetRoas] = maxConversionValueBiddingScheme.TargetRoas.ToBulkString();
-                    break;
-                case TargetCpaBiddingScheme targetCpaBiddingScheme:
-                    values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                    values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
-                    break;
-                case TargetRoasBiddingScheme targetRoasBiddingScheme:
-                    values[StringTable.BidStrategyMaxCpc] = targetRoasBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                    values[StringTable.BidStrategyTargetRoas] = targetRoasBiddingScheme.TargetRoas.ToBulkString();
-                    break;
-                case TargetImpressionShareBiddingScheme targetImpressionShareBiddingScheme:
-                    values[StringTable.BidStrategyMaxCpc] = targetImpressionShareBiddingScheme.MaxCpc.ToBidBulkString(c.Campaign.Id);
-                    values[StringTable.BidStrategyTargetAdPosition] = targetImpressionShareBiddingScheme.TargetAdPosition.ToOptionalBulkString(c.Campaign.Id);
-                    values[StringTable.BidStrategyTargetImpressionShare] = targetImpressionShareBiddingScheme.TargetImpressionShare.ToBulkString();
-                    break;
-                default:
-                    break;
-            }
+            biddingScheme.WriteToValues(values, c.Campaign.Id);
         }
     }
 }

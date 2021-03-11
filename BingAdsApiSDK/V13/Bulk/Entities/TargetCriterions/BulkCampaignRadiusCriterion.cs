@@ -64,69 +64,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignRadiusCriterion : SingleRecordBulkEntity
+    public class BulkCampaignRadiusCriterion : BulkCampaignBiddableCriterion
     {
-        /// <summary>
-        /// Defines a Biddable Campaign Criterion.
-        /// </summary>
-        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the Campaign.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
 
         private static readonly IBulkMapping<BulkCampaignRadiusCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Status,
-                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Id,
-                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.ParentId,
-                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
-            ),
-            new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.BidAdjustment,
-                c =>
-                {
-                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
-
-                    if (criterion == null) return null;
-
-                    var multiplicativeBid = criterion.CriterionBid as BidMultiplier;
-
-                    return multiplicativeBid?.Multiplier.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    var criterion = c.BiddableCampaignCriterion as BiddableCampaignCriterion;
-
-                    if (criterion == null) return;
-
-                    double? multiplier = v.ParseOptional<double>();
-                    if (multiplier != null)
-                    {
-                        ((BidMultiplier) criterion.CriterionBid).Multiplier = multiplier.Value;
-                    }
-                    else
-                    {
-                        criterion.CriterionBid = null;
-                    }
-                }
-            ),
-
             new SimpleBulkMapping<BulkCampaignRadiusCriterion>(StringTable.Name,
                 c =>
                 {
@@ -220,27 +162,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            BiddableCampaignCriterion = new BiddableCampaignCriterion
-            {
-                Criterion = new RadiusCriterion()
-                {
-                    Type = typeof(RadiusCriterion).Name,
-                },
-                CriterionBid = new BidMultiplier
-                {
-                    Type = typeof(BidMultiplier).Name,
-                },
-                Type = typeof(BiddableCampaignCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new RadiusCriterion()
+            {
+                Type = typeof(RadiusCriterion).Name,
+            };
         }
     }
 }

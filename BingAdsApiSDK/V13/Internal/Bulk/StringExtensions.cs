@@ -252,7 +252,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             return bid.Amount.ToBulkString();
-        } 
+        }
 
         public static Bid ParseAdGroupBid(this string s)
         {
@@ -386,7 +386,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             throw new ArgumentException("Unknown device preference");
         }
-        
+
         public static Minute ParseMinute(this string s)
         {
             var minuteNumber = int.Parse(s);
@@ -539,7 +539,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             var languages = s.Split(new string[] { ";" }, StringSplitOptions.None).ToList();
-            
+
             return languages;
         }
 
@@ -597,7 +597,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             {
                 return id > 0 ? DeleteValue : null;
             }
-            
+
             return string.Join("; ",
                 targetSetting.Details.Where(
                 entry => entry.TargetAndBid).Select(
@@ -693,7 +693,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             return bulkString;
         }
-        		
+
         public static BiddingScheme ParseBiddingScheme(this string s)
         {
             if (string.IsNullOrEmpty(s))
@@ -721,8 +721,120 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new TargetRoasBiddingScheme { Type = "TargetRoas" };
                 case "TargetImpressionShare":
                     return new TargetImpressionShareBiddingScheme { Type = "TargetImpressionShare" };
+                case "ManualCpv":
+                    return new ManualCpvBiddingScheme{ Type = "ManualCpv" };
+                case "ManualCpm":
+                    return new ManualCpmBiddingScheme{ Type = "ManualCpm" };
                 default:
                     throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
+            }
+        }
+
+        public static BiddingScheme ReadBiddingSchemaFromValues(this RowValues values )
+        {
+            string bidStrategyTypeRowValue;
+
+            BiddingScheme biddingScheme;
+
+            if (!values.TryGetValue(StringTable.BidStrategyType, out bidStrategyTypeRowValue) || (biddingScheme = bidStrategyTypeRowValue.ParseBiddingScheme()) == null)
+            {
+                return null;
+            }
+
+            string maxCpcRowValue;
+            string targetCpaRowValue;
+            string targetRoasRowValue;
+            string targetAdPositionRowValue;
+            string targetImpressionShareRowValue;
+
+            values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetRoas, out targetRoasRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetAdPosition, out targetAdPositionRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetImpressionShare, out targetImpressionShareRowValue);
+
+            var maxCpcValue = maxCpcRowValue.ParseBid();
+            var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
+            var targetRoasValue = targetRoasRowValue.ParseOptional<double>();
+            var targetAdPositionValue = targetAdPositionRowValue;
+            var targetImpressionShareValue = targetImpressionShareRowValue.ParseOptional<double>();
+
+            switch (biddingScheme)
+            {
+                case MaxClicksBiddingScheme maxClicksBiddingScheme:
+                    return new MaxClicksBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        Type = "MaxClicks",
+                    };
+                case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
+                    return new MaxConversionsBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        Type = "MaxConversions",
+                    };
+                case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
+                    return new MaxConversionValueBiddingScheme
+                    {
+                        TargetRoas = targetRoasValue,
+                        Type = "MaxConversionValue",
+                    };
+                case TargetCpaBiddingScheme targetCpaBiddingScheme:
+                    return new TargetCpaBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        TargetCpa = targetCpaValue,
+                        Type = "TargetCpa",
+                    };
+                case TargetRoasBiddingScheme targetRoasBiddingScheme:
+                    return new TargetRoasBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        TargetRoas = targetRoasValue,
+                        Type = "TargetRoas",
+                    };
+                case TargetImpressionShareBiddingScheme targetImpressionShareBiddingScheme:
+                    return new TargetImpressionShareBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        TargetAdPosition = targetAdPositionValue,
+                        TargetImpressionShare = targetImpressionShareValue,
+                        Type = "TargetImpressionShare",
+                    };
+                default:
+                    return biddingScheme;
+            }
+        }
+
+        public static void WriteToValues(this BiddingScheme biddingScheme, RowValues values, long? id)
+        {   
+            values[StringTable.BidStrategyType] = biddingScheme.ToBiddingSchemeBulkString();
+            switch (biddingScheme)
+            {
+                case MaxClicksBiddingScheme maxClicksBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = maxClicksBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    break;
+                case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    break;
+                case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
+                    values[StringTable.BidStrategyTargetRoas] = maxConversionValueBiddingScheme.TargetRoas.ToBulkString();
+                    break;
+                case TargetCpaBiddingScheme targetCpaBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = targetCpaBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    values[StringTable.BidStrategyTargetCpa] = targetCpaBiddingScheme.TargetCpa.ToBulkString();
+                    break;
+                case TargetRoasBiddingScheme targetRoasBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = targetRoasBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    values[StringTable.BidStrategyTargetRoas] = targetRoasBiddingScheme.TargetRoas.ToBulkString();
+                    break;
+                case TargetImpressionShareBiddingScheme targetImpressionShareBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = targetImpressionShareBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    values[StringTable.BidStrategyTargetAdPosition] = targetImpressionShareBiddingScheme.TargetAdPosition.ToOptionalBulkString(id);
+                    values[StringTable.BidStrategyTargetImpressionShare] = targetImpressionShareBiddingScheme.TargetImpressionShare.ToBulkString();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -768,7 +880,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     .Where(token => !string.IsNullOrWhiteSpace(token) && token != ";")
                     .ToList();
 
-            return values;           
+            return values;
         }
 
         public static string WriteDelimitedStrings(this IList<string> values, string seperator, long? id = null)
@@ -777,7 +889,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             {
                 return null;
             }
-            
+
             if (values.Count == 0)
             {
                 return id > 0 ? DeleteValue : null;
@@ -809,7 +921,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return null;
             }
 
-            return 
+            return
                 s.Split(';').Select(token =>
                 {
                     if (string.IsNullOrWhiteSpace(token))
@@ -1114,7 +1226,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             byte[] json = ms.ToArray();
             ms.Close();
             return Encoding.UTF8.GetString(json, 0, json.Length);
-           
+
         }
 
         public static List<FeedCustomAttributeContract> ParseFeedCustomAttributes(this string s)

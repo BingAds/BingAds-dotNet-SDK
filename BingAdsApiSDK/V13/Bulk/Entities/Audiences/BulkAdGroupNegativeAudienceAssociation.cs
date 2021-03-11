@@ -64,24 +64,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkAdGroupNegativeProductAudienceAssociation"/>
     /// <seealso cref="BulkAdGroupNegativeRemarketingListAssociation"/>
     /// <seealso cref="BulkAdGroupNegativeSimilarRemarketingListAssociation"/>
-    public class BulkAdGroupNegativeAudienceAssociation : SingleRecordBulkEntity
+    public class BulkAdGroupNegativeAudienceAssociation : BulkAdGroupNegativeCriterion
     {
-        /// <summary>
-        /// Defines an Negative Ad Group Criterion.
-        /// </summary>
-        public NegativeAdGroupCriterion NegativeAdGroupCriterion { get; set; }
-
-        /// <summary>
-        /// The name of the campaign that contains the ad group.
-        /// Corresponds to the 'Campaign' field in the bulk file. 
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group</see> that is associated with the audience.
-        /// Corresponds to the 'Ad Group' field in the bulk file.
-        /// </summary>
-        public string AdGroupName { get; set; }
 
         /// <summary>
         /// The name of the negative Audience
@@ -91,31 +75,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         private static readonly IBulkMapping<BulkAdGroupNegativeAudienceAssociation>[] Mappings =
         {
-            new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.Status,
-                c => c.NegativeAdGroupCriterion.Status.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Status = v.ParseOptional<AdGroupCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.Id,
-                c => c.NegativeAdGroupCriterion.Id.ToBulkString(),
-                (v, c) => c.NegativeAdGroupCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.ParentId,
-                c => c.NegativeAdGroupCriterion.AdGroupId.ToBulkString(true),
-                (v, c) => c.NegativeAdGroupCriterion.AdGroupId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.AdGroup,
-                c => c.AdGroupName,
-                (v, c) => c.AdGroupName = v
-            ),
-
             new SimpleBulkMapping<BulkAdGroupNegativeAudienceAssociation>(StringTable.Audience,
                 c => c.AudienceName,
                 (v, c) => c.AudienceName = v
@@ -142,23 +101,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(NegativeAdGroupCriterion, typeof(NegativeAdGroupCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            NegativeAdGroupCriterion = new NegativeAdGroupCriterion
-            {
-                Criterion = new AudienceCriterion()
-                {
-                    Type = typeof(AudienceCriterion).Name,
-                },
-                Type = typeof(NegativeAdGroupCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
         }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new AudienceCriterion()
+            {
+                Type = typeof(AudienceCriterion).Name,
+            };
+        }
+
     }
 }

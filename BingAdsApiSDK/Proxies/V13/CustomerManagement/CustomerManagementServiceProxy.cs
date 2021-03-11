@@ -751,6 +751,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CustomerManagement.AccountTaxCertificate TaxCertificateField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountModeField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1299,6 +1302,26 @@ namespace Microsoft.BingAds.V13.CustomerManagement
                 {
                     this.TaxCertificateField = value;
                     this.RaisePropertyChanged("TaxCertificate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The account mode distinguishes between smart and expert accounts.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
+        public string AccountMode
+        {
+            get
+            {
+                return this.AccountModeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountModeField, value) != true))
+                {
+                    this.AccountModeField = value;
+                    this.RaisePropertyChanged("AccountMode");
                 }
             }
         }
@@ -3123,7 +3146,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the TaxCertificateStatus Value Set.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/taxcertificatestatus?view=bingads-13">TaxCertificateStatus Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/taxcertificatestatus?view=bingads-13 for details.
@@ -4350,7 +4373,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> and <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -4363,6 +4386,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TaxCertificate = 1,
+        
+        /// <summary>
+        /// Request that the AccountMode element be included within each returned AdvertiserAccount object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountMode = 2,
     }
     
     /// <summary>
@@ -7927,6 +7956,38 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetLinkedAccountsAndCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetLinkedAc" +
             "countsAndCustomersInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
+        
+        /// <summary>
+        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
+            "tatusResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
+            "tatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.ApiFault), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
+            "tatusApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
+        
+        /// <summary>
+        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
+            "tatusResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
     }
     
     /// <summary>
@@ -11204,6 +11265,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the SearchAccountsRequest request object.
         /// </summary>
         /// <remarks>
@@ -11222,7 +11289,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <param name="Predicates">Determines the conditions that all must be met to return accounts.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo)
+        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -11232,6 +11300,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.Predicates = Predicates;
             this.Ordering = Ordering;
             this.PageInfo = PageInfo;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -11742,6 +11811,106 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.TrackingId = TrackingId;
             this.AccountsInfo = AccountsInfo;
             this.CustomersInfo = CustomersInfo;
+        }
+    }
+    
+    /// <summary>
+    /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUserMFAStatus">GetUserMFAStatus</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserMFAStatusRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetUserMFAStatusRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Constructor for the GetUserMFAStatusRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        public GetUserMFAStatusRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetUserMFAStatusRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusRequest</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        public GetUserMFAStatusRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+        }
+    }
+    
+    /// <summary>
+    /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUserMFAStatus">GetUserMFAStatus</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserMFAStatusResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetUserMFAStatusResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public bool MFAStatus;
+        
+        /// <summary>
+        /// Constructor for the GetUserMFAStatusResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        public GetUserMFAStatusResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetUserMFAStatusResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="MFAStatus">Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</param>
+        public GetUserMFAStatusResponse(string TrackingId, bool MFAStatus)
+        {
+            this.TrackingId = TrackingId;
+            this.MFAStatus = MFAStatus;
         }
     }
     
@@ -12697,6 +12866,36 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request)
         {
             return base.Channel.GetLinkedAccountsAndCustomersInfoAsync(request);
+        }
+        
+        /// <summary>
+        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        public Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
+        {
+            return base.Channel.GetUserMFAStatus(request);
+        }
+        
+        /// <summary>
+        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
+        {
+            return base.Channel.GetUserMFAStatusAsync(request);
         }
     }
 }

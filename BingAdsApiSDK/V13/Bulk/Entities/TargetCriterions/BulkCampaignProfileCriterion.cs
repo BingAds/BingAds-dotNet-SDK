@@ -65,73 +65,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public abstract class BulkCampaignProfileCriterion : SingleRecordBulkEntity
+    public abstract class BulkCampaignProfileCriterion : BulkCampaignBiddableCriterion
     {
-        /// <summary>
-        /// Defines a Biddable Campaign Criterion.
-        /// </summary>
-        public BiddableCampaignCriterion BiddableCampaignCriterion { get; set; }
-        
-        /// <summary>
-        /// The name of the Campaign that contains the criterion.
-        /// Corresponds to the 'Campaign' field in the bulk file.
-        /// </summary>
-        public string CampaignName { get; set; }
-
-        /// <summary>
-        /// The display name of the profile.
-        /// Corresponds to the 'Profile' field in the bulk file.
-        /// </summary>
         public string ProfileName { get; set; }
 
         private static readonly IBulkMapping<BulkCampaignProfileCriterion>[] Mappings =
         {
-            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Status,
-                c => c.BiddableCampaignCriterion.Status.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Status = v.ParseOptional<CampaignCriterionStatus>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Id,
-                c => c.BiddableCampaignCriterion.Id.ToBulkString(),
-                (v, c) => c.BiddableCampaignCriterion.Id = v.ParseOptional<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.ParentId,
-                c => c.BiddableCampaignCriterion.CampaignId.ToBulkString(true),
-                (v, c) => c.BiddableCampaignCriterion.CampaignId = v.Parse<long>()
-            ),
-
-            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Campaign,
-                c => c.CampaignName,
-                (v, c) => c.CampaignName = v
-            ),
 
             new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.Profile,
                 c => c.ProfileName,
                 (v, c) => c.ProfileName = v
-            ),
-
-            new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.BidAdjustment,
-                c =>
-                {
-                    var multiplicativeBid = c.BiddableCampaignCriterion?.CriterionBid as BidMultiplier;
-
-                    return multiplicativeBid?.Multiplier.ToBulkString();
-                },
-                (v, c) =>
-                {
-                    if (c.BiddableCampaignCriterion == null) return;
-
-                    double? multiplier = v.ParseOptional<double>();
-                    if (multiplier != null)
-                    {
-                        ((BidMultiplier) c.BiddableCampaignCriterion.CriterionBid).Multiplier = multiplier.Value;
-                    }
-                    else
-                    {
-                        c.BiddableCampaignCriterion.CriterionBid = null;
-                    }
-                }
             ),
 
             new SimpleBulkMapping<BulkCampaignProfileCriterion>(StringTable.ProfileId,
@@ -155,28 +98,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            ValidatePropertyNotNull(BiddableCampaignCriterion, typeof(BiddableCampaignCriterion).Name);
-
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
             this.ConvertToValues(values, Mappings);
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            BiddableCampaignCriterion = new BiddableCampaignCriterion
-            {
-                Criterion = new ProfileCriterion()
-                {
-                    Type = typeof(ProfileCriterion).Name,
-                    ProfileType = GetProfileType()
-                },
-                CriterionBid = new BidMultiplier
-                {
-                    Type = typeof(BidMultiplier).Name,
-                },
-                Type = typeof(BiddableCampaignCriterion).Name
-            };
-
+            base.ProcessMappingsFromRowValues(values);
             values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new ProfileCriterion()
+            {
+                Type = typeof(ProfileCriterion).Name,
+                ProfileType = GetProfileType()
+            };
         }
 
         protected virtual ProfileType GetProfileType()
