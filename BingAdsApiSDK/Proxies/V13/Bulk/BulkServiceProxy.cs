@@ -921,10 +921,34 @@ namespace Microsoft.BingAds.V13.Bulk
         AdGroupFlyerAdExtensions = 131,
         
         /// <summary>
-        /// Reserved.
+        /// Include Bid Strategy records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategies = 132,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VideoAdExtensions = 133,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountVideoAdExtensions = 134,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignVideoAdExtensions = 135,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupVideoAdExtensions = 136,
     }
     
     /// <summary>

@@ -717,6 +717,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiBatchFault"/> data object.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.DispatchCoupons">DispatchCoupons</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1947,7 +1948,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicate?view=bingads-13">Predicate Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicate?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> and <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2118,7 +2119,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderby?view=bingads-13">OrderBy Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderby?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> and <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2267,7 +2268,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/paging?view=bingads-13">Paging Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/paging?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> and <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2333,6 +2334,617 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.SizeField = value;
                     this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the Coupon Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/coupon?view=bingads-13">Coupon Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/coupon?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Coupon", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class Coupon : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CouponCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClassNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CouponTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SpendThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> PercentOffField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ActiveDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ExpirationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SendToEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime SendToDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsRedeemedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CustomerBilling.CouponRedemption RedemptionInfoField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CouponCode
+        {
+            get
+            {
+                return this.CouponCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CouponCodeField, value) != true))
+                {
+                    this.CouponCodeField = value;
+                    this.RaisePropertyChanged("CouponCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public string ClassName
+        {
+            get
+            {
+                return this.ClassNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ClassNameField, value) != true))
+                {
+                    this.ClassNameField = value;
+                    this.RaisePropertyChanged("ClassName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string CouponType
+        {
+            get
+            {
+                return this.CouponTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CouponTypeField, value) != true))
+                {
+                    this.CouponTypeField = value;
+                    this.RaisePropertyChanged("CouponType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public double Amount
+        {
+            get
+            {
+                return this.AmountField;
+            }
+            set
+            {
+                if ((this.AmountField.Equals(value) != true))
+                {
+                    this.AmountField = value;
+                    this.RaisePropertyChanged("Amount");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public double SpendThreshold
+        {
+            get
+            {
+                return this.SpendThresholdField;
+            }
+            set
+            {
+                if ((this.SpendThresholdField.Equals(value) != true))
+                {
+                    this.SpendThresholdField = value;
+                    this.RaisePropertyChanged("SpendThreshold");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public string CurrencyCode
+        {
+            get
+            {
+                return this.CurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true))
+                {
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<double> PercentOff
+        {
+            get
+            {
+                return this.PercentOffField;
+            }
+            set
+            {
+                if ((this.PercentOffField.Equals(value) != true))
+                {
+                    this.PercentOffField = value;
+                    this.RaisePropertyChanged("PercentOff");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<int> ActiveDuration
+        {
+            get
+            {
+                return this.ActiveDurationField;
+            }
+            set
+            {
+                if ((this.ActiveDurationField.Equals(value) != true))
+                {
+                    this.ActiveDurationField = value;
+                    this.RaisePropertyChanged("ActiveDuration");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<System.DateTime> ExpirationDate
+        {
+            get
+            {
+                return this.ExpirationDateField;
+            }
+            set
+            {
+                if ((this.ExpirationDateField.Equals(value) != true))
+                {
+                    this.ExpirationDateField = value;
+                    this.RaisePropertyChanged("ExpirationDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public System.Nullable<System.DateTime> StartDate
+        {
+            get
+            {
+                return this.StartDateField;
+            }
+            set
+            {
+                if ((this.StartDateField.Equals(value) != true))
+                {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public System.Nullable<System.DateTime> EndDate
+        {
+            get
+            {
+                return this.EndDateField;
+            }
+            set
+            {
+                if ((this.EndDateField.Equals(value) != true))
+                {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public string SendToEmail
+        {
+            get
+            {
+                return this.SendToEmailField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SendToEmailField, value) != true))
+                {
+                    this.SendToEmailField = value;
+                    this.RaisePropertyChanged("SendToEmail");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public System.DateTime SendToDate
+        {
+            get
+            {
+                return this.SendToDateField;
+            }
+            set
+            {
+                if ((this.SendToDateField.Equals(value) != true))
+                {
+                    this.SendToDateField = value;
+                    this.RaisePropertyChanged("SendToDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public bool IsRedeemed
+        {
+            get
+            {
+                return this.IsRedeemedField;
+            }
+            set
+            {
+                if ((this.IsRedeemedField.Equals(value) != true))
+                {
+                    this.IsRedeemedField = value;
+                    this.RaisePropertyChanged("IsRedeemed");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public Microsoft.BingAds.V13.CustomerBilling.CouponRedemption RedemptionInfo
+        {
+            get
+            {
+                return this.RedemptionInfoField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RedemptionInfoField, value) != true))
+                {
+                    this.RedemptionInfoField = value;
+                    this.RaisePropertyChanged("RedemptionInfo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the CouponRedemption Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/couponredemption?view=bingads-13">CouponRedemption Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/couponredemption?view=bingads-13 for details.
+    /// <para>Used by <see cref="Coupon"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CouponRedemption", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class CouponRedemption : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SpendToThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double BalanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime RedemptionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ExpirationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ActivationDateField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccountNumber
+        {
+            get
+            {
+                return this.AccountNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountNumberField, value) != true))
+                {
+                    this.AccountNumberField = value;
+                    this.RaisePropertyChanged("AccountNumber");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double SpendToThreshold
+        {
+            get
+            {
+                return this.SpendToThresholdField;
+            }
+            set
+            {
+                if ((this.SpendToThresholdField.Equals(value) != true))
+                {
+                    this.SpendToThresholdField = value;
+                    this.RaisePropertyChanged("SpendToThreshold");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public double Balance
+        {
+            get
+            {
+                return this.BalanceField;
+            }
+            set
+            {
+                if ((this.BalanceField.Equals(value) != true))
+                {
+                    this.BalanceField = value;
+                    this.RaisePropertyChanged("Balance");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string CurrencyCode
+        {
+            get
+            {
+                return this.CurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true))
+                {
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.DateTime RedemptionDate
+        {
+            get
+            {
+                return this.RedemptionDateField;
+            }
+            set
+            {
+                if ((this.RedemptionDateField.Equals(value) != true))
+                {
+                    this.RedemptionDateField = value;
+                    this.RaisePropertyChanged("RedemptionDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.DateTime ExpirationDate
+        {
+            get
+            {
+                return this.ExpirationDateField;
+            }
+            set
+            {
+                if ((this.ExpirationDateField.Equals(value) != true))
+                {
+                    this.ExpirationDateField = value;
+                    this.RaisePropertyChanged("ExpirationDate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.DateTime ActivationDate
+        {
+            get
+            {
+                return this.ActivationDateField;
+            }
+            set
+            {
+                if ((this.ActivationDateField.Equals(value) != true))
+                {
+                    this.ActivationDateField = value;
+                    this.RaisePropertyChanged("ActivationDate");
                 }
             }
         }
@@ -2553,6 +3165,102 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountMonthlySpend", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetAccountMonth" +
             "lySpendResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendRequest request);
+        
+        /// <summary>
+        /// Defines the DispatchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DispatchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
+            "Response")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
+            "AdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
+            "ApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse DispatchCoupons(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request);
+        
+        /// <summary>
+        /// Defines the DispatchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DispatchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
+            "Response")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse> DispatchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request);
+        
+        /// <summary>
+        /// Defines the RedeemCoupon Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="RedeemCoupon", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponRes" +
+            "ponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponAdA" +
+            "piFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponApi" +
+            "Fault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse RedeemCoupon(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request);
+        
+        /// <summary>
+        /// Defines the RedeemCoupon Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="RedeemCoupon", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse> RedeemCouponAsync(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request);
+        
+        /// <summary>
+        /// Defines the SearchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SearchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsRe" +
+            "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsAd" +
+            "ApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsAp" +
+            "iFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse SearchCoupons(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request);
+        
+        /// <summary>
+        /// Defines the SearchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="SearchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request);
     }
     
     /// <summary>
@@ -3259,6 +3967,370 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    /// <summary>
+    /// Defines the DispatchCoupons Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.DispatchCoupons">DispatchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DispatchCouponsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class DispatchCouponsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<string> SendToEmails;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public long CustomerId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
+        public string CouponClassName;
+        
+        /// <summary>
+        /// Constructor for the DispatchCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        public DispatchCouponsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DispatchCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SendToEmails">Reserved.</param>
+        /// <param name="CustomerId">Reserved.</param>
+        /// <param name="CouponClassName">Reserved.</param>
+        public DispatchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> SendToEmails, long CustomerId, string CouponClassName)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.SendToEmails = SendToEmails;
+            this.CustomerId = CustomerId;
+            this.CouponClassName = CouponClassName;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the DispatchCoupons Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.DispatchCoupons">DispatchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DispatchCouponsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class DispatchCouponsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DispatchCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        public DispatchCouponsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DispatchCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public DispatchCouponsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the RedeemCoupon Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.RedeemCoupon">RedeemCoupon</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RedeemCouponRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class RedeemCouponRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public long AccountId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public string CouponCode;
+        
+        /// <summary>
+        /// Constructor for the RedeemCouponRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        public RedeemCouponRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the RedeemCouponRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">Reserved.</param>
+        /// <param name="CouponCode">Reserved.</param>
+        public RedeemCouponRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, string CouponCode)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountId = AccountId;
+            this.CouponCode = CouponCode;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the RedeemCoupon Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.RedeemCoupon">RedeemCoupon</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RedeemCouponResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class RedeemCouponResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.DateTime RedemptionDate;
+        
+        /// <summary>
+        /// Constructor for the RedeemCouponResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        public RedeemCouponResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the RedeemCouponResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="RedemptionDate">Reserved.</param>
+        public RedeemCouponResponse(string TrackingId, System.DateTime RedemptionDate)
+        {
+            this.TrackingId = TrackingId;
+            this.RedemptionDate = RedemptionDate;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the SearchCoupons Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCouponsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class SearchCouponsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
+        public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
+        
+        /// <summary>
+        /// Constructor for the SearchCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        public SearchCouponsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SearchCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Predicates">Reserved.</param>
+        /// <param name="Ordering">Reserved.</param>
+        /// <param name="PageInfo">Reserved.</param>
+        public SearchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Predicates = Predicates;
+            this.Ordering = Ordering;
+            this.PageInfo = PageInfo;
+        }
+    }
+    
+    /// <summary>
+    /// Defines the SearchCoupons Service Operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCouponsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class SearchCouponsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Coupon> Coupons;
+        
+        /// <summary>
+        /// Constructor for the SearchCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        public SearchCouponsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the SearchCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Coupons">Reserved.</param>
+        public SearchCouponsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Coupon> Coupons)
+        {
+            this.TrackingId = TrackingId;
+            this.Coupons = Coupons;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
@@ -3475,6 +4547,96 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendRequest request)
         {
             return base.Channel.GetAccountMonthlySpendAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the DispatchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse DispatchCoupons(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request)
+        {
+            return base.Channel.DispatchCoupons(request);
+        }
+        
+        /// <summary>
+        /// Defines the DispatchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse> DispatchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request)
+        {
+            return base.Channel.DispatchCouponsAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the RedeemCoupon Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse RedeemCoupon(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request)
+        {
+            return base.Channel.RedeemCoupon(request);
+        }
+        
+        /// <summary>
+        /// Defines the RedeemCoupon Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse> RedeemCouponAsync(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request)
+        {
+            return base.Channel.RedeemCouponAsync(request);
+        }
+        
+        /// <summary>
+        /// Defines the SearchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse SearchCoupons(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request)
+        {
+            return base.Channel.SearchCoupons(request);
+        }
+        
+        /// <summary>
+        /// Defines the SearchCoupons Service Operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request)
+        {
+            return base.Channel.SearchCouponsAsync(request);
         }
     }
 }

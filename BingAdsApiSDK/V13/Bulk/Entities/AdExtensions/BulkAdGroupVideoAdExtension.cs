@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,75 +47,24 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities.AdExtensions;
 
-namespace Microsoft.BingAds.Internal
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
-    internal class HttpService : IHttpService
+    /// <summary>
+    /// <para>
+    /// Represents an ad group level video ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Ad Group Video Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Video Ad Extension</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAdGroupVideoAdExtension : BulkAdGroupAdExtensionAssociation
     {
-        private static readonly string UserAgent = string.Format("BingAdsSDK.NET_{0}", typeof(UserAgentBehavior).Assembly.GetName().Version);
-
-        private static HttpClient client = new HttpClient();
-
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
-        {
-            client.DefaultRequestHeaders.Add("User-Agent", UserAgent);
-            var source = new CancellationTokenSource(timeout);
-            return client.PostAsync(requestUri, new FormUrlEncodedContent(formValues), source.Token);
-        }
-
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
-        {
-            try
-            {
-                var source = new CancellationTokenSource(timeout);
-                var response = await client.GetAsync(fileUri, source.Token).ConfigureAwait(false);
-
-                response.EnsureSuccessStatusCode();
-
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-            
-        }
-
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
-        {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                addHeadersAction(client.DefaultRequestHeaders);
-
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-
-                try
-                {
-                    var source = new CancellationTokenSource(timeout);
-                    var response = await client.PostAsync(uri, multiPart, source.Token).ConfigureAwait(false);
-                  
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }                                      
-                }            
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
-        }
     }
 }

@@ -7958,7 +7958,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
         
         /// <summary>
-        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -7966,7 +7966,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
             "tatusResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
@@ -7976,7 +7976,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
         
         /// <summary>
-        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -7984,7 +7984,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
             "tatusResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
@@ -8719,7 +8719,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
         /// <summary>
-        /// The customer identifier of the aggregator that will manage the new child customer.
+        /// The customer identifier of the aggregator or agency that will manage the new child customer.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<long> ParentCustomerId;
@@ -8729,6 +8729,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation;
+        
+        /// <summary>
+        /// The identifier of an existing user who will be added as Super Admin in the new customer.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=4)]
+        public System.Nullable<long> UserId;
         
         /// <summary>
         /// Constructor for the SignupCustomerRequest request object.
@@ -8748,9 +8754,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </remarks>
         /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
         /// <param name="Account">An AdvertiserAccount that specifies the details of the customer's primary account.</param>
-        /// <param name="ParentCustomerId">The customer identifier of the aggregator that will manage the new child customer.</param>
+        /// <param name="ParentCustomerId">The customer identifier of the aggregator or agency that will manage the new child customer.</param>
         /// <param name="UserInvitation">The user invitation to send if you want to sign up a new customer on behalf of a client and optionally link to the new account as an agency.</param>
-        public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation)
+        /// <param name="UserId">The identifier of an existing user who will be added as Super Admin in the new customer.</param>
+        public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation, System.Nullable<long> UserId)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -8761,6 +8768,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.Account = Account;
             this.ParentCustomerId = ParentCustomerId;
             this.UserInvitation = UserInvitation;
+            this.UserId = UserId;
         }
     }
     
@@ -11815,7 +11823,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+    /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -11869,7 +11877,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+    /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -11885,7 +11893,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string TrackingId;
         
         /// <summary>
-        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.
+        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public bool MFAStatus;
@@ -11906,7 +11914,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusResponse</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="MFAStatus">Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</param>
+        /// <param name="MFAStatus">Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</param>
         public GetUserMFAStatusResponse(string TrackingId, bool MFAStatus)
         {
             this.TrackingId = TrackingId;
@@ -12869,7 +12877,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -12877,14 +12885,14 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
         {
             return base.Channel.GetUserMFAStatus(request);
         }
         
         /// <summary>
-        /// Determines whether or not the user credentials have been obtained by passing through multi-factor authentication (MFA).
+        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
@@ -12892,7 +12900,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Determines whether or not the user credentials have been obtained by passing through multi-factor authentication.</returns>
+        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
         {
             return base.Channel.GetUserMFAStatusAsync(request);

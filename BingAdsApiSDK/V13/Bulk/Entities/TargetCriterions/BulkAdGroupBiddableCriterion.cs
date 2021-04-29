@@ -136,6 +136,35 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         criterion.CriterionBid = null;
                     }
                 }
+            ),
+
+            new SimpleBulkMapping<BulkAdGroupBiddableCriterion>(StringTable.CashbackAdjustment,
+                c =>
+                {
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion == null) return null;
+
+                    var cashbackAdjustment = criterion.CriterionCashback as CashbackAdjustment;
+
+                    return cashbackAdjustment?.CashbackPercent.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
+
+                    if (criterion == null) return;
+
+                    double? cashbackAdjustment = v.ParseOptional<double>();
+                    if (cashbackAdjustment != null)
+                    {
+                        ((CashbackAdjustment) criterion.CriterionCashback).CashbackPercent = cashbackAdjustment.Value;
+                    }
+                    else
+                    {
+                        criterion.CriterionCashback = null;
+                    }
+                }
             )
         };
 
@@ -157,6 +186,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 CriterionBid = new BidMultiplier
                 {
                     Type = typeof(BidMultiplier).Name,
+                },
+                CriterionCashback = new CashbackAdjustment
+                {
+                    Type = typeof(CashbackAdjustment).Name,
                 },
                 Type = typeof(BiddableAdGroupCriterion).Name
             };

@@ -5130,7 +5130,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AudienceImpressionLostToBudgetPercent = 65,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 66,
@@ -6739,7 +6739,7 @@ namespace Microsoft.BingAds.V13.Reporting
         RelativeCtr = 86,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 87,
@@ -7522,7 +7522,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
@@ -7874,7 +7874,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Lithuanian = 33554432,
         
         /// <summary>
-        /// The report will contain data for ads that were viewed in Slovakian.
+        /// The report will contain data for ads that were viewed in Slovenian.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovenian = 67108864,
@@ -8706,7 +8706,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupType = 80,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 81,
@@ -9388,7 +9388,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 72,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 73,
@@ -10260,7 +10260,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 73,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 74,
@@ -11035,7 +11035,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 56,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 57,
@@ -12091,7 +12091,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -12289,7 +12289,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 58,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 59,
@@ -12746,7 +12746,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 46,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
@@ -13366,7 +13366,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 54,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
@@ -15274,7 +15274,7 @@ namespace Microsoft.BingAds.V13.Reporting
         GoalType = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
@@ -15754,7 +15754,7 @@ namespace Microsoft.BingAds.V13.Reporting
         GoalType = 46,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
@@ -16141,7 +16141,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 42,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 43,
@@ -16615,7 +16615,7 @@ namespace Microsoft.BingAds.V13.Reporting
         GoalType = 45,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 46,
@@ -17264,7 +17264,7 @@ namespace Microsoft.BingAds.V13.Reporting
         GoalType = 55,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 56,
@@ -17942,7 +17942,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionRatePercent = 79,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 80,
@@ -18554,7 +18554,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionRatePercent = 68,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 69,
@@ -19082,7 +19082,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionRatePercent = 54,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
@@ -19620,7 +19620,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AbsoluteTopImpressionRatePercent = 48,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 49,
@@ -20719,7 +20719,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 57,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 58,
@@ -21287,7 +21287,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 53,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 54,
@@ -21785,7 +21785,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
@@ -22280,7 +22280,7 @@ namespace Microsoft.BingAds.V13.Reporting
         TopImpressionRatePercent = 47,
         
         /// <summary>
-        /// Reserved.
+        /// The total advertising cost divided by the number of impressions (in thousands).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 48,

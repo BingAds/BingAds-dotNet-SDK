@@ -288,6 +288,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Profile = "Profile";
         public const string ProfileId = "Profile Id";
         public const string BidAdjustment = "Bid Adjustment";
+        public const string CashbackAdjustment = "Cashback Percent";
         public const string SubType = "Sub Type";
 
         public const string OsNames = "OS Names";
@@ -598,6 +599,15 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupActionAdExtension = "Ad Group Action Ad Extension";
         public const string ActionType = "Action Type";
         public const string ActionText = "Action Text";
+
+        // Video Ad Extension
+        public const string VideoAdExtension = "Video Ad Extension";
+        public const string ThumbnailUrl = "Thumbnail Url";
+        public const string ThumbnailId = "Thumbnail Id";
+        public const string VideoId = "Video Id";
+        public const string AccountVideoAdExtension = "Account Video Ad Extension";
+        public const string CampaignVideoAdExtension = "Campaign Video Ad Extension";
+        public const string AdGroupVideoAdExtension = "Ad Group Video Ad Extension";
 
         //Promotion AdExtension
         public const string PromotionAdExtension = "Promotion Ad Extension";

@@ -136,6 +136,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // location target
             StringTable.Target,
             StringTable.BidAdjustment,
+            StringTable.CashbackAdjustment,
             StringTable.RadiusTargetId,
             StringTable.Name,
             StringTable.OsNames,
@@ -196,6 +197,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.MediaIds,
             StringTable.Layouts,
             StringTable.DisplayText,
+
+            // Video ad extension
+            StringTable.ThumbnailUrl,
+            StringTable.ThumbnailId,
+            StringTable.VideoId,
 
             // Filter link ad extension
             StringTable.AdExtensionHeaderType,

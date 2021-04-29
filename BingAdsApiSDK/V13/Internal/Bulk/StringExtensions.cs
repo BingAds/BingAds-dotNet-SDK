@@ -132,7 +132,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static DateTime? ParseOptionalDateTime(this string s)
         {
-            if (string.IsNullOrEmpty(s))
+            if (string.IsNullOrEmpty(s) || s == DeleteValue)
             {
                 return null;
             }
