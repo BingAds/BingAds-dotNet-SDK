@@ -106,9 +106,9 @@ namespace Microsoft.BingAds
             string clientSecret, 
             Uri redirectionUri, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, environment, requireLiveConnect, tenant)
+            : base(clientId, clientSecret, redirectionUri, environment, oAuthScope, tenant)
         {
             if (redirectionUri == null)
             {
@@ -155,9 +155,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, requireLiveConnect, tenant)
+            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, oAuthScope, tenant)
         {
             if (clientSecret == null)
             {
@@ -200,9 +200,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             OAuthTokens oAuthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, requireLiveConnect, tenant)
+            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, oAuthScope, tenant)
         {
             if (clientSecret == null)
             {
@@ -216,9 +216,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect,
+            OAuthScope oAuthScope,
             string tenant="common")
-            : base(clientId, clientSecret, redirectionUri, oauthService, env, requireLiveConnect, tenant)
+            : base(clientId, clientSecret, redirectionUri, oauthService, env, oAuthScope, tenant)
         {
         }
     }

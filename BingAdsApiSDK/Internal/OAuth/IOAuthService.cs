@@ -55,7 +55,7 @@ namespace Microsoft.BingAds.Internal.OAuth
 {
     internal interface IOAuthService
     {
-        Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, bool RequireLiveConnect, string tenant, List<KeyValuePair<string, string>> additionalParams);
-        Uri RedirectionUri(bool requireLiveConnect);
+        Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, OAuthScope oAuthScope, string tenant, List<KeyValuePair<string, string>> additionalParams);
+        Uri RedirectionUri(OAuthScope oAuthScope);
     }
 }

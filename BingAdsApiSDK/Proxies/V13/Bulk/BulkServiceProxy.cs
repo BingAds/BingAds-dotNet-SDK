@@ -949,6 +949,12 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupVideoAdExtensions = 136,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Videos = 137,
     }
     
     /// <summary>

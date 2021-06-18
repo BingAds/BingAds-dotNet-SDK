@@ -47,51 +47,15 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Microsoft.BingAds.Internal.OAuth
+namespace Microsoft.BingAds
 {
     /// <summary>
-    /// Represents Bing Ads API environment (Production or Sandbox).
+    /// Represents Bing Ads API OAuth Scope.
     /// </summary>
-    public enum OAuthEndpointType
+    public enum OAuthScope
     {
-        ProductionMSIdentityV2_MSScope,
-        /// <summary>
-        /// Production for MS Identity V2
-        /// </summary>
-        ProductionMSIdentityV2,
-        /// <summary>
-        /// Production for Live Connect
-        /// </summary>
-        ProductionLiveConnect,
-        /// <summary>
-        /// Sandbox for Live Connect
-        /// </summary>
-        Sandbox
-    }
-
-    internal static class OAuthEndpointTypeUtil
-    {
-        public static OAuthEndpointType ToOAuthEndpointType(this OAuthScope oAuthScope, ApiEnvironment env)
-        {
-            if (env == ApiEnvironment.Sandbox)
-            {
-                return OAuthEndpointType.Sandbox;
-            }
-
-            switch (oAuthScope)
-            {
-                case OAuthScope.MSADS_MANAGE:
-                    return OAuthEndpointType.ProductionMSIdentityV2_MSScope;
-                case OAuthScope.ADS_MANAGE:
-                    return OAuthEndpointType.ProductionMSIdentityV2;
-                case OAuthScope.BINGADS_MANAGE:
-                    return OAuthEndpointType.ProductionLiveConnect;
-            }
-            return OAuthEndpointType.ProductionMSIdentityV2_MSScope;
-        }
+        MSADS_MANAGE,
+        BINGADS_MANAGE,
+        ADS_MANAGE,
     }
 }

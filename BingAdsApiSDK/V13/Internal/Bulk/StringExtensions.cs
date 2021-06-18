@@ -487,7 +487,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return sourceString;
         }
 
-        public static string WriteUrls(this IList<string> urls, string seperator, long? id)
+        public static string WriteUrls(this IList<string> urls, string separator, long? id)
         {
             if (urls == null)
             {
@@ -499,7 +499,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return id > 0 ? DeleteValue : null;
             }
 
-            var text = string.Join(seperator, urls);
+            var text = string.Join(separator, urls);
 
             return text;
         }
@@ -725,6 +725,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new ManualCpvBiddingScheme{ Type = "ManualCpv" };
                 case "ManualCpm":
                     return new ManualCpmBiddingScheme{ Type = "ManualCpm" };
+                case "MaxRoas":
+                    return new MaxRoasBiddingScheme { Type = "MaxRoas" };
                 default:
                     throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
             }
@@ -801,6 +803,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         TargetImpressionShare = targetImpressionShareValue,
                         Type = "TargetImpressionShare",
                     };
+                case MaxRoasBiddingScheme maxRoasBiddingScheme:
+                    return new MaxRoasBiddingScheme
+                    {
+                        MaxCpc = maxCpcValue,
+                        Type = "MaxRoas",
+                    };
                 default:
                     return biddingScheme;
             }
@@ -833,6 +841,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     values[StringTable.BidStrategyTargetAdPosition] = targetImpressionShareBiddingScheme.TargetAdPosition.ToOptionalBulkString(id);
                     values[StringTable.BidStrategyTargetImpressionShare] = targetImpressionShareBiddingScheme.TargetImpressionShare.ToBulkString();
                     break;
+                case MaxRoasBiddingScheme maxRoasBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpc] = maxRoasBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    break;
                 default:
                     break;
             }
@@ -863,8 +874,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return "MaxConversionValue";
                 case TargetRoasBiddingScheme targetRoasBiddingScheme:
                     return "TargetRoas";
-                case TargetImpressionShareBiddingScheme TargetImpressionShareBiddingScheme:
+                case TargetImpressionShareBiddingScheme targetImpressionShareBiddingScheme:
                     return "TargetImpressionShare";
+                case ManualCpvBiddingScheme manualCpvBiddingScheme:
+                    return "ManualCpv";
+                case ManualCpmBiddingScheme manualCpmBiddingScheme:
+                    return "ManualCpm";
+                case MaxRoasBiddingScheme maxRoasBiddingScheme:
+                    return "MaxRoas";
             }
             throw new ArgumentException("Unknown bidding scheme");
         }
@@ -896,6 +913,33 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             var text = string.Join(seperator, values);
+
+            return text;
+        }
+
+        public static IDictionary<string, bool> ParseAutoApplyRecommendations(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var values = s.Split(';')
+                    .Where(token => !string.IsNullOrWhiteSpace(token) && token != ";")
+                    .Select(token => token.Split('='))
+                    .ToDictionary(pair => pair[0], pair => bool.Parse(pair[1]));
+
+            return values;
+        }
+
+        public static string WriteAutoApplyRecommendations(this IDictionary<string, bool> values, string separator)
+        {
+            if (values == null || values.Count == 0)
+            {
+                return null;
+            }
+
+            var text = string.Join(separator, values);
 
             return text;
         }
@@ -1213,6 +1257,114 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return textAssetLinks;
         }
 
+        [DataContract]
+        internal class VideoAssetLinkContract
+        {
+            // The Asset Id
+            [DataMember(Name = "id", Order = 0, EmitDefaultValue = false)]
+            public long? Id { get; set; }
+
+            // The Asset SubType
+            [DataMember(Name = "subType", Order = 1)]
+            public string SubType { get; set; }
+
+            // The Asset ThumbnailImage
+            [DataMember(Name = "thumbnailImage", Order = 2, EmitDefaultValue = false)]
+            public ImageAsset ThumbnailImage { get; set; }
+
+            // The AssetLink PinnedField
+            [DataMember(Name = "pinnedField", Order = 3, EmitDefaultValue = false)]
+            public string PinnedField { get; set; }
+
+            // The AssetLink EditorialStatus
+            [DataMember(Name = "editorialStatus", Order = 4, EmitDefaultValue = false)]
+            public string EditorialStatus { get; set; }
+
+            // The AssetLink AssetPerformanceLabel is reserved for future use.
+            [DataMember(Name = "assetPerformanceLabel", Order = 5, EmitDefaultValue = false)]
+            public string AssetPerformanceLabel { get; set; }
+
+            // The Asset Name is reserved for future use.
+            [DataMember(Name = "name", Order = 6, EmitDefaultValue = false)]
+            public string Name { get; set; }
+        }
+
+        public static string ToVideoAssetLinksBulkString(this IList<AssetLink> assetLinks)
+        {
+            if (assetLinks == null || assetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            var videoAssetLinks = assetLinks.Where(s => s.Asset?.GetType() == typeof(VideoAsset)).ToList();
+
+            if (videoAssetLinks.Count == 0)
+            {
+                return null;
+            }
+
+            List<VideoAssetLinkContract> videoAssetLinkContracts = new List<VideoAssetLinkContract>();
+            foreach (var videoAssetLink in videoAssetLinks)
+            {
+                var videoAsset = (VideoAsset)videoAssetLink.Asset;
+                var videoAssetLinkContract = new VideoAssetLinkContract
+                {
+                    Id = videoAsset.Id,
+                    SubType = videoAsset.SubType,
+                    ThumbnailImage = videoAsset.ThumbnailImage,
+                    PinnedField = videoAssetLink.PinnedField,
+                    EditorialStatus = videoAssetLink.EditorialStatus.ToBulkString(),
+                    AssetPerformanceLabel = videoAssetLink.AssetPerformanceLabel,
+                    Name = videoAsset.Name,
+                };
+                videoAssetLinkContracts.Add(videoAssetLinkContract);
+            }
+
+            MemoryStream ms = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(List<VideoAssetLinkContract>));
+            ser.WriteObject(ms, videoAssetLinkContracts);
+            byte[] json = ms.ToArray();
+            ms.Close();
+            return Encoding.UTF8.GetString(json, 0, json.Length);
+        }
+
+        public static List<AssetLink> ParseVideoAssetLinks(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(s));
+            var serializer = new DataContractJsonSerializer(typeof(List<VideoAssetLinkContract>));
+            var videoAssetLinkContracts = (List<VideoAssetLinkContract>)serializer.ReadObject(ms);
+
+            if (videoAssetLinkContracts.Count == 0)
+            {
+                return null;
+            }
+
+            List<AssetLink> videoAssetLinks = new List<AssetLink>();
+            foreach (var videoAssetLinkContract in videoAssetLinkContracts)
+            {
+                var assetLink = new AssetLink
+                {
+                    Asset = new VideoAsset
+                    {
+                        Id = videoAssetLinkContract.Id,
+                        Name = videoAssetLinkContract.Name,
+                        SubType = videoAssetLinkContract.SubType,
+                        ThumbnailImage = videoAssetLinkContract.ThumbnailImage,
+                    },
+                    AssetPerformanceLabel = videoAssetLinkContract.AssetPerformanceLabel,
+                    EditorialStatus = videoAssetLinkContract.EditorialStatus.ParseOptional<AssetLinkEditorialStatus>(),
+                    PinnedField = videoAssetLinkContract.PinnedField,
+                };
+                videoAssetLinks.Add(assetLink);
+            }
+
+            return videoAssetLinks;
+        }
+
         public static string ToFeedCustomAttributesBulkString(this IList<FeedCustomAttributeContract> feedCustomAttributes)
         {
             if (feedCustomAttributes == null || feedCustomAttributes.Count == 0)
@@ -1392,8 +1544,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (remarketingRule is PageVisitorsRule)
             {
+
                 return string.Format("PageVisitors{0}",
-                    GetRuleItemGroups(((PageVisitorsRule) remarketingRule).RuleItemGroups));
+                    GetRuleItemGroups(((PageVisitorsRule) remarketingRule).RuleItemGroups, ((PageVisitorsRule)remarketingRule).NormalForm));
             }
 
             if (remarketingRule is PageVisitorsWhoVisitedAnotherPageRule)
@@ -1471,24 +1624,32 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         }
 
 
-        private static string GetRuleItemGroups(ICollection<RuleItemGroup> ruleItemGroups)
+        private static string GetRuleItemGroups(ICollection<RuleItemGroup> ruleItemGroups, NormalForm? normalForm = NormalForm.Disjunctive)
         {
+            string outerOperator = " or ";
+            string innerOperator = " and ";
+            if (normalForm == NormalForm.Conjunctive)
+            {
+                outerOperator = " and ";
+                innerOperator = " or ";
+            }
+
             if (ruleItemGroups == null || ruleItemGroups.Count == 0)
             {
                 return null;
             }
 
-            return string.Join(" or ", ruleItemGroups.Select(i => "(" + GetRuleItems(i.Items) + ")"));
+            return string.Join(outerOperator, ruleItemGroups.Select(i => "(" + GetRuleItems(i.Items, innerOperator) + ")"));
         }
 
-        private static string GetRuleItems(ICollection<RuleItem> ruleItems)
+        private static string GetRuleItems(ICollection<RuleItem> ruleItems, string innerOperator)
         {
             if (ruleItems == null || ruleItems.Count == 0)
             {
                 return null;
             }
 
-            return string.Join(" and ", ruleItems.Select(i => "(" + GetRuleItem(i) + ")"));
+            return string.Join(innerOperator, ruleItems.Select(i => "(" + GetRuleItem(i) + ")"));
         }
 
         private static string GetRuleItem(RuleItem ruleItem)
@@ -1542,12 +1703,85 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return null;
             }
 
-            return new PageVisitorsRule()
-            {
-                Type = "PageVisitors",
+            return ParsePageVisitorsRuleItemGroups(ruleStr);
+        }
 
-                RuleItemGroups = ParserRuleItemGroups(ruleStr)
+        private static PageVisitorsRule ParsePageVisitorsRuleItemGroups(string ruleStr)
+        {
+            const string patternDNF = @"\){2} or \({2}";
+            const string patternCNF = @"\){2} and \({2}";
+            const string patternAnd = @"\) and \(";
+            const string patternOr = @"\) or \(";
+
+            var pageVisitorRule = new PageVisitorsRule() { 
+                Type = "PageVisitors",
+                NormalForm = NormalForm.Disjunctive,
+                RuleItemGroups = new List<RuleItemGroup>(),
             };
+
+            //try to split with DNF
+            string[] expressionGroups = Regex.Split(ruleStr, patternDNF);
+
+            //can not split with DNF, try CNF
+            if (expressionGroups.Length == 1)
+            {
+                expressionGroups = Regex.Split(ruleStr, patternCNF);
+
+                //fail to split with CNF neither, only ONE expression group, try to split with inner pattern
+                if (expressionGroups.Length == 1)
+                {
+           
+                    string[] tmpExpressions = Regex.Split(ruleStr, patternOr);
+                    //fail to split with inner or pattern, try to split with inner and pattern
+                    if (tmpExpressions.Length == 1)
+                    {
+                        tmpExpressions = Regex.Split(ruleStr, patternAnd);
+
+                        // all fail, seems only ONE expression, try to parse rule item to validate format, default to DNF
+                        if (tmpExpressions.Length == 1)
+                        {
+                            ParseRuleItem(ruleStr);
+                        }
+                        // succeed to split with inner and patter, it is DNF
+                        else
+                        {
+                            pageVisitorRule.NormalForm = NormalForm.Disjunctive;
+                        }
+                    }
+                    //succeed to split with inner or pattern, it is CNF
+                    else
+                    {
+                        pageVisitorRule.NormalForm = NormalForm.Conjunctive;
+                    }
+                }
+                //succeed to split with outer and, it is CNF
+                else
+                {
+                    pageVisitorRule.NormalForm = NormalForm.Conjunctive;
+                }
+            }
+
+            string pattern = pageVisitorRule.NormalForm == NormalForm.Conjunctive ? patternOr : patternAnd;
+
+            foreach (var expressionGroup in expressionGroups)
+            {
+                var expressionGroupTrimed = expressionGroup.Trim().TrimStart(new[] { '(' }).TrimEnd(new[] { ')' });
+                string[] expressions = Regex.Split(expressionGroupTrimed, pattern);
+
+                var ruleItemGroup = new RuleItemGroup
+                {
+                    Items = new List<RuleItem>(),
+                };
+
+                foreach (var expression in expressions)
+                {
+                    RuleItem ruleItem = ParseRuleItem(expression);
+                    ruleItemGroup.Items.Add(ruleItem);
+                }
+                pageVisitorRule.RuleItemGroups.Add(ruleItemGroup);
+            }
+
+            return pageVisitorRule;
         }
 
         private static RemarketingRule ParsePageVisitorsWhoVisitedAnotherPageRule(string ruleStr)

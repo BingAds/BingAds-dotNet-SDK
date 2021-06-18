@@ -2236,6 +2236,18 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LifeCycleStatus = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponClassName = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponStartDate = 5,
     }
     
     /// <summary>
@@ -2404,7 +2416,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         private string SendToEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime SendToDateField;
+        private System.Nullable<System.DateTime> SendToDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsRedeemedField;
@@ -2668,7 +2680,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
-        public System.DateTime SendToDate
+        public System.Nullable<System.DateTime> SendToDate
         {
             get
             {
@@ -2775,7 +2787,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         private System.DateTime ExpirationDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime ActivationDateField;
+        private System.Nullable<System.DateTime> ActivationDateField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -2933,7 +2945,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
-        public System.DateTime ActivationDate
+        public System.Nullable<System.DateTime> ActivationDate
         {
             get
             {

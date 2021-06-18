@@ -77,7 +77,7 @@ namespace Microsoft.BingAds.Internal
         /// <summary>
         /// Determines whether or not to require Live Connect instead of MS Identity in production.
         /// </summary>
-        public bool RequireLiveConnect { get; }
+        public OAuthScope OAuthScope { get; }
 
         /// <summary>
         /// Bing Ads API environment
@@ -105,7 +105,7 @@ namespace Microsoft.BingAds.Internal
         /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, bool requireLiveConnect, string tenant)
+        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, OAuthScope oAuthScope, string tenant)
         {
             if (clientId == null)
             {
@@ -123,7 +123,7 @@ namespace Microsoft.BingAds.Internal
                 Environment = environment.Value;
             }
 
-            RequireLiveConnect = requireLiveConnect;
+            OAuthScope = oAuthScope;
 
             Tenant = tenant;
 

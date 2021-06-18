@@ -93,9 +93,24 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.ResponsiveAd.CallToAction = v.ParseOptional<CallToAction>()
             ),
 
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.CallToActionLanguage,
+                c => c.ResponsiveAd.CallToActionLanguage.ToBulkString(),
+                (v, c) => c.ResponsiveAd.CallToActionLanguage = v.ParseOptional<LanguageName>()
+            ),
+
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Descriptions,
+                c => c.ResponsiveAd.Descriptions.ToTextAssetLinksBulkString(),
+                (v, c) => c.ResponsiveAd.Descriptions = v.ParseTextAssetLinks()
+            ),
+
             new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Headline,
                 c => c.ResponsiveAd.Headline,
                 (v, c) => c.ResponsiveAd.Headline = v
+            ),
+
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Headlines,
+                c => c.ResponsiveAd.Headlines.ToTextAssetLinksBulkString(),
+                (v, c) => c.ResponsiveAd.Headlines = v.ParseTextAssetLinks()
             ),
 
             new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Images,
@@ -108,6 +123,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.ResponsiveAd.LongHeadlineString = v
             ),
 
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.LongHeadlines,
+                c => c.ResponsiveAd.LongHeadlines.ToTextAssetLinksBulkString(),
+                (v, c) => c.ResponsiveAd.LongHeadlines = v.ParseTextAssetLinks()
+            ),
+
             new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Text,
                 c => c.ResponsiveAd.Text,
                 (v, c) => c.ResponsiveAd.Text = v
@@ -117,6 +137,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.ResponsiveAd.ImpressionTrackingUrls.WriteDelimitedStrings(";", c.ResponsiveAd.Id),
                 (v, c) => c.ResponsiveAd.ImpressionTrackingUrls = v.ParseDelimitedStrings()
             ),
+
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.Videos,
+                c => c.ResponsiveAd.Videos == null ? null : c.ResponsiveAd.Videos.ToVideoAssetLinksBulkString(),
+                (v, c) => c.ResponsiveAd.Videos = v.ParseVideoAssetLinks()
+            ),
+
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
