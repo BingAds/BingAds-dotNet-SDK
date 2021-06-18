@@ -4373,7 +4373,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> and <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operations.</para>
+    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> and <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operations.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -5681,6 +5681,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<byte> PauseReasonField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountModeField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5829,6 +5832,26 @@ namespace Microsoft.BingAds.V13.CustomerManagement
                 {
                     this.PauseReasonField = value;
                     this.RaisePropertyChanged("PauseReason");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
+        public string AccountMode
+        {
+            get
+            {
+                return this.AccountModeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountModeField, value) != true))
+                {
+                    this.AccountModeField = value;
+                    this.RaisePropertyChanged("AccountMode");
                 }
             }
         }
@@ -6225,6 +6248,18 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LifeCycleStatus = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponClassName = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponStartDate = 5,
     }
     
     /// <summary>
@@ -10349,6 +10384,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public int TopN;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
         /// </summary>
         /// <remarks>
@@ -10366,7 +10407,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </remarks>
         /// <param name="Filter">The criteria to use to filter the list of accounts and customers.</param>
         /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
-        public FindAccountsOrCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Filter, int TopN)
+        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        public FindAccountsOrCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Filter, int TopN, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -10375,6 +10417,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             this.UserName = UserName;
             this.Filter = Filter;
             this.TopN = TopN;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

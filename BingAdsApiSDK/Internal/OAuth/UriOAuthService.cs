@@ -92,9 +92,9 @@ namespace Microsoft.BingAds.Internal.OAuth
         /// <param name="oAuthParameters">OAuth parameters for authorization server call</param>
         /// <exception cref="OAuthTokenRequestException">Thrown if tokens can't be received</exception>
         /// <returns>OAuth tokens</returns>
-        public async Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, bool requireLiveConnect, string tenant, List<KeyValuePair<string, string>> additionalParams)
+        public async Task<OAuthTokens> GetAccessTokensAsync(OAuthRequestParameters oAuthParameters, OAuthScope oAuthScope, string tenant, List<KeyValuePair<string, string>> additionalParams)
         {
-            OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, requireLiveConnect);
+            OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, oAuthScope);
 
             var values = new List<KeyValuePair<string, string>>()
             {
@@ -151,30 +151,21 @@ namespace Microsoft.BingAds.Internal.OAuth
             }
         }
 
-        public Uri RedirectionUri(bool requireLiveConnect)
+        public Uri RedirectionUri(OAuthScope oAuthScope)
         {
-            OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, requireLiveConnect);
+            OAuthEndpointType endpointType = GetOAuthEndpointType(Environment, oAuthScope);
             var redirectUrl = EndpointUrls[endpointType].RedirectUrl;
             return new Uri(redirectUrl);
         }
 
-        private static OAuthEndpointType GetOAuthEndpointType(ApiEnvironment env, bool requireLiveConnect)
+        private static OAuthEndpointType GetOAuthEndpointType(ApiEnvironment env, OAuthScope oAuthScope)
         {
-            OAuthEndpointType endpointType;
-            if (env == ApiEnvironment.Production)
-            {
-                endpointType = requireLiveConnect ? OAuthEndpointType.ProductionLiveConnect : OAuthEndpointType.ProductionMSIdentityV2;
-            }
-            else
-            {
-                endpointType = OAuthEndpointType.SandboxLiveConnect;
-            }
-            return endpointType;
+            return oAuthScope.ToOAuthEndpointType(env);
         }
         
-        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env, bool requireLiveConnect, string tenant)
+        public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env, OAuthScope oAuthScope, string tenant)
         {
-            OAuthEndpointType endpointType = GetOAuthEndpointType(env, requireLiveConnect);
+            OAuthEndpointType endpointType = GetOAuthEndpointType(env, oAuthScope);
 
             var authorizationEndpointUrl = EndpointUrls[endpointType].AuthorizationEndpointUrl;
 
@@ -191,6 +182,15 @@ namespace Microsoft.BingAds.Internal.OAuth
 
         public static readonly Dictionary<OAuthEndpointType, OAuthEndpoints> EndpointUrls = new Dictionary<OAuthEndpointType, OAuthEndpoints>
         {
+            {
+                OAuthEndpointType.ProductionMSIdentityV2_MSScope, new OAuthEndpoints
+                {
+                    RedirectUrl = "https://login.microsoftonline.com/common/oauth2/nativeclient",
+                    OAuthTokenUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+                    AuthorizationEndpointUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={0}&scope=https%3A%2F%2Fads.microsoft.com%2Fmsads.manage%20offline_access&response_type={1}&redirect_uri={2}",
+                    Scope = "https://ads.microsoft.com/msads.manage offline_access"
+                }
+            },
             {
                 OAuthEndpointType.ProductionMSIdentityV2, new OAuthEndpoints
                 {
@@ -210,12 +210,12 @@ namespace Microsoft.BingAds.Internal.OAuth
                 }
             },
             {
-                OAuthEndpointType.SandboxLiveConnect, new OAuthEndpoints
+                OAuthEndpointType.Sandbox, new OAuthEndpoints
                 {
-                    RedirectUrl = "https://login.live-int.com/oauth20_desktop.srf",
-                    OAuthTokenUrl = "https://login.live-int.com/oauth20_token.srf",
-                    AuthorizationEndpointUrl = "https://login.live-int.com/oauth20_authorize.srf?client_id={0}&scope=bingads.manage&response_type={1}&redirect_uri={2}&prompt=login",
-                    Scope = "bingads.manage"
+                    RedirectUrl = "https://login.windows-ppe.net/common/oauth2/nativeclient",
+                    OAuthTokenUrl = "https://login.windows-ppe.net/consumers/oauth2/v2.0/token",
+                    AuthorizationEndpointUrl = "https://login.windows-ppe.net/consumers/oauth2/v2.0/authorize?client_id={0}&scope=https://api.ads.microsoft.com/msads.manage%20offline_access&response_type={1}&redirect_uri={2}&prompt=login",
+                    Scope = "https://api.ads.microsoft.com/msads.manage offline_access"
                 }
             },
         };

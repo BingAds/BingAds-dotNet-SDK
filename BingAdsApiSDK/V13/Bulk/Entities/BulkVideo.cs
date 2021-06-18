@@ -49,49 +49,98 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.CampaignManagement;
 
-namespace Microsoft.BingAds.Internal.OAuth
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
-    /// Represents Bing Ads API environment (Production or Sandbox).
+    /// <para>
+    /// Represents a video that can be read or written in a bulk file. 
+    /// </para>
+    /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the Video record in a bulk file.
+    /// For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Image</see>. </para>
     /// </summary>
-    public enum OAuthEndpointType
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkVideo : SingleRecordBulkEntity
     {
-        ProductionMSIdentityV2_MSScope,
         /// <summary>
-        /// Production for MS Identity V2
+        /// The identifier of the account that contains the video.
+        /// Corresponds to the 'Parent Id' field in the bulk file. 
         /// </summary>
-        ProductionMSIdentityV2,
-        /// <summary>
-        /// Production for Live Connect
-        /// </summary>
-        ProductionLiveConnect,
-        /// <summary>
-        /// Sandbox for Live Connect
-        /// </summary>
-        Sandbox
-    }
+        public long AccountId { get; set; }
 
-    internal static class OAuthEndpointTypeUtil
-    {
-        public static OAuthEndpointType ToOAuthEndpointType(this OAuthScope oAuthScope, ApiEnvironment env)
+        /// <summary>
+        /// The Video Object of the Campaign Management Service. 
+        /// For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Video</see>.
+        /// </summary>
+        public Video Video { get; set; }
+
+        private static readonly IBulkMapping<BulkVideo>[] Mappings =
         {
-            if (env == ApiEnvironment.Sandbox)
-            {
-                return OAuthEndpointType.Sandbox;
-            }
+            new SimpleBulkMapping<BulkVideo>(StringTable.Id,
+                c => c.Video.Id.ToBulkString(),
+                (v, c) => c.Video.Id = v.Parse<long>()
+            ),
 
-            switch (oAuthScope)
-            {
-                case OAuthScope.MSADS_MANAGE:
-                    return OAuthEndpointType.ProductionMSIdentityV2_MSScope;
-                case OAuthScope.ADS_MANAGE:
-                    return OAuthEndpointType.ProductionMSIdentityV2;
-                case OAuthScope.BINGADS_MANAGE:
-                    return OAuthEndpointType.ProductionLiveConnect;
-            }
-            return OAuthEndpointType.ProductionMSIdentityV2_MSScope;
+            new SimpleBulkMapping<BulkVideo>(StringTable.ParentId,
+                c => c.AccountId.ToBulkString(),
+                (v, c) => c.AccountId = v.Parse<long>()
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.Status,
+                c => c.Video.Status,
+                (v, c) => c.Video.Status = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.Description,
+                c => c.Video.Description,
+                (v, c) => c.Video.Description = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.AspectRatio,
+                c => c.Video.AspectRatio,
+                (v, c) => c.Video.AspectRatio = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.Url,
+                c => c.Video.Url,
+                (v, c) => c.Video.Url = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.SourceUrl,
+                c => c.Video.SourceUrl,
+                (v, c) => c.Video.SourceUrl = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.ThumbnailUrl,
+                c => c.Video.ThumbnailUrl,
+                (v, c) => c.Video.ThumbnailUrl = v
+            ),
+
+            new SimpleBulkMapping<BulkVideo>(StringTable.DurationInMillionSeconds,
+                c => c.Video.DurationInMilliseconds.ToBulkString(),
+                (v, c) => c.Video.DurationInMilliseconds = v.ParseOptional<int>()
+            ),
+
+        };
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            this.ConvertToValues(values, Mappings);
+        }
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            Video = new Video { };
+
+            values.ConvertToEntity(this, Mappings); values.ConvertToEntity(this, Mappings);
         }
     }
 }

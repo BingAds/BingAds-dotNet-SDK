@@ -48,6 +48,7 @@
 //=====================================================================================================================================================
 
 using System;
+using System.Collections.Generic;
 using Microsoft.BingAds.V13.Internal;
 using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
@@ -115,6 +116,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public string FinalUrlSuffix { get; set; }
 
+        /// <summary>
+        /// Corresponds to the 'Ad Click Parallel Tracking' field in the bulk file. 
+        /// </summary>
+        public bool? AdClickParallelTracking { get; set; }
+
+        /// <summary>
+        /// Corresponds to the 'Auto Apply Recommendations' field in the bulk file. 
+        /// </summary>
+        public IDictionary<string, bool> AutoApplyRecommendations { get; set; }
+
+        /// <summary>
+        /// Corresponds to the 'Allow Image Auto Retrieve' field in the bulk file. 
+        /// </summary>
+        public bool? AllowImageAutoRetrieve { get; set; }
+
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
             new SimpleBulkMapping<BulkAccount>(StringTable.Id,
@@ -155,7 +171,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkAccount>(StringTable.FinalUrlSuffix,
             c => c.FinalUrlSuffix.ToOptionalBulkString(c.Id),
             (v, c) => c.FinalUrlSuffix = v.GetValueOrEmptyString()
-            )
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.AdClickParallelTracking,
+            c => c.AdClickParallelTracking?.ToString(),
+            (v, c) => c.AdClickParallelTracking = v.ParseOptionalBool()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.AutoApplyRecommendations,
+            c => c.AutoApplyRecommendations.WriteAutoApplyRecommendations(";"),
+            (v, c) => c.AutoApplyRecommendations = v.ParseAutoApplyRecommendations()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.AllowImageAutoRetrieve,
+            c => c.AllowImageAutoRetrieve?.ToString(),
+            (v, c) => c.AllowImageAutoRetrieve = v.ParseOptionalBool()
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

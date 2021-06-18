@@ -241,10 +241,26 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.AdGroup.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(null),
                 (v, c) => c.AdGroup.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
             ),
+
             new SimpleBulkMapping<BulkAdGroup>(StringTable.AdGroupType,
                 c => c.AdGroup.AdGroupType,
                 (v, c) => c.AdGroup.AdGroupType = v
             ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.CpvBid,
+                c => c.AdGroup.CpvBid.ToAdGroupBidBulkString(),
+                (v, c) => c.AdGroup.CpvBid = v.ParseAdGroupBid()
+                ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.CpmBid,
+                c => c.AdGroup.CpmBid.ToAdGroupBidBulkString(),
+                (v, c) => c.AdGroup.CpmBid = v.ParseAdGroupBid()
+                ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.MultiMediaAdBidAdjustment,
+                c => c.AdGroup.MultimediaAdsBidAdjustment.ToBulkString(),
+                (v, c) => c.AdGroup.MultimediaAdsBidAdjustment = v.ParseOptional<int>()
+                ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

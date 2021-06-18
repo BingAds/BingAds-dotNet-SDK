@@ -290,6 +290,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string BidAdjustment = "Bid Adjustment";
         public const string CashbackAdjustment = "Cashback Percent";
         public const string SubType = "Sub Type";
+        public const string MultiMediaAdBidAdjustment = "Multi Media Ad Bid Adjustment";
 
         public const string OsNames = "OS Names";
 
@@ -300,6 +301,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CpcBid = "Cpc Bid";
         public const string AdRotation = "Ad Rotation";
         public const string PrivacyStatus = "Privacy Status";
+        public const string CpvBid = "Cpv Bid";
+        public const string CpmBid = "Cpm Bid";
 
         public const string Account = "Account";
         public const string SyncTime = "Sync Time";
@@ -307,6 +310,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string MSCLKIDAutoTaggingEnabled = "MSCLKID Auto Tagging Enabled";
         public const string IncludeViewThroughConversions = "Include View Through Conversions";
         public const string ProfileExpansionEnabled = "Profile Expansion Enabled";
+        public const string AdClickParallelTracking = "Ad Click Parallel Tracking";
+        public const string AutoApplyRecommendations = "Auto Apply Recommendations";
+        public const string AllowImageAutoRetrieve = "Allow Image Auto Retrieve";
 
         public const string LastModifiedTime = "Modified Time";
 
@@ -705,15 +711,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         // Responsive Ad
         public const string ResponsiveAd = "Responsive Ad";
         public const string CallToAction = "Call To Action";
+        public const string CallToActionLanguage = "Call To Action Language";
+        public const string Descriptions = "Descriptions";
         public const string Headline = "Headline";
+        public const string Headlines = "Headlines";
         public const string Images = "Images";
         public const string LandscapeImageMediaId = "Landscape Image Media Id";
         public const string LandscapeLogoMediaId = "Landscape Logo Media Id";
         public const string LongHeadline = "Long Headline";
+        public const string LongHeadlines = "Long Headlines";
         public const string SquareImageMediaId = "Square Image Media Id";
         public const string SquareLogoMediaId = "Square Logo Media Id";
         public const string ImpressionTrackingUrls = "Impression Tracking Urls";
-
+        public const string Videos = "Videos";
 
         // Responsive Search Ad
         public const string ResponsiveSearchAd = "Responsive Search Ad";
@@ -723,6 +733,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Height = "Height";
         public const string Width = "Width";
 
+        // Video
+        public const string Video = "Video";
+        public const string SourceUrl = "Source Url";
+        public const string AspectRatio = "Aspect Ratio";
+        public const string DurationInMillionSeconds = "Duration In Milliseconds";
+    
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
         public const string CampaignStructuredSnippetAdExtension = "Campaign Structured Snippet Ad Extension";

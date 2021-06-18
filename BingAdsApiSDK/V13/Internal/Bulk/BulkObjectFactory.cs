@@ -90,6 +90,7 @@ using BulkAdGroupReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdG
 using BulkAdGroupSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupSitelinkAdExtension;
 using BulkAdGroupStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupStructuredSnippetAdExtension;
 using BulkAdGroupPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupPromotionAdExtension;
+using BulkAdGroupVideoAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupVideoAdExtension;
 using BulkAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAppAdExtension;
 using BulkAppInstallAd = Microsoft.BingAds.V13.Bulk.Entities.BulkAppInstallAd;
 using BulkBudget = Microsoft.BingAds.V13.Bulk.Entities.BulkBudget;
@@ -120,6 +121,7 @@ using BulkCampaignReviewAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCa
 using BulkCampaignSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignSitelinkAdExtension;
 using BulkCampaignStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignStructuredSnippetAdExtension;
 using BulkCampaignPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignPromotionAdExtension;
+using BulkCampaignVideoAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignVideoAdExtension;
 using BulkCampaignNegativeStoreCriterion = Microsoft.BingAds.V13.Bulk.Entities.BulkCampaignNegativeStoreCriterion;
 using BulkCustomAudience = Microsoft.BingAds.V13.Bulk.Entities.BulkCustomAudience;
 using BulkDynamicSearchAd = Microsoft.BingAds.V13.Bulk.Entities.BulkDynamicSearchAd;
@@ -141,6 +143,7 @@ using BulkSharedNegativeKeyword = Microsoft.BingAds.V13.Bulk.Entities.BulkShared
 using BulkSitelinkAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkSitelinkAdExtension;
 using BulkStructuredSnippetAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkStructuredSnippetAdExtension;
 using BulkPromotionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkPromotionAdExtension;
+using BulkVideoAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkVideoAdExtension;
 using BulkTextAd = Microsoft.BingAds.V13.Bulk.Entities.BulkTextAd;
 using UnknownBulkEntity = Microsoft.BingAds.V13.Bulk.Entities.UnknownBulkEntity;
 using BulkLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkLabel;
@@ -153,6 +156,7 @@ using BulkExpandedTextAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkExpanded
 using BulkProductAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkProductAdLabel;
 using BulkTextAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkTextAdLabel;
 using BulkOfflineConversion = Microsoft.BingAds.V13.Bulk.Entities.BulkOfflineConversion;
+using BulkVideo = Microsoft.BingAds.V13.Bulk.Entities.BulkVideo;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -283,6 +287,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.Budget,                        new EntityInfo(() => new BulkBudget())},
                 {StringTable.BidStrategy,                        new EntityInfo(() => new BulkBidStrategy())},                
                 {StringTable.Image,                        new EntityInfo(() => new BulkImage())},
+                {StringTable.Video,                        new EntityInfo(() => new BulkVideo())},
                 {StringTable.Feed,                        new EntityInfo(() => new BulkFeed())},
                 {StringTable.FeedItem,                        new EntityInfo(() => new BulkFeedItem())},
                 {StringTable.Experiment,                    new EntityInfo(() => new BulkExperiment())},

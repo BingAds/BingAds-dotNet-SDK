@@ -107,6 +107,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> MultimediaAdsBidAdjustmentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -315,6 +318,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> MultimediaAdsBidAdjustment
+        {
+            get
+            {
+                return this.MultimediaAdsBidAdjustmentField;
+            }
+            set
+            {
+                if ((this.MultimediaAdsBidAdjustmentField.Equals(value) != true))
+                {
+                    this.MultimediaAdsBidAdjustmentField = value;
+                    this.RaisePropertyChanged("MultimediaAdsBidAdjustment");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The name of the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -437,7 +460,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, or Shopping campaign.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -457,7 +480,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The supported settings that vary by campaign type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -477,7 +500,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The unique Microsoft Advertising identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -497,7 +520,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -517,7 +540,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -537,7 +560,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The system-generated identifier of the BidStrategy that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -1643,6 +1666,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string DomainNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> DynamicDescriptionEnabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LanguageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1667,6 +1693,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.DomainNameField = value;
                     this.RaisePropertyChanged("DomainName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> DynamicDescriptionEnabled
+        {
+            get
+            {
+                return this.DynamicDescriptionEnabledField;
+            }
+            set
+            {
+                if ((this.DynamicDescriptionEnabledField.Equals(value) != true))
+                {
+                    this.DynamicDescriptionEnabledField = value;
+                    this.RaisePropertyChanged("DynamicDescriptionEnabled");
                 }
             }
         }
@@ -2979,6 +3025,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicFeedSetting = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MultimediaAdsBidAdjustment = 128,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VerifiedTrackingSetting = 256,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicDescriptionSetting = 512,
     }
     
     /// <summary>
@@ -3111,6 +3175,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> MultimediaAdsBidAdjustmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -3341,6 +3408,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> MultimediaAdsBidAdjustment
+        {
+            get
+            {
+                return this.MultimediaAdsBidAdjustmentField;
+            }
+            set
+            {
+                if ((this.MultimediaAdsBidAdjustmentField.Equals(value) != true))
+                {
+                    this.MultimediaAdsBidAdjustmentField = value;
+                    this.RaisePropertyChanged("MultimediaAdsBidAdjustment");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The name of the ad group.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -3503,7 +3590,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -3523,7 +3610,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The ad group type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
         public string AdGroupType
         {
             get
@@ -3543,7 +3630,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpvBid
         {
             get
@@ -3563,7 +3650,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpmBid
         {
             get
@@ -3981,6 +4068,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CpmBid = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MultimediaAdsBidAdjustment = 16,
     }
     
     /// <summary>
@@ -4990,6 +5083,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CallToAction> CallToActionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.LanguageName> CallToActionLanguageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> DescriptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -5009,6 +5105,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LongHeadlineStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> LongHeadlinesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
@@ -5052,6 +5151,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.CallToActionField = value;
                     this.RaisePropertyChanged("CallToAction");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.LanguageName> CallToActionLanguage
+        {
+            get
+            {
+                return this.CallToActionLanguageField;
+            }
+            set
+            {
+                if ((this.CallToActionLanguageField.Equals(value) != true))
+                {
+                    this.CallToActionLanguageField = value;
+                    this.RaisePropertyChanged("CallToActionLanguage");
                 }
             }
         }
@@ -5192,6 +5311,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.LongHeadlineStringField = value;
                     this.RaisePropertyChanged("LongHeadlineString");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> LongHeadlines
+        {
+            get
+            {
+                return this.LongHeadlinesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LongHeadlinesField, value) != true))
+                {
+                    this.LongHeadlinesField = value;
+                    this.RaisePropertyChanged("LongHeadlines");
                 }
             }
         }
@@ -5739,127 +5878,710 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AddToCart = 0,
+        Unknown = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ActNow = 1,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ApplyNow = 1,
+        ApplyNow = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BetNow = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidNow = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BookACar = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BookHotel = 6,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        BookNow = 2,
+        BookNow = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Browse = 8,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        BookTravel = 3,
+        BuyNow = 9,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChatNow = 10,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Compare = 11,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Buy = 4,
+        ContactUs = 12,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Coupon = 13,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Donate = 14,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        BuyNow = 5,
+        Download = 15,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EmailNow = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnrollNow = 17,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Explore = 18,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FileNow = 19,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FindJob = 20,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FreePlay = 21,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FreeQuote = 22,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FreeTrial = 23,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetDeals = 24,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetOffer = 25,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ContactUs = 6,
+        GetQuote = 26,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JoinNow = 27,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Download = 7,
+        LearnMore = 28,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ListenNow = 29,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LogIn = 30,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Message = 31,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewCars = 32,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        GetQuote = 8,
+        OrderNow = 33,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlayGame = 34,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlayNow = 35,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostJob = 36,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Register = 37,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RentACar = 38,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RentNow = 39,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Reserve = 40,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Sale = 41,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SaveNow = 42,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Schedule = 43,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeMenu = 44,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Install = 9,
+        SeeMore = 45,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeOffer = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SellNow = 47,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        LearnMore = 10,
+        ShopNow = 48,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Showtimes = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SignIn = 50,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        NoButton = 11,
+        SignUp = 51,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StartFree = 52,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        StartNow = 53,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        OpenLink = 12,
+        Subscribe = 54,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TestDrive = 55,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TryNow = 56,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UsedCars = 57,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewCars = 58,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewNow = 59,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewPlans = 60,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        OrderNow = 13,
+        VisitSite = 61,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VoteNow = 62,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Watch = 63,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WatchMore = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WatchNow = 65,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Directions = 66,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FindStore = 67,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SwitchNow = 68,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VisitStore = 69,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RenewNow = 70,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Reorder = 71,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Default = 72,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        RegisterNow = 14,
+        NoButton = 73,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        SeeMore = 15,
+        Install = 74,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ShopNow = 16,
+        AddToCart = 75,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        SignUp = 17,
+        BookTravel = 76,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Subscribe = 18,
+        Buy = 77,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Unknown = 19,
+        OpenLink = 78,
         
         /// <summary>
         /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        VisitSite = 20,
+        RegisterNow = 79,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/languagename?view=bingads-13">LanguageName Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/languagename?view=bingads-13 for details.
+    /// <para>Used by <see cref="ResponsiveAd"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LanguageName", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum LanguageName : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Arabic = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Danish = 28,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dutch = 29,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        German = 40,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        English = 30,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Finnish = 35,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        French = 36,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Italian = 55,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Norwegian = 82,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Portuguese = 88,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spanish = 109,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Swedish = 112,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TraditionalChinese = 24,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SimplifiedChinese = 137,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Greek = 41,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Polish = 87,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bulgarian = 19,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Czech = 27,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Estonian = 32,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Croatian = 26,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hungarian = 48,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Lithuanian = 70,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Latvian = 68,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Maltese = 75,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Romanian = 92,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovak = 106,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovenian = 107,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Turkish = 123,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Serbian = 98,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Bosnian = 138,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Albanian = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Macedonian = 71,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Icelandic = 49,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Japanese = 56,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        All = 1000,
     }
     
     /// <summary>
@@ -6269,6 +6991,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Videos = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LongHeadlines = 4,
     }
     
     /// <summary>
@@ -7631,7 +8359,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AllowCrawlImagesFromLandingPage = 64,
+        AllowImageAutoRetrieve = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AutoApplyRecommendations = 128,
     }
     
     /// <summary>
@@ -11789,6 +12523,60 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Reorder = 71,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BuildNow = 72,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dealers = 73,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetDemo = 74,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetNow = 75,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoToDemo = 76,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeDemo = 77,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeModels = 78,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeOffers = 79,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewDemo = 80,
     }
     
     /// <summary>
@@ -13348,6 +14136,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionTypesPhase3 = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ActionTypesPhase4 = 16,
     }
     
     /// <summary>
@@ -19834,7 +20628,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.NormalForm> NormalFormField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.NormalForm> NormalForm
+        {
+            get
+            {
+                return this.NormalFormField;
+            }
+            set
+            {
+                if ((this.NormalFormField.Equals(value) != true))
+                {
+                    this.NormalFormField = value;
+                    this.RaisePropertyChanged("NormalForm");
+                }
+            }
+        }
         
         /// <summary>
         /// The list of rule item groups that you want applied to the remarketing list.
@@ -20173,6 +20990,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 }
             }
         }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/normalform?view=bingads-13">NormalForm Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/normalform?view=bingads-13 for details.
+    /// <para>Used by <see cref="PageVisitorsRule"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NormalForm", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum NormalForm : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conjunctive = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Disjunctive = 2,
     }
     
     /// <summary>
@@ -20661,6 +21503,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Not = 3,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/audienceadditionalfield?view=bingads-13">AudienceAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/audienceadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AudienceAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AudienceAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NormalForm = 1,
     }
     
     /// <summary>
@@ -41852,6 +42714,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.AudienceType Type;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the GetAudiencesByIdsRequest request object.
         /// </summary>
         /// <remarks>
@@ -41869,7 +42737,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="AudienceIds">A maximum of 100 identifiers of the requested audiences.</param>
         /// <param name="Type">The type of audiences to return.</param>
-        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V13.CampaignManagement.AudienceType Type)
+        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V13.CampaignManagement.AudienceType Type, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -41880,6 +42749,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AudienceIds = AudienceIds;
             this.Type = Type;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

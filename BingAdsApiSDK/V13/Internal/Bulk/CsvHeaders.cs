@@ -83,6 +83,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.ClientId,
             StringTable.LastModifiedTime,
             StringTable.Language,
+            StringTable.MultiMediaAdBidAdjustment,
 
             // campaign
             StringTable.TimeZone,
@@ -108,6 +109,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.CpcBid,
             StringTable.PrivacyStatus,
             StringTable.AdGroupType,
+            StringTable.CpvBid,
+            StringTable.CpmBid,
 
             // Ads
             StringTable.Title,
@@ -365,6 +368,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.Height,
             StringTable.Width,
 
+            // Video
+            StringTable.SourceUrl,
+            StringTable.AspectRatio,
+            StringTable.DurationInMillionSeconds,
+
             // Callout Ad Extension
             StringTable.CalloutText,
 
@@ -408,14 +416,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             // Responsive Ad
             StringTable.CallToAction,
+            StringTable.CallToActionLanguage,
+            StringTable.Descriptions,
             StringTable.Headline,
+            StringTable.Headlines,
             StringTable.Images,
             StringTable.LandscapeImageMediaId,
             StringTable.LandscapeLogoMediaId,
             StringTable.LongHeadline,
+            StringTable.LongHeadlines,
             StringTable.SquareImageMediaId,
             StringTable.SquareLogoMediaId,
             StringTable.ImpressionTrackingUrls,
+            StringTable.Videos,
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,
@@ -464,6 +477,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.MSCLKIDAutoTaggingEnabled,
             StringTable.IncludeViewThroughConversions,
             StringTable.ProfileExpansionEnabled,
+            StringTable.AdClickParallelTracking,
+            StringTable.AutoApplyRecommendations,
+            StringTable.AllowImageAutoRetrieve,
 
             //Final Url Suffix
             StringTable.FinalUrlSuffix,

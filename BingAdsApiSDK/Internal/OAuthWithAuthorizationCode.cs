@@ -126,9 +126,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             string refreshToken, 
             ApiEnvironment? environment,
-            bool requireLiveConnect,
+            OAuthScope oAuthScope,
             string tenant)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect, tenant)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuthScope, tenant)
         {
             if (refreshToken == null)
             {
@@ -170,9 +170,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment,
-            bool requireLiveConnect,
+            OAuthScope oAuhthScope,
             string tenant)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, requireLiveConnect, tenant)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuhthScope, tenant)
         {
             if (oauthTokens == null || oauthTokens.RefreshToken == null)
             {
@@ -209,13 +209,13 @@ namespace Microsoft.BingAds.Internal
             string optionalClientSecret, 
             Uri redirectionUri, 
             ApiEnvironment? environment,
-            bool requireLiveConnect, 
+            OAuthScope oAuhthScope, 
             string tenant)
-            :  base(clientId, environment, requireLiveConnect, tenant)
+            :  base(clientId, environment, oAuhthScope, tenant)
         {
             _optionalClientSecret = optionalClientSecret;
             _oauthService = new UriOAuthService(Environment);
-            _redirectionUri = redirectionUri ?? _oauthService.RedirectionUri(requireLiveConnect);
+            _redirectionUri = redirectionUri ?? _oauthService.RedirectionUri(oAuhthScope);
         }
 
         internal OAuthWithAuthorizationCode(
@@ -224,9 +224,9 @@ namespace Microsoft.BingAds.Internal
             Uri redirectionUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect, 
+            OAuthScope oAuhthScope, 
             string tenant)
-            : base(clientId, env, requireLiveConnect, tenant)
+            : base(clientId, env, oAuhthScope, tenant)
         {
             if (redirectionUri == null)
             {
@@ -252,7 +252,7 @@ namespace Microsoft.BingAds.Internal
                 State = State,
             }, 
             Environment, 
-            RequireLiveConnect, 
+            OAuthScope, 
             Tenant);
         }
 
@@ -309,7 +309,7 @@ namespace Microsoft.BingAds.Internal
                 GrantParamName = "code",
                 GrantValue = code,
             }, 
-            RequireLiveConnect,
+            OAuthScope,
             Tenant, additionalParams).ConfigureAwait(false);
 
             RaiseNewTokensReceivedEvent();
@@ -345,7 +345,7 @@ namespace Microsoft.BingAds.Internal
                 GrantParamName = "refresh_token",
                 GrantValue = refreshToken,
             }, 
-            RequireLiveConnect,
+            OAuthScope,
             Tenant,
             additionalParams).ConfigureAwait(false);
 

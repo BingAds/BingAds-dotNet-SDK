@@ -86,9 +86,9 @@ namespace Microsoft.BingAds
         public OAuthDesktopMobileAuthCodeGrant(
             string clientId, 
             ApiEnvironment environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, null, null, environment, requireLiveConnect, tenant)
+            : base(clientId, null, null, environment, oAuthScope, tenant)
         {
         }
 
@@ -110,9 +110,9 @@ namespace Microsoft.BingAds
             string clientId, 
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, null, null, refreshToken, environment, requireLiveConnect, tenant)
+            : base(clientId, null, null, refreshToken, environment, oAuthScope, tenant)
         {
         }
 
@@ -133,9 +133,9 @@ namespace Microsoft.BingAds
             string clientId, 
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, null, null, oauthTokens, environment, requireLiveConnect, tenant)
+            : base(clientId, null, null, oauthTokens, environment, oAuthScope, tenant)
         {
         }
 
@@ -144,9 +144,9 @@ namespace Microsoft.BingAds
             Uri redirectUri, 
             IOAuthService oauthService, 
             ApiEnvironment env,
-            bool requireLiveConnect = false,
+            OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
             string tenant = "common")
-            : base(clientId, null, redirectUri, oauthService, env, requireLiveConnect, tenant)
+            : base(clientId, null, redirectUri, oauthService, env, oAuthScope, tenant)
         {
         }
     }
