@@ -23,7 +23,7 @@ namespace BingAdsConsoleApp
         // Set any examples that you want to run. 
         private static readonly ExampleBase[] _examples =
         {
-            new BingAdsExamplesLibrary.V13.SearchUserAccounts(),
+            new BingAdsExamplesLibrary.V13.DynamicSearchAds(),
         };
 
         private static AuthorizationData _authorizationData;
@@ -287,12 +287,13 @@ namespace BingAdsConsoleApp
             var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
                     predicates: new[] { predicate },
                     ordering: null,
-                    pageInfo: paging))?.Accounts.ToArray();
+                    pageInfo: paging,
+                    returnAdditionalFields: null))?.Accounts.ToArray();
             
             if (accounts.Length <= 0) return;
 
             _authorizationData.AccountId = (long)accounts[0].Id;
-            _authorizationData.CustomerId = (int)accounts[0].ParentCustomerId;
+            _authorizationData.CustomerId = (long)accounts[0].ParentCustomerId;
 
             return;
         }

@@ -27,6 +27,20 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CustomerBillingService.CallAsync((s, r) => s.AddInsertionOrderAsync(r), request));
         }
+        public async Task<DispatchCouponsResponse> DispatchCouponsAsync(
+            IList<String> sendToEmails,
+            long customerId,
+            String couponClassName)
+        {
+            var request = new DispatchCouponsRequest
+            {
+                SendToEmails = sendToEmails,
+                CustomerId = customerId,
+                CouponClassName = couponClassName
+            };
+
+            return (await CustomerBillingService.CallAsync((s, r) => s.DispatchCouponsAsync(r), request));
+        }
         public async Task<GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(
             long accountId,
             DateTime monthYear)
@@ -64,6 +78,32 @@ namespace BingAdsExamplesLibrary.V13
             };
 
             return (await CustomerBillingService.CallAsync((s, r) => s.GetBillingDocumentsInfoAsync(r), request));
+        }
+        public async Task<RedeemCouponResponse> RedeemCouponAsync(
+            long accountId,
+            String couponCode)
+        {
+            var request = new RedeemCouponRequest
+            {
+                AccountId = accountId,
+                CouponCode = couponCode
+            };
+
+            return (await CustomerBillingService.CallAsync((s, r) => s.RedeemCouponAsync(r), request));
+        }
+        public async Task<SearchCouponsResponse> SearchCouponsAsync(
+            IList<Predicate> predicates,
+            IList<OrderBy> ordering,
+            Paging pageInfo)
+        {
+            var request = new SearchCouponsRequest
+            {
+                Predicates = predicates,
+                Ordering = ordering,
+                PageInfo = pageInfo
+            };
+
+            return (await CustomerBillingService.CallAsync((s, r) => s.SearchCouponsAsync(r), request));
         }
         public async Task<SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(
             IList<Predicate> predicates,
@@ -294,6 +334,72 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputBillingDocumentInfo(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputCoupon(Coupon dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputCoupon * * *");
+                OutputStatusMessage(string.Format("CouponCode: {0}", dataObject.CouponCode));
+                OutputStatusMessage(string.Format("ClassName: {0}", dataObject.ClassName));
+                OutputStatusMessage(string.Format("CouponType: {0}", dataObject.CouponType));
+                OutputStatusMessage(string.Format("Amount: {0}", dataObject.Amount));
+                OutputStatusMessage(string.Format("SpendThreshold: {0}", dataObject.SpendThreshold));
+                OutputStatusMessage(string.Format("CurrencyCode: {0}", dataObject.CurrencyCode));
+                OutputStatusMessage(string.Format("PercentOff: {0}", dataObject.PercentOff));
+                OutputStatusMessage(string.Format("ActiveDuration: {0}", dataObject.ActiveDuration));
+                OutputStatusMessage(string.Format("ExpirationDate: {0}", dataObject.ExpirationDate));
+                OutputStatusMessage(string.Format("StartDate: {0}", dataObject.StartDate));
+                OutputStatusMessage(string.Format("EndDate: {0}", dataObject.EndDate));
+                OutputStatusMessage(string.Format("SendToEmail: {0}", dataObject.SendToEmail));
+                OutputStatusMessage(string.Format("SendToDate: {0}", dataObject.SendToDate));
+                OutputStatusMessage(string.Format("IsRedeemed: {0}", dataObject.IsRedeemed));
+                OutputStatusMessage("RedemptionInfo:");
+                OutputCouponRedemption(dataObject.RedemptionInfo);
+                OutputStatusMessage("* * * End OutputCoupon * * *");
+            }
+        }
+        public void OutputArrayOfCoupon(IList<Coupon> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputCoupon(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputCouponRedemption(CouponRedemption dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputCouponRedemption * * *");
+                OutputStatusMessage(string.Format("AccountId: {0}", dataObject.AccountId));
+                OutputStatusMessage(string.Format("AccountNumber: {0}", dataObject.AccountNumber));
+                OutputStatusMessage(string.Format("SpendToThreshold: {0}", dataObject.SpendToThreshold));
+                OutputStatusMessage(string.Format("Balance: {0}", dataObject.Balance));
+                OutputStatusMessage(string.Format("CurrencyCode: {0}", dataObject.CurrencyCode));
+                OutputStatusMessage(string.Format("RedemptionDate: {0}", dataObject.RedemptionDate));
+                OutputStatusMessage(string.Format("ExpirationDate: {0}", dataObject.ExpirationDate));
+                OutputStatusMessage(string.Format("ActivationDate: {0}", dataObject.ActivationDate));
+                OutputStatusMessage("* * * End OutputCouponRedemption * * *");
+            }
+        }
+        public void OutputArrayOfCouponRedemption(IList<CouponRedemption> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputCouponRedemption(dataObject);
                     }
                 }
             }
@@ -642,6 +748,42 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var dataObject in dataObjects)
                 {
                     OutputKeyValuePairOfstringstring(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOflonglong(KeyValuePair<long,long> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOflonglong(IList<KeyValuePair<long,long>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOflonglong(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOfstringbase64Binary(KeyValuePair<string,byte[]> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOfstringbase64Binary(IList<KeyValuePair<string,byte[]>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOfstringbase64Binary(dataObject);
                 }
             }
         }

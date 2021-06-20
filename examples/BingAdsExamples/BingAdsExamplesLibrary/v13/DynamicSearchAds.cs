@@ -10,7 +10,7 @@ using Microsoft.BingAds;
 namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
-    /// How to setup a Dynamic Search Ads (DSA) campaign with the Campaign Management service.
+    /// How to setup Dynamic Search Ads (DSA) in a Search campaign with the Campaign Management service.
     /// </summary>
     public class DynamicSearchAds : ExampleBase
     {
@@ -40,18 +40,17 @@ namespace BingAdsExamplesLibrary.V13
                     authorizationData: authorizationData,
                     environment: environment);
 
-                // To get started with dynamic search ads, first you'll need to add a new Campaign 
-                // with its type set to DynamicSearchAds. When you create the campaign, you'll need to 
-                // include a DynamicSearchAdsSetting that specifies the target website domain and language.
+                // To get started with dynamic search ads, first you'll need to add a new Search campaign 
+                // Include a DynamicSearchAdsSetting that specifies the target website domain and language.
 
                 var campaigns = new[]{
                     new Campaign
                     {
                         BudgetType = Microsoft.BingAds.V13.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
-                        CampaignType = CampaignType.DynamicSearchAds,
+                        CampaignType = CampaignType.Search,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         Settings = new [] {
                             new DynamicSearchAdsSetting
@@ -74,12 +73,13 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("PartialErrors:");
                 CampaignManagementExampleHelper.OutputArrayOfBatchError(campaignErrors);
 
-                // Create a new ad group within the dynamic search ads campaign. 
+                // Create a new ad group with type set to "SearchDynamic"
 
                 var adGroups = new[] {
                     new AdGroup
                     {
-                        Name = "Women's Red Shoe Sale",
+                        AdGroupType = "SearchDynamic",
+                        Name = "Everyone's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Date {
                             Month = 12,

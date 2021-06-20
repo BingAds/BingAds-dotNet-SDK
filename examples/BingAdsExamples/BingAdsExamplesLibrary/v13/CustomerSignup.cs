@@ -101,7 +101,8 @@ namespace BingAdsExamplesLibrary.V13
                     customer: customer,
                     account: account,
                     parentCustomerId: user.CustomerId,
-                    userInvitation: null);
+                    userInvitation: null,
+                    userId: null);
 
                 OutputStatusMessage("New Customer and Account:");
 

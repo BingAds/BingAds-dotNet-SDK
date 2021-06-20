@@ -465,5 +465,41 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputKeyValuePairOflonglong(KeyValuePair<long,long> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOflonglong(IList<KeyValuePair<long,long>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOflonglong(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOfstringbase64Binary(KeyValuePair<string,byte[]> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOfstringbase64Binary(IList<KeyValuePair<string,byte[]>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOfstringbase64Binary(dataObject);
+                }
+            }
+        }
     }
 }

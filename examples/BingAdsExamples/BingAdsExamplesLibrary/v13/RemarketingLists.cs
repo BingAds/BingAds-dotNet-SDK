@@ -379,7 +379,7 @@ namespace BingAdsExamplesLibrary.V13
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
@@ -398,7 +398,7 @@ namespace BingAdsExamplesLibrary.V13
                 var adGroups = new[] {
                     new AdGroup
                     {
-                        Name = "Women's Red Shoe Sale",
+                        Name = "Everyone's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Date {
                             Month = 12,

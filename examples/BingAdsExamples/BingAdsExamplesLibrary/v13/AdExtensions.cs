@@ -49,7 +49,7 @@ namespace BingAdsExamplesLibrary.V13
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     }
                 };
@@ -267,7 +267,7 @@ namespace BingAdsExamplesLibrary.V13
                     new SitelinkAdExtension {
                         Description1 = "Simple & Transparent.",
                         Description2 = "No Upfront Cost.",
-                        DisplayText = "Women's Shoe Sale",
+                        DisplayText = "Everyone's Shoe Sale",
                         FinalUrls = new[] {
                             "https://www.contoso.com/womenshoesale"
                         },

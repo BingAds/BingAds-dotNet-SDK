@@ -53,7 +53,7 @@ namespace BingAdsExamplesLibrary.V13
                         DailyBudget = 50,
                         CampaignType = CampaignType.Search,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     }
                 };

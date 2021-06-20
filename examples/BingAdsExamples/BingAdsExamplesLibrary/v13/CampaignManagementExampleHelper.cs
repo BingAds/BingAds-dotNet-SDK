@@ -77,6 +77,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.AddAudiencesAsync(r), request));
         }
+        public async Task<AddBidStrategiesResponse> AddBidStrategiesAsync(
+            IList<BidStrategy> bidStrategies)
+        {
+            var request = new AddBidStrategiesRequest
+            {
+                BidStrategies = bidStrategies
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.AddBidStrategiesAsync(r), request));
+        }
         public async Task<AddBudgetsResponse> AddBudgetsAsync(
             IList<Budget> budgets)
         {
@@ -225,6 +235,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.AddUetTagsAsync(r), request));
         }
+        public async Task<AddVideosResponse> AddVideosAsync(
+            IList<Video> videos)
+        {
+            var request = new AddVideosRequest
+            {
+                Videos = videos
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.AddVideosAsync(r), request));
+        }
         public async Task<AppealEditorialRejectionsResponse> AppealEditorialRejectionsAsync(
             IList<EntityIdToParentIdAssociation> entityIdToParentIdAssociations,
             EntityType entityType,
@@ -342,6 +362,16 @@ namespace BingAdsExamplesLibrary.V13
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.DeleteAudiencesAsync(r), request));
+        }
+        public async Task<DeleteBidStrategiesResponse> DeleteBidStrategiesAsync(
+            IList<long> bidStrategyIds)
+        {
+            var request = new DeleteBidStrategiesRequest
+            {
+                BidStrategyIds = bidStrategyIds
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.DeleteBidStrategiesAsync(r), request));
         }
         public async Task<DeleteBudgetsResponse> DeleteBudgetsAsync(
             IList<long> budgetIds)
@@ -495,6 +525,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.DeleteSharedEntityAssociationsAsync(r), request));
         }
+        public async Task<DeleteVideosResponse> DeleteVideosAsync(
+            IList<long> videoIds)
+        {
+            var request = new DeleteVideosRequest
+            {
+                VideoIds = videoIds
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.DeleteVideosAsync(r), request));
+        }
         public async Task<GetAccountMigrationStatusesResponse> GetAccountMigrationStatusesAsync(
             IList<long> accountIds,
             String migrationType)
@@ -582,13 +622,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetAdGroupCriterionsByIdsResponse> GetAdGroupCriterionsByIdsAsync(
             IList<long> adGroupCriterionIds,
             long adGroupId,
-            AdGroupCriterionType criterionType)
+            AdGroupCriterionType criterionType,
+            CriterionAdditionalField? returnAdditionalFields)
         {
             var request = new GetAdGroupCriterionsByIdsRequest
             {
                 AdGroupCriterionIds = adGroupCriterionIds,
                 AdGroupId = adGroupId,
-                CriterionType = criterionType
+                CriterionType = criterionType,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdGroupCriterionsByIdsAsync(r), request));
@@ -621,12 +663,14 @@ namespace BingAdsExamplesLibrary.V13
         }
         public async Task<GetAdsByAdGroupIdResponse> GetAdsByAdGroupIdAsync(
             long adGroupId,
-            IList<AdType> adTypes)
+            IList<AdType> adTypes,
+            AdAdditionalField? returnAdditionalFields)
         {
             var request = new GetAdsByAdGroupIdRequest
             {
                 AdGroupId = adGroupId,
-                AdTypes = adTypes
+                AdTypes = adTypes,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdsByAdGroupIdAsync(r), request));
@@ -634,13 +678,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetAdsByEditorialStatusResponse> GetAdsByEditorialStatusAsync(
             long adGroupId,
             AdEditorialStatus editorialStatus,
-            IList<AdType> adTypes)
+            IList<AdType> adTypes,
+            AdAdditionalField? returnAdditionalFields)
         {
             var request = new GetAdsByEditorialStatusRequest
             {
                 AdGroupId = adGroupId,
                 EditorialStatus = editorialStatus,
-                AdTypes = adTypes
+                AdTypes = adTypes,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdsByEditorialStatusAsync(r), request));
@@ -648,33 +694,49 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetAdsByIdsResponse> GetAdsByIdsAsync(
             long adGroupId,
             IList<long> adIds,
-            IList<AdType> adTypes)
+            IList<AdType> adTypes,
+            AdAdditionalField? returnAdditionalFields)
         {
             var request = new GetAdsByIdsRequest
             {
                 AdGroupId = adGroupId,
                 AdIds = adIds,
-                AdTypes = adTypes
+                AdTypes = adTypes,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAdsByIdsAsync(r), request));
         }
         public async Task<GetAudiencesByIdsResponse> GetAudiencesByIdsAsync(
             IList<long> audienceIds,
-            AudienceType type)
+            AudienceType type,
+            AudienceAdditionalField? returnAdditionalFields)
         {
             var request = new GetAudiencesByIdsRequest
             {
                 AudienceIds = audienceIds,
-                Type = type
+                Type = type,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetAudiencesByIdsAsync(r), request));
         }
-        public async Task<GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync()
+        public async Task<GetBidStrategiesByIdsResponse> GetBidStrategiesByIdsAsync(
+            IList<long> bidStrategyIds)
+        {
+            var request = new GetBidStrategiesByIdsRequest
+            {
+                BidStrategyIds = bidStrategyIds
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.GetBidStrategiesByIdsAsync(r), request));
+        }
+        public async Task<GetBMCStoresByCustomerIdResponse> GetBMCStoresByCustomerIdAsync(
+            BMCStoreAdditionalField? returnAdditionalFields)
         {
             var request = new GetBMCStoresByCustomerIdRequest
             {
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetBMCStoresByCustomerIdAsync(r), request));
@@ -700,16 +762,28 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetCampaignCriterionsByIdsResponse> GetCampaignCriterionsByIdsAsync(
             IList<long> campaignCriterionIds,
             long campaignId,
-            CampaignCriterionType criterionType)
+            CampaignCriterionType criterionType,
+            CriterionAdditionalField? returnAdditionalFields)
         {
             var request = new GetCampaignCriterionsByIdsRequest
             {
                 CampaignCriterionIds = campaignCriterionIds,
                 CampaignId = campaignId,
-                CriterionType = criterionType
+                CriterionType = criterionType,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetCampaignCriterionsByIdsAsync(r), request));
+        }
+        public async Task<GetCampaignIdsByBidStrategyIdsResponse> GetCampaignIdsByBidStrategyIdsAsync(
+            IList<long> bidStrategyIds)
+        {
+            var request = new GetCampaignIdsByBidStrategyIdsRequest
+            {
+                BidStrategyIds = bidStrategyIds
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.GetCampaignIdsByBidStrategyIdsAsync(r), request));
         }
         public async Task<GetCampaignIdsByBudgetIdsResponse> GetCampaignIdsByBudgetIdsAsync(
             IList<long> budgetIds)
@@ -825,14 +899,30 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetGeoLocationsFileUrlAsync(r), request));
         }
+        public async Task<GetImportEntityIdsMappingResponse> GetImportEntityIdsMappingAsync(
+            String importType,
+            IList<long> sourceEntityIds,
+            ImportEntityType importEntityType)
+        {
+            var request = new GetImportEntityIdsMappingRequest
+            {
+                ImportType = importType,
+                SourceEntityIds = sourceEntityIds,
+                ImportEntityType = importEntityType
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.GetImportEntityIdsMappingAsync(r), request));
+        }
         public async Task<GetImportJobsByIdsResponse> GetImportJobsByIdsAsync(
             IList<long> importJobIds,
-            String importType)
+            String importType,
+            ImportAdditionalField? returnAdditionalFields)
         {
             var request = new GetImportJobsByIdsRequest
             {
                 ImportJobIds = importJobIds,
-                ImportType = importType
+                ImportType = importType,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetImportJobsByIdsAsync(r), request));
@@ -840,13 +930,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetImportResultsResponse> GetImportResultsAsync(
             String importType,
             Paging pageInfo,
-            IList<long> importJobIds)
+            IList<long> importJobIds,
+            ImportAdditionalField? returnAdditionalFields)
         {
             var request = new GetImportResultsRequest
             {
                 ImportType = importType,
                 PageInfo = pageInfo,
-                ImportJobIds = importJobIds
+                ImportJobIds = importJobIds,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetImportResultsAsync(r), request));
@@ -1083,6 +1175,18 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.GetUetTagsByIdsAsync(r), request));
         }
+        public async Task<GetVideosByIdsResponse> GetVideosByIdsAsync(
+            IList<long> videoIds,
+            Paging pageInfo)
+        {
+            var request = new GetVideosByIdsRequest
+            {
+                VideoIds = videoIds,
+                PageInfo = pageInfo
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.GetVideosByIdsAsync(r), request));
+        }
         public async Task<SearchCompaniesResponse> SearchCompaniesAsync(
             String companyNameFilter,
             String languageLocale)
@@ -1229,6 +1333,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateAudiencesAsync(r), request));
         }
+        public async Task<UpdateBidStrategiesResponse> UpdateBidStrategiesAsync(
+            IList<BidStrategy> bidStrategies)
+        {
+            var request = new UpdateBidStrategiesRequest
+            {
+                BidStrategies = bidStrategies
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.UpdateBidStrategiesAsync(r), request));
+        }
         public async Task<UpdateBudgetsResponse> UpdateBudgetsAsync(
             IList<Budget> budgets)
         {
@@ -1283,6 +1397,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateExperimentsAsync(r), request));
         }
+        public async Task<UpdateImportJobsResponse> UpdateImportJobsAsync(
+            IList<ImportJob> importJobs)
+        {
+            var request = new UpdateImportJobsRequest
+            {
+                ImportJobs = importJobs
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.UpdateImportJobsAsync(r), request));
+        }
         public async Task<UpdateKeywordsResponse> UpdateKeywordsAsync(
             long adGroupId,
             IList<Keyword> keywords,
@@ -1328,6 +1452,16 @@ namespace BingAdsExamplesLibrary.V13
             };
 
             return (await CampaignManagementService.CallAsync((s, r) => s.UpdateUetTagsAsync(r), request));
+        }
+        public async Task<UpdateVideosResponse> UpdateVideosAsync(
+            IList<Video> videos)
+        {
+            var request = new UpdateVideosRequest
+            {
+                Videos = videos
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.UpdateVideosAsync(r), request));
         }
         public void OutputAccountMigrationStatusesInfo(AccountMigrationStatusesInfo dataObject)
         {
@@ -1596,6 +1730,11 @@ namespace BingAdsExamplesLibrary.V13
                 {
                     OutputFilterLinkAdExtension((FilterLinkAdExtension)dataObject);
                 }
+                var flyeradextension = dataObject as FlyerAdExtension;
+                if(null != flyeradextension)
+                {
+                    OutputFlyerAdExtension((FlyerAdExtension)dataObject);
+                }
                 var imageadextension = dataObject as ImageAdExtension;
                 if(null != imageadextension)
                 {
@@ -1630,6 +1769,11 @@ namespace BingAdsExamplesLibrary.V13
                 if(null != structuredsnippetadextension)
                 {
                     OutputStructuredSnippetAdExtension((StructuredSnippetAdExtension)dataObject);
+                }
+                var videoadextension = dataObject as VideoAdExtension;
+                if(null != videoadextension)
+                {
+                    OutputVideoAdExtension((VideoAdExtension)dataObject);
                 }
                 OutputStatusMessage("* * * End OutputAdExtension * * *");
             }
@@ -1811,6 +1955,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
                 OutputStatusMessage(string.Format("Language: {0}", dataObject.Language));
+                OutputStatusMessage(string.Format("MultimediaAdsBidAdjustment: {0}", dataObject.MultimediaAdsBidAdjustment));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
                 OutputStatusMessage(string.Format("Network: {0}", dataObject.Network));
                 OutputStatusMessage(string.Format("PrivacyStatus: {0}", dataObject.PrivacyStatus));
@@ -1823,6 +1968,11 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("UrlCustomParameters:");
                 OutputCustomParameters(dataObject.UrlCustomParameters);
                 OutputStatusMessage(string.Format("AdScheduleUseSearcherTimeZone: {0}", dataObject.AdScheduleUseSearcherTimeZone));
+                OutputStatusMessage(string.Format("AdGroupType: {0}", dataObject.AdGroupType));
+                OutputStatusMessage("CpvBid:");
+                OutputBid(dataObject.CpvBid);
+                OutputStatusMessage("CpmBid:");
+                OutputBid(dataObject.CpmBid);
                 OutputStatusMessage("* * * End OutputAdGroup * * *");
             }
         }
@@ -2156,6 +2306,11 @@ namespace BingAdsExamplesLibrary.V13
                 {
                     OutputTextAsset((TextAsset)dataObject);
                 }
+                var videoasset = dataObject as VideoAsset;
+                if(null != videoasset)
+                {
+                    OutputVideoAsset((VideoAsset)dataObject);
+                }
                 OutputStatusMessage("* * * End OutputAsset * * *");
             }
         }
@@ -2400,6 +2555,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
                 OutputStatusMessage("UrlCustomParameters:");
                 OutputCustomParameters(dataObject.UrlCustomParameters);
+                OutputStatusMessage("CriterionCashback:");
+                OutputCriterionCashback(dataObject.CriterionCashback);
                 OutputStatusMessage("* * * End OutputBiddableAdGroupCriterion * * *");
             }
         }
@@ -2423,6 +2580,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("* * * Begin OutputBiddableCampaignCriterion * * *");
                 OutputStatusMessage("CriterionBid:");
                 OutputCriterionBid(dataObject.CriterionBid);
+                OutputStatusMessage("CriterionCashback:");
+                OutputCriterionCashback(dataObject.CriterionCashback);
                 OutputStatusMessage("* * * End OutputBiddableCampaignCriterion * * *");
             }
         }
@@ -2459,6 +2618,16 @@ namespace BingAdsExamplesLibrary.V13
                 if(null != manualcpcbiddingscheme)
                 {
                     OutputManualCpcBiddingScheme((ManualCpcBiddingScheme)dataObject);
+                }
+                var manualcpmbiddingscheme = dataObject as ManualCpmBiddingScheme;
+                if(null != manualcpmbiddingscheme)
+                {
+                    OutputManualCpmBiddingScheme((ManualCpmBiddingScheme)dataObject);
+                }
+                var manualcpvbiddingscheme = dataObject as ManualCpvBiddingScheme;
+                if(null != manualcpvbiddingscheme)
+                {
+                    OutputManualCpvBiddingScheme((ManualCpvBiddingScheme)dataObject);
                 }
                 var maxclicksbiddingscheme = dataObject as MaxClicksBiddingScheme;
                 if(null != maxclicksbiddingscheme)
@@ -2529,6 +2698,33 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputBidMultiplier(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputBidStrategy(BidStrategy dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputBidStrategy * * *");
+                OutputStatusMessage(string.Format("AssociatedCampaignType: {0}", dataObject.AssociatedCampaignType));
+                OutputStatusMessage(string.Format("AssociationCount: {0}", dataObject.AssociationCount));
+                OutputStatusMessage("BiddingScheme:");
+                OutputBiddingScheme(dataObject.BiddingScheme);
+                OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
+                OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage("* * * End OutputBidStrategy * * *");
+            }
+        }
+        public void OutputArrayOfBidStrategy(IList<BidStrategy> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputBidStrategy(dataObject);
                     }
                 }
             }
@@ -2649,6 +2845,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("ForwardCompatibilityMap:");
                 OutputArrayOfKeyValuePairOfstringstring(dataObject.ForwardCompatibilityMap);
                 OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
+                OutputStatusMessage(string.Format("MultimediaAdsBidAdjustment: {0}", dataObject.MultimediaAdsBidAdjustment));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
                 OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
@@ -2663,6 +2860,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("Languages:");
                 OutputArrayOfString(dataObject.Languages);
                 OutputStatusMessage(string.Format("AdScheduleUseSearcherTimeZone: {0}", dataObject.AdScheduleUseSearcherTimeZone));
+                OutputStatusMessage(string.Format("BidStrategyId: {0}", dataObject.BidStrategyId));
                 OutputStatusMessage("* * * End OutputCampaign * * *");
             }
         }
@@ -2684,6 +2882,7 @@ namespace BingAdsExamplesLibrary.V13
             if (null != dataObject)
             {
                 OutputStatusMessage("* * * Begin OutputCampaignAdGroupIds * * *");
+                OutputStatusMessage(string.Format("ActiveAdGroupsOnly: {0}", dataObject.ActiveAdGroupsOnly));
                 OutputStatusMessage("AdGroupIds:");
                 OutputArrayOfLong(dataObject.AdGroupIds);
                 OutputStatusMessage(string.Format("CampaignId: {0}", dataObject.CampaignId));
@@ -2762,6 +2961,28 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputCampaignNegativeSites(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputCashbackAdjustment(CashbackAdjustment dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputCashbackAdjustment * * *");
+                OutputStatusMessage(string.Format("CashbackPercent: {0}", dataObject.CashbackPercent));
+                OutputStatusMessage("* * * End OutputCashbackAdjustment * * *");
+            }
+        }
+        public void OutputArrayOfCashbackAdjustment(IList<CashbackAdjustment> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputCashbackAdjustment(dataObject);
                     }
                 }
             }
@@ -2846,6 +3067,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("ConversionWindowInMinutes: {0}", dataObject.ConversionWindowInMinutes));
                 OutputStatusMessage(string.Format("CountType: {0}", dataObject.CountType));
                 OutputStatusMessage(string.Format("ExcludeFromBidding: {0}", dataObject.ExcludeFromBidding));
+                OutputStatusMessage(string.Format("GoalCategory: {0}", dataObject.GoalCategory));
                 OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
                 OutputStatusMessage("Revenue:");
@@ -3070,6 +3292,33 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputCriterionBid(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputCriterionCashback(CriterionCashback dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputCriterionCashback * * *");
+                OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
+                var cashbackadjustment = dataObject as CashbackAdjustment;
+                if(null != cashbackadjustment)
+                {
+                    OutputCashbackAdjustment((CashbackAdjustment)dataObject);
+                }
+                OutputStatusMessage("* * * End OutputCriterionCashback * * *");
+            }
+        }
+        public void OutputArrayOfCriterionCashback(IList<CriterionCashback> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputCriterionCashback(dataObject);
                     }
                 }
             }
@@ -3363,6 +3612,28 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputDynamicFeedSetting(DynamicFeedSetting dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputDynamicFeedSetting * * *");
+                OutputStatusMessage(string.Format("FeedId: {0}", dataObject.FeedId));
+                OutputStatusMessage("* * * End OutputDynamicFeedSetting * * *");
+            }
+        }
+        public void OutputArrayOfDynamicFeedSetting(IList<DynamicFeedSetting> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputDynamicFeedSetting(dataObject);
+                    }
+                }
+            }
+        }
         public void OutputDynamicSearchAd(DynamicSearchAd dataObject)
         {
             if (null != dataObject)
@@ -3394,6 +3665,7 @@ namespace BingAdsExamplesLibrary.V13
             {
                 OutputStatusMessage("* * * Begin OutputDynamicSearchAdsSetting * * *");
                 OutputStatusMessage(string.Format("DomainName: {0}", dataObject.DomainName));
+                OutputStatusMessage(string.Format("DynamicDescriptionEnabled: {0}", dataObject.DynamicDescriptionEnabled));
                 OutputStatusMessage(string.Format("Language: {0}", dataObject.Language));
                 OutputStatusMessage("PageFeedIds:");
                 OutputArrayOfLong(dataObject.PageFeedIds);
@@ -3756,6 +4028,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("AdExtensionHeaderType: {0}", dataObject.AdExtensionHeaderType));
                 OutputStatusMessage("FinalMobileUrls:");
                 OutputArrayOfString(dataObject.FinalMobileUrls);
+                OutputStatusMessage(string.Format("FinalUrlSuffix: {0}", dataObject.FinalUrlSuffix));
                 OutputStatusMessage("FinalUrls:");
                 OutputArrayOfString(dataObject.FinalUrls);
                 OutputStatusMessage(string.Format("Language: {0}", dataObject.Language));
@@ -3798,6 +4071,44 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputFixedBid(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputFlyerAdExtension(FlyerAdExtension dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputFlyerAdExtension * * *");
+                OutputStatusMessage(string.Format("Description: {0}", dataObject.Description));
+                OutputStatusMessage("FinalAppUrls:");
+                OutputArrayOfAppUrl(dataObject.FinalAppUrls);
+                OutputStatusMessage("FinalMobileUrls:");
+                OutputArrayOfString(dataObject.FinalMobileUrls);
+                OutputStatusMessage(string.Format("FinalUrlSuffix: {0}", dataObject.FinalUrlSuffix));
+                OutputStatusMessage("FinalUrls:");
+                OutputArrayOfString(dataObject.FinalUrls);
+                OutputStatusMessage(string.Format("FlyerName: {0}", dataObject.FlyerName));
+                OutputStatusMessage("ImageMediaIds:");
+                OutputArrayOfLong(dataObject.ImageMediaIds);
+                OutputStatusMessage("ImageMediaUrls:");
+                OutputArrayOfString(dataObject.ImageMediaUrls);
+                OutputStatusMessage(string.Format("StoreId: {0}", dataObject.StoreId));
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters:");
+                OutputCustomParameters(dataObject.UrlCustomParameters);
+                OutputStatusMessage("* * * End OutputFlyerAdExtension * * *");
+            }
+        }
+        public void OutputArrayOfFlyerAdExtension(IList<FlyerAdExtension> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputFlyerAdExtension(dataObject);
                     }
                 }
             }
@@ -3907,6 +4218,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("AdjustmentForCampaignBudgets: {0}", dataObject.AdjustmentForCampaignBudgets));
                 OutputStatusMessage(string.Format("AssociatedStoreId: {0}", dataObject.AssociatedStoreId));
                 OutputStatusMessage(string.Format("AssociatedUetTagId: {0}", dataObject.AssociatedUetTagId));
+                OutputStatusMessage(string.Format("AutoDeviceBidOptimization: {0}", dataObject.AutoDeviceBidOptimization));
                 OutputStatusMessage(string.Format("DeleteRemovedEntities: {0}", dataObject.DeleteRemovedEntities));
                 OutputStatusMessage(string.Format("EnableAutoCurrencyConversion: {0}", dataObject.EnableAutoCurrencyConversion));
                 OutputStatusMessage(string.Format("EnableParentLocationMapping: {0}", dataObject.EnableParentLocationMapping));
@@ -3948,6 +4260,8 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("SearchAndDsaMixedCampaignAsSearchCampaign: {0}", dataObject.SearchAndDsaMixedCampaignAsSearchCampaign));
                 OutputStatusMessage("SearchAndReplaceForCampaignNames:");
                 OutputImportSearchAndReplaceForStringProperty(dataObject.SearchAndReplaceForCampaignNames);
+                OutputStatusMessage("SearchAndReplaceForCustomParameters:");
+                OutputImportSearchAndReplaceForStringProperty(dataObject.SearchAndReplaceForCustomParameters);
                 OutputStatusMessage("SearchAndReplaceForTrackingTemplates:");
                 OutputImportSearchAndReplaceForStringProperty(dataObject.SearchAndReplaceForTrackingTemplates);
                 OutputStatusMessage("SearchAndReplaceForUrls:");
@@ -4181,6 +4495,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputImportOption(dataObject.ImportOption);
                 OutputStatusMessage(string.Format("LastRunTimeInUTC: {0}", dataObject.LastRunTimeInUTC));
                 OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage(string.Format("NotificationEmail: {0}", dataObject.NotificationEmail));
                 OutputStatusMessage(string.Format("NotificationType: {0}", dataObject.NotificationType));
                 OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
                 OutputStatusMessage(string.Format("Type: {0}", dataObject.Type));
@@ -4549,6 +4864,48 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputManualCpcBiddingScheme(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputManualCpmBiddingScheme(ManualCpmBiddingScheme dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputManualCpmBiddingScheme * * *");
+                OutputStatusMessage("* * * End OutputManualCpmBiddingScheme * * *");
+            }
+        }
+        public void OutputArrayOfManualCpmBiddingScheme(IList<ManualCpmBiddingScheme> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputManualCpmBiddingScheme(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputManualCpvBiddingScheme(ManualCpvBiddingScheme dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputManualCpvBiddingScheme * * *");
+                OutputStatusMessage("* * * End OutputManualCpvBiddingScheme * * *");
+            }
+        }
+        public void OutputArrayOfManualCpvBiddingScheme(IList<ManualCpvBiddingScheme> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputManualCpvBiddingScheme(dataObject);
                     }
                 }
             }
@@ -5016,6 +5373,7 @@ namespace BingAdsExamplesLibrary.V13
             if (null != dataObject)
             {
                 OutputStatusMessage("* * * Begin OutputPageVisitorsRule * * *");
+                OutputStatusMessage(string.Format("NormalForm: {0}", dataObject.NormalForm));
                 OutputStatusMessage("RuleItemGroups:");
                 OutputArrayOfRuleItemGroup(dataObject.RuleItemGroups);
                 OutputStatusMessage("* * * End OutputPageVisitorsRule * * *");
@@ -5472,6 +5830,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage("* * * Begin OutputResponsiveAd * * *");
                 OutputStatusMessage(string.Format("BusinessName: {0}", dataObject.BusinessName));
                 OutputStatusMessage(string.Format("CallToAction: {0}", dataObject.CallToAction));
+                OutputStatusMessage(string.Format("CallToActionLanguage: {0}", dataObject.CallToActionLanguage));
                 OutputStatusMessage("Descriptions:");
                 OutputArrayOfAssetLink(dataObject.Descriptions);
                 OutputStatusMessage(string.Format("Headline: {0}", dataObject.Headline));
@@ -5479,10 +5838,16 @@ namespace BingAdsExamplesLibrary.V13
                 OutputArrayOfAssetLink(dataObject.Headlines);
                 OutputStatusMessage("Images:");
                 OutputArrayOfAssetLink(dataObject.Images);
+                OutputStatusMessage("ImpressionTrackingUrls:");
+                OutputArrayOfString(dataObject.ImpressionTrackingUrls);
                 OutputStatusMessage("LongHeadline:");
                 OutputAssetLink(dataObject.LongHeadline);
                 OutputStatusMessage(string.Format("LongHeadlineString: {0}", dataObject.LongHeadlineString));
+                OutputStatusMessage("LongHeadlines:");
+                OutputArrayOfAssetLink(dataObject.LongHeadlines);
                 OutputStatusMessage(string.Format("Text: {0}", dataObject.Text));
+                OutputStatusMessage("Videos:");
+                OutputArrayOfAssetLink(dataObject.Videos);
                 OutputStatusMessage("* * * End OutputResponsiveAd * * *");
             }
         }
@@ -5640,6 +6005,11 @@ namespace BingAdsExamplesLibrary.V13
                 if(null != coopsetting)
                 {
                     OutputCoOpSetting((CoOpSetting)dataObject);
+                }
+                var dynamicfeedsetting = dataObject as DynamicFeedSetting;
+                if(null != dynamicfeedsetting)
+                {
+                    OutputDynamicFeedSetting((DynamicFeedSetting)dataObject);
                 }
                 var dynamicsearchadssetting = dataObject as DynamicSearchAdsSetting;
                 if(null != dynamicsearchadssetting)
@@ -6166,6 +6536,100 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputVideo(Video dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputVideo * * *");
+                OutputStatusMessage(string.Format("AspectRatio: {0}", dataObject.AspectRatio));
+                OutputStatusMessage(string.Format("CreatedDateTimeInUTC: {0}", dataObject.CreatedDateTimeInUTC));
+                OutputStatusMessage(string.Format("Description: {0}", dataObject.Description));
+                OutputStatusMessage(string.Format("DurationInMilliseconds: {0}", dataObject.DurationInMilliseconds));
+                OutputStatusMessage(string.Format("FailureCode: {0}", dataObject.FailureCode));
+                OutputStatusMessage(string.Format("Id: {0}", dataObject.Id));
+                OutputStatusMessage(string.Format("ModifiedDateTimeInUTC: {0}", dataObject.ModifiedDateTimeInUTC));
+                OutputStatusMessage(string.Format("SourceUrl: {0}", dataObject.SourceUrl));
+                OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage(string.Format("ThumbnailUrl: {0}", dataObject.ThumbnailUrl));
+                OutputStatusMessage(string.Format("Url: {0}", dataObject.Url));
+                OutputStatusMessage("* * * End OutputVideo * * *");
+            }
+        }
+        public void OutputArrayOfVideo(IList<Video> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputVideo(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputVideoAdExtension(VideoAdExtension dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputVideoAdExtension * * *");
+                OutputStatusMessage(string.Format("ActionText: {0}", dataObject.ActionText));
+                OutputStatusMessage(string.Format("AlternativeText: {0}", dataObject.AlternativeText));
+                OutputStatusMessage(string.Format("DisplayText: {0}", dataObject.DisplayText));
+                OutputStatusMessage("FinalAppUrls:");
+                OutputArrayOfAppUrl(dataObject.FinalAppUrls);
+                OutputStatusMessage("FinalMobileUrls:");
+                OutputArrayOfString(dataObject.FinalMobileUrls);
+                OutputStatusMessage(string.Format("FinalUrlSuffix: {0}", dataObject.FinalUrlSuffix));
+                OutputStatusMessage("FinalUrls:");
+                OutputArrayOfString(dataObject.FinalUrls);
+                OutputStatusMessage(string.Format("Name: {0}", dataObject.Name));
+                OutputStatusMessage(string.Format("ThumbnailId: {0}", dataObject.ThumbnailId));
+                OutputStatusMessage(string.Format("ThumbnailUrl: {0}", dataObject.ThumbnailUrl));
+                OutputStatusMessage(string.Format("TrackingUrlTemplate: {0}", dataObject.TrackingUrlTemplate));
+                OutputStatusMessage("UrlCustomParameters:");
+                OutputCustomParameters(dataObject.UrlCustomParameters);
+                OutputStatusMessage(string.Format("VideoId: {0}", dataObject.VideoId));
+                OutputStatusMessage("* * * End OutputVideoAdExtension * * *");
+            }
+        }
+        public void OutputArrayOfVideoAdExtension(IList<VideoAdExtension> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputVideoAdExtension(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputVideoAsset(VideoAsset dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputVideoAsset * * *");
+                OutputStatusMessage(string.Format("SubType: {0}", dataObject.SubType));
+                OutputStatusMessage("ThumbnailImage:");
+                OutputImageAsset(dataObject.ThumbnailImage);
+                OutputStatusMessage("* * * End OutputVideoAsset * * *");
+            }
+        }
+        public void OutputArrayOfVideoAsset(IList<VideoAsset> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputVideoAsset(dataObject);
+                    }
+                }
+            }
+        }
         public void OutputWebpage(Webpage dataObject)
         {
             if (null != dataObject)
@@ -6305,6 +6769,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputCallToAction(valueSet);
+                }
+            }
+        }
+        public void OutputLanguageName(LanguageName valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(LanguageName)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfLanguageName(IList<LanguageName> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputLanguageName(valueSet);
                 }
             }
         }
@@ -6539,6 +7021,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputAdGroupAdditionalField(valueSet);
+                }
+            }
+        }
+        public void OutputAdAdditionalField(AdAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(AdAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfAdAdditionalField(IList<AdAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputAdAdditionalField(valueSet);
                 }
             }
         }
@@ -6974,6 +7474,24 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputCriterionAdditionalField(CriterionAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(CriterionAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfCriterionAdditionalField(IList<CriterionAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputCriterionAdditionalField(valueSet);
+                }
+            }
+        }
         public void OutputProductPartitionType(ProductPartitionType valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -7172,6 +7690,24 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputBMCStoreAdditionalField(BMCStoreAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(BMCStoreAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfBMCStoreAdditionalField(IList<BMCStoreAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputBMCStoreAdditionalField(valueSet);
+                }
+            }
+        }
         public void OutputBMCStoreSubType(BMCStoreSubType valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -7241,6 +7777,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputCampaignCriterionType(valueSet);
+                }
+            }
+        }
+        public void OutputNormalForm(NormalForm valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(NormalForm)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfNormalForm(IList<NormalForm> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputNormalForm(valueSet);
                 }
             }
         }
@@ -7316,6 +7870,24 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputAudienceAdditionalField(AudienceAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(AudienceAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfAudienceAdditionalField(IList<AudienceAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputAudienceAdditionalField(valueSet);
+                }
+            }
+        }
         public void OutputUetTagTrackingStatus(UetTagTrackingStatus valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -7385,6 +7957,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputConversionGoalCountType(valueSet);
+                }
+            }
+        }
+        public void OutputConversionGoalCategory(ConversionGoalCategory valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ConversionGoalCategory)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfConversionGoalCategory(IList<ConversionGoalCategory> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputConversionGoalCategory(valueSet);
                 }
             }
         }
@@ -7478,6 +8068,42 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputImportAdditionalField(ImportAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ImportAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfImportAdditionalField(IList<ImportAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputImportAdditionalField(valueSet);
+                }
+            }
+        }
+        public void OutputImportEntityType(ImportEntityType valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(ImportEntityType)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfImportEntityType(IList<ImportEntityType> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputImportEntityType(valueSet);
+                }
+            }
+        }
         public void OutputArrayOfString(IList<string> items)
         {
             if (null != items)
@@ -7543,6 +8169,42 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var dataObject in dataObjects)
                 {
                     OutputKeyValuePairOfstringstring(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOflonglong(KeyValuePair<long,long> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOflonglong(IList<KeyValuePair<long,long>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOflonglong(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOfstringbase64Binary(KeyValuePair<string,byte[]> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOfstringbase64Binary(IList<KeyValuePair<string,byte[]>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOfstringbase64Binary(dataObject);
                 }
             }
         }
