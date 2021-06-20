@@ -33,7 +33,7 @@ namespace BingAdsExamplesLibrary.V13
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId.
 
                 OutputStatusMessage("-----\nGetBMCStoresByCustomerId:");
-                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync(null))?.BMCStores;
                 if (stores == null || stores.Count <= 0)
                 {
                     OutputStatusMessage(
@@ -52,7 +52,7 @@ namespace BingAdsExamplesLibrary.V13
                     {
                         CampaignType = CampaignType.Shopping,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         Settings = new[] {
@@ -118,7 +118,7 @@ namespace BingAdsExamplesLibrary.V13
                 var adGroups = new[] {
                     new AdGroup
                     {
-                        Name = "Women's Red Shoe Sale",
+                        Name = "Everyone's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Date {
                             Month = 12,
@@ -161,7 +161,8 @@ namespace BingAdsExamplesLibrary.V13
                 var adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition);
+                    criterionType: AdGroupCriterionType.ProductPartition,
+                    null);
 
                 OutputStatusMessage("The ad group's product partition only has a tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
@@ -189,7 +190,8 @@ namespace BingAdsExamplesLibrary.V13
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition);
+                    criterionType: AdGroupCriterionType.ProductPartition,
+                    null);
 
                 OutputStatusMessage("Updated the bid for the tree root node: \n");
                 OutputProductPartitions(adGroupCriterions?.AdGroupCriterions);
@@ -206,7 +208,8 @@ namespace BingAdsExamplesLibrary.V13
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition);
+                    criterionType: AdGroupCriterionType.ProductPartition,
+                    null);
 
                 var existingRoot = GetRootNode(adGroupCriterions?.AdGroupCriterions);
                 if (existingRoot != null)
@@ -288,7 +291,8 @@ namespace BingAdsExamplesLibrary.V13
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition);
+                    criterionType: AdGroupCriterionType.ProductPartition,
+                    null);
                 
                 // The product partition group tree now has 9 nodes. 
                  
@@ -370,7 +374,8 @@ namespace BingAdsExamplesLibrary.V13
                 adGroupCriterions = await CampaignManagementExampleHelper.GetAdGroupCriterionsByIdsAsync(
                     adGroupCriterionIds: null,
                     adGroupId: adGroupId,
-                    criterionType: AdGroupCriterionType.ProductPartition);
+                    criterionType: AdGroupCriterionType.ProductPartition,
+                    null);
                 
                 // The product partition group tree now has 12 nodes, including the children of Electronics (CategoryL1):
                  

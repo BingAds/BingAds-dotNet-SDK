@@ -1738,7 +1738,7 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Language' column header in the Bulk file
                     Languages = new string[] { "All" },
                     // 'Campaign' column header in the Bulk file
-                    Name = "Women's Shoes " + DateTime.UtcNow,
+                    Name = "Everyone's Shoes " + DateTime.UtcNow,
                     // 'Bid Adjustment' column header in the Bulk file
                     AudienceAdsBidAdjustment = 10,
                     Settings = new Setting[]
@@ -1824,7 +1824,7 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Language' column header in the Bulk file
                     Language = null,
                     // 'Ad Group' column header in the Bulk file
-                    Name = "Women's Red Shoe Sale",
+                    Name = "Everyone's Red Shoe Sale",
                     // 'Network Distribution' column header in the Bulk file
                     Network = Network.OwnedAndOperatedAndSyndicatedSearch,
                     // 'Target Setting' column header in the Bulk file
@@ -3302,7 +3302,7 @@ namespace BingAdsExamplesLibrary.V13
                     // 'Sitelink Extension Description2' column header in the Bulk file
                     Description2 = "No Upfront Cost.",
                     // 'Text' column header in the Bulk file
-                    DisplayText = "Women's Shoe Sale",
+                    DisplayText = "Everyone's Shoe Sale",
                     // 'Destination Url' column header in the Bulk file
                     DestinationUrl = "",
                     // 'Final Url' column header in the Bulk file

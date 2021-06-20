@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
-    /// How to setup a Dynamic Search Ads (DSA) campaign with the Bulk service.
+    /// How to setup Dynamic Search Ads (DSA) in a Search campaign with the Bulk service.
     /// </summary>
     public class BulkDynamicSearchAds : BulkExampleBase
     {
@@ -23,7 +23,7 @@ namespace BingAdsExamplesLibrary.V13
         public const string LANGUAGE = "EN";
         public override string Description
         {
-            get { return "Dynamic Search Ads (DSA) Campaigns | Bulk V13"; }
+            get { return "Dynamic Search Ads (DSA) in Search campaigns | Bulk V13"; }
         }
 
         public async override Task RunAsync(AuthorizationData authorizationData)
@@ -98,9 +98,9 @@ namespace BingAdsExamplesLibrary.V13
 
                 uploadEntities.Add(bulkPageFeedItem);
 
-                // To get started with dynamic search ads, first you'll need to add a new Campaign 
-                // with its type set to DynamicSearchAds. When you create the campaign, you'll need to 
-                // include a DynamicSearchAdsSetting that specifies the target website domain and language.
+
+                // To get started with dynamic search ads, first you'll need to add a new Search campaign 
+                // Include a DynamicSearchAdsSetting that specifies the target website domain and language.
                 // Page feeds can be associated at the campaign level via 'Source' and 'Page Feed Ids'.
 
                 var bulkCampaign = new BulkCampaign
@@ -110,9 +110,9 @@ namespace BingAdsExamplesLibrary.V13
                         Id = campaignIdKey,
                         BudgetType = Microsoft.BingAds.V13.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
                         DailyBudget = 50,
-                        CampaignType = CampaignType.DynamicSearchAds,
+                        CampaignType = CampaignType.Search,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                         Settings = new[] {
                             // Set the target website domain and language.
@@ -131,7 +131,7 @@ namespace BingAdsExamplesLibrary.V13
 
                 uploadEntities.Add(bulkCampaign);
 
-                // Create a new ad group within the dynamic search ads campaign. 
+                // Create a new ad group with type set to "SearchDynamic"
 
                 var bulkAdGroup = new BulkAdGroup
                 {
@@ -139,7 +139,8 @@ namespace BingAdsExamplesLibrary.V13
                     AdGroup = new AdGroup
                     {
                         Id = adGroupIdKey,
-                        Name = "Women's Red Shoe Sale",
+                        AdGroupType = "SearchDynamic",
+                        Name = "Everyone's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {

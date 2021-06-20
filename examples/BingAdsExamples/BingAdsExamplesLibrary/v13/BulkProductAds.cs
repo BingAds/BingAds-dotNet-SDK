@@ -48,7 +48,7 @@ namespace BingAdsExamplesLibrary.V13
                 // Get a list of all Bing Merchant Center stores associated with your CustomerId.
 
                 OutputStatusMessage("-----\nGetBMCStoresByCustomerId:");
-                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync())?.BMCStores;
+                IList<BMCStore> stores = (await CampaignManagementExampleHelper.GetBMCStoresByCustomerIdAsync(null))?.BMCStores;
                 if (stores == null)
                 {
                     OutputStatusMessage(
@@ -68,7 +68,7 @@ namespace BingAdsExamplesLibrary.V13
                         Id = campaignIdKey,
                         CampaignType = CampaignType.Shopping,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         DailyBudget = 50,
                         BudgetType = BudgetLimitType.DailyBudgetStandard,
                         Settings = new[] {
@@ -118,7 +118,7 @@ namespace BingAdsExamplesLibrary.V13
                     AdGroup = new AdGroup
                     {
                         Id = adGroupIdKey,
-                        Name = "Women's Red Shoe Sale",
+                        Name = "Everyone's Red Shoe Sale",
                         StartDate = null,
                         EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
                         {

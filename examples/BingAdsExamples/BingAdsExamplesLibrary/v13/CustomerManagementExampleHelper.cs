@@ -89,22 +89,26 @@ namespace BingAdsExamplesLibrary.V13
         }
         public async Task<FindAccountsOrCustomersInfoResponse> FindAccountsOrCustomersInfoAsync(
             String filter,
-            int topN)
+            int topN,
+            AccountAdditionalField? returnAdditionalFields)
         {
             var request = new FindAccountsOrCustomersInfoRequest
             {
                 Filter = filter,
-                TopN = topN
+                TopN = topN,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.FindAccountsOrCustomersInfoAsync(r), request));
         }
         public async Task<GetAccountResponse> GetAccountAsync(
-            long accountId)
+            long accountId,
+            AccountAdditionalField? returnAdditionalFields)
         {
             var request = new GetAccountRequest
             {
-                AccountId = accountId
+                AccountId = accountId,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.GetAccountAsync(r), request));
@@ -185,6 +189,14 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CustomerManagementService.CallAsync((s, r) => s.GetUserAsync(r), request));
         }
+        public async Task<GetUserMFAStatusResponse> GetUserMFAStatusAsync()
+        {
+            var request = new GetUserMFAStatusRequest
+            {
+            };
+
+            return (await CustomerManagementService.CallAsync((s, r) => s.GetUserMFAStatusAsync(r), request));
+        }
         public async Task<GetUsersInfoResponse> GetUsersInfoAsync(
             long customerId,
             UserLifeCycleStatus? statusFilter)
@@ -200,13 +212,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<SearchAccountsResponse> SearchAccountsAsync(
             IList<Predicate> predicates,
             IList<OrderBy> ordering,
-            Paging pageInfo)
+            Paging pageInfo,
+            AccountAdditionalField? returnAdditionalFields)
         {
             var request = new SearchAccountsRequest
             {
                 Predicates = predicates,
                 Ordering = ordering,
-                PageInfo = pageInfo
+                PageInfo = pageInfo,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.SearchAccountsAsync(r), request));
@@ -265,14 +279,16 @@ namespace BingAdsExamplesLibrary.V13
             Customer customer,
             AdvertiserAccount account,
             long? parentCustomerId,
-            UserInvitation userInvitation)
+            UserInvitation userInvitation,
+            long? userId)
         {
             var request = new SignupCustomerRequest
             {
                 Customer = customer,
                 Account = account,
                 ParentCustomerId = parentCustomerId,
-                UserInvitation = userInvitation
+                UserInvitation = userInvitation,
+                UserId = userId
             };
 
             return (await CustomerManagementService.CallAsync((s, r) => s.SignupCustomerAsync(r), request));
@@ -389,6 +405,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("AccountNumber: {0}", dataObject.AccountNumber));
                 OutputStatusMessage(string.Format("AccountLifeCycleStatus: {0}", dataObject.AccountLifeCycleStatus));
                 OutputStatusMessage(string.Format("PauseReason: {0}", dataObject.PauseReason));
+                OutputStatusMessage(string.Format("AccountMode: {0}", dataObject.AccountMode));
                 OutputStatusMessage("* * * End OutputAccountInfoWithCustomerData * * *");
             }
         }
@@ -401,6 +418,31 @@ namespace BingAdsExamplesLibrary.V13
                     if (null != dataObject)
                     {
                         OutputAccountInfoWithCustomerData(dataObject);
+                    }
+                }
+            }
+        }
+        public void OutputAccountTaxCertificate(AccountTaxCertificate dataObject)
+        {
+            if (null != dataObject)
+            {
+                OutputStatusMessage("* * * Begin OutputAccountTaxCertificate * * *");
+                OutputStatusMessage(string.Format("TaxCertificateBlobContainerName: {0}", dataObject.TaxCertificateBlobContainerName));
+                OutputStatusMessage("TaxCertificates:");
+                OutputArrayOfKeyValuePairOfstringbase64Binary(dataObject.TaxCertificates);
+                OutputStatusMessage(string.Format("Status: {0}", dataObject.Status));
+                OutputStatusMessage("* * * End OutputAccountTaxCertificate * * *");
+            }
+        }
+        public void OutputArrayOfAccountTaxCertificate(IList<AccountTaxCertificate> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    if (null != dataObject)
+                    {
+                        OutputAccountTaxCertificate(dataObject);
                     }
                 }
             }
@@ -520,6 +562,9 @@ namespace BingAdsExamplesLibrary.V13
                 OutputAddress(dataObject.BusinessAddress);
                 OutputStatusMessage(string.Format("AutoTagType: {0}", dataObject.AutoTagType));
                 OutputStatusMessage(string.Format("SoldToPaymentInstrumentId: {0}", dataObject.SoldToPaymentInstrumentId));
+                OutputStatusMessage("TaxCertificate:");
+                OutputAccountTaxCertificate(dataObject.TaxCertificate);
+                OutputStatusMessage(string.Format("AccountMode: {0}", dataObject.AccountMode));
                 OutputStatusMessage("* * * End OutputAdvertiserAccount * * *");
             }
         }
@@ -1115,6 +1160,24 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputTaxCertificateStatus(TaxCertificateStatus valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(TaxCertificateStatus)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfTaxCertificateStatus(IList<TaxCertificateStatus> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputTaxCertificateStatus(valueSet);
+                }
+            }
+        }
         public void OutputCustomerFinancialStatus(CustomerFinancialStatus valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -1202,6 +1265,24 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var valueSet in valueSets)
                 {
                     OutputLCID(valueSet);
+                }
+            }
+        }
+        public void OutputAccountAdditionalField(AccountAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(AccountAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfAccountAdditionalField(IList<AccountAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputAccountAdditionalField(valueSet);
                 }
             }
         }
@@ -1396,6 +1477,42 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var dataObject in dataObjects)
                 {
                     OutputKeyValuePairOfstringstring(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOflonglong(KeyValuePair<long,long> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOflonglong(IList<KeyValuePair<long,long>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOflonglong(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOfstringbase64Binary(KeyValuePair<string,byte[]> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOfstringbase64Binary(IList<KeyValuePair<string,byte[]>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOfstringbase64Binary(dataObject);
                 }
             }
         }

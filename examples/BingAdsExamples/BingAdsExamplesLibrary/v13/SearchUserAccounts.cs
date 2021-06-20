@@ -60,7 +60,8 @@ namespace BingAdsExamplesLibrary.V13
                 var accounts = (await CustomerManagementExampleHelper.SearchAccountsAsync(
                     predicates: new[] { predicate },
                     ordering: null,
-                    pageInfo: paging))?.Accounts.ToArray();
+                    pageInfo: paging,
+                    null))?.Accounts.ToArray();
                 OutputStatusMessage("Accounts:");
                 CustomerManagementExampleHelper.OutputArrayOfAdvertiserAccount(accounts);
 

@@ -20,13 +20,15 @@ namespace BingAdsExamplesLibrary.V13
         public async Task<GetAuctionInsightDataResponse> GetAuctionInsightDataAsync(
             EntityType entityType,
             IList<long> entityIds,
-            IList<SearchParameter> searchParameters)
+            IList<SearchParameter> searchParameters,
+            AuctionInsightKpiAdditionalField? returnAdditionalFields)
         {
             var request = new GetAuctionInsightDataRequest
             {
                 EntityType = entityType,
                 EntityIds = entityIds,
-                SearchParameters = searchParameters
+                SearchParameters = searchParameters,
+                ReturnAdditionalFields = returnAdditionalFields
             };
 
             return (await AdInsightService.CallAsync((s, r) => s.GetAuctionInsightDataAsync(r), request));
@@ -596,6 +598,7 @@ namespace BingAdsExamplesLibrary.V13
                 OutputStatusMessage(string.Format("AboveRate: {0}", dataObject.AboveRate));
                 OutputStatusMessage(string.Format("TopOfPageRate: {0}", dataObject.TopOfPageRate));
                 OutputStatusMessage(string.Format("OutrankingShare: {0}", dataObject.OutrankingShare));
+                OutputStatusMessage(string.Format("AbsoluteTopOfPageRate: {0}", dataObject.AbsoluteTopOfPageRate));
                 OutputStatusMessage("* * * End OutputAuctionInsightKpi * * *");
             }
         }
@@ -2574,6 +2577,24 @@ namespace BingAdsExamplesLibrary.V13
                 }
             }
         }
+        public void OutputAuctionInsightKpiAdditionalField(AuctionInsightKpiAdditionalField valueSet)
+        {
+            OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
+            foreach (var value in Enum.GetValues(typeof(AuctionInsightKpiAdditionalField)))
+            {
+                OutputStatusMessage(value.ToString());
+            }
+        }
+        public void OutputArrayOfAuctionInsightKpiAdditionalField(IList<AuctionInsightKpiAdditionalField> valueSets)
+        {
+            if (null != valueSets)
+            {
+                foreach (var valueSet in valueSets)
+                {
+                    OutputAuctionInsightKpiAdditionalField(valueSet);
+                }
+            }
+        }
         public void OutputKeywordIdeaAttribute(KeywordIdeaAttribute valueSet)
         {
             OutputStatusMessage(string.Format("Values in {0}", valueSet.GetType()));
@@ -2675,6 +2696,42 @@ namespace BingAdsExamplesLibrary.V13
                 foreach (var dataObject in dataObjects)
                 {
                     OutputKeyValuePairOfstringstring(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOflonglong(KeyValuePair<long,long> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOflonglong(IList<KeyValuePair<long,long>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOflonglong(dataObject);
+                }
+            }
+        }
+        public void OutputKeyValuePairOfstringbase64Binary(KeyValuePair<string,byte[]> dataObject)
+        {
+            if (null != dataObject.Key)
+            {
+                OutputStatusMessage(string.Format("key: {0}", dataObject.Key));
+                OutputStatusMessage(string.Format("value: {0}", dataObject.Value));
+            }
+        }
+        public void OutputArrayOfKeyValuePairOfstringbase64Binary(IList<KeyValuePair<string,byte[]>> dataObjects)
+        {
+            if (null != dataObjects)
+            {
+                foreach (var dataObject in dataObjects)
+                {
+                    OutputKeyValuePairOfstringbase64Binary(dataObject);
                 }
             }
         }

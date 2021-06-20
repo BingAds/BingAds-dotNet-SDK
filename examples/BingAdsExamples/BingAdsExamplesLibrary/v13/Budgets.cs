@@ -61,7 +61,7 @@ namespace BingAdsExamplesLibrary.V13
                         DailyBudget = null,
                         BudgetType = null,
                         Languages = new string[] { "All" },
-                        Name = "Women's Shoes " + DateTime.UtcNow,
+                        Name = "Everyone's Shoes " + DateTime.UtcNow,
                         TimeZone = "PacificTimeUSCanadaTijuana",
                     },
                 };
