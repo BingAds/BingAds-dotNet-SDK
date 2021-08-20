@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -47,36 +47,24 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Reflection;
-using System.Runtime.Versioning;
-using System.ServiceModel.Channels;
-using System.ServiceModel.Description;
-using System.ServiceModel.Dispatcher;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 
-namespace Microsoft.BingAds.Internal
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
-    internal class UserAgentBehavior : IEndpointBehavior
+    /// <summary>
+    /// <para>
+    /// Represents a campaign level disclaimer ad extension. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Campaign Disclaimer Ad Extension record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Disclaimer Ad Extension</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignDisclaimerAdExtension : BulkCampaignAdExtensionAssociation
     {
-        private static readonly string UserAgent = string.Format("BingAdsSDK.NET_{0}", typeof(UserAgentBehavior).Assembly.GetName().Version);
-
-        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
-        {
-        }
-
-        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
-        {
-            var inspector = new HeaderInspector("User-Agent", UserAgent);
-
-            clientRuntime.ClientMessageInspectors.Add(inspector);
-        }
-
-        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
-        {
-        }
-
-        public void Validate(ServiceEndpoint endpoint)
-        {
-        }
     }
 }

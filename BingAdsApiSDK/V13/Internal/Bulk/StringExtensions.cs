@@ -58,6 +58,7 @@ using System.Text.RegularExpressions;
 using Microsoft.BingAds.V13.CampaignManagement;
 using System.Runtime.Serialization.Json;
 using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
+using Newtonsoft.Json;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -1584,6 +1585,56 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 throw new ArgumentException(string.Format("Unknown values for bool: {0}", s));
             }
             return result;
+        }        
+        
+        public static string WriteVerifiedTrackingDataToBulkString(this VerifiedTrackingSetting setting, long? entityId)
+        {
+            try
+            {
+                if (setting == null) return null;
+
+                if ( setting.Details == null || setting.Details.Count() == 0)
+                {
+                    return entityId > 0 ? DeleteValue : null;
+                }
+
+                return JsonConvert.SerializeObject(setting.Details.Select(d =>
+                {
+                    return d.Select(i =>
+                    {
+                        
+                        var rt = new Dictionary<string, string>();
+                        rt.Add(i.Key, i.Value);
+                        return rt;
+                    }).ToArray();
+                }).ToArray());
+            }
+            catch(Exception)
+            {
+                throw new ArgumentException("Can not format setting.Details to bulk string.");
+            }
+        }
+        
+        public static void ParseVerifiedTrackingData(this string value, VerifiedTrackingSetting setting)
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                try
+                {
+                    var details = JsonConvert.DeserializeObject<Dictionary<string, string>[][]>(value);
+                    setting.Details = details.Select( row => 
+                    {
+                        return row.Select(item => 
+                        {
+                            return item.SingleOrDefault();
+                        }).ToArray();
+                    }).ToArray();
+                }
+                catch(Exception)
+                {
+                    throw new ArgumentException($"Invalid VerifiedTrackingData {value}.");
+                }
+            }
         }
 
         private static string GetCustomEventsRule(CustomEventsRule rule)

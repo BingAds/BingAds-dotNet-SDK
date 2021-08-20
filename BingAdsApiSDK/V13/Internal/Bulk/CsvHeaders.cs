@@ -93,6 +93,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BudgetType,
             StringTable.LocalInventoryAdsEnabled,
             StringTable.FeedId,
+            StringTable.DynamicDescriptionEnabled,
+            StringTable.VerifiedTrackingData,
 
             // experiment
             StringTable.TrafficSplitPercent,
@@ -200,6 +202,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.MediaIds,
             StringTable.Layouts,
             StringTable.DisplayText,
+
+            // Disclaimer Ad Extension            
+            StringTable.DisclaimerAdsEnabled,
+            StringTable.DisclaimerName,
+            StringTable.DisclaimerTitle,
+            StringTable.DisclaimerLayout,
+            StringTable.DisclaimerPopupText,
+            StringTable.DisclaimerLineText,
 
             // Video ad extension
             StringTable.ThumbnailUrl,

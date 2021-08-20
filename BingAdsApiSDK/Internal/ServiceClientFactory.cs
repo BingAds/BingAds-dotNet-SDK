@@ -144,7 +144,10 @@ namespace Microsoft.BingAds.Internal
         {
             var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
             factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
+            factory.Endpoint.EndpointBehaviors.Add(RequestIdBehavior.Instance);
             factory.Endpoint.EndpointBehaviors.Add(TraceBehavior.Instance);
+            factory.Endpoint.EndpointBehaviors.Add(DevTokenBehavior.Instance);
+            HttpClientFactory.ApplyEfficientHttpClientEndpointBehavior(factory.Endpoint.EndpointBehaviors);
             return factory;
         }
 

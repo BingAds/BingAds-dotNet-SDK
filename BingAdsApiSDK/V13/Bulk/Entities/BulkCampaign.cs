@@ -140,6 +140,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                             {
                                 Type = typeof(TargetSetting).Name,
                             },
+                            new DisclaimerSetting
+                            {
+                                Type = typeof(DisclaimerSetting).Name,
+                            }
                         };
                     }
                     break;
@@ -174,6 +178,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                             {
                                 Type = typeof(DynamicFeedSetting).Name,
                             },
+                            new VerifiedTrackingSetting
+                            {
+                                Type = typeof(VerifiedTrackingSetting).Name,
+                            }
                         };
                     }
                     break;
@@ -480,6 +488,37 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.Campaign.MultimediaAdsBidAdjustment.ToBulkString(),
                 (v, c) => c.Campaign.MultimediaAdsBidAdjustment = v.ParseOptional<int>()
             ),
+            
+            new SimpleBulkMapping<BulkCampaign>(StringTable.DynamicDescriptionEnabled,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting))) as DynamicSearchAdsSetting;
+                    return setting?.DynamicDescriptionEnabled?.ToString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DynamicSearchAdsSetting), true)) as DynamicSearchAdsSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.DynamicDescriptionEnabled = v.ParseOptional<bool>();
+                    }
+                }
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.DisclaimerAdsEnabled,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DisclaimerSetting))) as DisclaimerSetting;
+                    return setting?.DisclaimerAdsEnabled.ToString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(DisclaimerSetting), true)) as DisclaimerSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.DisclaimerAdsEnabled = v.Parse<bool>();
+                    }
+                }
+            )
 
         };
 

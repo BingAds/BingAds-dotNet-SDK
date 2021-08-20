@@ -670,7 +670,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13">CustomParameters Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/customparameters?view=bingads-13 for details.
-    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="FilterLinkAdExtension"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/>, <see cref="SitelinkAdExtension"/> and <see cref="VideoAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="ActionAdExtension"/>, <see cref="Ad"/>, <see cref="AdGroup"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="Campaign"/>, <see cref="DisclaimerAdExtension"/>, <see cref="FilterLinkAdExtension"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PriceAdExtension"/>, <see cref="PromotionAdExtension"/>, <see cref="SitelinkAdExtension"/> and <see cref="VideoAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -858,6 +858,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.DynamicSearchAdsSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CoOpSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.VerifiedTrackingSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.DisclaimerSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1074,7 +1076,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the ManualCpvBiddingScheme Data Object.
+    /// Defines an object that represents the manual CPV bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpvbiddingscheme?view=bingads-13">ManualCpvBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpvbiddingscheme?view=bingads-13 for details.
@@ -1088,7 +1090,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the ManualCpmBiddingScheme Data Object.
+    /// Defines an object that represents the manual CPM bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpmbiddingscheme?view=bingads-13">ManualCpmBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/manualcpmbiddingscheme?view=bingads-13 for details.
@@ -1893,6 +1895,80 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.BidOptionField = value;
                     this.RaisePropertyChanged("BidOption");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the VerifiedTrackingSetting Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/verifiedtrackingsetting?view=bingads-13">VerifiedTrackingSetting Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/verifiedtrackingsetting?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VerifiedTrackingSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class VerifiedTrackingSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> DetailsField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> Details
+        {
+            get
+            {
+                return this.DetailsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DetailsField, value) != true))
+                {
+                    this.DetailsField = value;
+                    this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the DisclaimerSetting Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/disclaimersetting?view=bingads-13">DisclaimerSetting Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/disclaimersetting?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DisclaimerSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DisclaimerSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DisclaimerAdsEnabledField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DisclaimerAdsEnabled
+        {
+            get
+            {
+                return this.DisclaimerAdsEnabledField;
+            }
+            set
+            {
+                if ((this.DisclaimerAdsEnabledField.Equals(value) != true))
+                {
+                    this.DisclaimerAdsEnabledField = value;
+                    this.RaisePropertyChanged("DisclaimerAdsEnabled");
                 }
             }
         }
@@ -3027,13 +3103,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         DynamicFeedSetting = 64,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the MultimediaAdsBidAdjustment element be included within each returned Campaign object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MultimediaAdsBidAdjustment = 128,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the VerifiedTrackingSetting object be returned within the Settings element of each returned Campaign object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VerifiedTrackingSetting = 256,
@@ -3043,6 +3119,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicDescriptionSetting = 512,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DisclaimerSetting = 1024,
     }
     
     /// <summary>
@@ -4058,19 +4140,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         AdGroupType = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the CpvBid element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CpvBid = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the CpmBid element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CpmBid = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the MultimediaAdsBidAdjustment element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MultimediaAdsBidAdjustment = 16,
@@ -5064,7 +5146,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// A responsive ad format for Audience ads in the Microsoft Audience Network.
+    /// A responsive ad format for audience ads and multimedia ads.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/responsivead?view=bingads-13">ResponsiveAd Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/responsivead?view=bingads-13 for details.
@@ -5156,7 +5238,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The language that the call to action will be served in.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.LanguageName> CallToActionLanguage
@@ -5176,7 +5258,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// The descriptions that are shown below the path in your ad.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Descriptions
@@ -5196,7 +5278,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// This is one of two possible headlines that could appear in your audience ads.
+        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Headline
@@ -5216,7 +5298,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Headlines
@@ -5296,7 +5378,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// This is one of two possible headlines that could appear in your audience ads.
+        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LongHeadlineString
@@ -5316,7 +5398,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> LongHeadlines
@@ -5336,7 +5418,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Depending on your audience ad's placement, this text will appear below or adjacent to your ad's long or short headline.
+        /// This text will appear below or adjacent to your ad's long or short headline, depending on the ad placement.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Text
@@ -5548,7 +5630,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13">AppUrl Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/appurl?view=bingads-13 for details.
-    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PromotionAdExtension"/>, <see cref="SitelinkAdExtension"/> and <see cref="VideoAdExtension"/> data objects.</para>
+    /// <para>Used by <see cref="Ad"/>, <see cref="AppAdExtension"/>, <see cref="BiddableAdGroupCriterion"/>, <see cref="DisclaimerAdExtension"/>, <see cref="FlyerAdExtension"/>, <see cref="ImageAdExtension"/>, <see cref="Keyword"/>, <see cref="PromotionAdExtension"/>, <see cref="SitelinkAdExtension"/> and <see cref="VideoAdExtension"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5791,7 +5873,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// This lets you know how well the asset is performing.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AssetPerformanceLabel
@@ -5881,7 +5963,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActNow = 1,
@@ -5893,25 +5975,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ApplyNow = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BetNow = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidNow = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookACar = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookHotel = 6,
@@ -5923,7 +6005,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         BookNow = 7,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Browse = 8,
@@ -5935,13 +6017,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         BuyNow = 9,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChatNow = 10,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Compare = 11,
@@ -5953,13 +6035,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ContactUs = 12,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Coupon = 13,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Donate = 14,
@@ -5971,61 +6053,61 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Download = 15,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EmailNow = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnrollNow = 17,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Explore = 18,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FileNow = 19,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FindJob = 20,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreePlay = 21,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreeQuote = 22,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FreeTrial = 23,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetDeals = 24,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetOffer = 25,
@@ -6037,7 +6119,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         GetQuote = 26,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JoinNow = 27,
@@ -6049,25 +6131,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         LearnMore = 28,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ListenNow = 29,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LogIn = 30,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Message = 31,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCars = 32,
@@ -6079,67 +6161,67 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         OrderNow = 33,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PlayGame = 34,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PlayNow = 35,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostJob = 36,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Register = 37,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RentACar = 38,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RentNow = 39,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Reserve = 40,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sale = 41,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SaveNow = 42,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Schedule = 43,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeMenu = 44,
@@ -6151,13 +6233,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SeeMore = 45,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeOffer = 46,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SellNow = 47,
@@ -6169,13 +6251,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ShopNow = 48,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Showtimes = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SignIn = 50,
@@ -6187,13 +6269,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SignUp = 51,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartFree = 52,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartNow = 53,
@@ -6205,37 +6287,37 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Subscribe = 54,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TestDrive = 55,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TryNow = 56,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UsedCars = 57,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewCars = 58,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewNow = 59,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewPlans = 60,
@@ -6247,67 +6329,67 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         VisitSite = 61,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VoteNow = 62,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Watch = 63,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WatchMore = 64,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WatchNow = 65,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Directions = 66,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FindStore = 67,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwitchNow = 68,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VisitStore = 69,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RenewNow = 70,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Reorder = 71,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding call to action in the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Default = 72,
@@ -6356,7 +6438,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the set of supported ad languages.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/languagename?view=bingads-13">LanguageName Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/languagename?view=bingads-13 for details.
@@ -6368,217 +6450,217 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arabic = 7,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Danish = 28,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dutch = 29,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         German = 40,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         English = 30,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Finnish = 35,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         French = 36,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Italian = 55,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Norwegian = 82,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Portuguese = 88,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spanish = 109,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Swedish = 112,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TraditionalChinese = 24,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimplifiedChinese = 137,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greek = 41,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Polish = 87,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bulgarian = 19,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Czech = 27,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Estonian = 32,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatian = 26,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hungarian = 48,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lithuanian = 70,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Latvian = 68,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Maltese = 75,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Romanian = 92,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovak = 106,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovenian = 107,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Turkish = 123,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Serbian = 98,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bosnian = 138,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Albanian = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Macedonian = 71,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Icelandic = 49,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Japanese = 56,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         All = 1000,
@@ -6987,13 +7069,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ImpressionTrackingUrls = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the Videos element be included within each returned ResponsiveAd object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Videos = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the LongHeadlines element be included within each returned ResponsiveAd object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LongHeadlines = 4,
@@ -8356,16 +8438,40 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ProfileExpansionEnabled = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Used to get or set the property that determines whether Microsoft Advertising is allowed to use images from your domain to enhance your ads on the Microsoft Audience Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllowImageAutoRetrieve = 64,
         
         /// <summary>
-        /// Reserved.
+        /// Used to get or set the property that determines whether Microsoft Advertising is allowed to automatically apply ad recommendations meant to help you boost ad performance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AutoApplyRecommendations = 128,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IncludeAutoBiddingViewThroughConversions = 256,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AutoBiddingViewThroughConversionsValueAttributionWeight = 512,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LoopBackWindowForViewThroughConversions = 1024,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BusinessAttributes = 2048,
     }
     
     /// <summary>
@@ -8394,6 +8500,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FilterLinkAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.FlyerAdExtension))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.VideoAdExtension))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.DisclaimerAdExtension))]
     public partial class AdExtension : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -11176,7 +11283,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the VideoAdExtension Data Object.
+    /// Defines an ad extension with a video and call-to-action button.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/videoadextension?view=bingads-13">VideoAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/videoadextension?view=bingads-13 for details.
@@ -11483,6 +11590,271 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.VideoIdField = value;
                     this.RaisePropertyChanged("VideoId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the DisclaimerAdExtension Data Object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/disclaimeradextension?view=bingads-13">DisclaimerAdExtension Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/disclaimeradextension?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DisclaimerAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DisclaimerAdExtension : Microsoft.BingAds.V13.CampaignManagement.AdExtension
+    {
+        
+        private string DisclaimerLayoutField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalMobileUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> FinalUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LineTextField;
+        
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PopupTextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TrackingUrlTemplateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParametersField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string DisclaimerLayout
+        {
+            get
+            {
+                return this.DisclaimerLayoutField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DisclaimerLayoutField, value) != true))
+                {
+                    this.DisclaimerLayoutField = value;
+                    this.RaisePropertyChanged("DisclaimerLayout");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
+        {
+            get
+            {
+                return this.FinalAppUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalAppUrlsField, value) != true))
+                {
+                    this.FinalAppUrlsField = value;
+                    this.RaisePropertyChanged("FinalAppUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalMobileUrls
+        {
+            get
+            {
+                return this.FinalMobileUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalMobileUrlsField, value) != true))
+                {
+                    this.FinalMobileUrlsField = value;
+                    this.RaisePropertyChanged("FinalMobileUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrlSuffix
+        {
+            get
+            {
+                return this.FinalUrlSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlSuffixField, value) != true))
+                {
+                    this.FinalUrlSuffixField = value;
+                    this.RaisePropertyChanged("FinalUrlSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> FinalUrls
+        {
+            get
+            {
+                return this.FinalUrlsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlsField, value) != true))
+                {
+                    this.FinalUrlsField = value;
+                    this.RaisePropertyChanged("FinalUrls");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LineText
+        {
+            get
+            {
+                return this.LineTextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LineTextField, value) != true))
+                {
+                    this.LineTextField = value;
+                    this.RaisePropertyChanged("LineText");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PopupText
+        {
+            get
+            {
+                return this.PopupTextField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PopupTextField, value) != true))
+                {
+                    this.PopupTextField = value;
+                    this.RaisePropertyChanged("PopupText");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title
+        {
+            get
+            {
+                return this.TitleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TitleField, value) != true))
+                {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TrackingUrlTemplate
+        {
+            get
+            {
+                return this.TrackingUrlTemplateField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TrackingUrlTemplateField, value) != true))
+                {
+                    this.TrackingUrlTemplateField = value;
+                    this.RaisePropertyChanged("TrackingUrlTemplate");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
+        {
+            get
+            {
+                return this.UrlCustomParametersField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.UrlCustomParametersField, value) != true))
+                {
+                    this.UrlCustomParametersField = value;
+                    this.RaisePropertyChanged("UrlCustomParameters");
                 }
             }
         }
@@ -12093,7 +12465,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The action type is either RenewNow or Reorder.
+        /// The action type is BuildNow, Dealers, GetDemo, GetNow, GoToDemo, RenewNow, Reorder, SeeDemo, SeeModels, SeeOffers, or ViewDemo.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -12525,55 +12897,55 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Reorder = 71,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BuildNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuildNow = 72,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Dealers in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dealers = 73,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GetDemo in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetDemo = 74,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GetNow in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GetNow = 75,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of GoToDemo in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoToDemo = 76,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeDemo in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeDemo = 77,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeModels in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeModels = 78,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of SeeOffers in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeeOffers = 79,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of ViewDemo in the action ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewDemo = 80,
@@ -14094,10 +14466,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         FlyerAdExtension = 4096,
         
         /// <summary>
-        /// Reserved.
+        /// An ad extension with a video and call-to-action button.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoAdExtension = 8192,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DisclaimerAdExtension = 16384,
     }
     
     /// <summary>
@@ -14138,7 +14516,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ActionTypesPhase3 = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the latest ActionAdExtensionActionType values be included within each returned ActionAdExtension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActionTypesPhase4 = 16,
@@ -20634,7 +21012,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.RuleItemGroup> RuleItemGroupsField;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether the rule item groups are evaluated based on conjunctive normal form (CNF) or disjunctive normal form (DNF).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.NormalForm> NormalForm
@@ -20993,7 +21371,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible normal form types.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/normalform?view=bingads-13">NormalForm Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/normalform?view=bingads-13 for details.
@@ -21005,13 +21383,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Refers to conjunctive normal form (CNF) that can be described as an AND of ORs or a product of sums.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conjunctive = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Refers to disjunctive normal form (DNF) that can be described as an OR of ANDs or a sum of products.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Disjunctive = 2,
@@ -21506,7 +21884,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a list of optional audience properties that you can request when calling GetAudiencesByIds.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/audienceadditionalfield?view=bingads-13">AudienceAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/audienceadditionalfield?view=bingads-13 for details.
@@ -21519,7 +21897,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Request that the NormalForm element be included within each returned PageVisitorsRule object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NormalForm = 1,
@@ -25932,7 +26310,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Set this option to find and replace a string within each custom parameter during import.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForCustomParameters
@@ -26959,7 +27337,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ActiveAdGroupsOnly = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the SearchAndReplaceForCustomParameters element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchAndReplaceForCustomParameters = 8,
@@ -27369,6 +27747,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroup = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ad = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Keyword = 4,
     }
     
     /// <summary>
@@ -31375,7 +31771,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingResponse> GetImportEntityIdsMappingAsync(Microsoft.BingAds.V13.CampaignManagement.GetImportEntityIdsMappingRequest request);
         
         /// <summary>
-        /// Defines the UpdateImportJobs Service Operation.
+        /// Replaces the specified import jobs with new import jobs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -31393,7 +31789,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.UpdateImportJobsResponse UpdateImportJobs(Microsoft.BingAds.V13.CampaignManagement.UpdateImportJobsRequest request);
         
         /// <summary>
-        /// Defines the UpdateImportJobs Service Operation.
+        /// Replaces the specified import jobs with new import jobs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -31407,7 +31803,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateImportJobsResponse> UpdateImportJobsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateImportJobsRequest request);
         
         /// <summary>
-        /// Defines the AddVideos Service Operation.
+        /// Adds one or more videos to an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -31425,7 +31821,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.AddVideosResponse AddVideos(Microsoft.BingAds.V13.CampaignManagement.AddVideosRequest request);
         
         /// <summary>
-        /// Defines the AddVideos Service Operation.
+        /// Adds one or more videos to an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -31439,7 +31835,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddVideosResponse> AddVideosAsync(Microsoft.BingAds.V13.CampaignManagement.AddVideosRequest request);
         
         /// <summary>
-        /// Defines the DeleteVideos Service Operation.
+        /// Deletes one or more videos from the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -31447,7 +31843,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteVideos", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteVideosResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -31457,7 +31853,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.DeleteVideosResponse DeleteVideos(Microsoft.BingAds.V13.CampaignManagement.DeleteVideosRequest request);
         
         /// <summary>
-        /// Defines the DeleteVideos Service Operation.
+        /// Deletes one or more videos from the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -31465,13 +31861,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteVideos", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteVideosResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteVideosResponse> DeleteVideosAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteVideosRequest request);
         
         /// <summary>
-        /// Defines the GetVideosByIds Service Operation.
+        /// Gets videos by video identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -31489,7 +31885,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.GetVideosByIdsResponse GetVideosByIds(Microsoft.BingAds.V13.CampaignManagement.GetVideosByIdsRequest request);
         
         /// <summary>
-        /// Defines the GetVideosByIds Service Operation.
+        /// Gets videos by video identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -31503,7 +31899,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetVideosByIdsResponse> GetVideosByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetVideosByIdsRequest request);
         
         /// <summary>
-        /// Defines the UpdateVideos Service Operation.
+        /// Updates the videos within the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -31511,7 +31907,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateVideos", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateVideosResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -31521,7 +31917,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse UpdateVideos(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request);
         
         /// <summary>
-        /// Defines the UpdateVideos Service Operation.
+        /// Updates the videos within the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -31529,7 +31925,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateVideos", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateVideosResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse> UpdateVideosAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request);
@@ -37822,7 +38218,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.AdGroupCriterionType CriterionType;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned ad group criterion.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CriterionAdditionalField> ReturnAdditionalFields;
@@ -37846,7 +38242,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="AdGroupCriterionIds">A list of unique identifiers that identify the criterions to get.</param>
         /// <param name="AdGroupId">The identifier of the ad group that owns the criterions to get.</param>
         /// <param name="CriterionType">The type of criterion to get, for example Webpage.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned ad group criterion.</param>
         public GetAdGroupCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AdGroupCriterionIds, long AdGroupId, Microsoft.BingAds.V13.CampaignManagement.AdGroupCriterionType CriterionType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CriterionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -41008,7 +41404,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.CampaignCriterionType CriterionType;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned campaign criterion.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CriterionAdditionalField> ReturnAdditionalFields;
@@ -41032,7 +41428,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="CampaignCriterionIds">A list of unique identifiers that identify the campaign criterions to get.</param>
         /// <param name="CampaignId">The unique identifier of the campaign whose criterions you want to get.</param>
         /// <param name="CriterionType">The type of criterion to get, for example Webpage.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned campaign criterion.</param>
         public GetCampaignCriterionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> CampaignCriterionIds, long CampaignId, Microsoft.BingAds.V13.CampaignManagement.CampaignCriterionType CriterionType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CriterionAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -42714,7 +43110,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.AudienceType Type;
         
         /// <summary>
-        /// Reserved.
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields;
@@ -42737,7 +43133,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="AudienceIds">A maximum of 100 identifiers of the requested audiences.</param>
         /// <param name="Type">The type of audiences to return.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetAudiencesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceIds, Microsoft.BingAds.V13.CampaignManagement.AudienceType Type, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46372,6 +46768,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Nullable<long> SourceParentId;
+        
+        /// <summary>
         /// Constructor for the GetImportEntityIdsMappingRequest request object.
         /// </summary>
         /// <remarks>
@@ -46390,7 +46792,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="ImportType">The type of import job to get entity ID mappings.</param>
         /// <param name="SourceEntityIds">The source entity IDs that you want mapped to Microsoft Advertising entity IDs.</param>
         /// <param name="ImportEntityType">The type of entity to get ID mappings.</param>
-        public GetImportEntityIdsMappingRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, System.Collections.Generic.IList<long> SourceEntityIds, Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType)
+        /// <param name="SourceParentId">Reserved.</param>
+        public GetImportEntityIdsMappingRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, System.Collections.Generic.IList<long> SourceEntityIds, Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType, System.Nullable<long> SourceParentId)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -46402,6 +46805,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.ImportType = ImportType;
             this.SourceEntityIds = SourceEntityIds;
             this.ImportEntityType = ImportEntityType;
+            this.SourceParentId = SourceParentId;
         }
     }
     
@@ -46460,7 +46864,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the UpdateImportJobs Service Operation.
+    /// Replaces the specified import jobs with new import jobs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -46494,7 +46898,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The import jobs to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs;
@@ -46515,7 +46919,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ImportJobs">Reserved.</param>
+        /// <param name="ImportJobs">The import jobs to update.</param>
         public UpdateImportJobsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ImportJob> ImportJobs)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46530,7 +46934,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the UpdateImportJobs Service Operation.
+    /// Replaces the specified import jobs with new import jobs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -46546,13 +46950,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// A list of unique system identifiers corresponding to the replacement import jobs.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> ImportJobIds;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -46573,8 +46977,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ImportJobIds">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="ImportJobIds">A list of unique system identifiers corresponding to the replacement import jobs.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateImportJobsResponse(string TrackingId, System.Collections.Generic.IList<long> ImportJobIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -46584,7 +46988,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the AddVideos Service Operation.
+    /// Adds one or more videos to an account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -46618,7 +47022,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The list of videos to add to the account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos;
@@ -46639,7 +47043,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideosRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Videos">Reserved.</param>
+        /// <param name="Videos">The list of videos to add to the account.</param>
         public AddVideosRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46654,7 +47058,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the AddVideos Service Operation.
+    /// Adds one or more videos to an account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -46670,13 +47074,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// A list of unique system identifiers corresponding to the videos that were added.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> VideoIds;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -46697,8 +47101,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideosResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="VideoIds">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="VideoIds">A list of unique system identifiers corresponding to the videos that were added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public AddVideosResponse(string TrackingId, System.Collections.Generic.IList<long> VideoIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -46708,7 +47112,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the DeleteVideos Service Operation.
+    /// Deletes one or more videos from the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -46742,7 +47146,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The identifiers of videos to delete.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> VideoIds;
@@ -46763,7 +47167,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideosRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="VideoIds">Reserved.</param>
+        /// <param name="VideoIds">The identifiers of videos to delete.</param>
         public DeleteVideosRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> VideoIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46778,7 +47182,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the DeleteVideos Service Operation.
+    /// Deletes one or more videos from the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -46794,7 +47198,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -46815,7 +47219,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideosResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteVideosResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -46824,7 +47228,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the GetVideosByIds Service Operation.
+    /// Gets videos by video identifiers.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -46858,13 +47262,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The identifiers of the videos to get.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> VideoIds;
         
         /// <summary>
-        /// Reserved.
+        /// Determines the index and size of video results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo;
@@ -46885,8 +47289,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIdsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="VideoIds">Reserved.</param>
-        /// <param name="PageInfo">Reserved.</param>
+        /// <param name="VideoIds">The identifiers of the videos to get.</param>
+        /// <param name="PageInfo">Determines the index and size of video results per page.</param>
         public GetVideosByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> VideoIds, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46902,7 +47306,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the GetVideosByIds Service Operation.
+    /// Gets videos by video identifiers.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -46918,13 +47322,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of Video objects that corresponds directly to the video identifiers that you specified in the request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -46945,8 +47349,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIdsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Videos">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="Videos">An array of Video objects that corresponds directly to the video identifiers that you specified in the request.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetVideosByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -46956,7 +47360,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the UpdateVideos Service Operation.
+    /// Updates the videos within the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -46990,7 +47394,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The list of videos that you want to update.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos;
@@ -47011,7 +47415,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideosRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Videos">Reserved.</param>
+        /// <param name="Videos">The list of videos that you want to update.</param>
         public UpdateVideosRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Video> Videos)
         {
             this.ApplicationToken = ApplicationToken;
@@ -47026,7 +47430,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the UpdateVideos Service Operation.
+    /// Updates the videos within the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -47042,7 +47446,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -47063,7 +47467,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideosResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateVideosResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50576,7 +50980,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the UpdateImportJobs Service Operation.
+        /// Replaces the specified import jobs with new import jobs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -50591,7 +50995,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the UpdateImportJobs Service Operation.
+        /// Replaces the specified import jobs with new import jobs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13">UpdateImportJobs Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updateimportjobs?view=bingads-13 for details.
@@ -50606,7 +51010,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the AddVideos Service Operation.
+        /// Adds one or more videos to an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -50621,7 +51025,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the AddVideos Service Operation.
+        /// Adds one or more videos to an account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13">AddVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addvideos?view=bingads-13 for details.
@@ -50636,7 +51040,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the DeleteVideos Service Operation.
+        /// Deletes one or more videos from the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -50644,14 +51048,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteVideosResponse DeleteVideos(Microsoft.BingAds.V13.CampaignManagement.DeleteVideosRequest request)
         {
             return base.Channel.DeleteVideos(request);
         }
         
         /// <summary>
-        /// Defines the DeleteVideos Service Operation.
+        /// Deletes one or more videos from the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13">DeleteVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletevideos?view=bingads-13 for details.
@@ -50659,14 +51063,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteVideosResponse> DeleteVideosAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteVideosRequest request)
         {
             return base.Channel.DeleteVideosAsync(request);
         }
         
         /// <summary>
-        /// Defines the GetVideosByIds Service Operation.
+        /// Gets videos by video identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -50681,7 +51085,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the GetVideosByIds Service Operation.
+        /// Gets videos by video identifiers.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13">GetVideosByIds Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/getvideosbyids?view=bingads-13 for details.
@@ -50696,7 +51100,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Defines the UpdateVideos Service Operation.
+        /// Updates the videos within the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -50704,14 +51108,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse UpdateVideos(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request)
         {
             return base.Channel.UpdateVideos(request);
         }
         
         /// <summary>
-        /// Defines the UpdateVideos Service Operation.
+        /// Updates the videos within the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13">UpdateVideos Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/updatevideos?view=bingads-13 for details.
@@ -50719,7 +51123,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse> UpdateVideosAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request)
         {
             return base.Channel.UpdateVideosAsync(request);

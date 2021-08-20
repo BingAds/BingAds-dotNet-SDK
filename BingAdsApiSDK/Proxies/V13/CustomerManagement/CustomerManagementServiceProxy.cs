@@ -4369,7 +4369,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Defines a list of optional account properties that you can request when calling GetAccount.
+    /// Defines a list of optional account properties that you can request when calling GetAccount, FindAccountsOrCustomersInfo, and SearchAccounts.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-management-service/accountadditionalfield?view=bingads-13 for details.
@@ -4388,7 +4388,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         TaxCertificate = 1,
         
         /// <summary>
-        /// Request that the AccountMode element be included within each returned AdvertiserAccount object.
+        /// Request that the AccountMode element be included within each returned AdvertiserAccount or AccountInfoWithCustomerData object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountMode = 2,
@@ -5837,7 +5837,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The account mode distinguishes between smart and expert accounts.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public string AccountMode
@@ -6250,13 +6250,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         LifeCycleStatus = 3,
         
         /// <summary>
-        /// Reserved.
+        /// This value is not supported with the customer management service.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClassName = 4,
         
         /// <summary>
-        /// Reserved.
+        /// This value is not supported with the customer management service.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponStartDate = 5,
@@ -10384,7 +10384,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public int TopN;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
@@ -10407,7 +10407,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </remarks>
         /// <param name="Filter">The criteria to use to filter the list of accounts and customers.</param>
         /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
         public FindAccountsOrCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Filter, int TopN, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11316,7 +11316,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned account.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
@@ -11340,7 +11340,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <param name="Predicates">Determines the conditions that all must be met to return accounts.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
         public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;

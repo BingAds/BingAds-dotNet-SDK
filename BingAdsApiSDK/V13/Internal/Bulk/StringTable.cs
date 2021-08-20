@@ -260,6 +260,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Param2 = "Param2";
         public const string Param3 = "Param3";
         public const string DevicePreference = "Device Preference";
+        public const string VerifiedTrackingData = "Verified Tracking Setting";
 
         public const string CampaignNegativeKeyword = "Campaign Negative Keyword";
         public const string CampaignNegativeSite = "Campaign Negative Site";
@@ -313,6 +314,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdClickParallelTracking = "Ad Click Parallel Tracking";
         public const string AutoApplyRecommendations = "Auto Apply Recommendations";
         public const string AllowImageAutoRetrieve = "Allow Image Auto Retrieve";
+        public const string BusinessAttributes = "Business Attributes";
 
         public const string LastModifiedTime = "Modified Time";
 
@@ -338,6 +340,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string ImageAdExtension = "Image Ad Extension";
 
         public const string Version = "Version";
+
+        
+        //Disclaimer Ads  
+        public const string DisclaimerAdsEnabled = "Disclaimer Ads Enabled";
+        public const string DisclaimerName = "Disclaimer Name";
+        public const string DisclaimerTitle = "Disclaimer Title";
+        public const string DisclaimerLayout = "Disclaimer Layout";
+        public const string DisclaimerPopupText = "Disclaimer Popup Text";
+        public const string DisclaimerLineText = "Disclaimer Line Text";
+
+        public const string DisclaimerAdExtension = "Disclaimer Ad Extension";
+        public const string CampaignDisclaimerAdExtension = "Campaign Disclaimer Ad Extension";
+
 
         //Image ad extension
         public const string AltText = "Alternative Text";
@@ -480,6 +495,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignType = "Campaign Type";
         public const string CampaignPriority = "Priority";
         public const string LocalInventoryAdsEnabled = "LocalInventoryAdsEnabled";
+        public const string DynamicDescriptionEnabled = "Dynamic Description Enabled";
 
         // SPA
         public const string CampaignNegativeStoreCriterion = "Campaign Negative Store Criterion";

@@ -7378,7 +7378,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 25,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
@@ -8346,7 +8346,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 20,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -9106,7 +9106,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 25,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
@@ -10008,7 +10008,7 @@ namespace Microsoft.BingAds.V13.Reporting
         LandingPageExperience = 31,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 32,
@@ -10825,7 +10825,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 21,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
@@ -11391,7 +11391,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Assists = 17,
         
         /// <summary>
-        /// This is the language of the country the ad is served in.
+        /// This is The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 18,
@@ -11728,7 +11728,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Conversions = 15,
         
         /// <summary>
-        /// This is the language of the country the ad is served in.
+        /// This is The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 16,
@@ -12061,7 +12061,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Radius = 20,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -12091,7 +12091,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -12584,7 +12584,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CostPerConversion = 19,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 20,
@@ -13198,7 +13198,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CostPerConversion = 26,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 27,
@@ -16970,7 +16970,7 @@ namespace Microsoft.BingAds.V13.Reporting
         BidMatchType = 6,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 7,
@@ -17546,7 +17546,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 13,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
@@ -18290,7 +18290,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 24,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
@@ -18896,7 +18896,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 23,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 24,
@@ -19398,7 +19398,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceOS = 11,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
@@ -20503,7 +20503,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Radius = 21,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
@@ -21089,7 +21089,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdDistribution = 20,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
@@ -21557,7 +21557,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdDistribution = 11,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
@@ -22094,7 +22094,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdDistribution = 16,
         
         /// <summary>
-        /// The language of the country the ad is served in.
+        /// The language of the publisher where the ad was shown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 17,
