@@ -344,6 +344,8 @@ namespace Microsoft.BingAds
             SetRequestFieldIfNeeded(request, "CustomerId", _authorizationData.CustomerId);
 
             SetRequestFieldIfNeeded(request, "DeveloperToken", _authorizationData.DeveloperToken, alwaysOverwriteRequestField: true);
+
+            DevTokenBehavior.Instance.DevToken = _authorizationData.DeveloperToken;
         }
 
         private void SetRequestFieldIfNeeded<TAuthData>(object request, string name, TAuthData authorizationDataValue, bool alwaysOverwriteRequestField = false)

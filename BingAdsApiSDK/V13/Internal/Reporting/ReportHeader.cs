@@ -59,7 +59,7 @@ namespace Microsoft.BingAds.V13.Internal.Reporting
     /// </summary> 
     public class ReportHeader
     {
-        private readonly Regex columnRegex = new Regex(@"(([1-9]\d*.?\d*)|(0\.\d*[1-9]))%?$");
+        private readonly Regex columnRegex = new Regex(@"^(([1-9]\d*.?\d*)|(0\.\d*[1-9]))%?$");
 
         private string reportName;
 

@@ -2202,7 +2202,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the field order of insertion orders returned using SearchInsertionOrders.
+    /// Defines the field order of entities returned using one of the search operations, for example SearchCoupons or SearchInsertionOrders.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderbyfield?view=bingads-13">OrderByField Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderbyfield?view=bingads-13 for details.
@@ -2238,13 +2238,13 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         LifeCycleStatus = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The order is determined by a predicate coupon class name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClassName = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The order is determined by a predicate coupon start date.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponStartDate = 5,

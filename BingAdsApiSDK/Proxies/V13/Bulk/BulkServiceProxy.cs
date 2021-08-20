@@ -927,34 +927,46 @@ namespace Microsoft.BingAds.V13.Bulk
         BidStrategies = 132,
         
         /// <summary>
-        /// Reserved.
+        /// Include Video Ad Extension records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoAdExtensions = 133,
         
         /// <summary>
-        /// Reserved.
+        /// Include Account Video Ad Extension records in the download that represents the association relationship between an account and a video ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountVideoAdExtensions = 134,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Video Ad Extension records in the download that represents the association relationship between a campaign and a video ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignVideoAdExtensions = 135,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Video Ad Extension records in the download that each represent the association relationship between an ad group and a video ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupVideoAdExtensions = 136,
         
         /// <summary>
-        /// Reserved.
+        /// Include Video records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Videos = 137,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DisclaimerAdExtensions = 138,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignDisclaimerAdExtensions = 139,
     }
     
     /// <summary>

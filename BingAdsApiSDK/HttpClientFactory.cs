@@ -48,78 +48,66 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Collections.Generic;
-using System.IO;
+using System.Collections.ObjectModel;
 using System.Net.Http;
-using System.Net.Http.Headers;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 using System.Threading;
-using System.Threading.Tasks;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds
 {
-    internal class HttpService : IHttpService
+    public static class HttpClientFactory
     {
-        private static readonly string UserAgent = $"BingAdsSDK.NET_{typeof(UserAgentBehavior).Assembly.GetName().Version}";
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
+        private static Func<HttpClient> _httpClientFactory = () => new HttpClient();
+        private static Func<HttpMessageHandler> _httpMessageHandlerFactory;
+        internal static Lazy<HttpClient> Client => new Lazy<HttpClient>(CreateHttpClientWithTimeout);
+
+        public static void ApplyEfficientHttpClientEndpointBehavior(KeyedCollection<Type, IEndpointBehavior> endpointBehaviors)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, requestUri)
-            {
-                Content = new FormUrlEncodedContent(formValues),
-                Headers = { { "User-Agent", UserAgent } }
-            };
-            return HttpClientFactory.Client.Value.SendAsync(request, CancelAfter(timeout));
+            if (_httpMessageHandlerFactory != null)
+                endpointBehaviors.Add(new EfficientHttpClientEndpointBehavior(_httpMessageHandlerFactory));
         }
 
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
+        public static void ReplaceHttpClientFactory(Func<HttpClient> httpClientFactory, Func<HttpMessageHandler> httpMessageHandlerFactory = null)
         {
-            try
-            {
-                var response = await HttpClientFactory.Client.Value.GetAsync(fileUri, CancelAfter(timeout)).ConfigureAwait(false);
-
-                response.EnsureSuccessStatusCode();
-
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-
+            _httpMessageHandlerFactory = httpMessageHandlerFactory;
+            _httpClientFactory = httpClientFactory;
         }
 
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
+        private static HttpClient CreateHttpClientWithTimeout()
         {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-                var request = new HttpRequestMessage(HttpMethod.Post, uri) { Content = multiPart };
-
-                addHeadersAction(request.Headers);
-
-                try
-                {
-                    var response = await HttpClientFactory.Client.Value.SendAsync(request, CancelAfter(timeout)).ConfigureAwait(false);
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }
-                }
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
+            var client = _httpClientFactory();
+            client.Timeout = Timeout.InfiniteTimeSpan;
+            return client;
         }
 
-        private static CancellationToken CancelAfter(TimeSpan timeout)
+        private class EfficientHttpClientEndpointBehavior : IEndpointBehavior
         {
-            return new CancellationTokenSource(timeout).Token;
+            private readonly Func<HttpMessageHandler> _messageHandlerFactory;
+
+            public EfficientHttpClientEndpointBehavior(Func<HttpMessageHandler> messageHandlerFactory)
+            {
+                _messageHandlerFactory = messageHandlerFactory;
+            }
+
+            public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+            {
+                Func<HttpClientHandler, HttpMessageHandler> factory = clientHandler => _messageHandlerFactory();
+                bindingParameters.Add(factory);
+            }
+
+            public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+            {
+            }
+
+            public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
+            {
+            }
+
+            public void Validate(ServiceEndpoint endpoint)
+            {
+            }
         }
     }
 }

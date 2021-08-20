@@ -48,78 +48,37 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Runtime.Versioning;
+using System.ServiceModel.Channels;
+using System.ServiceModel.Description;
+using System.ServiceModel.Dispatcher;
 
 namespace Microsoft.BingAds.Internal
 {
-    internal class HttpService : IHttpService
+    internal class RequestIdBehavior : IEndpointBehavior
     {
-        private static readonly string UserAgent = $"BingAdsSDK.NET_{typeof(UserAgentBehavior).Assembly.GetName().Version}";
-        public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
+        public static RequestIdBehavior Instance { get; } = new RequestIdBehavior();
+        private RequestIdBehavior()
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, requestUri)
-            {
-                Content = new FormUrlEncodedContent(formValues),
-                Headers = { { "User-Agent", UserAgent } }
-            };
-            return HttpClientFactory.Client.Value.SendAsync(request, CancelAfter(timeout));
         }
 
-        public async Task DownloadFileAsync(Uri fileUri, string localFilePath, bool overwrite, TimeSpan timeout)
+        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
-            try
-            {
-                var response = await HttpClientFactory.Client.Value.GetAsync(fileUri, CancelAfter(timeout)).ConfigureAwait(false);
-
-                response.EnsureSuccessStatusCode();
-
-                await response.Content.ReadAsFileAsync(localFilePath, overwrite).ConfigureAwait(false);
-            }
-            catch (Exception e)
-            {
-                throw new CouldNotDownloadResultFileException("Download File failed.", e);
-            }
-
         }
 
-        public async Task UploadFileAsync(Uri uri, string uploadFilePath, Action<HttpRequestHeaders> addHeadersAction, TimeSpan timeout)
+        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
         {
-            using (var stream = File.OpenRead(uploadFilePath))
-            {
-                var multiPart = new MultipartFormDataContent
-                {
-                    { new StreamContent(stream), "file", string.Format("\"{0}{1}\"", Guid.NewGuid(), Path.GetExtension(uploadFilePath)) }
-                };
-                var request = new HttpRequestMessage(HttpMethod.Post, uri) { Content = multiPart };
-
-                addHeadersAction(request.Headers);
-
-                try
-                {
-                    var response = await HttpClientFactory.Client.Value.SendAsync(request, CancelAfter(timeout)).ConfigureAwait(false);
-
-                    if (!response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-
-                        throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
-                    }
-                }
-                catch (Exception e)
-                {
-                    throw new CouldNotUploadFileException("Upload File failed.", e);
-                }
-            }
+            var inspector = new HeaderInspector("x-ms-requestid", Guid.NewGuid().ToString());
+            clientRuntime.ClientMessageInspectors.Add(inspector);
         }
 
-        private static CancellationToken CancelAfter(TimeSpan timeout)
+        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
         {
-            return new CancellationTokenSource(timeout).Token;
+        }
+
+        public void Validate(ServiceEndpoint endpoint)
+        {
         }
     }
 }
