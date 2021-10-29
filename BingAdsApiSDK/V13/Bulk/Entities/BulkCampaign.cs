@@ -518,6 +518,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         setting.DisclaimerAdsEnabled = v.Parse<bool>();
                     }
                 }
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.VerifiedTrackingData,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(VerifiedTrackingSetting))) as VerifiedTrackingSetting;
+                    return setting.WriteVerifiedTrackingDataToBulkString(c.Campaign.Id);
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(VerifiedTrackingSetting), true)) as VerifiedTrackingSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        v.ParseVerifiedTrackingData(setting);
+                    }
+                }
             )
 
         };

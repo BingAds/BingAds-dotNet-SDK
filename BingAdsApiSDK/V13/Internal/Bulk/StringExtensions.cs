@@ -933,6 +933,20 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return values;
         }
 
+        public static IList<string> ParseBusinessAttributes(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return null;
+            }
+
+            var values = s.Split(';')
+                    .Where(token => !string.IsNullOrWhiteSpace(token) && token != ";")
+                    .ToList();
+
+            return values;
+        }
+
         public static string WriteAutoApplyRecommendations(this IDictionary<string, bool> values, string separator)
         {
             if (values == null || values.Count == 0)
@@ -940,9 +954,26 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 return null;
             }
 
-            var text = string.Join(separator, values);
+            string text = "";
+            foreach (var value in values)
+            {
+                text += value.Key;
+                text += "=";
+                text += value.Value.ToString();
+                text += separator;
+            }
 
             return text;
+        }
+
+        public static string WriteBusinessAttributes(this IList<string> values, string separator)
+        {
+            if (values == null || values.Count == 0)
+            {
+                return null;
+            }
+
+            return string.Join(separator, values);
         }
 
         public static string ToDayTimeRangesBulkString(this IList<DayTime> dayTimeRanges, long? id)

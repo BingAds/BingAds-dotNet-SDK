@@ -73,20 +73,20 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// The identifier of the account.
         /// Corresponds to the 'Id' field in the bulk file. 
         /// </summary>
-        public long Id { get; private set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The identifier of the customer that contains the account.
         /// Corresponds to the 'Parent Id' field in the bulk file. 
         /// </summary>
-        public long CustomerId { get; private set; }
+        public long CustomerId { get; set; }
 
         /// <summary>
         /// The date and time that you last synced your account using the bulk service. 
         /// You should keep track of this value in UTC time. 
         /// Corresponds to the 'Sync Time' field in the bulk file. 
         /// </summary>
-        public DateTime SyncTime { get; private set; }
+        public DateTime SyncTime { get; set; }
 
         /// <summary>
         /// auto-tagging of the MSCLKID query string parameter is enabled or not.
@@ -130,6 +130,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// Corresponds to the 'Allow Image Auto Retrieve' field in the bulk file. 
         /// </summary>
         public bool? AllowImageAutoRetrieve { get; set; }
+
+        /// <summary>
+        /// Corresponds to the 'Business Attributes' field in the bulk file. 
+        /// </summary>
+        public IList<string> BusinessAttributes { get; set; }
 
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
@@ -186,6 +191,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkAccount>(StringTable.AllowImageAutoRetrieve,
             c => c.AllowImageAutoRetrieve?.ToString(),
             (v, c) => c.AllowImageAutoRetrieve = v.ParseOptionalBool()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.BusinessAttributes,
+            c => c.BusinessAttributes.WriteBusinessAttributes(";"),
+            (v, c) => c.BusinessAttributes = v.ParseBusinessAttributes()
             ),
         };
 

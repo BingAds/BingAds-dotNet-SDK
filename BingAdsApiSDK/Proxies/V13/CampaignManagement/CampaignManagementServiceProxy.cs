@@ -1700,7 +1700,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether to automatically generate dynamic search ad text in addition to the ad text you provide.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> DynamicDescriptionEnabled
@@ -8468,7 +8468,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         LoopBackWindowForViewThroughConversions = 1024,
         
         /// <summary>
-        /// Reserved.
+        /// Used to get or set the property that determines the account's business attributes meant to help you boost ad performance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BusinessAttributes = 2048,
@@ -15916,6 +15916,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CriterionCashback = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Operator = 2,
     }
     
     /// <summary>
@@ -25138,6 +25144,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> AccountUrlOptionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> AdScheduleUseSearcherTimezoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> AdjustmentForBidsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -25250,6 +25259,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> NewUrlOptionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> PauseAIMAdGroupIfAllAudienceCriterionNotImportedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> PauseCampaignsWithoutSupportedLocationsField;
@@ -25405,6 +25417,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.AccountUrlOptionsField = value;
                     this.RaisePropertyChanged("AccountUrlOptions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> AdScheduleUseSearcherTimezone
+        {
+            get
+            {
+                return this.AdScheduleUseSearcherTimezoneField;
+            }
+            set
+            {
+                if ((this.AdScheduleUseSearcherTimezoneField.Equals(value) != true))
+                {
+                    this.AdScheduleUseSearcherTimezoneField = value;
+                    this.RaisePropertyChanged("AdScheduleUseSearcherTimezone");
                 }
             }
         }
@@ -26165,6 +26197,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.NewUrlOptionsField = value;
                     this.RaisePropertyChanged("NewUrlOptions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> PauseAIMAdGroupIfAllAudienceCriterionNotImported
+        {
+            get
+            {
+                return this.PauseAIMAdGroupIfAllAudienceCriterionNotImportedField;
+            }
+            set
+            {
+                if ((this.PauseAIMAdGroupIfAllAudienceCriterionNotImportedField.Equals(value) != true))
+                {
+                    this.PauseAIMAdGroupIfAllAudienceCriterionNotImportedField = value;
+                    this.RaisePropertyChanged("PauseAIMAdGroupIfAllAudienceCriterionNotImported");
                 }
             }
         }
@@ -27749,19 +27801,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Campaign = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The import entity is an ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The import entity is an ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ad = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The import entity is a keyword.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
@@ -39594,7 +39646,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.SharedEntity SharedEntity;
         
         /// <summary>
-        /// The negative keywords to include with the new negative keyword list, or negative sites to include with the new website exclusion list.
+        /// The negative keywords (5,000 total maximum) to include with the new negative keyword list, or negative sites (10,000 total maximum) to include with the new website exclusion list.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems;
@@ -39622,7 +39674,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13">AddSharedEntityRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addsharedentity?view=bingads-13 for details.
         /// </remarks>
         /// <param name="SharedEntity">The negative keyword list or website exclusion list.</param>
-        /// <param name="ListItems">The negative keywords to include with the new negative keyword list, or negative sites to include with the new website exclusion list.</param>
+        /// <param name="ListItems">The negative keywords (5,000 total maximum) to include with the new negative keyword list, or negative sites (10,000 total maximum) to include with the new website exclusion list.</param>
         /// <param name="SharedEntityScope">Indicates whether the shared entity is available at the ad account (Account) or manager account (Customer) level.</param>
         public AddSharedEntityRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.SharedEntity SharedEntity, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SharedListItem> ListItems, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
         {

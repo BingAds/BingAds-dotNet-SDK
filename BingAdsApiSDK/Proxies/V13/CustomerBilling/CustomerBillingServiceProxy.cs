@@ -1944,7 +1944,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines a predicate for the list of insertion orders returned using the SearchInsertionOrders operation.
+    /// Defines a predicate for the list of insertion orders returned using one of the search operations, for example SearchCoupons or SearchInsertionOrders.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicate?view=bingads-13">Predicate Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicate?view=bingads-13 for details.
@@ -2054,7 +2054,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the condition of results for insertion orders returned using SearchInsertionOrders.
+    /// Defines the condition of results for insertion orders returned using one of the search operations, for example SearchCoupons or SearchInsertionOrders.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicateoperator?view=bingads-13">PredicateOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/predicateoperator?view=bingads-13 for details.
@@ -2115,7 +2115,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines an order for the list of insertion orders returned using the SearchInsertionOrders operation.
+    /// Defines an order for the list of insertion orders returned using one of the search operations, for example SearchCoupons or SearchInsertionOrders.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderby?view=bingads-13">OrderBy Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/orderby?view=bingads-13 for details.
@@ -2251,7 +2251,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the ascending or descending sort order of results for SearchInsertionOrders.
+    /// Defines the ascending or descending sort order of results using one of the search operations, for example SearchCoupons or SearchInsertionOrders.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/sortorder?view=bingads-13">SortOrder Value Set</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/sortorder?view=bingads-13 for details.
@@ -2363,7 +2363,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the Coupon Data Object.
+    /// Defines a coupon.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/coupon?view=bingads-13">Coupon Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/coupon?view=bingads-13 for details.
@@ -2437,7 +2437,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The code that can be used to redeem the coupon.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CouponCode
@@ -2457,7 +2457,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The class name that the coupon was minted from.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public string ClassName
@@ -2477,7 +2477,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon's type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string CouponType
@@ -2497,7 +2497,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The value amount of the coupon.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double Amount
@@ -2517,7 +2517,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon can't be consumed until the account's spend reaches this threshold from the time coupon was redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public double SpendThreshold
@@ -2537,7 +2537,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The currency of the coupon amount and spend threshold.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public string CurrencyCode
@@ -2557,7 +2557,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percent off coupon value.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<double> PercentOff
@@ -2577,7 +2577,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// Active days since coupon has been redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Nullable<int> ActiveDuration
@@ -2597,7 +2597,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon expiration date.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public System.Nullable<System.DateTime> ExpirationDate
@@ -2617,7 +2617,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon cannot be redeemed before the start date.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public System.Nullable<System.DateTime> StartDate
@@ -2637,7 +2637,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The last date that the coupon can be redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<System.DateTime> EndDate
@@ -2657,7 +2657,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The email address the coupon has been emailed by the DispatchCoupons operation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public string SendToEmail
@@ -2677,7 +2677,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date the coupon was emailed by the DispatchCoupons operation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public System.Nullable<System.DateTime> SendToDate
@@ -2697,7 +2697,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// Has the coupon been redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public bool IsRedeemed
@@ -2717,7 +2717,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// Contains redemption and consuming details.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public Microsoft.BingAds.V13.CustomerBilling.CouponRedemption RedemptionInfo
@@ -2749,7 +2749,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the CouponRedemption Data Object.
+    /// Contains redemption and consuming details.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/couponredemption?view=bingads-13">CouponRedemption Data Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/couponredemption?view=bingads-13 for details.
@@ -2802,7 +2802,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the account to which the coupon was redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AccountId
@@ -2822,7 +2822,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The account number.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AccountNumber
@@ -2842,7 +2842,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon can't be consumed until the account's spend reaches this threshold from the time coupon was redeemed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double SpendToThreshold
@@ -2862,7 +2862,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The remaining amount of the coupon in account currency.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double Balance
@@ -2882,7 +2882,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The currency of the coupon balance and spend threshold.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string CurrencyCode
@@ -2902,7 +2902,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date that coupon was redeemed to the account.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.DateTime RedemptionDate
@@ -2922,7 +2922,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The coupon expiration date.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.DateTime ExpirationDate
@@ -2942,7 +2942,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date that the coupon is ready to be consumed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Nullable<System.DateTime> ActivationDate
@@ -3179,7 +3179,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(Microsoft.BingAds.V13.CustomerBilling.GetAccountMonthlySpendRequest request);
         
         /// <summary>
-        /// Defines the DispatchCoupons Service Operation.
+        /// Dispatch coupons of the specified coupon class name owned by the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -3187,7 +3187,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DispatchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
             "Response")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
@@ -3197,7 +3197,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse DispatchCoupons(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request);
         
         /// <summary>
-        /// Defines the DispatchCoupons Service Operation.
+        /// Dispatch coupons of the specified coupon class name owned by the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -3205,13 +3205,13 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DispatchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DispatchCoupons" +
             "Response")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse> DispatchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request);
         
         /// <summary>
-        /// Defines the RedeemCoupon Service Operation.
+        /// Redeems a coupon to the specified account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -3219,7 +3219,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>The date and time that the coupon was redeemed.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RedeemCoupon", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponRes" +
             "ponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponAdA" +
@@ -3229,7 +3229,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse RedeemCoupon(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request);
         
         /// <summary>
-        /// Defines the RedeemCoupon Service Operation.
+        /// Redeems a coupon to the specified account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -3237,13 +3237,13 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>The date and time that the coupon was redeemed.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RedeemCoupon", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/RedeemCouponRes" +
             "ponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse> RedeemCouponAsync(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request);
         
         /// <summary>
-        /// Defines the SearchCoupons Service Operation.
+        /// Searches for coupons that match a specified criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -3251,7 +3251,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>A list of coupons that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsRe" +
             "sponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsAd" +
@@ -3261,7 +3261,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse SearchCoupons(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request);
         
         /// <summary>
-        /// Defines the SearchCoupons Service Operation.
+        /// Searches for coupons that match a specified criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -3269,7 +3269,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>A list of coupons that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsRe" +
             "sponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request);
@@ -3780,7 +3780,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering;
         
         /// <summary>
-        /// Determines the index and size of  results per page.
+        /// Determines the index and size of results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
         public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
@@ -3803,7 +3803,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// </remarks>
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
-        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
+        /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -3980,7 +3980,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the DispatchCoupons Service Operation.
+    /// Dispatch coupons of the specified coupon class name owned by the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -4008,19 +4008,19 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// Email addresses to which the coupons are dispatched.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public System.Collections.Generic.IList<string> SendToEmails;
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the customer that the coupon class belongs to.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
         public long CustomerId;
         
         /// <summary>
-        /// Reserved.
+        /// The name of coupon class whose available coupons are dispatched.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
         public string CouponClassName;
@@ -4041,9 +4041,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="SendToEmails">Reserved.</param>
-        /// <param name="CustomerId">Reserved.</param>
-        /// <param name="CouponClassName">Reserved.</param>
+        /// <param name="SendToEmails">Email addresses to which the coupons are dispatched.</param>
+        /// <param name="CustomerId">The identifier of the customer that the coupon class belongs to.</param>
+        /// <param name="CouponClassName">The name of coupon class whose available coupons are dispatched.</param>
         public DispatchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> SendToEmails, long CustomerId, string CouponClassName)
         {
             this.ApplicationToken = ApplicationToken;
@@ -4058,7 +4058,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the DispatchCoupons Service Operation.
+    /// Dispatch coupons of the specified coupon class name owned by the specified customer.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -4074,7 +4074,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BatchError> PartialErrors;
@@ -4095,7 +4095,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.</param>
         public DispatchCouponsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -4104,7 +4104,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the RedeemCoupon Service Operation.
+    /// Redeems a coupon to the specified account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -4132,13 +4132,13 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the account to which the coupon is redeemed.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public long AccountId;
         
         /// <summary>
-        /// Reserved.
+        /// The code of coupon to redeem.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
         public string CouponCode;
@@ -4159,8 +4159,8 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="AccountId">Reserved.</param>
-        /// <param name="CouponCode">Reserved.</param>
+        /// <param name="AccountId">The identifier of the account to which the coupon is redeemed.</param>
+        /// <param name="CouponCode">The code of coupon to redeem.</param>
         public RedeemCouponRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, string CouponCode)
         {
             this.ApplicationToken = ApplicationToken;
@@ -4174,7 +4174,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the RedeemCoupon Service Operation.
+    /// Redeems a coupon to the specified account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -4190,7 +4190,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// The date and time that the coupon was redeemed.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public System.DateTime RedemptionDate;
@@ -4211,7 +4211,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCouponResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="RedemptionDate">Reserved.</param>
+        /// <param name="RedemptionDate">The date and time that the coupon was redeemed.</param>
         public RedeemCouponResponse(string TrackingId, System.DateTime RedemptionDate)
         {
             this.TrackingId = TrackingId;
@@ -4220,7 +4220,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the SearchCoupons Service Operation.
+    /// Searches for coupons that match a specified criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Request Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -4248,19 +4248,19 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// Determines the request conditions.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates;
         
         /// <summary>
-        /// Reserved.
+        /// Determines the order of results by the specified property of a coupon.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering;
         
         /// <summary>
-        /// Reserved.
+        /// Determines the index and size of results per page.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
         public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
@@ -4281,9 +4281,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsRequest</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Predicates">Reserved.</param>
-        /// <param name="Ordering">Reserved.</param>
-        /// <param name="PageInfo">Reserved.</param>
+        /// <param name="Predicates">Determines the request conditions.</param>
+        /// <param name="Ordering">Determines the order of results by the specified property of a coupon.</param>
+        /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -4298,7 +4298,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Defines the SearchCoupons Service Operation.
+    /// Searches for coupons that match a specified criteria.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Response Object</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -4314,7 +4314,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// A list of coupons that meet the specified criteria.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Coupon> Coupons;
@@ -4335,7 +4335,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCouponsResponse</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Coupons">Reserved.</param>
+        /// <param name="Coupons">A list of coupons that meet the specified criteria.</param>
         public SearchCouponsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Coupon> Coupons)
         {
             this.TrackingId = TrackingId;
@@ -4562,7 +4562,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Defines the DispatchCoupons Service Operation.
+        /// Dispatch coupons of the specified coupon class name owned by the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -4570,14 +4570,14 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.</returns>
         public Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse DispatchCoupons(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request)
         {
             return base.Channel.DispatchCoupons(request);
         }
         
         /// <summary>
-        /// Defines the DispatchCoupons Service Operation.
+        /// Dispatch coupons of the specified coupon class name owned by the specified customer.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13">DispatchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/dispatchcoupons?view=bingads-13 for details.
@@ -4585,14 +4585,14 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array of BatchError objects that correspond to any email addresses where the coupon code could not be sent to.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsResponse> DispatchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DispatchCouponsRequest request)
         {
             return base.Channel.DispatchCouponsAsync(request);
         }
         
         /// <summary>
-        /// Defines the RedeemCoupon Service Operation.
+        /// Redeems a coupon to the specified account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -4600,14 +4600,14 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>The date and time that the coupon was redeemed.</returns>
         public Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse RedeemCoupon(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request)
         {
             return base.Channel.RedeemCoupon(request);
         }
         
         /// <summary>
-        /// Defines the RedeemCoupon Service Operation.
+        /// Redeems a coupon to the specified account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13">RedeemCoupon Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/redeemcoupon?view=bingads-13 for details.
@@ -4615,14 +4615,14 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>The date and time that the coupon was redeemed.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.RedeemCouponResponse> RedeemCouponAsync(Microsoft.BingAds.V13.CustomerBilling.RedeemCouponRequest request)
         {
             return base.Channel.RedeemCouponAsync(request);
         }
         
         /// <summary>
-        /// Defines the SearchCoupons Service Operation.
+        /// Searches for coupons that match a specified criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -4630,14 +4630,14 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>A list of coupons that meet the specified criteria.</returns>
         public Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse SearchCoupons(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request)
         {
             return base.Channel.SearchCoupons(request);
         }
         
         /// <summary>
-        /// Defines the SearchCoupons Service Operation.
+        /// Searches for coupons that match a specified criteria.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13">SearchCoupons Service Operation</see> https://docs.microsoft.com/en-us/advertising/customer-billing-service/searchcoupons?view=bingads-13 for details.
@@ -4645,7 +4645,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFault"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>A list of coupons that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request)
         {
             return base.Channel.SearchCouponsAsync(request);

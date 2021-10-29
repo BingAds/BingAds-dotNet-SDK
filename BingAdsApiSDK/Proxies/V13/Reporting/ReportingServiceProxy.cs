@@ -5134,6 +5134,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 66,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 67,
+        
+        /// <summary>
+        /// The number of conversions that originate from low-quality clicks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityConversionsQualified = 68,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 69,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 70,
     }
     
     /// <summary>
@@ -6743,6 +6767,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 87,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 88,
+        
+        /// <summary>
+        /// The number of conversions that originate from low-quality clicks.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LowQualityConversionsQualified = 89,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 90,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 91,
     }
     
     /// <summary>
@@ -7526,6 +7574,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 51,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 52,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 53,
     }
     
     /// <summary>
@@ -8710,6 +8776,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 81,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 82,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 83,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 84,
     }
     
     /// <summary>
@@ -9392,6 +9476,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 73,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 74,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 75,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 76,
     }
     
     /// <summary>
@@ -10264,6 +10366,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 74,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 75,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 76,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 77,
     }
     
     /// <summary>
@@ -11039,6 +11159,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 57,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 58,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 59,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 60,
     }
     
     /// <summary>
@@ -11461,6 +11599,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 29,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 30,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 31,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 32,
     }
     
     /// <summary>
@@ -11810,6 +11966,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 29,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 30,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 31,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 32,
     }
     
     /// <summary>
@@ -11995,7 +12169,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -12091,7 +12265,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA® in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA� in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -12293,6 +12467,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 59,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 60,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 61,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 62,
     }
     
     /// <summary>
@@ -12750,6 +12942,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 48,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 49,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 50,
     }
     
     /// <summary>
@@ -13370,6 +13580,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 56,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 57,
     }
     
     /// <summary>
@@ -13807,6 +14029,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 36,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 37,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 38,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 39,
     }
     
     /// <summary>
@@ -14183,6 +14423,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 22,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 23,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 24,
     }
     
     /// <summary>
@@ -15278,6 +15530,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 51,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 52,
     }
     
     /// <summary>
@@ -15758,6 +16022,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 48,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 49,
     }
     
     /// <summary>
@@ -16145,6 +16421,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 43,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 44,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 45,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 46,
     }
     
     /// <summary>
@@ -16619,6 +16913,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 46,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 47,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 48,
     }
     
     /// <summary>
@@ -17268,6 +17574,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 56,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 57,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 58,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 59,
     }
     
     /// <summary>
@@ -17946,6 +18270,48 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 80,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 81,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedConversionsQualified = 82,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 83,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 84,
+        
+        /// <summary>
+        /// The title associated with the purchased product.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProductBoughtTitle = 85,
+        
+        /// <summary>
+        /// Global Trade Item Number (GTIN) is a unique numerical value for commercial products that usually appears printed under the barcode on retail products.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GTIN = 86,
+        
+        /// <summary>
+        /// Manufacturer Part Number (MPN) is a unique number that identifies the product to its manufacturer.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MPN = 87,
     }
     
     /// <summary>
@@ -18558,6 +18924,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 69,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 70,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedConversionsQualified = 71,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 72,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 73,
     }
     
     /// <summary>
@@ -19086,6 +19476,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 56,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedConversionsQualified = 57,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 58,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 59,
     }
     
     /// <summary>
@@ -19624,6 +20038,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 49,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 50,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssistedConversionsQualified = 51,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 52,
     }
     
     /// <summary>
@@ -20431,7 +20863,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -20723,6 +21155,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 58,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 59,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 60,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 61,
     }
     
     /// <summary>
@@ -21291,6 +21741,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 54,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 55,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 56,
     }
     
     /// <summary>
@@ -21789,6 +22251,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 51,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 52,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 53,
     }
     
     /// <summary>
@@ -22284,6 +22764,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 48,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 49,
+        
+        /// <summary>
+        /// The number of conversions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 50,
+        
+        /// <summary>
+        /// Reserved for future use.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 51,
     }
     
     /// <summary>

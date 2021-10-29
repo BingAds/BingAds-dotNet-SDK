@@ -490,6 +490,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdClickParallelTracking,
             StringTable.AutoApplyRecommendations,
             StringTable.AllowImageAutoRetrieve,
+            StringTable.BusinessAttributes,
 
             //Final Url Suffix
             StringTable.FinalUrlSuffix,
