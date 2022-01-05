@@ -173,7 +173,18 @@ namespace BingAdsExamplesLibrary.V13
                     new ImageAdExtension
                     {
                         AlternativeText = "Image Extension Alt Text",
-                        ImageMediaIds = mediaIds
+                        ImageMediaIds = mediaIds,
+                        Images = new AssetLink[]
+                        {
+                            new AssetLink
+                            {
+                                Asset = new ImageAsset
+                                {
+                                    Id = 12345, // 1.91 aspect ratio image id. This type of image is required for Images
+                                    SubType = "LandscapeImageMedia",
+                                }
+                            }
+                        }
                     },
                     new LocationAdExtension {
                         PhoneNumber = "206-555-0100",
