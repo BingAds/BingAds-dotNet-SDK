@@ -782,7 +782,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string DynamicAdTargetCondition3 = "Dynamic Ad Target Condition 3";
         public const string DynamicAdTargetValue1 = "Dynamic Ad Target Value 1";
         public const string DynamicAdTargetValue2 = "Dynamic Ad Target Value 2";
-        public const string DynamicAdTargetValue3 = "Dynamic Ad Target Value 3";
+        public const string DynamicAdTargetValue3 = "Dynamic Ad Target Value 3";        
+        public const string DynamicAdTargetConditionOperator1 = "Dynamic Ad Target Condition Operator 1";
+        public const string DynamicAdTargetConditionOperator2 = "Dynamic Ad Target Condition Operator 2";
+        public const string DynamicAdTargetConditionOperator3 = "Dynamic Ad Target Condition Operator 3";
+
         public const string PageFeedIds = "Page Feed Ids";
 
 

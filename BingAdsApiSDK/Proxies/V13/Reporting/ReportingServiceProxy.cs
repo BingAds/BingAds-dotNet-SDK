@@ -12169,7 +12169,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -12265,7 +12265,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA� in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -12485,6 +12485,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 62,
+        
+        /// <summary>
+        /// The neighborhood where an ad was physically served, or the neighborhood that your customer had shown interest in through searches or content they had viewed.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Neighborhood = 63,
+        
+        /// <summary>
+        /// The name of a neighborhood if the user’s geographical intent can be determined.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        QueryIntentNeighborhood = 64,
     }
     
     /// <summary>
@@ -20863,7 +20875,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA® in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -21173,6 +21185,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 61,
+        
+        /// <summary>
+        /// The neighborhood where an ad was physically served, or the neighborhood that your customer had shown interest in through searches or content they had viewed.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Neighborhood = 62,
     }
     
     /// <summary>

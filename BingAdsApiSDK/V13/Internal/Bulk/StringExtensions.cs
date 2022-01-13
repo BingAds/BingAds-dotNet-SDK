@@ -78,7 +78,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static readonly Regex TargetSettingDetailsPattern = new Regex(@"^(Age|Audience|CompanyName|Gender|Industry|JobFunction)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
-        public static readonly Regex PageRulePattern = new Regex(@"^(Url|ReferrerUrl|None) (Equals|Contains|BeginsWith|EndsWith|NotEquals|DoesNotContain|DoesNotBeginWith|DoesNotEndWith) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+        public static readonly Regex PageRulePattern = new Regex(@"^(Url|ReferrerUrl|EcommPageType|EcommCategory|EcommProdId|Action|None) (Equals|Contains|BeginsWith|EndsWith|NotEquals|DoesNotContain|DoesNotBeginWith|DoesNotEndWith) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
+
+        public static readonly Regex NumberPageRulePattern = new Regex("^(EcommTotalValue) (Equals|GreaterThan|LessThan|GreaterThanEqualTo|LessThanEqualTo|NotEquals) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
         public static readonly Regex OperandPattern = new Regex(@"^(Category|Action|Label|Value) ([^()]*)$", RegexOptions.CultureInvariant | RegexOptions.Compiled);
 
@@ -2011,7 +2013,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return ruleItemGroup;
         }
 
-        private static StringRuleItem ParseRuleItem(string ruleItemStr)
+        private static RuleItem ParseRuleItem(string ruleItemStr)
         {
             if (string.IsNullOrEmpty(ruleItemStr))
             {
@@ -2022,21 +2024,38 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             var match = PageRulePattern.Match(ruleItemStr);
 
-            if (!match.Success)
+            if (match.Success)
             {
-                throw new ArgumentException(string.Format("Invalid Rule Item: {0}", ruleItemStr));
+                return new StringRuleItem
+                {
+                    Type = "String",
+
+                    Operand = match.Groups[1].Value,
+
+                    Operator = ParseStringOperator(match.Groups[2].Value),
+
+                    Value = match.Groups[3].Value
+                };
             }
 
-            return new StringRuleItem
+            match = NumberPageRulePattern.Match(ruleItemStr);
+
+            if (match.Success)
             {
-                Type = "String",
+                return new NumberRuleItem
+                {
+                    Type = "Number",
 
-                Operand = match.Groups[1].Value,
+                    Operand = match.Groups[1].Value,
 
-                Operator = ParseStringOperator(match.Groups[2].Value),
+                    Operator = ParseNumberOperator(match.Groups[2].Value),
 
-                Value = match.Groups[3].Value
-            };
+                    Value = match.Groups[3].Value
+                };
+            }
+
+            throw new ArgumentException(string.Format("Invalid Rule Item: {0}", ruleItemStr));
+
         }
 
         private static NumberOperator ParseNumberOperator(string numOperator)
@@ -2058,6 +2077,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return NumberOperator.LessThan;
 
                 case "lessthanequalto":
+                    return NumberOperator.LessThanEqualTo;
+                    
+                case "notequals":
                     return NumberOperator.LessThanEqualTo;
 
                 default:

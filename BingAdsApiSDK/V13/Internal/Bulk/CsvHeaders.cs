@@ -464,6 +464,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.DynamicAdTargetValue1,
             StringTable.DynamicAdTargetValue2,
             StringTable.DynamicAdTargetValue3,
+            StringTable.DynamicAdTargetConditionOperator1,
+            StringTable.DynamicAdTargetConditionOperator2,
+            StringTable.DynamicAdTargetConditionOperator3,
             StringTable.PageFeedIds,
 
             // Labels
