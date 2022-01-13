@@ -4246,6 +4246,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Defines the possible compression types for the file to download.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/compressiontype?view=bingads-13">CompressionType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/compressiontype?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetGeoLocationsFileUrl">GetGeoLocationsFileUrl</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompressionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum CompressionType : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Zip = 0,
+        
+        /// <summary>
+        /// The file should be GZIP compressed.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GZip = 1,
+    }
+    
+    /// <summary>
     /// Defines the base object of an ad.
     /// </summary>
     /// <remarks>
@@ -6435,6 +6460,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RegisterNow = 79,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Automated = 100,
     }
     
     /// <summary>
@@ -17519,6 +17550,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.WebpageConditionOperand OperandField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.WebpageConditionOperator> OperatorField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -17567,6 +17601,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.OperandField = value;
                     this.RaisePropertyChanged("Operand");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.WebpageConditionOperator> Operator
+        {
+            get
+            {
+                return this.OperatorField;
+            }
+            set
+            {
+                if ((this.OperatorField.Equals(value) != true))
+                {
+                    this.OperatorField = value;
+                    this.RaisePropertyChanged("Operator");
                 }
             }
         }
@@ -17630,6 +17684,37 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel = 5,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/webpageconditionoperator?view=bingads-13">WebpageConditionOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/webpageconditionoperator?view=bingads-13 for details.
+    /// <para>Used by <see cref="WebpageCondition"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WebpageConditionOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum WebpageConditionOperator : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Equals = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Contains = 2,
     }
     
     /// <summary>
@@ -21477,6 +21562,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.DataContractAttribute(Name="RuleItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.StringRuleItem))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NumberRuleItem))]
     public partial class RuleItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -21614,6 +21700,89 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/numberruleitem?view=bingads-13">NumberRuleItem Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/numberruleitem?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NumberRuleItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class NumberRuleItem : Microsoft.BingAds.V13.CampaignManagement.RuleItem
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OperandField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.NumberOperator OperatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Operand
+        {
+            get
+            {
+                return this.OperandField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.OperandField, value) != true))
+                {
+                    this.OperandField = value;
+                    this.RaisePropertyChanged("Operand");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.NumberOperator Operator
+        {
+            get
+            {
+                return this.OperatorField;
+            }
+            set
+            {
+                if ((this.OperatorField.Equals(value) != true))
+                {
+                    this.OperatorField = value;
+                    this.RaisePropertyChanged("Operator");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ValueField, value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the operators that can be applied to remarketing list rule item string values.
     /// </summary>
     /// <remarks>
@@ -21685,7 +21854,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/numberoperator?view=bingads-13">NumberOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/numberoperator?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomEventsRule"/> data object.</para>
+    /// <para>Used by <see cref="CustomEventsRule"/> and <see cref="NumberRuleItem"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NumberOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -21727,6 +21896,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LessThanEqualTo = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotEquals = 6,
     }
     
     /// <summary>
@@ -21907,6 +22082,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NormalForm = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NumberRuleItem = 2,
     }
     
     /// <summary>
@@ -23575,7 +23756,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// This field can only be set for conversions actions which use external attribution.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> ExternalAttributionCredit
@@ -23595,7 +23776,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// This field can only be set for conversions actions which use external attribution.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ExternalAttributionModel
@@ -25207,6 +25388,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> NewEntitiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewImageAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> NewKeywordUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -25346,6 +25530,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateEntitiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateImageAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateKeywordUrlsField;
@@ -25842,6 +26029,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> NewImageAdExtensions
+        {
+            get
+            {
+                return this.NewImageAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewImageAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewImageAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewImageAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Import new keyword landing page URLs.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -26204,7 +26411,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> PauseAIMAdGroupIfAllAudienceCriterionNotImported
         {
             get
@@ -26777,6 +26984,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.UpdateEntitiesField = value;
                     this.RaisePropertyChanged("UpdateEntities");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateImageAdExtensions
+        {
+            get
+            {
+                return this.UpdateImageAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateImageAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateImageAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateImageAdExtensions");
                 }
             }
         }
@@ -27393,6 +27620,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchAndReplaceForCustomParameters = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdScheduleUseSearcherTimezone = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewImageAdExtensions = 32,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateImageAdExtensions = 64,
     }
     
     /// <summary>
@@ -34064,6 +34309,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string LanguageLocale;
         
         /// <summary>
+        /// Defines the possible compression types for the file to download.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CompressionType> CompressionType;
+        
+        /// <summary>
         /// Constructor for the GetGeoLocationsFileUrlRequest request object.
         /// </summary>
         /// <remarks>
@@ -34081,7 +34332,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="Version">The version of the location file that you want to download.</param>
         /// <param name="LanguageLocale">The language and locale of the geographical location display names.</param>
-        public GetGeoLocationsFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string Version, string LanguageLocale)
+        /// <param name="CompressionType">Defines the possible compression types for the file to download.</param>
+        public GetGeoLocationsFileUrlRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string Version, string LanguageLocale, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CompressionType> CompressionType)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -34092,6 +34344,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.Version = Version;
             this.LanguageLocale = LanguageLocale;
+            this.CompressionType = CompressionType;
         }
     }
     

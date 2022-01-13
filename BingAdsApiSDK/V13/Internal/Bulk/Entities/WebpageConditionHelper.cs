@@ -61,18 +61,30 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         {
             var conditionHeaderPrefix = StringTable.DynamicAdTargetCondition1.Remove(StringTable.DynamicAdTargetCondition1.Length - 1);
             var valueHeaderPrefix = StringTable.DynamicAdTargetValue1.Remove(StringTable.DynamicAdTargetValue1.Length - 1);
+            var conditionOperatorHeaderPrefix = StringTable.DynamicAdTargetConditionOperator1.Remove(StringTable.DynamicAdTargetConditionOperator1.Length - 1);
 
             for (int i = 1; i <= MaxNumberOfConditions; i++)
             {
                 string webpageCondition;
                 string webpageValue;
+                string webpageConditionOperator;
 
                 values.TryGetValue(conditionHeaderPrefix + i, out webpageCondition);
                 values.TryGetValue(valueHeaderPrefix + i, out webpageValue);
+                values.TryGetValue(conditionOperatorHeaderPrefix + i, out webpageConditionOperator);
 
                 if (!string.IsNullOrEmpty(webpageCondition) || !string.IsNullOrEmpty(webpageValue))
                 {
-                    conditions.Add(new WebpageCondition { Operand = webpageCondition.Parse<WebpageConditionOperand>(), Argument = webpageValue });
+                    var wpCondition = new WebpageCondition 
+                    {
+                        Operand = webpageCondition.Parse<WebpageConditionOperand>(),
+                        Argument = webpageValue
+                    };
+                    if (!string.IsNullOrEmpty(webpageConditionOperator))
+                    {
+                        wpCondition.Operator = webpageConditionOperator.Parse<WebpageConditionOperator>();
+                    }
+                    conditions.Add(wpCondition);
                 }
             }
         }
@@ -81,11 +93,13 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         {
             var conditionHeaderPrefix = StringTable.DynamicAdTargetCondition1.Remove(StringTable.DynamicAdTargetCondition1.Length - 1);
             var valueHeaderPrefix = StringTable.DynamicAdTargetValue1.Remove(StringTable.DynamicAdTargetValue1.Length - 1);
+            var conditionOperatorHeaderPrefix = StringTable.DynamicAdTargetConditionOperator1.Remove(StringTable.DynamicAdTargetConditionOperator1.Length - 1);
 
             for (var i = 1; i <= conditions.Count; i++)
             {
                 rowValues[conditionHeaderPrefix + i] = conditions[i - 1].Operand.ToString();
                 rowValues[valueHeaderPrefix + i] = conditions[i - 1].Argument;
+                rowValues[conditionOperatorHeaderPrefix + i] = conditions[i - 1].Operator.GetValueOrDefault().ToString();
             }
         }
     }
