@@ -104,6 +104,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> GoalIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -298,6 +301,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<long> GoalIds
+        {
+            get
+            {
+                return this.GoalIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.GoalIdsField, value) != true))
+                {
+                    this.GoalIdsField = value;
+                    this.RaisePropertyChanged("GoalIds");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The unique Microsoft Advertising identifier of the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -398,7 +421,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The time zone where the campaign operates.
+        /// This column is deprecated.<br/><br/> The time zone where the campaign operates.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TimeZone
@@ -460,7 +483,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, or Shopping campaign.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -480,7 +503,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The supported settings that vary by campaign type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -500,7 +523,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The unique Microsoft Advertising identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -520,7 +543,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -540,7 +563,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -560,7 +583,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The system-generated identifier of the BidStrategy that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=20)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -1680,7 +1703,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.DynamicSearchAdsSource> SourceField;
         
         /// <summary>
-        /// The domain name of the website that you want to target for dynamic search ads.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DomainName
@@ -2184,7 +2207,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AddVideos">AddVideos</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteVideos">DeleteVideos</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.GetVideosByIds">GetVideosByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateImportJobs">UpdateImportJobs</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see>, <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> and <see cref="CampaignManagementServiceClient.UpdateVideos">UpdateVideos</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AddVideos">AddVideos</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteVideos">DeleteVideos</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.GetVideosByIds">GetVideosByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateImportJobs">UpdateImportJobs</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see>, <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> and <see cref="CampaignManagementServiceClient.UpdateVideos">UpdateVideos</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3125,6 +3148,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisclaimerSetting = 1024,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignConversionGoal = 2048,
     }
     
     /// <summary>
@@ -4258,13 +4287,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Reserved for future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Zip = 0,
         
         /// <summary>
-        /// The file should be GZIP compressed.
+        /// The file should be GZip compressed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GZip = 1,
@@ -6465,6 +6494,60 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
+        BuildNow = 80,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Dealers = 81,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetDemo = 82,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GetNow = 83,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoToDemo = 84,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeDemo = 85,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeModels = 86,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SeeOffers = 87,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewDemo = 88,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
         Automated = 100,
     }
     
@@ -6689,6 +6772,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Japanese = 56,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hebrew = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Russian = 93,
         
         /// <summary>
         /// The corresponding language name.
@@ -8503,6 +8598,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BusinessAttributes = 2048,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        EnableMMAUnderDSAAdgroups = 4096,
     }
     
     /// <summary>
@@ -17606,7 +17707,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The webpage condition operator.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.WebpageConditionOperator> Operator
@@ -17687,7 +17788,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible operator values that can be applied to the argument of a webpage condition for dynamic search ads.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/webpageconditionoperator?view=bingads-13">WebpageConditionOperator Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/webpageconditionoperator?view=bingads-13 for details.
@@ -17705,13 +17806,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The property should be equal to the corresponding argument value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Equals = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The property should contain the corresponding argument value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Contains = 2,
@@ -22416,6 +22517,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InactiveDueToTagUnavailable = 8,
+        
+        /// <summary>
+        /// Determines which attribution model, _LastTouch_ or _LastClick_, is used with a conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AttributionModelType = 16,
     }
     
     /// <summary>
@@ -22441,6 +22548,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AttributionModelType> AttributionModelTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> ConversionWindowInMinutesField;
@@ -22490,6 +22600,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             set
             {
                 this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Determines which attribution model, _LastTouch_ or _LastClick_, is used with a conversion goal.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AttributionModelType> AttributionModelType
+        {
+            get
+            {
+                return this.AttributionModelTypeField;
+            }
+            set
+            {
+                if ((this.AttributionModelTypeField.Equals(value) != true))
+                {
+                    this.AttributionModelTypeField = value;
+                    this.RaisePropertyChanged("AttributionModelType");
+                }
             }
         }
         
@@ -23284,7 +23414,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> IsExternallyAttributedField;
         
         /// <summary>
-        /// Reserved for future use.
+        /// This determines if your offline conversion goal uses your own attribution model and allows you to import fractional credit for each MSCLKID.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> IsExternallyAttributed
@@ -23316,6 +23446,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.SerializableAttribute()]
     public partial class InStoreTransactionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
     {
+    }
+    
+    /// <summary>
+    /// Determines which attribution model, _LastTouch_ or _LastClick_, is used with a conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/attributionmodeltype?view=bingads-13">AttributionModelType Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/attributionmodeltype?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionGoal"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AttributionModelType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AttributionModelType : int
+    {
+        
+        /// <summary>
+        /// View-through conversions are excluded from the "Conversions" column and reported separately under "View-through conversions" and "All conversions." <br /><br />This is the default attribution model type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LastClick = 0,
+        
+        /// <summary>
+        /// View-through conversion are included in the "Conversions" column.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LastTouch = 1,
     }
     
     /// <summary>
@@ -25472,6 +25627,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForCustomParametersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForFinalURLSuffixField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForTrackingTemplatesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -26589,6 +26747,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V13.CampaignManagement.ImportSearchAndReplaceForStringProperty SearchAndReplaceForFinalURLSuffix
+        {
+            get
+            {
+                return this.SearchAndReplaceForFinalURLSuffixField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SearchAndReplaceForFinalURLSuffixField, value) != true))
+                {
+                    this.SearchAndReplaceForFinalURLSuffixField = value;
+                    this.RaisePropertyChanged("SearchAndReplaceForFinalURLSuffix");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Set this option to find and replace a string within each tracking template during import.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -27638,6 +27816,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateImageAdExtensions = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchAndReplaceForFinalURLSuffix = 128,
     }
     
     /// <summary>
@@ -28342,6 +28526,91 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.UrlField = value;
                     this.RaisePropertyChanged("Url");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the base object of a campaign conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignconversiongoal?view=bingads-13">CampaignConversionGoal Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignconversiongoal?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see> and <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see> service operations.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignConversionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class CampaignConversionGoal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long CampaignIdField;
+        
+        private long GoalIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long GoalId
+        {
+            get
+            {
+                return this.GoalIdField;
+            }
+            set
+            {
+                if ((this.GoalIdField.Equals(value) != true))
+                {
+                    this.GoalIdField = value;
+                    this.RaisePropertyChanged("GoalId");
                 }
             }
         }
@@ -32226,6 +32495,70 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="UpdateVideos", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateVideosResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse> UpdateVideosAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request);
+        
+        /// <summary>
+        /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddCampaignConversionGoalsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddCampaignConversionGoalsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddCampaignConversionGoalsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse AddCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request);
+        
+        /// <summary>
+        /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="AddCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
+            "ddCampaignConversionGoalsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse> AddCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request);
+        
+        /// <summary>
+        /// Deletes a campaign conversion goal.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteCampaignConversionGoalsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteCampaignConversionGoalsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteCampaignConversionGoalsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse DeleteCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request);
+        
+        /// <summary>
+        /// Deletes a campaign conversion goal.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
+            "eleteCampaignConversionGoalsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse> DeleteCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request);
     }
     
     /// <summary>
@@ -47780,6 +48113,238 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddCampaignConversionGoalsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddCampaignConversionGoalsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal;
+        
+        /// <summary>
+        /// Constructor for the AddCampaignConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        public AddCampaignConversionGoalsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddCampaignConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignConversionGoal">Reserved.</param>
+        public AddCampaignConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignConversionGoal = CampaignConversionGoal;
+        }
+    }
+    
+    /// <summary>
+    /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="AddCampaignConversionGoalsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class AddCampaignConversionGoalsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the AddCampaignConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        public AddCampaignConversionGoalsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the AddCampaignConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public AddCampaignConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes a campaign conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCampaignConversionGoalsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteCampaignConversionGoalsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal;
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteCampaignConversionGoalsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignConversionGoalsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsRequest</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignConversionGoal">Reserved.</param>
+        public DeleteCampaignConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignConversionGoal = CampaignConversionGoal;
+        }
+    }
+    
+    /// <summary>
+    /// Deletes a campaign conversion goal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCampaignConversionGoalsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class DeleteCampaignConversionGoalsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        public DeleteCampaignConversionGoalsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DeleteCampaignConversionGoalsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsResponse</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public DeleteCampaignConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICampaignManagementServiceChannel : Microsoft.BingAds.V13.CampaignManagement.ICampaignManagementService, System.ServiceModel.IClientChannel
     {
@@ -51432,6 +51997,66 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateVideosResponse> UpdateVideosAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateVideosRequest request)
         {
             return base.Channel.UpdateVideosAsync(request);
+        }
+        
+        /// <summary>
+        /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse AddCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request)
+        {
+            return base.Channel.AddCampaignConversionGoals(request);
+        }
+        
+        /// <summary>
+        /// Adds new campaign conversion goals to the account's shared campaign conversion goal library.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse> AddCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request)
+        {
+            return base.Channel.AddCampaignConversionGoalsAsync(request);
+        }
+        
+        /// <summary>
+        /// Deletes a campaign conversion goal.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse DeleteCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request)
+        {
+            return base.Channel.DeleteCampaignConversionGoals(request);
+        }
+        
+        /// <summary>
+        /// Deletes a campaign conversion goal.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoals Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse> DeleteCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request)
+        {
+            return base.Channel.DeleteCampaignConversionGoalsAsync(request);
         }
     }
 }

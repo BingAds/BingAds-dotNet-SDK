@@ -102,6 +102,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
         /// Corresponds to the 'Sub Type' field in the bulk file. 
         /// </summary>
         public string SubType { get; set; }
+
+        /// <summary>
+        /// The schedule of your feed.
+        /// Corresponds to the 'Schedule' field in the bulk file. 
+        /// </summary>
+        public string Schedule { get; set; }
         
         private static readonly IBulkMapping<BulkFeed>[] Mappings =
         {
@@ -134,6 +140,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
                 c => c.Status.ToBulkString(),
                 (v, c) => c.Status = v.ParseOptional<Status>()
             ),
+
+            new SimpleBulkMapping<BulkFeed>(StringTable.Schedule,
+                c => c.Schedule,
+                (v, c) => c.Schedule = v
+            )
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

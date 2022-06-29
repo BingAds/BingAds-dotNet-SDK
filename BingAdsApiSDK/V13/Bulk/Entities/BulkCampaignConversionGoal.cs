@@ -47,64 +47,51 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
+using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds
-{    
+namespace Microsoft.BingAds.V13.Bulk.Entities
+{
     /// <summary>
-    /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
+    /// <para>
+    /// Represents a campaign conversion goal that can be read or written in a bulk file. 
+    /// This class exposes properties that can be read and written 
+    /// as fields of the Campaign Conversion Goal record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Conversion Goal</see>. </para>
     /// </summary>
-    /// <remarks>
-    /// You can get OAuthTokens using the RequestAccessAndRefreshTokens method of RequestAccessAndRefreshTokens method of 
-    /// either the <see cref="OAuthDesktopMobileAuthCodeGrant"/> or <see cref="OAuthWebAuthCodeGrant"/> classes.
-    /// </remarks>
-    public class OAuthTokens
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignConversionGoal : SingleRecordBulkEntity
     {
-        private readonly string _accessToken;
-        private readonly int _accessTokenExpiresInSeconds;
-        private readonly string _refreshToken;
-        private readonly IDictionary<string, string> _responseFragments;
-        private readonly DateTime _accessTokenReceivedDateTime;
+        public CampaignConversionGoal CampaignConversionGoal { get; set; }
 
-        /// <summary>
-        /// Creates a new instance of this class.
-        /// </summary>
-        /// <param name="accessToken">Access token</param>
-        /// <param name="accessTokenExpiresInSeconds">Access token expiration time</param>
-        /// <param name="refreshToken">Refresh token</param>
-        public OAuthTokens(string accessToken, int accessTokenExpiresInSeconds, string refreshToken, IDictionary<string, string> fragments = null)
+        private static readonly IBulkMapping<BulkCampaignConversionGoal>[] Mappings =
         {
-            _accessToken = accessToken;
-            _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
-            _refreshToken = refreshToken;
-            _responseFragments = fragments;
-            _accessTokenReceivedDateTime = DateTime.UtcNow;
+            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.ParentId,
+                c => c.CampaignConversionGoal.CampaignId.ToBulkString(),
+                (v, c) => c.CampaignConversionGoal.CampaignId = v.Parse<long>()
+            ),
+
+            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.GoalId,
+                c => c.CampaignConversionGoal.GoalId.ToBulkString(),
+                (v, c) => c.CampaignConversionGoal.GoalId = v.Parse<long>()
+            ),
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            CampaignConversionGoal = new CampaignConversionGoal();
+            values.ConvertToEntity(this, Mappings);
         }
 
-        /// <summary>
-        /// Check if the Access Token has been expired.
-        /// </summary>
-        public bool AccessTokenExpired => AccessTokenExpiresInSeconds > 0 && DateTime.UtcNow > _accessTokenReceivedDateTime.AddSeconds(AccessTokenExpiresInSeconds);
-
-        /// <summary>
-        /// OAuth access token that will be used for authorization in the Bing Ads services.
-        /// </summary>
-        public string AccessToken => _accessToken;
-
-        /// <summary>
-        /// Expiration time for the corresponding access token in seconds.
-        /// </summary>
-        public int AccessTokenExpiresInSeconds => _accessTokenExpiresInSeconds;
-
-        /// <summary>
-        /// OAuth refresh token that can be user to refresh an access token. 
-        /// </summary>
-        public string RefreshToken => _refreshToken;
-
-        /// <summary>
-        /// OAuth WholeFragments.
-        /// </summary>
-        public IDictionary<string, string> ResponseFragments => _responseFragments;
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            this.ConvertToValues(values, Mappings);
+        }
     }
 }

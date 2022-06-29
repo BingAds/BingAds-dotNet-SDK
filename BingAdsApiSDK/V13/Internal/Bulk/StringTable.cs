@@ -279,6 +279,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CustomAttributes = "Custom Attributes";
         public const string TargetAdGroupId = "Target Ad Group Id";
         public const string TargetCampaignId = "Target Campaign Id";
+        public const string Schedule = "Schedule";
 
         public const string PhysicalIntent = "Physical Intent";
 
@@ -849,5 +850,17 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         // Final Url Suffix
         public const string FinalUrlSuffix = "Final Url Suffix";
+
+        // Campaign Conversion Goal
+        public const string GoalId = "Goal Id";
+        public const string CampaignConversionGoal = "Campaign Conversion Goal";
+
+        //RSA AdCustomizer
+        public const string AdCustomizerAttribute = "Adcustomizer Attribute";
+        public const string CampaignAdcustomizerAttribute = "Campaign Adcustomizer Attribute";
+        public const string AdGroupAdcustomizerAttribute = "Adgroup Adcustomizer Attribute";
+        public const string KeywordAdcustomizerAttribute = "Keyword Adcustomizer Attribute";
+        public const string AdCustomizerDataType = "AdCustomizer DataType";
+        public const string AdCustomizerAttributeValue = "AdCustomizer AttributeValue";
     }
 }

@@ -5154,10 +5154,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 69,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 70,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 71,
     }
     
     /// <summary>
@@ -6787,10 +6793,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 90,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 91,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 92,
     }
     
     /// <summary>
@@ -7588,10 +7600,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 52,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 53,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 54,
     }
     
     /// <summary>
@@ -8790,10 +8808,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 83,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 84,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 85,
     }
     
     /// <summary>
@@ -9490,10 +9514,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 75,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 76,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 77,
     }
     
     /// <summary>
@@ -10380,10 +10410,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 76,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 77,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 78,
     }
     
     /// <summary>
@@ -11173,10 +11209,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 59,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 60,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 61,
     }
     
     /// <summary>
@@ -11613,10 +11655,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 31,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 32,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 33,
     }
     
     /// <summary>
@@ -11980,10 +12028,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 31,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 32,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 33,
     }
     
     /// <summary>
@@ -12481,7 +12535,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 61,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 62,
@@ -12497,6 +12551,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentNeighborhood = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 65,
     }
     
     /// <summary>
@@ -12968,10 +13028,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 49,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 50,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 51,
     }
     
     /// <summary>
@@ -14055,10 +14121,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 38,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 39,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 40,
     }
     
     /// <summary>
@@ -14443,10 +14515,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 23,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 24,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 25,
     }
     
     /// <summary>
@@ -16447,10 +16525,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 45,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 47,
     }
     
     /// <summary>
@@ -17600,10 +17684,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 58,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 59,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 60,
     }
     
     /// <summary>
@@ -18302,7 +18392,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 83,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 84,
@@ -18324,6 +18414,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MPN = 87,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 88,
     }
     
     /// <summary>
@@ -18956,10 +19052,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 72,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 73,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 74,
     }
     
     /// <summary>
@@ -19508,10 +19610,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 58,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 59,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 60,
     }
     
     /// <summary>
@@ -21181,7 +21289,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 60,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 61,
@@ -21191,6 +21299,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Neighborhood = 62,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 63,
     }
     
     /// <summary>
@@ -21771,6 +21885,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 56,
+        
+        /// <summary>
+        /// The dynamic search ad text automatically generated by Microsoft Advertising when DynamicDescriptionEnabled is set to true.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Description = 57,
     }
     
     /// <summary>
@@ -22283,10 +22403,22 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 52,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 53,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an ad.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 54,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 55,
     }
     
     /// <summary>
@@ -22796,10 +22928,16 @@ namespace Microsoft.BingAds.V13.Reporting
         AllConversionsQualified = 50,
         
         /// <summary>
-        /// Reserved for future use.
+        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 51,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 52,
     }
     
     /// <summary>
