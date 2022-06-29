@@ -47,64 +47,66 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
+using Microsoft.BingAds.V13.Bulk.Entities.AdCustomizerAttrributes;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds
-{    
+namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
+{
     /// <summary>
-    /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
+    /// This abstract base class provides properties that are shared by all bulk ad customizer attribute entity classes.
     /// </summary>
-    /// <remarks>
-    /// You can get OAuthTokens using the RequestAccessAndRefreshTokens method of RequestAccessAndRefreshTokens method of 
-    /// either the <see cref="OAuthDesktopMobileAuthCodeGrant"/> or <see cref="OAuthWebAuthCodeGrant"/> classes.
-    /// </remarks>
-    public class OAuthTokens
+    /// <seealso cref="BulkCampaignAdCustomizerAttribute"/>
+    /// <seealso cref="BulkAdGroupAdCustomizerAttribute"/>
+    /// <seealso cref="BulkKeywordAdCustomizerAttribute"/>
+    public abstract class BulkAdCustomizerAttributeEntityBase : SingleRecordBulkEntity
     {
-        private readonly string _accessToken;
-        private readonly int _accessTokenExpiresInSeconds;
-        private readonly string _refreshToken;
-        private readonly IDictionary<string, string> _responseFragments;
-        private readonly DateTime _accessTokenReceivedDateTime;
+        public string Id { get; set; }
 
-        /// <summary>
-        /// Creates a new instance of this class.
-        /// </summary>
-        /// <param name="accessToken">Access token</param>
-        /// <param name="accessTokenExpiresInSeconds">Access token expiration time</param>
-        /// <param name="refreshToken">Refresh token</param>
-        public OAuthTokens(string accessToken, int accessTokenExpiresInSeconds, string refreshToken, IDictionary<string, string> fragments = null)
+        public string Name { get; set; }
+
+        public string AttributeValue { get; set; }
+
+        public long? ParentId { get; set; }
+
+        public EditorialStatus? EditorialStatus { get; set; }
+
+        private static readonly IBulkMapping<BulkAdCustomizerAttributeEntityBase>[] Mappings =
         {
-            _accessToken = accessToken;
-            _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
-            _refreshToken = refreshToken;
-            _responseFragments = fragments;
-            _accessTokenReceivedDateTime = DateTime.UtcNow;
+            new SimpleBulkMapping<BulkAdCustomizerAttributeEntityBase>(StringTable.Id,
+                c => c.Id,
+                (v, c) => c.Id = v
+            ),
+
+            new SimpleBulkMapping<BulkAdCustomizerAttributeEntityBase>(StringTable.Name,
+                c => c.Name,
+                (v, c) => c.Name = v
+            ),
+
+            new SimpleBulkMapping<BulkAdCustomizerAttributeEntityBase>(StringTable.AdCustomizerAttributeValue,
+                c => c.AttributeValue,
+                (v, c) => c.AttributeValue = v
+            ),
+
+            new SimpleBulkMapping<BulkAdCustomizerAttributeEntityBase>(StringTable.EditorialStatus,
+                c => c.EditorialStatus.ToBulkString(),
+                (v, c) => c.EditorialStatus = v.ParseOptional<EditorialStatus>()
+            ),
+
+            new SimpleBulkMapping<BulkAdCustomizerAttributeEntityBase>(StringTable.ParentId,
+                c => c.ParentId.ToBulkString(),
+                (v, c) => c.ParentId = v.ParseOptional<long>()
+            )
+
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            values.ConvertToEntity(this, Mappings);
         }
 
-        /// <summary>
-        /// Check if the Access Token has been expired.
-        /// </summary>
-        public bool AccessTokenExpired => AccessTokenExpiresInSeconds > 0 && DateTime.UtcNow > _accessTokenReceivedDateTime.AddSeconds(AccessTokenExpiresInSeconds);
-
-        /// <summary>
-        /// OAuth access token that will be used for authorization in the Bing Ads services.
-        /// </summary>
-        public string AccessToken => _accessToken;
-
-        /// <summary>
-        /// Expiration time for the corresponding access token in seconds.
-        /// </summary>
-        public int AccessTokenExpiresInSeconds => _accessTokenExpiresInSeconds;
-
-        /// <summary>
-        /// OAuth refresh token that can be user to refresh an access token. 
-        /// </summary>
-        public string RefreshToken => _refreshToken;
-
-        /// <summary>
-        /// OAuth WholeFragments.
-        /// </summary>
-        public IDictionary<string, string> ResponseFragments => _responseFragments;
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            this.ConvertToValues(values, Mappings);
+        }
     }
 }

@@ -47,64 +47,21 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-
-namespace Microsoft.BingAds
-{    
+namespace Microsoft.BingAds.V13.Bulk.Entities.AdCustomizerAttrributes
+{
     /// <summary>
-    /// Contains information about OAuth access tokens received from the Microsoft Account authorization service.
+    /// Provides possible attribute type values for bulk ad customizer attribute entities. 
     /// </summary>
-    /// <remarks>
-    /// You can get OAuthTokens using the RequestAccessAndRefreshTokens method of RequestAccessAndRefreshTokens method of 
-    /// either the <see cref="OAuthDesktopMobileAuthCodeGrant"/> or <see cref="OAuthWebAuthCodeGrant"/> classes.
-    /// </remarks>
-    public class OAuthTokens
+    public enum AttributeType
     {
-        private readonly string _accessToken;
-        private readonly int _accessTokenExpiresInSeconds;
-        private readonly string _refreshToken;
-        private readonly IDictionary<string, string> _responseFragments;
-        private readonly DateTime _accessTokenReceivedDateTime;
+        Unknown = 0,
 
-        /// <summary>
-        /// Creates a new instance of this class.
-        /// </summary>
-        /// <param name="accessToken">Access token</param>
-        /// <param name="accessTokenExpiresInSeconds">Access token expiration time</param>
-        /// <param name="refreshToken">Refresh token</param>
-        public OAuthTokens(string accessToken, int accessTokenExpiresInSeconds, string refreshToken, IDictionary<string, string> fragments = null)
-        {
-            _accessToken = accessToken;
-            _accessTokenExpiresInSeconds = accessTokenExpiresInSeconds;
-            _refreshToken = refreshToken;
-            _responseFragments = fragments;
-            _accessTokenReceivedDateTime = DateTime.UtcNow;
-        }
+        Number = 1,
 
-        /// <summary>
-        /// Check if the Access Token has been expired.
-        /// </summary>
-        public bool AccessTokenExpired => AccessTokenExpiresInSeconds > 0 && DateTime.UtcNow > _accessTokenReceivedDateTime.AddSeconds(AccessTokenExpiresInSeconds);
+        String = 3,
 
-        /// <summary>
-        /// OAuth access token that will be used for authorization in the Bing Ads services.
-        /// </summary>
-        public string AccessToken => _accessToken;
+        Price = 13,
 
-        /// <summary>
-        /// Expiration time for the corresponding access token in seconds.
-        /// </summary>
-        public int AccessTokenExpiresInSeconds => _accessTokenExpiresInSeconds;
-
-        /// <summary>
-        /// OAuth refresh token that can be user to refresh an access token. 
-        /// </summary>
-        public string RefreshToken => _refreshToken;
-
-        /// <summary>
-        /// OAuth WholeFragments.
-        /// </summary>
-        public IDictionary<string, string> ResponseFragments => _responseFragments;
+        Percent = 14
     }
 }

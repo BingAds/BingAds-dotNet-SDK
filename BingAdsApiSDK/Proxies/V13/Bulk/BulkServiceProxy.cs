@@ -967,6 +967,36 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignDisclaimerAdExtensions = 139,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdcustomizerAttribute = 140,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignAdcustomizerAttribute = 141,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupAdcustomizerAttribute = 142,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        KeywordAdcustomizerAttribute = 143,
+        
+        /// <summary>
+        /// Include Campaign level conversion goal records in the download data.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignConversionGoal = 144,
     }
     
     /// <summary>

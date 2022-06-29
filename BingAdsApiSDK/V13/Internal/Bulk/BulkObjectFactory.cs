@@ -157,6 +157,7 @@ using BulkProductAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkProductAdLabe
 using BulkTextAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkTextAdLabel;
 using BulkOfflineConversion = Microsoft.BingAds.V13.Bulk.Entities.BulkOfflineConversion;
 using BulkVideo = Microsoft.BingAds.V13.Bulk.Entities.BulkVideo;
+using Microsoft.BingAds.V13.Bulk.Entities.AdCustomizerAttrributes;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -183,7 +184,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.DisclaimerAdExtension,                new EntityInfo(() => new BulkDisclaimerAdExtension())},
                 {StringTable.ResponsiveSearchAd,                new EntityInfo(() => new BulkResponsiveSearchAd())},
                 {StringTable.Keyword,                       new EntityInfo(() => new BulkKeyword())},
-                 {StringTable.ImageAdExtension,              new EntityInfo(() => new BulkImageAdExtension())},
+                {StringTable.ImageAdExtension,              new EntityInfo(() => new BulkImageAdExtension())},
                 {StringTable.AccountImageAdExtension,      new EntityInfo(() => new BulkAccountImageAdExtension())},
                 {StringTable.CampaignImageAdExtension,      new EntityInfo(() => new BulkCampaignImageAdExtension())},
                 {StringTable.AdGroupImageAdExtension,       new EntityInfo(() => new BulkAdGroupImageAdExtension())},
@@ -343,6 +344,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.TextAdLabel,  new EntityInfo(() => new BulkTextAdLabel())},
 
                 {StringTable.OfflineConversion,  new EntityInfo(() => new BulkOfflineConversion())},
+
+                {StringTable.AdCustomizerAttribute, new EntityInfo(() => new BulkAdCustomizerAttribute())},
+                {StringTable.CampaignAdcustomizerAttribute, new EntityInfo(() => new BulkCampaignAdCustomizerAttribute())},
+                {StringTable.AdGroupAdcustomizerAttribute, new EntityInfo(() => new BulkAdGroupAdCustomizerAttribute())},
+                {StringTable.KeywordAdcustomizerAttribute, new EntityInfo(() => new BulkKeywordAdCustomizerAttribute())},
+                {StringTable.CampaignConversionGoal, new EntityInfo(() => new BulkCampaignConversionGoal())}
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

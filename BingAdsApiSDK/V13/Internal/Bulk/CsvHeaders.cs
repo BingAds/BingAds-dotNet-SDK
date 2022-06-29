@@ -504,6 +504,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.PhysicalIntent,
             StringTable.TargetAdGroupId,
             StringTable.TargetCampaignId,
+            StringTable.Schedule,
+
+            // Campaign Conversion Goal
+            StringTable.GoalId,
+
+             //RSA AdCustomizer
+            StringTable.AdCustomizerDataType,
+            StringTable.AdCustomizerAttributeValue,
     };
 
         /// <summary>
