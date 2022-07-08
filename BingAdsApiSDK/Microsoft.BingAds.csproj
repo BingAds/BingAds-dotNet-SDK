@@ -9,7 +9,7 @@
     <NoWarn>1591,1574</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.5.1" PrivateAssets="All" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.5.3" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
     <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
