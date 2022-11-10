@@ -144,7 +144,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BingAdsExamplesLibrary\BingAdsExamplesLibrary.csproj">
+    <ProjectReference Include="..\BingAdsExamplesLibrary\BingAdsExamplesLibrary-DEPRICATED.csproj">
       <Project>{23be29df-9f85-4f37-a4d1-f2ed08d7bf8b}</Project>
       <Name>BingAdsExamplesLibrary</Name>
     </ProjectReference>
