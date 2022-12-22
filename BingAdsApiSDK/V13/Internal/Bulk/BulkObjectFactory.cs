@@ -349,7 +349,17 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignAdcustomizerAttribute, new EntityInfo(() => new BulkCampaignAdCustomizerAttribute())},
                 {StringTable.AdGroupAdcustomizerAttribute, new EntityInfo(() => new BulkAdGroupAdCustomizerAttribute())},
                 {StringTable.KeywordAdcustomizerAttribute, new EntityInfo(() => new BulkKeywordAdCustomizerAttribute())},
-                {StringTable.CampaignConversionGoal, new EntityInfo(() => new BulkCampaignConversionGoal())}
+                {StringTable.CampaignConversionGoal, new EntityInfo(() => new BulkCampaignConversionGoal())},
+                {StringTable.OnlineConversionAdjustment, new EntityInfo(() => new BulkOnlineConversionAdjustment())},
+
+
+                {StringTable.AdGroupAdvanceBookingWindowCriterion, new EntityInfo(() => new BulkAdGroupHotelAdvanceBookingWindowCriterion())},
+                {StringTable.AdGroupHotelDateSelectionTypeCriterion, new EntityInfo(() => new BulkAdGroupHotelDateSelectionTypeCriterion())},
+                {StringTable.AdGroupLengthOfStayCriterion, new EntityInfo(() => new BulkAdGroupHotelLengthOfStayCriterion())},
+                {StringTable.AdGroupCheckInDayCriterion, new EntityInfo(() => new BulkAdGroupHotelCheckInDayCriterion())},
+                {StringTable.AdGroupCheckInDateCriterion, new EntityInfo(() => new BulkAdGroupHotelCheckInDateCriterion())},
+                {StringTable.HotelListingGroupType, new EntityInfo(() => new BulkAdGroupHotelListingGroup())}
+
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

@@ -232,6 +232,15 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroup = "Ad Group";
         public const string Keyword = "Keyword";
         public const string AdGroupType = "Ad Group Type";
+        public const string HotelAdGroupType = "Hotel Ad Group Type";
+        public const string CommissionRate = "Commission Rate";
+        public const string PercentCpcBid = "Percent Cpc Bid";
+
+
+        public const string HotelListingGroupType = "Ad Group Hotel Listing Group";
+        public const string HotelAttribute = "Hotel Attribute";
+        public const string HotelAttributeValue = "Hotel Attribute Value";
+
 
         public const string TextAd = "Text Ad";
         public const string MobileAd = "Mobile Ad";
@@ -293,6 +302,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CashbackAdjustment = "Cashback Percent";
         public const string SubType = "Sub Type";
         public const string MultiMediaAdBidAdjustment = "Multi Media Ad Bid Adjustment";
+        public const string UseOptimizedTargeting = "Use Optimized Targeting";
 
         public const string OsNames = "OS Names";
 
@@ -660,6 +670,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string InheritedBidStrategyType = "Inherited Bid Strategy Type";
         public const string BidStrategyTargetAdPosition = "Bid Strategy TargetAdPosition";
         public const string BidStrategyTargetImpressionShare = "Bid Strategy TargetImpressionShare";
+        public const string BidStrategyPercentMaxCpc = "Bid Strategy PercentMaxCpc";
+        public const string BidStrategyCommissionRate = "Bid Strategy CommissionRate";
 
         // Target and bid
         public const string TargetSetting = "Target Setting";
@@ -848,6 +860,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string ExternalAttributionModel = "External Attribution Model";
         public const string ExternalAttributionCredit = "External Attribution Credit";
 
+        // Online Conversion
+        public const string OnlineConversionAdjustment = "Online Conversion Adjustment";
+        public const string TransactionId = "Transaction Id";
+
         // Final Url Suffix
         public const string FinalUrlSuffix = "Final Url Suffix";
 
@@ -855,12 +871,22 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string GoalId = "Goal Id";
         public const string CampaignConversionGoal = "Campaign Conversion Goal";
 
-        //RSA AdCustomizer
+        // RSA AdCustomizer
         public const string AdCustomizerAttribute = "Adcustomizer Attribute";
         public const string CampaignAdcustomizerAttribute = "Campaign Adcustomizer Attribute";
         public const string AdGroupAdcustomizerAttribute = "Adgroup Adcustomizer Attribute";
         public const string KeywordAdcustomizerAttribute = "Keyword Adcustomizer Attribute";
         public const string AdCustomizerDataType = "AdCustomizer DataType";
         public const string AdCustomizerAttributeValue = "AdCustomizer AttributeValue";
+
+        // Hotel Ad
+        public const string AdGroupAdvanceBookingWindowCriterion = "Ad Group Advance Booking Window Criterion";
+        public const string AdGroupCheckInDayCriterion = "Ad Group Check In Day Criterion";
+        public const string AdGroupLengthOfStayCriterion = "Ad Group Length of Stay Criterion";
+        public const string AdGroupHotelDateSelectionTypeCriterion = "Ad Group Hotel Date Selection Type Criterion";
+        public const string AdGroupCheckInDateCriterion = "Ad Group Check In Date Criterion";
+
+        public const string MinTargetValue = "Min Target Value";
+        public const string MaxTargetValue = "Max Target Value";
     }
 }

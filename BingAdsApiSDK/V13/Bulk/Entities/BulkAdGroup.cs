@@ -261,6 +261,82 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.AdGroup.MultimediaAdsBidAdjustment.ToBulkString(),
                 (v, c) => c.AdGroup.MultimediaAdsBidAdjustment = v.ParseOptional<int>()
                 ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.UseOptimizedTargeting,
+                c => 
+                {
+                    if (c.AdGroup.UseOptimizedTargeting.HasValue)
+                    {
+                        return c.AdGroup.UseOptimizedTargeting.Value ? "true" : "false";
+                    }
+                    return null;
+                },
+                (v, c) => c.AdGroup.UseOptimizedTargeting = v.ParseOptional<bool>()
+                ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.HotelAdGroupType,
+                c =>
+                {
+                    var setting = c.GetSetting(typeof(HotelSetting));
+
+                    if (setting != null)
+                    {
+                        var hotelSetting = setting as HotelSetting;
+                        return hotelSetting?.HotelAdGroupType.ToBulkString();
+                    }
+                    return null;
+                },
+                (v, c) =>
+                {
+                    var hotelSetting = v.ParseHotelSetting();
+                    if (hotelSetting != null)
+                    {
+                        c.AddSetting(hotelSetting);
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.CommissionRate,
+                c =>
+                {
+                    return c.AdGroup.CommissionRate?.RateAmount.Amount?.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    if (!string.IsNullOrEmpty(v))
+                    {
+                        double commissionRateDouble = v.Parse<double>();
+                        c.AdGroup.CommissionRate = new RateBid
+                        {
+                            RateAmount = new RateAmount
+                            {
+                                Amount = commissionRateDouble
+                            }
+                        };
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.PercentCpcBid,
+                c =>
+                {
+                    return c.AdGroup.PercentCpcBid?.RateAmount.Amount?.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    if (!string.IsNullOrEmpty(v))
+                    {
+                        double percentCpcDouble = v.Parse<double>();
+                        c.AdGroup.PercentCpcBid = new RateBid
+                        {
+                            RateAmount = new RateAmount
+                            {
+                                Amount = percentCpcDouble
+                            }
+                        };
+                    }
+                }
+            )
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

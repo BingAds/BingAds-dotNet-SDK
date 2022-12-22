@@ -84,6 +84,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.LastModifiedTime,
             StringTable.Language,
             StringTable.MultiMediaAdBidAdjustment,
+            StringTable.UseOptimizedTargeting,
 
             // campaign
             StringTable.TimeZone,
@@ -113,6 +114,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdGroupType,
             StringTable.CpvBid,
             StringTable.CpmBid,
+            StringTable.HotelAdGroupType,
+            StringTable.CommissionRate,
+            StringTable.PercentCpcBid,
+
+            // OnlineConversionAdjustment
+            StringTable.TransactionId,
 
             // Ads
             StringTable.Title,
@@ -396,6 +403,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.InheritedBidStrategyType,
             StringTable.BidStrategyTargetAdPosition,
             StringTable.BidStrategyTargetImpressionShare,
+            StringTable.BidStrategyCommissionRate,
+            StringTable.BidStrategyPercentMaxCpc,
 
             // Target and bid
             StringTable.TargetSetting,
@@ -512,6 +521,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
              //RSA AdCustomizer
             StringTable.AdCustomizerDataType,
             StringTable.AdCustomizerAttributeValue,
+
+            // Hotel Ad
+            StringTable.MinTargetValue, 
+            StringTable.MaxTargetValue,
+            StringTable.HotelAttribute,
+            StringTable.HotelAttributeValue
     };
 
         /// <summary>
