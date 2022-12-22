@@ -57,122 +57,83 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an Ad Group Product Partition that can be read or written in a bulk file. 
-    /// This class exposes the <see cref="BulkAdGroupProductPartition.AdGroupCriterion"/> property that can be read and written as fields of the Ad Group Product Partition record in a bulk file. 
+    /// Represents an Ad Group Hotel Group that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkAdGroupHotelListingGroup.AdGroupCriterion"/> property that can be read and written as fields of the Ad Group HotelGroup record in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Product Partition</see> </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Hotel Group</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkAdGroupProductPartition : BulkAdGroupCriterion
+    public class BulkAdGroupHotelListingGroup : BulkAdGroupCriterion
     {
 
-        private static readonly IBulkMapping<BulkAdGroupProductPartition>[] Mappings =
+        private static readonly IBulkMapping<BulkAdGroupHotelListingGroup>[] Mappings =
         {
 
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.SubType,
+            new SimpleBulkMapping<BulkAdGroupHotelListingGroup>(StringTable.SubType,
                 c =>
                 {
-                    var productPartition = c.AdGroupCriterion.Criterion as ProductPartition;
+                    var hotelGroup = c.AdGroupCriterion.Criterion as HotelGroup;
 
-                    if (productPartition == null)
+                    if (hotelGroup == null)
                     {
                         return null;
                     }
-
-                    return productPartition.PartitionType.ToBulkString(returnNullForDefaultValue: true);
+                    return hotelGroup.ListingType.ToBulkString(returnNullForDefaultValue: true);
                 },
                 (v, c) =>
-                {
-                    ((ProductPartition)c.AdGroupCriterion.Criterion).PartitionType =
-                            v.Parse<ProductPartitionType>(returnDefaultValueOnNullOrEmpty: true);
-                }
+                    {
+                        ((HotelGroup)c.AdGroupCriterion.Criterion).ListingType =
+                            v.Parse<HotelListingType>(returnDefaultValueOnNullOrEmpty: true);
+                    }
                 ),
+            new ComplexBulkMapping<BulkAdGroupHotelListingGroup>(HotelListingToRowValue, ParseHotelListing),
 
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.ParentAdGroupCriterionId,
+            new SimpleBulkMapping<BulkAdGroupHotelListingGroup>(StringTable.ParentAdGroupCriterionId,
                 c =>
                 {
-                    var productPartition = c.AdGroupCriterion.Criterion as ProductPartition;
+                    var hotelGroup = c.AdGroupCriterion.Criterion as HotelGroup;
 
-                    if (productPartition == null)
+                    if (hotelGroup == null)
                     {
                         return null;
                     }
 
-                    return productPartition.ParentCriterionId.ToBulkString();
+                    return hotelGroup.ParentCriterionId.ToBulkString();
                 },
-                (v, c) => ((ProductPartition) c.AdGroupCriterion.Criterion).ParentCriterionId = v.ParseOptional<long>()
+                (v, c) => ((HotelGroup) c.AdGroupCriterion.Criterion).ParentCriterionId = v.ParseOptional<long>()
             ),
 
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.ProductCondition1,
-                c =>
-                {
-                    var productPartition = c.AdGroupCriterion.Criterion as ProductPartition;
-
-                    if (productPartition == null)
-                    {
-                        return null;
-                    }
-
-                    var condition = productPartition.Condition;
-
-                    if (condition == null)
-                    {
-                        return null;
-                    }
-
-                    return condition.Operand;
-                },
-                (v, c) => ((ProductPartition) c.AdGroupCriterion.Criterion).Condition.Operand = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.ProductValue1,
-                c =>
-                {
-                    var productPartition = c.AdGroupCriterion.Criterion as ProductPartition;
-
-                    if (productPartition == null)
-                    {
-                        return null;
-                    }
-
-                    var condition = productPartition.Condition;
-
-                    if (condition == null)
-                    {
-                        return null;
-                    }
-
-                    return condition.Attribute;
-                },
-                (v, c) => ((ProductPartition) c.AdGroupCriterion.Criterion).Condition.Attribute = v
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupProductPartition>(StringTable.DestinationUrl,
-                c =>
-                {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        return criterion.DestinationUrl.ToOptionalBulkString(criterion.Id);
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    var criterion = c.AdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        criterion.DestinationUrl = v.GetValueOrEmptyString();
-                    }
-                }
-            )
         };
+
+        private static void ParseHotelListing(RowValues values, BulkAdGroupHotelListingGroup entity)
+        {
+            bool hasAttribute = values.TryGetValue(StringTable.HotelAttributeValue, out string Attribute);
+            bool hasOperand = values.TryGetValue(StringTable.HotelAttribute, out string Operand);
+
+            if (hasAttribute || hasOperand)
+            {
+                ((HotelGroup)entity.AdGroupCriterion.Criterion).Listing = new HotelListing
+                {
+                    Attribute = Attribute,
+                    Operand = Operand
+                };
+            }
+        }
+
+        private static void HotelListingToRowValue(BulkAdGroupHotelListingGroup entity, RowValues values)
+        {
+            if (entity.AdGroupCriterion.Criterion == null)
+            {
+                return;
+            }
+
+            HotelGroup hotelGroup = entity.AdGroupCriterion.Criterion as HotelGroup;
+            values[StringTable.HotelAttribute] = hotelGroup.Listing?.Operand;
+            values[StringTable.HotelAttributeValue] = hotelGroup.Listing?.Attribute;
+        }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
@@ -188,10 +149,9 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         protected override Criterion CreateCriterion()
         {
-            return new ProductPartition
+            return new HotelGroup
             {
-                Condition = new ProductCondition(),
-                Type = typeof(ProductPartition).Name,
+                Type = typeof(HotelGroup).Name,
             };
         }
     }

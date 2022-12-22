@@ -957,13 +957,13 @@ namespace Microsoft.BingAds.V13.Bulk
         Videos = 137,
         
         /// <summary>
-        /// Reserved.
+        /// Include Disclaimer Ad Extension records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisclaimerAdExtensions = 138,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Disclaimer Ad Extension records in the download that represents the association relationship between a campaign and a disclaimer ad extension.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignDisclaimerAdExtensions = 139,
@@ -997,6 +997,12 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignConversionGoal = 144,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupHotelListingGroups = 145,
     }
     
     /// <summary>

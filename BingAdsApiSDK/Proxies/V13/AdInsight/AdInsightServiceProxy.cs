@@ -1773,7 +1773,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13">BatchError Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
-    /// <para>Used by <see cref="AdInsightServiceClient.SetAutoApplyOptInStatus">SetAutoApplyOptInStatus</see> service operation.</para>
+    /// <para>Used by <see cref="AdInsightServiceClient.GetTextAssetSuggestionsByFinalUrls">GetTextAssetSuggestionsByFinalUrls</see>, <see cref="AdInsightServiceClient.SetAutoApplyOptInStatus">SetAutoApplyOptInStatus</see> and <see cref="AdInsightServiceClient.TagRecommendations">TagRecommendations</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9418,7 +9418,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the details for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsdetail?view=bingads-13">PerformanceInsightsDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsdetail?view=bingads-13 for details.
@@ -9468,7 +9468,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// For account level, this is AccountId.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EntityId
@@ -9488,7 +9488,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The supported types are account and campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.EntityType EntityType
@@ -9508,7 +9508,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Defines the type of key performance indicator.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.KPIType KPIType
@@ -9528,7 +9528,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date of the detected performance insights.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public Microsoft.BingAds.V13.AdInsight.DayMonthAndYear Date
@@ -9548,7 +9548,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// A message to describe the performance insights.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public Microsoft.BingAds.V13.AdInsight.PerformanceInsightsMessage Description
@@ -9568,7 +9568,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Messages that describe the root causes in "What happened."
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.PerformanceInsightsMessage> RootCauses
@@ -9588,7 +9588,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Messages that describe the actions in "What can I do."
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.PerformanceInsightsMessage> Actions
@@ -9620,7 +9620,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the message for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessage?view=bingads-13">PerformanceInsightsMessage Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessage?view=bingads-13 for details.
@@ -9658,7 +9658,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The message template ID.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.PerformanceInsightsMessageTemplateId TemplateId
@@ -9678,7 +9678,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Message parameters are used to fill in the template that renders the message string.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.PerformanceInsightsMessageParameter> Parameters
@@ -9698,7 +9698,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Indentation distance or depth when displaying the message.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public int IndentationLevel
@@ -9730,7 +9730,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the type of key performance indicator.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/kpitype?view=bingads-13">KPIType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/kpitype?view=bingads-13 for details.
@@ -9742,32 +9742,32 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Impression metrics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impression = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Click metrics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Click = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Spend metrics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Conversion metrics.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversion = 4,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the message template ID for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessagetemplateid?view=bingads-13">PerformanceInsightsMessageTemplateId Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessagetemplateid?view=bingads-13 for details.
@@ -9779,650 +9779,650 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions increased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseAcct = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions decreased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprDecreaseAcct = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions increased compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseInfinityAcct = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseAcctPrevDay = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprDecreaseAcctPrevDay = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's impressions increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseInfinityAcctPrevDay = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks increased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseAcct = 7,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks decreased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickDecreaseAcct = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks increased compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseInfinityAcct = 9,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseAcctPrevDay = 10,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickDecreaseAcctPrevDay = 11,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's clicks increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseInfinityAcctPrevDay = 12,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend increased {0}% compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseAcct = 13,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend decreased {0}% compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostDecreaseAcct = 14,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend increased compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseInfinityAcct = 15,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseAcctPrevDay = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostDecreaseAcctPrevDay = 17,
         
         /// <summary>
-        /// Reserved.
+        /// Your account's spend increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseInfinityAcctPrevDay = 18,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions increased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseCampaign = 19,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions decreased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprDecreaseCampaign = 20,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions increased compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseInfinityCampaign = 21,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseCampaignPrevDay = 22,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprDecreaseCampaignPrevDay = 23,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's impressions increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxImprIncreaseInfinityCampaignPrevDay = 24,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks increased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseCampaign = 25,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks decreased {0}% compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickDecreaseCampaign = 26,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks increased compared to the past 7 day average.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseInfinityCampaign = 27,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseCampaignPrevDay = 28,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickDecreaseCampaignPrevDay = 29,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's clicks increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxClickIncreaseInfinityCampaignPrevDay = 30,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend increased {0}% compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseCampaign = 31,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend decreased {0}% compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostDecreaseCampaign = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend increased compared to the average of past 7 days.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseInfinityCampaign = 33,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend increased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseCampaignPrevDay = 34,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend decreased {0}% compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostDecreaseCampaignPrevDay = 35,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's spend increased compared to the previous day.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxCostIncreaseInfinityCampaignPrevDay = 36,
         
         /// <summary>
-        /// Reserved.
+        /// Your conversions have decreased week-over-week due to a conversion issue.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxConversionDecreaseAcct = 37,
         
         /// <summary>
-        /// Reserved.
+        /// You have zero conversions over the past 14 days due to a conversion issue.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FluxConversionZeroAcct = 38,
         
         /// <summary>
-        /// Reserved.
+        /// Increased Microsoft Audience ads traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCAudienceIncrease = 39,
         
         /// <summary>
-        /// Reserved.
+        /// Decreased Microsoft Audience ads traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCAudienceDecrease = 40,
         
         /// <summary>
-        /// Reserved.
+        /// Your bids for {0} were increased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCBidIncrease = 41,
         
         /// <summary>
-        /// Reserved.
+        /// Your bids for {0} were decreased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCBidDecrease = 42,
         
         /// <summary>
-        /// Reserved.
+        /// {0} budgets were increased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCBudgetIncrease = 43,
         
         /// <summary>
-        /// Reserved.
+        /// {0} budgets were decreased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCBudgetDecrease = 44,
         
         /// <summary>
-        /// Reserved.
+        /// This resulted in clicks increasing by {0} during the same period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCClickIncrease = 45,
         
         /// <summary>
-        /// Reserved.
+        /// This resulted in clicks decreasing by {0} during the same period.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCClickDecrease = 46,
         
         /// <summary>
-        /// Reserved.
+        /// Your conversion goal has a blocking issue.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCConversionGoalIssue = 47,
         
         /// <summary>
-        /// Reserved.
+        /// {0} device target bid adjustments were changed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCDeviceTargetingBidChange = 48,
         
         /// <summary>
-        /// Reserved.
+        /// {0} passed the Microsoft Advertising policy review.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEditorialApproval = 49,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were disapproved by Microsoft Advertising policy review.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEditorialDisapproval = 50,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were added.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEntityAdditionWithCount = 51,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were deleted.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEntityDeletionWithCount = 52,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were paused.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEntityPauseWithCount = 53,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were enabled.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCEntityUnpauseWithCount = 54,
         
         /// <summary>
-        /// Reserved.
+        /// Your ads were outcompeting your competitors' ads in terms of bid amounts and/or ad quality.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCMoreCompetitive = 55,
         
         /// <summary>
-        /// Reserved.
+        /// {0} ad distribution settings became less restrictive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCNetworkLessRestrict = 56,
         
         /// <summary>
-        /// Reserved.
+        /// {0} ad distribution settings became more restrictive.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCNetworkMoreRestrict = 57,
         
         /// <summary>
-        /// Reserved.
+        /// Your account was paused due to lack of a valid insertion order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueInvoiceAccountPaused = 58,
         
         /// <summary>
-        /// Reserved.
+        /// Your account was placed on hold because we haven’t received one or more of your invoiced payments.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueInvoiceAccountOnHold = 59,
         
         /// <summary>
-        /// Reserved.
+        /// Your account was paused due to a zero balance.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssuePrepayAccountPaused = 60,
         
         /// <summary>
-        /// Reserved.
+        /// Your account was placed on hold because a payment failed to authorize.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueThresholdAccountOnHold = 61,
         
         /// <summary>
-        /// Reserved.
+        /// Your previous payment issue was resolved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueYesterday = 62,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were searched more frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermIncrease = 63,
         
         /// <summary>
-        /// Reserved.
+        /// {0} related to your campaigns were searched more frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermIncreaseClick = 64,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were searched less frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermDecrease = 65,
         
         /// <summary>
-        /// Reserved.
+        /// {0} related to your campaigns were searched less frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermDecreaseClick = 66,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were searched more frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermCompetitionIncrease = 67,
         
         /// <summary>
-        /// Reserved.
+        /// {0} related to your campaigns were searched more frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermCompetitionIncreaseClick = 68,
         
         /// <summary>
-        /// Reserved.
+        /// {0} were searched less frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermCompetitionDecrease = 69,
         
         /// <summary>
-        /// Reserved.
+        /// {0} related to your campaigns were searched less frequently.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSearchTermCompetitionDecreaseClick = 70,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign was added.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignAddition = 71,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign was paused.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignPause = 72,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign was enabled.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignUnpause = 73,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign budget was increased..
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignBudgetIncrease = 74,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign budget was decreased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignBudgetDecrease = 75,
         
         /// <summary>
-        /// Reserved.
+        /// Your campaign's device target bid adjustment was changed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignDeviceTargetingBidChange = 76,
         
         /// <summary>
-        /// Reserved.
+        /// Your competitors' impression share increased due to improved quality scores.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCStrongerCompetitorAdQuality = 77,
         
         /// <summary>
-        /// Reserved.
+        /// Your competitors' impression share increased due to increased bid amounts.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCStrongerCompetitorBid = 78,
         
         /// <summary>
-        /// Reserved.
+        /// Increased syndication partner traffic from {0}.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSyndTrafficIncrease = 79,
         
         /// <summary>
-        /// Reserved.
+        /// Decreased syndication partner traffic from {0}.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSyndTrafficDecrease = 80,
         
         /// <summary>
-        /// Reserved.
+        /// Adopting Expanded Text Ads that have been optimized just for you.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActAdsOppr = 81,
         
         /// <summary>
-        /// Reserved.
+        /// View customized recommendations for your campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActAllAvailableOppr = 82,
         
         /// <summary>
-        /// Reserved.
+        /// View a customized recommendation to increase visits to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActBMAdoptionOppr = 83,
         
         /// <summary>
-        /// Reserved.
+        /// View a customized recommendation to increase visits to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActBMMKeywordOppr = 84,
         
         /// <summary>
-        /// Reserved.
+        /// View a customized recommendation to increase visits to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCampaignContextKeywordOppr = 85,
         
         /// <summary>
-        /// Reserved.
+        /// Check the publisher report to review the performance of sites that show your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCheckPublisherWebsite = 86,
         
         /// <summary>
-        /// Reserved.
+        /// Check the auction insights report to review the performance of sites that show your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCompetitionAuctionInsight = 87,
         
         /// <summary>
-        /// Reserved.
+        /// Boost your budgets to prevent competitors from gaining impression share.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCompetitiveBudgetOppr = 88,
         
         /// <summary>
-        /// Reserved.
+        /// View a customized recommendation to increase visits to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCompetitiveKeywordOppr = 89,
         
         /// <summary>
-        /// Reserved.
+        /// View a customized recommendation to increase visits to your website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCompetitiveLocationTargetOppr = 90,
         
         /// <summary>
-        /// Reserved.
+        /// Improve the click-through rate of your ads by:
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActCTRQualityBundle = 91,
         
         /// <summary>
-        /// Reserved.
+        /// Ensure your ad and keyword text comply with Microsoft Advertising policies.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActEditorialReviewProcess = 92,
         
         /// <summary>
-        /// Reserved.
+        /// Fix your conversion goal setting to make sure you don’t miss any conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActFixConversionGoalSettingOppr = 93,
         
         /// <summary>
-        /// Reserved.
+        /// Make sure you don't miss any conversions by fixing your UET tag.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActFixConversionTrackingOppr = 94,
         
         /// <summary>
-        /// Reserved.
+        /// Ensure budget issues don't prevent your ads from showing.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActGeneralBudgetOppr = 95,
         
         /// <summary>
-        /// Reserved.
+        /// Create conversion goals to track more conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActNewConversionGoalOppr = 96,
         
         /// <summary>
-        /// Reserved.
+        /// You need an active insertion order before your ads can run.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActInvoiceAccountPaused = 97,
         
         /// <summary>
-        /// Reserved.
+        /// You need to remove the hold before your ads can run.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActInvoiceAccountOnHold = 98,
         
         /// <summary>
-        /// Reserved.
+        /// You need to add funds to this prepay account before your ads can run.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActPrepayAccountPaused = 99,
         
         /// <summary>
-        /// Reserved.
+        /// Get more traffic by moving unused budget to campaigns that need it.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActReallocateBudgetOppr = 100,
         
         /// <summary>
-        /// Reserved.
+        /// Get your ads running again by adding active keywords to your ad group.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActRepairKeywordsOppr = 101,
         
         /// <summary>
-        /// Reserved.
+        /// Adopt responsive search ads, which automatically optimize themselves.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActRSAOppr = 102,
         
         /// <summary>
-        /// Reserved.
+        /// Check the search term report to review the queries that lead to clicks on your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActSearchTerm = 103,
         
         /// <summary>
-        /// Reserved.
+        /// Set up conversion tracking to convert more customers and use automated bidding.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActSetupConversionTrackingOppr = 104,
         
         /// <summary>
-        /// Reserved.
+        /// Add sitelink extensions to make your ads more appealing.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActSiteLinkOppr = 105,
         
         /// <summary>
-        /// Reserved.
+        /// You need to remove the hold before your ads can run.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActThresholdAccountOnHold = 106,
         
         /// <summary>
-        /// Reserved.
+        /// Utilize website exclusions to prevent specific websites from showing your ads.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActWebsiteExclusion = 107,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the message parameters for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessageparameter?view=bingads-13">PerformanceInsightsMessageParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsmessageparameter?view=bingads-13 for details.
@@ -10457,7 +10457,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The supported types are: text, URL, and entities.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.ParameterType Type
@@ -10489,7 +10489,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the text parameter for use with performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/textparameter?view=bingads-13">TextParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/textparameter?view=bingads-13 for details.
@@ -10505,7 +10505,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         private string SuggestedTextField;
         
         /// <summary>
-        /// Reserved.
+        /// The suggested string value to substitute for the message.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SuggestedText
@@ -10526,7 +10526,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the URL parameter for use with performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/urlparameter?view=bingads-13">UrlParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/urlparameter?view=bingads-13 for details.
@@ -10551,7 +10551,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         private Microsoft.BingAds.V13.AdInsight.PerformanceInsightsUrlId UrlIdField;
         
         /// <summary>
-        /// Reserved.
+        /// The suggested string value to substitute for the message.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SuggestedText
@@ -10571,7 +10571,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// THe Suggested URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SuggestedUrl
@@ -10591,7 +10591,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The main category of the URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.PerformanceInsightsUrlCategory UrlCategory
@@ -10611,7 +10611,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The specified type of the URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.PerformanceInsightsUrlId UrlId
@@ -10632,7 +10632,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that provides parameter information for an entity.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/entityparameter?view=bingads-13">EntityParameter Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/entityparameter?view=bingads-13 for details.
@@ -10657,7 +10657,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         private string SuggestedTextField;
         
         /// <summary>
-        /// Reserved.
+        /// The number of entities.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int EntityCount
@@ -10677,7 +10677,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The detail information for entities.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.EntityDetail> EntityDetails
@@ -10697,7 +10697,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The entity type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.PerformanceInsightsEntityType EntityType
@@ -10717,7 +10717,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The suggested string value to substitute for the message.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SuggestedText
@@ -10738,7 +10738,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the type of parameter: string, URL, or a list of demand entities.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/parametertype?view=bingads-13">ParameterType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/parametertype?view=bingads-13 for details.
@@ -10750,26 +10750,26 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the parameter is a string.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Text = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Indicate the parameter is a URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Url = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the parameter is a list of demand entities.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Entities = 3,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the URL category for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsurlcategory?view=bingads-13">PerformanceInsightsUrlCategory Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsurlcategory?view=bingads-13 for details.
@@ -10781,32 +10781,32 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// The url is for recommendations.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Recommendation = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The url is for demand settings.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Setting = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The url is for reports.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Report = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The URL is for help documents.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDoc = 4,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the URL ID for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsurlid?view=bingads-13">PerformanceInsightsUrlId Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsurlid?view=bingads-13 for details.
@@ -10818,110 +10818,110 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Recommendation page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RecRecommendationPage = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Competition recommendation page.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RecCompetitionPage = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Create order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SettingCreateOrder = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Remove hold.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SettingRemoveHold = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Add funds.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SettingAddFunds = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Search term report.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReportSearchTerm = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Publisher report.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReportPublisherWebsite = 7,
         
         /// <summary>
-        /// Reserved.
+        /// Auction insights report.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReportAuctionInsights = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about network settings.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocNetworkSetting = 9,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about editorials.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocEditorial = 10,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about website reports.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocWebsiteReport = 11,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about website exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocWebsiteExclusion = 12,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about creating an order.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocCreateOrder = 13,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about removing a hold.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocRemoveHold = 14,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about adding funds.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocAddFunds = 15,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about recommendations.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocRecommendation = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Learn more about the Microsoft Audience Network.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelpDocAudienceNetwork = 17,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that provides detail information for an entity for performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/entitydetail?view=bingads-13">EntityDetail Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/entitydetail?view=bingads-13 for details.
@@ -10956,7 +10956,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// For account, this is AccountId.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long EntityId
@@ -10976,7 +10976,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// For account/campaign/ad group, this is the name information.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string EntityName
@@ -11008,7 +11008,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the entity types for retrieving performance insights.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsentitytype?view=bingads-13">PerformanceInsightsEntityType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/performanceinsightsentitytype?view=bingads-13 for details.
@@ -11020,46 +11020,816 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Account level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Account = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Campaign level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Ad group level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 3,
         
         /// <summary>
-        /// Reserved.
+        /// Keyword level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
         
         /// <summary>
-        /// Reserved.
+        /// Product group level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 5,
         
         /// <summary>
-        /// Reserved.
+        /// Search term level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchTerm = 6,
         
         /// <summary>
-        /// Reserved.
+        /// Website level data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Website = 7,
+    }
+    
+    /// <summary>
+    /// Defines the base object of Recommendation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/recommendation?view=bingads-13">Recommendation Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/recommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetRecommendations">GetRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Recommendation", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ResponsiveSearchAdsRecommendation))]
+    public partial class Recommendation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AdGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> CampaignIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CurrentClicksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CurrentConversionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CurrentCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CurrentImpressionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long EstimatedIncreaseInClicksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long EstimatedIncreaseInConversionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double EstimatedIncreaseInCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long EstimatedIncreaseInImpressionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecommendationHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecommendationIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecommendationTypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the account.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the ad group that owns the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AdGroupId
+        {
+            get
+            {
+                return this.AdGroupIdField;
+            }
+            set
+            {
+                if ((this.AdGroupIdField.Equals(value) != true))
+                {
+                    this.AdGroupIdField = value;
+                    this.RaisePropertyChanged("AdGroupId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the campaign for the ad group that owns the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Actual clicks of the ad group in the past 7 days.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CurrentClicks
+        {
+            get
+            {
+                return this.CurrentClicksField;
+            }
+            set
+            {
+                if ((this.CurrentClicksField.Equals(value) != true))
+                {
+                    this.CurrentClicksField = value;
+                    this.RaisePropertyChanged("CurrentClicks");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Actual conversions of the ad group in the past 7 days.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CurrentConversions
+        {
+            get
+            {
+                return this.CurrentConversionsField;
+            }
+            set
+            {
+                if ((this.CurrentConversionsField.Equals(value) != true))
+                {
+                    this.CurrentConversionsField = value;
+                    this.RaisePropertyChanged("CurrentConversions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Actual spending of the ad group in the past 7 days, in the currency of this account.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double CurrentCost
+        {
+            get
+            {
+                return this.CurrentCostField;
+            }
+            set
+            {
+                if ((this.CurrentCostField.Equals(value) != true))
+                {
+                    this.CurrentCostField = value;
+                    this.RaisePropertyChanged("CurrentCost");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Actual impressions of the ad group in the past 7 days.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CurrentImpressions
+        {
+            get
+            {
+                return this.CurrentImpressionsField;
+            }
+            set
+            {
+                if ((this.CurrentImpressionsField.Equals(value) != true))
+                {
+                    this.CurrentImpressionsField = value;
+                    this.RaisePropertyChanged("CurrentImpressions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated click opportunities corresponding to the suggested ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long EstimatedIncreaseInClicks
+        {
+            get
+            {
+                return this.EstimatedIncreaseInClicksField;
+            }
+            set
+            {
+                if ((this.EstimatedIncreaseInClicksField.Equals(value) != true))
+                {
+                    this.EstimatedIncreaseInClicksField = value;
+                    this.RaisePropertyChanged("EstimatedIncreaseInClicks");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated impression opportunities corresponding to the suggested ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long EstimatedIncreaseInConversions
+        {
+            get
+            {
+                return this.EstimatedIncreaseInConversionsField;
+            }
+            set
+            {
+                if ((this.EstimatedIncreaseInConversionsField.Equals(value) != true))
+                {
+                    this.EstimatedIncreaseInConversionsField = value;
+                    this.RaisePropertyChanged("EstimatedIncreaseInConversions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated increase in spend corresponding to the suggested ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EstimatedIncreaseInCost
+        {
+            get
+            {
+                return this.EstimatedIncreaseInCostField;
+            }
+            set
+            {
+                if ((this.EstimatedIncreaseInCostField.Equals(value) != true))
+                {
+                    this.EstimatedIncreaseInCostField = value;
+                    this.RaisePropertyChanged("EstimatedIncreaseInCost");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The estimated impressions opportunities corresponding to the suggested ad.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long EstimatedIncreaseInImpressions
+        {
+            get
+            {
+                return this.EstimatedIncreaseInImpressionsField;
+            }
+            set
+            {
+                if ((this.EstimatedIncreaseInImpressionsField.Equals(value) != true))
+                {
+                    this.EstimatedIncreaseInImpressionsField = value;
+                    this.RaisePropertyChanged("EstimatedIncreaseInImpressions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The hash of the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecommendationHash
+        {
+            get
+            {
+                return this.RecommendationHashField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendationHashField, value) != true))
+                {
+                    this.RecommendationHashField = value;
+                    this.RaisePropertyChanged("RecommendationHash");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecommendationId
+        {
+            get
+            {
+                return this.RecommendationIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendationIdField, value) != true))
+                {
+                    this.RecommendationIdField = value;
+                    this.RaisePropertyChanged("RecommendationId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The type of recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecommendationType
+        {
+            get
+            {
+                return this.RecommendationTypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendationTypeField, value) != true))
+                {
+                    this.RecommendationTypeField = value;
+                    this.RaisePropertyChanged("RecommendationType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object that contains the responsive search ads to be suggested.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/responsivesearchadsrecommendation?view=bingads-13">ResponsiveSearchAdsRecommendation Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/responsivesearchadsrecommendation?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponsiveSearchAdsRecommendation", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class ResponsiveSearchAdsRecommendation : Microsoft.BingAds.V13.AdInsight.Recommendation
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.SuggestedResponsiveSearchAd SuggestedAdField;
+        
+        /// <summary>
+        /// The ad info in the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.SuggestedResponsiveSearchAd SuggestedAd
+        {
+            get
+            {
+                return this.SuggestedAdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SuggestedAdField, value) != true))
+                {
+                    this.SuggestedAdField = value;
+                    this.RaisePropertyChanged("SuggestedAd");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object that describes the suggested responsive search ads.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestedresponsivesearchad?view=bingads-13">SuggestedResponsiveSearchAd Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/suggestedresponsivesearchad?view=bingads-13 for details.
+    /// <para>Used by <see cref="ResponsiveSearchAdsRecommendation"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SuggestedResponsiveSearchAd", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class SuggestedResponsiveSearchAd : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> DescriptionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> HeadlinesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Path1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Path2Field;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The list of descriptions of suggested ad with 2-4 descriptions.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Descriptions
+        {
+            get
+            {
+                return this.DescriptionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionsField, value) != true))
+                {
+                    this.DescriptionsField = value;
+                    this.RaisePropertyChanged("Descriptions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The landing page URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrl
+        {
+            get
+            {
+                return this.FinalUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlField, value) != true))
+                {
+                    this.FinalUrlField = value;
+                    this.RaisePropertyChanged("FinalUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The list of titles of suggested ads with 3-15 headlines.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Headlines
+        {
+            get
+            {
+                return this.HeadlinesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.HeadlinesField, value) != true))
+                {
+                    this.HeadlinesField = value;
+                    this.RaisePropertyChanged("Headlines");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The first part of the optional path that will be appended to the domain portion of your display URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path1
+        {
+            get
+            {
+                return this.Path1Field;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.Path1Field, value) != true))
+                {
+                    this.Path1Field = value;
+                    this.RaisePropertyChanged("Path1");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The second part of the optional path that will be appended to the domain portion of your display URL.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path2
+        {
+            get
+            {
+                return this.Path2Field;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.Path2Field, value) != true))
+                {
+                    this.Path2Field = value;
+                    this.RaisePropertyChanged("Path2");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines the base object of RecommendationInfo.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/recommendationinfo?view=bingads-13">RecommendationInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/recommendationinfo?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.TagRecommendations">TagRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RecommendationInfo", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.RSARecommendationInfo))]
+    public partial class RecommendationInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecommendationHashField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RecommendationIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The hash of the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecommendationHash
+        {
+            get
+            {
+                return this.RecommendationHashField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendationHashField, value) != true))
+                {
+                    this.RecommendationHashField = value;
+                    this.RaisePropertyChanged("RecommendationHash");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RecommendationId
+        {
+            get
+            {
+                return this.RecommendationIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendationIdField, value) != true))
+                {
+                    this.RecommendationIdField = value;
+                    this.RaisePropertyChanged("RecommendationId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Defines an object that contains the info of responsive search ads recommendation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/rsarecommendationinfo?view=bingads-13">RSARecommendationInfo Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/rsarecommendationinfo?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RSARecommendationInfo", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
+        "i.DataContract.V13.Entity")]
+    [System.SerializableAttribute()]
+    public partial class RSARecommendationInfo : Microsoft.BingAds.V13.AdInsight.RecommendationInfo
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> AdIdField;
+        
+        /// <summary>
+        /// Ad id of the responsive search ad that is created by adopting the recommendation.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> AdId
+        {
+            get
+            {
+                return this.AdIdField;
+            }
+            set
+            {
+                if ((this.AdIdField.Equals(value) != true))
+                {
+                    this.AdIdField = value;
+                    this.RaisePropertyChanged("AdId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/textassetsuggestions?view=bingads-13">TextAssetSuggestions Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/textassetsuggestions?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetTextAssetSuggestionsByFinalUrls">GetTextAssetSuggestionsByFinalUrls</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TextAssetSuggestions", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class TextAssetSuggestions : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FinalUrlField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> TextAssetsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FinalUrl
+        {
+            get
+            {
+                return this.FinalUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FinalUrlField, value) != true))
+                {
+                    this.FinalUrlField = value;
+                    this.RaisePropertyChanged("FinalUrl");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> TextAssets
+        {
+            get
+            {
+                return this.TextAssetsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TextAssetsField, value) != true))
+                {
+                    this.TextAssetsField = value;
+                    this.RaisePropertyChanged("TextAssets");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -11816,7 +12586,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.SetAutoApplyOptInStatusResponse> SetAutoApplyOptInStatusAsync(Microsoft.BingAds.V13.AdInsight.SetAutoApplyOptInStatusRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets the performance insights detail data for a single account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -11824,7 +12594,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetPerformanceInsightsDetailDataByAccountId", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetPerformanceInsig" +
             "htsDetailDataByAccountIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetPerformanceInsig" +
@@ -11834,7 +12604,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdResponse GetPerformanceInsightsDetailDataByAccountId(Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets the performance insights detail data for a single account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -11842,10 +12612,106 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetPerformanceInsightsDetailDataByAccountId", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetPerformanceInsig" +
             "htsDetailDataByAccountIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdResponse> GetPerformanceInsightsDetailDataByAccountIdAsync(Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdRequest request);
+        
+        /// <summary>
+        /// Discover your recommendations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of Recommendation objects.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetRecommendations", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetRecommendationsR" +
+            "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetRecommendationsA" +
+            "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetRecommendationsA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.AdInsight.GetRecommendationsResponse GetRecommendations(Microsoft.BingAds.V13.AdInsight.GetRecommendationsRequest request);
+        
+        /// <summary>
+        /// Discover your recommendations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of Recommendation objects.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetRecommendations", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetRecommendationsR" +
+            "esponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetRecommendationsResponse> GetRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.GetRecommendationsRequest request);
+        
+        /// <summary>
+        /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="TagRecommendations", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/TagRecommendationsR" +
+            "esponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/TagRecommendationsA" +
+            "dApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/TagRecommendationsA" +
+            "piFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.AdInsight.TagRecommendationsResponse TagRecommendations(Microsoft.BingAds.V13.AdInsight.TagRecommendationsRequest request);
+        
+        /// <summary>
+        /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="TagRecommendations", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/TagRecommendationsR" +
+            "esponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.TagRecommendationsResponse> TagRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.TagRecommendationsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetTextAssetSuggestionsByFinalUrls", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetTextAssetSuggest" +
+            "ionsByFinalUrlsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetTextAssetSuggest" +
+            "ionsByFinalUrlsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetTextAssetSuggest" +
+            "ionsByFinalUrlsApiFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsResponse GetTextAssetSuggestionsByFinalUrls(Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetTextAssetSuggestionsByFinalUrls", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetTextAssetSuggest" +
+            "ionsByFinalUrlsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsResponse> GetTextAssetSuggestionsByFinalUrlsAsync(Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsRequest request);
     }
     
     /// <summary>
@@ -15111,7 +15977,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets the performance insights detail data for a single account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -15145,19 +16011,19 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The entity level that you want to request performance insights summary data from.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public Microsoft.BingAds.V13.AdInsight.EntityType EntityType;
         
         /// <summary>
-        /// Reserved.
+        /// The start date range for performance insights.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
         public Microsoft.BingAds.V13.AdInsight.DayMonthAndYear StartDate;
         
         /// <summary>
-        /// Reserved.
+        /// The end date range for performance insights.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
         public Microsoft.BingAds.V13.AdInsight.DayMonthAndYear EndDate;
@@ -15178,9 +16044,9 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountIdRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="EntityType">Reserved.</param>
-        /// <param name="StartDate">Reserved.</param>
-        /// <param name="EndDate">Reserved.</param>
+        /// <param name="EntityType">The entity level that you want to request performance insights summary data from.</param>
+        /// <param name="StartDate">The start date range for performance insights.</param>
+        /// <param name="EndDate">The end date range for performance insights.</param>
         public GetPerformanceInsightsDetailDataByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.AdInsight.EntityType EntityType, Microsoft.BingAds.V13.AdInsight.DayMonthAndYear StartDate, Microsoft.BingAds.V13.AdInsight.DayMonthAndYear EndDate)
         {
             this.ApplicationToken = ApplicationToken;
@@ -15197,7 +16063,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets the performance insights detail data for a single account.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -15213,7 +16079,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.PerformanceInsightsDetail> Result;
@@ -15234,11 +16100,399 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountIdResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Result">Reserved.</param>
+        /// <param name="Result">Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.</param>
         public GetPerformanceInsightsDetailDataByAccountIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.PerformanceInsightsDetail> Result)
         {
             this.TrackingId = TrackingId;
             this.Result = Result;
+        }
+    }
+    
+    /// <summary>
+    /// Discover your recommendations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetRecommendations">GetRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRecommendationsRequest", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetRecommendationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifier of the campaign that owns the ad group specified in the AdGroupId element.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public System.Nullable<long> CampaignId;
+        
+        /// <summary>
+        /// The identifier of the ad group for which you want to determine responsive search ads opportunities.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
+        public System.Nullable<long> AdGroupId;
+        
+        /// <summary>
+        /// The identifier of the recommendation type that you want to get.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
+        public string RecommendationType;
+        
+        /// <summary>
+        /// Constructor for the GetRecommendationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        public GetRecommendationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetRecommendationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignId">The identifier of the campaign that owns the ad group specified in the AdGroupId element.</param>
+        /// <param name="AdGroupId">The identifier of the ad group for which you want to determine responsive search ads opportunities.</param>
+        /// <param name="RecommendationType">The identifier of the recommendation type that you want to get.</param>
+        public GetRecommendationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<long> CampaignId, System.Nullable<long> AdGroupId, string RecommendationType)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CampaignId = CampaignId;
+            this.AdGroupId = AdGroupId;
+            this.RecommendationType = RecommendationType;
+        }
+    }
+    
+    /// <summary>
+    /// Discover your recommendations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetRecommendations">GetRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetRecommendationsResponse", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetRecommendationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array of Recommendation objects.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.Recommendation> Recommendations;
+        
+        /// <summary>
+        /// Constructor for the GetRecommendationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        public GetRecommendationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetRecommendationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Recommendations">An array of Recommendation objects.</param>
+        public GetRecommendationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.Recommendation> Recommendations)
+        {
+            this.TrackingId = TrackingId;
+            this.Recommendations = Recommendations;
+        }
+    }
+    
+    /// <summary>
+    /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.TagRecommendations">TagRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TagRecommendationsRequest", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class TagRecommendationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The identifier of the recommendation type that you have applied.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public string RecommendationType;
+        
+        /// <summary>
+        /// The information for an individual recommendation.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RecommendationInfo> RecommendationsInfo;
+        
+        /// <summary>
+        /// The value must be set to either applied or dismissed
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
+        public string Lable;
+        
+        /// <summary>
+        /// Constructor for the TagRecommendationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        public TagRecommendationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the TagRecommendationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendationsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="RecommendationType">The identifier of the recommendation type that you have applied.</param>
+        /// <param name="RecommendationsInfo">The information for an individual recommendation.</param>
+        /// <param name="Lable">The value must be set to either applied or dismissed</param>
+        public TagRecommendationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string RecommendationType, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RecommendationInfo> RecommendationsInfo, string Lable)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RecommendationType = RecommendationType;
+            this.RecommendationsInfo = RecommendationsInfo;
+            this.Lable = Lable;
+        }
+    }
+    
+    /// <summary>
+    /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.TagRecommendations">TagRecommendations</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="TagRecommendationsResponse", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class TagRecommendationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the TagRecommendationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        public TagRecommendationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the TagRecommendationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendationsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
+        public TagRecommendationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetTextAssetSuggestionsByFinalUrls">GetTextAssetSuggestionsByFinalUrls</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTextAssetSuggestionsByFinalUrlsRequest", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetTextAssetSuggestionsByFinalUrlsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public System.Collections.Generic.IList<string> FinalUrls;
+        
+        /// <summary>
+        /// Constructor for the GetTextAssetSuggestionsByFinalUrlsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        public GetTextAssetSuggestionsByFinalUrlsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetTextAssetSuggestionsByFinalUrlsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FinalUrls">Reserved.</param>
+        public GetTextAssetSuggestionsByFinalUrlsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> FinalUrls)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.FinalUrls = FinalUrls;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdInsightServiceClient.GetTextAssetSuggestionsByFinalUrls">GetTextAssetSuggestionsByFinalUrls</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetTextAssetSuggestionsByFinalUrlsResponse", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetTextAssetSuggestionsByFinalUrlsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.TextAssetSuggestions> TextAssetSuggestions;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetTextAssetSuggestionsByFinalUrlsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        public GetTextAssetSuggestionsByFinalUrlsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetTextAssetSuggestionsByFinalUrlsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="TextAssetSuggestions">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public GetTextAssetSuggestionsByFinalUrlsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.TextAssetSuggestions> TextAssetSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.TextAssetSuggestions = TextAssetSuggestions;
+            this.PartialErrors = PartialErrors;
         }
     }
     
@@ -15977,7 +17231,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets the performance insights detail data for a single account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -15985,14 +17239,14 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.</returns>
         public Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdResponse GetPerformanceInsightsDetailDataByAccountId(Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdRequest request)
         {
             return base.Channel.GetPerformanceInsightsDetailDataByAccountId(request);
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets the performance insights detail data for a single account.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13">GetPerformanceInsightsDetailDataByAccountId Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getperformanceinsightsdetaildatabyaccountid?view=bingads-13 for details.
@@ -16000,10 +17254,100 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>Defines the performance insight results from calling the GetPerformanceInsightsDetailDataByAccountId operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdResponse> GetPerformanceInsightsDetailDataByAccountIdAsync(Microsoft.BingAds.V13.AdInsight.GetPerformanceInsightsDetailDataByAccountIdRequest request)
         {
             return base.Channel.GetPerformanceInsightsDetailDataByAccountIdAsync(request);
+        }
+        
+        /// <summary>
+        /// Discover your recommendations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of Recommendation objects.</returns>
+        public Microsoft.BingAds.V13.AdInsight.GetRecommendationsResponse GetRecommendations(Microsoft.BingAds.V13.AdInsight.GetRecommendationsRequest request)
+        {
+            return base.Channel.GetRecommendations(request);
+        }
+        
+        /// <summary>
+        /// Discover your recommendations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13">GetRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/getrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of Recommendation objects.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetRecommendationsResponse> GetRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.GetRecommendationsRequest request)
+        {
+            return base.Channel.GetRecommendationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
+        public Microsoft.BingAds.V13.AdInsight.TagRecommendationsResponse TagRecommendations(Microsoft.BingAds.V13.AdInsight.TagRecommendationsRequest request)
+        {
+            return base.Channel.TagRecommendations(request);
+        }
+        
+        /// <summary>
+        /// Notifies Microsoft Advertising that the specific recommendation to create responsive search ads should be tagged as applied or dismissed.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13">TagRecommendations Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/tagrecommendations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.TagRecommendationsResponse> TagRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.TagRecommendationsRequest request)
+        {
+            return base.Channel.TagRecommendationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsResponse GetTextAssetSuggestionsByFinalUrls(Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsRequest request)
+        {
+            return base.Channel.GetTextAssetSuggestionsByFinalUrls(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsResponse> GetTextAssetSuggestionsByFinalUrlsAsync(Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsRequest request)
+        {
+            return base.Channel.GetTextAssetSuggestionsByFinalUrlsAsync(request);
         }
     }
 }

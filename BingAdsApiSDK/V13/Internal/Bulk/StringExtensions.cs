@@ -157,6 +157,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return value?.ToBulkString();
         }
 
+        public static string ToBulkString(this HotelAdGroupType hotelAdGroupType)
+        {
+            return
+                string.Join(",", Enum.GetValues(typeof(HotelAdGroupType))
+                .Cast<object>()
+                .Where(value => hotelAdGroupType.HasFlag((HotelAdGroupType)value)).Select(value => value.ToString()));
+        }
+
         public static string ToBulkString<T>(this T value, bool returnNullForDefaultValue = false)
             where T : struct, IFormattable
         {
@@ -212,15 +220,15 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static readonly string DateTimeOutPutFormat = @"yyyy/MM/dd HH:mm:ss";
 
-        public static string ToDateTimeBulkString(this DateTime? datetime, long? id)
+        public static string ToDateTimeBulkString(this DateTime? datetime, long? id, string format = @"yyyy/MM/dd HH:mm:ss")
         {
             if (datetime  == null)
             {
                 return id > 0 ? DeleteValue : null;
             }
-            return datetime?.ToString(DateTimeOutPutFormat);
-
+            return datetime?.ToString(format);
         }
+
 
         public static string ToAdRotationBulkString(this AdRotation adRotation, long? id)
         {
@@ -730,6 +738,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new ManualCpmBiddingScheme{ Type = "ManualCpm" };
                 case "MaxRoas":
                     return new MaxRoasBiddingScheme { Type = "MaxRoas" };
+                case "Commission":
+                    return new CommissionBiddingScheme { Type = "Commission" };
+                case "PercentCpc":
+                    return new PercentCpcBiddingScheme { Type = "PercentCpc" };
                 default:
                     throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
             }
@@ -751,16 +763,22 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             string targetRoasRowValue;
             string targetAdPositionRowValue;
             string targetImpressionShareRowValue;
+            string maxPercentCpcRowValue;
+            string commissionRateRowValue;
 
             values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetRoas, out targetRoasRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetAdPosition, out targetAdPositionRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetImpressionShare, out targetImpressionShareRowValue);
+            values.TryGetValue(StringTable.BidStrategyCommissionRate, out commissionRateRowValue);
+            values.TryGetValue(StringTable.BidStrategyPercentMaxCpc, out maxPercentCpcRowValue);
 
             var maxCpcValue = maxCpcRowValue.ParseBid();
             var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
             var targetRoasValue = targetRoasRowValue.ParseOptional<double>();
+            var targetCommissionRateRowValue = commissionRateRowValue.ParseOptional<double>();
+            var targetmaxPercentCpc = maxPercentCpcRowValue.ParseOptional<double>();
             var targetAdPositionValue = targetAdPositionRowValue;
             var targetImpressionShareValue = targetImpressionShareRowValue.ParseOptional<double>();
 
@@ -776,6 +794,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new MaxConversionsBiddingScheme
                     {
                         MaxCpc = maxCpcValue,
+                        TargetCpa = targetCpaValue,
                         Type = "MaxConversions",
                     };
                 case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
@@ -812,6 +831,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         MaxCpc = maxCpcValue,
                         Type = "MaxRoas",
                     };
+                case PercentCpcBiddingScheme percentCpcBiddingScheme:
+                    return new PercentCpcBiddingScheme
+                    {
+                        MaxPercentCpc = targetmaxPercentCpc,
+                        Type = "PercentCpc",
+                    };
+                case CommissionBiddingScheme commissionBiddingScheme:
+                    return new CommissionBiddingScheme
+                    {
+                        CommissionRate = targetCommissionRateRowValue,
+                        Type = "Commission",
+                    };
                 default:
                     return biddingScheme;
             }
@@ -827,6 +858,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     break;
                 case MaxConversionsBiddingScheme maxConversionsBiddingScheme:
                     values[StringTable.BidStrategyMaxCpc] = maxConversionsBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    values[StringTable.BidStrategyTargetCpa] = maxConversionsBiddingScheme.TargetCpa.ToBulkString();
                     break;
                 case MaxConversionValueBiddingScheme maxConversionValueBiddingScheme:
                     values[StringTable.BidStrategyTargetRoas] = maxConversionValueBiddingScheme.TargetRoas.ToBulkString();
@@ -846,6 +878,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     break;
                 case MaxRoasBiddingScheme maxRoasBiddingScheme:
                     values[StringTable.BidStrategyMaxCpc] = maxRoasBiddingScheme.MaxCpc.ToBidBulkString(id);
+                    break;
+                case PercentCpcBiddingScheme percentCpcBiddingScheme:
+                    values[StringTable.BidStrategyPercentMaxCpc] = percentCpcBiddingScheme.MaxPercentCpc.ToBulkString();
+                    break;
+                case CommissionBiddingScheme commissionBiddingScheme:
+                    values[StringTable.BidStrategyCommissionRate] = commissionBiddingScheme.CommissionRate.ToBulkString();
                     break;
                 default:
                     break;
@@ -885,6 +923,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return "ManualCpm";
                 case MaxRoasBiddingScheme maxRoasBiddingScheme:
                     return "MaxRoas";
+                case CommissionBiddingScheme commissionBiddingScheme:
+                    return "Commission";
+                case PercentCpcBiddingScheme percentCpcBiddingScheme:
+                    return "PercentCpc";
             }
             throw new ArgumentException("Unknown bidding scheme");
         }
@@ -1026,6 +1068,27 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     };
                 }).Where(p => p != null).ToList()
             ;
+        }
+
+        public static HotelSetting ParseHotelSetting(this string s)
+        {
+            HotelAdGroupType hotelAdGroupType;
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            var hotelAdGroupTypeString = s.Replace("|", ",");
+            if (!Enum.TryParse(hotelAdGroupTypeString, out hotelAdGroupType))
+            {
+                hotelAdGroupType = HotelAdGroupType.HotelAd | HotelAdGroupType.PropertyAd; // Default to both
+            }
+
+            var hotelSetting = new HotelSetting
+            {
+                HotelAdGroupType = hotelAdGroupType
+            };
+
+            return hotelSetting;
         }
 
 
