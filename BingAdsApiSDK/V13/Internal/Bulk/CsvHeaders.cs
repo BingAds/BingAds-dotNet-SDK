@@ -114,6 +114,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdGroupType,
             StringTable.CpvBid,
             StringTable.CpmBid,
+            StringTable.FrequencyCapSettings,
             StringTable.HotelAdGroupType,
             StringTable.CommissionRate,
             StringTable.PercentCpcBid,
