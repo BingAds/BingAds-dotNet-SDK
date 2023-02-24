@@ -257,6 +257,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.AdGroup.CpmBid = v.ParseAdGroupBid()
                 ),
 
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.FrequencyCapSettings,
+                c => c.AdGroup.FrequencyCapSettings.ToAdGroupFrequencyCapSettingsString(),
+                (v, c) => c.AdGroup.FrequencyCapSettings = v.ParseAdGroupFrequencyCapSettings()
+                ),
+
             new SimpleBulkMapping<BulkAdGroup>(StringTable.MultiMediaAdBidAdjustment,
                 c => c.AdGroup.MultimediaAdsBidAdjustment.ToBulkString(),
                 (v, c) => c.AdGroup.MultimediaAdsBidAdjustment = v.ParseOptional<int>()

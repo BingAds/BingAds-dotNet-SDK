@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -12739,7 +12739,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -13063,7 +13063,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Neighborhood = 63,
         
         /// <summary>
-        /// The name of a neighborhood if the user�s geographical intent can be determined.
+        /// The name of a neighborhood if the user?s geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentNeighborhood = 64,
@@ -21511,7 +21511,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA� in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -23800,7 +23800,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CurrencyCode = 30,
         
         /// <summary>
-        /// Reserved.
+        /// Defines a key and value custom parameter for URL tracking.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 31,
@@ -23896,7 +23896,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AvgBookedABW = 46,
         
         /// <summary>
-        /// Avg booked nights
+        /// The average nights booked for the hotel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedNights = 47,
@@ -23944,7 +23944,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ImpressionShare = 54,
         
         /// <summary>
-        /// MissedImpressionsInsufficientBid
+        /// The number of impressions lost because there were no bids.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoBid = 55,
@@ -24342,7 +24342,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AvgBookedABW = 34,
         
         /// <summary>
-        /// Avg booked nights
+        /// The average nights booked for the hotel.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedNights = 35,
@@ -24390,7 +24390,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ImpressionShare = 42,
         
         /// <summary>
-        /// MissedImpressionsInsufficientBid
+        /// The number of impressions lost because there were no bids.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoBid = 43,

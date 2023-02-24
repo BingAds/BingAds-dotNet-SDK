@@ -59,6 +59,7 @@ using Microsoft.BingAds.V13.CampaignManagement;
 using System.Runtime.Serialization.Json;
 using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -273,6 +274,26 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             return new Bid {Amount = s.Parse<double>()};
+        }
+
+        public static string ToAdGroupFrequencyCapSettingsString(this IList<FrequencyCapSettings> frequencyCapSettings)
+        {
+            if (frequencyCapSettings == null || !frequencyCapSettings.Any())
+            {
+                return null;
+            }
+            string s = JsonConvert.SerializeObject(frequencyCapSettings, new StringEnumConverter());
+            return s;
+        }
+
+        public static IList<FrequencyCapSettings> ParseAdGroupFrequencyCapSettings(this string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return null;
+            }
+            var r = JsonConvert.DeserializeObject<IList<FrequencyCapSettings>>(s);
+            return r;
         }
 
         public static string ToAdGroupCriterionBidBulkString(this Bid bid)

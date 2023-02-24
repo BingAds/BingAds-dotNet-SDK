@@ -315,6 +315,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string PrivacyStatus = "Privacy Status";
         public const string CpvBid = "Cpv Bid";
         public const string CpmBid = "Cpm Bid";
+        public const string FrequencyCapSettings = "Frequency Cap Settings";
 
         public const string Account = "Account";
         public const string SyncTime = "Sync Time";

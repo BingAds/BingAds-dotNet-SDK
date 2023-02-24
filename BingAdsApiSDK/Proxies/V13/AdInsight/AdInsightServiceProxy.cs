@@ -1,4 +1,4 @@
-ï»¿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -10127,7 +10127,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         RCPaymentIssueInvoiceAccountPaused = 58,
         
         /// <summary>
-        /// Your account was placed on hold because we havenâ€™t received one or more of your invoiced payments.
+        /// Your account was placed on hold because we haven’t received one or more of your invoiced payments.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueInvoiceAccountOnHold = 59,
@@ -10331,7 +10331,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         ActEditorialReviewProcess = 92,
         
         /// <summary>
-        /// Fix your conversion goal setting to make sure you donâ€™t miss any conversions.
+        /// Fix your conversion goal setting to make sure you don’t miss any conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActFixConversionGoalSettingOppr = 93,
@@ -11746,7 +11746,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the text asset suggestions data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/textassetsuggestions?view=bingads-13">TextAssetSuggestions Data Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/textassetsuggestions?view=bingads-13 for details.
@@ -11781,7 +11781,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Final URL of the ad, keyword, or criterion.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FinalUrl
@@ -11801,7 +11801,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Text assets that can be reused across multiple ads.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> TextAssets
@@ -12682,7 +12682,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.TagRecommendationsResponse> TagRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.TagRecommendationsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets text asset suggestions by final URLs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
@@ -12700,7 +12700,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsResponse GetTextAssetSuggestionsByFinalUrls(Microsoft.BingAds.V13.AdInsight.GetTextAssetSuggestionsByFinalUrlsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets text asset suggestions by final URLs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
@@ -16373,7 +16373,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets text asset suggestions by final URLs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Request Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
@@ -16407,7 +16407,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The last or final URL where a user is ultimately taken, whether or not the click to final URL path included any redirects.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public System.Collections.Generic.IList<string> FinalUrls;
@@ -16428,7 +16428,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsRequest</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="FinalUrls">Reserved.</param>
+        /// <param name="FinalUrls">The last or final URL where a user is ultimately taken, whether or not the click to final URL path included any redirects.</param>
         public GetTextAssetSuggestionsByFinalUrlsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> FinalUrls)
         {
             this.ApplicationToken = ApplicationToken;
@@ -16443,7 +16443,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets text asset suggestions by final URLs.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Response Object</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
@@ -16459,13 +16459,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// The suggested string value to use for the text asset.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.TextAssetSuggestions> TextAssetSuggestions;
         
         /// <summary>
-        /// Reserved.
+        /// An array BatchError that contain details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors;
@@ -16486,8 +16486,8 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrlsResponse</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="TextAssetSuggestions">Reserved.</param>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="TextAssetSuggestions">The suggested string value to use for the text asset.</param>
+        /// <param name="PartialErrors">An array BatchError that contain details for any request items that were not successful.</param>
         public GetTextAssetSuggestionsByFinalUrlsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.TextAssetSuggestions> TextAssetSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -17321,7 +17321,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets text asset suggestions by final URLs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
@@ -17336,7 +17336,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets text asset suggestions by final URLs.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13">GetTextAssetSuggestionsByFinalUrls Service Operation</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/gettextassetsuggestionsbyfinalurls?view=bingads-13 for details.
