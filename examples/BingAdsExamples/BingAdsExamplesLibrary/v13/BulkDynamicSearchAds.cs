@@ -10,7 +10,7 @@ using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
 using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Microsoft.BingAds.V13.CampaignManagement;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace BingAdsExamplesLibrary.V13
 {
@@ -84,263 +84,263 @@ namespace BingAdsExamplesLibrary.V13
                         "Label_1_3002"
                     });
 
-                var serializerSettings = new JsonSerializerSettings();
-                serializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                var pageFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
-                    pageFeedItemCustomAttributes, serializerSettings);
+                //var serializerSettings = new JsonSerializerSettings();
+                //serializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                //var pageFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
+                //    pageFeedItemCustomAttributes, serializerSettings);
 
-                var bulkPageFeedItem = new BulkFeedItem
-                {
-                    FeedId = feedIdKey,
-                    CustomAttributes = pageFeedItemCustomAttributesJson,
-                    Status = Status.Active
-                };
+                //var bulkPageFeedItem = new BulkFeedItem
+                //{
+                //    FeedId = feedIdKey,
+                //    CustomAttributes = pageFeedItemCustomAttributesJson,
+                //    Status = Status.Active
+                //};
 
-                uploadEntities.Add(bulkPageFeedItem);
+                //uploadEntities.Add(bulkPageFeedItem);
 
 
-                // To get started with dynamic search ads, first you'll need to add a new Search campaign 
-                // Include a DynamicSearchAdsSetting that specifies the target website domain and language.
-                // Page feeds can be associated at the campaign level via 'Source' and 'Page Feed Ids'.
+                //// To get started with dynamic search ads, first you'll need to add a new Search campaign 
+                //// Include a DynamicSearchAdsSetting that specifies the target website domain and language.
+                //// Page feeds can be associated at the campaign level via 'Source' and 'Page Feed Ids'.
 
-                var bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        Id = campaignIdKey,
-                        BudgetType = Microsoft.BingAds.V13.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
-                        DailyBudget = 50,
-                        CampaignType = CampaignType.Search,
-                        Languages = new string[] { "All" },
-                        Name = "Everyone's Shoes " + DateTime.UtcNow,
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                        Settings = new[] {
-                            // Set the target website domain and language.
-                            // Be sure to set the Source to AdvertiserSuppliedUrls or All, 
-                            // otherwise the PageFeedIds will be ignored. 
-                            new DynamicSearchAdsSetting
-                            {
-                                DomainName = DOMAIN_NAME,
-                                Language = LANGUAGE,
-                                Source = DynamicSearchAdsSource.All,
-                                PageFeedIds = new [] { feedIdKey }
-                            }
-                        },
-                    },
-                };
+                //var bulkCampaign = new BulkCampaign
+                //{
+                //    Campaign = new Campaign
+                //    {
+                //        Id = campaignIdKey,
+                //        BudgetType = Microsoft.BingAds.V13.CampaignManagement.BudgetLimitType.DailyBudgetStandard,
+                //        DailyBudget = 50,
+                //        CampaignType = CampaignType.Search,
+                //        Languages = new string[] { "All" },
+                //        Name = "Everyone's Shoes " + DateTime.UtcNow,
+                //        TimeZone = "PacificTimeUSCanadaTijuana",
+                //        Settings = new[] {
+                //            // Set the target website domain and language.
+                //            // Be sure to set the Source to AdvertiserSuppliedUrls or All, 
+                //            // otherwise the PageFeedIds will be ignored. 
+                //            new DynamicSearchAdsSetting
+                //            {
+                //                DomainName = DOMAIN_NAME,
+                //                Language = LANGUAGE,
+                //                Source = DynamicSearchAdsSource.All,
+                //                PageFeedIds = new [] { feedIdKey }
+                //            }
+                //        },
+                //    },
+                //};
 
-                uploadEntities.Add(bulkCampaign);
+                //uploadEntities.Add(bulkCampaign);
 
-                // Create a new ad group with type set to "SearchDynamic"
+                //// Create a new ad group with type set to "SearchDynamic"
 
-                var bulkAdGroup = new BulkAdGroup
-                {
-                    CampaignId = campaignIdKey,
-                    AdGroup = new AdGroup
-                    {
-                        Id = adGroupIdKey,
-                        AdGroupType = "SearchDynamic",
-                        Name = "Everyone's Red Shoe Sale",
-                        StartDate = null,
-                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
-                        {
-                            Month = 12,
-                            Day = 31,
-                            Year = DateTime.UtcNow.Year + 1
-                        },
-                        CpcBid = new Bid { Amount = 0.09 },
-                    },
-                };
+                //var bulkAdGroup = new BulkAdGroup
+                //{
+                //    CampaignId = campaignIdKey,
+                //    AdGroup = new AdGroup
+                //    {
+                //        Id = adGroupIdKey,
+                //        AdGroupType = "SearchDynamic",
+                //        Name = "Everyone's Red Shoe Sale",
+                //        StartDate = null,
+                //        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
+                //        {
+                //            Month = 12,
+                //            Day = 31,
+                //            Year = DateTime.UtcNow.Year + 1
+                //        },
+                //        CpcBid = new Bid { Amount = 0.09 },
+                //    },
+                //};
 
-                uploadEntities.Add(bulkAdGroup);
+                //uploadEntities.Add(bulkAdGroup);
 
-                // Create an auto target based on the custom label feed items created above e.g., "Label_1_3001".
+                //// Create an auto target based on the custom label feed items created above e.g., "Label_1_3001".
 
-                var adGroupWebpagePositiveCustomLabel = new BulkAdGroupDynamicSearchAdTarget
-                {
-                    BiddableAdGroupCriterion = new BiddableAdGroupCriterion
-                    {
-                        AdGroupId = adGroupIdKey,
-                        CriterionBid = new FixedBid
-                        {
-                            Amount = 0.50
-                        },
-                        Criterion = new Webpage
-                        {
-                            Parameter = new WebpageParameter
-                            {
-                                Conditions = new[]
-                                {
-                                    new WebpageCondition
-                                    {
-                                        Argument = "Label_1_3001",
-                                        Operand = WebpageConditionOperand.CustomLabel,
-                                    },
-                                },
-                                CriterionName = "Ad Group Webpage Positive Custom Label Criterion"
-                            },
-                        },
-                    }
-                };
-                uploadEntities.Add(adGroupWebpagePositiveCustomLabel);
+                //var adGroupWebpagePositiveCustomLabel = new BulkAdGroupDynamicSearchAdTarget
+                //{
+                //    BiddableAdGroupCriterion = new BiddableAdGroupCriterion
+                //    {
+                //        AdGroupId = adGroupIdKey,
+                //        CriterionBid = new FixedBid
+                //        {
+                //            Amount = 0.50
+                //        },
+                //        Criterion = new Webpage
+                //        {
+                //            Parameter = new WebpageParameter
+                //            {
+                //                Conditions = new[]
+                //                {
+                //                    new WebpageCondition
+                //                    {
+                //                        Argument = "Label_1_3001",
+                //                        Operand = WebpageConditionOperand.CustomLabel,
+                //                    },
+                //                },
+                //                CriterionName = "Ad Group Webpage Positive Custom Label Criterion"
+                //            },
+                //        },
+                //    }
+                //};
+                //uploadEntities.Add(adGroupWebpagePositiveCustomLabel);
                 
-                // To discover the categories that you can use for Webpage criterion (positive or negative), 
-                // use the GetDomainCategories operation with the Ad Insight service.
+                //// To discover the categories that you can use for Webpage criterion (positive or negative), 
+                //// use the GetDomainCategories operation with the Ad Insight service.
 
-                OutputStatusMessage("-----\nGetDomainCategories:");
-                var getDomainCategoriesResponse = await AdInsightExampleHelper.GetDomainCategoriesAsync(
-                    categoryName: null,
-                    domainName: DOMAIN_NAME,
-                    language: LANGUAGE);
-                var categories = getDomainCategoriesResponse.Categories;
-                AdInsightExampleHelper.OutputArrayOfDomainCategory(categories);
+                //OutputStatusMessage("-----\nGetDomainCategories:");
+                //var getDomainCategoriesResponse = await AdInsightExampleHelper.GetDomainCategoriesAsync(
+                //    categoryName: null,
+                //    domainName: DOMAIN_NAME,
+                //    language: LANGUAGE);
+                //var categories = getDomainCategoriesResponse.Categories;
+                //AdInsightExampleHelper.OutputArrayOfDomainCategory(categories);
 
-                // If any categories are available let's use one as a condition.
+                //// If any categories are available let's use one as a condition.
 
-                if (categories.Count > 0)
-                {
-                    var adGroupWebpagePositiveCategory = new BulkAdGroupDynamicSearchAdTarget
-                    {
-                        BiddableAdGroupCriterion = new BiddableAdGroupCriterion
-                        {
-                            AdGroupId = adGroupIdKey,
-                            CriterionBid = new FixedBid
-                            {
-                                Amount = 0.50
-                            },
-                            Criterion = new Webpage
-                            {
-                                Parameter = new WebpageParameter
-                                {
-                                    Conditions = new[]
-                                    {
-                                        new WebpageCondition
-                                        {
-                                            Argument = categories[0].CategoryName,
-                                            Operand = WebpageConditionOperand.Category,
-                                        }
-                                    },
-                                    CriterionName = "Ad Group Webpage Positive Category Criterion"
-                                },
-                            }
-                        }
-                    };
-                    uploadEntities.Add(adGroupWebpagePositiveCategory);
-                }
+                //if (categories.Count > 0)
+                //{
+                //    var adGroupWebpagePositiveCategory = new BulkAdGroupDynamicSearchAdTarget
+                //    {
+                //        BiddableAdGroupCriterion = new BiddableAdGroupCriterion
+                //        {
+                //            AdGroupId = adGroupIdKey,
+                //            CriterionBid = new FixedBid
+                //            {
+                //                Amount = 0.50
+                //            },
+                //            Criterion = new Webpage
+                //            {
+                //                Parameter = new WebpageParameter
+                //                {
+                //                    Conditions = new[]
+                //                    {
+                //                        new WebpageCondition
+                //                        {
+                //                            Argument = categories[0].CategoryName,
+                //                            Operand = WebpageConditionOperand.Category,
+                //                        }
+                //                    },
+                //                    CriterionName = "Ad Group Webpage Positive Category Criterion"
+                //                },
+                //            }
+                //        }
+                //    };
+                //    uploadEntities.Add(adGroupWebpagePositiveCategory);
+                //}
 
-                // If you want to exclude certain portions of your website, you can add negative Webpage 
-                // criterion at the campaign and ad group level. 
+                //// If you want to exclude certain portions of your website, you can add negative Webpage 
+                //// criterion at the campaign and ad group level. 
 
-                var adGroupWebpageNegativeUrl = new BulkAdGroupNegativeDynamicSearchAdTarget
-                {
-                    NegativeAdGroupCriterion = new NegativeAdGroupCriterion
-                    {
-                        AdGroupId = adGroupIdKey,
-                        Criterion = new Webpage
-                        {
-                            Parameter = new WebpageParameter
-                            {
-                                // You can choose whether you want the criterion argument to match partial URLs, 
-                                // page content, page title, or categories that Bing thinks applies to your website.
-                                Conditions = new[]
-                                {
-                                    new WebpageCondition
-                                    {
-                                        Argument = "https://" + DOMAIN_NAME + "/3001",
-                                        Operand = WebpageConditionOperand.Url,
-                                    }
-                                },
-                                // If you do not specify any name, then it will be set to a concatenated list of conditions. 
-                                CriterionName = null
-                            }
-                        }
-                    }
-                };
-                uploadEntities.Add(adGroupWebpageNegativeUrl);
+                //var adGroupWebpageNegativeUrl = new BulkAdGroupNegativeDynamicSearchAdTarget
+                //{
+                //    NegativeAdGroupCriterion = new NegativeAdGroupCriterion
+                //    {
+                //        AdGroupId = adGroupIdKey,
+                //        Criterion = new Webpage
+                //        {
+                //            Parameter = new WebpageParameter
+                //            {
+                //                // You can choose whether you want the criterion argument to match partial URLs, 
+                //                // page content, page title, or categories that Bing thinks applies to your website.
+                //                Conditions = new[]
+                //                {
+                //                    new WebpageCondition
+                //                    {
+                //                        Argument = "https://" + DOMAIN_NAME + "/3001",
+                //                        Operand = WebpageConditionOperand.Url,
+                //                    }
+                //                },
+                //                // If you do not specify any name, then it will be set to a concatenated list of conditions. 
+                //                CriterionName = null
+                //            }
+                //        }
+                //    }
+                //};
+                //uploadEntities.Add(adGroupWebpageNegativeUrl);
                                 
-                // Finally you must add at least one Dynamic Search Ad into the ad group. The ad title and display URL 
-                // are generated automatically based on the website domain and language that you want to target.
+                //// Finally you must add at least one Dynamic Search Ad into the ad group. The ad title and display URL 
+                //// are generated automatically based on the website domain and language that you want to target.
 
-                var bulkDynamicSearchAd = new BulkDynamicSearchAd
-                {
-                    AdGroupId = adGroupIdKey,
-                    DynamicSearchAd = new DynamicSearchAd
-                    {
-                        Text = "Find New Customers & Increase Sales!",
-                        TextPart2 = "Start Advertising on Contoso Today.",
-                        Path1 = "seattle",
-                        Path2 = "shoe sale",
-                        // You cannot set FinalUrls for dynamic search ads. 
-                        // The Final URL will be a dynamically selected landing page.
-                        // The final URL is distinct from the path that customers will see and click on in your ad.
-                        FinalUrls = null
-                    },
-                };
+                //var bulkDynamicSearchAd = new BulkDynamicSearchAd
+                //{
+                //    AdGroupId = adGroupIdKey,
+                //    DynamicSearchAd = new DynamicSearchAd
+                //    {
+                //        Text = "Find New Customers & Increase Sales!",
+                //        TextPart2 = "Start Advertising on Contoso Today.",
+                //        Path1 = "seattle",
+                //        Path2 = "shoe sale",
+                //        // You cannot set FinalUrls for dynamic search ads. 
+                //        // The Final URL will be a dynamically selected landing page.
+                //        // The final URL is distinct from the path that customers will see and click on in your ad.
+                //        FinalUrls = null
+                //    },
+                //};
 
-                uploadEntities.Add(bulkDynamicSearchAd);
+                //uploadEntities.Add(bulkDynamicSearchAd);
                 
-                // Upload and write the output
+                //// Upload and write the output
 
-                OutputStatusMessage("-----\nAdding page feed, campaign, ad group, criterions, and ads...");
+                //OutputStatusMessage("-----\nAdding page feed, campaign, ad group, criterions, and ads...");
 
-                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                var downloadEntities = Reader.ReadEntities().ToList();
+                //var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                //var downloadEntities = Reader.ReadEntities().ToList();
 
-                OutputStatusMessage("Upload results:");
+                //OutputStatusMessage("Upload results:");
                 
-                var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
-                OutputBulkFeeds(feedResults);
+                //var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                //OutputBulkFeeds(feedResults);
 
-                var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
-                OutputBulkFeedItems(feedItemResults);
+                //var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
+                //OutputBulkFeedItems(feedItemResults);
 
-                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                //var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                //OutputBulkCampaigns(campaignResults);
 
-                var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
-                OutputBulkAdGroups(adGroupResults);
+                //var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
+                //OutputBulkAdGroups(adGroupResults);
 
-                var adGroupDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupDynamicSearchAdTarget>().ToList();
-                OutputBulkAdGroupDynamicSearchAdTargets(adGroupDynamicSearchAdTargetResults);
+                //var adGroupDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupDynamicSearchAdTarget>().ToList();
+                //OutputBulkAdGroupDynamicSearchAdTargets(adGroupDynamicSearchAdTargetResults);
 
-                var adGroupNegativeDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupNegativeDynamicSearchAdTarget>().ToList();
-                OutputBulkAdGroupNegativeDynamicSearchAdTargets(adGroupNegativeDynamicSearchAdTargetResults);
+                //var adGroupNegativeDynamicSearchAdTargetResults = downloadEntities.OfType<BulkAdGroupNegativeDynamicSearchAdTarget>().ToList();
+                //OutputBulkAdGroupNegativeDynamicSearchAdTargets(adGroupNegativeDynamicSearchAdTargetResults);
 
-                var dynamicSearchAdResults = downloadEntities.OfType<BulkDynamicSearchAd>().ToList();
-                OutputBulkDynamicSearchAds(dynamicSearchAdResults);
+                //var dynamicSearchAdResults = downloadEntities.OfType<BulkDynamicSearchAd>().ToList();
+                //OutputBulkDynamicSearchAds(dynamicSearchAdResults);
 
-                Reader.Dispose();
+                //Reader.Dispose();
 
-                // Delete the campaign and everything it contains e.g., ad groups and ads.
+                //// Delete the campaign and everything it contains e.g., ad groups and ads.
 
-                uploadEntities = new List<BulkEntity>();
+                //uploadEntities = new List<BulkEntity>();
 
-                foreach (var feedResult in feedResults)
-                {
-                    feedResult.Status = Status.Deleted;
-                    uploadEntities.Add(feedResult);
-                }
+                //foreach (var feedResult in feedResults)
+                //{
+                //    feedResult.Status = Status.Deleted;
+                //    uploadEntities.Add(feedResult);
+                //}
 
-                foreach (var campaignResult in campaignResults)
-                {
-                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
-                    uploadEntities.Add(campaignResult);
-                }
+                //foreach (var campaignResult in campaignResults)
+                //{
+                //    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                //    uploadEntities.Add(campaignResult);
+                //}
 
-                OutputStatusMessage("-----\nDeleting page feed, DSA campaign, and all contained entities...");
+                //OutputStatusMessage("-----\nDeleting page feed, DSA campaign, and all contained entities...");
 
-                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                downloadEntities = Reader.ReadEntities().ToList();
+                //Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                //downloadEntities = Reader.ReadEntities().ToList();
 
-                OutputStatusMessage("Upload results:");
+                //OutputStatusMessage("Upload results:");
 
-                feedResults = downloadEntities.OfType<BulkFeed>().ToList();
-                OutputBulkFeeds(feedResults);
+                //feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                //OutputBulkFeeds(feedResults);
 
-                campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                //campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                //OutputBulkCampaigns(campaignResults);
 
-                Reader.Dispose();
+                //Reader.Dispose();
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)

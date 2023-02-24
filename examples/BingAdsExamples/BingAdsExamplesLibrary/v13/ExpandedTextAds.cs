@@ -90,8 +90,127 @@ namespace BingAdsExamplesLibrary.V13
                     {
                         Bid = new Bid { Amount = 0.47 },
                         Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "+abc",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
                         MatchType = MatchType.Phrase,
-                        Text = "Brand-A Shoes",
+                        Text = "+abc",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "+abc",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "abc +def",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "abc +def",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "abc +def",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "abc +def",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "def+",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "def+",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "def+",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "def+e",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "def+e",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "def+e",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Exact,
+                        Text = "+ edf",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "+ edf",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "+ edf",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Phrase,
+                        Text = "++edf",
+                    },
+                    new Keyword
+                    {
+                        Bid = new Bid { Amount = 0.47 },
+                        Param2 = "10% Off",
+                        MatchType = MatchType.Broad,
+                        Text = "++edf",
                     },
                 };
 

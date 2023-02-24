@@ -1,4 +1,4 @@
-﻿//=====================================================================================================================================================
+//=====================================================================================================================================================
 // Bing Ads .NET SDK ver. 13.0
 // 
 // Copyright (c) Microsoft Corporation
@@ -867,7 +867,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Audience = 8,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign is a Hotel campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hotel = 32,
@@ -1414,7 +1414,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the percent CPC bid strategy type (total hotel price per night, including taxes and fees).
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/percentcpcbiddingscheme?view=bingads-13">PercentCpcBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/percentcpcbiddingscheme?view=bingads-13 for details.
@@ -1430,7 +1430,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> MaxPercentCpcField;
         
         /// <summary>
-        /// Reserved.
+        /// The maximum effective bid limit, in absolute form, at the campaign level.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> MaxPercentCpc
@@ -1451,7 +1451,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the commission bid strategy type (commission pay per stay).
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/commissionbiddingscheme?view=bingads-13">CommissionBiddingScheme Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/commissionbiddingscheme?view=bingads-13 for details.
@@ -1467,7 +1467,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> CommissionRateField;
         
         /// <summary>
-        /// Reserved.
+        /// The commission rate charged to the advertiser when someone books a hotel and stays there.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> CommissionRate
@@ -3504,6 +3504,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMapField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.FrequencyCapSettings> FrequencyCapSettingsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -3722,6 +3725,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ForwardCompatibilityMapField = value;
                     this.RaisePropertyChanged("ForwardCompatibilityMap");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.FrequencyCapSettings> FrequencyCapSettings
+        {
+            get
+            {
+                return this.FrequencyCapSettingsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FrequencyCapSettingsField, value) != true))
+                {
+                    this.FrequencyCapSettingsField = value;
+                    this.RaisePropertyChanged("FrequencyCapSettings");
                 }
             }
         }
@@ -3989,7 +4012,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -4009,7 +4032,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The ad group type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
         public string AdGroupType
         {
             get
@@ -4029,7 +4052,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpvBid
         {
             get
@@ -4049,7 +4072,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpmBid
         {
             get
@@ -4189,7 +4212,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the rate bid.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/ratebid?view=bingads-13">RateBid Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/ratebid?view=bingads-13 for details.
@@ -4206,7 +4229,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.RateAmount RateAmountField;
         
         /// <summary>
-        /// Reserved.
+        /// Defines an object that represents the rate amount.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.RateAmount RateAmount
@@ -4317,6 +4340,116 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.YearField = value;
                     this.RaisePropertyChanged("Year");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequencycapsettings?view=bingads-13">FrequencyCapSettings Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequencycapsettings?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdGroup"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FrequencyCapSettings", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class FrequencyCapSettings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CapValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FrequencyCapUnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.FrequencyCapTimeGranularity TimeGranularityField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CapValue
+        {
+            get
+            {
+                return this.CapValueField;
+            }
+            set
+            {
+                if ((this.CapValueField.Equals(value) != true))
+                {
+                    this.CapValueField = value;
+                    this.RaisePropertyChanged("CapValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FrequencyCapUnit
+        {
+            get
+            {
+                return this.FrequencyCapUnitField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FrequencyCapUnitField, value) != true))
+                {
+                    this.FrequencyCapUnitField = value;
+                    this.RaisePropertyChanged("FrequencyCapUnit");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.FrequencyCapTimeGranularity TimeGranularity
+        {
+            get
+            {
+                return this.TimeGranularityField;
+            }
+            set
+            {
+                if ((this.TimeGranularityField.Equals(value) != true))
+                {
+                    this.TimeGranularityField = value;
+                    this.RaisePropertyChanged("TimeGranularity");
                 }
             }
         }
@@ -4611,7 +4744,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the rate amount in percentage form.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/rateamount?view=bingads-13">RateAmount Data Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/rateamount?view=bingads-13 for details.
@@ -4643,7 +4776,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The rate amount in percentage form.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> Amount
@@ -4672,6 +4805,49 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequencycaptimegranularity?view=bingads-13">FrequencyCapTimeGranularity Value Set</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/frequencycaptimegranularity?view=bingads-13 for details.
+    /// <para>Used by <see cref="FrequencyCapSettings"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FrequencyCapTimeGranularity", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum FrequencyCapTimeGranularity : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HOUR = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DAY = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WEEK = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MONTH = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LIFETIME = 4,
     }
     
     /// <summary>
@@ -4740,6 +4916,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UseOptimizedTargeting = 256,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FrequencyCapSettings = 512,
     }
     
     /// <summary>
@@ -26829,6 +27011,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> UpdateAdSchedulesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAdUrlsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateAppAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -28122,6 +28307,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Note: Not everyone has this feature yet.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateAdUrls
+        {
+            get
+            {
+                return this.UpdateAdUrlsField;
+            }
+            set
+            {
+                if ((this.UpdateAdUrlsField.Equals(value) != true))
+                {
+                    this.UpdateAdUrlsField = value;
+                    this.RaisePropertyChanged("UpdateAdUrls");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Import updates to existing app extensions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -29023,6 +29228,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RenameCampaignNameWithSuffix = 256,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateAdUrls = 512,
     }
     
     /// <summary>
@@ -29512,7 +29723,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The video's aspect ratio.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AspectRatio
@@ -29532,7 +29743,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date and time the video was created, in Coordinated Universal Time.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> CreatedDateTimeInUTC
@@ -29592,7 +29803,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Read the description for each possible error code below.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FailureCode
@@ -29612,7 +29823,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the video.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -29632,7 +29843,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The date and time the video was last modified, in Coordinated Universal Time.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> ModifiedDateTimeInUTC
@@ -29652,7 +29863,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The original URL of the video.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SourceUrl
@@ -29712,7 +29923,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The URL where the video is hosted.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Url
@@ -31510,7 +31721,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyProductPartitionActionsResponse> ApplyProductPartitionActionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyProductPartitionActionsRequest request);
         
         /// <summary>
-        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.
@@ -31528,7 +31739,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.ApplyHotelGroupActionsResponse ApplyHotelGroupActions(Microsoft.BingAds.V13.CampaignManagement.ApplyHotelGroupActionsRequest request);
         
         /// <summary>
-        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.
@@ -40721,7 +40932,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+    /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Request Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.
@@ -40791,7 +41002,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+    /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Response Object</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.
@@ -51455,7 +51666,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.
@@ -51470,7 +51681,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a ProductPartition.
+        /// Applies an add, update, or delete action to each of the specified BiddableAdGroupCriterion or NegativeAdGroupCriterion, which each contain a HotelGroup.
         /// </summary>
         /// <remarks>
         /// See <see href="https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13">ApplyHotelGroupActions Service Operation</see> https://docs.microsoft.com/en-us/advertising/campaign-management-service/applyhotelgroupactions?view=bingads-13 for details.

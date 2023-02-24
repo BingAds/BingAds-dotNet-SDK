@@ -9,7 +9,7 @@ using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
 using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Microsoft.BingAds.V13.CampaignManagement;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace BingAdsExamplesLibrary.V13
 {
@@ -90,171 +90,171 @@ namespace BingAdsExamplesLibrary.V13
                 adCustomizerFeedItemCustomAttributes.Add("Finishes", 8);
                 adCustomizerFeedItemCustomAttributes.Add("StartPrice", "$24.99");
 
-                var serializerSettings = new JsonSerializerSettings();
-                serializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                var adCustomizerFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
-                    adCustomizerFeedItemCustomAttributes, serializerSettings);
+                //var serializerSettings = new JsonSerializerSettings();
+                //serializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                //var adCustomizerFeedItemCustomAttributesJson = JsonConvert.SerializeObject(
+                //    adCustomizerFeedItemCustomAttributes, serializerSettings);
 
-                var bulkAdCustomizerFeedItem = new BulkFeedItem
-                {
-                    FeedId = feedIdKey,
-                    CustomAttributes = adCustomizerFeedItemCustomAttributesJson,
-                    Id = null,
-                    AdGroupName = null,
-                    AudienceId = null,
-                    CampaignName = null,
-                    DayTimeRanges = new[]
-                    {
-                        new DayTime
-                        {
-                            Day = Day.Monday,
-                            StartHour = 9,
-                            StartMinute = Minute.Zero,
-                            EndHour = 21,
-                            EndMinute = Minute.Zero,
-                        },
-                    },
-                    EndDate = null,
-                    StartDate = DateTime.UtcNow,
-                    IntentOption = IntentOption.PeopleIn,
-                    Keyword = "lightweight sunglasses",
-                    LocationId = 190,
-                    MatchType = MatchType.Broad,
-                    DevicePreference = null,
-                    Status = Status.Active
-                };
+                //var bulkAdCustomizerFeedItem = new BulkFeedItem
+                //{
+                //    FeedId = feedIdKey,
+                //    CustomAttributes = adCustomizerFeedItemCustomAttributesJson,
+                //    Id = null,
+                //    AdGroupName = null,
+                //    AudienceId = null,
+                //    CampaignName = null,
+                //    DayTimeRanges = new[]
+                //    {
+                //        new DayTime
+                //        {
+                //            Day = Day.Monday,
+                //            StartHour = 9,
+                //            StartMinute = Minute.Zero,
+                //            EndHour = 21,
+                //            EndMinute = Minute.Zero,
+                //        },
+                //    },
+                //    EndDate = null,
+                //    StartDate = DateTime.UtcNow,
+                //    IntentOption = IntentOption.PeopleIn,
+                //    Keyword = "lightweight sunglasses",
+                //    LocationId = 190,
+                //    MatchType = MatchType.Broad,
+                //    DevicePreference = null,
+                //    Status = Status.Active
+                //};
 
-                uploadEntities.Add(bulkAdCustomizerFeedItem);
+                //uploadEntities.Add(bulkAdCustomizerFeedItem);
 
-                // Add a search campaign.
+                //// Add a search campaign.
 
-                var bulkCampaign = new BulkCampaign
-                {
-                    Campaign = new Campaign
-                    {
-                        BudgetType = BudgetLimitType.DailyBudgetStandard,
-                        DailyBudget = 50,
-                        CampaignType = CampaignType.Search,
-                        Id = campaignIdKey,
-                        Languages = new string[] { "All" },
-                        Name = "Summer Sunglasses " + DateTime.UtcNow,
-                        TimeZone = "PacificTimeUSCanadaTijuana",
-                    },
-                };
-                uploadEntities.Add(bulkCampaign);
+                //var bulkCampaign = new BulkCampaign
+                //{
+                //    Campaign = new Campaign
+                //    {
+                //        BudgetType = BudgetLimitType.DailyBudgetStandard,
+                //        DailyBudget = 50,
+                //        CampaignType = CampaignType.Search,
+                //        Id = campaignIdKey,
+                //        Languages = new string[] { "All" },
+                //        Name = "Summer Sunglasses " + DateTime.UtcNow,
+                //        TimeZone = "PacificTimeUSCanadaTijuana",
+                //    },
+                //};
+                //uploadEntities.Add(bulkCampaign);
 
-                // Add an ad group within the campaign.
+                //// Add an ad group within the campaign.
 
-                var bulkAdGroup = new BulkAdGroup
-                {
-                    CampaignId = campaignIdKey,
-                    AdGroup = new AdGroup
-                    {
-                        Id = adGroupIdKey,
-                        Name = "Sunglasses Sale",
-                        StartDate = null,
-                        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
-                        {
-                            Month = 12,
-                            Day = 31,
-                            Year = DateTime.UtcNow.Year + 1
-                        },
-                        CpcBid = new Bid { Amount = 0.09 },
-                    },
-                };
-                uploadEntities.Add(bulkAdGroup);
+                //var bulkAdGroup = new BulkAdGroup
+                //{
+                //    CampaignId = campaignIdKey,
+                //    AdGroup = new AdGroup
+                //    {
+                //        Id = adGroupIdKey,
+                //        Name = "Sunglasses Sale",
+                //        StartDate = null,
+                //        EndDate = new Microsoft.BingAds.V13.CampaignManagement.Date
+                //        {
+                //            Month = 12,
+                //            Day = 31,
+                //            Year = DateTime.UtcNow.Year + 1
+                //        },
+                //        CpcBid = new Bid { Amount = 0.09 },
+                //    },
+                //};
+                //uploadEntities.Add(bulkAdGroup);
 
-                // Add keywords and ads within the ad group.
+                //// Add keywords and ads within the ad group.
 
-                var bulkKeyword = new BulkKeyword{
-                    AdGroupId = adGroupIdKey,
-                    Keyword = new Keyword
-                    {
-                        Bid = new Bid { Amount = 0.47 },
-                        Param2 = "10% Off",
-                        MatchType = MatchType.Phrase,
-                        Text = "Brand-A Sunglasses",
-                    },                    
-                };
-                uploadEntities.Add(bulkKeyword);
+                //var bulkKeyword = new BulkKeyword{
+                //    AdGroupId = adGroupIdKey,
+                //    Keyword = new Keyword
+                //    {
+                //        Bid = new Bid { Amount = 0.47 },
+                //        Param2 = "10% Off",
+                //        MatchType = MatchType.Phrase,
+                //        Text = "Brand-A Sunglasses",
+                //    },                    
+                //};
+                //uploadEntities.Add(bulkKeyword);
 
-                var bulkExpandedTextAd = new BulkExpandedTextAd
-                {
-                    AdGroupId = adGroupIdKey,
-                    ExpandedTextAd = new ExpandedTextAd
-                    {
-                        TitlePart1 = "The latest {=Sunglasses.Product}s",
-                        TitlePart2 = "In {=Sunglasses.Materials_Lightweight}",
-                        TitlePart3 = null,
-                        Text = "{=Sunglasses.Description_Lightweight} in {=Sunglasses.Finishes} finishes.",
-                        TextPart2 = "Starting at only {=Sunglasses.StartPrice}!",
-                        Path1 = "deals",
-                        Path2 = null,
-                        FinalUrls = new[] {
-                            "https://www.contoso.com"
-                        },
-                    },
-                };
-                uploadEntities.Add(bulkExpandedTextAd);
+                //var bulkExpandedTextAd = new BulkExpandedTextAd
+                //{
+                //    AdGroupId = adGroupIdKey,
+                //    ExpandedTextAd = new ExpandedTextAd
+                //    {
+                //        TitlePart1 = "The latest {=Sunglasses.Product}s",
+                //        TitlePart2 = "In {=Sunglasses.Materials_Lightweight}",
+                //        TitlePart3 = null,
+                //        Text = "{=Sunglasses.Description_Lightweight} in {=Sunglasses.Finishes} finishes.",
+                //        TextPart2 = "Starting at only {=Sunglasses.StartPrice}!",
+                //        Path1 = "deals",
+                //        Path2 = null,
+                //        FinalUrls = new[] {
+                //            "https://www.contoso.com"
+                //        },
+                //    },
+                //};
+                //uploadEntities.Add(bulkExpandedTextAd);
 
-                // Upload and write the output
+                //// Upload and write the output
 
-                OutputStatusMessage("-----\nAdding the ad customizer feed, campaign, ad group, keyword, and ad...");
+                //OutputStatusMessage("-----\nAdding the ad customizer feed, campaign, ad group, keyword, and ad...");
 
-                var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                var downloadEntities = Reader.ReadEntities().ToList();
+                //var Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                //var downloadEntities = Reader.ReadEntities().ToList();
 
-                OutputStatusMessage("Upload results:");
+                //OutputStatusMessage("Upload results:");
 
-                var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
-                OutputBulkFeeds(feedResults);
+                //var feedResults = downloadEntities.OfType<BulkFeed>().ToList();
+                //OutputBulkFeeds(feedResults);
 
-                var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
-                OutputBulkFeedItems(feedItemResults);
+                //var feedItemResults = downloadEntities.OfType<BulkFeedItem>().ToList();
+                //OutputBulkFeedItems(feedItemResults);
 
-                var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                //var campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                //OutputBulkCampaigns(campaignResults);
 
-                var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
-                OutputBulkAdGroups(adGroupResults);
+                //var adGroupResults = downloadEntities.OfType<BulkAdGroup>().ToList();
+                //OutputBulkAdGroups(adGroupResults);
 
-                var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
-                OutputBulkKeywords(keywordResults);
+                //var keywordResults = downloadEntities.OfType<BulkKeyword>().ToList();
+                //OutputBulkKeywords(keywordResults);
 
-                var expandedTextAdResults = downloadEntities.OfType<BulkExpandedTextAd>().ToList();
-                OutputBulkExpandedTextAds(expandedTextAdResults);
+                //var expandedTextAdResults = downloadEntities.OfType<BulkExpandedTextAd>().ToList();
+                //OutputBulkExpandedTextAds(expandedTextAdResults);
 
-                Reader.Dispose();
+                //Reader.Dispose();
 
-                // Delete the feed and campaign and everything it contains e.g., ad groups and ads.
+                //// Delete the feed and campaign and everything it contains e.g., ad groups and ads.
 
-                uploadEntities = new List<BulkEntity>();
+                //uploadEntities = new List<BulkEntity>();
 
-                foreach (var feedResult in feedResults)
-                {
-                    feedResult.Status = Status.Deleted;
-                    uploadEntities.Add(feedResult);
-                }
+                //foreach (var feedResult in feedResults)
+                //{
+                //    feedResult.Status = Status.Deleted;
+                //    uploadEntities.Add(feedResult);
+                //}
 
-                foreach (var campaignResult in campaignResults)
-                {
-                    campaignResult.Campaign.Status = CampaignStatus.Deleted;
-                    uploadEntities.Add(campaignResult);
-                }
+                //foreach (var campaignResult in campaignResults)
+                //{
+                //    campaignResult.Campaign.Status = CampaignStatus.Deleted;
+                //    uploadEntities.Add(campaignResult);
+                //}
                 
-                // Upload and write the output
+                //// Upload and write the output
 
-                OutputStatusMessage("-----\nDeleting the feed and campaign and everything it contains e.g., ad groups and ads...");
+                //OutputStatusMessage("-----\nDeleting the feed and campaign and everything it contains e.g., ad groups and ads...");
 
-                Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
-                downloadEntities = Reader.ReadEntities().ToList();
+                //Reader = await WriteEntitiesAndUploadFileAsync(uploadEntities);
+                //downloadEntities = Reader.ReadEntities().ToList();
 
-                OutputStatusMessage("Upload results:");
+                //OutputStatusMessage("Upload results:");
 
-                campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
-                OutputBulkCampaigns(campaignResults);
+                //campaignResults = downloadEntities.OfType<BulkCampaign>().ToList();
+                //OutputBulkCampaigns(campaignResults);
 
-                Reader.Dispose();
+                //Reader.Dispose();
             }
             // Catch Microsoft Account authorization exceptions.
             catch (OAuthTokenRequestException ex)
