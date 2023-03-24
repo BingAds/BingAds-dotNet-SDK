@@ -278,10 +278,16 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static string ToAdGroupFrequencyCapSettingsString(this IList<FrequencyCapSettings> frequencyCapSettings)
         {
-            if (frequencyCapSettings == null || !frequencyCapSettings.Any())
+            if (frequencyCapSettings == null)
             {
                 return null;
             }
+
+            if (!frequencyCapSettings.Any())
+            {
+                return DeleteValue;
+            }
+
             string s = JsonConvert.SerializeObject(frequencyCapSettings, new StringEnumConverter());
             return s;
         }
@@ -292,6 +298,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             {
                 return null;
             }
+
+            if (s.Equals(DeleteValue))
+            {
+                return new List<FrequencyCapSettings>();
+            }
+
             var r = JsonConvert.DeserializeObject<IList<FrequencyCapSettings>>(s);
             return r;
         }
