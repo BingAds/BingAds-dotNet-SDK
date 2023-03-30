@@ -66,7 +66,7 @@ namespace Microsoft.BingAds.V13.Bulk
     
     
     /// <summary>
-    /// Defines the possible compression types for the file to download.
+    /// Defines the possible compression types for the file to download with the Bulk service.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/bulk-service/compressiontype?view=bingads-13">CompressionType Value Set</see> https://docs.microsoft.com/en-us/advertising/bulk-service/compressiontype?view=bingads-13 for details.

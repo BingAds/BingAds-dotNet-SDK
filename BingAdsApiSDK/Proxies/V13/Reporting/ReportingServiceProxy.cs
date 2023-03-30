@@ -12739,7 +12739,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA&reg; in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -12835,7 +12835,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA&reg; in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -21511,7 +21511,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Nielsen DMA? in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMA&reg; in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
