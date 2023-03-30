@@ -10127,7 +10127,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         RCPaymentIssueInvoiceAccountPaused = 58,
         
         /// <summary>
-        /// Your account was placed on hold because we haven’t received one or more of your invoiced payments.
+        /// Your account was placed on hold because we haven't received one or more of your invoiced payments.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCPaymentIssueInvoiceAccountOnHold = 59,
@@ -10217,7 +10217,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         RCSingleCampaignUnpause = 73,
         
         /// <summary>
-        /// Your campaign budget was increased..
+        /// Your campaign budget was increased.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RCSingleCampaignBudgetIncrease = 74,
@@ -10331,7 +10331,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         ActEditorialReviewProcess = 92,
         
         /// <summary>
-        /// Fix your conversion goal setting to make sure you don’t miss any conversions.
+        /// Fix your conversion goal setting to make sure you don't miss any conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActFixConversionGoalSettingOppr = 93,
@@ -10738,7 +10738,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Defines the type of parameter: string, URL, or a list of demand entities.
+    /// Defines the type of parameter such as string, URL, or a list of demand entities.
     /// </summary>
     /// <remarks>
     /// See <see href="https://docs.microsoft.com/en-us/advertising/ad-insight-service/parametertype?view=bingads-13">ParameterType Value Set</see> https://docs.microsoft.com/en-us/advertising/ad-insight-service/parametertype?view=bingads-13 for details.
