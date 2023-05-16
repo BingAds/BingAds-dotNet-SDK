@@ -36,9 +36,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: publish
-    publishWebProjects: True
+    publishPackageMetadata: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True    
+
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact: drop-nuget'
   inputs:
