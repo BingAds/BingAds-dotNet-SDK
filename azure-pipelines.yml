@@ -36,5 +36,5 @@ steps:
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact: drop-nuget'
   inputs:
-    artifactName: ${{ parameters.ArtifactName }}
+    artifactName: 'Microsoft.BingAds'
     targetPath: '$(Build.ArtifactStagingDirectory)'
