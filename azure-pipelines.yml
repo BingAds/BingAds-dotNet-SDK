@@ -19,9 +19,9 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-       echo $(AssemblyKey) |  base64 -d > 35MSSharedLib1024.snk
-       mkdir Properties
-       echo $(AssemblyInfo) > Properties\AssemblyInfo.cs
+       echo $(AssemblyKey) |  base64 -d > BingAdsApiSDK\35MSSharedLib1024.snk
+       mkdir BingAdsApiSDK\Properties
+       echo $(AssemblyInfo) > BingAdsApiSDK\Properties\AssemblyInfo.cs
 
 - task: NuGetToolInstaller@1
 
