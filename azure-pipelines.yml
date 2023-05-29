@@ -15,6 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+
+- task: CmdLine@2
+  inputs:
+    script: |
+       echo $(AssemblyKey) |  base64 -d > 35MSSharedLib1024.snk
+       mkdir Properties | echo $(AssemblyInfo) > Properties\AssemblyInfo.cs
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
