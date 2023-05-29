@@ -20,7 +20,8 @@ steps:
   inputs:
     script: |
        echo $(AssemblyKey) |  base64 -d > 35MSSharedLib1024.snk
-       mkdir Properties | echo $(AssemblyInfo) > Properties\AssemblyInfo.cs
+       mkdir Properties
+       echo $(AssemblyInfo) > Properties\AssemblyInfo.cs
 
 - task: NuGetToolInstaller@1
 
@@ -44,4 +45,5 @@ steps:
   displayName: 'Publish Pipeline Artifact: drop-dll'
   inputs:
     artifactName: 'Microsoft.BingAds'
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'pipeline'
+    targetPath: '$(Pipeline.Workspace)'
