@@ -5,6 +5,7 @@
     <QInstrumentForCoverage>false</QInstrumentForCoverage> 
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AnyCPU'">
+	<PlatformTarget>AnyCPU</PlatformTarget>
     <DocumentationFile>.\Microsoft.BingAds.xml</DocumentationFile>
     <NoWarn>1591,1574</NoWarn>
   </PropertyGroup>
