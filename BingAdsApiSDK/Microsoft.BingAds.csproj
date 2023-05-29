@@ -6,8 +6,10 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='AnyCPU'">
 	<PlatformTarget>AnyCPU</PlatformTarget>
-    <DocumentationFile>.\Microsoft.BingAds.xml</DocumentationFile>
     <NoWarn>1591,1574</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" PrivateAssets="All" />
