@@ -889,5 +889,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public const string MinTargetValue = "Min Target Value";
         public const string MaxTargetValue = "Max Target Value";
+
+        // PMax Campaign
+        public const string CampaignNegativeWebpage = "Campaign Negative Webpage";
+        public const string AssetGroupListingGroup = "Asset Group Listing Group";
+        public const string AudienceGroupAssetGroupAssociation = "Audience Group Asset Group Association";
+
+        public const string AssetGroup = "Asset Group";
+        public const string AudienceGroup = "Audience Group";
+        public const string Audiences = "Audiences";
+        public const string AgeRanges = "Age Ranges";
+        public const string GenderTypes = "Gender Types";
+        public const string AudienceGroupName = "Audience Group Name";
+        public const string ParentListingGroupId = "Parent Listing Group Id";
+        public const string UrlExpansionOptOut= "Url Expansion Opt Out";
     }
 }

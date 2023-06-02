@@ -527,7 +527,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.MinTargetValue, 
             StringTable.MaxTargetValue,
             StringTable.HotelAttribute,
-            StringTable.HotelAttributeValue
+            StringTable.HotelAttributeValue,
+
+            // PMax Campaign
+            StringTable.AssetGroup,
+            StringTable.AudienceGroup,
+            StringTable.Audiences,
+            StringTable.AgeRanges,
+            StringTable.GenderTypes,
+            StringTable.ParentListingGroupId,
+            StringTable.AudienceGroupName,
+            StringTable.UrlExpansionOptOut,
+
     };
 
         /// <summary>

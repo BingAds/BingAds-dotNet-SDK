@@ -143,7 +143,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
                     {
                         c.AdExtension.Scheduling = new Schedule();
                     }
-                    c.AdExtension.Scheduling.UseSearcherTimeZone = v.ParseUseSearcherTimeZone();
+                    c.AdExtension.Scheduling.UseSearcherTimeZone = v.ParseOptional<bool>();
                 }
             ),
 
