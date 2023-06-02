@@ -158,6 +158,7 @@ using BulkTextAdLabel = Microsoft.BingAds.V13.Bulk.Entities.BulkTextAdLabel;
 using BulkOfflineConversion = Microsoft.BingAds.V13.Bulk.Entities.BulkOfflineConversion;
 using BulkVideo = Microsoft.BingAds.V13.Bulk.Entities.BulkVideo;
 using Microsoft.BingAds.V13.Bulk.Entities.AdCustomizerAttrributes;
+using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -358,7 +359,13 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupLengthOfStayCriterion, new EntityInfo(() => new BulkAdGroupHotelLengthOfStayCriterion())},
                 {StringTable.AdGroupCheckInDayCriterion, new EntityInfo(() => new BulkAdGroupHotelCheckInDayCriterion())},
                 {StringTable.AdGroupCheckInDateCriterion, new EntityInfo(() => new BulkAdGroupHotelCheckInDateCriterion())},
-                {StringTable.HotelListingGroupType, new EntityInfo(() => new BulkAdGroupHotelListingGroup())}
+                {StringTable.HotelListingGroupType, new EntityInfo(() => new BulkAdGroupHotelListingGroup())},
+
+                {StringTable.AssetGroup, new EntityInfo(() => new BulkAssetGroup())},
+                {StringTable.AudienceGroup, new EntityInfo(() => new BulkAudienceGroup())},
+                {StringTable.CampaignNegativeWebpage, new EntityInfo(() => new BulkCampaignNegativeWebPage())},
+                {StringTable.AssetGroupListingGroup, new EntityInfo(() => new BulkAssetGroupListingGroup())},
+                {StringTable.AudienceGroupAssetGroupAssociation, new EntityInfo(() => new BulkAudienceGroupAssetGroupAssociation())},
 
             };
 

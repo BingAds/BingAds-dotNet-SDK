@@ -278,10 +278,16 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static string ToAdGroupFrequencyCapSettingsString(this IList<FrequencyCapSettings> frequencyCapSettings)
         {
-            if (frequencyCapSettings == null || !frequencyCapSettings.Any())
+            if (frequencyCapSettings == null)
             {
                 return null;
             }
+
+            if (!frequencyCapSettings.Any())
+            {
+                return DeleteValue;
+            }
+
             string s = JsonConvert.SerializeObject(frequencyCapSettings, new StringEnumConverter());
             return s;
         }
@@ -292,6 +298,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             {
                 return null;
             }
+
+            if (s.Equals(DeleteValue))
+            {
+                return new List<FrequencyCapSettings>();
+            }
+
             var r = JsonConvert.DeserializeObject<IList<FrequencyCapSettings>>(s);
             return r;
         }
@@ -400,7 +412,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 case "Mobile":
                     return 30001;
                 default:
-                    throw new ArgumentException("Unknown device preference");
+                    return null;
             }
         }
 
@@ -461,46 +473,16 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public static Day ParseDay(this string s)
         {
-            switch (s.ToLower())
-            {
-                case "sunday":
-                    return Day.Sunday;
-                case "monday":
-                    return Day.Monday;
-                case "tuesday":
-                    return Day.Tuesday;
-                case "wednesday":
-                    return Day.Wednesday;
-                case "thursday":
-                    return Day.Thursday;
-                case "friday":
-                    return Day.Friday;
-                case "saturday":
-                    return Day.Saturday;
-                default:
-                    throw new ArgumentException("Unknown day");
-            }
+            return Enum.TryParse(s, true, out Day day) ? day : Day.Sunday;
         }
 
         public static CriterionTypeGroup ParseCriterionTypeGroup(this string s)
         {
-            switch (s.ToLower())
+            if (Enum.TryParse(s, true, out CriterionTypeGroup result))
             {
-                case "age":
-                    return CriterionTypeGroup.Age;
-                case "audience":
-                    return CriterionTypeGroup.Audience;
-                case "companyname":
-                    return CriterionTypeGroup.CompanyName;
-                case "gender":
-                    return CriterionTypeGroup.Gender;
-                case "industry":
-                    return CriterionTypeGroup.Industry;
-                case "jobfunction":
-                    return CriterionTypeGroup.JobFunction;
-                default:
-                    throw new ArgumentException("Unknown criterion type group");
+                return result;
             }
+            return CriterionTypeGroup.Unknown;
         }
 
         public static string ToOptionalBulkString(this string sourceString, long? id)
@@ -680,7 +662,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                     if (!match.Success)
                     {
-                        throw new Exception(string.Format("Bad format for CustomParameters: {0}", s));
+                        return null;
                     }
 
                     return new CustomParameter
@@ -763,8 +745,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new CommissionBiddingScheme { Type = "Commission" };
                 case "PercentCpc":
                     return new PercentCpcBiddingScheme { Type = "PercentCpc" };
+                case "ManualCpa":
+                    return new ManualCpaBiddingScheme { Type = "ManualCpa" };
+                case "CostPerSale":
+                    return new CostPerSaleBiddingScheme { Type = "CostPerSale" };
                 default:
-                    throw new ArgumentException(string.Format("Unknown value for Bid Strategy Type : {0}", s));
+                    return null;
             }
         }
 
@@ -786,6 +772,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             string targetImpressionShareRowValue;
             string maxPercentCpcRowValue;
             string commissionRateRowValue;
+            string InheritedBidStrategyType;
 
             values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetCpa, out targetCpaRowValue);
@@ -794,6 +781,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             values.TryGetValue(StringTable.BidStrategyTargetImpressionShare, out targetImpressionShareRowValue);
             values.TryGetValue(StringTable.BidStrategyCommissionRate, out commissionRateRowValue);
             values.TryGetValue(StringTable.BidStrategyPercentMaxCpc, out maxPercentCpcRowValue);
+            values.TryGetValue(StringTable.InheritedBidStrategyType, out InheritedBidStrategyType);
 
             var maxCpcValue = maxCpcRowValue.ParseBid();
             var targetCpaValue = targetCpaRowValue.ParseOptional<double>();
@@ -864,6 +852,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         CommissionRate = targetCommissionRateRowValue,
                         Type = "Commission",
                     };
+                case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
+                    return new InheritFromParentBiddingScheme
+                    {
+                        Type = "InheritFromParent",
+                        InheritedBidStrategyType = InheritedBidStrategyType
+                    };
                 default:
                     return biddingScheme;
             }
@@ -905,6 +899,21 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     break;
                 case CommissionBiddingScheme commissionBiddingScheme:
                     values[StringTable.BidStrategyCommissionRate] = commissionBiddingScheme.CommissionRate.ToBulkString();
+                    break;
+                case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
+                    values[StringTable.InheritedBidStrategyType] = inheritFromParentBiddingScheme.InheritedBidStrategyType.ToOptionalBulkString(id);
+                    break;
+                case ManualCpcBiddingScheme manualCpcBiddingScheme:
+                    break;
+                case EnhancedCpcBiddingScheme enhancedCpcBiddingScheme:
+                    break;
+                case ManualCpvBiddingScheme manualCpvBiddingScheme:
+                    break;
+                case ManualCpmBiddingScheme manualCpmBiddingScheme:
+                    break;
+                case ManualCpaBiddingScheme manualCpaBiddingScheme:
+                    break;
+                case CostPerSaleBiddingScheme costPerSaleBiddingScheme:
                     break;
                 default:
                     break;
@@ -948,6 +957,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return "Commission";
                 case PercentCpcBiddingScheme percentCpcBiddingScheme:
                     return "PercentCpc";
+                case CostPerSaleBiddingScheme costPerSaleBiddingScheme:
+                    return "CostPerSale";
+                case ManualCpaBiddingScheme manualCpaBiddingScheme:
+                    return "ManualCpa";
             }
             throw new ArgumentException("Unknown bidding scheme");
         }
@@ -1076,7 +1089,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                     if (!match.Success)
                     {
-                        throw new Exception(string.Format("Bad format for DayTimeRanges: {0}", s));
+                        return null;
                     }
 
                     return new DayTime
@@ -1134,7 +1147,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                     if (!match.Success)
                     {
-                        throw new Exception(string.Format("Bad format for TargetSettingDetails: {0}", s));
+                        return null;
                     }
 
                     return new TargetSettingDetail
@@ -1604,14 +1617,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (!match.Success)
             {
-                throw new ArgumentException(string.Format("Invalid Rule Item: {0}", ruleItemStr));
+                return null;
             }
 
-            return new CombinationRule
+            if (Enum.TryParse(match.Groups[1].Value, true, out LogicalOperator o))
             {
-                Operator = ParseLogicalOperator(match.Groups[1].Value),
-                AudienceIds = ParseAudienceIds(match.Groups[2].Value),
-            };
+                return new CombinationRule
+                {
+                    Operator = o,
+                    AudienceIds = ParseAudienceIds(match.Groups[2].Value),
+                };
+            }
+            return null;
+
         }
 
         public static IList<long> ParseAudienceIds(this string s)
@@ -1626,27 +1644,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 .Select(long.Parse)
                 .ToList();
         }
-
-        private static LogicalOperator ParseLogicalOperator(string strOperator)
-        {
-            strOperator = strOperator.ToLower();
-
-            switch (strOperator)
-            {
-                case "and":
-                    return LogicalOperator.And;
-
-                case "not":
-                    return LogicalOperator.Not;
-
-                case "or":
-                    return LogicalOperator.Or;
-
-                default:
-                    throw new ArgumentException(string.Format("Invalid Logical Operator: {0}", strOperator));
-            }
-        }
-
 
         public static string ToRemarketingRuleBulkString(this RemarketingRule remarketingRule)
         {
@@ -1688,21 +1685,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             throw new ArgumentException("Invalid Remarketing Rule");
         }
-
-
-        public static bool? ParseOptionalBool(this string s)
-        {
-            if (string.IsNullOrEmpty(s))
-            {
-                return null;
-            }
-
-            if (!bool.TryParse(s, out var result))
-            {
-                throw new ArgumentException(string.Format("Unknown values for bool: {0}", s));
-            }
-            return result;
-        }        
         
         public static string WriteVerifiedTrackingDataToBulkString(this VerifiedTrackingSetting setting, long? entityId)
         {
@@ -1749,9 +1731,35 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 }
                 catch(Exception)
                 {
-                    throw new ArgumentException($"Invalid VerifiedTrackingData {value}.");
+                    // ignored
                 }
             }
+        }
+
+        public static string ToBulkString<T>(this IList<T> values, long? id)
+        {
+            if (values == null )
+            {
+                return null;
+            }
+
+            if (values.Count == 0)
+            {
+                return id > 0 ? DeleteValue : null;
+            }
+
+            return string.Join(";", values);
+        }
+
+        public static IList<T> ParseDelimitedList<T>(this string value)
+            where T : struct
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return null;
+            }
+
+            return value.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries).Select(s => s.Parse<T>()).ToList(); 
         }
 
         private static string GetCustomEventsRule(CustomEventsRule rule)
@@ -1838,7 +1846,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (pos == -1)
             {
-                throw new ArgumentException(string.Format("Invalid Remarketing Rule {0}", s));
+                return null;
             }
 
             var type = s.Substring(0, pos);
@@ -1860,7 +1868,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return ParseCustomEventsRule(ruleStr);
 
                 default:
-                    throw new ArgumentException(string.Format("Invalid Remarketing Rule Type: {0}", type));
+                    return null;
             }
         }
 
@@ -1963,7 +1971,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (groups == null || groups.Length != 2)
             {
-                throw new ArgumentException(string.Format("Invalid Remarketing Rule: {0}", ruleStr));
+                return null;
             }
 
             return new PageVisitorsWhoVisitedAnotherPageRule()
@@ -1987,7 +1995,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             if (groups == null || groups.Length != 2)
             {
-                throw new ArgumentException(string.Format("Invalid Remarketing Rule: {0}", ruleStr));
+                return null;
             }
 
             return new PageVisitorsWhoDidNotVisitAnotherPageRule()
@@ -2019,7 +2027,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                 if (!match.Success)
                 {
-                    throw new ArgumentException(string.Format("Invalid Custom Events Rule Item: {0}", ruleStr));
+                    return null;
                 }
 
                 var operand = match.Groups[1].Value.ToLower();
@@ -2032,7 +2040,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                     if (!numberOperator.Success)
                     {
-                        throw new ArgumentException(string.Format("Invalid Custom Events Rule Item Value Operator: {0}", operatorStr));
+                        return null;
                     }
 
                     rule.ValueOperator = ParseNumberOperator(numberOperator.Groups[1].Value);
@@ -2045,7 +2053,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
                     if (!stringOperator.Success)
                     {
-                        throw new ArgumentException(string.Format("Invalid Custom Events Rule Item String Operator: {0}", operatorStr));
+                        return null;
                     }
 
                     switch(operand)
@@ -2066,7 +2074,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                             break;
 
                         default:
-                            throw new ArgumentException(string.Format("Invalid Custom Events Rule Item Operand: {0}", operatorStr));
+                            return null;
                     }
                 }
             }
@@ -2138,72 +2146,27 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 };
             }
 
-            throw new ArgumentException(string.Format("Invalid Rule Item: {0}", ruleItemStr));
+            return null;
 
         }
 
         private static NumberOperator ParseNumberOperator(string numOperator)
         {
-            numOperator = numOperator.ToLower();
-
-            switch (numOperator)
+            if (Enum.TryParse(numOperator, true, out NumberOperator numberOperator))
             {
-                case "equals":
-                    return NumberOperator.Equals;
-
-                case "greaterthan":
-                    return NumberOperator.GreaterThan;
-
-                case "greaterthanequalto":
-                    return NumberOperator.GreaterThanEqualTo;
-
-                case "lessthan":
-                    return NumberOperator.LessThan;
-
-                case "lessthanequalto":
-                    return NumberOperator.LessThanEqualTo;
-                    
-                case "notequals":
-                    return NumberOperator.LessThanEqualTo;
-
-                default:
-                    throw new ArgumentException(string.Format("Invalid Number Rule Item Operator: {0}", numOperator));
+                return numberOperator;
             }
+
+            return NumberOperator.None;
         }
 
         private static StringOperator ParseStringOperator(string strOperator)
         {
-            strOperator = strOperator.ToLower();
-
-            switch (strOperator)
-            {
-                case "equals":
-                    return StringOperator.Equals;
-
-                case "contains":
-                    return StringOperator.Contains;
-
-                case "beginswith":
-                    return StringOperator.BeginsWith;
-
-                case "endswith":
-                    return StringOperator.EndsWith;
-
-                case "notequals":
-                    return StringOperator.NotEquals;
-
-                case "doesnotcontain":
-                    return StringOperator.DoesNotContain;
-
-                case "doesnotbeginwith":
-                    return StringOperator.DoesNotBeginWith;
-
-                case "doesnotendwith":
-                    return StringOperator.DoesNotEndWith;
-
-                default:
-                    throw new ArgumentException(string.Format("Invalid String Rule Item Operator: {0}", strOperator));
+            if (Enum.TryParse(strOperator, true, out StringOperator stringOperator)) {
+                return stringOperator;
             }
+
+            return StringOperator.None;
         }
     }
 }

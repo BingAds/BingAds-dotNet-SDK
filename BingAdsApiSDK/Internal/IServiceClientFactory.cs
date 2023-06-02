@@ -55,7 +55,7 @@ namespace Microsoft.BingAds.Internal
     /// <summary>
     /// Reserved for internal use.
     /// </summary>
-    public interface IServiceClientFactory
+    public partial interface IServiceClientFactory
     {
         IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
             where T: class;

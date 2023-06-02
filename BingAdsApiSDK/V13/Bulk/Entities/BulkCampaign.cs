@@ -185,6 +185,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         };
                     }
                     break;
+                case CampaignType.PerformanceMax:
+                    {
+                        Campaign.Settings = new List<Setting>
+                        {
+                            new PerformanceMaxSetting
+                            {
+                                Type = typeof(PerformanceMaxSetting).Name
+                            },
+                            new ShoppingSetting
+                            {
+                                Type = typeof(ShoppingSetting).Name,
+                            },
+                        };
+                    }
+                    break;
             }
         }
 
@@ -481,7 +496,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.AdScheduleUseSearcherTimeZone,
                 c => c.Campaign.AdScheduleUseSearcherTimeZone.ToUseSearcherTimeZoneBulkString(null),
-                (v, c) => c.Campaign.AdScheduleUseSearcherTimeZone = v.ParseUseSearcherTimeZone()
+                (v, c) => c.Campaign.AdScheduleUseSearcherTimeZone = v.ParseOptional<bool>()
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.MultiMediaAdBidAdjustment,
@@ -533,7 +548,26 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         v.ParseVerifiedTrackingData(setting);
                     }
                 }
-            )
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.UrlExpansionOptOut,
+                c =>
+                {
+                    var setting = c.GetCampaignSetting(typeof(PerformanceMaxSetting)) as PerformanceMaxSetting;
+                    if (setting != null)
+                    {
+                        return setting.FinalUrlExpansionOptOut.ToString();
+                    }
+                    return null;
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(PerformanceMaxSetting), true)) as PerformanceMaxSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.FinalUrlExpansionOptOut = v.Parse<bool>();
+                    }
+                }
+            ),
 
         };
 

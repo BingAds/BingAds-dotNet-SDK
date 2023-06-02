@@ -155,17 +155,17 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.MSCLKIDAutoTaggingEnabled,
                 c => c.MSCLKIDAutoTaggingEnabled?.ToString(),
-                (v, c) => c.MSCLKIDAutoTaggingEnabled = v.ParseOptionalBool()
+                (v, c) => c.MSCLKIDAutoTaggingEnabled = v.ParseOptional<bool>()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.ProfileExpansionEnabled,
                 c => c.ProfileExpansionEnabled?.ToString(),
-                (v, c) => c.ProfileExpansionEnabled = v.ParseOptionalBool()
+                (v, c) => c.ProfileExpansionEnabled = v.ParseOptional<bool>()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.IncludeViewThroughConversions,
                 c => c.IncludeViewThroughConversions?.ToString(),
-                (v, c) => c.IncludeViewThroughConversions = v.ParseOptionalBool()
+                (v, c) => c.IncludeViewThroughConversions = v.ParseOptional<bool>()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.TrackingTemplate,
@@ -180,7 +180,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.AdClickParallelTracking,
             c => c.AdClickParallelTracking?.ToString(),
-            (v, c) => c.AdClickParallelTracking = v.ParseOptionalBool()
+            (v, c) => c.AdClickParallelTracking = v.ParseOptional < bool >()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.AutoApplyRecommendations,
@@ -190,7 +190,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkAccount>(StringTable.AllowImageAutoRetrieve,
             c => c.AllowImageAutoRetrieve?.ToString(),
-            (v, c) => c.AllowImageAutoRetrieve = v.ParseOptionalBool()
+            (v, c) => c.AllowImageAutoRetrieve = v.ParseOptional < bool >()
             ),
 
             new SimpleBulkMapping<BulkAccount>(StringTable.BusinessAttributes,
