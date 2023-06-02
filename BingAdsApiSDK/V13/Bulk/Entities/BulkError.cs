@@ -49,6 +49,7 @@
 
 using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
+using System;
 
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {
@@ -107,6 +108,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         public int? EditorialReasonCode { get; private set; }
 
         /// <summary>
+        /// Editorial Appeal Status
+        /// </summary>
+        public string EditorialAppealStatus { get; private set; }
+
+        /// <summary>
         /// The publisher countries where editorial restriction is enforced, for example 'US'.
         /// Corresponds to the 'Publisher Countries' field in the bulk file. 
         /// </summary>
@@ -153,6 +159,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkError>(StringTable.PublisherCountries,
                 c => c.PublisherCountries,
                 (v, c) => c.PublisherCountries = v
+            ),
+
+            new SimpleBulkMapping<BulkError>(StringTable.EditorialAppealStatus,
+                c => c.EditorialAppealStatus,
+                (v, c) => c.EditorialAppealStatus = v
             )
         };
 

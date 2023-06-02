@@ -47,22 +47,19 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.ServiceModel.Channels;
-
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
-    /// Reserved for internal use.
+    /// <para>
+    /// Represents an Campaign Negative Web Page that can be read or written in a bulk file.
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Negative Web Page</see> </para>
     /// </summary>
-    public partial interface IServiceClientFactory
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignNegativeWebPage : BulkCampaignNegativeDynamicSearchAdTarget
     {
-        IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
-            where T: class;
-
-        T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T: class;
-
-        Type[] SupportedServiceTypes { get; }
     }
 }

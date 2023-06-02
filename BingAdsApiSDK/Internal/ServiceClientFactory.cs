@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.Internal
     /// <summary>
     /// Reserved for internal use.
     /// </summary>
-    public class ServiceClientFactory : IServiceClientFactory
+    public partial class ServiceClientFactory : IServiceClientFactory
     {
         private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
