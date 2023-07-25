@@ -832,6 +832,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";
         public const string CampaignRadiusCriterion = "Campaign Radius Criterion";
+        public const string CampaignDealCriterion = "Campaign Deal Criterion";
 
         // Labels
         public const string ColorCode = "Color";

@@ -58,7 +58,7 @@ namespace Microsoft.BingAds.V13.Bulk
     /// <summary>
     /// This exception is thrown by the BulkServiceManager when the DownloadCampaignsByAccountIds service operation that it called does not return a valid response.
     /// </summary>
-    class CouldNotSubmitBulkDownloadException : Exception
+    public class CouldNotSubmitBulkDownloadException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the CouldNotSubmitBulkDownloadException class.

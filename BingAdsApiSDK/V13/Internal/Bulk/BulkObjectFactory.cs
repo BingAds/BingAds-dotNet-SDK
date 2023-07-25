@@ -331,6 +331,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignLocationIntentCriterion,  new EntityInfo(() => new BulkCampaignLocationIntentCriterion())},
                 {StringTable.CampaignNegativeLocationCriterion,  new EntityInfo(() => new BulkCampaignNegativeLocationCriterion())},
                 {StringTable.CampaignRadiusCriterion,  new EntityInfo(() => new BulkCampaignRadiusCriterion())},
+                {StringTable.CampaignDealCriterion,  new EntityInfo(() => new BulkCampaignDealCriterion())},
 
                 {StringTable.Label,  new EntityInfo(() => new BulkLabel())},
                 {StringTable.CampaignLabel,  new EntityInfo(() => new BulkCampaignLabel())},
