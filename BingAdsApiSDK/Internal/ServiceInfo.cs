@@ -51,10 +51,11 @@ using System;
 
 namespace Microsoft.BingAds.Internal
 {
-    internal class ServiceInfo
+    public class ServiceInfo
     {
         public string ProductionUrl { get; set; }
         public string SandboxUrl { get; set; }
+        public string ServiceNameAndVersion { get; set; }
 
         public string GetUrl(ApiEnvironment environment)
         {

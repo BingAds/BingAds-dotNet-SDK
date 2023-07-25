@@ -60,6 +60,8 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public partial class ServiceClientFactory : IServiceClientFactory
     {
+        private static RestHttpClientProvider _restHttpClientProvider;
+
         private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
             // v13
@@ -95,7 +97,8 @@ namespace Microsoft.BingAds.Internal
                 typeof (V13.CampaignManagement.ICampaignManagementService), new ServiceInfo
                 {
                     ProductionUrl = "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/CampaignManagementService.svc",
-                    SandboxUrl = "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/CampaignManagementService.svc"
+                    SandboxUrl = "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/CampaignManagementService.svc",
+                    ServiceNameAndVersion = "CampaignManagement/v13"
                 }
             },
             {
@@ -183,5 +186,9 @@ namespace Microsoft.BingAds.Internal
             }, endpointAddress);
         }
 
+        public virtual IRestHttpClientProvider GetRestHttpClientProvider()
+        {
+            return _restHttpClientProvider ??= new RestHttpClientProvider(Endpoints);
+        }
     }
 }

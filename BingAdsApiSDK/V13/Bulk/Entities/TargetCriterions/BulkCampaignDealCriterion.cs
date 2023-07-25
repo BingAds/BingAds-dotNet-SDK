@@ -47,24 +47,64 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.ServiceModel.Channels;
+using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
-    /// Reserved for internal use.
+    /// <para>
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with DealCriterion that can be read and written as fields of the Campaign Deal Criterion record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Deal Criterion</see>. </para>
     /// </summary>
-    public partial interface IServiceClientFactory
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignDealCriterion : BulkCampaignBiddableCriterion
     {
-        IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
-            where T : class;
+      
+        private static readonly IBulkMapping<BulkCampaignDealCriterion>[] Mappings =
+        {
+            new SimpleBulkMapping<BulkCampaignDealCriterion>(StringTable.Target,
+                c =>
+                {
+                    var DealCriterion = c.BiddableCampaignCriterion.Criterion as DealCriterion;
 
-        T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T : class;
+                    return DealCriterion?.DealId.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var DealCriterion = c.BiddableCampaignCriterion.Criterion as DealCriterion;
 
-        Type[] SupportedServiceTypes { get; }
+                    if (DealCriterion != null)
+                    {
+                        DealCriterion.DealId = v.Parse<long>();
+                    }
+                }
+            ),
+        };
 
-        IRestHttpClientProvider GetRestHttpClientProvider();
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            base.ProcessMappingsToRowValues(values, excludeReadonlyData);
+            this.ConvertToValues(values, Mappings);
+        }
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            base.ProcessMappingsFromRowValues(values);
+            values.ConvertToEntity(this, Mappings);
+        }
+
+        protected override Criterion CreateCriterion()
+        {
+            return new DealCriterion()
+            {
+                Type = typeof(DealCriterion).Name,
+            };
+        }
     }
 }

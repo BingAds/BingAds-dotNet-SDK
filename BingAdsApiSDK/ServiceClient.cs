@@ -55,6 +55,7 @@ using System.ServiceModel.Channels;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Microsoft.BingAds.Internal;
+using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds
 {
@@ -75,26 +76,16 @@ namespace Microsoft.BingAds
     public class ServiceClient<TService> : IDisposable
         where TService : class
     {
-        private readonly IServiceClientFactory _serviceClientFactory;
+        private readonly WcfServiceClient<TService> _wcfServiceClient;
 
-        private IChannelFactory<TService> _channelFactory;
+        private readonly RestServiceClient _restServiceClient;
 
-        private readonly AuthorizationData _authorizationData;
-
-        private const string EnvironmentAppSetting = "BingAdsEnvironment";
-
-        private ApiEnvironment _environment;
-
-        private bool AccessTokenExpired
-            => (_authorizationData.Authentication as OAuthAuthorization)?.OAuthTokens?.AccessTokenExpired??false;
+        public static bool ExperimentalEnableRestApi = false;
 
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
         /// </summary>
-        public AuthorizationData AuthorizationData
-        {
-            get { return _authorizationData; }
-        }
+        public AuthorizationData AuthorizationData => _wcfServiceClient.AuthorizationData;
 
         /// <summary>
         /// Gets or sets a value indicating whether OAuth access and refresh tokens should be refreshed automatically upon access token expiration.
@@ -102,7 +93,15 @@ namespace Microsoft.BingAds
         /// <remarks>
         /// This value is <value>true</value> be default.
         /// </remarks>
-        public bool RefreshOAuthTokensAutomatically { get; set; }
+        public bool RefreshOAuthTokensAutomatically
+        {
+            get { return _wcfServiceClient.RefreshOAuthTokensAutomatically; }
+            set
+            {
+                _wcfServiceClient.RefreshOAuthTokensAutomatically = value;
+                _restServiceClient.RefreshOAuthTokensAutomatically = value;
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of this class with the specified <see cref="AuthorizationData"/>.
@@ -120,43 +119,9 @@ namespace Microsoft.BingAds
         /// <param name="environment">Bing Ads API environment</param>
         public ServiceClient(AuthorizationData authorizationData, ApiEnvironment? environment)
         {
-            if (authorizationData == null)
-            {
-                throw new ArgumentNullException("authorizationData");
-            }
+            _wcfServiceClient = new WcfServiceClient<TService>(authorizationData, environment);
 
-            _authorizationData = authorizationData;
-
-            _serviceClientFactory = ServiceClientFactoryFactory.CreateServiceClientFactory();
-
-            if (!_serviceClientFactory.SupportedServiceTypes.Contains(typeof(TService)))
-            {
-                throw new InvalidOperationException(ErrorMessages.ApiServiceTypeMustBeInterface);
-            }
-
-            DetectApiEnvironment(authorizationData, environment);
-
-            _channelFactory = _serviceClientFactory.CreateChannelFactory<TService>(_environment);
-
-            RefreshOAuthTokensAutomatically = true;
-        }
-
-        private void DetectApiEnvironment(AuthorizationData authorizationData, ApiEnvironment? environment)
-        {
-            var oauth = authorizationData.Authentication as OAuthAuthorization;
-            if (oauth != null)
-            {
-                environment = oauth.Environment;
-            }
-
-            if (environment == null)
-            {
-                _environment = ApiEnvironment.Production;
-            }
-            else
-            {
-                _environment = environment.Value;
-            }
+            _restServiceClient = new RestServiceClient(authorizationData, environment);
         }
 
         /// <summary>
@@ -187,78 +152,27 @@ namespace Microsoft.BingAds
             Func<TService, TRequest, Task<TResponse>> method, TRequest request)
             where TRequest : class
         {
-            ValidateObjectStateAndParameters(method, request);
-
-            await RequestAccessTokenIfNeeded().ConfigureAwait(false);
-
-            _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
-
-            SetCommonRequestFieldsFromUserData(request);
-
-            var client = _serviceClientFactory.CreateServiceFromFactory(_channelFactory);
-
-            var needToRefreshToken = RefreshOAuthTokensAutomatically && AccessTokenExpired;
-
-            do
+            if (ExperimentalEnableRestApi)
             {
-                if (needToRefreshToken)
+                if (typeof(TService) == typeof(ICampaignManagementService))
                 {
-                    await RefreshAccessToken().ConfigureAwait(false);
-
-                    _authorizationData.Authentication.SetAuthenticationFieldsOnApiRequestObject(request);
+                    return await _restServiceClient.CallAsync(method, request);
                 }
-
-                try
-                {
-                    var response = await method(client, request).ConfigureAwait(false);
-
-                    return response;
-                }
-                catch (FaultException ex)
-                {
-                    // If needToRefreshToken == true, it means one token refresh has alreay been attempted, and we shouldn't do it again
-                    if (needToRefreshToken == false && RefreshOAuthTokensAutomatically && IsExpiredTokenException(ex))
-                    {
-                        needToRefreshToken = true;
-                    }
-                    else
-                    {
-                        ((IClientChannel)client).Abort();
-
-                        throw;
-                    }
-                }
-                catch (CommunicationException)
-                {
-                    ((IClientChannel)client).Abort();
-
-                    throw;
-                }
-                catch (TimeoutException)
-                {
-                    ((IClientChannel)client).Abort();
-
-                    throw;
-                }
-                catch (Exception e)
-                {
-                    ((IClientChannel)client).Abort();
-                    var message = e.Message;
-                    throw;
-                }
-            } while (true);
-        }
-
-        private async Task RequestAccessTokenIfNeeded()
-        {
-            var oAuthWithCode = _authorizationData.Authentication as OAuthWithAuthorizationCode;
-
-            if (oAuthWithCode != null && oAuthWithCode.OAuthTokens != null && oAuthWithCode.OAuthTokens.AccessToken == null)
-            {
-                await oAuthWithCode.RefreshAccessTokenAsync().ConfigureAwait(false);
             }
+
+            return await _wcfServiceClient.CallAsync(method, request);
         }
 
+        public TService CreateService()
+        {
+            if (typeof(TService) == typeof(ICampaignManagementService))
+            {
+                return (TService)_restServiceClient.CreateService(typeof(ICampaignManagementService));
+            }
+
+            throw new NotImplementedException($"Service {typeof(TService).Name} doesn't support REST API");
+        }
+        
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
@@ -278,141 +192,11 @@ namespace Microsoft.BingAds
         {
             if (disposing)
             {
-                if (_channelFactory != null)
+                if (_wcfServiceClient != null)
                 {
-                    try
-                    {
-                        if (_channelFactory.State != CommunicationState.Faulted)
-                        {
-                            _channelFactory.Close();
-                        }
-                        else
-                        {
-                            _channelFactory.Abort();
-                        }
-                    }
-                    catch (CommunicationException)
-                    {
-                        if (_channelFactory != null)
-                        {
-                            _channelFactory.Abort();
-                        }
-                    }
-                    catch (TimeoutException)
-                    {
-                        if (_channelFactory != null)
-                        {
-                            _channelFactory.Abort();
-                        }
-                    }
-                    catch (Exception)
-                    {
-                        if (_channelFactory != null)
-                        {
-                            _channelFactory.Abort();
-                        }
-
-                        throw;
-                    }
-                    finally
-                    {
-                        _channelFactory = null;
-                    }
+                    _wcfServiceClient.Dispose();
                 }
             }
-        }
-
-        private void ValidateObjectStateAndParameters(object method, object request)
-        {
-            if (method == null) throw new ArgumentNullException(nameof(method));
-            if (request == null) throw new ArgumentNullException(nameof(request));
-
-            _authorizationData.Validate();
-
-            if (_channelFactory == null)
-            {
-                throw new ObjectDisposedException("ServiceClient");
-            }
-        }
-
-        private void SetCommonRequestFieldsFromUserData(object request)
-        {
-            SetRequestFieldIfNeeded(request, "AccountId", _authorizationData.AccountId);
-
-            SetRequestFieldIfNeeded(request, "CustomerAccountId", _authorizationData.AccountId);
-
-            SetRequestFieldIfNeeded(request, "CustomerId", _authorizationData.CustomerId);
-
-            SetRequestFieldIfNeeded(request, "DeveloperToken", _authorizationData.DeveloperToken, alwaysOverwriteRequestField: true);
-
-            DevTokenBehavior.Instance.DevToken = _authorizationData.DeveloperToken;
-        }
-
-        private void SetRequestFieldIfNeeded<TAuthData>(object request, string name, TAuthData authorizationDataValue, bool alwaysOverwriteRequestField = false)
-        {
-            if (authorizationDataValue.Equals(default(TAuthData)))
-            {
-                return;
-            }
-
-            var field = request.GetType().GetField(name);
-
-            if (field == null)
-            {
-                return;
-            }
-
-            dynamic requestValue = field.GetValue(request);
-
-            if (alwaysOverwriteRequestField || requestValue == null || requestValue.Equals(0))
-            {
-                var targetType = Nullable.GetUnderlyingType(field.FieldType) ?? field.FieldType;
-
-                field.SetValue(request, Convert.ChangeType(authorizationDataValue, targetType));
-            }
-        }
-
-        private async Task RefreshAccessToken()
-        {
-            var oauthWithCode = _authorizationData.Authentication as OAuthWithAuthorizationCode;
-
-            if (oauthWithCode != null)
-            {
-                await oauthWithCode.RefreshAccessTokenAsync().ConfigureAwait(false);
-            }
-        }
-
-        private bool IsExpiredTokenException(FaultException exception)
-        {
-            var fault = exception.CreateMessageFault();
-
-            if (!fault.HasDetail)
-            {
-                return false;
-            }
-
-            var root = fault.GetDetail<XElement>();
-
-            if (root == null)
-            {
-                return false;
-            }
-
-            XNamespace ns = "https://adapi.microsoft.com";
-
-            var errors = root.Element(ns + "Errors");
-
-            if (errors == null)
-            {
-                return false;
-            }
-
-            return errors.Elements(ns + "AdApiError").Any(error =>
-            {
-                var code = error.Element(ns + "Code");
-
-                return code != null && code.Value == "109";
-            });
         }
     }
 }

@@ -4266,6 +4266,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         EnglishVietnam = 1066,
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ChineseChina = 2052,
+        
+        /// <summary>
         /// German (Switzerland)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]

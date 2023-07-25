@@ -1497,7 +1497,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the manual CPA bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/manualcpabiddingscheme?view=bingads-13">ManualCpaBiddingScheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/manualcpabiddingscheme?view=bingads-13 for details.
@@ -1511,7 +1511,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an object that represents the cost per sale bid strategy type.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/costpersalebiddingscheme?view=bingads-13">CostPerSaleBiddingScheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/costpersalebiddingscheme?view=bingads-13 for details.
@@ -1527,7 +1527,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> TargetCostPerSaleField;
         
         /// <summary>
-        /// Reserved.
+        /// The target cost per sale that you want used by Microsoft Advertising to maximize conversions.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetCostPerSale
@@ -1712,6 +1712,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FeedLabelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> LocalInventoryAdsEnabledField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1721,7 +1724,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string SalesCountryCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> ShoppableAdsEnabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> StoreIdField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string FeedLabel
+        {
+            get
+            {
+                return this.FeedLabelField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FeedLabelField, value) != true))
+                {
+                    this.FeedLabelField = value;
+                    this.RaisePropertyChanged("FeedLabel");
+                }
+            }
+        }
         
         /// <summary>
         /// Determines whether local inventory ads are enabled for the Microsoft Merchant Center store.
@@ -1779,6 +1805,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.SalesCountryCodeField = value;
                     this.RaisePropertyChanged("SalesCountryCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> ShoppableAdsEnabled
+        {
+            get
+            {
+                return this.ShoppableAdsEnabledField;
+            }
+            set
+            {
+                if ((this.ShoppableAdsEnabledField.Equals(value) != true))
+                {
+                    this.ShoppableAdsEnabledField = value;
+                    this.RaisePropertyChanged("ShoppableAdsEnabled");
                 }
             }
         }
@@ -3472,10 +3518,22 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ResponsiveSearchAdsSetting = 8192,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the CostPerSaleBiddingScheme object be returned within the BiddingScheme element of each returned Campaign object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSaleBiddingScheme = 16384,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ShoppingSettingShoppableAdsEnabled = 32768,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ShoppingSettingFeedLabel = 65536,
     }
     
     /// <summary>
@@ -17201,6 +17259,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AudienceCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ProfileCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.StoreCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.DealCriterion))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -18722,6 +18781,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.StoreIdField = value;
                     this.RaisePropertyChanged("StoreId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13">DealCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DealCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DealCriterion : Microsoft.BingAds.V13.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long DealIdField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long DealId
+        {
+            get
+            {
+                return this.DealIdField;
+            }
+            set
+            {
+                if ((this.DealIdField.Equals(value) != true))
+                {
+                    this.DealIdField = value;
+                    this.RaisePropertyChanged("DealId");
                 }
             }
         }

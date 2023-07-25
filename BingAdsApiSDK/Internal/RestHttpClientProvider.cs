@@ -47,24 +47,51 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.ServiceModel.Channels;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Reflection;
 
 namespace Microsoft.BingAds.Internal
 {
-    /// <summary>
-    /// Reserved for internal use.
-    /// </summary>
-    public partial interface IServiceClientFactory
+    public class RestHttpClientProvider : IRestHttpClientProvider
     {
-        IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
-            where T : class;
+        private readonly IHttpClientFactory _hHttpClientFactory;
 
-        T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T : class;
+        public HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment) => _hHttpClientFactory.CreateClient($"{apiEnvironment}_{clientType.Name}");
 
-        Type[] SupportedServiceTypes { get; }
+        public RestHttpClientProvider(Dictionary<Type, ServiceInfo> endpoints)
+        {
+            var serviceCollection = new ServiceCollection();
 
-        IRestHttpClientProvider GetRestHttpClientProvider();
+            foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
+            {
+                foreach (var serviceInfoPair in endpoints)
+                {
+                    var serviceInfo = serviceInfoPair.Value;
+
+                    var wcfUrl = serviceInfo.GetUrl(apiEnvironment);
+
+                    var rootUrl = new Uri(wcfUrl).GetLeftPart(UriPartial.Authority);
+
+                    var baseUrl = $"{rootUrl}/{serviceInfo.ServiceNameAndVersion}/";
+
+                    serviceCollection.AddHttpClient($"{apiEnvironment}_{serviceInfoPair.Key.Name}", c =>
+                    {
+                        c.BaseAddress = new Uri(baseUrl);
+
+                        c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("BingAdsSDK.NET.RestApi", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+                    }).ConfigurePrimaryHttpMessageHandler(c => new HttpClientHandler
+                    {
+                        AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
+                    });
+                }
+            }
+
+            _hHttpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
+        }
     }
 }

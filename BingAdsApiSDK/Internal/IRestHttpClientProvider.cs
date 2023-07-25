@@ -48,23 +48,12 @@
 //=====================================================================================================================================================
 
 using System;
-using System.ServiceModel.Channels;
+using System.Net.Http;
 
 namespace Microsoft.BingAds.Internal
 {
-    /// <summary>
-    /// Reserved for internal use.
-    /// </summary>
-    public partial interface IServiceClientFactory
+    public interface IRestHttpClientProvider
     {
-        IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
-            where T : class;
-
-        T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T : class;
-
-        Type[] SupportedServiceTypes { get; }
-
-        IRestHttpClientProvider GetRestHttpClientProvider();
+        HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment);
     }
 }
