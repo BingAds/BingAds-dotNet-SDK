@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <EmbedAllSources>true</EmbedAllSources>
     <Version>13.0.16.1</Version>
     <QInstrumentForCoverage>false</QInstrumentForCoverage>
 	<LangVersion>latest</LangVersion>
