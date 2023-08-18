@@ -83,6 +83,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         /// </summary>
         public string AdGroupName { get; set; }
 
+        public string EditorialAppealStatus { get; set; }
+
         /// <summary>
         /// The type of ad from the <see cref="Microsoft.BingAds.V13.CampaignManagement"/> namespace, for example a <see cref="TextAd"/> object.
         /// </summary>
@@ -118,6 +120,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
             new SimpleBulkMapping<BulkAd<T>>(StringTable.EditorialStatus,
                 c => c.Ad.EditorialStatus.ToBulkString(),
                 (v, c) => c.Ad.EditorialStatus = v.ParseOptional<AdEditorialStatus>()
+            ),
+
+            new SimpleBulkMapping<BulkAd<T>>(StringTable.EditorialAppealStatus,
+                c => c.EditorialAppealStatus,
+                (v, c) => c.EditorialAppealStatus = v
             ),
 
             new SimpleBulkMapping<BulkAd<T>>(StringTable.DevicePreference,

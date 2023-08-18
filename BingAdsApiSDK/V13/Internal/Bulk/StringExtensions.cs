@@ -67,6 +67,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
     {
         private const string DeleteValue = "delete_value";
 
+        private const string KeyString = "Key";
+
+        private const string ValueString = "Value";
+
         private static readonly CultureInfo ParsingCulture = new CultureInfo("en-US");
 
         private static readonly Regex UrlSplitter = new Regex(@";\s*(?=https?://)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
@@ -1202,6 +1206,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // The Asset Name is reserved for future use.
             [DataMember(Name = "name", Order = 9, EmitDefaultValue = false)]
             public string Name { get; set; }
+
+            // The Asset Target Width.
+            [DataMember(Name = "targetWidth", Order = 10, EmitDefaultValue = false)]
+            public int? TargetWidth { get; set; }
+
+            // The Asset Target Height.
+            [DataMember(Name = "targetHeight", Order = 11, EmitDefaultValue = false)]
+            public int? TargetHeight { get; set; }
         }
 
         public static string ToImageAssetLinksBulkString(this IList<AssetLink> assetLinks)
@@ -1233,7 +1245,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     EditorialStatus = imageAssetLink.EditorialStatus.ToBulkString(),
                     Name = imageAsset.Name,
                     PinnedField = imageAssetLink.PinnedField,
-                    SubType = imageAsset.SubType
+                    SubType = imageAsset.SubType,
+                    TargetWidth = imageAsset.TargetWidth,
+                    TargetHeight = imageAsset.TargetHeight
                 };
                 imageAssetLinkContracts.Add(imageAssetLinkContract);
             }
@@ -1275,6 +1289,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         Id = imageAssetLinkContract.Id,
                         Name = imageAssetLinkContract.Name,
                         SubType = imageAssetLinkContract.SubType,
+                        TargetWidth = imageAssetLinkContract.TargetWidth,
+                        TargetHeight = imageAssetLinkContract.TargetHeight
                     },
                     AssetPerformanceLabel = imageAssetLinkContract.AssetPerformanceLabel,
                     EditorialStatus = imageAssetLinkContract.EditorialStatus.ParseOptional<AssetLinkEditorialStatus>(),
@@ -1701,9 +1717,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {
                     return d.Select(i =>
                     {
-                        
                         var rt = new Dictionary<string, string>();
-                        rt.Add(i.Key, i.Value);
+                        rt.Add(KeyString, i.Key);
+                        rt.Add(ValueString, i.Value);
                         return rt;
                     }).ToArray();
                 }).ToArray());
@@ -1725,7 +1741,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     {
                         return row.Select(item => 
                         {
-                            return item.SingleOrDefault();
+                            return new KeyValuePair<string, string>(item[KeyString], item[ValueString]);
                         }).ToArray();
                     }).ToArray();
                 }

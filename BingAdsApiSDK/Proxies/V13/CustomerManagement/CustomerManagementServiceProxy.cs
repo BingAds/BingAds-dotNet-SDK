@@ -246,7 +246,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Active = 1,
         
         /// <summary>
-        /// The account is inactive, which means that the system deleted the account.
+        /// The account was deactivated as it generated no traffic for 15 months.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
@@ -4266,7 +4266,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         EnglishVietnam = 1066,
         
         /// <summary>
-        /// Reserved.
+        /// Chinese (China)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseChina = 2052,
@@ -4290,7 +4290,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         SpanishMexico = 2058,
         
         /// <summary>
-        /// Chinese (Hong Kong)
+        /// Chinese (Hong Kong SAR)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseHongKong = 3076,

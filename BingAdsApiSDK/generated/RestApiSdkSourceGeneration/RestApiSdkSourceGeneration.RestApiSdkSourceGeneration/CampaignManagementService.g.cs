@@ -1026,6 +1026,16 @@ namespace Microsoft.BingAds
             return await _restServiceClient.CallServiceAsync<GetAssetGroupsByCampaignIdResponse>("GetAssetGroupsByCampaignId", request, _serviceType);
         }
 
+        public GetAssetGroupsEditorialReasonsResponse GetAssetGroupsEditorialReasons(GetAssetGroupsEditorialReasonsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<GetAssetGroupsEditorialReasonsResponse> GetAssetGroupsEditorialReasonsAsync(GetAssetGroupsEditorialReasonsRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<GetAssetGroupsEditorialReasonsResponse>("GetAssetGroupsEditorialReasons", request, _serviceType);
+        }
+
         public SetAudienceGroupAssetGroupAssociationsResponse SetAudienceGroupAssetGroupAssociations(SetAudienceGroupAssetGroupAssociationsRequest request)
         {
             throw new NotImplementedException();
@@ -1104,6 +1114,16 @@ namespace Microsoft.BingAds
         public async Task<GetAudiencesByIdsResponse> GetAudiencesByIdsAsync(GetAudiencesByIdsRequest request)
         {
             return await _restServiceClient.CallServiceAsync<GetAudiencesByIdsResponse>("GetAudiencesByIds", request, _serviceType);
+        }
+
+        public ApplyCustomerListItemsResponse ApplyCustomerListItems(ApplyCustomerListItemsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ApplyCustomerListItemsResponse> ApplyCustomerListItemsAsync(ApplyCustomerListItemsRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<ApplyCustomerListItemsResponse>("ApplyCustomerListItems", request, _serviceType);
         }
 
         public GetUetTagsByIdsResponse GetUetTagsByIds(GetUetTagsByIdsRequest request)

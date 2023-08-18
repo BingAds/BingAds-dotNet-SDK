@@ -12835,7 +12835,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country where the user was physically located when they clicked the ad.
+        /// The country or region where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
@@ -12925,7 +12925,7 @@ namespace Microsoft.BingAds.V13.Reporting
         City = 22,
         
         /// <summary>
-        /// The name of a country if the user's geographical intent can be determined.
+        /// The name of a country or region if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 23,
@@ -13181,6 +13181,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 65,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 66,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 67,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 68,
     }
     
     /// <summary>
@@ -13208,6 +13226,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
@@ -13283,6 +13304,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdGroupStatusField = value;
                     this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -13662,6 +13703,62 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 51,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 52,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 53,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 54,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 55,
+    }
+    
+    /// <summary>
+    /// Defines the asset group status values that you can use to filter the report data.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13">AssetGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13 for details.
+    /// <para>Used by <see cref="GeographicPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="PublisherUsagePerformanceReportFilter"/> data objects.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum AssetGroupStatusReportFilter : int
+    {
+        
+        /// <summary>
+        /// The report will contain asset groups that are active.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Active = 1,
+        
+        /// <summary>
+        /// The report will contain asset groups that are paused.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Paused = 2,
+        
+        /// <summary>
+        /// The report will contain asset groups that are deleted.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deleted = 4,
     }
     
     /// <summary>
@@ -18353,6 +18450,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -18429,6 +18529,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdStatusField = value;
                     this.RaisePropertyChanged("AdStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -18794,7 +18914,7 @@ namespace Microsoft.BingAds.V13.Reporting
         OfferLanguage = 45,
         
         /// <summary>
-        /// The country of sale for the product catalog.
+        /// The country/region of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 46,
@@ -19092,6 +19212,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 95,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 96,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 97,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 98,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 99,
     }
     
     /// <summary>
@@ -19119,6 +19263,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
@@ -19197,6 +19344,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdStatusField = value;
                     this.RaisePropertyChanged("AdStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -19514,7 +19681,7 @@ namespace Microsoft.BingAds.V13.Reporting
         OfferLanguage = 37,
         
         /// <summary>
-        /// The country of sale for the product catalog.
+        /// The country/region of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 38,
@@ -19734,6 +19901,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 74,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 75,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 76,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 77,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 78,
     }
     
     /// <summary>
@@ -19761,6 +19952,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
@@ -19839,6 +20033,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdStatusField = value;
                     this.RaisePropertyChanged("AdStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -20292,6 +20506,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 60,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 61,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 62,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 63,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 64,
     }
     
     /// <summary>
@@ -20322,6 +20560,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
@@ -20423,6 +20664,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdTypeField = value;
                     this.RaisePropertyChanged("AdType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -20848,6 +21109,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 53,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 54,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 55,
     }
     
     /// <summary>
@@ -20951,6 +21230,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtProductGroup = 14,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 15,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 16,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 17,
     }
     
     /// <summary>
@@ -20975,6 +21272,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
@@ -21027,6 +21327,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdGroupStatusField = value;
                     this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -21188,6 +21508,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 18,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 19,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 20,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 21,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 22,
     }
     
     /// <summary>
@@ -21430,6 +21774,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -21506,6 +21853,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdGroupStatusField = value;
                     this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The report will include data for only the asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -21643,7 +22010,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country where the user was physically located when they clicked the ad.
+        /// The country or region where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
@@ -21977,6 +22344,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 63,
+        
+        /// <summary>
+        /// The campaign type.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 64,
+        
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an asset group.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 65,
+        
+        /// <summary>
+        /// The asset group name.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 66,
+        
+        /// <summary>
+        /// The asset group status.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 67,
     }
     
     /// <summary>
@@ -23896,31 +24287,31 @@ namespace Microsoft.BingAds.V13.Reporting
         StarRating = 22,
         
         /// <summary>
-        /// The value of the Custom_label_0 field in your Microsoft Merchant Center catalog.
+        /// The value of the Custom_0 field in your Microsoft Hotel Center feed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel0 = 23,
         
         /// <summary>
-        /// The value of the Custom_label_1 field in your Microsoft Merchant Center catalog.
+        /// The value of the Custom_1 field in your Microsoft Hotel Center feed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel1 = 24,
         
         /// <summary>
-        /// The value of the Custom_label_2 field in your Microsoft Merchant Center catalog.
+        /// The value of the Custom_2 field in your Microsoft Hotel Center feed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel2 = 25,
         
         /// <summary>
-        /// The value of the Custom_label_3 field in your Microsoft Merchant Center catalog.
+        /// The value of the Custom_3 field in your Microsoft Hotel Center feed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel3 = 26,
         
         /// <summary>
-        /// The value of the Custom_label_4 field in your Microsoft Merchant Center catalog.
+        /// The value of the Custom_4 field in your Microsoft Hotel Center feed.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel4 = 27,
@@ -24128,6 +24519,24 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdvancedBookingWindow = 61,
+        
+        /// <summary>
+        /// The Bing website that users used to search for hotels.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SiteType = 62,
+        
+        /// <summary>
+        /// The country of location for the user.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UserCountry = 63,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickShare = 64,
     }
     
     /// <summary>
@@ -24556,6 +24965,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsOther = 46,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClickShare = 47,
     }
     
     /// <summary>

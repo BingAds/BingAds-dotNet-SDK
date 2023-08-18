@@ -449,6 +449,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.SquareLogoMediaId,
             StringTable.ImpressionTrackingUrls,
             StringTable.Videos,
+            StringTable.VerifiedTrackingDatas,
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,
@@ -539,7 +540,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AudienceGroupName,
             StringTable.UrlExpansionOptOut,
 
-    };
+            // MultiChannel Campaign
+            StringTable.DestinationChannel,
+            StringTable.IsMultiChannelCampaign,
+        };
 
         /// <summary>
         /// maps column name into its positional index

@@ -534,6 +534,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.GetAssetGroupsByCampaignIdAsync(r), request);
         }
 
+        public static Task<GetAssetGroupsEditorialReasonsResponse> GetAssetGroupsEditorialReasonsAsync(this ServiceClient<ICampaignManagementService> service, GetAssetGroupsEditorialReasonsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetAssetGroupsEditorialReasonsAsync(r), request);
+        }
+
         public static Task<SetAudienceGroupAssetGroupAssociationsResponse> SetAudienceGroupAssetGroupAssociationsAsync(this ServiceClient<ICampaignManagementService> service, SetAudienceGroupAssetGroupAssociationsRequest request)
         {
             return service.CallAsync((s, r) => s.SetAudienceGroupAssetGroupAssociationsAsync(r), request);
@@ -572,6 +577,11 @@ namespace Microsoft.BingAds
         public static Task<GetAudiencesByIdsResponse> GetAudiencesByIdsAsync(this ServiceClient<ICampaignManagementService> service, GetAudiencesByIdsRequest request)
         {
             return service.CallAsync((s, r) => s.GetAudiencesByIdsAsync(r), request);
+        }
+
+        public static Task<ApplyCustomerListItemsResponse> ApplyCustomerListItemsAsync(this ServiceClient<ICampaignManagementService> service, ApplyCustomerListItemsRequest request)
+        {
+            return service.CallAsync((s, r) => s.ApplyCustomerListItemsAsync(r), request);
         }
 
         public static Task<GetUetTagsByIdsResponse> GetUetTagsByIdsAsync(this ServiceClient<ICampaignManagementService> service, GetUetTagsByIdsRequest request)

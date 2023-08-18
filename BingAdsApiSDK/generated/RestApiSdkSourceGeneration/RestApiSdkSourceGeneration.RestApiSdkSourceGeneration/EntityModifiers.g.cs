@@ -567,6 +567,29 @@ public static class EntityModifiers
                 }
             }
         }
+        else if (jsonTypeInfo.Type == typeof(VerifiedTrackingSetting))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "VerifiedTrackingSetting";
+                        break;
+                }
+            }
+        }
         else if (jsonTypeInfo.Type == typeof(ShoppingSetting))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -691,29 +714,6 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(VerifiedTrackingSetting))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "Type":
-                        jsonPropertyInfo.Get = _ => "VerifiedTrackingSetting";
-                        break;
-                }
-            }
-        }
         else if (jsonTypeInfo.Type == typeof(DisclaimerSetting))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -802,6 +802,29 @@ public static class EntityModifiers
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "PerformanceMaxSetting";
+                        break;
+                }
+            }
+        }
+        else if (jsonTypeInfo.Type == typeof(CallToActionSetting))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "CallToActionSetting";
                         break;
                 }
             }
@@ -1349,6 +1372,9 @@ public static class EntityModifiers
                      case "LongHeadlines":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
+                     case "VerifiedTrackingSettings":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                      case "Videos":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
@@ -1470,6 +1496,12 @@ public static class EntityModifiers
                 jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                     case "TargetHeight":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
+                     case "TargetWidth":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => "ImageAsset";
                         break;
@@ -2842,6 +2874,29 @@ public static class EntityModifiers
                 }
             }
         }
+        else if (jsonTypeInfo.Type == typeof(GenreCriterion))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "GenreCriterion";
+                        break;
+                }
+            }
+        }
         else if (jsonTypeInfo.Type == typeof(ProductCondition))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -2852,6 +2907,16 @@ public static class EntityModifiers
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
                         break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                     case "Operator":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                 }
             }
         }
@@ -3454,6 +3519,32 @@ public static class EntityModifiers
                 }
             }
         }
+        else if (jsonTypeInfo.Type == typeof(AssetGroupEditorialReasonCollection))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+        else if (jsonTypeInfo.Type == typeof(AssetGroupEditorialReason))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
         else if (jsonTypeInfo.Type == typeof(AudienceGroupAssetGroupAssociation))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -3648,6 +3739,12 @@ public static class EntityModifiers
                 jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                     case "ActionType":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
+                     case "CustomerListItems":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => AudienceType.CustomerList;
                         break;
@@ -3881,6 +3978,19 @@ public static class EntityModifiers
             }
         }
         else if (jsonTypeInfo.Type == typeof(CombinationRule))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+        else if (jsonTypeInfo.Type == typeof(CustomerListItem))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -6415,6 +6525,25 @@ public static class EntityModifiers
                 }
             }
         }
+        else if (jsonTypeInfo.Type == typeof(GetAssetGroupsEditorialReasonsRequest))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
         else if (jsonTypeInfo.Type == typeof(SetAudienceGroupAssetGroupAssociationsRequest))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -6549,6 +6678,25 @@ public static class EntityModifiers
             }
         }
         else if (jsonTypeInfo.Type == typeof(GetAudiencesByIdsRequest))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+        else if (jsonTypeInfo.Type == typeof(ApplyCustomerListItemsRequest))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

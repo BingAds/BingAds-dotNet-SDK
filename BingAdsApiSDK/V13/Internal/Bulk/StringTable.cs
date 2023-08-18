@@ -270,6 +270,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Param3 = "Param3";
         public const string DevicePreference = "Device Preference";
         public const string VerifiedTrackingData = "Verified Tracking Setting";
+        public const string VerifiedTrackingDatas = "Verified Tracking Settings";
 
         public const string CampaignNegativeKeyword = "Campaign Negative Keyword";
         public const string CampaignNegativeSite = "Campaign Negative Site";
@@ -821,6 +822,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupNegativeJobFunctionCriterion = "Ad Group Negative Job Function Criterion";
         public const string AdGroupNegativeLocationCriterion = "Ad Group Negative Location Criterion";
         public const string AdGroupRadiusCriterion = "Ad Group Radius Criterion";
+        public const string AdGroupGenreCriterion = "Ad Group Genre Criterion";
         public const string CampaignAgeCriterion = "Campaign Age Criterion";
         public const string CampaignCompanyNameCriterion = "Campaign Company Name Criterion";
         public const string CampaignDayTimeCriterion = "Campaign DayTime Criterion";
@@ -904,5 +906,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AudienceGroupName = "Audience Group Name";
         public const string ParentListingGroupId = "Parent Listing Group Id";
         public const string UrlExpansionOptOut= "Url Expansion Opt Out";
+
+        // MultiChannel Campaign
+        public const string DestinationChannel = "Destination Channel";
+        public const string IsMultiChannelCampaign = "Is Multi Channel Campaign";
     }
 }
