@@ -607,6 +607,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/operationerror?view=bingads-13">OperationError Data Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/operationerror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFault"/> data object.</para>
+    /// <para>Used by <see cref="CustomerBillingServiceClient.ClaimFeatureAdoptionCoupons">ClaimFeatureAdoptionCoupons</see> service operation.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2424,6 +2425,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CustomerBilling.CouponRedemption RedemptionInfoField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CustomerBilling.CouponClaimInfo ClaimInfoField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -2736,6 +2740,26 @@ namespace Microsoft.BingAds.V13.CustomerBilling
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        public Microsoft.BingAds.V13.CustomerBilling.CouponClaimInfo ClaimInfo
+        {
+            get
+            {
+                return this.ClaimInfoField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ClaimInfoField, value) != true))
+                {
+                    this.ClaimInfoField = value;
+                    this.RaisePropertyChanged("ClaimInfo");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -2957,6 +2981,116 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.ActivationDateField = value;
                     this.RaisePropertyChanged("ActivationDate");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/couponclaiminfo?view=bingads-13">CouponClaimInfo Data Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/couponclaiminfo?view=bingads-13 for details.
+    /// <para>Used by <see cref="Coupon"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CouponClaimInfo", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class CouponClaimInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ClaimDateField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccountNumber
+        {
+            get
+            {
+                return this.AccountNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountNumberField, value) != true))
+                {
+                    this.AccountNumberField = value;
+                    this.RaisePropertyChanged("AccountNumber");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ClaimDate
+        {
+            get
+            {
+                return this.ClaimDateField;
+            }
+            set
+            {
+                if ((this.ClaimDateField.Equals(value) != true))
+                {
+                    this.ClaimDateField = value;
+                    this.RaisePropertyChanged("ClaimDate");
                 }
             }
         }
@@ -3273,6 +3407,70 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.ServiceModel.OperationContractAttribute(Action="SearchCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/SearchCouponsRe" +
             "sponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="CheckFeatureAdoptionCouponEligibility", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/CheckFeatureAdo" +
+            "ptionCouponEligibilityResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/CheckFeatureAdo" +
+            "ptionCouponEligibilityAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/CheckFeatureAdo" +
+            "ptionCouponEligibilityApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityResponse CheckFeatureAdoptionCouponEligibility(Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="CheckFeatureAdoptionCouponEligibility", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/CheckFeatureAdo" +
+            "ptionCouponEligibilityResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityResponse> CheckFeatureAdoptionCouponEligibilityAsync(Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ClaimFeatureAdoptionCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/ClaimFeatureAdo" +
+            "ptionCouponsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/ClaimFeatureAdo" +
+            "ptionCouponsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/ClaimFeatureAdo" +
+            "ptionCouponsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse ClaimFeatureAdoptionCoupons(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="ClaimFeatureAdoptionCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/ClaimFeatureAdo" +
+            "ptionCouponsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request);
     }
     
     /// <summary>
@@ -4343,6 +4541,246 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Request Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.CheckFeatureAdoptionCouponEligibility">CheckFeatureAdoptionCouponEligibility</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckFeatureAdoptionCouponEligibilityRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class CheckFeatureAdoptionCouponEligibilityRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public int FeatureId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public System.Collections.Generic.IList<long> AccountIds;
+        
+        /// <summary>
+        /// Constructor for the CheckFeatureAdoptionCouponEligibilityRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibilityRequest</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        public CheckFeatureAdoptionCouponEligibilityRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the CheckFeatureAdoptionCouponEligibilityRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibilityRequest</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FeatureId">Reserved.</param>
+        /// <param name="AccountIds">Reserved.</param>
+        public CheckFeatureAdoptionCouponEligibilityRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, int FeatureId, System.Collections.Generic.IList<long> AccountIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.FeatureId = FeatureId;
+            this.AccountIds = AccountIds;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Response Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.CheckFeatureAdoptionCouponEligibility">CheckFeatureAdoptionCouponEligibility</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CheckFeatureAdoptionCouponEligibilityResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class CheckFeatureAdoptionCouponEligibilityResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<long> EligibleAccountIds;
+        
+        /// <summary>
+        /// Constructor for the CheckFeatureAdoptionCouponEligibilityResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibilityResponse</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        public CheckFeatureAdoptionCouponEligibilityResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the CheckFeatureAdoptionCouponEligibilityResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibilityResponse</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="EligibleAccountIds">Reserved.</param>
+        public CheckFeatureAdoptionCouponEligibilityResponse(string TrackingId, System.Collections.Generic.IList<long> EligibleAccountIds)
+        {
+            this.TrackingId = TrackingId;
+            this.EligibleAccountIds = EligibleAccountIds;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Request Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.ClaimFeatureAdoptionCoupons">ClaimFeatureAdoptionCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClaimFeatureAdoptionCouponsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class ClaimFeatureAdoptionCouponsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, string>> AccountCouponPairs;
+        
+        /// <summary>
+        /// Constructor for the ClaimFeatureAdoptionCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCouponsRequest</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        public ClaimFeatureAdoptionCouponsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ClaimFeatureAdoptionCouponsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCouponsRequest</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountCouponPairs">Reserved.</param>
+        public ClaimFeatureAdoptionCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, string>> AccountCouponPairs)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountCouponPairs = AccountCouponPairs;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Response Object</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.ClaimFeatureAdoptionCoupons">ClaimFeatureAdoptionCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ClaimFeatureAdoptionCouponsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class ClaimFeatureAdoptionCouponsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, System.DateTime>> ClaimedDateByAccountId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError> OperationErrors;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
+        public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the ClaimFeatureAdoptionCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCouponsResponse</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        public ClaimFeatureAdoptionCouponsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the ClaimFeatureAdoptionCouponsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCouponsResponse</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ClaimedDateByAccountId">Reserved.</param>
+        /// <param name="OperationErrors">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public ClaimFeatureAdoptionCouponsResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<long, System.DateTime>> ClaimedDateByAccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError> OperationErrors, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.ClaimedDateByAccountId = ClaimedDateByAccountId;
+            this.OperationErrors = OperationErrors;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
@@ -4649,6 +5087,66 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.SearchCouponsResponse> SearchCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.SearchCouponsRequest request)
         {
             return base.Channel.SearchCouponsAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityResponse CheckFeatureAdoptionCouponEligibility(Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityRequest request)
+        {
+            return base.Channel.CheckFeatureAdoptionCouponEligibility(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13">CheckFeatureAdoptionCouponEligibility Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/checkfeatureadoptioncouponeligibility?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityResponse> CheckFeatureAdoptionCouponEligibilityAsync(Microsoft.BingAds.V13.CustomerBilling.CheckFeatureAdoptionCouponEligibilityRequest request)
+        {
+            return base.Channel.CheckFeatureAdoptionCouponEligibilityAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse ClaimFeatureAdoptionCoupons(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request)
+        {
+            return base.Channel.ClaimFeatureAdoptionCoupons(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13">ClaimFeatureAdoptionCoupons Service Operation</see> https:/learn.microsoft.com/advertising/customer-billing-service/claimfeatureadoptioncoupons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request)
+        {
+            return base.Channel.ClaimFeatureAdoptionCouponsAsync(request);
         }
     }
 }

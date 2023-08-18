@@ -199,16 +199,17 @@ namespace Microsoft.BingAds.V13.CampaignManagement
 
             return type switch
             {
+                "CallToActionSetting" => jsonObj.Deserialize<CallToActionSetting>(options),
                 "PerformanceMaxSetting" => jsonObj.Deserialize<PerformanceMaxSetting>(options),
                 "ResponsiveSearchAdsSetting" => jsonObj.Deserialize<ResponsiveSearchAdsSetting>(options),
                 "HotelSetting" => jsonObj.Deserialize<HotelSetting>(options),
                 "DisclaimerSetting" => jsonObj.Deserialize<DisclaimerSetting>(options),
-                "VerifiedTrackingSetting" => jsonObj.Deserialize<VerifiedTrackingSetting>(options),
                 "CoOpSetting" => jsonObj.Deserialize<CoOpSetting>(options),
                 "TargetSetting" => jsonObj.Deserialize<TargetSetting>(options),
                 "DynamicSearchAdsSetting" => jsonObj.Deserialize<DynamicSearchAdsSetting>(options),
                 "DynamicFeedSetting" => jsonObj.Deserialize<DynamicFeedSetting>(options),
                 "ShoppingSetting" => jsonObj.Deserialize<ShoppingSetting>(options),
+                "VerifiedTrackingSetting" => jsonObj.Deserialize<VerifiedTrackingSetting>(options),
                 "Setting" => jsonObj.Deserialize<Setting>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
                 _ => throw new InvalidOperationException($"Unknown type '{type}'")
             };
@@ -218,6 +219,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
             switch (value)
             {
+                case CallToActionSetting callToActionSetting:
+                    JsonSerializer.Serialize(writer, callToActionSetting, options);
+                    break;
                 case PerformanceMaxSetting performanceMaxSetting:
                     JsonSerializer.Serialize(writer, performanceMaxSetting, options);
                     break;
@@ -229,9 +233,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                     break;
                 case DisclaimerSetting disclaimerSetting:
                     JsonSerializer.Serialize(writer, disclaimerSetting, options);
-                    break;
-                case VerifiedTrackingSetting verifiedTrackingSetting:
-                    JsonSerializer.Serialize(writer, verifiedTrackingSetting, options);
                     break;
                 case CoOpSetting coOpSetting:
                     JsonSerializer.Serialize(writer, coOpSetting, options);
@@ -247,6 +248,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                     break;
                 case ShoppingSetting shoppingSetting:
                     JsonSerializer.Serialize(writer, shoppingSetting, options);
+                    break;
+                case VerifiedTrackingSetting verifiedTrackingSetting:
+                    JsonSerializer.Serialize(writer, verifiedTrackingSetting, options);
                     break;
                 case Setting setting:
                     JsonSerializer.Serialize(writer, setting, PolymorphicSerialization.SerializerOptionsWithoutConverters);
@@ -699,6 +703,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
 
             return type switch
             {
+                "GenreCriterion" => jsonObj.Deserialize<GenreCriterion>(options),
                 "DealCriterion" => jsonObj.Deserialize<DealCriterion>(options),
                 "StoreCriterion" => jsonObj.Deserialize<StoreCriterion>(options),
                 "ProfileCriterion" => jsonObj.Deserialize<ProfileCriterion>(options),
@@ -728,6 +733,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
             switch (value)
             {
+                case GenreCriterion genreCriterion:
+                    JsonSerializer.Serialize(writer, genreCriterion, options);
+                    break;
                 case DealCriterion dealCriterion:
                     JsonSerializer.Serialize(writer, dealCriterion, options);
                     break;

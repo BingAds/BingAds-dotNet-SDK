@@ -142,6 +142,20 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.ResponsiveAd.Videos == null ? null : c.ResponsiveAd.Videos.ToVideoAssetLinksBulkString(),
                 (v, c) => c.ResponsiveAd.Videos = v.ParseVideoAssetLinks()
             ),
+            new SimpleBulkMapping<BulkResponsiveAd>(StringTable.VerifiedTrackingDatas,
+                c =>
+                {
+                    return c.ResponsiveAd.VerifiedTrackingSettings.WriteVerifiedTrackingDataToBulkString(c.ResponsiveAd.Id);
+                },
+                (v, c) =>
+                {
+                    if (!string.IsNullOrEmpty(v))
+                    {
+                        c.ResponsiveAd.VerifiedTrackingSettings = new VerifiedTrackingSetting();
+                        v.ParseVerifiedTrackingData(c.ResponsiveAd.VerifiedTrackingSettings);
+                    }
+                }
+            ),
 
         };
 

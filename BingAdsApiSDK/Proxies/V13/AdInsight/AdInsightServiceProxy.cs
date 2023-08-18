@@ -5873,7 +5873,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The country, state, metropolitan area, or city where users entered the search query.
+        /// The country/region, state, metropolitan area, or city where users entered the search query.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Location
@@ -11715,8 +11715,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RSARecommendationInfo", Namespace="http://schemas.datacontract.org/2004/07/Microsoft.BingAds.Advertiser.AdInsight.Ap" +
-        "i.DataContract.V13.Entity")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RSARecommendationInfo", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
     [System.SerializableAttribute()]
     public partial class RSARecommendationInfo : Microsoft.BingAds.V13.AdInsight.RecommendationInfo
     {
@@ -14607,7 +14606,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         public System.Nullable<int> Level;
         
         /// <summary>
-        /// The country from which the search originated.
+        /// The country/region from which the search originated.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=5)]
         public string ParentCountry;
@@ -14639,7 +14638,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <param name="PublisherCountry">The country code of the country/region to use as the source of the location data.</param>
         /// <param name="Device">An array of devices for which you want to get geographical location information.</param>
         /// <param name="Level">The level at which to aggregate the geographical location data.</param>
-        /// <param name="ParentCountry">The country from which the search originated.</param>
+        /// <param name="ParentCountry">The country/region from which the search originated.</param>
         /// <param name="MaxLocations">The maximum number of locations to return.</param>
         public GetKeywordLocationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> Keywords, string Language, string PublisherCountry, System.Collections.Generic.IList<string> Device, System.Nullable<int> Level, string ParentCountry, System.Nullable<int> MaxLocations)
         {

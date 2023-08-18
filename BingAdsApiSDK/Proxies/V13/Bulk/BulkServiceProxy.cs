@@ -1005,34 +1005,58 @@ namespace Microsoft.BingAds.V13.Bulk
         AdGroupHotelListingGroups = 145,
         
         /// <summary>
-        /// Reserved.
+        /// Array of asset groups to add to the specified campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroups = 146,
         
         /// <summary>
-        /// Reserved.
+        /// Array of audience groups.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceGroups = 147,
         
         /// <summary>
-        /// Reserved.
+        /// Defines a negative site assigned to an campaign that can be uploaded and downloaded in a bulk file.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeWebpages = 148,
         
         /// <summary>
-        /// Reserved.
+        /// The list of Audience Group associations.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceGroupAssetGroupAssociations = 149,
         
         /// <summary>
-        /// Reserved.
+        /// The list of listing groups that correspond directly to the identifiers specified in the request.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupListingGroups = 150,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LogoAdExtensions = 151,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountLogoAdExtensions = 152,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignLogoAdExtensions = 153,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupLogoAdExtensions = 154,
     }
     
     /// <summary>

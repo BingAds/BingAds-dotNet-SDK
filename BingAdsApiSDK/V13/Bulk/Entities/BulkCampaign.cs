@@ -98,6 +98,13 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         public QualityScoreData QualityScoreData { get; private set; }
 
         /// <summary>
+        /// Destination Channel
+        /// </summary>
+        public string DestinationChannel { get; set; }
+
+        public bool? IsMultiChannelCampaign { get; set; }
+
+        /// <summary>
         /// Campaigns of type Shopping have exactly one ShoppingSetting.
         /// Campaigns of type Audience can have zero or one ShoppingSetting. 
         /// </summary>
@@ -568,7 +575,14 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                 }
             ),
-
+            new SimpleBulkMapping<BulkCampaign>(StringTable.DestinationChannel,
+                c => c.DestinationChannel,
+                (v, c) => c.DestinationChannel = v
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.IsMultiChannelCampaign,
+                c => c.IsMultiChannelCampaign?.ToString(),
+                (v, c) => c.IsMultiChannelCampaign = v.ParseOptional<bool>()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
