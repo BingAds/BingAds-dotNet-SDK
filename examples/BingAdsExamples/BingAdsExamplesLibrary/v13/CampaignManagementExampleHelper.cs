@@ -289,6 +289,16 @@ namespace BingAdsExamplesLibrary.V13
 
             return (await CampaignManagementService.CallAsync((s, r) => s.ApplyProductPartitionActionsAsync(r), request));
         }
+        public async Task<ApplyHotelGroupActionsResponse> ApplyHotelGroupActionsAsync(
+            IList<AdGroupCriterionAction> criterionActions)
+        {
+            var request = new ApplyHotelGroupActionsRequest
+            {
+                CriterionActions = criterionActions
+            };
+
+            return (await CampaignManagementService.CallAsync((s, r) => s.ApplyHotelGroupActionsAsync(r), request));
+        }
         public async Task<DeleteAdExtensionsResponse> DeleteAdExtensionsAsync(
             long accountId,
             IList<long> adExtensionIds)
