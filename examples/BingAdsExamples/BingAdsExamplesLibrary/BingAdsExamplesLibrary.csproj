@@ -173,6 +173,7 @@
     <Compile Include="v13\ExpandedTextAds.cs" />
     <Compile Include="v13\Experiments.cs" />
     <Compile Include="v13\GeographicalLocations.cs" />
+    <Compile Include="v13\HotelAds.cs" />
     <Compile Include="v13\ImageMedia.cs" />
     <Compile Include="v13\InviteUser.cs" />
     <Compile Include="v13\KeywordPlanner.cs" />
