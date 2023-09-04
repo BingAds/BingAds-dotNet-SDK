@@ -20,6 +20,7 @@ namespace BingAdsExamplesLibrary.V13
 
         public async override Task RunAsync(AuthorizationData authorizationData)
         {
+            OutputStatusMessage("Just test build");
             try
             {
                 ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)authorizationData.Authentication).Environment;
