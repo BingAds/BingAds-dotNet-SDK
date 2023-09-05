@@ -10,7 +10,7 @@ namespace BingAdsExamplesLibrary.V13
 {
     /// <summary>
     /// How to add labels and associate them with
-    /// campaigns, ad groups, keywords, and ads.
+    /// campaigns, ad groups, keywords, and ads, etc.
     /// </summary>
     public class Labels : ExampleBase
     {
