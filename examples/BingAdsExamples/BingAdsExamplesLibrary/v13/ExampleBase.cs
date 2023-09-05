@@ -95,10 +95,8 @@ namespace BingAdsExamplesLibrary.V13
                     locationAdExtension.GeoCodeStatus = null;
                     return locationAdExtension;
                 }
-                else
-                {
-                    return extension;
-                }
+				
+                return extension;
             }
         }
     }
