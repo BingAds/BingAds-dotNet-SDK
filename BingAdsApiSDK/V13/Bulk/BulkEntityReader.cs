@@ -122,7 +122,7 @@ namespace Microsoft.BingAds.V13.Bulk
             // happens when the wrapping Enumerator is disposed.
             if(_bulkRecordReader == null)
             {
-                throw new ObjectDisposedException("Results can only be enumerated once.")
+                throw new ObjectDisposedException("Results can only be enumerated once.");
             }
 
             // Parse the next row in the source. The returned object can be:
