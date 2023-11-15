@@ -47,60 +47,41 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
+using System.Threading.Tasks;
+using Microsoft.BingAds.V13.Bulk;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds
 {
-    public class RestHttpClientProvider : IRestHttpClientProvider
+    public static partial class ServiceClientExtensions
     {
-        private readonly IHttpClientFactory _hHttpClientFactory;
-
-        public HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment) => _hHttpClientFactory.CreateClient($"{apiEnvironment}_{clientType.Name}");
-
-        public static string ClientName = null;
-
-        public RestHttpClientProvider(Dictionary<Type, ServiceInfo> endpoints)
+        public static Task<DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByAccountIdsRequest request)
         {
-            var serviceCollection = new ServiceCollection();
+            return service.CallAsync((s, r) => s.DownloadCampaignsByAccountIdsAsync(r), request);
+        }
 
-            foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
-            {
-                foreach (var serviceInfoPair in endpoints)
-                {
-                    var serviceInfo = serviceInfoPair.Value;
+        public static Task<DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByCampaignIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.DownloadCampaignsByCampaignIdsAsync(r), request);
+        }
 
-                    var wcfUrl = serviceInfo.GetUrl(apiEnvironment);
+        public static Task<GetBulkDownloadStatusResponse> GetBulkDownloadStatusAsync(this ServiceClient<IBulkService> service, GetBulkDownloadStatusRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBulkDownloadStatusAsync(r), request);
+        }
 
-                    var rootUrl = new Uri(wcfUrl).GetLeftPart(UriPartial.Authority);
+        public static Task<GetBulkUploadUrlResponse> GetBulkUploadUrlAsync(this ServiceClient<IBulkService> service, GetBulkUploadUrlRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBulkUploadUrlAsync(r), request);
+        }
 
-                    var baseUrl = $"{rootUrl}/{serviceInfo.ServiceNameAndVersion}/";
+        public static Task<GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(this ServiceClient<IBulkService> service, GetBulkUploadStatusRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBulkUploadStatusAsync(r), request);
+        }
 
-                    serviceCollection.AddHttpClient($"{apiEnvironment}_{serviceInfoPair.Key.Name}", c =>
-                    {
-                        c.BaseAddress = new Uri(baseUrl);
-
-                        var productName = "BingAdsSDK.NET.RestApi";
-
-                        if (!string.IsNullOrEmpty(ClientName))
-                        {
-                            productName += $".{ClientName}";
-                        }
-
-                        c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(productName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
-                    }).ConfigurePrimaryHttpMessageHandler(c => new HttpClientHandler
-                    {
-                        AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
-                    });
-                }
-            }
-
-            _hHttpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
+        public static Task<UploadEntityRecordsResponse> UploadEntityRecordsAsync(this ServiceClient<IBulkService> service, UploadEntityRecordsRequest request)
+        {
+            return service.CallAsync((s, r) => s.UploadEntityRecordsAsync(r), request);
         }
     }
 }

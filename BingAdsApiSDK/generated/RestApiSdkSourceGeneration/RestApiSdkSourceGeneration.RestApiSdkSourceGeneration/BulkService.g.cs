@@ -48,37 +48,82 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Reflection;
-using System.Runtime.Versioning;
-using System.ServiceModel.Channels;
-using System.ServiceModel.Description;
-using System.ServiceModel.Dispatcher;
+using System.Threading.Tasks;
+using Microsoft.BingAds.V13.Bulk;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds
 {
-    internal class RequestIdBehavior : IEndpointBehavior
+    internal class BulkService : IBulkService
     {
-        public static RequestIdBehavior Instance { get; } = new RequestIdBehavior();
-        private RequestIdBehavior()
+        private readonly RestServiceClient _restServiceClient;
+
+        private readonly Type _serviceType;
+
+        public BulkService(RestServiceClient restServiceClient, Type serviceType)
         {
+            _restServiceClient = restServiceClient;
+
+            _serviceType = serviceType;
         }
 
-        public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
+        public DownloadCampaignsByAccountIdsResponse DownloadCampaignsByAccountIds(DownloadCampaignsByAccountIdsRequest request)
         {
+            throw new NotImplementedException();
         }
 
-        public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
+        public async Task<DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(DownloadCampaignsByAccountIdsRequest request)
         {
-            var inspector = new HeaderInspector("x-ms-requestid", Guid.NewGuid().ToString());
-            clientRuntime.ClientMessageInspectors.Add(inspector);
+            return await _restServiceClient.CallServiceAsync<DownloadCampaignsByAccountIdsResponse>("DownloadCampaignsByAccountIds", request, _serviceType);
         }
 
-        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
+        public DownloadCampaignsByCampaignIdsResponse DownloadCampaignsByCampaignIds(DownloadCampaignsByCampaignIdsRequest request)
         {
+            throw new NotImplementedException();
         }
 
-        public void Validate(ServiceEndpoint endpoint)
+        public async Task<DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(DownloadCampaignsByCampaignIdsRequest request)
         {
+            return await _restServiceClient.CallServiceAsync<DownloadCampaignsByCampaignIdsResponse>("DownloadCampaignsByCampaignIds", request, _serviceType);
+        }
+
+        public GetBulkDownloadStatusResponse GetBulkDownloadStatus(GetBulkDownloadStatusRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<GetBulkDownloadStatusResponse> GetBulkDownloadStatusAsync(GetBulkDownloadStatusRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<GetBulkDownloadStatusResponse>("GetBulkDownloadStatus", request, _serviceType);
+        }
+
+        public GetBulkUploadUrlResponse GetBulkUploadUrl(GetBulkUploadUrlRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<GetBulkUploadUrlResponse> GetBulkUploadUrlAsync(GetBulkUploadUrlRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<GetBulkUploadUrlResponse>("GetBulkUploadUrl", request, _serviceType);
+        }
+
+        public GetBulkUploadStatusResponse GetBulkUploadStatus(GetBulkUploadStatusRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(GetBulkUploadStatusRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<GetBulkUploadStatusResponse>("GetBulkUploadStatus", request, _serviceType);
+        }
+
+        public UploadEntityRecordsResponse UploadEntityRecords(UploadEntityRecordsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<UploadEntityRecordsResponse> UploadEntityRecordsAsync(UploadEntityRecordsRequest request)
+        {
+            return await _restServiceClient.CallServiceAsync<UploadEntityRecordsResponse>("UploadEntityRecords", request, _serviceType);
         }
     }
 }

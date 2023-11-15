@@ -103,6 +103,15 @@ internal static class RestApiMethodMapper
             throw new ArgumentNullException(nameof(nonStandardMethods));
         }
 
+        methodName = methodName switch
+        {
+            "AddNegativeKeywordsToEntities" => "AddEntityNegativeKeywords",
+            "DeleteNegativeKeywordsFromEntities" => "DeleteEntityNegativeKeywords",
+            "AddListItemsToSharedList" => "AddListItems",
+            "DeleteListItemsFromSharedList" => "DeleteListItems",
+            _ => methodName
+        };
+
         if (methodName.StartsWith("Add", StringComparison.InvariantCulture))
         {
             var entityName = methodName.Substring(3);

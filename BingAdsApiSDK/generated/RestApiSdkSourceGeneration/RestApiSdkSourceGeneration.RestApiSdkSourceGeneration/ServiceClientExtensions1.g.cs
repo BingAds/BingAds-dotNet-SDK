@@ -52,7 +52,7 @@ using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds
 {
-    public static class ServiceClientExtensions
+    public static partial class ServiceClientExtensions
     {
         public static Task<AddCampaignsResponse> AddCampaignsAsync(this ServiceClient<ICampaignManagementService> service, AddCampaignsRequest request)
         {

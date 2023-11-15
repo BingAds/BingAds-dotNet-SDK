@@ -863,6 +863,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdjustmentType = "Adjustment Type";
         public const string ExternalAttributionModel = "External Attribution Model";
         public const string ExternalAttributionCredit = "External Attribution Credit";
+        public const string HashedEmailAddress = "Hashed Email Address";
+        public const string HashedPhoneNumber = "Hashed Phone Number";
 
         // Online Conversion
         public const string OnlineConversionAdjustment = "Online Conversion Adjustment";

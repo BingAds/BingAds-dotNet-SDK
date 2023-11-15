@@ -167,6 +167,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.ExternalAttributionCredit.ToBulkString(),
                 (v, c) => c.ExternalAttributionCredit = v.ParseOptional<double>()
             ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.HashedEmailAddress,
+                c => c.OfflineConversion.HashedEmailAddress,
+                (v, c) => c.OfflineConversion.HashedEmailAddress = v
+            ),
+
+            new SimpleBulkMapping<BulkOfflineConversion>(StringTable.HashedPhoneNumber,
+                c => c.OfflineConversion.HashedPhoneNumber,
+                (v, c) => c.OfflineConversion.HashedPhoneNumber = v
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

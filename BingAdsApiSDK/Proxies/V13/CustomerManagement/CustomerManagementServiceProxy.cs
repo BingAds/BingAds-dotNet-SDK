@@ -2936,7 +2936,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Nairobi = 34,
         
         /// <summary>
-        /// The corresponding time zone type.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
@@ -2966,7 +2966,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Perth = 16,
         
         /// <summary>
-        /// The corresponding time zone type.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
@@ -7036,6 +7036,272 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         UnlinkFailed = 13,
     }
     
+    /// <summary>
+    /// Defines a Notification object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13">Notification Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Notification", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class Notification : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TypeIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte SeverityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOfstringstring> AdditionalInfoField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the type of Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TypeId
+        {
+            get
+            {
+                return this.TypeIdField;
+            }
+            set
+            {
+                if ((this.TypeIdField.Equals(value) != true))
+                {
+                    this.TypeIdField = value;
+                    this.RaisePropertyChanged("TypeId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The identifier of the Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
+        public long Id
+        {
+            get
+            {
+                return this.IdField;
+            }
+            set
+            {
+                if ((this.IdField.Equals(value) != true))
+                {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The severity of the Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public byte Severity
+        {
+            get
+            {
+                return this.SeverityField;
+            }
+            set
+            {
+                if ((this.SeverityField.Equals(value) != true))
+                {
+                    this.SeverityField = value;
+                    this.RaisePropertyChanged("Severity");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The title of the Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string Title
+        {
+            get
+            {
+                return this.TitleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TitleField, value) != true))
+                {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The message of the Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public string Message
+        {
+            get
+            {
+                return this.MessageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MessageField, value) != true))
+                {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The supporting data of the Notification.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOfstringstring> AdditionalInfo
+        {
+            get
+            {
+                return this.AdditionalInfoField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdditionalInfoField, value) != true))
+                {
+                    this.AdditionalInfoField = value;
+                    this.RaisePropertyChanged("AdditionalInfo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// The key and value entity of string and string values.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13">KeyValueEntityOfstringstring Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13 for details.
+    /// <para>Used by <see cref="Notification"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOfstringstring", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class KeyValueEntityOfstringstring : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// The name of the setting.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key
+        {
+            get
+            {
+                return this.KeyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeyField, value) != true))
+                {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// The value of the setting.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ValueField, value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", ConfigurationName="Microsoft.BingAds.V13.CustomerManagement.ICustomerManagementService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICustomerManagementService
@@ -8064,6 +8330,38 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
             "tatusResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
+        
+        /// <summary>
+        /// Gets a list of notification objects.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
+            "tionsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
+            "tionsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.ApiFault), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
+            "tionsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
+        
+        /// <summary>
+        /// Gets a list of notification objects.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
+            "tionsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
     }
     
     /// <summary>
@@ -12014,6 +12312,130 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
+    /// <summary>
+    /// Gets a list of notification objects.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetNotificationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// The locale of the message.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public string Locale;
+        
+        /// <summary>
+        /// The UserId filter.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
+        public System.Nullable<int> UserId;
+        
+        /// <summary>
+        /// A list of notification type filter.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
+        public System.Collections.Generic.IList<int> TypeIds;
+        
+        /// <summary>
+        /// Constructor for the GetNotificationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        public GetNotificationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetNotificationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Locale">The locale of the message.</param>
+        /// <param name="UserId">The UserId filter.</param>
+        /// <param name="TypeIds">A list of notification type filter.</param>
+        public GetNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Locale, System.Nullable<int> UserId, System.Collections.Generic.IList<int> TypeIds)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Locale = Locale;
+            this.UserId = UserId;
+            this.TypeIds = TypeIds;
+        }
+    }
+    
+    /// <summary>
+    /// Gets a list of notification objects.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class GetNotificationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// A collection of Notification objects that contains information about the Notification.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications;
+        
+        /// <summary>
+        /// Constructor for the GetNotificationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        public GetNotificationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetNotificationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="Notifications">A collection of Notification objects that contains information about the Notification.</param>
+        public GetNotificationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications)
+        {
+            this.TrackingId = TrackingId;
+            this.Notifications = Notifications;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerManagementServiceChannel : Microsoft.BingAds.V13.CustomerManagement.ICustomerManagementService, System.ServiceModel.IClientChannel
     {
@@ -12996,6 +13418,36 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
         {
             return base.Channel.GetUserMFAStatusAsync(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of notification objects.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
+        public Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
+        {
+            return base.Channel.GetNotifications(request);
+        }
+        
+        /// <summary>
+        /// Gets a list of notification objects.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
+        {
+            return base.Channel.GetNotificationsAsync(request);
         }
     }
 }

@@ -5484,37 +5484,37 @@ namespace Microsoft.BingAds.V13.Reporting
         AverageWatchTimePerImpression = 82,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of sales.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 83,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 84,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 85,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of installs.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 86,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 87,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 88,
@@ -6021,7 +6021,7 @@ namespace Microsoft.BingAds.V13.Reporting
         BangkokHanoiJakarta = 21,
         
         /// <summary>
-        /// The corresponding report time zone.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
@@ -6231,7 +6231,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Greenland = 56,
         
         /// <summary>
-        /// The corresponding report time zone.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
@@ -6649,7 +6649,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CurrencyCode = 7,
         
         /// <summary>
-        /// The network where your ads are shown.
+        /// The network where you want your ads to show.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 8,
@@ -6841,7 +6841,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Ptr = 39,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 40,
@@ -7225,37 +7225,37 @@ namespace Microsoft.BingAds.V13.Reporting
         AverageWatchTimePerImpression = 103,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of sales.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 104,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 105,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 106,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of installs.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 107,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 108,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 109,
@@ -9342,37 +9342,37 @@ namespace Microsoft.BingAds.V13.Reporting
         AverageWatchTimePerImpression = 96,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of sales.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 97,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 98,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 99,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of installs.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 100,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 101,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 102,
@@ -10148,6 +10148,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 88,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdStrength = 89,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdStrengthActionItems = 90,
     }
     
     /// <summary>
@@ -12961,7 +12973,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -13531,7 +13543,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 22,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 23,
@@ -14854,7 +14866,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ViewThroughRevenue = 40,
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a conversion goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 41,
@@ -18686,7 +18698,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupStatus = 7,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 8,
@@ -19172,43 +19184,43 @@ namespace Microsoft.BingAds.V13.Reporting
         ViewThroughRevenue = 88,
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a conversion goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 89,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of sales.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 90,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 91,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per sale.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 92,
         
         /// <summary>
-        /// Reserved.
+        /// The total number of installs.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 93,
         
         /// <summary>
-        /// Reserved.
+        /// The cost per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 94,
         
         /// <summary>
-        /// Reserved.
+        /// The revenue per install.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 95,
@@ -19633,7 +19645,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DestinationUrl = 29,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
@@ -20877,7 +20889,7 @@ namespace Microsoft.BingAds.V13.Reporting
         SearchQuery = 13,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 14,
@@ -22112,7 +22124,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
@@ -24533,7 +24545,7 @@ namespace Microsoft.BingAds.V13.Reporting
         UserCountry = 63,
         
         /// <summary>
-        /// Reserved.
+        /// The estimated percentage of clicks, out of the total number of clicks available, in auctions your ad showed in or was competitive in.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 64,

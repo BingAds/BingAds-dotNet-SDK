@@ -875,7 +875,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Hotel = 32,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign is a Performance max campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PerformanceMax = 64,
@@ -2302,8 +2302,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool FinalUrlExpansionOptOutField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> PageFeedIdsField;
+        
         /// <summary>
-        /// Reserved.
+        /// If false, then the entire domain will be targeted, and ad assets will be dynamically generated to match landing page content.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool FinalUrlExpansionOptOut
@@ -2318,6 +2321,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.FinalUrlExpansionOptOutField = value;
                     this.RaisePropertyChanged("FinalUrlExpansionOptOut");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<long> PageFeedIds
+        {
+            get
+            {
+                return this.PageFeedIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PageFeedIdsField, value) != true))
+                {
+                    this.PageFeedIdsField = value;
+                    this.RaisePropertyChanged("PageFeedIds");
                 }
             }
         }
@@ -3579,6 +3602,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallToActionSetting = 131072,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PageFeedInPerformanceMaxSettings = 262144,
     }
     
     /// <summary>
@@ -3750,6 +3779,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UseOptimizedTargetingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UsePredictiveTargetingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> AdScheduleUseSearcherTimeZoneField;
@@ -4199,7 +4231,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// This will be deprecated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UseOptimizedTargeting
@@ -4219,9 +4251,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UsePredictiveTargeting
+        {
+            get
+            {
+                return this.UsePredictiveTargetingField;
+            }
+            set
+            {
+                if ((this.UsePredictiveTargetingField.Equals(value) != true))
+                {
+                    this.UsePredictiveTargetingField = value;
+                    this.RaisePropertyChanged("UsePredictiveTargeting");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -4241,7 +4293,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The ad group type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
         public string AdGroupType
         {
             get
@@ -4261,7 +4313,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpvBid
         {
             get
@@ -4281,7 +4333,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpmBid
         {
             get
@@ -4301,7 +4353,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Reserved.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid McpaBid
         {
             get
@@ -4606,9 +4658,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private int CapValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FrequencyCapUnitField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.FrequencyCapTimeGranularity TimeGranularityField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -4639,26 +4688,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.CapValueField = value;
                     this.RaisePropertyChanged("CapValue");
-                }
-            }
-        }
-        
-        /// <summary>
-        /// What unit to limit the ad serves.
-        /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FrequencyCapUnit
-        {
-            get
-            {
-                return this.FrequencyCapUnitField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.FrequencyCapUnitField, value) != true))
-                {
-                    this.FrequencyCapUnitField = value;
-                    this.RaisePropertyChanged("FrequencyCapUnit");
                 }
             }
         }
@@ -5061,22 +5090,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         DAY = 1,
         
         /// <summary>
-        /// The number of weeks to limit ad serves by..
+        /// The number of weeks to limit ad serves by.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WEEK = 2,
-        
-        /// <summary>
-        /// The number of months to limit ad serves by.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        MONTH = 3,
-        
-        /// <summary>
-        /// Limit ad serves by the lifetime of the ad.
-        /// </summary>
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LIFETIME = 4,
     }
     
     /// <summary>
@@ -5141,7 +5158,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         McpaBid = 128,
         
         /// <summary>
-        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// This will be deprecated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UseOptimizedTargeting = 256,
@@ -5151,6 +5168,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrequencyCapSettings = 512,
+        
+        /// <summary>
+        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UsePredictiveTargeting = 1024,
     }
     
     /// <summary>
@@ -7794,6 +7817,42 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Russian = 93,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Malay = 73,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Thai = 118,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Indonesian = 50,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Tagalog = 113,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Vietnamese = 129,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hindi = 47,
         
         /// <summary>
         /// The corresponding language name.
@@ -17170,7 +17229,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         HotelCheckInDate = 67108864,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a genre criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Genre = 134217728,
@@ -18920,7 +18979,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a criterion that can be used to show ads for a specific deal.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13">DealCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13 for details.
@@ -18936,7 +18995,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private long DealIdField;
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising identifier of the Deal.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long DealId
@@ -18957,7 +19016,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a criterion that can be used to show ads from a specific genre.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/genrecriterion?view=bingads-13">GenreCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/genrecriterion?view=bingads-13 for details.
@@ -18973,7 +19032,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private long GenreIdField;
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising identifier of the Genre.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long GenreId
@@ -20994,6 +21053,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.SharedList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList))]
     public partial class SharedEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -21152,6 +21212,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList))]
     public partial class SharedList : Microsoft.BingAds.V13.CampaignManagement.SharedEntity
     {
         
@@ -21204,6 +21265,20 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.DataContractAttribute(Name="PlacementExclusionList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class PlacementExclusionList : Microsoft.BingAds.V13.CampaignManagement.SharedList
+    {
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/accountnegativekeywordlist?view=bingads-13">AccountNegativeKeywordList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/accountnegativekeywordlist?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountNegativeKeywordList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AccountNegativeKeywordList : Microsoft.BingAds.V13.CampaignManagement.SharedList
     {
     }
     
@@ -23137,25 +23212,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The status of the AssetGroup is Active.
+        /// The asset group is active, which indicates that the asset group can be served.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 0,
         
         /// <summary>
-        /// The status of the AssetGroup is Paused.
+        /// The asset group is paused, which indicates that the asset group will not serve.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 1,
         
         /// <summary>
-        /// The status of the AssetGroup is Deleted.
+        /// This status is for internal use only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The asset group is expired.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Expired = 3,
@@ -29297,6 +29372,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> NewLocationTargetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewLogoAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> NewNegativeKeywordListsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -29447,6 +29525,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> UpdateLocationTargetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateLogoAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateNegativeKeywordListsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -29469,6 +29550,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateSitelinkAdExtensionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateSitelinkUrlsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateStatusForAdGroupsField;
@@ -29569,7 +29653,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The identifier of the Microsoft Merchant Center store that you want to associate with imported product ads and product filters.
+        /// Note: AssociatedStoreId is deprecated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AssociatedStoreId
@@ -30044,6 +30128,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.NewLocationTargetsField = value;
                     this.RaisePropertyChanged("NewLocationTargets");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> NewLogoAdExtensions
+        {
+            get
+            {
+                return this.NewLogoAdExtensionsField;
+            }
+            set
+            {
+                if ((this.NewLogoAdExtensionsField.Equals(value) != true))
+                {
+                    this.NewLogoAdExtensionsField = value;
+                    this.RaisePropertyChanged("NewLogoAdExtensions");
                 }
             }
         }
@@ -31049,6 +31153,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateLogoAdExtensions
+        {
+            get
+            {
+                return this.UpdateLogoAdExtensionsField;
+            }
+            set
+            {
+                if ((this.UpdateLogoAdExtensionsField.Equals(value) != true))
+                {
+                    this.UpdateLogoAdExtensionsField = value;
+                    this.RaisePropertyChanged("UpdateLogoAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
         /// Import updates to existing negative keyword lists.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -31204,6 +31328,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.UpdateSitelinkAdExtensionsField = value;
                     this.RaisePropertyChanged("UpdateSitelinkAdExtensions");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateSitelinkUrls
+        {
+            get
+            {
+                return this.UpdateSitelinkUrlsField;
+            }
+            set
+            {
+                if ((this.UpdateSitelinkUrlsField.Equals(value) != true))
+                {
+                    this.UpdateSitelinkUrlsField = value;
+                    this.RaisePropertyChanged("UpdateSitelinkUrls");
                 }
             }
         }
@@ -31616,6 +31760,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateAdUrls = 512,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewLogoAdExtensions = 1024,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateLogoAdExtensions = 2048,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateSitelinkUrls = 4096,
     }
     
     /// <summary>
@@ -32370,7 +32532,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
@@ -32390,7 +32552,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a conversion goal.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long GoalId
@@ -35171,7 +35333,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse> GetCampaignIdsByBidStrategyIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request);
         
         /// <summary>
-        /// Adds array of audience groups to a specified campaign.
+        /// Adds array of audience groups to the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
@@ -35189,7 +35351,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsResponse AddAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsRequest request);
         
         /// <summary>
-        /// Adds array of audience groups to a specified campaign.
+        /// Adds array of audience groups to the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
@@ -44016,7 +44178,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.All of the asset group listing group actions must be for the same asset group
+        /// A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroupAction> ListingGroupActions;
@@ -44037,7 +44199,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="ListingGroupActions">A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.All of the asset group listing group actions must be for the same asset group</param>
+        /// <param name="ListingGroupActions">A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.</param>
         public ApplyAssetGroupListingGroupActionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroupAction> ListingGroupActions)
         {
             this.ApplicationToken = ApplicationToken;
@@ -48120,7 +48282,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds array of audience groups to a specified campaign.
+    /// Adds array of audience groups to the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
@@ -48190,7 +48352,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Adds array of audience groups to a specified campaign.
+    /// Adds array of audience groups to the account.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
@@ -57684,7 +57846,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds array of audience groups to a specified campaign.
+        /// Adds array of audience groups to the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
@@ -57699,7 +57861,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Adds array of audience groups to a specified campaign.
+        /// Adds array of audience groups to the account.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
