@@ -60,9 +60,9 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public partial class ServiceClientFactory : IServiceClientFactory
     {
-        private static RestHttpClientProvider _restHttpClientProvider;
+        private static readonly Lazy<RestHttpClientProvider> LazyRestHttpClientProvider = new(() => new RestHttpClientProvider(Endpoints));
 
-        private static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
+        protected static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
             // v13
             {
@@ -105,7 +105,8 @@ namespace Microsoft.BingAds.Internal
                 typeof (V13.Bulk.IBulkService), new ServiceInfo
                 {
                     ProductionUrl = "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/BulkService.svc",
-                    SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/BulkService.svc"
+                    SandboxUrl = "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v13/BulkService.svc",
+                    ServiceNameAndVersion = "Bulk/v13"
                 }
             },
             // end v13
@@ -147,7 +148,6 @@ namespace Microsoft.BingAds.Internal
         {
             var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
             factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
-            factory.Endpoint.EndpointBehaviors.Add(RequestIdBehavior.Instance);
             factory.Endpoint.EndpointBehaviors.Add(TraceBehavior.Instance);
             factory.Endpoint.EndpointBehaviors.Add(DevTokenBehavior.Instance);
             HttpClientFactory.ApplyEfficientHttpClientEndpointBehavior(factory.Endpoint.EndpointBehaviors);
@@ -188,7 +188,7 @@ namespace Microsoft.BingAds.Internal
 
         public virtual IRestHttpClientProvider GetRestHttpClientProvider()
         {
-            return _restHttpClientProvider ??= new RestHttpClientProvider(Endpoints);
+            return LazyRestHttpClientProvider.Value;
         }
     }
 }

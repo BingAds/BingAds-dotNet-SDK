@@ -48,13 +48,9 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Configuration;
-using System.Linq;
 using System.ServiceModel;
-using System.ServiceModel.Channels;
 using System.Threading.Tasks;
-using System.Xml.Linq;
-using Microsoft.BingAds.Internal;
+using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds
@@ -80,7 +76,7 @@ namespace Microsoft.BingAds
 
         private readonly RestServiceClient _restServiceClient;
 
-        public static bool ExperimentalEnableRestApi = false;
+        public static volatile bool ExperimentalEnableRestApi = false;
 
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
@@ -152,26 +148,22 @@ namespace Microsoft.BingAds
             Func<TService, TRequest, Task<TResponse>> method, TRequest request)
             where TRequest : class
         {
-            if (ExperimentalEnableRestApi)
+            if (!ExperimentalEnableRestApi)
             {
-                if (typeof(TService) == typeof(ICampaignManagementService))
-                {
-                    return await _restServiceClient.CallAsync(method, request);
-                }
+                return await _wcfServiceClient.CallAsync(method, request);
             }
 
-            return await _wcfServiceClient.CallAsync(method, request);
-        }
+            var restApiResponse = await _restServiceClient.CallAsync(method, request);
 
-        public TService CreateService()
-        {
-            if (typeof(TService) == typeof(ICampaignManagementService))
+            if (restApiResponse == null)
             {
-                return (TService)_restServiceClient.CreateService(typeof(ICampaignManagementService));
+                return await _wcfServiceClient.CallAsync(method, request);
             }
 
-            throw new NotImplementedException($"Service {typeof(TService).Name} doesn't support REST API");
+            return restApiResponse;
         }
+
+        public TService Service => (TService)_restServiceClient.CreateService(typeof(TService));
         
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.

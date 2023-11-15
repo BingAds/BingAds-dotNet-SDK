@@ -47,60 +47,58 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
+using System.Buffers;
+using System.Buffers.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Microsoft.BingAds.Internal
 {
-    public class RestHttpClientProvider : IRestHttpClientProvider
+    class LongToStringConverter : JsonConverter<long>
     {
-        private readonly IHttpClientFactory _hHttpClientFactory;
+        public const int MaximumFormatInt64Length = 20;   // 19 + sign (i.e. -9223372036854775808)
 
-        public HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment) => _hHttpClientFactory.CreateClient($"{apiEnvironment}_{clientType.Name}");
-
-        public static string ClientName = null;
-
-        public RestHttpClientProvider(Dictionary<Type, ServiceInfo> endpoints)
+        public override long Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var serviceCollection = new ServiceCollection();
-
-            foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
+            if (reader.TokenType == JsonTokenType.String)
             {
-                foreach (var serviceInfoPair in endpoints)
+                long result;
+
+                if (reader.ValueIsEscaped)
                 {
-                    var serviceInfo = serviceInfoPair.Value;
-
-                    var wcfUrl = serviceInfo.GetUrl(apiEnvironment);
-
-                    var rootUrl = new Uri(wcfUrl).GetLeftPart(UriPartial.Authority);
-
-                    var baseUrl = $"{rootUrl}/{serviceInfo.ServiceNameAndVersion}/";
-
-                    serviceCollection.AddHttpClient($"{apiEnvironment}_{serviceInfoPair.Key.Name}", c =>
+                    if (long.TryParse(reader.GetString(), out result))
                     {
-                        c.BaseAddress = new Uri(baseUrl);
+                        return result;
+                    }
+                }
 
-                        var productName = "BingAdsSDK.NET.RestApi";
+                var span = reader.HasValueSequence ? reader.ValueSequence.ToArray() : reader.ValueSpan;
 
-                        if (!string.IsNullOrEmpty(ClientName))
-                        {
-                            productName += $".{ClientName}";
-                        }
-
-                        c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(productName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
-                    }).ConfigurePrimaryHttpMessageHandler(c => new HttpClientHandler
-                    {
-                        AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
-                    });
+                if (Utf8Parser.TryParse(span, out result, out int bytesConsumed) && span.Length == bytesConsumed)
+                {
+                    return result;
                 }
             }
 
-            _hHttpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
+            return reader.GetInt64();
+        }
+
+        public override void Write(Utf8JsonWriter writer, long value, JsonSerializerOptions options)
+        {
+            if (writer == null)
+            {
+                throw new ArgumentNullException(nameof(writer));
+            }
+
+            Span<byte> utf8Number = stackalloc byte[MaximumFormatInt64Length];
+
+            if (!Utf8Formatter.TryFormat(value, utf8Number, out int bytesWritten))
+            {
+                throw new InvalidOperationException("Couldn't format long value");
+            }
+
+            writer.WriteStringValue(utf8Number.Slice(0, bytesWritten));
         }
     }
 }

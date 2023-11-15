@@ -50,16 +50,16 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.ServiceModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
 using System.Threading.Tasks;
 using Microsoft.BingAds.Internal;
-using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds
 {
@@ -71,29 +71,43 @@ namespace Microsoft.BingAds
 
         private ApiEnvironment _environment;
 
-        public AuthorizationData AuthorizationData => _authorizationData;
-
-        private bool AccessTokenExpired => (_authorizationData.Authentication as OAuthAuthorization)?.OAuthTokens?.AccessTokenExpired ?? false;
-
         public bool RefreshOAuthTokensAutomatically { get; set; }
+
+        private readonly ConcurrentDictionary<Type, object> _services = new();
 
         private static readonly JsonSerializerOptions SerializerOptions;
 
+        private static readonly ConcurrentDictionary<Type, DateTimeOffset> RetryAfter = new();
+
         static RestServiceClient()
         {
-            SerializerOptions = new JsonSerializerOptions
+            SerializerOptions = CreateJsonSerializerOptions();
+
+            SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            SerializerOptions.Converters.Add(new LongToStringConverter());
+
+            V13.CampaignManagement.AllPolymorphicConverters.AddTo(SerializerOptions.Converters);
+            V13.Bulk.AllPolymorphicConverters.AddTo(SerializerOptions.Converters);
+
+            V13.CampaignManagement.PolymorphicSerialization.SetOptions(CreateJsonSerializerOptions(), x => new UnsupportedTypeValueException(x));
+            V13.Bulk.PolymorphicSerialization.SetOptions(CreateJsonSerializerOptions(), x => new UnsupportedTypeValueException(x));
+        }
+
+        private static JsonSerializerOptions CreateJsonSerializerOptions()
+        {
+            return new JsonSerializerOptions
             {
                 IncludeFields = true,
                 TypeInfoResolver = new DefaultJsonTypeInfoResolver
                 {
-                    Modifiers = { EntityModifiers.CustomizeEntities }
+                    Modifiers =
+                    {
+                        V13.CampaignManagement.EntityModifiers.CustomizeEntities,
+                        V13.Bulk.EntityModifiers.CustomizeEntities
+                    }
                 },
-                NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.AllowNamedFloatingPointLiterals
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
             };
-
-            SerializerOptions.Converters.Add(new JsonStringEnumConverter());
-
-            AllPolymorphicConverters.AddTo(SerializerOptions.Converters);
         }
 
         public RestServiceClient(AuthorizationData authorizationData, ApiEnvironment? environment)
@@ -132,137 +146,240 @@ namespace Microsoft.BingAds
 
         public async Task<TResponse> CallAsync<TResponse, TService, TRequest>(Func<TService, TRequest, Task<TResponse>> method, TRequest request) where TService : class where TRequest : class
         {
+            ValidateObjectStateAndParameters(method, request);
+
             var service = (TService)CreateService(typeof(TService));
 
             var response = await method(service, request);
-            
+
             return response;
         }
 
         internal async Task<TResponse> CallServiceAsync<TResponse>(string methodName, object request, Type serviceType)
         {
-            var customerId = _authorizationData.CustomerId;
-            var accountId = _authorizationData.AccountId;
-            var devToken = _authorizationData.DeveloperToken;
+            if (RetryAfter.TryGetValue(serviceType, out var retryAfter) &&
+                DateTimeOffset.UtcNow < retryAfter)
+            {
+                return default;
+            }
 
-            var mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.CampaignManagementServiceActionMethods);
+            RestMethodInfo? mappedRestApiMethod = null;
+
+            if (serviceType == typeof(V13.CampaignManagement.ICampaignManagementService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.CampaignManagementServiceActionMethods);
+            }
+            else if (serviceType == typeof(V13.Bulk.IBulkService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.BulkServiceActionMethods);
+            }
 
             if (mappedRestApiMethod == null)
             {
                 throw new InvalidOperationException($"Unknown method '{methodName}'");
             }
 
-            var restApiMethodInfo = mappedRestApiMethod.Value;
+            await RefreshAccessToken(oAuth => oAuth.OAuthTokens.AccessToken == null || RefreshOAuthTokensAutomatically && oAuth.OAuthTokens.AccessTokenExpired);
 
-            SetCommonRequestFieldsFromUserData(request);
+            var originalFieldValues = new List<(FieldInfo, object)>();
+
+            var headerValues = MergeRequestFieldsWithAuthorizationData(request, originalFieldValues);
 
             var requestJson = JsonSerializer.Serialize(request, SerializerOptions);
 
-            var requestUri = new Uri($"{restApiMethodInfo.EntityName}{restApiMethodInfo.Action}", UriKind.Relative);
+            var restApiMethodInfo = mappedRestApiMethod.Value;
 
-            var requestMessage = new HttpRequestMessage
+            var methodAction = restApiMethodInfo.Action;
+
+            if (!string.IsNullOrEmpty(methodAction) && !methodAction.StartsWith("/"))
             {
-                Method = restApiMethodInfo.HttpMethod,
-                RequestUri = requestUri,
-                Content = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json")
-            };
-
-            requestMessage.Headers.Add("CustomerId", customerId.ToString());
-
-            requestMessage.Headers.Add("CustomerAccountId", accountId.ToString());
-
-            requestMessage.Headers.Add("DeveloperToken", devToken);
-
-            requestMessage.Headers.Add("ApplicationToken", devToken);
-
-            var needToRefreshToken = RefreshOAuthTokensAutomatically && AccessTokenExpired;
-
-            if (needToRefreshToken)
-            {
-                await RefreshAccessToken().ConfigureAwait(false);
+                methodAction = $"/{methodAction}";
             }
 
-            _authorizationData.Authentication.AddAuthenticationHeaders(requestMessage.Headers);
+            var requestUri = new Uri($"{restApiMethodInfo.EntityName}{methodAction}", UriKind.Relative);
 
-            var response = await _serviceClientFactory.GetRestHttpClientProvider().GetHttpClient(serviceType, _environment).SendAsync(requestMessage);
+            var retry = false;
+
+            HttpResponseMessage response;
+
+            do
+            {
+                var requestMessage = new HttpRequestMessage
+                {
+                    Method = restApiMethodInfo.HttpMethod,
+                    RequestUri = requestUri,
+                    Content = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json")
+                };
+
+                requestMessage.Headers.Add("CustomerId", headerValues.CustomerId);
+
+                requestMessage.Headers.Add("CustomerAccountId", headerValues.CustomerAccountId);
+
+                requestMessage.Headers.Add("DeveloperToken", _authorizationData.DeveloperToken);
+
+                requestMessage.Headers.Add("ApplicationToken", _authorizationData.DeveloperToken);
+
+                _authorizationData.Authentication.AddAuthenticationHeaders(requestMessage.Headers);
+
+                var httpClient = _serviceClientFactory.GetRestHttpClientProvider().GetHttpClient(serviceType, _environment);
+
+                response = await httpClient.SendAsync(requestMessage);
+
+                if (response.StatusCode == HttpStatusCode.Unauthorized && !retry && RefreshOAuthTokensAutomatically) // allow at most one retry due to expired token
+                {
+                    await RefreshAccessToken();
+
+                    retry = true;
+                }
+                else
+                {
+                    retry = false;
+                }
+            } while (retry);
 
             var responseContent = await response.Content.ReadAsStringAsync();
 
-            if (response.StatusCode == HttpStatusCode.BadRequest)
+            if (response.StatusCode is HttpStatusCode.NotImplemented or HttpStatusCode.NotFound)
             {
-                var faultDetail = JsonSerializer.Deserialize<ApplicationFault>(responseContent, SerializerOptions);
+                var retryAfterDelta = response.Headers.RetryAfter?.Delta ?? TimeSpan.FromHours(1);
 
-                switch (faultDetail)
+                var retryAfterUtcTime = DateTimeOffset.UtcNow + retryAfterDelta;
+
+                RetryAfter.AddOrUpdate(serviceType, retryAfterUtcTime, (type, offset) => retryAfterUtcTime);
+
+                foreach (var (field, value) in originalFieldValues)
                 {
-                    case ApiFaultDetail apiFaultDetail:
-                        throw new FaultException<ApiFaultDetail>(apiFaultDetail);
-                    case EditorialApiFaultDetail editorialApiFaultDetail:
-                        throw new FaultException<EditorialApiFaultDetail>(editorialApiFaultDetail);
-                    case AdApiFaultDetail adApiFaultDetail:
-                        throw new FaultException<AdApiFaultDetail>(adApiFaultDetail);
-                    default:
-                        throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    field.SetValue(request, value);
                 }
+
+                return default;
             }
 
-            return JsonSerializer.Deserialize<TResponse>(responseContent, SerializerOptions);
-        }
-
-        private async Task RefreshAccessToken()
-        {
-            var oauthWithCode = _authorizationData.Authentication as OAuthWithAuthorizationCode;
-
-            if (oauthWithCode != null)
+            T ParseResponse<T>()
             {
-                await oauthWithCode.RefreshAccessTokenAsync().ConfigureAwait(false);
+                var obj = JsonSerializer.Deserialize<T>(responseContent, SerializerOptions);
+
+                if (obj == null)
+                {
+                    throw new InvalidOperationException($"Couldn't deserialize type '{typeof(T)}' from response content: {responseContent}");
+                }
+
+                return obj;
             }
-        }
 
-        private void SetCommonRequestFieldsFromUserData(object request)
-        {
-            SetRequestFieldIfNeeded(request, "AccountId", _authorizationData.AccountId);
-
-            SetRequestFieldIfNeeded(request, "CustomerAccountId", _authorizationData.AccountId);
-
-            SetRequestFieldIfNeeded(request, "CustomerId", _authorizationData.CustomerId);
-
-            SetRequestFieldIfNeeded(request, "DeveloperToken", _authorizationData.DeveloperToken, alwaysOverwriteRequestField: true);
-
-            DevTokenBehavior.Instance.DevToken = _authorizationData.DeveloperToken;
-        }
-
-        private void SetRequestFieldIfNeeded<TAuthData>(object request, string name, TAuthData authorizationDataValue, bool alwaysOverwriteRequestField = false)
-        {
-            if (authorizationDataValue.Equals(default(TAuthData)))
+            if (response.StatusCode is HttpStatusCode.BadRequest or HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden)
             {
-                return;
+                if (serviceType == typeof(V13.CampaignManagement.ICampaignManagementService))
+                {
+                    var faultDetail = ParseResponse<V13.CampaignManagement.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.CampaignManagement.ApiFaultDetail apiFaultDetail:
+                            throw new FaultException<V13.CampaignManagement.ApiFaultDetail>(apiFaultDetail, faultReason);
+                        case V13.CampaignManagement.EditorialApiFaultDetail editorialApiFaultDetail:
+                            throw new FaultException<V13.CampaignManagement.EditorialApiFaultDetail>(editorialApiFaultDetail, faultReason);
+                        case V13.CampaignManagement.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.CampaignManagement.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
+                if (serviceType == typeof(V13.Bulk.IBulkService))
+                {
+                    var faultDetail = ParseResponse<V13.Bulk.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.Bulk.ApiFaultDetail apiFaultDetail:
+                            throw new FaultException<V13.Bulk.ApiFaultDetail>(apiFaultDetail, faultReason);
+                        case V13.Bulk.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.Bulk.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
+                throw new InvalidOperationException($"Unknown service type '{serviceType}'");
             }
 
+            var responseObj = ParseResponse<TResponse>();
+
+            return responseObj;
+        }
+
+        private void ValidateObjectStateAndParameters(object method, object request)
+        {
+            if (method == null) throw new ArgumentNullException(nameof(method));
+            if (request == null) throw new ArgumentNullException(nameof(request));
+
+            _authorizationData.Validate();
+        }
+
+        private async Task RefreshAccessToken(Func<OAuthWithAuthorizationCode, bool> condition = null)
+        {
+            if (_authorizationData.Authentication is OAuthWithAuthorizationCode { OAuthTokens: not null } oAuthWithCode && (condition == null || condition(oAuthWithCode)))
+            {
+                await oAuthWithCode.RefreshAccessTokenAsync().ConfigureAwait(false);
+            }
+        }
+
+        private (string CustomerAccountId, string CustomerId) MergeRequestFieldsWithAuthorizationData(object request, List<(FieldInfo, object)> originalFieldValues)
+        {
+            SetRequestFieldIfNeeded(request, "AccountId", _authorizationData.AccountId, originalFieldValues);
+
+            var customerAccountId = SetRequestFieldIfNeeded(request, "CustomerAccountId", _authorizationData.AccountId, originalFieldValues);
+
+            var customerId = SetRequestFieldIfNeeded(request, "CustomerId", _authorizationData.CustomerId, originalFieldValues);
+
+            SetRequestFieldIfNeeded(request, "DeveloperToken", _authorizationData.DeveloperToken, originalFieldValues, alwaysOverwriteRequestField: true);
+
+            return (CustomerAccountId: customerAccountId, CustomerId: customerId);
+        }
+
+        private string SetRequestFieldIfNeeded<TAuthData>(object request, string name, TAuthData authorizationDataValue, List<(FieldInfo, object)> originalFieldValues, bool alwaysOverwriteRequestField = false)
+        {
             var field = request.GetType().GetField(name);
 
             if (field == null)
             {
-                return;
+                return null;
             }
 
             dynamic requestValue = field.GetValue(request);
 
-            if (alwaysOverwriteRequestField || requestValue == null || requestValue.Equals(0))
+            if (!authorizationDataValue.Equals(default(TAuthData)) && (alwaysOverwriteRequestField || requestValue == null || requestValue.Equals(0)))
             {
                 var targetType = Nullable.GetUnderlyingType(field.FieldType) ?? field.FieldType;
 
-                field.SetValue(request, Convert.ChangeType(authorizationDataValue, targetType));
+                field.SetValue(request, Convert.ChangeType(authorizationDataValue, targetType, CultureInfo.InvariantCulture));
+
+                originalFieldValues.Add((field, requestValue));
+
+                return (string)Convert.ChangeType(authorizationDataValue, typeof(string), CultureInfo.InvariantCulture);
             }
+
+            return Convert.ChangeType(requestValue, typeof(string), CultureInfo.InvariantCulture);
         }
 
         internal object CreateService(Type serviceType)
         {
-            if (serviceType == typeof(ICampaignManagementService))
+            if (serviceType == typeof(V13.CampaignManagement.ICampaignManagementService))
             {
-                return new CampaignManagementService(this, serviceType);
+                return _services.GetOrAdd(serviceType, t => new CampaignManagementService(this, t));
             }
 
-            throw new NotImplementedException();
+            if (serviceType == typeof(V13.Bulk.IBulkService))
+            {
+                return _services.GetOrAdd(serviceType, t => new BulkService(this, t));
+            }
+
+            throw new NotImplementedException($"Service {serviceType} doesn't support REST API");
         }
     }
 }

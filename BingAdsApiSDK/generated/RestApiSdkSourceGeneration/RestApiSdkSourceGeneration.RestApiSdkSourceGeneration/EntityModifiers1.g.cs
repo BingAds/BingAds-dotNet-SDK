@@ -800,6 +800,9 @@ public static class EntityModifiers
                 jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                     case "PageFeedIds":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => "PerformanceMaxSetting";
                         break;
@@ -1021,6 +1024,9 @@ public static class EntityModifiers
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
                      case "UseOptimizedTargeting":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
+                     case "UsePredictiveTargeting":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
                      case "AdScheduleUseSearcherTimeZone":
@@ -3264,6 +3270,29 @@ public static class EntityModifiers
                 }
             }
         }
+        else if (jsonTypeInfo.Type == typeof(AccountNegativeKeywordList))
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "AccountNegativeKeywordList";
+                        break;
+                }
+            }
+        }
         else if (jsonTypeInfo.Type == typeof(SharedEntityAssociation))
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -4566,6 +4595,9 @@ public static class EntityModifiers
                      case "NewImageAdExtensions":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
+                     case "NewLogoAdExtensions":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
                      case "PauseAIMAdGroupIfAllAudienceCriterionNotImported":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
@@ -4582,6 +4614,12 @@ public static class EntityModifiers
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
                      case "UpdateImageAdExtensions":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
+                     case "UpdateLogoAdExtensions":
+                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                         break;
+                     case "UpdateSitelinkUrls":
                          jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                          break;
                     case "Type":

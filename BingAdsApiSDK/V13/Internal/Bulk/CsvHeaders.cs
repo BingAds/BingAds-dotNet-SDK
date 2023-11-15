@@ -496,6 +496,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AdjustmentType,
             StringTable.ExternalAttributionCredit,
             StringTable.ExternalAttributionModel,
+            StringTable.HashedEmailAddress,
+            StringTable.HashedPhoneNumber,
 
             // Account
             StringTable.MSCLKIDAutoTaggingEnabled,

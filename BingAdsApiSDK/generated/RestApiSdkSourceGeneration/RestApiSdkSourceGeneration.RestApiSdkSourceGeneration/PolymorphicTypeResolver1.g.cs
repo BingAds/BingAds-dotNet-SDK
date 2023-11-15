@@ -56,13 +56,35 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization.Metadata;
-using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.V13.CampaignManagement
 {
     public class PolymorphicSerialization
     {
-        public static JsonSerializerOptions? SerializerOptionsWithoutConverters { get; set; }
+        class Options
+        {
+            public Options(JsonSerializerOptions serializerOptionsWithoutConverters, Func<string, Exception> createUnsupportedTypeValueException)
+            {
+                SerializerOptionsWithoutConverters = serializerOptionsWithoutConverters;
+
+                CreateUnsupportedTypeValueException = createUnsupportedTypeValueException;
+            }
+
+            public JsonSerializerOptions SerializerOptionsWithoutConverters { get; set; }
+
+            public Func<string, Exception> CreateUnsupportedTypeValueException { get; set; }
+        }
+
+        private static Options? _options;
+
+        public static JsonSerializerOptions SerializerOptionsWithoutConverters => (_options ?? throw new InvalidOperationException("Options are not set")).SerializerOptionsWithoutConverters;
+        
+        public static Func<string, Exception> CreateUnsupportedTypeValueException => (_options ?? throw new InvalidOperationException("Options are not set")).CreateUnsupportedTypeValueException;
+
+        public static void SetOptions(JsonSerializerOptions serializerOptionsWithoutConverters, Func<string, Exception> createUnsupportedTypeValueException)
+        {
+            _options = new Options(serializerOptionsWithoutConverters, createUnsupportedTypeValueException);
+        }
     }
 
     public class AllPolymorphicConverters
@@ -124,7 +146,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "MaxConversions" => jsonObj.Deserialize<MaxConversionsBiddingScheme>(options),
                 "MaxClicks" => jsonObj.Deserialize<MaxClicksBiddingScheme>(options),
                 "BiddingScheme" => jsonObj.Deserialize<BiddingScheme>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -211,7 +233,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "ShoppingSetting" => jsonObj.Deserialize<ShoppingSetting>(options),
                 "VerifiedTrackingSetting" => jsonObj.Deserialize<VerifiedTrackingSetting>(options),
                 "Setting" => jsonObj.Deserialize<Setting>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -273,7 +295,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             {
                 "EditorialError" => jsonObj.Deserialize<EditorialError>(options),
                 "BatchError" => jsonObj.Deserialize<BatchError>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -307,7 +329,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "EditorialApiFaultDetail" => jsonObj.Deserialize<EditorialApiFaultDetail>(options),
                 "ApiFaultDetail" => jsonObj.Deserialize<ApiFaultDetail>(options),
                 "ApplicationFault" => jsonObj.Deserialize<ApplicationFault>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -347,7 +369,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "BidMultiplier" => jsonObj.Deserialize<BidMultiplier>(options),
                 "FixedBid" => jsonObj.Deserialize<FixedBid>(options),
                 "CriterionBid" => jsonObj.Deserialize<CriterionBid>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -392,7 +414,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "Product" => jsonObj.Deserialize<ProductAd>(options),
                 "Text" => jsonObj.Deserialize<TextAd>(options),
                 "Ad" => jsonObj.Deserialize<Ad>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -447,7 +469,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "ImageAsset" => jsonObj.Deserialize<ImageAsset>(options),
                 "TextAsset" => jsonObj.Deserialize<TextAsset>(options),
                 "Asset" => jsonObj.Deserialize<Asset>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -499,7 +521,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "CallAdExtension" => jsonObj.Deserialize<CallAdExtension>(options),
                 "LocationAdExtension" => jsonObj.Deserialize<LocationAdExtension>(options),
                 "AdExtension" => jsonObj.Deserialize<AdExtension>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -573,7 +595,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             {
                 "EditorialErrorCollection" => jsonObj.Deserialize<EditorialErrorCollection>(options),
                 "BatchErrorCollection" => jsonObj.Deserialize<BatchErrorCollection>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -605,7 +627,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             {
                 "Image" => jsonObj.Deserialize<Image>(options),
                 "Media" => jsonObj.Deserialize<Media>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -637,7 +659,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             {
                 "ImageMediaRepresentation" => jsonObj.Deserialize<ImageMediaRepresentation>(options),
                 "MediaRepresentation" => jsonObj.Deserialize<MediaRepresentation>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -670,7 +692,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "NegativeAdGroupCriterion" => jsonObj.Deserialize<NegativeAdGroupCriterion>(options),
                 "BiddableAdGroupCriterion" => jsonObj.Deserialize<BiddableAdGroupCriterion>(options),
                 "AdGroupCriterion" => jsonObj.Deserialize<AdGroupCriterion>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -725,7 +747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "HotelGroup" => jsonObj.Deserialize<HotelGroup>(options),
                 "ProductPartition" => jsonObj.Deserialize<ProductPartition>(options),
                 "Criterion" => jsonObj.Deserialize<Criterion>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -817,7 +839,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             {
                 "CashbackAdjustment" => jsonObj.Deserialize<CashbackAdjustment>(options),
                 "CriterionCashback" => jsonObj.Deserialize<CriterionCashback>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -850,7 +872,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "NegativeKeyword" => jsonObj.Deserialize<NegativeKeyword>(options),
                 "NegativeSite" => jsonObj.Deserialize<NegativeSite>(options),
                 "SharedListItem" => jsonObj.Deserialize<SharedListItem>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -883,11 +905,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
 
             return type switch
             {
+                "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
                 "NegativeKeywordList" => jsonObj.Deserialize<NegativeKeywordList>(options),
                 "SharedList" => jsonObj.Deserialize<SharedList>(options),
                 "SharedEntity" => jsonObj.Deserialize<SharedEntity>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -895,6 +918,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
             switch (value)
             {
+                case AccountNegativeKeywordList accountNegativeKeywordList:
+                    JsonSerializer.Serialize(writer, accountNegativeKeywordList, options);
+                    break;
                 case PlacementExclusionList placementExclusionList:
                     JsonSerializer.Serialize(writer, placementExclusionList, options);
                     break;
@@ -923,10 +949,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
 
             return type switch
             {
+                "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
                 "NegativeKeywordList" => jsonObj.Deserialize<NegativeKeywordList>(options),
                 "SharedList" => jsonObj.Deserialize<SharedList>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -934,6 +961,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
             switch (value)
             {
+                case AccountNegativeKeywordList accountNegativeKeywordList:
+                    JsonSerializer.Serialize(writer, accountNegativeKeywordList, options);
+                    break;
                 case PlacementExclusionList placementExclusionList:
                     JsonSerializer.Serialize(writer, placementExclusionList, options);
                     break;
@@ -962,7 +992,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "BiddableCampaignCriterion" => jsonObj.Deserialize<BiddableCampaignCriterion>(options),
                 "NegativeCampaignCriterion" => jsonObj.Deserialize<NegativeCampaignCriterion>(options),
                 "CampaignCriterion" => jsonObj.Deserialize<CampaignCriterion>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -999,7 +1029,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "Gender" => jsonObj.Deserialize<GenderDimension>(options),
                 "Age" => jsonObj.Deserialize<AgeDimension>(options),
                 "AudienceGroupDimension" => jsonObj.Deserialize<AudienceGroupDimension>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1043,7 +1073,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "Custom" => jsonObj.Deserialize<CustomAudience>(options),
                 "RemarketingList" => jsonObj.Deserialize<RemarketingList>(options),
                 "Audience" => jsonObj.Deserialize<Audience>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1096,7 +1126,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "PageVisitorsWhoVisitedAnotherPage" => jsonObj.Deserialize<PageVisitorsWhoVisitedAnotherPageRule>(options),
                 "PageVisitors" => jsonObj.Deserialize<PageVisitorsRule>(options),
                 "RemarketingRule" => jsonObj.Deserialize<RemarketingRule>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1138,7 +1168,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "Number" => jsonObj.Deserialize<NumberRuleItem>(options),
                 "String" => jsonObj.Deserialize<StringRuleItem>(options),
                 "RuleItem" => jsonObj.Deserialize<RuleItem>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1179,7 +1209,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "Duration" => jsonObj.Deserialize<DurationGoal>(options),
                 "Url" => jsonObj.Deserialize<UrlGoal>(options),
                 "ConversionGoal" => jsonObj.Deserialize<ConversionGoal>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1230,7 +1260,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "FileImportJob" => jsonObj.Deserialize<FileImportJob>(options),
                 "GoogleImportJob" => jsonObj.Deserialize<GoogleImportJob>(options),
                 "ImportJob" => jsonObj.Deserialize<ImportJob>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
@@ -1266,7 +1296,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 "FileImportOption" => jsonObj.Deserialize<FileImportOption>(options),
                 "GoogleImportOption" => jsonObj.Deserialize<GoogleImportOption>(options),
                 "ImportOption" => jsonObj.Deserialize<ImportOption>(PolymorphicSerialization.SerializerOptionsWithoutConverters),
-                _ => throw new InvalidOperationException($"Unknown type '{type}'")
+                _ => throw new JsonException(null, PolymorphicSerialization.CreateUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
         }
 
