@@ -62,7 +62,7 @@ struct RestMethodInfo
     public string Action { get; set; }
 }
 
-internal static class RestApiMethodMapper
+static class RestApiMethodMapper
 {
     public static readonly Dictionary<string, (string Entity, string Action)> CampaignManagementServiceActionMethods = new()
     {
@@ -81,7 +81,8 @@ internal static class RestApiMethodMapper
         { "SearchCompanies", (Entity: "Companies", Action: "Search" ) },
         { "SetAudienceGroupAssetGroupAssociations", (Entity: "AudienceGroupAssetGroupAssociations", Action: "Set" ) },
         { "ApplyAssetGroupListingGroupActions", (Entity: "AssetGroupListingGroupActions", Action: "Apply" ) },
-        { "ApplyCustomerListItems", (Entity: "CustomerListItems", Action: "Apply" ) }
+        { "ApplyCustomerListItems", (Entity: "CustomerListItems", Action: "Apply" ) },
+        { "ApplyCustomerListUserData", (Entity: "CustomerListUserData", Action: "Apply" ) }
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> BulkServiceActionMethods = new()
@@ -89,6 +90,36 @@ internal static class RestApiMethodMapper
         { "UploadEntityRecords", (Entity: "EntityRecords", Action: "Upload") },
         { "DownloadCampaignsByAccountIds", (Entity: "Campaigns", Action: "DownloadByAccountIds") },
         { "DownloadCampaignsByCampaignIds", (Entity: "Campaigns", Action: "DownloadByCampaignIds") }
+    };
+
+    public static readonly Dictionary<string, (string Entity, string Action)> ReportingServiceActionMethods = new()
+    {
+        { "SubmitGenerateReport", (Entity: "GenerateReport", Action: "Submit") },
+        { "PollGenerateReport", (Entity: "GenerateReport", Action: "Poll") }
+    };
+
+    public static readonly Dictionary<string, (string Entity, string Action)> AdInsightServiceActionMethods = new()
+    {
+        { "SetAutoApplyOptInStatus", (Entity: "AutoApplyOptInStatus", Action: "Set" ) },
+        { "TagRecommendations", (Entity: "Recommendations", Action: "Tag" ) }
+    };
+
+    public static readonly Dictionary<string, (string Entity, string Action)> CustomerManagementServiceActionMethods = new()
+    {
+        { "FindAccounts", (Entity: "Accounts", Action: "Find" ) },
+        { "FindAccountsOrCustomersInfo", (Entity: "AccountsOrCustomersInfo", Action: "Find" ) },
+        { "SendUserInvitation", (Entity: "UserInvitation", Action: "Send" ) },
+        { "SignupCustomer", (Entity: "Customer", Action: "Signup" ) },
+        { "ValidateAddress", (Entity: "Address", Action: "Validate" ) },
+        { "UpgradeCustomerToAgency", (Entity: "Customer", Action: "UpgradeToAgency" ) }
+    };
+
+    public static readonly Dictionary<string, (string Entity, string Action)> CustomerBillingServiceActionMethods = new()
+    {
+        { "DispatchCoupons", (Entity: "Coupons", Action: "Dispatch" ) },
+        { "RedeemCoupon", (Entity: "Coupon", Action: "Redeem" ) },
+        { "CheckFeatureAdoptionCouponEligibility", (Entity: "FeatureAdoptionCouponEligibility", Action: "Check" ) },
+        { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) }
     };
 
     public static RestMethodInfo? Map(string methodName, Dictionary<string, (string Entity, string Action)> nonStandardMethods)
@@ -105,10 +136,15 @@ internal static class RestApiMethodMapper
 
         methodName = methodName switch
         {
+            // CampaignManagement
             "AddNegativeKeywordsToEntities" => "AddEntityNegativeKeywords",
             "DeleteNegativeKeywordsFromEntities" => "DeleteEntityNegativeKeywords",
             "AddListItemsToSharedList" => "AddListItems",
             "DeleteListItemsFromSharedList" => "DeleteListItems",
+
+            // AdInsight
+            "SuggestKeywordsForUrl" => "GetKeywordSuggestionsByUrl",
+            "SuggestKeywordsFromExistingKeywords" => "GetKeywordSuggestionsByKeywords",
             _ => methodName
         };
 
@@ -131,6 +167,13 @@ internal static class RestApiMethodMapper
             var entityName = methodName.Substring(6);
 
             return new RestMethodInfo { HttpMethod = HttpMethod.Delete, EntityName = entityName };
+        }
+
+        if (methodName.StartsWith("Search", StringComparison.InvariantCulture))
+        {
+            var entityName = methodName.Substring(6);
+
+            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, Action = "Search" };
         }
 
         if (methodName.StartsWith("Get", StringComparison.InvariantCulture))

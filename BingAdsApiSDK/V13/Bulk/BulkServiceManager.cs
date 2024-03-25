@@ -302,7 +302,7 @@ namespace Microsoft.BingAds.V13.Bulk
                 {
                     var fileUploadParameters = CreateFileUploadParameters(parameters);
 
-                    return await UploadEntitiesAsyncImpl(progress, cancellationToken, fileUploadParameters);
+                    return await UploadEntitiesAsyncImpl(progress, cancellationToken, fileUploadParameters).ConfigureAwait(false);
                 }
                 throw;
             }

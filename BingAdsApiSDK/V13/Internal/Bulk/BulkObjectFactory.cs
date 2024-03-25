@@ -368,7 +368,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignNegativeWebpage, new EntityInfo(() => new BulkCampaignNegativeWebPage())},
                 {StringTable.AssetGroupListingGroup, new EntityInfo(() => new BulkAssetGroupListingGroup())},
                 {StringTable.AudienceGroupAssetGroupAssociation, new EntityInfo(() => new BulkAudienceGroupAssetGroupAssociation())},
-
+                {StringTable.SeasonalityAdjustment, new EntityInfo(() => new BulkSeasonalityAdjustment())},
+                {StringTable.DataExclusion, new EntityInfo(() => new BulkDataExclusion())},
+                {StringTable.AccountNegativeKeywordList, new EntityInfo(() => new BulkAccountNegativeKeywordList())},
+                {StringTable.AccountNegativeKeywordListAssociation, new EntityInfo(() => new BulkAccountNegativeKeywordListAssociation())},
+                {StringTable.AccountSharedNegativeKeyword, new EntityInfo(() => new BulkAccountSharedNegativeKeyword())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

@@ -51,9 +51,11 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -81,33 +83,51 @@ namespace Microsoft.BingAds
 
         static RestServiceClient()
         {
-            SerializerOptions = CreateJsonSerializerOptions();
-
-            SerializerOptions.Converters.Add(new JsonStringEnumConverter());
-            SerializerOptions.Converters.Add(new LongToStringConverter());
-
-            V13.CampaignManagement.AllPolymorphicConverters.AddTo(SerializerOptions.Converters);
-            V13.Bulk.AllPolymorphicConverters.AddTo(SerializerOptions.Converters);
-
-            V13.CampaignManagement.PolymorphicSerialization.SetOptions(CreateJsonSerializerOptions(), x => new UnsupportedTypeValueException(x));
-            V13.Bulk.PolymorphicSerialization.SetOptions(CreateJsonSerializerOptions(), x => new UnsupportedTypeValueException(x));
-        }
-
-        private static JsonSerializerOptions CreateJsonSerializerOptions()
-        {
-            return new JsonSerializerOptions
+            SerializerOptions = new JsonSerializerOptions
             {
                 IncludeFields = true,
                 TypeInfoResolver = new DefaultJsonTypeInfoResolver
                 {
                     Modifiers =
                     {
-                        V13.CampaignManagement.EntityModifiers.CustomizeEntities,
-                        V13.Bulk.EntityModifiers.CustomizeEntities
+                        RequireAllProperties
                     }
                 },
-                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals
+                NumberHandling = JsonNumberHandling.AllowNamedFloatingPointLiterals,
+                UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow
             };
+
+            SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            SerializerOptions.Converters.Add(new LongToStringConverter());
+
+            Func<string, Exception> unsupportedTypeValueException = x => new UnsupportedTypeValueException(x);
+
+            Microsoft.BingAds.RestApiGeneration.Apply(SerializerOptions, unsupportedTypeValueException);
+        }
+
+        private static void RequireAllProperties(JsonTypeInfo jsonTypeInfo)
+        {
+            if (jsonTypeInfo.Kind != JsonTypeInfoKind.Object)
+            {
+                return;
+            }
+
+            var isDataContract = jsonTypeInfo.Type.GetCustomAttributes(typeof(DataContractAttribute)).Any() ||
+                                 jsonTypeInfo.Type.Name.EndsWith("Request", StringComparison.InvariantCulture) ||
+                                 jsonTypeInfo.Type.Name.EndsWith("Response", StringComparison.InvariantCulture);
+
+            if (!isDataContract)
+            {
+                return;
+            }
+
+            for (int i = 0; i < jsonTypeInfo.Properties.Count; i++)
+            {
+                if (jsonTypeInfo.Properties[i].Set != null)
+                {
+                    jsonTypeInfo.Properties[i].IsRequired = true;
+                }
+            }
         }
 
         public RestServiceClient(AuthorizationData authorizationData, ApiEnvironment? environment)
@@ -150,12 +170,12 @@ namespace Microsoft.BingAds
 
             var service = (TService)CreateService(typeof(TService));
 
-            var response = await method(service, request);
+            var response = await method(service, request).ConfigureAwait(false);
 
             return response;
         }
 
-        internal async Task<TResponse> CallServiceAsync<TResponse>(string methodName, object request, Type serviceType)
+        internal async Task<TResponse> CallServiceAsync<TResponse>(string methodName, object request, Type serviceType, Action<TResponse, string> setTrackingId)
         {
             if (RetryAfter.TryGetValue(serviceType, out var retryAfter) &&
                 DateTimeOffset.UtcNow < retryAfter)
@@ -173,13 +193,29 @@ namespace Microsoft.BingAds
             {
                 mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.BulkServiceActionMethods);
             }
+            else if (serviceType == typeof(V13.Reporting.IReportingService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.ReportingServiceActionMethods);
+            }
+            else if (serviceType == typeof(V13.AdInsight.IAdInsightService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.AdInsightServiceActionMethods);
+            }
+            else if (serviceType == typeof(V13.CustomerManagement.ICustomerManagementService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.AdInsightServiceActionMethods);
+            }
+            else if (serviceType == typeof(V13.CustomerBilling.ICustomerBillingService))
+            {
+                mappedRestApiMethod = RestApiMethodMapper.Map(methodName, RestApiMethodMapper.AdInsightServiceActionMethods);
+            }
 
             if (mappedRestApiMethod == null)
             {
                 throw new InvalidOperationException($"Unknown method '{methodName}'");
             }
 
-            await RefreshAccessToken(oAuth => oAuth.OAuthTokens.AccessToken == null || RefreshOAuthTokensAutomatically && oAuth.OAuthTokens.AccessTokenExpired);
+            await RefreshAccessToken(oAuth => oAuth.OAuthTokens.AccessToken == null || RefreshOAuthTokensAutomatically && oAuth.OAuthTokens.AccessTokenExpired).ConfigureAwait(false);
 
             var originalFieldValues = new List<(FieldInfo, object)>();
 
@@ -223,11 +259,11 @@ namespace Microsoft.BingAds
 
                 var httpClient = _serviceClientFactory.GetRestHttpClientProvider().GetHttpClient(serviceType, _environment);
 
-                response = await httpClient.SendAsync(requestMessage);
+                response = await httpClient.SendAsync(requestMessage).ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.Unauthorized && !retry && RefreshOAuthTokensAutomatically) // allow at most one retry due to expired token
                 {
-                    await RefreshAccessToken();
+                    await RefreshAccessToken().ConfigureAwait(false);
 
                     retry = true;
                 }
@@ -237,7 +273,7 @@ namespace Microsoft.BingAds
                 }
             } while (retry);
 
-            var responseContent = await response.Content.ReadAsStringAsync();
+            var responseContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             if (response.StatusCode is HttpStatusCode.NotImplemented or HttpStatusCode.NotFound)
             {
@@ -267,13 +303,20 @@ namespace Microsoft.BingAds
                 return obj;
             }
 
-            if (response.StatusCode is HttpStatusCode.BadRequest or HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden)
+            if (response.StatusCode is 
+                HttpStatusCode.InternalServerError or 
+                (HttpStatusCode)429 or 
+                HttpStatusCode.BadRequest or 
+                HttpStatusCode.Unauthorized or 
+                HttpStatusCode.Forbidden)
             {
+                const string faultMessage = "An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId:";
+
                 if (serviceType == typeof(V13.CampaignManagement.ICampaignManagementService))
                 {
                     var faultDetail = ParseResponse<V13.CampaignManagement.ApplicationFault>();
 
-                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+                    var faultReason = new FaultReason($"{faultMessage} {faultDetail.TrackingId}.");
 
                     switch (faultDetail)
                     {
@@ -305,10 +348,88 @@ namespace Microsoft.BingAds
                     }
                 }
 
+                if (serviceType == typeof(V13.Reporting.IReportingService))
+                {
+                    var faultDetail = ParseResponse<V13.Reporting.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.Reporting.ApiFaultDetail apiFaultDetail:
+                            throw new FaultException<V13.Reporting.ApiFaultDetail>(apiFaultDetail, faultReason);
+                        case V13.Reporting.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.Reporting.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
+                if (serviceType == typeof(V13.AdInsight.IAdInsightService))
+                {
+                    var faultDetail = ParseResponse<V13.AdInsight.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.AdInsight.ApiFaultDetail apiFaultDetail:
+                            throw new FaultException<V13.AdInsight.ApiFaultDetail>(apiFaultDetail, faultReason);
+                        case V13.AdInsight.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.AdInsight.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
+                if (serviceType == typeof(V13.CustomerManagement.ICustomerManagementService))
+                {
+                    var faultDetail = ParseResponse<V13.CustomerManagement.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.CustomerManagement.ApiFault apiFault:
+                            throw new FaultException<V13.CustomerManagement.ApiFault>(apiFault, faultReason);
+                        case V13.CustomerManagement.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.CustomerManagement.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
+                if (serviceType == typeof(V13.CustomerBilling.ICustomerBillingService))
+                {
+                    var faultDetail = ParseResponse<V13.CustomerBilling.ApplicationFault>();
+
+                    var faultReason = new FaultReason($"An error occurred while executing the request. Please check the exception Detail property for more information. TrackingId: {faultDetail.TrackingId}.");
+
+                    switch (faultDetail)
+                    {
+                        case V13.CustomerBilling.ApiFault apiFault:
+                            throw new FaultException<V13.CustomerBilling.ApiFault>(apiFault, faultReason);
+                        case V13.CustomerBilling.AdApiFaultDetail adApiFaultDetail:
+                            throw new FaultException<V13.CustomerBilling.AdApiFaultDetail>(adApiFaultDetail, faultReason);
+                        default:
+                            throw new InvalidOperationException($"Unknown fault type '{faultDetail.GetType()}'");
+                    }
+                }
+
                 throw new InvalidOperationException($"Unknown service type '{serviceType}'");
             }
 
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new InvalidOperationException($"Got unexpected status code '{response.StatusCode}' with response content: {responseContent}");
+            }            
+
             var responseObj = ParseResponse<TResponse>();
+
+            if (response.Headers.TryGetValues("TrackingId", out var trackingIdValues))
+            {
+                setTrackingId(responseObj, trackingIdValues.First());
+            }
 
             return responseObj;
         }
@@ -377,6 +498,26 @@ namespace Microsoft.BingAds
             if (serviceType == typeof(V13.Bulk.IBulkService))
             {
                 return _services.GetOrAdd(serviceType, t => new BulkService(this, t));
+            }
+
+            if (serviceType == typeof(V13.Reporting.IReportingService))
+            {
+                return _services.GetOrAdd(serviceType, t => new ReportingService(this, t));
+            }
+
+            if (serviceType == typeof(V13.AdInsight.IAdInsightService))
+            {
+                return _services.GetOrAdd(serviceType, t => new AdInsightService(this, t));
+            }
+
+            if (serviceType == typeof(V13.CustomerManagement.ICustomerManagementService))
+            {
+                return _services.GetOrAdd(serviceType, t => new CustomerManagementService(this, t));
+            }
+
+            if (serviceType == typeof(V13.CustomerBilling.ICustomerBillingService))
+            {
+                return _services.GetOrAdd(serviceType, t => new CustomerBillingService(this, t));
             }
 
             throw new NotImplementedException($"Service {serviceType} doesn't support REST API");

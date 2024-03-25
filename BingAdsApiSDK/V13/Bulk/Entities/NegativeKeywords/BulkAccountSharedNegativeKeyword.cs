@@ -47,41 +47,33 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Threading.Tasks;
-using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+// ReSharper disable once CheckNamespace
 
-namespace Microsoft.BingAds
+
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
-    public static partial class ServiceClientExtensions
+    /// <summary>
+    /// <para>
+    /// Represents an account shared negative keyword that is shared in a account shared negative keyword list. Each shared account shared negative keyword can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkNegativeKeyword.NegativeKeyword"/> property that can be read and written as fields of the Shared Negative Keyword record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Account Shared Negative Keyword</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAccountSharedNegativeKeyword : BulkNegativeKeyword
     {
-        public static Task<DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByAccountIdsRequest request)
+        /// <summary>
+        /// The identifier of the account shared negative keyword list through which the account shared negative keyword is shared.
+        /// Corresponds to the 'Parent Id' field in the bulk file. 
+        /// </summary>
+        public long NegativeKeywordListId
         {
-            return service.CallAsync((s, r) => s.DownloadCampaignsByAccountIdsAsync(r), request);
-        }
-
-        public static Task<DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByCampaignIdsRequest request)
-        {
-            return service.CallAsync((s, r) => s.DownloadCampaignsByCampaignIdsAsync(r), request);
-        }
-
-        public static Task<GetBulkDownloadStatusResponse> GetBulkDownloadStatusAsync(this ServiceClient<IBulkService> service, GetBulkDownloadStatusRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkDownloadStatusAsync(r), request);
-        }
-
-        public static Task<GetBulkUploadUrlResponse> GetBulkUploadUrlAsync(this ServiceClient<IBulkService> service, GetBulkUploadUrlRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkUploadUrlAsync(r), request);
-        }
-
-        public static Task<GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(this ServiceClient<IBulkService> service, GetBulkUploadStatusRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkUploadStatusAsync(r), request);
-        }
-
-        public static Task<UploadEntityRecordsResponse> UploadEntityRecordsAsync(this ServiceClient<IBulkService> service, UploadEntityRecordsRequest request)
-        {
-            return service.CallAsync((s, r) => s.UploadEntityRecordsAsync(r), request);
+            get { return ParentId.Value; }
+            set { ParentId = value; }
         }
     }
 }

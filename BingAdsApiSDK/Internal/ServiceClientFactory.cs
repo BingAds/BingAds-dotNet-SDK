@@ -69,28 +69,32 @@ namespace Microsoft.BingAds.Internal
                 typeof (V13.CustomerBilling.ICustomerBillingService), new ServiceInfo
                 {
                     ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v13/CustomerBillingService.svc",
-                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v13/CustomerBillingService.svc"
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v13/CustomerBillingService.svc",
+                    ServiceNameAndVersion = "CustomerBilling/v13"
                 }
             },
             {
                 typeof (V13.CustomerManagement.ICustomerManagementService), new ServiceInfo
                 {
                     ProductionUrl = "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v13/CustomerManagementService.svc",
-                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v13/CustomerManagementService.svc"
+                    SandboxUrl = "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v13/CustomerManagementService.svc",
+                    ServiceNameAndVersion = "CustomerManagement/v13"
                 }
             },
             {
                 typeof (V13.Reporting.IReportingService), new ServiceInfo
                 {
                     ProductionUrl = "https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v13/ReportingService.svc",
-                    SandboxUrl = "https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v13/ReportingService.svc"
+                    SandboxUrl = "https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v13/ReportingService.svc",
+                    ServiceNameAndVersion = "Reporting/v13"
                 }
             },
             {
                 typeof (V13.AdInsight.IAdInsightService), new ServiceInfo
                 {
                     ProductionUrl = "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/V13/AdInsightService.svc",
-                    SandboxUrl = "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/V13/AdInsightService.svc"
+                    SandboxUrl = "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/V13/AdInsightService.svc",
+                    ServiceNameAndVersion = "AdInsight/v13"
                 }
             },
             {

@@ -111,6 +111,7 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.DSACategoryPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.HotelDimensionPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.HotelGroupPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -4546,6 +4547,131 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13">AssetGroupPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AssetGroupPerformanceReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V13.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the file formats that you can use for a report.
     /// </summary>
     /// <remarks>
@@ -4778,7 +4904,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13">ReportTime Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -4911,7 +5037,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13">ReportAggregation Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5460,7 +5586,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 78,
         
         /// <summary>
-        /// The number of completed video views divided by the number of total video views.
+        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 79,
@@ -5525,7 +5651,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountstatusreportfilter?view=bingads-13">AccountStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/accountstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -7201,7 +7327,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 99,
         
         /// <summary>
-        /// The number of completed video views divided by the number of total video views.
+        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 100,
@@ -7266,7 +7392,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13">CampaignStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -7310,7 +7436,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignreportscope?view=bingads-13">CampaignReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/campaignreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
+    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/>, <see cref="AccountThroughAssetGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -9318,7 +9444,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 92,
         
         /// <summary>
-        /// The number of completed video views divided by the number of total video views.
+        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 93,
@@ -9376,6 +9502,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 102,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 103,
     }
     
     /// <summary>
@@ -10126,7 +10258,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 84,
         
         /// <summary>
-        /// The number of completed video views divided by the number of total video views.
+        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 85,
@@ -10160,6 +10292,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStrengthActionItems = 90,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 91,
     }
     
     /// <summary>
@@ -11056,6 +11194,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 78,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 79,
     }
     
     /// <summary>
@@ -13746,7 +13890,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13">AssetGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="GeographicPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="PublisherUsagePerformanceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="PublisherUsagePerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -16371,6 +16515,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 53,
     }
     
     /// <summary>
@@ -19248,6 +19398,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 99,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CollectionId = 100,
     }
     
     /// <summary>
@@ -23494,6 +23650,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 55,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalId = 56,
     }
     
     /// <summary>
@@ -24245,7 +24407,7 @@ namespace Microsoft.BingAds.V13.Reporting
         SourceHotelId = 13,
         
         /// <summary>
-        /// The identifier of the hotel campaign.
+        /// The identifier of the lodging campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignHotelId = 14,
@@ -24549,6 +24711,12 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 64,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MissedImpressionsInsufficientBid = 65,
     }
     
     /// <summary>
@@ -24983,6 +25151,460 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 47,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MissedImpressionsInsufficientBid = 48,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13">AssetGroupPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AssetGroupPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13">AccountThroughAssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountThroughAssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AccountThroughAssetGroupReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> AccountIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupReportScope> AssetGroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> CampaignsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> AccountIds
+        {
+            get
+            {
+                return this.AccountIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountIdsField, value) != true))
+                {
+                    this.AccountIdsField = value;
+                    this.RaisePropertyChanged("AccountIds");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupReportScope> AssetGroups
+        {
+            get
+            {
+                return this.AssetGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AssetGroupsField, value) != true))
+                {
+                    this.AssetGroupsField = value;
+                    this.RaisePropertyChanged("AssetGroups");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> Campaigns
+        {
+            get
+            {
+                return this.CampaignsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CampaignsField, value) != true))
+                {
+                    this.CampaignsField = value;
+                    this.RaisePropertyChanged("Campaigns");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13">AssetGroupPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum AssetGroupPerformanceReportColumn : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 6,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 9,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 10,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 11,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 12,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 13,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 14,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 15,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 16,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 17,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13">AssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13 for details.
+    /// <para>Used by <see cref="AccountThroughAssetGroupReportScope"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AssetGroupReportScope : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private long AccountIdField;
+        
+        private long CampaignIdField;
+        
+        private long AssetGroupIdField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public long CampaignId
+        {
+            get
+            {
+                return this.CampaignIdField;
+            }
+            set
+            {
+                if ((this.CampaignIdField.Equals(value) != true))
+                {
+                    this.CampaignIdField = value;
+                    this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public long AssetGroupId
+        {
+            get
+            {
+                return this.AssetGroupIdField;
+            }
+            set
+            {
+                if ((this.AssetGroupIdField.Equals(value) != true))
+                {
+                    this.AssetGroupIdField = value;
+                    this.RaisePropertyChanged("AssetGroupId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     /// <summary>
