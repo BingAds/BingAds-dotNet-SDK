@@ -47,83 +47,71 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Threading.Tasks;
-using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.Internal;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.CampaignManagement;
 
-namespace Microsoft.BingAds
+// ReSharper disable once CheckNamespace
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
-    internal class BulkService : IBulkService
+    /// <summary>
+    /// <para>
+    /// Represents an account negative keyword list that can be read or written in a bulk file. 
+    /// This class exposes the <see cref="BulkAccountNegativeKeywordList.AccountNegativeKeywordList"/> property that can be read and written as fields of the Negative Keyword List record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Account Negative Keyword List</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkAccountNegativeKeywordList : SingleRecordBulkEntity
     {
-        private readonly RestServiceClient _restServiceClient;
+        /// <summary>
+        /// The account negative keyword list.
+        /// </summary>
+        public AccountNegativeKeywordList AccountNegativeKeywordList { get; set; }
 
-        private readonly Type _serviceType;
+        /// <summary>
+        /// The status of the account negative keyword list.
+        /// The value is Active if the account negative keyword list is available in the account's shared library. 
+        /// The value is Deleted if the account negative keyword list is deleted from the library, or should be deleted in a subsequent upload operation. 
+        /// Corresponds to the 'Status' field in the bulk file. 
+        /// </summary>
+        public Status? Status { get; set; }
 
-        public BulkService(RestServiceClient restServiceClient, Type serviceType)
+        private static readonly IBulkMapping<BulkAccountNegativeKeywordList>[] Mappings =
         {
-            _restServiceClient = restServiceClient;
+            new SimpleBulkMapping<BulkAccountNegativeKeywordList>(StringTable.Id,
+                c => c.AccountNegativeKeywordList.Id.ToBulkString(),
+                (v, c) => c.AccountNegativeKeywordList.Id = v.ParseOptional<long>()
+            ),
 
-            _serviceType = serviceType;
+            new SimpleBulkMapping<BulkAccountNegativeKeywordList>(StringTable.Status,
+                c => c.Status.ToBulkString(),
+                (v, c) => c.Status = v.ParseOptional<Status>()
+            ),
+
+            new SimpleBulkMapping<BulkAccountNegativeKeywordList>(StringTable.Name,
+                c => c.AccountNegativeKeywordList.Name,
+                (v, c) => c.AccountNegativeKeywordList.Name = v
+            )
+        };
+
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            AccountNegativeKeywordList = new AccountNegativeKeywordList { Type = "AccountNegativeKeywordList" };
+
+            values.ConvertToEntity(this, Mappings);
         }
 
-        public DownloadCampaignsByAccountIdsResponse DownloadCampaignsByAccountIds(DownloadCampaignsByAccountIdsRequest request)
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
-            throw new NotImplementedException();
-        }
+            ValidatePropertyNotNull(AccountNegativeKeywordList, "AccountNegativeKeywordList");
 
-        public async Task<DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(DownloadCampaignsByAccountIdsRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<DownloadCampaignsByAccountIdsResponse>("DownloadCampaignsByAccountIds", request, _serviceType);
-        }
-
-        public DownloadCampaignsByCampaignIdsResponse DownloadCampaignsByCampaignIds(DownloadCampaignsByCampaignIdsRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(DownloadCampaignsByCampaignIdsRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<DownloadCampaignsByCampaignIdsResponse>("DownloadCampaignsByCampaignIds", request, _serviceType);
-        }
-
-        public GetBulkDownloadStatusResponse GetBulkDownloadStatus(GetBulkDownloadStatusRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<GetBulkDownloadStatusResponse> GetBulkDownloadStatusAsync(GetBulkDownloadStatusRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<GetBulkDownloadStatusResponse>("GetBulkDownloadStatus", request, _serviceType);
-        }
-
-        public GetBulkUploadUrlResponse GetBulkUploadUrl(GetBulkUploadUrlRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<GetBulkUploadUrlResponse> GetBulkUploadUrlAsync(GetBulkUploadUrlRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<GetBulkUploadUrlResponse>("GetBulkUploadUrl", request, _serviceType);
-        }
-
-        public GetBulkUploadStatusResponse GetBulkUploadStatus(GetBulkUploadStatusRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(GetBulkUploadStatusRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<GetBulkUploadStatusResponse>("GetBulkUploadStatus", request, _serviceType);
-        }
-
-        public UploadEntityRecordsResponse UploadEntityRecords(UploadEntityRecordsRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<UploadEntityRecordsResponse> UploadEntityRecordsAsync(UploadEntityRecordsRequest request)
-        {
-            return await _restServiceClient.CallServiceAsync<UploadEntityRecordsResponse>("UploadEntityRecords", request, _serviceType);
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

@@ -282,7 +282,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The campaign identifier.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
         public System.Nullable<long> CampaignId
@@ -1091,6 +1091,12 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SeriesFrequencyTypeField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsUnlimitedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsEndlessField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1559,6 +1565,46 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.SeriesFrequencyTypeField = value;
                     this.RaisePropertyChanged("SeriesFrequencyType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
+        public System.Nullable<bool> IsUnlimited
+        {
+            get
+            {
+                return this.IsUnlimitedField;
+            }
+            set
+            {
+                if ((this.IsUnlimitedField.Equals(value) != true))
+                {
+                    this.IsUnlimitedField = value;
+                    this.RaisePropertyChanged("IsUnlimited");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
+        public System.Nullable<bool> IsEndless
+        {
+            get
+            {
+                return this.IsEndlessField;
+            }
+            set
+            {
+                if ((this.IsEndlessField.Equals(value) != true))
+                {
+                    this.IsEndlessField = value;
+                    this.RaisePropertyChanged("IsEndless");
                 }
             }
         }
@@ -2384,6 +2430,64 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/insertionorderadditionalfield?view=bingads-13">InsertionOrderAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/customer-billing-service/insertionorderadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchInsertionOrders">SearchInsertionOrders</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InsertionOrderAdditionalField", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    public enum InsertionOrderAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        None = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnlimitedAndEndlessFlags = 1,
+    }
+    
+    /// <summary>
+    /// Defines a value set for additional account fields.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/customer-billing-service/accountadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerBillingServiceClient.SearchCoupons">SearchCoupons</see> service operation.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountAdditionalField", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    public enum AccountAdditionalField : int
+    {
+        
+        /// <summary>
+        /// Return TaxCertificate in the response.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TaxCertificate = 1,
+        
+        /// <summary>
+        /// Return AccountMode in the response.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountMode = 2,
+        
+        /// <summary>
+        /// Return CouponClaimInfo in the response.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponClaimInfo = 4,
     }
     
     /// <summary>
@@ -4181,6 +4285,12 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerBilling.InsertionOrderAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the SearchInsertionOrdersRequest request object.
         /// </summary>
         /// <remarks>
@@ -4199,7 +4309,8 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo)
+        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerBilling.InsertionOrderAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -4209,6 +4320,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
             this.Predicates = Predicates;
             this.Ordering = Ordering;
             this.PageInfo = PageInfo;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -4661,6 +4773,12 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
         
         /// <summary>
+        /// If set to "CouponClaimInfo", return CouponClaimInfo in the response.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
+        public System.Nullable<Microsoft.BingAds.V13.CustomerBilling.AccountAdditionalField> ReturnAdditionalFields;
+        
+        /// <summary>
         /// Constructor for the SearchCouponsRequest request object.
         /// </summary>
         /// <remarks>
@@ -4679,7 +4797,8 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of a coupon.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        public SearchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo)
+        /// <param name="ReturnAdditionalFields">If set to "CouponClaimInfo", return CouponClaimInfo in the response.</param>
+        public SearchCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerBilling.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -4689,6 +4808,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
             this.Predicates = Predicates;
             this.Ordering = Ordering;
             this.PageInfo = PageInfo;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     

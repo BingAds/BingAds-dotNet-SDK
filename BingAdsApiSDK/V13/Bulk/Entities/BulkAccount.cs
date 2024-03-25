@@ -136,6 +136,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public IList<string> BusinessAttributes { get; set; }
 
+        /// <summary>
+        /// Corresponds to the 'Netflix TC Accepted' field in the bulk file. 
+        /// </summary>
+        //public bool? NetflixTCAccepted { get; set; }
+
         private static readonly IBulkMapping<BulkAccount>[] Mappings =
         {
             new SimpleBulkMapping<BulkAccount>(StringTable.Id,
@@ -197,6 +202,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             c => c.BusinessAttributes.WriteBusinessAttributes(";"),
             (v, c) => c.BusinessAttributes = v.ParseBusinessAttributes()
             ),
+            /*
+            new SimpleBulkMapping<BulkAccount>(StringTable.NetflixTCAccepted,
+            c => c.NetflixTCAccepted?.ToString(),
+            (v, c) => c.NetflixTCAccepted = v.ParseOptional<bool>()
+            ),
+            */
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)

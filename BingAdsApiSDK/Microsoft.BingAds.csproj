@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <EmbedAllSources>true</EmbedAllSources>
-    <Version>13.0.18</Version>
+    <Version>13.0.19</Version>
     <QInstrumentForCoverage>false</QInstrumentForCoverage>
 	<LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -14,13 +14,14 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" PrivateAssets="All" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.Text.Json" Version="7.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="6.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="7.0.2" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="6.0.1" />
   </ItemGroup>
 </Project>

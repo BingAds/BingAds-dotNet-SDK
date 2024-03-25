@@ -5359,6 +5359,12 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountMode = 2,
+        
+        /// <summary>
+        /// Request that the CouponClaimInfo element be included within each returned AdvertiserAccount object.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CouponClaimInfo = 4,
     }
     
     /// <summary>
@@ -7302,6 +7308,93 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13">KeyValueEntityOflongint Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOflongint", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class KeyValueEntityOflongint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long Key
+        {
+            get
+            {
+                return this.KeyField;
+            }
+            set
+            {
+                if ((this.KeyField.Equals(value) != true))
+                {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Value
+        {
+            get
+            {
+                return this.ValueField;
+            }
+            set
+            {
+                if ((this.ValueField.Equals(value) != true))
+                {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", ConfigurationName="Microsoft.BingAds.V13.CustomerManagement.ICustomerManagementService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICustomerManagementService
@@ -8362,6 +8455,38 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
             "tionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
+            "ficationsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
+            "ficationsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.ApiFault), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
+            "ficationsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
+            "ficationsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
     }
     
     /// <summary>
@@ -12436,6 +12561,114 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class DismissNotificationsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
+        public System.Nullable<int> UserId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs;
+        
+        /// <summary>
+        /// Constructor for the DismissNotificationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        public DismissNotificationsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DismissNotificationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="UserId">Reserved.</param>
+        /// <param name="NotificationTypePairs">Reserved.</param>
+        public DismissNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<int> UserId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.UserId = UserId;
+            this.NotificationTypePairs = NotificationTypePairs;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
+    public partial class DismissNotificationsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Constructor for the DismissNotificationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        public DismissNotificationsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the DismissNotificationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        public DismissNotificationsResponse(string TrackingId)
+        {
+            this.TrackingId = TrackingId;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerManagementServiceChannel : Microsoft.BingAds.V13.CustomerManagement.ICustomerManagementService, System.ServiceModel.IClientChannel
     {
@@ -13448,6 +13681,36 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
         {
             return base.Channel.GetNotificationsAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
+        {
+            return base.Channel.DismissNotifications(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFault"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
+        {
+            return base.Channel.DismissNotificationsAsync(request);
         }
     }
 }

@@ -776,6 +776,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             string targetImpressionShareRowValue;
             string maxPercentCpcRowValue;
             string commissionRateRowValue;
+            string targetCostPerSaleRowValue;
             string InheritedBidStrategyType;
 
             values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
@@ -785,6 +786,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             values.TryGetValue(StringTable.BidStrategyTargetImpressionShare, out targetImpressionShareRowValue);
             values.TryGetValue(StringTable.BidStrategyCommissionRate, out commissionRateRowValue);
             values.TryGetValue(StringTable.BidStrategyPercentMaxCpc, out maxPercentCpcRowValue);
+            values.TryGetValue(StringTable.BidStrategyTargetCostPerSale, out targetCostPerSaleRowValue);
             values.TryGetValue(StringTable.InheritedBidStrategyType, out InheritedBidStrategyType);
 
             var maxCpcValue = maxCpcRowValue.ParseBid();
@@ -794,6 +796,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             var targetmaxPercentCpc = maxPercentCpcRowValue.ParseOptional<double>();
             var targetAdPositionValue = targetAdPositionRowValue;
             var targetImpressionShareValue = targetImpressionShareRowValue.ParseOptional<double>();
+            var targetCostPerSale = targetCostPerSaleRowValue.ParseOptional<double>();
 
             switch (biddingScheme)
             {
@@ -856,6 +859,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         CommissionRate = targetCommissionRateRowValue,
                         Type = "Commission",
                     };
+                case CostPerSaleBiddingScheme costPerSaleBiddingScheme:
+                    return new CostPerSaleBiddingScheme
+                    {
+                        TargetCostPerSale = targetCostPerSale,
+                        Type = "TargetCostPerSale",
+                    };
                 case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
                     return new InheritFromParentBiddingScheme
                     {
@@ -904,6 +913,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 case CommissionBiddingScheme commissionBiddingScheme:
                     values[StringTable.BidStrategyCommissionRate] = commissionBiddingScheme.CommissionRate.ToBulkString();
                     break;
+                case CostPerSaleBiddingScheme costPerSaleBiddingScheme:
+                    values[StringTable.BidStrategyTargetCostPerSale] = costPerSaleBiddingScheme.TargetCostPerSale.ToBulkString();
+                    break;
                 case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
                     values[StringTable.InheritedBidStrategyType] = inheritFromParentBiddingScheme.InheritedBidStrategyType.ToOptionalBulkString(id);
                     break;
@@ -916,8 +928,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 case ManualCpmBiddingScheme manualCpmBiddingScheme:
                     break;
                 case ManualCpaBiddingScheme manualCpaBiddingScheme:
-                    break;
-                case CostPerSaleBiddingScheme costPerSaleBiddingScheme:
                     break;
                 default:
                     break;
@@ -1750,6 +1760,42 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     // ignored
                 }
             }
+        }
+
+        public static string WriteCampaignAssociationsToBulkString(this IList<CampaignAssociation> associations)
+        {
+            if (associations == null)
+            {
+                return null;
+            }
+
+            string result = "";
+            foreach (var association in associations)
+            {
+                result += association.CampaignId.ToString() + ";";
+            }
+            return result.Remove(result.Length - 1);
+        }
+
+        public static IList<CampaignAssociation> ParseCampaignAssociations(this string value)
+        {
+            if (value == null || value.Length == 0)
+            {
+                return null;
+            }
+
+            var result = new List<CampaignAssociation>();
+            var strs = value.Split(';');
+            foreach(var str in strs)
+            {
+                var association = new CampaignAssociation();
+                if (long.TryParse(str, out long id))
+                {
+                    association.CampaignId = id;
+                }
+                result.Add(association);
+            }
+            return result;
         }
 
         public static string ToBulkString<T>(this IList<T> values, long? id)

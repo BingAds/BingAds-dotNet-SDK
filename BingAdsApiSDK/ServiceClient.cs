@@ -150,14 +150,14 @@ namespace Microsoft.BingAds
         {
             if (!ExperimentalEnableRestApi)
             {
-                return await _wcfServiceClient.CallAsync(method, request);
+                return await _wcfServiceClient.CallAsync(method, request).ConfigureAwait(false);
             }
 
-            var restApiResponse = await _restServiceClient.CallAsync(method, request);
+            var restApiResponse = await _restServiceClient.CallAsync(method, request).ConfigureAwait(false);
 
             if (restApiResponse == null)
             {
-                return await _wcfServiceClient.CallAsync(method, request);
+                return await _wcfServiceClient.CallAsync(method, request).ConfigureAwait(false);
             }
 
             return restApiResponse;

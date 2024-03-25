@@ -105,7 +105,7 @@ namespace Microsoft.BingAds.Internal
 
                     if (!response.IsSuccessStatusCode)
                     {
-                        var content = await response.Content.ReadAsStringAsync();
+                        var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                         throw new CouldNotUploadFileException("Unsuccessful Status Code: " + response.StatusCode + "; Exception Message: " + content);
                     }
