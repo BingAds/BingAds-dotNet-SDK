@@ -40,6 +40,7 @@ namespace BingAdsExamplesLibrary.V13
                 {
                     new OfflineConversionGoal
                     {
+                        GoalCategory = ConversionGoalCategory.Purchase,
                         // Determines how long after a click that you want to count offline conversions. 
                         ConversionWindowInMinutes = 43200,
 

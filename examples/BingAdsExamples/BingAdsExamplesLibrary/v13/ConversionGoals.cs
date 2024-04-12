@@ -108,6 +108,7 @@ namespace BingAdsExamplesLibrary.V13
                     },
                     new EventGoal
                     {
+                        GoalCategory = ConversionGoalCategory.Purchase,
                         // The type of user interaction you want to track.
                         ActionExpression = "play",
                         ActionOperator = ExpressionOperator.Contains,
@@ -152,6 +153,7 @@ namespace BingAdsExamplesLibrary.V13
                     },
                     new UrlGoal
                     {
+                        GoalCategory = ConversionGoalCategory.Purchase,
                         ConversionWindowInMinutes = 30,
                         CountType = ConversionGoalCountType.All,
                         Name = "My Url Goal",
