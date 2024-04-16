@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingAdsConsoleApp", "BingAdsConsoleApp\BingAdsConsoleApp.csproj", "{EAF05BA9-3143-413F-8301-81D863FE36F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingAdsConsoleApp", "BingAdsConsoleApp\BingAdsConsoleApp.csproj", "{EAF05BA9-3143-413F-8301-81D863FE36F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingAdsExamplesLibrary", "BingAdsExamplesLibrary\BingAdsExamplesLibrary.csproj", "{23BE29DF-9F85-4F37-A4D1-F2ED08D7BF8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BingAdsExamplesLibrary", "BingAdsExamplesLibrary\BingAdsExamplesLibrary.csproj", "{23BE29DF-9F85-4F37-A4D1-F2ED08D7BF8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
