@@ -47,41 +47,22 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Threading.Tasks;
-using Microsoft.BingAds.V13.Bulk;
+using System.Diagnostics.Tracing;
+using System.Net;
 
-namespace Microsoft.BingAds
+namespace Microsoft.BingAds.Internal;
+
+[EventSource(Name = "Microsoft.BingAds")]
+class Events : EventSource
 {
-    public static partial class ServiceClientExtensions
-    {
-        public static Task<DownloadCampaignsByAccountIdsResponse> DownloadCampaignsByAccountIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByAccountIdsRequest request)
-        {
-            return service.CallAsync((s, r) => s.DownloadCampaignsByAccountIdsAsync(r), request);
-        }
+    public static Events Log { get; } = new();
 
-        public static Task<DownloadCampaignsByCampaignIdsResponse> DownloadCampaignsByCampaignIdsAsync(this ServiceClient<IBulkService> service, DownloadCampaignsByCampaignIdsRequest request)
-        {
-            return service.CallAsync((s, r) => s.DownloadCampaignsByCampaignIdsAsync(r), request);
-        }
+    [Event(1, Level = EventLevel.Verbose, Message = "Request started ({0})")]
+    public void RequestStart(string CorrelationId, string Method, string Uri, string Headers, string Body) => WriteEvent(1, CorrelationId, Method, Uri, Headers, Body);
 
-        public static Task<GetBulkDownloadStatusResponse> GetBulkDownloadStatusAsync(this ServiceClient<IBulkService> service, GetBulkDownloadStatusRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkDownloadStatusAsync(r), request);
-        }
+    [Event(2, Level = EventLevel.Verbose, Message = "Request stopped ({0})")]
+    public void RequestStop(string CorrelationId, int StatusCode, double HeadersDuration, double ResponseDuration, string Headers, string Body) => WriteEvent(2, CorrelationId, StatusCode, HeadersDuration, ResponseDuration, Headers, Body);
 
-        public static Task<GetBulkUploadUrlResponse> GetBulkUploadUrlAsync(this ServiceClient<IBulkService> service, GetBulkUploadUrlRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkUploadUrlAsync(r), request);
-        }
-
-        public static Task<GetBulkUploadStatusResponse> GetBulkUploadStatusAsync(this ServiceClient<IBulkService> service, GetBulkUploadStatusRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBulkUploadStatusAsync(r), request);
-        }
-
-        public static Task<UploadEntityRecordsResponse> UploadEntityRecordsAsync(this ServiceClient<IBulkService> service, UploadEntityRecordsRequest request)
-        {
-            return service.CallAsync((s, r) => s.UploadEntityRecordsAsync(r), request);
-        }
-    }
+    [Event(3, Level = EventLevel.Informational, Message = "REST API disabled ({0})")]
+    public void RestApiDisable(string CorrelationId, string Service, string Source) => WriteEvent(3, CorrelationId, Service, Source);
 }

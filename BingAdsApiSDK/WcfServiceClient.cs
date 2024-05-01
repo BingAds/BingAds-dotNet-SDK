@@ -76,7 +76,7 @@ namespace Microsoft.BingAds
     {
         private readonly IServiceClientFactory _serviceClientFactory;
 
-        private IChannelFactory<TService> _channelFactory;
+        private Lazy<IChannelFactory<TService>> _channelFactory;
 
         private readonly AuthorizationData _authorizationData;
 
@@ -135,7 +135,7 @@ namespace Microsoft.BingAds
 
             DetectApiEnvironment(authorizationData, environment);
 
-            _channelFactory = _serviceClientFactory.CreateChannelFactory<TService>(_environment);
+            _channelFactory = new Lazy<IChannelFactory<TService>>(() => _serviceClientFactory.CreateChannelFactory<TService>(_environment));
 
             RefreshOAuthTokensAutomatically = true;
         }
@@ -194,7 +194,7 @@ namespace Microsoft.BingAds
 
             SetCommonRequestFieldsFromUserData(request);
 
-            var client = _serviceClientFactory.CreateServiceFromFactory(_channelFactory);
+            var client = _serviceClientFactory.CreateServiceFromFactory(_channelFactory.Value);
 
             var needToRefreshToken = RefreshOAuthTokensAutomatically && AccessTokenExpired;
 
@@ -277,38 +277,38 @@ namespace Microsoft.BingAds
         {
             if (disposing)
             {
-                if (_channelFactory != null)
+                if (_channelFactory != null && _channelFactory.IsValueCreated)
                 {
                     try
                     {
-                        if (_channelFactory.State != CommunicationState.Faulted)
+                        if (_channelFactory.Value.State != CommunicationState.Faulted)
                         {
-                            _channelFactory.Close();
+                            _channelFactory.Value.Close();
                         }
                         else
                         {
-                            _channelFactory.Abort();
+                            _channelFactory.Value.Abort();
                         }
                     }
                     catch (CommunicationException)
                     {
                         if (_channelFactory != null)
                         {
-                            _channelFactory.Abort();
+                            _channelFactory.Value.Abort();
                         }
                     }
                     catch (TimeoutException)
                     {
                         if (_channelFactory != null)
                         {
-                            _channelFactory.Abort();
+                            _channelFactory.Value.Abort();
                         }
                     }
                     catch (Exception)
                     {
                         if (_channelFactory != null)
                         {
-                            _channelFactory.Abort();
+                            _channelFactory.Value.Abort();
                         }
 
                         throw;

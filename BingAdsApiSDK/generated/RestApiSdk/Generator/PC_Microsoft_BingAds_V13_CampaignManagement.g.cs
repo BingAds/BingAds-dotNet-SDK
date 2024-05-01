@@ -1,4 +1,55 @@
-﻿#nullable enable
+//=====================================================================================================================================================
+// Bing Ads .NET SDK ver. 13.0
+// 
+// Copyright (c) Microsoft Corporation
+// 
+// All rights reserved. 
+// 
+// MS-PL License
+// 
+// This license governs use of the accompanying software. If you use the software, you accept this license. 
+//  If you do not accept the license, do not use the software.
+// 
+// 1. Definitions
+// 
+// The terms reproduce, reproduction, derivative works, and distribution have the same meaning here as under U.S. copyright law. 
+//  A contribution is the original software, or any additions or changes to the software. 
+//  A contributor is any person that distributes its contribution under this license. 
+//  Licensed patents  are a contributor's patent claims that read directly on its contribution.
+// 
+// 2. Grant of Rights
+// 
+// (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, 
+//  prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+// 
+// (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, 
+//  sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+// 
+// 3. Conditions and Limitations
+// 
+// (A) No Trademark License - This license does not grant you rights to use any contributors' name, logo, or trademarks.
+// 
+// (B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, 
+//  your patent license from such contributor to the software ends automatically.
+// 
+// (C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, 
+//  and attribution notices that are present in the software.
+// 
+// (D) If you distribute any portion of the software in source code form, 
+//  you may do so only under this license by including a complete copy of this license with your distribution. 
+//  If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+// 
+// (E) The software is licensed *as-is.* You bear the risk of using it. The contributors give no express warranties, guarantees or conditions.
+//  You may have additional consumer rights under your local laws which this license cannot change. 
+//  To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, 
+//  fitness for a particular purpose and non-infringement.
+//=====================================================================================================================================================
+
+#nullable enable
+
+namespace Microsoft.BingAds.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -8,50 +59,51 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization.Metadata;
 using System.Runtime.CompilerServices;
+using Microsoft.BingAds.V13.CampaignManagement;
 
-namespace Microsoft.BingAds.V13.CampaignManagement
+public static partial class RestApiGeneration
 {
-    public class AllPolymorphicConverters
+    public class Microsoft_BingAds_V13_CampaignManagement_AllPolymorphicConverters
     {
         public static void AddTo(JsonSerializerOptions options, Func<string, Exception> createUnsupportedTypeValueException)
         {
             var originalOptions = new JsonSerializerOptions(options);
 
-            options.Converters.Add(new AdConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new AdExtensionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new AdGroupCriterionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new ApplicationFaultConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new AssetConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new AudienceConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new AudienceGroupDimensionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new BatchErrorConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new BatchErrorCollectionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new BiddingSchemeConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new CampaignCriterionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new ConversionGoalConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new CriterionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new CriterionBidConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new CriterionCashbackConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new ImportJobConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new ImportOptionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new MediaConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new MediaRepresentationConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new RemarketingRuleConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new RuleItemConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new SettingConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new SharedEntityConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new SharedListConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new SharedListItemConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AdConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AdExtensionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AdGroupCriterionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ApplicationFaultConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AssetConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AudienceConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_AudienceGroupDimensionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_BatchErrorConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_BatchErrorCollectionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_BiddingSchemeConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_CampaignCriterionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ConversionGoalConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_CriterionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_CriterionBidConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_CriterionCashbackConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ImportJobConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ImportOptionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_MediaConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_MediaRepresentationConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_RemarketingRuleConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_RuleItemConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_SettingConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_SharedEntityConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_SharedListConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_SharedListItemConverter(originalOptions, createUnsupportedTypeValueException));
         }
     }
 
-    class AdConverter : JsonConverter<Ad>
+    class Microsoft_BingAds_V13_CampaignManagement_AdConverter : JsonConverter<Ad>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AdConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AdConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -120,13 +172,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class AdExtensionConverter : JsonConverter<AdExtension>
+    class Microsoft_BingAds_V13_CampaignManagement_AdExtensionConverter : JsonConverter<AdExtension>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AdExtensionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AdExtensionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -223,13 +275,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class AdGroupCriterionConverter : JsonConverter<AdGroupCriterion>
+    class Microsoft_BingAds_V13_CampaignManagement_AdGroupCriterionConverter : JsonConverter<AdGroupCriterion>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AdGroupCriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AdGroupCriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -274,13 +326,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class ApplicationFaultConverter : JsonConverter<ApplicationFault>
+    class Microsoft_BingAds_V13_CampaignManagement_ApplicationFaultConverter : JsonConverter<ApplicationFault>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public ApplicationFaultConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_ApplicationFaultConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -329,13 +381,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class AssetConverter : JsonConverter<Asset>
+    class Microsoft_BingAds_V13_CampaignManagement_AssetConverter : JsonConverter<Asset>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AssetConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AssetConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -384,13 +436,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class AudienceConverter : JsonConverter<Audience>
+    class Microsoft_BingAds_V13_CampaignManagement_AudienceConverter : JsonConverter<Audience>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AudienceConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AudienceConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -455,13 +507,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class AudienceGroupDimensionConverter : JsonConverter<AudienceGroupDimension>
+    class Microsoft_BingAds_V13_CampaignManagement_AudienceGroupDimensionConverter : JsonConverter<AudienceGroupDimension>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public AudienceGroupDimensionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_AudienceGroupDimensionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -510,13 +562,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class BatchErrorConverter : JsonConverter<BatchError>
+    class Microsoft_BingAds_V13_CampaignManagement_BatchErrorConverter : JsonConverter<BatchError>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public BatchErrorConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_BatchErrorConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -557,13 +609,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class BatchErrorCollectionConverter : JsonConverter<BatchErrorCollection>
+    class Microsoft_BingAds_V13_CampaignManagement_BatchErrorCollectionConverter : JsonConverter<BatchErrorCollection>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public BatchErrorCollectionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_BatchErrorCollectionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -604,13 +656,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class BiddingSchemeConverter : JsonConverter<BiddingScheme>
+    class Microsoft_BingAds_V13_CampaignManagement_BiddingSchemeConverter : JsonConverter<BiddingScheme>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public BiddingSchemeConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_BiddingSchemeConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -711,13 +763,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class CampaignCriterionConverter : JsonConverter<CampaignCriterion>
+    class Microsoft_BingAds_V13_CampaignManagement_CampaignCriterionConverter : JsonConverter<CampaignCriterion>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public CampaignCriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_CampaignCriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -762,13 +814,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class ConversionGoalConverter : JsonConverter<ConversionGoal>
+    class Microsoft_BingAds_V13_CampaignManagement_ConversionGoalConverter : JsonConverter<ConversionGoal>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public ConversionGoalConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_ConversionGoalConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -833,13 +885,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class CriterionConverter : JsonConverter<Criterion>
+    class Microsoft_BingAds_V13_CampaignManagement_CriterionConverter : JsonConverter<Criterion>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public CriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_CriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -960,13 +1012,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class CriterionBidConverter : JsonConverter<CriterionBid>
+    class Microsoft_BingAds_V13_CampaignManagement_CriterionBidConverter : JsonConverter<CriterionBid>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public CriterionBidConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_CriterionBidConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1015,13 +1067,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class CriterionCashbackConverter : JsonConverter<CriterionCashback>
+    class Microsoft_BingAds_V13_CampaignManagement_CriterionCashbackConverter : JsonConverter<CriterionCashback>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public CriterionCashbackConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_CriterionCashbackConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1062,13 +1114,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class ImportJobConverter : JsonConverter<ImportJob>
+    class Microsoft_BingAds_V13_CampaignManagement_ImportJobConverter : JsonConverter<ImportJob>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public ImportJobConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_ImportJobConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1113,13 +1165,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class ImportOptionConverter : JsonConverter<ImportOption>
+    class Microsoft_BingAds_V13_CampaignManagement_ImportOptionConverter : JsonConverter<ImportOption>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public ImportOptionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_ImportOptionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1164,13 +1216,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class MediaConverter : JsonConverter<Media>
+    class Microsoft_BingAds_V13_CampaignManagement_MediaConverter : JsonConverter<Media>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public MediaConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_MediaConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1211,13 +1263,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class MediaRepresentationConverter : JsonConverter<MediaRepresentation>
+    class Microsoft_BingAds_V13_CampaignManagement_MediaRepresentationConverter : JsonConverter<MediaRepresentation>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public MediaRepresentationConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_MediaRepresentationConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1258,13 +1310,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class RemarketingRuleConverter : JsonConverter<RemarketingRule>
+    class Microsoft_BingAds_V13_CampaignManagement_RemarketingRuleConverter : JsonConverter<RemarketingRule>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public RemarketingRuleConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_RemarketingRuleConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1317,13 +1369,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class RuleItemConverter : JsonConverter<RuleItem>
+    class Microsoft_BingAds_V13_CampaignManagement_RuleItemConverter : JsonConverter<RuleItem>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public RuleItemConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_RuleItemConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1368,13 +1420,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class SettingConverter : JsonConverter<Setting>
+    class Microsoft_BingAds_V13_CampaignManagement_SettingConverter : JsonConverter<Setting>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public SettingConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_SettingConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1455,13 +1507,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class SharedEntityConverter : JsonConverter<SharedEntity>
+    class Microsoft_BingAds_V13_CampaignManagement_SharedEntityConverter : JsonConverter<SharedEntity>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public SharedEntityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_SharedEntityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1518,13 +1570,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class SharedListConverter : JsonConverter<SharedList>
+    class Microsoft_BingAds_V13_CampaignManagement_SharedListConverter : JsonConverter<SharedList>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public SharedListConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_SharedListConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -1577,13 +1629,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
 
-    class SharedListItemConverter : JsonConverter<SharedListItem>
+    class Microsoft_BingAds_V13_CampaignManagement_SharedListItemConverter : JsonConverter<SharedListItem>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public SharedListItemConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_CampaignManagement_SharedListItemConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 

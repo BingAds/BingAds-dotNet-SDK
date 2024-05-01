@@ -60,9 +60,7 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public partial class ServiceClientFactory : IServiceClientFactory
     {
-        private static readonly Lazy<RestHttpClientProvider> LazyRestHttpClientProvider = new(() => new RestHttpClientProvider(Endpoints));
-
-        protected static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
+        public static readonly Dictionary<Type, ServiceInfo> Endpoints = new Dictionary<Type, ServiceInfo>
         {
             // v13
             {
@@ -188,11 +186,6 @@ namespace Microsoft.BingAds.Internal
                 OpenTimeout = TimeSpan.FromMinutes(1),
                 CloseTimeout = TimeSpan.FromMinutes(1)
             }, endpointAddress);
-        }
-
-        public virtual IRestHttpClientProvider GetRestHttpClientProvider()
-        {
-            return LazyRestHttpClientProvider.Value;
         }
     }
 }

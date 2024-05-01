@@ -60,6 +60,8 @@ struct RestMethodInfo
     public HttpMethod HttpMethod { get; set; }
 
     public string Action { get; set; }
+
+    public string ServiceNameAndVersion { get; set; }
 }
 
 static class RestApiMethodMapper
@@ -122,7 +124,38 @@ static class RestApiMethodMapper
         { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) }
     };
 
-    public static RestMethodInfo? Map(string methodName, Dictionary<string, (string Entity, string Action)> nonStandardMethods)
+    public static readonly Dictionary<string, (string Entity, string Action)> AggregatorServiceActionMethods = new()
+    {
+    };
+
+    private static readonly Dictionary<string, Dictionary<string, (string Entity, string Action)>> ActionMethodsByService = new()
+    {
+        { "IBulkService", BulkServiceActionMethods },
+        { "ICampaignManagementService", CampaignManagementServiceActionMethods },
+        { "IReportingService", ReportingServiceActionMethods },
+        { "IAdInsightService", AdInsightServiceActionMethods },
+        { "ICustomerManagementService", CustomerManagementServiceActionMethods },
+        { "ICustomerBillingService", CustomerBillingServiceActionMethods },
+        { "IAggregatorService", AggregatorServiceActionMethods },
+    };
+
+    private static readonly Dictionary<string, string> ServiceNameAndVersionsByService = new()
+    {
+        { "IBulkService", "Bulk/v13" },
+        { "ICampaignManagementService", "CampaignManagement/v13" },
+        { "IReportingService", "Reporting/v13" },
+        { "IAdInsightService", "AdInsight/v13" },
+        { "ICustomerManagementService", "CustomerManagement/v13" },
+        { "ICustomerBillingService", "CustomerBilling/v13" },
+        { "IAggregatorService", "Aggregator/v6" }
+    };
+
+    public static RestMethodInfo? Map(string methodName, string serviceInterfaceName)
+    {
+        return Map(methodName, ActionMethodsByService[serviceInterfaceName], serviceInterfaceName);
+    }
+
+    public static RestMethodInfo? Map(string methodName, Dictionary<string, (string Entity, string Action)> nonStandardMethods, string serviceInterfaceName = "")
     {
         if (methodName == null)
         {
@@ -133,6 +166,8 @@ static class RestApiMethodMapper
         {
             throw new ArgumentNullException(nameof(nonStandardMethods));
         }
+
+        var serviceNameAndVersion = !string.IsNullOrEmpty(serviceInterfaceName) ? ServiceNameAndVersionsByService[serviceInterfaceName] : "";
 
         methodName = methodName switch
         {
@@ -152,28 +187,28 @@ static class RestApiMethodMapper
         {
             var entityName = methodName.Substring(3);
 
-            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         if (methodName.StartsWith("Update", StringComparison.InvariantCulture))
         {
             var entityName = methodName.Substring(6);
 
-            return new RestMethodInfo { HttpMethod = HttpMethod.Put, EntityName = entityName };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Put, EntityName = entityName, ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         if (methodName.StartsWith("Delete", StringComparison.InvariantCulture))
         {
             var entityName = methodName.Substring(6);
 
-            return new RestMethodInfo { HttpMethod = HttpMethod.Delete, EntityName = entityName };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Delete, EntityName = entityName, ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         if (methodName.StartsWith("Search", StringComparison.InvariantCulture))
         {
             var entityName = methodName.Substring(6);
 
-            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, Action = "Search" };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, Action = "Search", ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         if (methodName.StartsWith("Get", StringComparison.InvariantCulture))
@@ -199,12 +234,12 @@ static class RestApiMethodMapper
 
             var action = "/Query" + filterType;
 
-            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, Action = action };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = entityName, Action = action, ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         if (nonStandardMethods.TryGetValue(methodName, out var actionMethod))
         {
-            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = actionMethod.Entity, Action = actionMethod.Action };
+            return new RestMethodInfo { HttpMethod = HttpMethod.Post, EntityName = actionMethod.Entity, Action = actionMethod.Action, ServiceNameAndVersion = serviceNameAndVersion };
         }
 
         return null;

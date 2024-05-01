@@ -47,60 +47,38 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Net;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.Internal
 {
-    public class RestHttpClientProvider : IRestHttpClientProvider
+    class LoggingHandler(RestHttpClientLogger logger) : DelegatingHandler
     {
-        private readonly IHttpClientFactory _hHttpClientFactory;
-
-        public HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment) => _hHttpClientFactory.CreateClient($"{apiEnvironment}_{clientType.Name}");
-
-        public static string ClientName = null;
-
-        public RestHttpClientProvider(Dictionary<Type, ServiceInfo> endpoints)
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var serviceCollection = new ServiceCollection();
+            var stopwatch = Stopwatch.StartNew();
 
-            foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
+            HttpResponseMessage response = null;
+
+            var state = await logger.LogRequestStartAsync(request, cancellationToken).ConfigureAwait(false);
+
+            try
             {
-                foreach (var serviceInfoPair in endpoints)
-                {
-                    var serviceInfo = serviceInfoPair.Value;
+                response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 
-                    var wcfUrl = serviceInfo.GetUrl(apiEnvironment);
+                await logger.LogRequestStopAsync(state, request, response, stopwatch, cancellationToken).ConfigureAwait(false);
 
-                    var rootUrl = new Uri(wcfUrl).GetLeftPart(UriPartial.Authority);
-
-                    var baseUrl = $"{rootUrl}/{serviceInfo.ServiceNameAndVersion}/";
-
-                    serviceCollection.AddHttpClient($"{apiEnvironment}_{serviceInfoPair.Key.Name}", c =>
-                    {
-                        c.BaseAddress = new Uri(baseUrl);
-
-                        var productName = "BingAdsSDK.NET.RestApi";
-
-                        if (!string.IsNullOrEmpty(ClientName))
-                        {
-                            productName += $".{ClientName}";
-                        }
-
-                        c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(productName, Assembly.GetExecutingAssembly().GetName().Version.ToString()));
-                    }).ConfigurePrimaryHttpMessageHandler(c => new HttpClientHandler
-                    {
-                        AutomaticDecompression = DecompressionMethods.Deflate | DecompressionMethods.GZip
-                    });
-                }
+                return response;
             }
+            catch (Exception exception)
+            {
+                await logger.LogRequestFailedAsync(state, request, response, exception, stopwatch.Elapsed, cancellationToken).ConfigureAwait(false);
 
-            _hHttpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
+                throw;
+            }
         }
     }
 }

@@ -7309,7 +7309,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// The key and value entity of long and int values.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13">KeyValueEntityOflongint Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13 for details.
@@ -7344,7 +7344,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The key of the setting.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Key
@@ -7364,7 +7364,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The value of the setting.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value
@@ -8457,7 +8457,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// A service operation to dismiss notifications.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
@@ -8475,7 +8475,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// A service operation to dismiss notifications.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
@@ -12562,7 +12562,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// A service operation to dismiss notifications.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
@@ -12590,13 +12590,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The user's identification number.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<int> UserId;
         
         /// <summary>
-        /// Reserved.
+        /// The key and value of a notification entity.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs;
@@ -12617,8 +12617,8 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="UserId">Reserved.</param>
-        /// <param name="NotificationTypePairs">Reserved.</param>
+        /// <param name="UserId">The user's identification number.</param>
+        /// <param name="NotificationTypePairs">The key and value of a notification entity.</param>
         public DismissNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<int> UserId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12632,7 +12632,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// A service operation to dismiss notifications.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
@@ -13684,7 +13684,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// A service operation to dismiss notifications.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
@@ -13699,7 +13699,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// A service operation to dismiss notifications.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.

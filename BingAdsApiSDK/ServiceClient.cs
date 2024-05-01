@@ -48,10 +48,13 @@
 //=====================================================================================================================================================
 
 using System;
+using System.Diagnostics;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V13.Bulk;
-using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.Internal;
+using Microsoft.BingAds.V13.AdInsight;
+using Microsoft.BingAds.V13.CustomerBilling;
+using Microsoft.BingAds.V13.CustomerManagement;
 
 namespace Microsoft.BingAds
 {
@@ -76,7 +79,36 @@ namespace Microsoft.BingAds
 
         private readonly RestServiceClient _restServiceClient;
 
-        public static volatile bool ExperimentalEnableRestApi = false;
+        private bool DisableRestApi
+        {
+            get
+            {
+                if (typeof(TService) == typeof(ICustomerManagementService) ||
+                    typeof(TService) == typeof(ICustomerBillingService) ||
+                    typeof(TService) == typeof(IAdInsightService))
+                {
+                    return true;
+                }
+
+                if (AppContext.TryGetSwitch($"Switch.BingAds.{typeof(TService).Name}.DisableRestApi", out var isSwitchOn) && isSwitchOn)
+                {
+                    Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "AppContext switch");
+
+                    return true;
+                }
+
+                var envVarValue = Environment.GetEnvironmentVariable($"BINGADS_{typeof(TService).Name}.DisableRestApi");
+
+                if (envVarValue != null && bool.TryParse(envVarValue, out var disableRestApi) && disableRestApi)
+                {
+                    Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "Environment variable");
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
 
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
@@ -148,7 +180,7 @@ namespace Microsoft.BingAds
             Func<TService, TRequest, Task<TResponse>> method, TRequest request)
             where TRequest : class
         {
-            if (!ExperimentalEnableRestApi)
+            if (DisableRestApi)
             {
                 return await _wcfServiceClient.CallAsync(method, request).ConfigureAwait(false);
             }

@@ -47,66 +47,33 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Threading.Tasks;
-using Microsoft.BingAds.V13.CustomerBilling;
+using System;
 
 namespace Microsoft.BingAds
 {
-    public static partial class ServiceClientExtensions
+    public class GlobalSettings
     {
-        public static Task<GetBillingDocumentsInfoResponse> GetBillingDocumentsInfoAsync(this ServiceClient<ICustomerBillingService> service, GetBillingDocumentsInfoRequest request)
+        private static Lazy<HttpClientProvider> _lazyRestHttpClientProvider = new(() =>
         {
-            return service.CallAsync((s, r) => s.GetBillingDocumentsInfoAsync(r), request);
-        }
+            var httpClientProvider = new HttpClientProvider();
 
-        public static Task<GetBillingDocumentsResponse> GetBillingDocumentsAsync(this ServiceClient<ICustomerBillingService> service, GetBillingDocumentsRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetBillingDocumentsAsync(r), request);
-        }
+            httpClientProvider.Initialize();
 
-        public static Task<AddInsertionOrderResponse> AddInsertionOrderAsync(this ServiceClient<ICustomerBillingService> service, AddInsertionOrderRequest request)
-        {
-            return service.CallAsync((s, r) => s.AddInsertionOrderAsync(r), request);
-        }
+            return httpClientProvider;
+        });
 
-        public static Task<UpdateInsertionOrderResponse> UpdateInsertionOrderAsync(this ServiceClient<ICustomerBillingService> service, UpdateInsertionOrderRequest request)
+        public static HttpClientProvider HttpClientProvider
         {
-            return service.CallAsync((s, r) => s.UpdateInsertionOrderAsync(r), request);
-        }
+            get => _lazyRestHttpClientProvider.Value;
+            set
+            {
+                _lazyRestHttpClientProvider = new Lazy<HttpClientProvider>(() =>
+                {
+                    value.Initialize();
 
-        public static Task<SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(this ServiceClient<ICustomerBillingService> service, SearchInsertionOrdersRequest request)
-        {
-            return service.CallAsync((s, r) => s.SearchInsertionOrdersAsync(r), request);
-        }
-
-        public static Task<GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(this ServiceClient<ICustomerBillingService> service, GetAccountMonthlySpendRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetAccountMonthlySpendAsync(r), request);
-        }
-
-        public static Task<DispatchCouponsResponse> DispatchCouponsAsync(this ServiceClient<ICustomerBillingService> service, DispatchCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.DispatchCouponsAsync(r), request);
-        }
-
-        public static Task<RedeemCouponResponse> RedeemCouponAsync(this ServiceClient<ICustomerBillingService> service, RedeemCouponRequest request)
-        {
-            return service.CallAsync((s, r) => s.RedeemCouponAsync(r), request);
-        }
-
-        public static Task<SearchCouponsResponse> SearchCouponsAsync(this ServiceClient<ICustomerBillingService> service, SearchCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.SearchCouponsAsync(r), request);
-        }
-
-        public static Task<CheckFeatureAdoptionCouponEligibilityResponse> CheckFeatureAdoptionCouponEligibilityAsync(this ServiceClient<ICustomerBillingService> service, CheckFeatureAdoptionCouponEligibilityRequest request)
-        {
-            return service.CallAsync((s, r) => s.CheckFeatureAdoptionCouponEligibilityAsync(r), request);
-        }
-
-        public static Task<ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(this ServiceClient<ICustomerBillingService> service, ClaimFeatureAdoptionCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.ClaimFeatureAdoptionCouponsAsync(r), request);
+                    return value;
+                });
+            }
         }
     }
 }
