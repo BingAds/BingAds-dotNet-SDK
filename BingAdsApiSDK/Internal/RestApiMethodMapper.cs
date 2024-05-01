@@ -124,10 +124,6 @@ static class RestApiMethodMapper
         { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) }
     };
 
-    public static readonly Dictionary<string, (string Entity, string Action)> AggregatorServiceActionMethods = new()
-    {
-    };
-
     private static readonly Dictionary<string, Dictionary<string, (string Entity, string Action)>> ActionMethodsByService = new()
     {
         { "IBulkService", BulkServiceActionMethods },
@@ -136,7 +132,6 @@ static class RestApiMethodMapper
         { "IAdInsightService", AdInsightServiceActionMethods },
         { "ICustomerManagementService", CustomerManagementServiceActionMethods },
         { "ICustomerBillingService", CustomerBillingServiceActionMethods },
-        { "IAggregatorService", AggregatorServiceActionMethods },
     };
 
     private static readonly Dictionary<string, string> ServiceNameAndVersionsByService = new()
@@ -147,7 +142,6 @@ static class RestApiMethodMapper
         { "IAdInsightService", "AdInsight/v13" },
         { "ICustomerManagementService", "CustomerManagement/v13" },
         { "ICustomerBillingService", "CustomerBilling/v13" },
-        { "IAggregatorService", "Aggregator/v6" }
     };
 
     public static RestMethodInfo? Map(string methodName, string serviceInterfaceName)
