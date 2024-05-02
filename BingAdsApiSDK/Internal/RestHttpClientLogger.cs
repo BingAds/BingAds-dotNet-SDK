@@ -47,66 +47,99 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.Tracing;
+using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.BingAds.V13.CustomerBilling;
 
-namespace Microsoft.BingAds
+namespace Microsoft.BingAds.Internal
 {
-    public static partial class ServiceClientExtensions
+    class RestHttpClientLogger
     {
-        public static Task<GetBillingDocumentsInfoResponse> GetBillingDocumentsInfoAsync(this ServiceClient<ICustomerBillingService> service, GetBillingDocumentsInfoRequest request)
+        private readonly Events _log = Events.Log;
+
+        private const int MaxBodyLength = 10000;
+
+        public async ValueTask<object> LogRequestStartAsync(HttpRequestMessage request, CancellationToken cancellationToken = new CancellationToken())
         {
-            return service.CallAsync((s, r) => s.GetBillingDocumentsInfoAsync(r), request);
+            if (_log.IsEnabled(EventLevel.Verbose, EventKeywords.None))
+            {
+                var body = await request.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                body = TruncateBodyIfNeeded(body);
+
+                var headers = FormatHeaders(request.Headers.Concat(request.Content.Headers));
+
+                _log.RequestStart(Activity.Current?.Id, request.Method.Method, request.RequestUri.ToString(), headers, body);
+            }
+
+            return null;
         }
 
-        public static Task<GetBillingDocumentsResponse> GetBillingDocumentsAsync(this ServiceClient<ICustomerBillingService> service, GetBillingDocumentsRequest request)
+        public async ValueTask LogRequestStopAsync(object context, HttpRequestMessage request, HttpResponseMessage response, Stopwatch stopwatch, CancellationToken cancellationToken = new CancellationToken())
         {
-            return service.CallAsync((s, r) => s.GetBillingDocumentsAsync(r), request);
+            if (_log.IsEnabled(EventLevel.Verbose, EventKeywords.None))
+            {
+                var headersDuration = stopwatch.Elapsed.TotalMilliseconds;
+
+                var body = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+
+                var responseDuration = stopwatch.Elapsed.TotalMilliseconds;
+
+                body = TruncateBodyIfNeeded(body);
+
+                var headers = FormatHeaders(response.Headers.Concat(response.Content.Headers));
+
+                _log.RequestStop(Activity.Current?.Id, (int)response.StatusCode, headersDuration, responseDuration, headers, body);
+            }
         }
 
-        public static Task<AddInsertionOrderResponse> AddInsertionOrderAsync(this ServiceClient<ICustomerBillingService> service, AddInsertionOrderRequest request)
+        public ValueTask LogRequestFailedAsync(object context, HttpRequestMessage request, HttpResponseMessage response, Exception exception, TimeSpan elapsed, CancellationToken cancellationToken = new CancellationToken())
         {
-            return service.CallAsync((s, r) => s.AddInsertionOrderAsync(r), request);
+            // TODO: add exception logging
+
+            return new ValueTask();
         }
 
-        public static Task<UpdateInsertionOrderResponse> UpdateInsertionOrderAsync(this ServiceClient<ICustomerBillingService> service, UpdateInsertionOrderRequest request)
+        private static string TruncateBodyIfNeeded(string content)
         {
-            return service.CallAsync((s, r) => s.UpdateInsertionOrderAsync(r), request);
+            if (content.Length <= MaxBodyLength)
+            {
+                return content;
+            }
+
+            return content.Substring(0, MaxBodyLength) + $" ... skipped {content.Length - MaxBodyLength} characters ...";
         }
 
-        public static Task<SearchInsertionOrdersResponse> SearchInsertionOrdersAsync(this ServiceClient<ICustomerBillingService> service, SearchInsertionOrdersRequest request)
+        private static string FormatHeaders(IEnumerable<KeyValuePair<string, IEnumerable<string>>> httpHeaders)
         {
-            return service.CallAsync((s, r) => s.SearchInsertionOrdersAsync(r), request);
-        }
+            var sb = new StringBuilder();
 
-        public static Task<GetAccountMonthlySpendResponse> GetAccountMonthlySpendAsync(this ServiceClient<ICustomerBillingService> service, GetAccountMonthlySpendRequest request)
-        {
-            return service.CallAsync((s, r) => s.GetAccountMonthlySpendAsync(r), request);
-        }
+            var firstLine = true;
 
-        public static Task<DispatchCouponsResponse> DispatchCouponsAsync(this ServiceClient<ICustomerBillingService> service, DispatchCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.DispatchCouponsAsync(r), request);
-        }
+            foreach (var header in httpHeaders)
+            {
+                if (!firstLine)
+                {
+                    sb.AppendLine();
+                }
 
-        public static Task<RedeemCouponResponse> RedeemCouponAsync(this ServiceClient<ICustomerBillingService> service, RedeemCouponRequest request)
-        {
-            return service.CallAsync((s, r) => s.RedeemCouponAsync(r), request);
-        }
+                var isSensitiveHeader = header.Key.Equals("Authorization", StringComparison.InvariantCultureIgnoreCase) ||
+                                        header.Key.Equals("Password", StringComparison.InvariantCultureIgnoreCase);
 
-        public static Task<SearchCouponsResponse> SearchCouponsAsync(this ServiceClient<ICustomerBillingService> service, SearchCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.SearchCouponsAsync(r), request);
-        }
+                var valueToLog = isSensitiveHeader ? "XXX" : string.Join(", ", header.Value);
+                
+                sb.Append(header.Key).Append(": ").Append(valueToLog);
 
-        public static Task<CheckFeatureAdoptionCouponEligibilityResponse> CheckFeatureAdoptionCouponEligibilityAsync(this ServiceClient<ICustomerBillingService> service, CheckFeatureAdoptionCouponEligibilityRequest request)
-        {
-            return service.CallAsync((s, r) => s.CheckFeatureAdoptionCouponEligibilityAsync(r), request);
-        }
+                firstLine = false;
+            }
 
-        public static Task<ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(this ServiceClient<ICustomerBillingService> service, ClaimFeatureAdoptionCouponsRequest request)
-        {
-            return service.CallAsync((s, r) => s.ClaimFeatureAdoptionCouponsAsync(r), request);
+            return sb.ToString();
         }
     }
 }

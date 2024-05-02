@@ -64,7 +64,5 @@ namespace Microsoft.BingAds.Internal
             where T : class;
 
         Type[] SupportedServiceTypes { get; }
-
-        IRestHttpClientProvider GetRestHttpClientProvider();
     }
 }

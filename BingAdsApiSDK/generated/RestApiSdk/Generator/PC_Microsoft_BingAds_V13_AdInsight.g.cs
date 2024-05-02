@@ -1,4 +1,55 @@
-﻿#nullable enable
+//=====================================================================================================================================================
+// Bing Ads .NET SDK ver. 13.0
+// 
+// Copyright (c) Microsoft Corporation
+// 
+// All rights reserved. 
+// 
+// MS-PL License
+// 
+// This license governs use of the accompanying software. If you use the software, you accept this license. 
+//  If you do not accept the license, do not use the software.
+// 
+// 1. Definitions
+// 
+// The terms reproduce, reproduction, derivative works, and distribution have the same meaning here as under U.S. copyright law. 
+//  A contribution is the original software, or any additions or changes to the software. 
+//  A contributor is any person that distributes its contribution under this license. 
+//  Licensed patents  are a contributor's patent claims that read directly on its contribution.
+// 
+// 2. Grant of Rights
+// 
+// (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, 
+//  prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+// 
+// (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, 
+//  sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+// 
+// 3. Conditions and Limitations
+// 
+// (A) No Trademark License - This license does not grant you rights to use any contributors' name, logo, or trademarks.
+// 
+// (B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, 
+//  your patent license from such contributor to the software ends automatically.
+// 
+// (C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, 
+//  and attribution notices that are present in the software.
+// 
+// (D) If you distribute any portion of the software in source code form, 
+//  you may do so only under this license by including a complete copy of this license with your distribution. 
+//  If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+// 
+// (E) The software is licensed *as-is.* You bear the risk of using it. The contributors give no express warranties, guarantees or conditions.
+//  You may have additional consumer rights under your local laws which this license cannot change. 
+//  To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, 
+//  fitness for a particular purpose and non-infringement.
+//=====================================================================================================================================================
+
+#nullable enable
+
+namespace Microsoft.BingAds.Internal;
 
 using System;
 using System.Collections.Generic;
@@ -8,34 +59,35 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization.Metadata;
 using System.Runtime.CompilerServices;
+using Microsoft.BingAds.V13.AdInsight;
 
-namespace Microsoft.BingAds.V13.AdInsight
+public static partial class RestApiGeneration
 {
-    public class AllPolymorphicConverters
+    public class Microsoft_BingAds_V13_AdInsight_AllPolymorphicConverters
     {
         public static void AddTo(JsonSerializerOptions options, Func<string, Exception> createUnsupportedTypeValueException)
         {
             var originalOptions = new JsonSerializerOptions(options);
 
-            options.Converters.Add(new ApplicationFaultConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new CriterionConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new KeywordOpportunityConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new OpportunityConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new PerformanceInsightsMessageParameterConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new RecommendationConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new RecommendationBaseConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new RecommendationInfoConverter(originalOptions, createUnsupportedTypeValueException));
-            options.Converters.Add(new SearchParameterConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_ApplicationFaultConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_CriterionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_KeywordOpportunityConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_OpportunityConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_PerformanceInsightsMessageParameterConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_RecommendationConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_RecommendationBaseConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_RecommendationInfoConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_SearchParameterConverter(originalOptions, createUnsupportedTypeValueException));
         }
     }
 
-    class ApplicationFaultConverter : JsonConverter<ApplicationFault>
+    class Microsoft_BingAds_V13_AdInsight_ApplicationFaultConverter : JsonConverter<ApplicationFault>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public ApplicationFaultConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_ApplicationFaultConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -80,13 +132,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class CriterionConverter : JsonConverter<Criterion>
+    class Microsoft_BingAds_V13_AdInsight_CriterionConverter : JsonConverter<Criterion>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public CriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_CriterionConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -139,13 +191,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class KeywordOpportunityConverter : JsonConverter<KeywordOpportunity>
+    class Microsoft_BingAds_V13_AdInsight_KeywordOpportunityConverter : JsonConverter<KeywordOpportunity>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public KeywordOpportunityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_KeywordOpportunityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -186,13 +238,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class OpportunityConverter : JsonConverter<Opportunity>
+    class Microsoft_BingAds_V13_AdInsight_OpportunityConverter : JsonConverter<Opportunity>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public OpportunityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_OpportunityConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -245,13 +297,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class PerformanceInsightsMessageParameterConverter : JsonConverter<PerformanceInsightsMessageParameter>
+    class Microsoft_BingAds_V13_AdInsight_PerformanceInsightsMessageParameterConverter : JsonConverter<PerformanceInsightsMessageParameter>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public PerformanceInsightsMessageParameterConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_PerformanceInsightsMessageParameterConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -300,13 +352,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class RecommendationConverter : JsonConverter<Recommendation>
+    class Microsoft_BingAds_V13_AdInsight_RecommendationConverter : JsonConverter<Recommendation>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public RecommendationConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_RecommendationConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -347,13 +399,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class RecommendationBaseConverter : JsonConverter<RecommendationBase>
+    class Microsoft_BingAds_V13_AdInsight_RecommendationBaseConverter : JsonConverter<RecommendationBase>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public RecommendationBaseConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_RecommendationBaseConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -402,13 +454,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class RecommendationInfoConverter : JsonConverter<RecommendationInfo>
+    class Microsoft_BingAds_V13_AdInsight_RecommendationInfoConverter : JsonConverter<RecommendationInfo>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public RecommendationInfoConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_RecommendationInfoConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 
@@ -449,13 +501,13 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
 
-    class SearchParameterConverter : JsonConverter<SearchParameter>
+    class Microsoft_BingAds_V13_AdInsight_SearchParameterConverter : JsonConverter<SearchParameter>
     {
         private readonly JsonSerializerOptions _originalOptions;
 
         private readonly Func<string, Exception> _createUnsupportedTypeValueException;
 
-        public SearchParameterConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        public Microsoft_BingAds_V13_AdInsight_SearchParameterConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
         {
             _originalOptions = originalOptions;
 

@@ -1570,7 +1570,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether the insertion order has unlimited budget.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
         public System.Nullable<bool> IsUnlimited
@@ -1590,7 +1590,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether the insertion order has no end date.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=24)]
         public System.Nullable<bool> IsEndless
@@ -2433,7 +2433,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for additional insertion order fields.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/customer-billing-service/insertionorderadditionalfield?view=bingads-13">InsertionOrderAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/customer-billing-service/insertionorderadditionalfield?view=bingads-13 for details.
@@ -2452,7 +2452,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         None = 0,
         
         /// <summary>
-        /// Reserved.
+        /// Return IsUnlimited and IsEndless in the response.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlimitedAndEndlessFlags = 1,
@@ -4285,7 +4285,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo;
         
         /// <summary>
-        /// Reserved.
+        /// The list of additional properties that you want included within each returned insertion order.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerBilling.InsertionOrderAdditionalField> ReturnAdditionalFields;
@@ -4309,7 +4309,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <param name="Predicates">Determines the request conditions.</param>
         /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
         /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned insertion order.</param>
         public SearchInsertionOrdersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerBilling.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerBilling.InsertionOrderAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;

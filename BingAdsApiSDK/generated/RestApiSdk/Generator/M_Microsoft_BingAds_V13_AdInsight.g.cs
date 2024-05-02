@@ -1,4 +1,53 @@
-﻿namespace Microsoft.BingAds.V13.AdInsight;
+//=====================================================================================================================================================
+// Bing Ads .NET SDK ver. 13.0
+// 
+// Copyright (c) Microsoft Corporation
+// 
+// All rights reserved. 
+// 
+// MS-PL License
+// 
+// This license governs use of the accompanying software. If you use the software, you accept this license. 
+//  If you do not accept the license, do not use the software.
+// 
+// 1. Definitions
+// 
+// The terms reproduce, reproduction, derivative works, and distribution have the same meaning here as under U.S. copyright law. 
+//  A contribution is the original software, or any additions or changes to the software. 
+//  A contributor is any person that distributes its contribution under this license. 
+//  Licensed patents  are a contributor's patent claims that read directly on its contribution.
+// 
+// 2. Grant of Rights
+// 
+// (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, 
+//  prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+// 
+// (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, 
+//  each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, 
+//  sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+// 
+// 3. Conditions and Limitations
+// 
+// (A) No Trademark License - This license does not grant you rights to use any contributors' name, logo, or trademarks.
+// 
+// (B) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, 
+//  your patent license from such contributor to the software ends automatically.
+// 
+// (C) If you distribute any portion of the software, you must retain all copyright, patent, trademark, 
+//  and attribution notices that are present in the software.
+// 
+// (D) If you distribute any portion of the software in source code form, 
+//  you may do so only under this license by including a complete copy of this license with your distribution. 
+//  If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+// 
+// (E) The software is licensed *as-is.* You bear the risk of using it. The contributors give no express warranties, guarantees or conditions.
+//  You may have additional consumer rights under your local laws which this license cannot change. 
+//  To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, 
+//  fitness for a particular purpose and non-infringement.
+//=====================================================================================================================================================
+
+namespace Microsoft.BingAds.Internal;
 
 using System;
 using System.Reflection;
@@ -8,136 +57,217 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization.Metadata;
+using Microsoft.BingAds.V13.AdInsight;
 
-public static class EntityModifiers
+public static partial class RestApiGeneration
 {
-    private static void AddPrivateField(JsonTypeInfo jsonTypeInfo, Type containingType, string fieldName, string jsonName)
+    public static class Microsoft_BingAds_V13_AdInsight_EntityModifiers
     {
-        var field = containingType.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
-        var jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(field.FieldType, jsonName);
-        jsonPropertyInfo.Get = field.GetValue;
-        jsonPropertyInfo.Set = field.SetValue;
-        jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-    }
-
-    private static void AddPrivateProperty(JsonTypeInfo jsonTypeInfo, Type containingType, string fieldName, string jsonName)
-    {
-        var property = containingType.GetProperty(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
-        var jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(property.PropertyType, jsonName);
-        jsonPropertyInfo.Get = property.GetValue;
-        jsonPropertyInfo.Set = property.SetValue;
-        jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-    }
-
-    public static void CustomizeEntities(JsonTypeInfo jsonTypeInfo)
-    {
-        if (jsonTypeInfo.Kind != JsonTypeInfoKind.Object)
-            return;
-
-        JsonPropertyInfo jsonPropertyInfo;
-
-        if (jsonTypeInfo.Type == typeof(AdApiError))
+        private static void AddPrivateField(JsonTypeInfo jsonTypeInfo, Type containingType, string fieldName, string jsonName)
         {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(AdApiFaultDetail))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "AdApiFaultDetail";
+            var field = containingType.GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+            var jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(field.FieldType, jsonName);
+            jsonPropertyInfo.Get = field.GetValue;
+            jsonPropertyInfo.Set = field.SetValue;
             jsonTypeInfo.Properties.Add(jsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(AdGroupBidLandscape))
+
+        private static void AddPrivateProperty(JsonTypeInfo jsonTypeInfo, Type containingType, string fieldName, string jsonName)
         {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(AdGroupBidLandscapeInput))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(AdGroupEstimate))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(AdGroupEstimator))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(ApiFaultDetail))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "ApiFaultDetail";
+            var property = containingType.GetProperty(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+            var jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(property.PropertyType, jsonName);
+            jsonPropertyInfo.Get = property.GetValue;
+            jsonPropertyInfo.Set = property.SetValue;
             jsonTypeInfo.Properties.Add(jsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(ApplicationFault))
+
+        public static void CustomizeEntities(JsonTypeInfo jsonTypeInfo)
+        {
+            if (jsonTypeInfo.Kind != JsonTypeInfoKind.Object)
+                return;
+
+            if (CustomizeActions.TryGetValue(jsonTypeInfo.Type, out var customize))
+            {
+                customize(jsonTypeInfo);
+            }
+        }
+
+        private static Dictionary<Type, Action<JsonTypeInfo>> CustomizeActions = new Dictionary<Type, Action<JsonTypeInfo>>
+        {
+            { typeof(AdApiError), static t => CustomizeAdApiError(t) },
+            { typeof(AdApiFaultDetail), static t => CustomizeAdApiFaultDetail(t) },
+            { typeof(AdGroupBidLandscape), static t => CustomizeAdGroupBidLandscape(t) },
+            { typeof(AdGroupBidLandscapeInput), static t => CustomizeAdGroupBidLandscapeInput(t) },
+            { typeof(AdGroupEstimate), static t => CustomizeAdGroupEstimate(t) },
+            { typeof(AdGroupEstimator), static t => CustomizeAdGroupEstimator(t) },
+            { typeof(ApiFaultDetail), static t => CustomizeApiFaultDetail(t) },
+            { typeof(ApplicationFault), static t => CustomizeApplicationFault(t) },
+            { typeof(ApplyRecommendationEntity), static t => CustomizeApplyRecommendationEntity(t) },
+            { typeof(ApplyRecommendationsRequest), static t => CustomizeApplyRecommendationsRequest(t) },
+            { typeof(ApplyRecommendationsResponse), static t => CustomizeApplyRecommendationsResponse(t) },
+            { typeof(AuctionInsightEntry), static t => CustomizeAuctionInsightEntry(t) },
+            { typeof(AuctionInsightKpi), static t => CustomizeAuctionInsightKpi(t) },
+            { typeof(AuctionInsightResult), static t => CustomizeAuctionInsightResult(t) },
+            { typeof(AuctionSegmentSearchParameter), static t => CustomizeAuctionSegmentSearchParameter(t) },
+            { typeof(AutoApplyRecommendationsInfo), static t => CustomizeAutoApplyRecommendationsInfo(t) },
+            { typeof(BatchError), static t => CustomizeBatchError(t) },
+            { typeof(BidLandscapePoint), static t => CustomizeBidLandscapePoint(t) },
+            { typeof(BidOpportunity), static t => CustomizeBidOpportunity(t) },
+            { typeof(BroadMatchKeywordOpportunity), static t => CustomizeBroadMatchKeywordOpportunity(t) },
+            { typeof(BroadMatchSearchQueryKPI), static t => CustomizeBroadMatchSearchQueryKPI(t) },
+            { typeof(BudgetOpportunity), static t => CustomizeBudgetOpportunity(t) },
+            { typeof(BudgetPoint), static t => CustomizeBudgetPoint(t) },
+            { typeof(CampaignBudgetRecommendation), static t => CustomizeCampaignBudgetRecommendation(t) },
+            { typeof(CampaignEstimate), static t => CustomizeCampaignEstimate(t) },
+            { typeof(CampaignEstimator), static t => CustomizeCampaignEstimator(t) },
+            { typeof(CategorySearchParameter), static t => CustomizeCategorySearchParameter(t) },
+            { typeof(CompetitionSearchParameter), static t => CustomizeCompetitionSearchParameter(t) },
+            { typeof(Criterion), static t => CustomizeCriterion(t) },
+            { typeof(DateRangeSearchParameter), static t => CustomizeDateRangeSearchParameter(t) },
+            { typeof(DayMonthAndYear), static t => CustomizeDayMonthAndYear(t) },
+            { typeof(DecimalRoundedResult), static t => CustomizeDecimalRoundedResult(t) },
+            { typeof(DeviceCriterion), static t => CustomizeDeviceCriterion(t) },
+            { typeof(DeviceSearchParameter), static t => CustomizeDeviceSearchParameter(t) },
+            { typeof(DismissRecommendationEntity), static t => CustomizeDismissRecommendationEntity(t) },
+            { typeof(DismissRecommendationsRequest), static t => CustomizeDismissRecommendationsRequest(t) },
+            { typeof(DismissRecommendationsResponse), static t => CustomizeDismissRecommendationsResponse(t) },
+            { typeof(DomainCategory), static t => CustomizeDomainCategory(t) },
+            { typeof(EntityDetail), static t => CustomizeEntityDetail(t) },
+            { typeof(EntityParameter), static t => CustomizeEntityParameter(t) },
+            { typeof(EstimatedBidAndTraffic), static t => CustomizeEstimatedBidAndTraffic(t) },
+            { typeof(EstimatedPositionAndTraffic), static t => CustomizeEstimatedPositionAndTraffic(t) },
+            { typeof(ExcludeAccountKeywordsSearchParameter), static t => CustomizeExcludeAccountKeywordsSearchParameter(t) },
+            { typeof(Feed), static t => CustomizeFeed(t) },
+            { typeof(GetAuctionInsightDataRequest), static t => CustomizeGetAuctionInsightDataRequest(t) },
+            { typeof(GetAuctionInsightDataResponse), static t => CustomizeGetAuctionInsightDataResponse(t) },
+            { typeof(GetAudienceFullEstimationRequest), static t => CustomizeGetAudienceFullEstimationRequest(t) },
+            { typeof(GetAudienceFullEstimationResponse), static t => CustomizeGetAudienceFullEstimationResponse(t) },
+            { typeof(GetAutoApplyOptInStatusRequest), static t => CustomizeGetAutoApplyOptInStatusRequest(t) },
+            { typeof(GetAutoApplyOptInStatusResponse), static t => CustomizeGetAutoApplyOptInStatusResponse(t) },
+            { typeof(GetBidLandscapeByAdGroupIdsRequest), static t => CustomizeGetBidLandscapeByAdGroupIdsRequest(t) },
+            { typeof(GetBidLandscapeByAdGroupIdsResponse), static t => CustomizeGetBidLandscapeByAdGroupIdsResponse(t) },
+            { typeof(GetBidLandscapeByKeywordIdsRequest), static t => CustomizeGetBidLandscapeByKeywordIdsRequest(t) },
+            { typeof(GetBidLandscapeByKeywordIdsResponse), static t => CustomizeGetBidLandscapeByKeywordIdsResponse(t) },
+            { typeof(GetBidOpportunitiesRequest), static t => CustomizeGetBidOpportunitiesRequest(t) },
+            { typeof(GetBidOpportunitiesResponse), static t => CustomizeGetBidOpportunitiesResponse(t) },
+            { typeof(GetBudgetOpportunitiesRequest), static t => CustomizeGetBudgetOpportunitiesRequest(t) },
+            { typeof(GetBudgetOpportunitiesResponse), static t => CustomizeGetBudgetOpportunitiesResponse(t) },
+            { typeof(GetDomainCategoriesRequest), static t => CustomizeGetDomainCategoriesRequest(t) },
+            { typeof(GetDomainCategoriesResponse), static t => CustomizeGetDomainCategoriesResponse(t) },
+            { typeof(GetEstimatedBidByKeywordIdsRequest), static t => CustomizeGetEstimatedBidByKeywordIdsRequest(t) },
+            { typeof(GetEstimatedBidByKeywordIdsResponse), static t => CustomizeGetEstimatedBidByKeywordIdsResponse(t) },
+            { typeof(GetEstimatedBidByKeywordsRequest), static t => CustomizeGetEstimatedBidByKeywordsRequest(t) },
+            { typeof(GetEstimatedBidByKeywordsResponse), static t => CustomizeGetEstimatedBidByKeywordsResponse(t) },
+            { typeof(GetEstimatedPositionByKeywordIdsRequest), static t => CustomizeGetEstimatedPositionByKeywordIdsRequest(t) },
+            { typeof(GetEstimatedPositionByKeywordIdsResponse), static t => CustomizeGetEstimatedPositionByKeywordIdsResponse(t) },
+            { typeof(GetEstimatedPositionByKeywordsRequest), static t => CustomizeGetEstimatedPositionByKeywordsRequest(t) },
+            { typeof(GetEstimatedPositionByKeywordsResponse), static t => CustomizeGetEstimatedPositionByKeywordsResponse(t) },
+            { typeof(GetHistoricalKeywordPerformanceRequest), static t => CustomizeGetHistoricalKeywordPerformanceRequest(t) },
+            { typeof(GetHistoricalKeywordPerformanceResponse), static t => CustomizeGetHistoricalKeywordPerformanceResponse(t) },
+            { typeof(GetHistoricalSearchCountRequest), static t => CustomizeGetHistoricalSearchCountRequest(t) },
+            { typeof(GetHistoricalSearchCountResponse), static t => CustomizeGetHistoricalSearchCountResponse(t) },
+            { typeof(GetKeywordCategoriesRequest), static t => CustomizeGetKeywordCategoriesRequest(t) },
+            { typeof(GetKeywordCategoriesResponse), static t => CustomizeGetKeywordCategoriesResponse(t) },
+            { typeof(GetKeywordDemographicsRequest), static t => CustomizeGetKeywordDemographicsRequest(t) },
+            { typeof(GetKeywordDemographicsResponse), static t => CustomizeGetKeywordDemographicsResponse(t) },
+            { typeof(GetKeywordIdeaCategoriesRequest), static t => CustomizeGetKeywordIdeaCategoriesRequest(t) },
+            { typeof(GetKeywordIdeaCategoriesResponse), static t => CustomizeGetKeywordIdeaCategoriesResponse(t) },
+            { typeof(GetKeywordIdeasRequest), static t => CustomizeGetKeywordIdeasRequest(t) },
+            { typeof(GetKeywordIdeasResponse), static t => CustomizeGetKeywordIdeasResponse(t) },
+            { typeof(GetKeywordLocationsRequest), static t => CustomizeGetKeywordLocationsRequest(t) },
+            { typeof(GetKeywordLocationsResponse), static t => CustomizeGetKeywordLocationsResponse(t) },
+            { typeof(GetKeywordOpportunitiesRequest), static t => CustomizeGetKeywordOpportunitiesRequest(t) },
+            { typeof(GetKeywordOpportunitiesResponse), static t => CustomizeGetKeywordOpportunitiesResponse(t) },
+            { typeof(GetKeywordTrafficEstimatesRequest), static t => CustomizeGetKeywordTrafficEstimatesRequest(t) },
+            { typeof(GetKeywordTrafficEstimatesResponse), static t => CustomizeGetKeywordTrafficEstimatesResponse(t) },
+            { typeof(GetPerformanceInsightsDetailDataByAccountIdRequest), static t => CustomizeGetPerformanceInsightsDetailDataByAccountIdRequest(t) },
+            { typeof(GetPerformanceInsightsDetailDataByAccountIdResponse), static t => CustomizeGetPerformanceInsightsDetailDataByAccountIdResponse(t) },
+            { typeof(GetRecommendationsRequest), static t => CustomizeGetRecommendationsRequest(t) },
+            { typeof(GetRecommendationsResponse), static t => CustomizeGetRecommendationsResponse(t) },
+            { typeof(GetTextAssetSuggestionsByFinalUrlsRequest), static t => CustomizeGetTextAssetSuggestionsByFinalUrlsRequest(t) },
+            { typeof(GetTextAssetSuggestionsByFinalUrlsResponse), static t => CustomizeGetTextAssetSuggestionsByFinalUrlsResponse(t) },
+            { typeof(HistoricalSearchCountPeriodic), static t => CustomizeHistoricalSearchCountPeriodic(t) },
+            { typeof(IdeaTextSearchParameter), static t => CustomizeIdeaTextSearchParameter(t) },
+            { typeof(ImpressionShareSearchParameter), static t => CustomizeImpressionShareSearchParameter(t) },
+            { typeof(Keyword), static t => CustomizeKeyword(t) },
+            { typeof(KeywordAndConfidence), static t => CustomizeKeywordAndConfidence(t) },
+            { typeof(KeywordAndMatchType), static t => CustomizeKeywordAndMatchType(t) },
+            { typeof(KeywordBidLandscape), static t => CustomizeKeywordBidLandscape(t) },
+            { typeof(KeywordCategory), static t => CustomizeKeywordCategory(t) },
+            { typeof(KeywordCategoryResult), static t => CustomizeKeywordCategoryResult(t) },
+            { typeof(KeywordDemographic), static t => CustomizeKeywordDemographic(t) },
+            { typeof(KeywordDemographicResult), static t => CustomizeKeywordDemographicResult(t) },
+            { typeof(KeywordEstimate), static t => CustomizeKeywordEstimate(t) },
+            { typeof(KeywordEstimatedBid), static t => CustomizeKeywordEstimatedBid(t) },
+            { typeof(KeywordEstimatedPosition), static t => CustomizeKeywordEstimatedPosition(t) },
+            { typeof(KeywordEstimator), static t => CustomizeKeywordEstimator(t) },
+            { typeof(KeywordHistoricalPerformance), static t => CustomizeKeywordHistoricalPerformance(t) },
+            { typeof(KeywordIdea), static t => CustomizeKeywordIdea(t) },
+            { typeof(KeywordIdeaCategory), static t => CustomizeKeywordIdeaCategory(t) },
+            { typeof(KeywordIdEstimatedBid), static t => CustomizeKeywordIdEstimatedBid(t) },
+            { typeof(KeywordIdEstimatedPosition), static t => CustomizeKeywordIdEstimatedPosition(t) },
+            { typeof(KeywordKPI), static t => CustomizeKeywordKPI(t) },
+            { typeof(KeywordLocation), static t => CustomizeKeywordLocation(t) },
+            { typeof(KeywordLocationResult), static t => CustomizeKeywordLocationResult(t) },
+            { typeof(KeywordOpportunity), static t => CustomizeKeywordOpportunity(t) },
+            { typeof(KeywordRecommendation), static t => CustomizeKeywordRecommendation(t) },
+            { typeof(KeywordSearchCount), static t => CustomizeKeywordSearchCount(t) },
+            { typeof(KeywordSuggestion), static t => CustomizeKeywordSuggestion(t) },
+            { typeof(LanguageCriterion), static t => CustomizeLanguageCriterion(t) },
+            { typeof(LanguageSearchParameter), static t => CustomizeLanguageSearchParameter(t) },
+            { typeof(LocationCriterion), static t => CustomizeLocationCriterion(t) },
+            { typeof(LocationSearchParameter), static t => CustomizeLocationSearchParameter(t) },
+            { typeof(MetricData), static t => CustomizeMetricData(t) },
+            { typeof(NegativeKeyword), static t => CustomizeNegativeKeyword(t) },
+            { typeof(NetworkCriterion), static t => CustomizeNetworkCriterion(t) },
+            { typeof(NetworkSearchParameter), static t => CustomizeNetworkSearchParameter(t) },
+            { typeof(OperationError), static t => CustomizeOperationError(t) },
+            { typeof(Opportunity), static t => CustomizeOpportunity(t) },
+            { typeof(PerformanceInsightsDetail), static t => CustomizePerformanceInsightsDetail(t) },
+            { typeof(PerformanceInsightsMessage), static t => CustomizePerformanceInsightsMessage(t) },
+            { typeof(PerformanceInsightsMessageParameter), static t => CustomizePerformanceInsightsMessageParameter(t) },
+            { typeof(PutMetricDataRequest), static t => CustomizePutMetricDataRequest(t) },
+            { typeof(PutMetricDataResponse), static t => CustomizePutMetricDataResponse(t) },
+            { typeof(QuerySearchParameter), static t => CustomizeQuerySearchParameter(t) },
+            { typeof(RadiusTarget), static t => CustomizeRadiusTarget(t) },
+            { typeof(RangeResultOfDecimalRoundedResult), static t => CustomizeRangeResultOfDecimalRoundedResult(t) },
+            { typeof(RangeResultOfdouble), static t => CustomizeRangeResultOfdouble(t) },
+            { typeof(Recommendation), static t => CustomizeRecommendation(t) },
+            { typeof(RecommendationBase), static t => CustomizeRecommendationBase(t) },
+            { typeof(RecommendationInfo), static t => CustomizeRecommendationInfo(t) },
+            { typeof(ResponsiveSearchAdRecommendation), static t => CustomizeResponsiveSearchAdRecommendation(t) },
+            { typeof(ResponsiveSearchAdsRecommendation), static t => CustomizeResponsiveSearchAdsRecommendation(t) },
+            { typeof(RetrieveRecommendationsRequest), static t => CustomizeRetrieveRecommendationsRequest(t) },
+            { typeof(RetrieveRecommendationsResponse), static t => CustomizeRetrieveRecommendationsResponse(t) },
+            { typeof(RSARecommendationInfo), static t => CustomizeRSARecommendationInfo(t) },
+            { typeof(SearchCountsByAttributes), static t => CustomizeSearchCountsByAttributes(t) },
+            { typeof(SearchParameter), static t => CustomizeSearchParameter(t) },
+            { typeof(SearchVolumeSearchParameter), static t => CustomizeSearchVolumeSearchParameter(t) },
+            { typeof(SelectionOfAgeEnum), static t => CustomizeSelectionOfAgeEnum(t) },
+            { typeof(SelectionOfGenderEnum), static t => CustomizeSelectionOfGenderEnum(t) },
+            { typeof(SelectionOflong), static t => CustomizeSelectionOflong(t) },
+            { typeof(SetAutoApplyOptInStatusRequest), static t => CustomizeSetAutoApplyOptInStatusRequest(t) },
+            { typeof(SetAutoApplyOptInStatusResponse), static t => CustomizeSetAutoApplyOptInStatusResponse(t) },
+            { typeof(SuggestedBidSearchParameter), static t => CustomizeSuggestedBidSearchParameter(t) },
+            { typeof(SuggestedResponsiveSearchAd), static t => CustomizeSuggestedResponsiveSearchAd(t) },
+            { typeof(SuggestKeywordsForUrlRequest), static t => CustomizeSuggestKeywordsForUrlRequest(t) },
+            { typeof(SuggestKeywordsForUrlResponse), static t => CustomizeSuggestKeywordsForUrlResponse(t) },
+            { typeof(SuggestKeywordsFromExistingKeywordsRequest), static t => CustomizeSuggestKeywordsFromExistingKeywordsRequest(t) },
+            { typeof(SuggestKeywordsFromExistingKeywordsResponse), static t => CustomizeSuggestKeywordsFromExistingKeywordsResponse(t) },
+            { typeof(TagRecommendationsRequest), static t => CustomizeTagRecommendationsRequest(t) },
+            { typeof(TagRecommendationsResponse), static t => CustomizeTagRecommendationsResponse(t) },
+            { typeof(TextAssetSuggestions), static t => CustomizeTextAssetSuggestions(t) },
+            { typeof(TextParameter), static t => CustomizeTextParameter(t) },
+            { typeof(TrafficEstimate), static t => CustomizeTrafficEstimate(t) },
+            { typeof(UrlParameter), static t => CustomizeUrlParameter(t) },
+            { typeof(UrlSearchParameter), static t => CustomizeUrlSearchParameter(t) }
+        };
+
+        private static void CustomizeAdApiError(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -145,15 +275,30 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "ApplicationFault";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(ApplyRecommendationEntity))
+
+        private static void CustomizeAdApiFaultDetail(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "AdApiFaultDetail";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeAdGroupBidLandscape(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -162,11 +307,102 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(ApplyRecommendationsRequest))
+
+        private static void CustomizeAdGroupBidLandscapeInput(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdGroupEstimate(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdGroupEstimator(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeApiFaultDetail(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "ApiFaultDetail";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeApplicationFault(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "ApplicationFault";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeApplyRecommendationEntity(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeApplyRecommendationsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -181,11 +417,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(ApplyRecommendationsResponse))
+
+        private static void CustomizeApplyRecommendationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -194,11 +431,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(AuctionInsightEntry))
+
+        private static void CustomizeAuctionInsightEntry(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -207,11 +445,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(AuctionInsightKpi))
+
+        private static void CustomizeAuctionInsightKpi(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -221,50 +460,22 @@ public static class EntityModifiers
             }
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
-                     case "AbsoluteTopOfPageRate":
-                         jsonPropertyInfo.ShouldSerialize = (_, value) => !EqualityComparer<double>.Default.Equals(default, (double)value);
-                         jsonPropertyInfo.IsRequired = false;
-                         break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(AuctionInsightResult))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
+                    case "AbsoluteTopOfPageRate":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => !EqualityComparer<double>.Default.Equals(default, (double)value);
+                        jsonPropertyInfo.IsRequired = false;
                         break;
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(AuctionSegmentSearchParameter))
+
+        private static void CustomizeAuctionInsightResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "AuctionSegmentSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(AutoApplyRecommendationsInfo))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -273,11 +484,29 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(BatchError))
+
+        private static void CustomizeAuctionSegmentSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "AuctionSegmentSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeAutoApplyRecommendationsInfo(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -286,11 +515,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(BidLandscapePoint))
+
+        private static void CustomizeBatchError(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -299,43 +529,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(BidOpportunity))
+
+        private static void CustomizeBidLandscapePoint(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "BidOpportunity";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(BroadMatchKeywordOpportunity))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "BroadMatchKeywordOpportunity";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(BroadMatchSearchQueryKPI))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -344,11 +543,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(BudgetOpportunity))
+
+        private static void CustomizeBidOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -356,15 +556,33 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "BudgetOpportunity";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "BidOpportunity";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(BudgetPoint))
+
+        private static void CustomizeBroadMatchKeywordOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "BroadMatchKeywordOpportunity";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeBroadMatchSearchQueryKPI(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -373,11 +591,43 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(CampaignBudgetRecommendation))
+
+        private static void CustomizeBudgetOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "BudgetOpportunity";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeBudgetPoint(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCampaignBudgetRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -387,7 +637,7 @@ public static class EntityModifiers
             }
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "Type":
@@ -396,11 +646,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(CampaignEstimate))
+
+        private static void CustomizeCampaignEstimate(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -409,11 +660,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(CampaignEstimator))
+
+        private static void CustomizeCampaignEstimator(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -422,11 +674,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(CategorySearchParameter))
+
+        private static void CustomizeCategorySearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -434,15 +687,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "CategorySearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "CategorySearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(CompetitionSearchParameter))
+
+        private static void CustomizeCompetitionSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -450,15 +704,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "CompetitionSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "CompetitionSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(Criterion))
+
+        private static void CustomizeCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -466,15 +721,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "Criterion";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "Criterion";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(DateRangeSearchParameter))
+
+        private static void CustomizeDateRangeSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -482,28 +738,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "DateRangeSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "DateRangeSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(DayMonthAndYear))
+
+        private static void CustomizeDayMonthAndYear(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(DecimalRoundedResult))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -512,43 +756,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(DeviceCriterion))
+
+        private static void CustomizeDecimalRoundedResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "DeviceCriterion";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(DeviceSearchParameter))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "DeviceSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(DismissRecommendationEntity))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -557,11 +770,60 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(DismissRecommendationsRequest))
+
+        private static void CustomizeDeviceCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "DeviceCriterion";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeDeviceSearchParameter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "DeviceSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeDismissRecommendationEntity(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDismissRecommendationsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -576,11 +838,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(DismissRecommendationsResponse))
+
+        private static void CustomizeDismissRecommendationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -589,11 +852,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(DomainCategory))
+
+        private static void CustomizeDomainCategory(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -602,11 +866,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(EntityDetail))
+
+        private static void CustomizeEntityDetail(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -615,11 +880,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(EntityParameter))
+
+        private static void CustomizeEntityParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -628,11 +894,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(EstimatedBidAndTraffic))
+
+        private static void CustomizeEstimatedBidAndTraffic(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -641,11 +908,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(EstimatedPositionAndTraffic))
+
+        private static void CustomizeEstimatedPositionAndTraffic(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -654,11 +922,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(ExcludeAccountKeywordsSearchParameter))
+
+        private static void CustomizeExcludeAccountKeywordsSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -666,15 +935,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "ExcludeAccountKeywordsSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "ExcludeAccountKeywordsSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(Feed))
+
+        private static void CustomizeFeed(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -683,11 +953,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAuctionInsightDataRequest))
+
+        private static void CustomizeGetAuctionInsightDataRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -702,11 +973,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAuctionInsightDataResponse))
+
+        private static void CustomizeGetAuctionInsightDataResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -715,11 +987,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAudienceFullEstimationRequest))
+
+        private static void CustomizeGetAudienceFullEstimationRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -734,11 +1007,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAudienceFullEstimationResponse))
+
+        private static void CustomizeGetAudienceFullEstimationResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -747,11 +1021,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAutoApplyOptInStatusRequest))
+
+        private static void CustomizeGetAutoApplyOptInStatusRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -766,11 +1041,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetAutoApplyOptInStatusResponse))
+
+        private static void CustomizeGetAutoApplyOptInStatusResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -779,11 +1055,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidLandscapeByAdGroupIdsRequest))
+
+        private static void CustomizeGetBidLandscapeByAdGroupIdsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -798,11 +1075,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidLandscapeByAdGroupIdsResponse))
+
+        private static void CustomizeGetBidLandscapeByAdGroupIdsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -811,11 +1089,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidLandscapeByKeywordIdsRequest))
+
+        private static void CustomizeGetBidLandscapeByKeywordIdsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -830,11 +1109,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidLandscapeByKeywordIdsResponse))
+
+        private static void CustomizeGetBidLandscapeByKeywordIdsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -843,11 +1123,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidOpportunitiesRequest))
+
+        private static void CustomizeGetBidOpportunitiesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -862,11 +1143,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBidOpportunitiesResponse))
+
+        private static void CustomizeGetBidOpportunitiesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -875,11 +1157,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBudgetOpportunitiesRequest))
+
+        private static void CustomizeGetBudgetOpportunitiesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -894,11 +1177,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetBudgetOpportunitiesResponse))
+
+        private static void CustomizeGetBudgetOpportunitiesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -907,11 +1191,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetDomainCategoriesRequest))
+
+        private static void CustomizeGetDomainCategoriesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -926,11 +1211,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetDomainCategoriesResponse))
+
+        private static void CustomizeGetDomainCategoriesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -939,11 +1225,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedBidByKeywordIdsRequest))
+
+        private static void CustomizeGetEstimatedBidByKeywordIdsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -958,11 +1245,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedBidByKeywordIdsResponse))
+
+        private static void CustomizeGetEstimatedBidByKeywordIdsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -971,11 +1259,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedBidByKeywordsRequest))
+
+        private static void CustomizeGetEstimatedBidByKeywordsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -990,11 +1279,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedBidByKeywordsResponse))
+
+        private static void CustomizeGetEstimatedBidByKeywordsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1003,11 +1293,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedPositionByKeywordIdsRequest))
+
+        private static void CustomizeGetEstimatedPositionByKeywordIdsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1022,11 +1313,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedPositionByKeywordIdsResponse))
+
+        private static void CustomizeGetEstimatedPositionByKeywordIdsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1035,11 +1327,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedPositionByKeywordsRequest))
+
+        private static void CustomizeGetEstimatedPositionByKeywordsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1054,11 +1347,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetEstimatedPositionByKeywordsResponse))
+
+        private static void CustomizeGetEstimatedPositionByKeywordsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1067,11 +1361,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetHistoricalKeywordPerformanceRequest))
+
+        private static void CustomizeGetHistoricalKeywordPerformanceRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1086,11 +1381,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetHistoricalKeywordPerformanceResponse))
+
+        private static void CustomizeGetHistoricalKeywordPerformanceResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1099,11 +1395,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetHistoricalSearchCountRequest))
+
+        private static void CustomizeGetHistoricalSearchCountRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1118,11 +1415,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetHistoricalSearchCountResponse))
+
+        private static void CustomizeGetHistoricalSearchCountResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1131,11 +1429,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordCategoriesRequest))
+
+        private static void CustomizeGetKeywordCategoriesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1150,11 +1449,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordCategoriesResponse))
+
+        private static void CustomizeGetKeywordCategoriesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1163,11 +1463,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordDemographicsRequest))
+
+        private static void CustomizeGetKeywordDemographicsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1182,11 +1483,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordDemographicsResponse))
+
+        private static void CustomizeGetKeywordDemographicsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1195,11 +1497,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordIdeaCategoriesRequest))
+
+        private static void CustomizeGetKeywordIdeaCategoriesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1214,11 +1517,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordIdeaCategoriesResponse))
+
+        private static void CustomizeGetKeywordIdeaCategoriesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1227,11 +1531,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordIdeasRequest))
+
+        private static void CustomizeGetKeywordIdeasRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1246,11 +1551,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordIdeasResponse))
+
+        private static void CustomizeGetKeywordIdeasResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1259,11 +1565,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordLocationsRequest))
+
+        private static void CustomizeGetKeywordLocationsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1278,11 +1585,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordLocationsResponse))
+
+        private static void CustomizeGetKeywordLocationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1291,11 +1599,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordOpportunitiesRequest))
+
+        private static void CustomizeGetKeywordOpportunitiesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1310,11 +1619,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordOpportunitiesResponse))
+
+        private static void CustomizeGetKeywordOpportunitiesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1323,11 +1633,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordTrafficEstimatesRequest))
+
+        private static void CustomizeGetKeywordTrafficEstimatesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1342,11 +1653,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetKeywordTrafficEstimatesResponse))
+
+        private static void CustomizeGetKeywordTrafficEstimatesResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1355,11 +1667,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetPerformanceInsightsDetailDataByAccountIdRequest))
+
+        private static void CustomizeGetPerformanceInsightsDetailDataByAccountIdRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1374,11 +1687,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetPerformanceInsightsDetailDataByAccountIdResponse))
+
+        private static void CustomizeGetPerformanceInsightsDetailDataByAccountIdResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1387,11 +1701,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetRecommendationsRequest))
+
+        private static void CustomizeGetRecommendationsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1406,11 +1721,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetRecommendationsResponse))
+
+        private static void CustomizeGetRecommendationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1419,11 +1735,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetTextAssetSuggestionsByFinalUrlsRequest))
+
+        private static void CustomizeGetTextAssetSuggestionsByFinalUrlsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -1438,11 +1755,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(GetTextAssetSuggestionsByFinalUrlsResponse))
+
+        private static void CustomizeGetTextAssetSuggestionsByFinalUrlsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -1451,11 +1769,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(HistoricalSearchCountPeriodic))
+
+        private static void CustomizeHistoricalSearchCountPeriodic(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1464,11 +1783,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(IdeaTextSearchParameter))
+
+        private static void CustomizeIdeaTextSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1476,15 +1796,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "IdeaTextSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "IdeaTextSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(ImpressionShareSearchParameter))
+
+        private static void CustomizeImpressionShareSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1492,28 +1813,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "ImpressionShareSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "ImpressionShareSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(Keyword))
+
+        private static void CustomizeKeyword(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(KeywordAndConfidence))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1522,11 +1831,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordAndMatchType))
+
+        private static void CustomizeKeywordAndConfidence(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1535,11 +1845,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordBidLandscape))
+
+        private static void CustomizeKeywordAndMatchType(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1548,11 +1859,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordCategory))
+
+        private static void CustomizeKeywordBidLandscape(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1561,11 +1873,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordCategoryResult))
+
+        private static void CustomizeKeywordCategory(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1574,11 +1887,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordDemographic))
+
+        private static void CustomizeKeywordCategoryResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1587,11 +1901,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordDemographicResult))
+
+        private static void CustomizeKeywordDemographic(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1600,11 +1915,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordEstimate))
+
+        private static void CustomizeKeywordDemographicResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1613,11 +1929,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordEstimatedBid))
+
+        private static void CustomizeKeywordEstimate(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1626,11 +1943,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordEstimatedPosition))
+
+        private static void CustomizeKeywordEstimatedBid(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1639,11 +1957,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordEstimator))
+
+        private static void CustomizeKeywordEstimatedPosition(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1652,11 +1971,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordHistoricalPerformance))
+
+        private static void CustomizeKeywordEstimator(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1665,11 +1985,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordIdea))
+
+        private static void CustomizeKeywordHistoricalPerformance(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1678,11 +1999,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordIdeaCategory))
+
+        private static void CustomizeKeywordIdea(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1691,11 +2013,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordIdEstimatedBid))
+
+        private static void CustomizeKeywordIdeaCategory(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1704,11 +2027,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordIdEstimatedPosition))
+
+        private static void CustomizeKeywordIdEstimatedBid(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1717,11 +2041,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordKPI))
+
+        private static void CustomizeKeywordIdEstimatedPosition(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1730,11 +2055,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordLocation))
+
+        private static void CustomizeKeywordKPI(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1743,11 +2069,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordLocationResult))
+
+        private static void CustomizeKeywordLocation(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1756,11 +2083,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordOpportunity))
+
+        private static void CustomizeKeywordLocationResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1768,15 +2096,30 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "KeywordOpportunity";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordRecommendation))
+
+        private static void CustomizeKeywordOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "KeywordOpportunity";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeKeywordRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1786,7 +2129,7 @@ public static class EntityModifiers
             }
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "Type":
@@ -1795,11 +2138,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordSearchCount))
+
+        private static void CustomizeKeywordSearchCount(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1808,11 +2152,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(KeywordSuggestion))
+
+        private static void CustomizeKeywordSuggestion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1821,11 +2166,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(LanguageCriterion))
+
+        private static void CustomizeLanguageCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1833,15 +2179,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "LanguageCriterion";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "LanguageCriterion";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(LanguageSearchParameter))
+
+        private static void CustomizeLanguageSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1849,15 +2196,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "LanguageSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "LanguageSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(LocationCriterion))
+
+        private static void CustomizeLocationCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1865,15 +2213,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "LocationCriterion";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "LocationCriterion";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(LocationSearchParameter))
+
+        private static void CustomizeLocationSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1881,28 +2230,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "LocationSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "LocationSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(MetricData))
+
+        private static void CustomizeMetricData(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(NegativeKeyword))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1911,43 +2248,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(NetworkCriterion))
+
+        private static void CustomizeNegativeKeyword(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "NetworkCriterion";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(NetworkSearchParameter))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "NetworkSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(OperationError))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1956,11 +2262,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(Opportunity))
+
+        private static void CustomizeNetworkCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1968,15 +2275,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "Opportunity";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "NetworkCriterion";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(PerformanceInsightsDetail))
+
+        private static void CustomizeNetworkSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -1984,25 +2292,16 @@ public static class EntityModifiers
                         break;
                 }
             }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "NetworkSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(PerformanceInsightsMessage))
+
+        private static void CustomizeOperationError(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(PerformanceInsightsMessageParameter))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2011,11 +2310,71 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(PutMetricDataRequest))
+
+        private static void CustomizeOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "Opportunity";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizePerformanceInsightsDetail(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizePerformanceInsightsMessage(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizePerformanceInsightsMessageParameter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizePutMetricDataRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2030,11 +2389,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(PutMetricDataResponse))
+
+        private static void CustomizePutMetricDataResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2043,11 +2403,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(QuerySearchParameter))
+
+        private static void CustomizeQuerySearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2055,28 +2416,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "QuerySearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "QuerySearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(RadiusTarget))
+
+        private static void CustomizeRadiusTarget(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(RangeResultOfDecimalRoundedResult))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2085,11 +2434,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(RangeResultOfdouble))
+
+        private static void CustomizeRangeResultOfDecimalRoundedResult(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2098,27 +2448,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(Recommendation))
+
+        private static void CustomizeRangeResultOfdouble(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "Recommendation";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(RecommendationBase))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2127,11 +2462,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(RecommendationInfo))
+
+        private static void CustomizeRecommendation(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2139,15 +2475,47 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "RecommendationInfo";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "Recommendation";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(ResponsiveSearchAdRecommendation))
+
+        private static void CustomizeRecommendationBase(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRecommendationInfo(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "RecommendationInfo";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeResponsiveSearchAdRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2157,7 +2525,7 @@ public static class EntityModifiers
             }
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "Type":
@@ -2166,11 +2534,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(ResponsiveSearchAdsRecommendation))
+
+        private static void CustomizeResponsiveSearchAdsRecommendation(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2178,15 +2547,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "ResponsiveSearchAdsRecommendation";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "ResponsiveSearchAdsRecommendation";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(RetrieveRecommendationsRequest))
+
+        private static void CustomizeRetrieveRecommendationsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2201,11 +2571,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(RetrieveRecommendationsResponse))
+
+        private static void CustomizeRetrieveRecommendationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2214,11 +2585,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(RSARecommendationInfo))
+
+        private static void CustomizeRSARecommendationInfo(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2226,60 +2598,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "RSARecommendationInfo";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "RSARecommendationInfo";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(SearchCountsByAttributes))
+
+        private static void CustomizeSearchCountsByAttributes(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-        else if (jsonTypeInfo.Type == typeof(SearchParameter))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "SearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(SearchVolumeSearchParameter))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "SearchVolumeSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
-        }
-        else if (jsonTypeInfo.Type == typeof(SelectionOfAgeEnum))
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2288,11 +2616,46 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SelectionOfGenderEnum))
+
+        private static void CustomizeSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "SearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeSearchVolumeSearchParameter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "SearchVolumeSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeSelectionOfAgeEnum(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2301,11 +2664,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SelectionOflong))
+
+        private static void CustomizeSelectionOfGenderEnum(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2314,11 +2678,26 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SetAutoApplyOptInStatusRequest))
+
+        private static void CustomizeSelectionOflong(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSetAutoApplyOptInStatusRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2333,11 +2712,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SetAutoApplyOptInStatusResponse))
+
+        private static void CustomizeSetAutoApplyOptInStatusResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2346,11 +2726,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestedBidSearchParameter))
+
+        private static void CustomizeSuggestedBidSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2358,15 +2739,16 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "SuggestedBidSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "SuggestedBidSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestedResponsiveSearchAd))
+
+        private static void CustomizeSuggestedResponsiveSearchAd(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2375,11 +2757,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestKeywordsForUrlRequest))
+
+        private static void CustomizeSuggestKeywordsForUrlRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2394,11 +2777,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestKeywordsForUrlResponse))
+
+        private static void CustomizeSuggestKeywordsForUrlResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2407,11 +2791,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestKeywordsFromExistingKeywordsRequest))
+
+        private static void CustomizeSuggestKeywordsFromExistingKeywordsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2426,11 +2811,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(SuggestKeywordsFromExistingKeywordsResponse))
+
+        private static void CustomizeSuggestKeywordsFromExistingKeywordsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2439,11 +2825,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(TagRecommendationsRequest))
+
+        private static void CustomizeTagRecommendationsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ApplicationToken":
@@ -2458,11 +2845,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(TagRecommendationsResponse))
+
+        private static void CustomizeTagRecommendationsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "TrackingId":
@@ -2471,11 +2859,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(TextAssetSuggestions))
+
+        private static void CustomizeTextAssetSuggestions(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2484,11 +2873,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(TextParameter))
+
+        private static void CustomizeTextParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2497,11 +2887,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(TrafficEstimate))
+
+        private static void CustomizeTrafficEstimate(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2510,11 +2901,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(UrlParameter))
+
+        private static void CustomizeUrlParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2523,11 +2915,12 @@ public static class EntityModifiers
                 }
             }
         }
-        else if (jsonTypeInfo.Type == typeof(UrlSearchParameter))
+
+        private static void CustomizeUrlSearchParameter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
-                jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
                     case "ExtensionData":
@@ -2535,9 +2928,9 @@ public static class EntityModifiers
                         break;
                 }
             }
-            jsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
-            jsonPropertyInfo.Get = _ => "UrlSearchParameter";
-            jsonTypeInfo.Properties.Add(jsonPropertyInfo);
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "UrlSearchParameter";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
     }
 }

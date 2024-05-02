@@ -12808,7 +12808,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set of age ranges.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/ageenum?view=bingads-13">AgeEnum Value Set</see> https:/learn.microsoft.com/advertising/ad-insight-service/ageenum?view=bingads-13 for details.
@@ -12820,49 +12820,49 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// The age range is unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 0 to 12.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZeroToTwelve = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 13 to 17.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThirteenToSevenTeen = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 18 to 24.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EighteenToTwentyFour = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 25 to 34.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TwentyFiveToThirtyFour = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 35 to 49.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThirtyFiveToFourtyNine = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is 50 to 64.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FiftyToSixtyFour = 6,
         
         /// <summary>
-        /// Reserved.
+        /// The age range is above 65.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SixtyFiveAndAbove = 7,
@@ -12956,7 +12956,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for gender.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/genderenum?view=bingads-13">GenderEnum Value Set</see> https:/learn.microsoft.com/advertising/ad-insight-service/genderenum?view=bingads-13 for details.
@@ -12968,19 +12968,19 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// The gender is unknown.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The gender is male.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Male = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The gender is female.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Female = 2,
@@ -13074,7 +13074,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a RadiusTarget data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/radiustarget?view=bingads-13">RadiusTarget Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/radiustarget?view=bingads-13 for details.
@@ -13115,7 +13115,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The radius from the center latitude and longitude.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Radius
@@ -13135,7 +13135,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The unit of measurement of the radius from the center: Kilometers or Miles.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.RadiusUnit RadiusUnit
@@ -13155,7 +13155,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The center latitude point.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public double CenterLatitude
@@ -13175,7 +13175,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The center longitude point.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double CenterLongitude
@@ -13207,7 +13207,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for the RadiusUnit.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/radiusunit?view=bingads-13">RadiusUnit Value Set</see> https:/learn.microsoft.com/advertising/ad-insight-service/radiusunit?view=bingads-13 for details.
@@ -13219,20 +13219,20 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Measure the radius in miles.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Miles = 0,
         
         /// <summary>
-        /// Reserved.
+        /// Measure the radius in kilometers.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kilometers = 1,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a Feed data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/feed?view=bingads-13">Feed Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/feed?view=bingads-13 for details.
@@ -13270,7 +13270,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the store.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> StoreId
@@ -13290,7 +13290,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the feed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<long> FeedId
@@ -13310,7 +13310,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The feed type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Nullable<long> FeedType
@@ -13342,7 +13342,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set of currencies.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/currency?view=bingads-13">Currency Value Set</see> https:/learn.microsoft.com/advertising/ad-insight-service/currency?view=bingads-13 for details.
@@ -13354,272 +13354,272 @@ namespace Microsoft.BingAds.V13.AdInsight
     {
         
         /// <summary>
-        /// Reserved.
+        /// Unspecified currency.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnSpecify = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The Algerian Dinar (DZD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlgerianDinar = 23,
         
         /// <summary>
-        /// Reserved.
+        /// The Argentine Peso (ARS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArgentinePeso = 15,
         
         /// <summary>
-        /// Reserved.
+        /// The Australian Dollar (AUD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AustralianDollar = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The Thai Baht (THB).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baht = 78,
         
         /// <summary>
-        /// Reserved.
+        /// The Venezuelan Bolivar Fuerte (VEF).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bolivar = 87,
         
         /// <summary>
-        /// Reserved.
+        /// The Brazilian Real (BRL).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrazilianReal = 2,
         
         /// <summary>
-        /// Reserved.
+        /// The Canadian Dollar (CAD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanadianDollar = 3,
         
         /// <summary>
-        /// Reserved.
+        /// The Chilean Peso (CLP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChileanPeso = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The Colombian Peso (COP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ColombianPeso = 18,
         
         /// <summary>
-        /// Reserved.
+        /// The Czech Koruna (CZK).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CzechKoruna = 20,
         
         /// <summary>
-        /// Reserved.
+        /// The Danish Krone (DKK).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishKrone = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The Vietnamese Dong (VND).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dong = 88,
         
         /// <summary>
-        /// Reserved.
+        /// The Egyptian Pound (EGP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EgyptianPound = 25,
         
         /// <summary>
-        /// Reserved.
+        /// The Euro (EUR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EURO = 6,
         
         /// <summary>
-        /// Reserved.
+        /// The Hungarian Forint (HUF).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Forint = 33,
         
         /// <summary>
-        /// Reserved.
+        /// The Hong Kong Dollar (HKD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HongKongDollar = 30,
         
         /// <summary>
-        /// Reserved.
+        /// The Indian Rupee (INR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianRupee = 36,
         
         /// <summary>
-        /// Reserved.
+        /// The Japanese Yen (JPY).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JapaneseYen = 8,
         
         /// <summary>
-        /// Reserved.
+        /// The Lebanese Pound (LBP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LebanesePound = 48,
         
         /// <summary>
-        /// Reserved.
+        /// The Malaysian Ringgit (MYR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MalaysianRinggit = 58,
         
         /// <summary>
-        /// Reserved.
+        /// The Mexican Peso (MXN).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MexicanPeso = 57,
         
         /// <summary>
-        /// Reserved.
+        /// The Moroccan Dirham (MAD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoroccanDirham = 52,
         
         /// <summary>
-        /// Reserved.
+        /// The New Taiwan Dollar (TWD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewTaiwanDollar = 82,
         
         /// <summary>
-        /// Reserved.
+        /// The New Zealand Dollar (NZD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewZealandDollar = 10,
         
         /// <summary>
-        /// Reserved.
+        /// The Norwegian Krone (NOK).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianKrone = 9,
         
         /// <summary>
-        /// Reserved.
+        /// The Peruvian Nuevo Sol (NOK).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NuevoSol = 64,
         
         /// <summary>
-        /// Reserved.
+        /// The Philippine Peso (PHP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhilippinePeso = 65,
         
         /// <summary>
-        /// Reserved.
+        /// The Qatari Rial (QAR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QatariRial = 69,
         
         /// <summary>
-        /// Reserved.
+        /// The Indonesian Rupiah (IDR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rupiah = 34,
         
         /// <summary>
-        /// Reserved.
+        /// The Saudi Riyal (SAR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SaudiRiyal = 72,
         
         /// <summary>
-        /// Reserved.
+        /// The Singapore Dollar (SGD).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SingaporeDollar = 74,
         
         /// <summary>
-        /// Reserved.
+        /// The South African Rand (ZAR).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SouthAfricanRand = 13,
         
         /// <summary>
-        /// Reserved.
+        /// The Swedish Krona (SEK).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishKrona = 11,
         
         /// <summary>
-        /// Reserved.
+        /// The Swiss Franc (CHF).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwissFranc = 4,
         
         /// <summary>
-        /// Reserved.
+        /// The Turkish Lira (TRY).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishLira = 93,
         
         /// <summary>
-        /// Reserved.
+        /// The UK Pound (GBP).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UKPound = 7,
         
         /// <summary>
-        /// Reserved.
+        /// The US Dollar USD
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         USDollar = 12,
         
         /// <summary>
-        /// Reserved.
+        /// The South Korean Won (KRW).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Won = 45,
         
         /// <summary>
-        /// Reserved.
+        /// The Chinese Yuan (CNY).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YuanRenminbi = 17,
         
         /// <summary>
-        /// Reserved.
+        /// The Polish Zloty (PLN).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PolishZloty = 67,
         
         /// <summary>
-        /// Reserved.
+        /// The UAE Dirham (AED).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UAEDirham = 21,
         
         /// <summary>
-        /// Reserved.
+        /// The Israeli Sheqel (ILS).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IsraeliSheqel = 35,
         
         /// <summary>
-        /// Reserved.
+        /// The Nigerian Naira (NGN).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NigerianNaira = 99,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a RangeResultOfDecimalRoundedResult data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/rangeresultofdecimalroundedresult?view=bingads-13">RangeResultOfDecimalRoundedResult Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/rangeresultofdecimalroundedresult?view=bingads-13 for details.
@@ -13654,7 +13654,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// R
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult High
@@ -13706,7 +13706,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a DecimalRoundedResult data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/decimalroundedresult?view=bingads-13">DecimalRoundedResult Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/decimalroundedresult?view=bingads-13 for details.
@@ -13742,7 +13742,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The rounded value to the nearest scale unit.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> Value
@@ -13762,7 +13762,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The scale unit: Thousand, Million, or Billion.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.ScaleUnit> Unit
@@ -14895,7 +14895,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.RetrieveRecommendationsResponse> RetrieveRecommendationsAsync(Microsoft.BingAds.V13.AdInsight.RetrieveRecommendationsRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets the audience full estimation.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Service Operation</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
@@ -14913,7 +14913,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationResponse GetAudienceFullEstimation(Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationRequest request);
         
         /// <summary>
-        /// Reserved.
+        /// Gets the audience full estimation.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Service Operation</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
@@ -19066,7 +19066,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets the audience full estimation.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Request Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
@@ -19261,7 +19261,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Gets the audience full estimation.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Response Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
@@ -20347,7 +20347,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets the audience full estimation.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Service Operation</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
@@ -20362,7 +20362,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Gets the audience full estimation.
         /// </summary>
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimation Service Operation</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.

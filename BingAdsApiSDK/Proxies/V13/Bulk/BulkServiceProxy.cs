@@ -1167,13 +1167,13 @@ namespace Microsoft.BingAds.V13.Bulk
         ProductGoal = 172,
         
         /// <summary>
-        /// Reserved.
+        /// Include SeasonalityAdjustments records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeasonalityAdjustments = 173,
         
         /// <summary>
-        /// Reserved.
+        /// Include DataExclusions records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DataExclusions = 174,

@@ -47,13 +47,80 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
+using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using Microsoft.BingAds.Internal;
 
-namespace Microsoft.BingAds.Internal
+namespace Microsoft.BingAds
 {
-    public interface IRestHttpClientProvider
+    public class HttpClientProvider
     {
-        HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment);
+        private IHttpClientFactory _hHttpClientFactory;
+
+        public virtual HttpClient GetHttpClient(Type clientType, ApiEnvironment apiEnvironment) => _hHttpClientFactory.CreateClient($"{clientType.Name}_{apiEnvironment}");
+
+        public static string ClientName = null;
+
+        public void Initialize()
+        {
+            if (_hHttpClientFactory != null)
+            {
+                return;
+            }
+
+            var serviceCollection = new ServiceCollection();
+
+            serviceCollection.AddScoped<RestHttpClientLogger>();
+
+            serviceCollection.AddScoped<LoggingHandler>();
+
+            foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
+            {
+                foreach (var serviceInfoPair in ServiceClientFactory.Endpoints)
+                {
+                    var serviceInfo = serviceInfoPair.Value;
+
+                    var wcfUrl = serviceInfo.GetUrl(apiEnvironment);
+
+                    var rootUrl = new Uri(wcfUrl).GetLeftPart(UriPartial.Authority);
+
+                    var baseUrl = $"{rootUrl}/{serviceInfo.ServiceNameAndVersion}/";
+
+                    serviceCollection.AddHttpClient($"{serviceInfoPair.Key.Name}_{apiEnvironment}", c =>
+                    {
+                        c.BaseAddress = new Uri(baseUrl);
+
+                        var productName = "BingAdsSDK.NET.RestApi";
+
+                        if (!string.IsNullOrEmpty(ClientName))
+                        {
+                            productName += $".{ClientName}";
+                        }
+
+                        c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(productName, typeof(HttpClientProvider).Assembly.GetName().Version.ToString()));
+
+                        ConfigureHttpClient(c, serviceInfoPair.Key, apiEnvironment);
+                    }).ConfigurePrimaryHttpMessageHandler(c => CreatePrimaryHttpClientHandler()).AddHttpMessageHandler<LoggingHandler>();
+                }
+            }
+
+            _hHttpClientFactory = serviceCollection.BuildServiceProvider().GetService<IHttpClientFactory>();
+        }
+
+        protected virtual void ConfigureHttpClient(HttpClient httpClient, Type serviceType, ApiEnvironment apiEnvironment)
+        {
+            httpClient.Timeout = TimeSpan.FromMinutes(10);
+        }
+
+        protected virtual HttpClientHandler CreatePrimaryHttpClientHandler()
+        {
+            return new HttpClientHandler
+            {
+                AutomaticDecompression = (DecompressionMethods)(-1),
+            };
+        }
     }
 }
