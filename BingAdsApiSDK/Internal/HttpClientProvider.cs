@@ -73,10 +73,6 @@ namespace Microsoft.BingAds
 
             var serviceCollection = new ServiceCollection();
 
-            serviceCollection.AddScoped<RestHttpClientLogger>();
-
-            serviceCollection.AddScoped<LoggingHandler>();
-
             foreach (var apiEnvironment in new[] { ApiEnvironment.Production, ApiEnvironment.Sandbox })
             {
                 foreach (var serviceInfoPair in ServiceClientFactory.Endpoints)
@@ -103,7 +99,7 @@ namespace Microsoft.BingAds
                         c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue(productName, typeof(HttpClientProvider).Assembly.GetName().Version.ToString()));
 
                         ConfigureHttpClient(c, serviceInfoPair.Key, apiEnvironment);
-                    }).ConfigurePrimaryHttpMessageHandler(c => CreatePrimaryHttpClientHandler()).AddHttpMessageHandler<LoggingHandler>();
+                    }).ConfigurePrimaryHttpMessageHandler(CreatePrimaryHttpClientHandler).AddHttpMessageHandler(CreateLoggingHandler);
                 }
             }
 
@@ -115,12 +111,17 @@ namespace Microsoft.BingAds
             httpClient.Timeout = TimeSpan.FromMinutes(10);
         }
 
-        protected virtual HttpClientHandler CreatePrimaryHttpClientHandler()
+        protected virtual HttpMessageHandler CreatePrimaryHttpClientHandler()
         {
             return new HttpClientHandler
             {
                 AutomaticDecompression = (DecompressionMethods)(-1),
             };
+        }
+
+        private DelegatingHandler CreateLoggingHandler()
+        {
+            return new LoggingHandler(new RestHttpClientLogger());
         }
     }
 }
