@@ -12721,7 +12721,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for the selection of age targeting.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/selectionofageenum?view=bingads-13">SelectionOfAgeEnum Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/selectionofageenum?view=bingads-13 for details.
@@ -12756,7 +12756,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Includes array is included as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.AgeEnum> Includes
@@ -12776,7 +12776,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Excludes array is excluded as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.AgeEnum> Excludes
@@ -12869,7 +12869,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for the selection of gender targeting.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/selectionofgenderenum?view=bingads-13">SelectionOfGenderEnum Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/selectionofgenderenum?view=bingads-13 for details.
@@ -12904,7 +12904,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Includes array is included as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.GenderEnum> Includes
@@ -12924,7 +12924,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Excludes array is excluded as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.GenderEnum> Excludes
@@ -12987,7 +12987,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for the selection segment IDs.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/selectionoflong?view=bingads-13">SelectionOflong Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/selectionoflong?view=bingads-13 for details.
@@ -13022,7 +13022,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Includes array is included as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> Includes
@@ -13042,7 +13042,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// The traffic matching any value of Excludes array is excluded as an estimation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<long> Excludes
@@ -13115,7 +13115,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The radius from the center latitude and longitude.
+        /// Indicates the desired amount of radius units.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Radius
@@ -13135,7 +13135,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The unit of measurement of the radius from the center: Kilometers or Miles.
+        /// Indicates the radius unit.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.RadiusUnit RadiusUnit
@@ -13155,7 +13155,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The center latitude point.
+        /// Defines the center latitude.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public double CenterLatitude
@@ -13175,7 +13175,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The center longitude point.
+        /// DEfines the center longitude.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public double CenterLongitude
@@ -13270,7 +13270,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The identifier of the store.
+        /// Respect StoreId when CampaignSubType is set to FeedBasedAds.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> StoreId
@@ -13290,7 +13290,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The identifier of the feed.
+        /// Respect FeedId when CampaignSubType is set to DynamicFeedBasedAds.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<long> FeedId
@@ -13654,7 +13654,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// R
+        /// Indicates the upper bound of range result.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult High
@@ -13674,7 +13674,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the lower bound of range result.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult Low
@@ -13762,7 +13762,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The scale unit: Thousand, Million, or Billion.
+        /// The scale unit: Thousand, Million,Billion, None.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.ScaleUnit> Unit
@@ -13831,7 +13831,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a RangeResultOfDouble data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/rangeresultofdouble?view=bingads-13">RangeResultOfdouble Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/rangeresultofdouble?view=bingads-13 for details.
@@ -13866,7 +13866,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the upper bound of range result.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double High
@@ -13886,7 +13886,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the lower bound of range result.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double Low
@@ -19100,85 +19100,85 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// The selection of age targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOfAgeEnum Age;
         
         /// <summary>
-        /// Reserved.
+        /// The gender to target.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOfGenderEnum Gender;
         
         /// <summary>
-        /// Reserved.
+        /// The selection of audience targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOflong Audience;
         
         /// <summary>
-        /// Reserved.
+        /// The company of LinkedIn profile targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOflong Company;
         
         /// <summary>
-        /// Reserved.
+        /// The industry of LinkedIn profile targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=4)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOflong Industry;
         
         /// <summary>
-        /// Reserved.
+        /// The job function The industry of LinkedIn profile targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=5)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOflong JobFunction;
         
         /// <summary>
-        /// Reserved.
+        /// The selection of location targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=6)]
         public Microsoft.BingAds.V13.AdInsight.SelectionOflong Location;
         
         /// <summary>
-        /// Reserved.
+        /// Represents the desired geographical area in terms of miles/kilometers.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=7)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RadiusTarget> RadiusTargets;
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the desired bidding strategy for estimation response.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=8)]
         public System.Nullable<int> CampaignBiddingStrategy;
         
         /// <summary>
-        /// Reserved.
+        /// Indicate the desired ad type for estimation response.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=9)]
         public System.Nullable<int> CampaignSubType;
         
         /// <summary>
-        /// Reserved.
+        /// Respect this parameter only when CampaignSubType is FeedBasedAds or DynamicFeedBasedAds.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=10)]
         public Microsoft.BingAds.V13.AdInsight.Feed Feed;
         
         /// <summary>
-        /// Reserved.
+        /// The daily campaign budget value.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=11)]
         public System.Nullable<decimal> DailyBudget;
         
         /// <summary>
-        /// Reserved.
+        /// The desired bid setting value.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=12)]
         public System.Nullable<decimal> Bid;
         
         /// <summary>
-        /// Reserved.
+        /// The currency of DailyBudget and Bid.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=13)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency;
@@ -19199,20 +19199,20 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimationRequest</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="Age">Reserved.</param>
-        /// <param name="Gender">Reserved.</param>
-        /// <param name="Audience">Reserved.</param>
-        /// <param name="Company">Reserved.</param>
-        /// <param name="Industry">Reserved.</param>
-        /// <param name="JobFunction">Reserved.</param>
-        /// <param name="Location">Reserved.</param>
-        /// <param name="RadiusTargets">Reserved.</param>
-        /// <param name="CampaignBiddingStrategy">Reserved.</param>
-        /// <param name="CampaignSubType">Reserved.</param>
-        /// <param name="Feed">Reserved.</param>
-        /// <param name="DailyBudget">Reserved.</param>
-        /// <param name="Bid">Reserved.</param>
-        /// <param name="Currency">Reserved.</param>
+        /// <param name="Age">The selection of age targeting.</param>
+        /// <param name="Gender">The gender to target.</param>
+        /// <param name="Audience">The selection of audience targeting.</param>
+        /// <param name="Company">The company of LinkedIn profile targeting.</param>
+        /// <param name="Industry">The industry of LinkedIn profile targeting.</param>
+        /// <param name="JobFunction">The job function The industry of LinkedIn profile targeting.</param>
+        /// <param name="Location">The selection of location targeting.</param>
+        /// <param name="RadiusTargets">Represents the desired geographical area in terms of miles/kilometers.</param>
+        /// <param name="CampaignBiddingStrategy">Indicates the desired bidding strategy for estimation response.</param>
+        /// <param name="CampaignSubType">Indicate the desired ad type for estimation response.</param>
+        /// <param name="Feed">Respect this parameter only when CampaignSubType is FeedBasedAds or DynamicFeedBasedAds.</param>
+        /// <param name="DailyBudget">The daily campaign budget value.</param>
+        /// <param name="Bid">The desired bid setting value.</param>
+        /// <param name="Currency">The currency of DailyBudget and Bid.</param>
         public GetAudienceFullEstimationRequest(
                     string ApplicationToken, 
                     string AuthenticationToken, 
@@ -19277,79 +19277,79 @@ namespace Microsoft.BingAds.V13.AdInsight
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated impression with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstImpression;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated reach user count with rounded results.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstAudienceSize;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated user count with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstClick;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated spend with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstSpend;
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the estimated cost per event.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=4)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstCostPerEvent;
         
         /// <summary>
-        /// Reserved.
+        /// Estimated click-through rate (CTR) with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=5)]
         public Microsoft.BingAds.V13.AdInsight.RangeResultOfdouble EstCTR;
         
         /// <summary>
-        /// Reserved.
+        /// Suggested bid value under the current targeting.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=6)]
         public System.Nullable<decimal> SuggestedBid;
         
         /// <summary>
-        /// Reserved.
+        /// Suggested daily budget value under the current targeting and bid.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=7)]
         public System.Nullable<decimal> SuggestedBudget;
         
         /// <summary>
-        /// Reserved.
+        /// Indicates event lost count due to insufficient input bid.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=8)]
         public System.Nullable<int> EventsLostToBid;
         
         /// <summary>
-        /// Reserved.
+        /// Indicates the event lost count due to insufficient input budget.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=9)]
         public System.Nullable<int> EventsLostToBudget;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated user count with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=10)]
         public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachAudienceSize;
         
         /// <summary>
-        /// Reserved.
+        /// Monthly estimated impression with range result.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=11)]
         public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachImpression;
         
         /// <summary>
-        /// Reserved.
+        /// The currency of DailyBudget and Bid.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=12)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency;
@@ -19370,19 +19370,19 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13">GetAudienceFullEstimationResponse</see> https:/learn.microsoft.com/advertising/ad-insight-service/getaudiencefullestimation?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="EstImpression">Reserved.</param>
-        /// <param name="EstAudienceSize">Reserved.</param>
-        /// <param name="EstClick">Reserved.</param>
-        /// <param name="EstSpend">Reserved.</param>
-        /// <param name="EstCostPerEvent">Reserved.</param>
-        /// <param name="EstCTR">Reserved.</param>
-        /// <param name="SuggestedBid">Reserved.</param>
-        /// <param name="SuggestedBudget">Reserved.</param>
-        /// <param name="EventsLostToBid">Reserved.</param>
-        /// <param name="EventsLostToBudget">Reserved.</param>
-        /// <param name="EstReachAudienceSize">Reserved.</param>
-        /// <param name="EstReachImpression">Reserved.</param>
-        /// <param name="Currency">Reserved.</param>
+        /// <param name="EstImpression">Monthly estimated impression with range result.</param>
+        /// <param name="EstAudienceSize">Monthly estimated reach user count with rounded results.</param>
+        /// <param name="EstClick">Monthly estimated user count with range result.</param>
+        /// <param name="EstSpend">Monthly estimated spend with range result.</param>
+        /// <param name="EstCostPerEvent">Indicates the estimated cost per event.</param>
+        /// <param name="EstCTR">Estimated click-through rate (CTR) with range result.</param>
+        /// <param name="SuggestedBid">Suggested bid value under the current targeting.</param>
+        /// <param name="SuggestedBudget">Suggested daily budget value under the current targeting and bid.</param>
+        /// <param name="EventsLostToBid">Indicates event lost count due to insufficient input bid.</param>
+        /// <param name="EventsLostToBudget">Indicates the event lost count due to insufficient input budget.</param>
+        /// <param name="EstReachAudienceSize">Monthly estimated user count with range result.</param>
+        /// <param name="EstReachImpression">Monthly estimated impression with range result.</param>
+        /// <param name="Currency">The currency of DailyBudget and Bid.</param>
         public GetAudienceFullEstimationResponse(string TrackingId, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstImpression, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstAudienceSize, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstClick, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstSpend, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstCostPerEvent, Microsoft.BingAds.V13.AdInsight.RangeResultOfdouble EstCTR, System.Nullable<decimal> SuggestedBid, System.Nullable<decimal> SuggestedBudget, System.Nullable<int> EventsLostToBid, System.Nullable<int> EventsLostToBudget, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachAudienceSize, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachImpression, System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency)
         {
             this.TrackingId = TrackingId;

@@ -1177,6 +1177,60 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DataExclusions = 174,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandList = 175,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandItem = 176,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignBrandListAssociation = 177,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupSearchThemes = 178,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionBasedRemarketingList = 179,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupImpressionBasedRemarketingListAssociations = 180,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupNegativeImpressionBasedRemarketingListAssociations = 181,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignImpressionBasedRemarketingListAssociations = 182,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignNegativeImpressionBasedRemarketingListAssociations = 183,
     }
     
     /// <summary>

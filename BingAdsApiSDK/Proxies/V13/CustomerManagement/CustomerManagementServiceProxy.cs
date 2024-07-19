@@ -2500,6 +2500,24 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimplifiedChinese = 17,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Thai = 18,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Turkish = 19,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Filipino = 20,
     }
     
     /// <summary>
@@ -4384,6 +4402,18 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TurkishTurkey = 1055,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FilipinoPhilippines = 1124,
     }
     
     /// <summary>

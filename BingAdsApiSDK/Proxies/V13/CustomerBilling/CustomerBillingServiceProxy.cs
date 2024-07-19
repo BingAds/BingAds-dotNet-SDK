@@ -109,6 +109,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> CampaignIdField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DocumentNumberField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -297,6 +300,26 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.CampaignIdField = value;
                     this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
+        public string DocumentNumber
+        {
+            get
+            {
+                return this.DocumentNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DocumentNumberField, value) != true))
+                {
+                    this.DocumentNumberField = value;
+                    this.RaisePropertyChanged("DocumentNumber");
                 }
             }
         }
@@ -921,6 +944,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CustomerBilling.DataType TypeField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -989,6 +1015,26 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.TypeField = value;
                     this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string Number
+        {
+            get
+            {
+                return this.NumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NumberField, value) != true))
+                {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
                 }
             }
         }
@@ -3821,6 +3867,12 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Nullable<System.DateTime> EndDate;
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
+        public System.Nullable<bool> ReturnInvoiceNumber;
+        
+        /// <summary>
         /// Constructor for the GetBillingDocumentsInfoRequest request object.
         /// </summary>
         /// <remarks>
@@ -3839,7 +3891,8 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <param name="AccountIds">A list of identifiers of the accounts whose billing document information you want to get.</param>
         /// <param name="StartDate">The start date to use for specifying the billing documents to get.</param>
         /// <param name="EndDate">The end date to use for specifying the billing documents to get.</param>
-        public GetBillingDocumentsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AccountIds, System.DateTime StartDate, System.Nullable<System.DateTime> EndDate)
+        /// <param name="ReturnInvoiceNumber">Reserved.</param>
+        public GetBillingDocumentsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AccountIds, System.DateTime StartDate, System.Nullable<System.DateTime> EndDate, System.Nullable<bool> ReturnInvoiceNumber)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -3849,6 +3902,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
             this.AccountIds = AccountIds;
             this.StartDate = StartDate;
             this.EndDate = EndDate;
+            this.ReturnInvoiceNumber = ReturnInvoiceNumber;
         }
     }
     

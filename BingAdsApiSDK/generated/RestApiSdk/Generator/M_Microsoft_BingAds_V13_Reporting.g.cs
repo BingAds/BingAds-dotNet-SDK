@@ -122,6 +122,7 @@ public static partial class RestApiGeneration
             { typeof(AssetGroupPerformanceReportFilter), static t => CustomizeAssetGroupPerformanceReportFilter(t) },
             { typeof(AssetGroupPerformanceReportRequest), static t => CustomizeAssetGroupPerformanceReportRequest(t) },
             { typeof(AssetGroupReportScope), static t => CustomizeAssetGroupReportScope(t) },
+            { typeof(AssetPerformanceReportRequest), static t => CustomizeAssetPerformanceReportRequest(t) },
             { typeof(AudiencePerformanceReportFilter), static t => CustomizeAudiencePerformanceReportFilter(t) },
             { typeof(AudiencePerformanceReportRequest), static t => CustomizeAudiencePerformanceReportRequest(t) },
             { typeof(BatchError), static t => CustomizeBatchError(t) },
@@ -178,6 +179,8 @@ public static partial class RestApiGeneration
             { typeof(ReportTime), static t => CustomizeReportTime(t) },
             { typeof(SearchCampaignChangeHistoryReportFilter), static t => CustomizeSearchCampaignChangeHistoryReportFilter(t) },
             { typeof(SearchCampaignChangeHistoryReportRequest), static t => CustomizeSearchCampaignChangeHistoryReportRequest(t) },
+            { typeof(SearchInsightPerformanceReportFilter), static t => CustomizeSearchInsightPerformanceReportFilter(t) },
+            { typeof(SearchInsightPerformanceReportRequest), static t => CustomizeSearchInsightPerformanceReportRequest(t) },
             { typeof(SearchQueryPerformanceReportFilter), static t => CustomizeSearchQueryPerformanceReportFilter(t) },
             { typeof(SearchQueryPerformanceReportRequest), static t => CustomizeSearchQueryPerformanceReportRequest(t) },
             { typeof(ShareOfVoiceReportFilter), static t => CustomizeShareOfVoiceReportFilter(t) },
@@ -614,6 +617,23 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+        }
+
+        private static void CustomizeAssetPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "AssetPerformanceReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
         private static void CustomizeAudiencePerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
@@ -1478,6 +1498,37 @@ public static partial class RestApiGeneration
             }
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "SearchCampaignChangeHistoryReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeSearchInsightPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSearchInsightPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "SearchInsightPerformanceReportRequest";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
