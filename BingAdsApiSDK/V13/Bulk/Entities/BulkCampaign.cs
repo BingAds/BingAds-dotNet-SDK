@@ -639,6 +639,25 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                 }
             ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.CostPerSaleOptOut,
+                c =>
+                {
+                    var setting = c.GetCampaignSetting(typeof(PerformanceMaxSetting)) as PerformanceMaxSetting;
+                    if (setting != null)
+                    {
+                        return setting.CostPerSaleOptOut.ToString();
+                    }
+                    return null;
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(PerformanceMaxSetting), true)) as PerformanceMaxSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.CostPerSaleOptOut = v.Parse<bool>();
+                    }
+                }
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

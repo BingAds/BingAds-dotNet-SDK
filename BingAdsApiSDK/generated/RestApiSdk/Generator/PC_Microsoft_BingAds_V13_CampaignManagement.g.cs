@@ -195,6 +195,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "LogoAdExtension" => jsonObj.Deserialize<LogoAdExtension>(options),
                 "DisclaimerAdExtension" => jsonObj.Deserialize<DisclaimerAdExtension>(options),
                 "VideoAdExtension" => jsonObj.Deserialize<VideoAdExtension>(options),
                 "FlyerAdExtension" => jsonObj.Deserialize<FlyerAdExtension>(options),
@@ -221,6 +222,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case LogoAdExtension logoAdExtension:
+                    JsonSerializer.Serialize(writer, logoAdExtension, options);
+                    break;
                 case DisclaimerAdExtension disclaimerAdExtension:
                     JsonSerializer.Serialize(writer, disclaimerAdExtension, options);
                     break;
@@ -459,6 +463,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "ImpressionBasedRemarketingList" => jsonObj.Deserialize<ImpressionBasedRemarketingList>(options),
                 "CustomerList" => jsonObj.Deserialize<CustomerList>(options),
                 "CombinedList" => jsonObj.Deserialize<CombinedList>(options),
                 "SimilarRemarketingList" => jsonObj.Deserialize<SimilarRemarketingList>(options),
@@ -477,6 +482,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case ImpressionBasedRemarketingList impressionBasedRemarketingList:
+                    JsonSerializer.Serialize(writer, impressionBasedRemarketingList, options);
+                    break;
                 case CustomerList customerList:
                     JsonSerializer.Serialize(writer, customerList, options);
                     break;
@@ -1443,6 +1451,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "VanityPharmaSetting" => jsonObj.Deserialize<VanityPharmaSetting>(options),
                 "CallToActionSetting" => jsonObj.Deserialize<CallToActionSetting>(options),
                 "PerformanceMaxSetting" => jsonObj.Deserialize<PerformanceMaxSetting>(options),
                 "ResponsiveSearchAdsSetting" => jsonObj.Deserialize<ResponsiveSearchAdsSetting>(options),
@@ -1465,6 +1474,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case VanityPharmaSetting vanityPharmaSetting:
+                    JsonSerializer.Serialize(writer, vanityPharmaSetting, options);
+                    break;
                 case CallToActionSetting callToActionSetting:
                     JsonSerializer.Serialize(writer, callToActionSetting, options);
                     break;

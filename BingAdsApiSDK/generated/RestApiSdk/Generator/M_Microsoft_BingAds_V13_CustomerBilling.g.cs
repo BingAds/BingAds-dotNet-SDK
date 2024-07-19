@@ -277,6 +277,17 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Number":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeBillingDocumentInfo(JsonTypeInfo jsonTypeInfo)
@@ -297,6 +308,10 @@ public static partial class RestApiGeneration
                 switch (jsonPropertyInfo.Name)
                 {
                     case "CampaignId":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "DocumentNumber":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;

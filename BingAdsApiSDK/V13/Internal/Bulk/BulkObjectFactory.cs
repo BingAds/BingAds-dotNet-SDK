@@ -282,6 +282,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupNegativeCustomerListAssociation, new EntityInfo(() => new BulkAdGroupNegativeCustomerListAssociation())},
                 {StringTable.CampaignCustomerListAssociation, new EntityInfo(() => new BulkCampaignCustomerListAssociation())},
                 {StringTable.CampaignNegativeCustomerListAssociation, new EntityInfo(() => new BulkCampaignNegativeCustomerListAssociation())},
+                {StringTable.ImpressionBasedRemarketingList, new EntityInfo(() => new BulkImpressionBasedRemarketingList())},
+                {StringTable.AdGroupImpressionBasedRemarketingListAssociation, new EntityInfo(() => new BulkAdGroupImpressionBasedRemarketingListAssociation())},
+                {StringTable.AdGroupNegativeImpressionBasedRemarketingListAssociation, new EntityInfo(() => new BulkAdGroupNegativeImpressionBasedRemarketingListAssociation())},
+                {StringTable.CampaignImpressionBasedRemarketingListAssociation, new EntityInfo(() => new BulkCampaignImpressionBasedRemarketingListAssociation())},
+                {StringTable.CampaignNegativeImpressionBasedRemarketingListAssociation, new EntityInfo(() => new BulkCampaignNegativeImpressionBasedRemarketingListAssociation())},
 
 
                 {StringTable.SitelinkAdExtension,          new EntityInfo(() => new BulkSitelinkAdExtension())},
@@ -373,6 +378,19 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AccountNegativeKeywordList, new EntityInfo(() => new BulkAccountNegativeKeywordList())},
                 {StringTable.AccountNegativeKeywordListAssociation, new EntityInfo(() => new BulkAccountNegativeKeywordListAssociation())},
                 {StringTable.AccountSharedNegativeKeyword, new EntityInfo(() => new BulkAccountSharedNegativeKeyword())},
+                {StringTable.EventGoal, new EntityInfo(() => new BulkEventGoal())},
+                {StringTable.UrlGoal, new EntityInfo(() => new BulkUrlGoal())},
+                {StringTable.OfflineConversionGoal, new EntityInfo(() => new BulkOfflineConversionGoal())},
+                {StringTable.AppInstallGoal, new EntityInfo(() => new BulkAppInstallGoal())},
+                {StringTable.PagesViewedPerVisitGoal, new EntityInfo(() => new BulkPagesViewedPerVisitGoal())},
+                {StringTable.DurationGoal, new EntityInfo(() => new BulkDurationGoal())},
+                {StringTable.InStoreTransactionGoal, new EntityInfo(() => new BulkInStoreTransactionGoal())},
+                {StringTable.ProductGoal, new EntityInfo(() => new BulkProductGoal())},
+                {StringTable.InStoreVisitGoal, new EntityInfo(() => new BulkInStoreVisitGoal())},
+                {StringTable.AssetGroupSearchTheme, new EntityInfo(() => new BulkAssetGroupSearchTheme())},
+                {StringTable.BrandList, new EntityInfo(() => new BulkBrandList())},
+                {StringTable.BrandItem, new EntityInfo(() => new BulkBrandItem())},
+                {StringTable.CampaignBrandList, new EntityInfo(() => new BulkCampaignBrandListAssociation())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>
