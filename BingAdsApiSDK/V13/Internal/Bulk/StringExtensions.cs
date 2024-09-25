@@ -60,6 +60,7 @@ using System.Runtime.Serialization.Json;
 using Microsoft.BingAds.V13.Bulk.Entities.Feeds;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -753,6 +754,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return new ManualCpaBiddingScheme { Type = "ManualCpa" };
                 case "CostPerSale":
                     return new CostPerSaleBiddingScheme { Type = "CostPerSale" };
+                case "MaxReach":
+                    return new MaxReachBiddingScheme { Type = "MaxReach" };
+                case "MaxImpressions":
+                    return new MaxImpressionsBiddingScheme { Type = "MaxImpressions" };
                 default:
                     return null;
             }
@@ -975,6 +980,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                     return "CostPerSale";
                 case ManualCpaBiddingScheme manualCpaBiddingScheme:
                     return "ManualCpa";
+                case MaxReachBiddingScheme maxReachBiddingScheme:
+                    return "MaxReach";
+                case MaxImpressionsBiddingScheme maxImpressionsBiddingScheme:
+                    return "MaxImpressions";
             }
             throw new ArgumentException("Unknown bidding scheme");
         }

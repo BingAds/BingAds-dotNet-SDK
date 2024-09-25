@@ -106,6 +106,9 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         public bool? ShouldServeOnMSAN { get; set; }
 
+        // Only for internal use
+        public bool? IsLinkedInCampaign { get; set; }
+
         /// <summary>
         /// Campaigns of type Shopping have exactly one ShoppingSetting.
         /// Campaigns of type Audience can have zero or one ShoppingSetting. 
@@ -133,6 +136,18 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         private void AddCampaignSettings()
         {
+            if (IsLinkedInCampaign == true)
+            {
+                Campaign.Settings = new List<Setting>
+                {
+                    new LinkedInSetting
+                    {
+                        Type = typeof(LinkedInSetting).Name
+                    }
+                };
+                return;
+            }
+
             if (Campaign.CampaignType == null) return;
             switch (Campaign.CampaignType)
             {
@@ -218,6 +233,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.CampaignType,
                 c =>
                 {
+                    if (c.IsLinkedInCampaign == true)
+                    {
+                        return "LinkedIn";
+                    }
+
                     if (!c.Campaign.CampaignType.HasValue)
                     {
                         return null;
@@ -239,7 +259,15 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 },
                 (v, c) =>
                 {
-                    c.Campaign.CampaignType = v.ParseOptional<CampaignType>();
+                    if (v == "LinkedIn")
+                    {
+                        c.IsLinkedInCampaign = true;
+                    }
+                    else
+                    {
+                        c.Campaign.CampaignType = v.ParseOptional<CampaignType>();
+                    }
+     
                     c.AddCampaignSettings();
                 }
                 ), 
@@ -407,6 +435,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     if(details != null && setting != null)
                     {
                         setting.Details = details;
+                    }
+                }
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.CampaignGoal,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(LinkedInSetting))) as LinkedInSetting;
+                    return setting == null ? null : ((int)setting.Goal).ToString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(LinkedInSetting), true)) as LinkedInSetting;
+                    var goal = v.ParseOptional<CampaignGoal>();
+                    if(goal != null && setting != null)
+                    {
+                        setting.Goal = goal;
                     }
                 }
             ),
@@ -658,6 +703,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                 }
             ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.IsDealCampaign,
+                c => c.Campaign.IsDealCampaign.ToString(),
+                (v, c) => c.Campaign.IsDealCampaign = v.ParseOptional<bool>()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
@@ -724,7 +773,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         }
 
         private static void CsvToBiddingScheme(RowValues values, BulkCampaign c)
-        {            
+        {   
             c.Campaign.BiddingScheme = values.ReadBiddingSchemaFromValues();
         }
 

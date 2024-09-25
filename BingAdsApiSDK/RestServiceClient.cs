@@ -452,6 +452,8 @@ namespace Microsoft.BingAds.Internal
 
                 switch (faultDetail)
                 {
+                    case V13.CustomerBilling.ApiBatchFault apiBatchFault:
+                        return new FaultException<V13.CustomerBilling.ApiBatchFault>(apiBatchFault, faultReason);
                     case V13.CustomerBilling.ApiFault apiFault:
                         return new FaultException<V13.CustomerBilling.ApiFault>(apiFault, faultReason);
                     case V13.CustomerBilling.AdApiFaultDetail adApiFaultDetail:

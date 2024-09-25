@@ -2308,7 +2308,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         ZWD = 91,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding currency type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NGN = 92,
@@ -2502,19 +2502,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         SimplifiedChinese = 17,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Thai = 18,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Turkish = 19,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Filipino = 20,
@@ -4086,85 +4086,85 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         ArabicSaudiArabia = 1025,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Algeria)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicAlgeria = 5121,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Bahrain)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicBahrain = 15361,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Egypt)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicEgypt = 3073,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Iraq)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicIraq = 2049,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Jordan)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicJordan = 11265,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Kuwait)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicKuwait = 13313,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Lebanon)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLebanon = 12289,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Libya)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLibya = 4097,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Morocco)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicMorocco = 6145,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Oman)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicOman = 8193,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Qatar)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicQatar = 16385,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Tunisia)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicTunisia = 7169,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (United Arab Emirates)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicUnitedArabEmirates = 14337,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Arabic (Yemen)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicYemen = 9217,
@@ -4248,7 +4248,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         NorwegianNorway = 1044,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// Portuguese (Brazil)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PortugueseBrazil = 1046,
@@ -4344,7 +4344,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         EnglishNewZealand = 5129,
         
         /// <summary>
-        /// The corresponding LCID type.
+        /// English (Ireland)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIreland = 6153,
@@ -4404,13 +4404,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         EnglishSingapore = 18441,
         
         /// <summary>
-        /// Reserved.
+        /// Turkish (Turkey)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishTurkey = 1055,
         
         /// <summary>
-        /// Reserved.
+        /// Filipino (Philippines)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilipinoPhilippines = 1124,

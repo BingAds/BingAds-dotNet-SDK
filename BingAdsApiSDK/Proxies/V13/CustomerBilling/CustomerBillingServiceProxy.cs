@@ -305,7 +305,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The number of the billing document.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public string DocumentNumber
@@ -1020,7 +1020,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
         
         /// <summary>
-        /// Reserved.
+        /// The number of the billing document.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string Number
@@ -3867,7 +3867,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Nullable<System.DateTime> EndDate;
         
         /// <summary>
-        /// Reserved.
+        /// Include the invoice number with the request.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
         public System.Nullable<bool> ReturnInvoiceNumber;
@@ -3891,7 +3891,7 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         /// <param name="AccountIds">A list of identifiers of the accounts whose billing document information you want to get.</param>
         /// <param name="StartDate">The start date to use for specifying the billing documents to get.</param>
         /// <param name="EndDate">The end date to use for specifying the billing documents to get.</param>
-        /// <param name="ReturnInvoiceNumber">Reserved.</param>
+        /// <param name="ReturnInvoiceNumber">Include the invoice number with the request.</param>
         public GetBillingDocumentsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AccountIds, System.DateTime StartDate, System.Nullable<System.DateTime> EndDate, System.Nullable<bool> ReturnInvoiceNumber)
         {
             this.ApplicationToken = ApplicationToken;
