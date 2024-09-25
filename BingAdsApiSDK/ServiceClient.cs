@@ -89,7 +89,7 @@ namespace Microsoft.BingAds
                 {
                     return true;
                 }
-				
+
                 if (AppContext.TryGetSwitch($"Switch.BingAds.{typeof(TService).Name}.DisableRestApi", out var isSwitchOn) && isSwitchOn)
                 {
                     Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "AppContext switch");
