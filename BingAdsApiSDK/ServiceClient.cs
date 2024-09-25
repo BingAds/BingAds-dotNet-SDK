@@ -83,7 +83,7 @@ namespace Microsoft.BingAds
         {
             get
             {
-				if (typeof(TService) == typeof(ICustomerManagementService) ||
+                if (typeof(TService) == typeof(ICustomerManagementService) ||
                     typeof(TService) == typeof(ICustomerBillingService) ||
                     typeof(TService) == typeof(IAdInsightService))
                 {
