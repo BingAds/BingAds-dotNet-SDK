@@ -113,6 +113,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsDealCampaignField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MultimediaAdsBidAdjustmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -367,6 +370,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsDealCampaign
+        {
+            get
+            {
+                return this.IsDealCampaignField;
+            }
+            set
+            {
+                if ((this.IsDealCampaignField.Equals(value) != true))
+                {
+                    this.IsDealCampaignField = value;
+                    this.RaisePropertyChanged("IsDealCampaign");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> MultimediaAdsBidAdjustment
         {
             get
@@ -506,7 +529,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, Shopping campaign, Hotel Ads, or Performance Max.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -526,7 +549,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The supported settings that vary by campaign type.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -546,7 +569,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The unique Microsoft Advertising identifier of the Budget that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -566,7 +589,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Your ad language setting determines the language you will use when you write your ads and should be the language of your customers.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=21)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -586,7 +609,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// Determines whether to use the account time zone or the time zone of the search user where the ads could be delivered.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -606,7 +629,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <summary>
         /// The system-generated identifier of the BidStrategy that this campaign shares with other campaigns in the account.
         /// </summary>
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=22)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=23)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -892,7 +915,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Audience = 8,
         
         /// <summary>
-        /// The campaign is a Lodging campaign (formerly hotel campaigns).
+        /// The campaign is a Lodging campaign (formerly Hotel campaigns).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hotel = 32,
@@ -933,6 +956,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PerformanceMaxSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CallToActionSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.VanityPharmaSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AppSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -2469,7 +2493,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the CallToActionSetting data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/calltoactionsetting?view=bingads-13">CallToActionSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/calltoactionsetting?view=bingads-13 for details.
@@ -2484,8 +2508,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> AutomatedCallToActionOptOutField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> CallToActionOptOutField;
+        
         /// <summary>
-        /// Reserved.
+        /// Determines whether to opt out of automatic selection of call to action ad asset for the multimedia ads in the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> AutomatedCallToActionOptOut
@@ -2503,10 +2530,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 }
             }
         }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> CallToActionOptOut
+        {
+            get
+            {
+                return this.CallToActionOptOutField;
+            }
+            set
+            {
+                if ((this.CallToActionOptOutField.Equals(value) != true))
+                {
+                    this.CallToActionOptOutField = value;
+                    this.RaisePropertyChanged("CallToActionOptOut");
+                }
+            }
+        }
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for VanityPharmaSetting.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmasetting?view=bingads-13">VanityPharmaSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmasetting?view=bingads-13 for details.
@@ -2525,7 +2572,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaWebsiteDescription> WebsiteDescriptionField;
         
         /// <summary>
-        /// Reserved.
+        /// The display mode for vanity pharma URLs for a campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaDisplayUrlMode> DisplayUrlMode
@@ -2545,7 +2592,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The text that shows in the display URL of a text ad when WebsiteDescription is the selected display mode for vanity pharma URLs for the campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaWebsiteDescription> WebsiteDescription
@@ -2560,6 +2607,66 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.WebsiteDescriptionField = value;
                     this.RaisePropertyChanged("WebsiteDescription");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/appsetting?view=bingads-13">AppSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/appsetting?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AppSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AppIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.AppStore AppStoreField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string AppId
+        {
+            get
+            {
+                return this.AppIdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AppIdField, value) != true))
+                {
+                    this.AppIdField = value;
+                    this.RaisePropertyChanged("AppId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V13.CampaignManagement.AppStore AppStore
+        {
+            get
+            {
+                return this.AppStoreField;
+            }
+            set
+            {
+                if ((this.AppStoreField.Equals(value) != true))
+                {
+                    this.AppStoreField = value;
+                    this.RaisePropertyChanged("AppStore");
                 }
             }
         }
@@ -2770,7 +2877,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// The ad group type for lodging campaigns (formerly hotel campaigns).
+    /// The ad group type for Lodging campaigns (formerly Hotel campaigns).
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/hoteladgrouptype?view=bingads-13">HotelAdGroupType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/hoteladgrouptype?view=bingads-13 for details.
@@ -2796,7 +2903,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for VanityPharmaDisplayUrlMode.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmadisplayurlmode?view=bingads-13">VanityPharmaDisplayUrlMode Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmadisplayurlmode?view=bingads-13 for details.
@@ -2808,20 +2915,20 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Replace the vanity pharma URL with the manufacturer website URL.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManufacturerWebsiteUrl = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Replace the vanity pharma URL with a description of the website.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WebsiteDescription = 2,
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for VanityPharmaWebsiteDescription.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmawebsitedescription?view=bingads-13">VanityPharmaWebsiteDescription Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmawebsitedescription?view=bingads-13 for details.
@@ -2833,82 +2940,114 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The website description is not specified.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unspecified = 0,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription treatment website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionTreatmentWebsite_En = 1,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription treatment website with website content in Spanish (Sitio de tratamientos con receta).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionTreatmentWebsite_Es = 2,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription device website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionDeviceWebsite_En = 3,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription treatment website with website content in Spanish.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionDeviceWebsite_Es = 4,
         
         /// <summary>
-        /// Reserved.
+        /// A medical device website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MedicalDeviceWebsite_En = 5,
         
         /// <summary>
-        /// Reserved.
+        /// A medical device website with website content in Spanish (Sitio de dispositivos medicos).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MedicalDeviceWebsite_Es = 6,
         
         /// <summary>
-        /// Reserved.
+        /// A preventative treatment website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PreventativeTreatmentWebsite_En = 7,
         
         /// <summary>
-        /// Reserved.
+        /// A preventative treatment website with website content in Spanish (Sitio de tratamientos preventivos).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PreventativeTreatmentWebsite_Es = 8,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription contraception website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionContraceptionWebsite_En = 9,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription contraception website with website content in Spanish (Sitio de anticonceptivos con receta).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionContraceptionWebsite_Es = 10,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription vaccine website with website content in English.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionVaccineWebsite_En = 11,
         
         /// <summary>
-        /// Reserved.
+        /// A prescription vaccine website with website content in Spanish (Sitio de vacunas con receta).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionVaccineWebsite_Es = 12,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/appstore?view=bingads-13">AppStore Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/appstore?view=bingads-13 for details.
+    /// <para>Used by <see cref="AppSetting"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppStore", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AppStore : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoogleAppStore = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppleAppStore = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MicrosoftAppStore = 3,
     }
     
     /// <summary>
@@ -3936,6 +4075,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCpi = 8388608,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsDealCampaign = 16777216,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppSetting = 33554432,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CallToActionOptOut = 67108864,
     }
     
     /// <summary>
@@ -5077,7 +5234,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         OwnedAndOperatedOnly = 1,
         
         /// <summary>
-        /// Display ads on only syndicated search networks.
+        /// Note: SyndicatedSearchOnly is deprecated as of July 2024.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SyndicatedSearchOnly = 2,
@@ -6590,7 +6747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> VideosField;
         
         /// <summary>
-        /// Reserved.
+        /// The possible ad sub types.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdSubType> AdSubType
@@ -7383,7 +7540,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible ad sub types.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adsubtype?view=bingads-13">AdSubType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/adsubtype?view=bingads-13 for details.
@@ -7396,13 +7553,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The ad is a video ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Video = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The ad is a display ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Display = 2,
@@ -8705,7 +8862,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ImageTargetDimension = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Defines the possible ad sub types.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdSubType = 16,
@@ -10126,6 +10283,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetflixTCAccepted = 16384,
+        
+        /// <summary>
+        /// The segments that advertisers can block.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BlockedContentSegments = 32768,
     }
     
     /// <summary>
@@ -13539,7 +13702,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an ad extension that specifies a business logo.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/logoadextension?view=bingads-13">LogoAdExtension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/logoadextension?view=bingads-13 for details.
@@ -13564,7 +13727,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string DomainNameField;
         
         /// <summary>
-        /// Reserved.
+        /// The asset ID for the business logo.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BusinessLogo
@@ -13584,7 +13747,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The URL of the business logo.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessLogoUrl
@@ -13604,7 +13767,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The business name.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessName
@@ -13624,7 +13787,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The domain name.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DomainName
@@ -16286,7 +16449,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         DisclaimerAdExtension = 16384,
         
         /// <summary>
-        /// Reserved.
+        /// An ad extension that contains the business logo.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LogoAdExtension = 32768,
@@ -17201,7 +17364,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for MediaAdditionalField.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/mediaadditionalfield?view=bingads-13">MediaAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/mediaadditionalfield?view=bingads-13 for details.
@@ -17832,13 +17995,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Genre = 134217728,
         
         /// <summary>
-        /// For internal use only.
+        /// The ad group criterion is a customer list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 268435456,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is an impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 536870912,
@@ -20403,13 +20566,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         CombinedList = 32,
         
         /// <summary>
-        /// Reserved.
+        /// The audience is a customer list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 64,
         
         /// <summary>
-        /// Reserved.
+        /// The audience is an impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 128,
@@ -20446,6 +20609,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobSeniority = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobTitle = 4,
     }
     
     /// <summary>
@@ -22635,13 +22810,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         CombinedList = 2097152,
         
         /// <summary>
-        /// For internal use only.
+        /// The campaign criterion is a customer list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 4194304,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign criterion is an impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 8388608,
@@ -23867,7 +24042,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines an AssetGroupSearchTheme data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupsearchtheme?view=bingads-13">AssetGroupSearchTheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupsearchtheme?view=bingads-13 for details.
@@ -23902,7 +24077,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The identifier of the search theme.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
@@ -23922,7 +24097,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The type of search theme.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SearchTheme
@@ -24028,7 +24203,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible additional fields for an asset group.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupadditionalfield?view=bingads-13">AssetGroupAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupadditionalfield?view=bingads-13 for details.
@@ -24041,7 +24216,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// Include the AssetGroupSearchThemes field.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupSearchThemes = 1,
@@ -25048,7 +25223,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for ImpressionBasedRemarketingList.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedremarketinglist?view=bingads-13">ImpressionBasedRemarketingList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedremarketinglist?view=bingads-13 for details.
@@ -25070,7 +25245,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedEntityType EntityTypeField;
         
         /// <summary>
-        /// Reserved.
+        /// The ad group identifier to associate with the impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AdGroupId
@@ -25090,7 +25265,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The campaign identifier to associate with the impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CampaignId
@@ -25110,7 +25285,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The entity type of an impression-based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedEntityType EntityType
@@ -26377,7 +26552,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a value set for ImpressionBasedEntityType.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedentitytype?view=bingads-13">ImpressionBasedEntityType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedentitytype?view=bingads-13 for details.
@@ -26389,19 +26564,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The impression-based remarketing list type is none.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The impression-based remarketing list type is Campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The impression-based remarketing list type is AdGroup.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 2,
@@ -26433,10 +26608,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         NumberRuleItem = 2,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the ImpressionBasedRemarketingList element be included when you call the GetAudiencesByIds service operation.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ImpreesionBasedRemarketingList = 4,
+        ImpressionBasedRemarketingList = 4,
     }
     
     /// <summary>
@@ -51268,7 +51443,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Collections.Generic.IList<long> AssetGroupIds;
         
         /// <summary>
-        /// Reserved.
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields;
@@ -51291,7 +51466,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="CampaignId">The ID of the performance max campaign.</param>
         /// <param name="AssetGroupIds">Array of asset group ids to update for the specified campaign.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetAssetGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AssetGroupIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51402,7 +51577,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public long CampaignId;
         
         /// <summary>
-        /// Reserved.
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields;
@@ -51424,7 +51599,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
         /// </remarks>
         /// <param name="CampaignId">The ID of the performance max campaign.</param>
-        /// <param name="ReturnAdditionalFields">Reserved.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetAssetGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;

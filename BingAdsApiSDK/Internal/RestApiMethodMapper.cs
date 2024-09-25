@@ -103,7 +103,11 @@ static class RestApiMethodMapper
     public static readonly Dictionary<string, (string Entity, string Action)> AdInsightServiceActionMethods = new()
     {
         { "SetAutoApplyOptInStatus", (Entity: "AutoApplyOptInStatus", Action: "Set" ) },
-        { "TagRecommendations", (Entity: "Recommendations", Action: "Tag" ) }
+        { "TagRecommendations", (Entity: "Recommendations", Action: "Tag" ) },
+        { "ApplyRecommendations", (Entity: "Recommendations", Action: "Apply" ) },
+        { "DismissRecommendations", (Entity: "Recommendations", Action: "Dismiss" ) },
+        { "RetrieveRecommendations", (Entity: "Recommendations", Action: "Retrieve" ) },
+        { "PutMetricData", (Entity: "MetricData", Action: "Put" ) }
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> CustomerManagementServiceActionMethods = new()
@@ -113,7 +117,10 @@ static class RestApiMethodMapper
         { "SendUserInvitation", (Entity: "UserInvitation", Action: "Send" ) },
         { "SignupCustomer", (Entity: "Customer", Action: "Signup" ) },
         { "ValidateAddress", (Entity: "Address", Action: "Validate" ) },
-        { "UpgradeCustomerToAgency", (Entity: "Customer", Action: "UpgradeToAgency" ) }
+        { "UpgradeCustomerToAgency", (Entity: "Customer", Action: "UpgradeToAgency" ) },
+        { "DismissNotifications", (Entity: "Notifications", Action: "Dismiss" ) },
+        { "MapCustomerIdToExternalCustomerId", (Entity: "CustomerId", Action: "MapToExternalCustomerId" ) },
+        { "MapAccountIdToExternalAccountIds", (Entity: "AccountId", Action: "MapToExternalAccountIds" ) }
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> CustomerBillingServiceActionMethods = new()
@@ -124,6 +131,10 @@ static class RestApiMethodMapper
         { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) }
     };
 
+    public static readonly Dictionary<string, (string Entity, string Action)> AggregatorServiceActionMethods = new()
+    {
+    };
+
     private static readonly Dictionary<string, Dictionary<string, (string Entity, string Action)>> ActionMethodsByService = new()
     {
         { "IBulkService", BulkServiceActionMethods },
@@ -132,6 +143,7 @@ static class RestApiMethodMapper
         { "IAdInsightService", AdInsightServiceActionMethods },
         { "ICustomerManagementService", CustomerManagementServiceActionMethods },
         { "ICustomerBillingService", CustomerBillingServiceActionMethods },
+        { "IAggregatorService", AggregatorServiceActionMethods },
     };
 
     private static readonly Dictionary<string, string> ServiceNameAndVersionsByService = new()
@@ -142,6 +154,7 @@ static class RestApiMethodMapper
         { "IAdInsightService", "AdInsight/v13" },
         { "ICustomerManagementService", "CustomerManagement/v13" },
         { "ICustomerBillingService", "CustomerBilling/v13" },
+        { "IAggregatorService", "Aggregator/v6" }
     };
 
     public static RestMethodInfo? Map(string methodName, string serviceInterfaceName)

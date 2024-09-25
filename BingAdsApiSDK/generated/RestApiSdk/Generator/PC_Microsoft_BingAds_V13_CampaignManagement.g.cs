@@ -1451,6 +1451,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AppSetting" => jsonObj.Deserialize<AppSetting>(options),
                 "VanityPharmaSetting" => jsonObj.Deserialize<VanityPharmaSetting>(options),
                 "CallToActionSetting" => jsonObj.Deserialize<CallToActionSetting>(options),
                 "PerformanceMaxSetting" => jsonObj.Deserialize<PerformanceMaxSetting>(options),
@@ -1474,6 +1475,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AppSetting appSetting:
+                    JsonSerializer.Serialize(writer, appSetting, options);
+                    break;
                 case VanityPharmaSetting vanityPharmaSetting:
                     JsonSerializer.Serialize(writer, vanityPharmaSetting, options);
                     break;

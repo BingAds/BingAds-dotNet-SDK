@@ -526,6 +526,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
             // Campaign Conversion Goal
             StringTable.GoalId,
+            StringTable.CampaignGoal,
 
              //RSA AdCustomizer
             StringTable.AdCustomizerDataType,
@@ -594,6 +595,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BrandUrl,
             StringTable.BrandName,
             StringTable.StatusDateTime,
+
+            // Deal
+            StringTable.IsDealCampaign,
+            
+            StringTable.AppStore,
         };
 
         /// <summary>

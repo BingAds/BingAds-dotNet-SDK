@@ -235,6 +235,8 @@ public static partial class RestApiGeneration
             { typeof(Recommendation), static t => CustomizeRecommendation(t) },
             { typeof(RecommendationBase), static t => CustomizeRecommendationBase(t) },
             { typeof(RecommendationInfo), static t => CustomizeRecommendationInfo(t) },
+            { typeof(RemoveConflictingNegativeKeywordRecommendation), static t => CustomizeRemoveConflictingNegativeKeywordRecommendation(t) },
+            { typeof(ResponsiveSearchAdAssetRecommendation), static t => CustomizeResponsiveSearchAdAssetRecommendation(t) },
             { typeof(ResponsiveSearchAdRecommendation), static t => CustomizeResponsiveSearchAdRecommendation(t) },
             { typeof(ResponsiveSearchAdsRecommendation), static t => CustomizeResponsiveSearchAdsRecommendation(t) },
             { typeof(RetrieveRecommendationsRequest), static t => CustomizeRetrieveRecommendationsRequest(t) },
@@ -260,7 +262,8 @@ public static partial class RestApiGeneration
             { typeof(TextParameter), static t => CustomizeTextParameter(t) },
             { typeof(TrafficEstimate), static t => CustomizeTrafficEstimate(t) },
             { typeof(UrlParameter), static t => CustomizeUrlParameter(t) },
-            { typeof(UrlSearchParameter), static t => CustomizeUrlSearchParameter(t) }
+            { typeof(UrlSearchParameter), static t => CustomizeUrlSearchParameter(t) },
+            { typeof(UseBroadMatchKeywordRecommendation), static t => CustomizeUseBroadMatchKeywordRecommendation(t) }
         };
 
         private static void CustomizeAdApiError(JsonTypeInfo jsonTypeInfo)
@@ -2511,6 +2514,54 @@ public static partial class RestApiGeneration
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
+        private static void CustomizeRemoveConflictingNegativeKeywordRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => RecommendationType.RemoveConflictingNegativeKeywordRecommendation;
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeResponsiveSearchAdAssetRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => RecommendationType.ResponsiveSearchAdAssetRecommendation;
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeResponsiveSearchAdRecommendation(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -2931,6 +2982,30 @@ public static partial class RestApiGeneration
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "UrlSearchParameter";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeUseBroadMatchKeywordRecommendation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => RecommendationType.UseBroadMatchKeywordRecommendation;
+                        break;
+                }
+            }
         }
     }
 }

@@ -422,6 +422,9 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "ResponsiveSearchAdAssetRecommendation" => jsonObj.Deserialize<ResponsiveSearchAdAssetRecommendation>(options),
+                "UseBroadMatchKeywordRecommendation" => jsonObj.Deserialize<UseBroadMatchKeywordRecommendation>(options),
+                "RemoveConflictingNegativeKeywordRecommendation" => jsonObj.Deserialize<RemoveConflictingNegativeKeywordRecommendation>(options),
                 "ResponsiveSearchAdRecommendation" => jsonObj.Deserialize<ResponsiveSearchAdRecommendation>(options),
                 "KeywordRecommendation" => jsonObj.Deserialize<KeywordRecommendation>(options),
                 "CampaignBudgetRecommendation" => jsonObj.Deserialize<CampaignBudgetRecommendation>(options),
@@ -436,6 +439,15 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case ResponsiveSearchAdAssetRecommendation responsiveSearchAdAssetRecommendation:
+                    JsonSerializer.Serialize(writer, responsiveSearchAdAssetRecommendation, options);
+                    break;
+                case UseBroadMatchKeywordRecommendation useBroadMatchKeywordRecommendation:
+                    JsonSerializer.Serialize(writer, useBroadMatchKeywordRecommendation, options);
+                    break;
+                case RemoveConflictingNegativeKeywordRecommendation removeConflictingNegativeKeywordRecommendation:
+                    JsonSerializer.Serialize(writer, removeConflictingNegativeKeywordRecommendation, options);
+                    break;
                 case ResponsiveSearchAdRecommendation responsiveSearchAdRecommendation:
                     JsonSerializer.Serialize(writer, responsiveSearchAdRecommendation, options);
                     break;

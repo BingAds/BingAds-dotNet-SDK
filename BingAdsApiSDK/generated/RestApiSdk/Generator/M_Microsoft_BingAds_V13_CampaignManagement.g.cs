@@ -189,6 +189,7 @@ public static partial class RestApiGeneration
             { typeof(ApplyOnlineConversionAdjustmentsResponse), static t => CustomizeApplyOnlineConversionAdjustmentsResponse(t) },
             { typeof(ApplyProductPartitionActionsRequest), static t => CustomizeApplyProductPartitionActionsRequest(t) },
             { typeof(ApplyProductPartitionActionsResponse), static t => CustomizeApplyProductPartitionActionsResponse(t) },
+            { typeof(AppSetting), static t => CustomizeAppSetting(t) },
             { typeof(AppUrl), static t => CustomizeAppUrl(t) },
             { typeof(Asset), static t => CustomizeAsset(t) },
             { typeof(AssetGroup), static t => CustomizeAssetGroup(t) },
@@ -2338,6 +2339,38 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeAppSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "AppId":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "AppStore":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => !EqualityComparer<AppStore>.Default.Equals(default, (AppStore)value);
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "AppSetting";
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeAppUrl(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -2935,6 +2968,10 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "CallToActionOptOut":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => "CallToActionSetting";
                         break;
@@ -2964,6 +3001,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "GoalIds":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "IsDealCampaign":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;

@@ -836,6 +836,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupNegativeLocationCriterion = "Ad Group Negative Location Criterion";
         public const string AdGroupRadiusCriterion = "Ad Group Radius Criterion";
         public const string AdGroupGenreCriterion = "Ad Group Genre Criterion";
+        public const string AdGroupPlacementCriterion = "Ad Group Placement Criterion";
         public const string CampaignAgeCriterion = "Campaign Age Criterion";
         public const string CampaignCompanyNameCriterion = "Campaign Company Name Criterion";
         public const string CampaignDayTimeCriterion = "Campaign DayTime Criterion";
@@ -843,6 +844,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignGenderCriterion = "Campaign Gender Criterion";
         public const string CampaignIndustryCriterion = "Campaign Industry Criterion";
         public const string CampaignJobFunctionCriterion = "Campaign Job Function Criterion";
+        public const string CampaignJobTitleCriterion = "Campaign Job Title Criterion";
         public const string CampaignLocationCriterion = "Campaign Location Criterion";
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";
@@ -889,6 +891,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         // Campaign Conversion Goal
         public const string GoalId = "Goal Id";
         public const string CampaignConversionGoal = "Campaign Conversion Goal";
+        public const string CampaignGoal = "Campaign Goal";
 
         // RSA AdCustomizer
         public const string AdCustomizerAttribute = "Adcustomizer Attribute";
@@ -986,5 +989,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string BrandName = "Brand Name";
         public const string StatusDateTime = "Editorial Status Date";
 
+        // Deal
+        public const string IsDealCampaign = "Is Deal Campaign";
+
+        public const string AppStore = "App Store";
     }
 }

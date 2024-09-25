@@ -11468,7 +11468,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/suggestedresponsivesearchad?view=bingads-13">SuggestedResponsiveSearchAd Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/suggestedresponsivesearchad?view=bingads-13 for details.
-    /// <para>Used by <see cref="ResponsiveSearchAdRecommendation"/> and <see cref="ResponsiveSearchAdsRecommendation"/> data objects.</para>
+    /// <para>Used by <see cref="ResponsiveSearchAdAssetRecommendation"/>, <see cref="ResponsiveSearchAdRecommendation"/> and <see cref="ResponsiveSearchAdsRecommendation"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -12019,6 +12019,9 @@ namespace Microsoft.BingAds.V13.AdInsight
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.CampaignBudgetRecommendation))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.KeywordRecommendation))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ResponsiveSearchAdRecommendation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.RemoveConflictingNegativeKeywordRecommendation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.UseBroadMatchKeywordRecommendation))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ResponsiveSearchAdAssetRecommendation))]
     public partial class RecommendationBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -12029,10 +12032,19 @@ namespace Microsoft.BingAds.V13.AdInsight
         private long AccountIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> AdGroupIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AdGroupNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> CampaignIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CampaignNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CurrentClicksField;
@@ -12106,6 +12118,26 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccountName
+        {
+            get
+            {
+                return this.AccountNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountNameField, value) != true))
+                {
+                    this.AccountNameField = value;
+                    this.RaisePropertyChanged("AccountName");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The ad group ID targeted by this recommendation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -12126,6 +12158,26 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AdGroupName
+        {
+            get
+            {
+                return this.AdGroupNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupNameField, value) != true))
+                {
+                    this.AdGroupNameField = value;
+                    this.RaisePropertyChanged("AdGroupName");
+                }
+            }
+        }
+        
+        /// <summary>
         /// The campaign ID targeted by this recommendation.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
@@ -12141,6 +12193,26 @@ namespace Microsoft.BingAds.V13.AdInsight
                 {
                     this.CampaignIdField = value;
                     this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CampaignName
+        {
+            get
+            {
+                return this.CampaignNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CampaignNameField, value) != true))
+                {
+                    this.CampaignNameField = value;
+                    this.RaisePropertyChanged("CampaignName");
                 }
             }
         }
@@ -12690,6 +12762,393 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/removeconflictingnegativekeywordrecommendation?view=bingads-13">RemoveConflictingNegativeKeywordRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/removeconflictingnegativekeywordrecommendation?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RemoveConflictingNegativeKeywordRecommendation", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class RemoveConflictingNegativeKeywordRecommendation : Microsoft.BingAds.V13.AdInsight.RecommendationBase
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NegativeKeywordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long NegativeKeywordIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NegativeKeywordListNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NegativeKeywordMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> NegativeKeywordSharedListIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SourceField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NegativeKeyword
+        {
+            get
+            {
+                return this.NegativeKeywordField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NegativeKeywordField, value) != true))
+                {
+                    this.NegativeKeywordField = value;
+                    this.RaisePropertyChanged("NegativeKeyword");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long NegativeKeywordId
+        {
+            get
+            {
+                return this.NegativeKeywordIdField;
+            }
+            set
+            {
+                if ((this.NegativeKeywordIdField.Equals(value) != true))
+                {
+                    this.NegativeKeywordIdField = value;
+                    this.RaisePropertyChanged("NegativeKeywordId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NegativeKeywordListName
+        {
+            get
+            {
+                return this.NegativeKeywordListNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NegativeKeywordListNameField, value) != true))
+                {
+                    this.NegativeKeywordListNameField = value;
+                    this.RaisePropertyChanged("NegativeKeywordListName");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NegativeKeywordMatchType
+        {
+            get
+            {
+                return this.NegativeKeywordMatchTypeField;
+            }
+            set
+            {
+                if ((this.NegativeKeywordMatchTypeField.Equals(value) != true))
+                {
+                    this.NegativeKeywordMatchTypeField = value;
+                    this.RaisePropertyChanged("NegativeKeywordMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> NegativeKeywordSharedListId
+        {
+            get
+            {
+                return this.NegativeKeywordSharedListIdField;
+            }
+            set
+            {
+                if ((this.NegativeKeywordSharedListIdField.Equals(value) != true))
+                {
+                    this.NegativeKeywordSharedListIdField = value;
+                    this.RaisePropertyChanged("NegativeKeywordSharedListId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Source
+        {
+            get
+            {
+                return this.SourceField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SourceField, value) != true))
+                {
+                    this.SourceField = value;
+                    this.RaisePropertyChanged("Source");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/usebroadmatchkeywordrecommendation?view=bingads-13">UseBroadMatchKeywordRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/usebroadmatchkeywordrecommendation?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UseBroadMatchKeywordRecommendation", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class UseBroadMatchKeywordRecommendation : Microsoft.BingAds.V13.AdInsight.RecommendationBase
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CurrentMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrentStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeywordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long KeywordOrderItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SuggestedBidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SuggestedMatchTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SuggestedStatusField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CurrentMatchType
+        {
+            get
+            {
+                return this.CurrentMatchTypeField;
+            }
+            set
+            {
+                if ((this.CurrentMatchTypeField.Equals(value) != true))
+                {
+                    this.CurrentMatchTypeField = value;
+                    this.RaisePropertyChanged("CurrentMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CurrentStatus
+        {
+            get
+            {
+                return this.CurrentStatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CurrentStatusField, value) != true))
+                {
+                    this.CurrentStatusField = value;
+                    this.RaisePropertyChanged("CurrentStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Keyword
+        {
+            get
+            {
+                return this.KeywordField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeywordField, value) != true))
+                {
+                    this.KeywordField = value;
+                    this.RaisePropertyChanged("Keyword");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long KeywordOrderItemId
+        {
+            get
+            {
+                return this.KeywordOrderItemIdField;
+            }
+            set
+            {
+                if ((this.KeywordOrderItemIdField.Equals(value) != true))
+                {
+                    this.KeywordOrderItemIdField = value;
+                    this.RaisePropertyChanged("KeywordOrderItemId");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double SuggestedBid
+        {
+            get
+            {
+                return this.SuggestedBidField;
+            }
+            set
+            {
+                if ((this.SuggestedBidField.Equals(value) != true))
+                {
+                    this.SuggestedBidField = value;
+                    this.RaisePropertyChanged("SuggestedBid");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SuggestedMatchType
+        {
+            get
+            {
+                return this.SuggestedMatchTypeField;
+            }
+            set
+            {
+                if ((this.SuggestedMatchTypeField.Equals(value) != true))
+                {
+                    this.SuggestedMatchTypeField = value;
+                    this.RaisePropertyChanged("SuggestedMatchType");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SuggestedStatus
+        {
+            get
+            {
+                return this.SuggestedStatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SuggestedStatusField, value) != true))
+                {
+                    this.SuggestedStatusField = value;
+                    this.RaisePropertyChanged("SuggestedStatus");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/responsivesearchadassetrecommendation?view=bingads-13">ResponsiveSearchAdAssetRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/responsivesearchadassetrecommendation?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponsiveSearchAdAssetRecommendation", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class ResponsiveSearchAdAssetRecommendation : Microsoft.BingAds.V13.AdInsight.RecommendationBase
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.SuggestedResponsiveSearchAd RecommendedResponsiveSearchAdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long ResponsiveSearchAdIdField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.SuggestedResponsiveSearchAd RecommendedResponsiveSearchAd
+        {
+            get
+            {
+                return this.RecommendedResponsiveSearchAdField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.RecommendedResponsiveSearchAdField, value) != true))
+                {
+                    this.RecommendedResponsiveSearchAdField = value;
+                    this.RaisePropertyChanged("RecommendedResponsiveSearchAd");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ResponsiveSearchAdId
+        {
+            get
+            {
+                return this.ResponsiveSearchAdIdField;
+            }
+            set
+            {
+                if ((this.ResponsiveSearchAdIdField.Equals(value) != true))
+                {
+                    this.ResponsiveSearchAdIdField = value;
+                    this.RaisePropertyChanged("ResponsiveSearchAdId");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
     /// Defines the RecommendationType value set.
     /// </summary>
     /// <remarks>
@@ -12718,6 +13177,24 @@ namespace Microsoft.BingAds.V13.AdInsight
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveSearchAdRecommendation = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RemoveConflictingNegativeKeywordRecommendation = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UseBroadMatchKeywordRecommendation = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ResponsiveSearchAdAssetRecommendation = 6,
     }
     
     /// <summary>
@@ -13762,7 +14239,7 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
         
         /// <summary>
-        /// The scale unit: Thousand, Million,Billion, None.
+        /// The scale unit: Thousand, Million, Billion, None.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.ScaleUnit> Unit

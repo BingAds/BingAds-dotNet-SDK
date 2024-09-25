@@ -1203,31 +1203,31 @@ namespace Microsoft.BingAds.V13.Bulk
         AssetGroupSearchThemes = 178,
         
         /// <summary>
-        /// Reserved.
+        /// Include Impression Based Remarketing List records in the download data.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 179,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Impression Based Remarketing List Association records in the download that each represent the association relationship between an ad group and an impression based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupImpressionBasedRemarketingListAssociations = 180,
         
         /// <summary>
-        /// Reserved.
+        /// Include Ad Group Negative Impression Based Remarketing List Association records in the download that each represent the association relationship between an ad group and an impression based remarketing list exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeImpressionBasedRemarketingListAssociations = 181,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Impression Based Remarketing List Association records in the download that each represent the association relationship between a campaign and an impression based remarketing list.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignImpressionBasedRemarketingListAssociations = 182,
         
         /// <summary>
-        /// Reserved.
+        /// Include Campaign Negative Impression Based Remarketing List Association records in the download that each represent the association relationship between a campaign and an impression based remarketing list exclusion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeImpressionBasedRemarketingListAssociations = 183,
