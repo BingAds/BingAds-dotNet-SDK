@@ -83,6 +83,13 @@ namespace Microsoft.BingAds
         {
             get
             {
+				if (typeof(TService) == typeof(ICustomerManagementService) ||
+                    typeof(TService) == typeof(ICustomerBillingService) ||
+                    typeof(TService) == typeof(IAdInsightService))
+                {
+                    return true;
+                }
+				
                 if (AppContext.TryGetSwitch($"Switch.BingAds.{typeof(TService).Name}.DisableRestApi", out var isSwitchOn) && isSwitchOn)
                 {
                     Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "AppContext switch");
