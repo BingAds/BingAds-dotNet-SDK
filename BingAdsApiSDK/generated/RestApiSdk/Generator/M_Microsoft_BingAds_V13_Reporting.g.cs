@@ -132,6 +132,10 @@ public static partial class RestApiGeneration
             { typeof(CampaignPerformanceReportFilter), static t => CustomizeCampaignPerformanceReportFilter(t) },
             { typeof(CampaignPerformanceReportRequest), static t => CustomizeCampaignPerformanceReportRequest(t) },
             { typeof(CampaignReportScope), static t => CustomizeCampaignReportScope(t) },
+            { typeof(CategoryClickCoverageReportFilter), static t => CustomizeCategoryClickCoverageReportFilter(t) },
+            { typeof(CategoryClickCoverageReportRequest), static t => CustomizeCategoryClickCoverageReportRequest(t) },
+            { typeof(CategoryInsightsReportFilter), static t => CustomizeCategoryInsightsReportFilter(t) },
+            { typeof(CategoryInsightsReportRequest), static t => CustomizeCategoryInsightsReportRequest(t) },
             { typeof(ConversionPerformanceReportFilter), static t => CustomizeConversionPerformanceReportFilter(t) },
             { typeof(ConversionPerformanceReportRequest), static t => CustomizeConversionPerformanceReportRequest(t) },
             { typeof(Date), static t => CustomizeDate(t) },
@@ -772,6 +776,68 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+        }
+
+        private static void CustomizeCategoryClickCoverageReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCategoryClickCoverageReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "CategoryClickCoverageReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeCategoryInsightsReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCategoryInsightsReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "CategoryInsightsReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
         private static void CustomizeConversionPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)

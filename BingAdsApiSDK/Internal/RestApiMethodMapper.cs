@@ -84,7 +84,13 @@ static class RestApiMethodMapper
         { "SetAudienceGroupAssetGroupAssociations", (Entity: "AudienceGroupAssetGroupAssociations", Action: "Set" ) },
         { "ApplyAssetGroupListingGroupActions", (Entity: "AssetGroupListingGroupActions", Action: "Apply" ) },
         { "ApplyCustomerListItems", (Entity: "CustomerListItems", Action: "Apply" ) },
-        { "ApplyCustomerListUserData", (Entity: "CustomerListUserData", Action: "Apply" ) }
+        { "ApplyCustomerListUserData", (Entity: "CustomerListUserData", Action: "Apply" ) },
+        { "CreateAssetGroupRecommendation", (Entity: "AssetGroupRecommendation", Action: "Create" ) },
+        { "CreateResponsiveAdRecommendation", (Entity: "ResponsiveAdRecommendation", Action: "Create" ) },
+        { "CreateResponsiveSearchAdRecommendation", (Entity: "ResponsiveSearchAdRecommendation", Action: "Create" ) },
+        { "RefineAssetGroupRecommendation", (Entity: "AssetGroupRecommendation", Action: "Refine" ) },
+        { "RefineResponsiveAdRecommendation", (Entity: "ResponsiveAdRecommendation", Action: "Refine" ) },
+        { "RefineResponsiveSearchAdRecommendation", (Entity: "ResponsiveSearchAdRecommendation", Action: "Refine" ) },
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> BulkServiceActionMethods = new()

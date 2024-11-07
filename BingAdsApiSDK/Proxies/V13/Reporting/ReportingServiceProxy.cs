@@ -114,6 +114,8 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.SearchInsightPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AssetPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryInsightsReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -4799,7 +4801,7 @@ namespace Microsoft.BingAds.V13.Reporting
     }
     
     /// <summary>
-    /// Defines a data object for AssetPerformanceReportRequest.
+    /// Defines an asset performance report request.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13">AssetPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13 for details.
@@ -4881,6 +4883,212 @@ namespace Microsoft.BingAds.V13.Reporting
         
         /// <summary>
         /// The time period to use for the report.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13">CategoryInsightsReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CategoryInsightsReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryInsightsReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.CategoryInsightsReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryInsightsReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.CategoryInsightsReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13">CategoryClickCoverageReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CategoryClickCoverageReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
@@ -5069,7 +5277,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountreportscope?view=bingads-13">AccountReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/> and <see cref="CategoryInsightsReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5133,7 +5341,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13">ReportTime Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/>, <see cref="CategoryInsightsReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -26443,25 +26651,25 @@ namespace Microsoft.BingAds.V13.Reporting
         Spend = 14,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times a potential customer watched the video in its entirety.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 15,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times a user completed at least 25% of the video (measured directly).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times a user completed at least 50% of the video (measured directly).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 17,
         
         /// <summary>
-        /// Reserved.
+        /// The number of times a user completed at least 75% of the video (measured directly).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 18,
@@ -26470,7 +26678,455 @@ namespace Microsoft.BingAds.V13.Reporting
         /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        VideoCompletionRate = 19,
+        CompletedVideoViews = 19,
+        
+        /// <summary>
+        /// Completed video views divided by total number of impressions.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        VideoCompletionRate = 20,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13">CategoryInsightsReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13 for details.
+    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CategoryInsightsReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> CountryCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L1VerticalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L2VerticalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L3VerticalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> CountryCode
+        {
+            get
+            {
+                return this.CountryCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
+                {
+                    this.CountryCodeField = value;
+                    this.RaisePropertyChanged("CountryCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L1Vertical
+        {
+            get
+            {
+                return this.L1VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L1VerticalField, value) != true))
+                {
+                    this.L1VerticalField = value;
+                    this.RaisePropertyChanged("L1Vertical");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L2Vertical
+        {
+            get
+            {
+                return this.L2VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L2VerticalField, value) != true))
+                {
+                    this.L2VerticalField = value;
+                    this.RaisePropertyChanged("L2Vertical");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L3Vertical
+        {
+            get
+            {
+                return this.L3VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L3VerticalField, value) != true))
+                {
+                    this.L3VerticalField = value;
+                    this.RaisePropertyChanged("L3Vertical");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13">CategoryInsightsReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13 for details.
+    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum CategoryInsightsReportColumn : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L1Vertical = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L2Vertical = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L3Vertical = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WeekStartingMonday = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WoWSearches = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MoMSearches = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YoYLast1WeekSearches = 6,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YoYLast4WeeksSearches = 7,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchesIndexed = 8,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchesPeakWeek = 9,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WoWClicks = 10,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MoMClicks = 11,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YoYLast1WeekClicks = 12,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClicksIndexed = 13,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ClicksPeakWeek = 14,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YoYLast4WeeksClicks = 15,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Country = 16,
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13">CategoryClickCoverageReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13 for details.
+    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CategoryClickCoverageReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> CountryCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L1VerticalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L2VerticalField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> L3VerticalField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> CountryCode
+        {
+            get
+            {
+                return this.CountryCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CountryCodeField, value) != true))
+                {
+                    this.CountryCodeField = value;
+                    this.RaisePropertyChanged("CountryCode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L1Vertical
+        {
+            get
+            {
+                return this.L1VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L1VerticalField, value) != true))
+                {
+                    this.L1VerticalField = value;
+                    this.RaisePropertyChanged("L1Vertical");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L2Vertical
+        {
+            get
+            {
+                return this.L2VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L2VerticalField, value) != true))
+                {
+                    this.L2VerticalField = value;
+                    this.RaisePropertyChanged("L2Vertical");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> L3Vertical
+        {
+            get
+            {
+                return this.L3VerticalField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.L3VerticalField, value) != true))
+                {
+                    this.L3VerticalField = value;
+                    this.RaisePropertyChanged("L3Vertical");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13">CategoryClickCoverageReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13 for details.
+    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
+    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum CategoryClickCoverageReportColumn : int
+    {
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 0,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomerName = 1,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L1Vertical = 2,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L2Vertical = 3,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L3Vertical = 4,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        WeekStartingMonday = 5,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MarketplaceClickCoverage = 6,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Country = 7,
     }
     
     /// <summary>

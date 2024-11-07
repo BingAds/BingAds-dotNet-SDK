@@ -896,6 +896,16 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => ParameterType.Entities;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeEstimatedBidAndTraffic(JsonTypeInfo jsonTypeInfo)
@@ -2937,6 +2947,16 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => ParameterType.Text;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeTrafficEstimate(JsonTypeInfo jsonTypeInfo)
@@ -2962,6 +2982,16 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => ParameterType.Url;
                         break;
                 }
             }

@@ -48,21 +48,27 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.V13.CampaignManagement;
-using System.Runtime.Serialization;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
-    // Internal classes for Placement Criterion
-
-    public class PlacementCriterion : Criterion
+    /// <summary>
+    /// <para>
+    /// This class exposes the <see cref="BiddableCampaignCriterion"/> property with ProfileCriterion that can be read and written as fields of the Campaign Job Seniority Criterion record in a bulk file. 
+    /// </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Job Seniority Criterion</see>. </para>
+    /// </summary>
+    /// <seealso cref="BulkServiceManager"/>
+    /// <seealso cref="BulkOperation{TStatus}"/>
+    /// <seealso cref="BulkFileReader"/>
+    /// <seealso cref="BulkFileWriter"/>
+    public class BulkCampaignJobSeniorityCriterion : BulkCampaignProfileCriterion
     {
-        public PlacementCriterion()
+        protected override ProfileType GetProfileType()
         {
-            Type = typeof(PlacementCriterion).Name;
+            return ProfileType.JobSeniority;
         }
-
-        public long PlacementId { get; set; }
-
-        public string PlacementName { get; set; }
     }
 }

@@ -335,6 +335,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignIndustryCriterion,  new EntityInfo(() => new BulkCampaignIndustryCriterion())},
                 {StringTable.CampaignJobFunctionCriterion,  new EntityInfo(() => new BulkCampaignJobFunctionCriterion())},
                 {StringTable.CampaignJobTitleCriterion,  new EntityInfo(() => new BulkCampaignJobTitleCriterion())},
+                {StringTable.CampaignJobSeniorityCriterion,  new EntityInfo(() => new BulkCampaignJobSeniorityCriterion())},
                 {StringTable.CampaignLocationCriterion,  new EntityInfo(() => new BulkCampaignLocationCriterion())},
                 {StringTable.CampaignLocationIntentCriterion,  new EntityInfo(() => new BulkCampaignLocationIntentCriterion())},
                 {StringTable.CampaignNegativeLocationCriterion,  new EntityInfo(() => new BulkCampaignNegativeLocationCriterion())},
@@ -421,6 +422,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public string GetBulkRowType(BulkObject bulkObject)
         {
+            //BulkLinkedInAd use the same Type as BulkResponsiveAd
+            if (bulkObject is BulkLinkedInAd)
+            {
+                return StringTable.ResponsiveAd;
+            }
+
             return TypeReverseMap[bulkObject.GetType()];
         }
 

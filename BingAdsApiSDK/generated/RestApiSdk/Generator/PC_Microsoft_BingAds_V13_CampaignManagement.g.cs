@@ -916,6 +916,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "PlacementCriterion" => jsonObj.Deserialize<PlacementCriterion>(options),
                 "GenreCriterion" => jsonObj.Deserialize<GenreCriterion>(options),
                 "DealCriterion" => jsonObj.Deserialize<DealCriterion>(options),
                 "StoreCriterion" => jsonObj.Deserialize<StoreCriterion>(options),
@@ -948,6 +949,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case PlacementCriterion placementCriterion:
+                    JsonSerializer.Serialize(writer, placementCriterion, options);
+                    break;
                 case GenreCriterion genreCriterion:
                     JsonSerializer.Serialize(writer, genreCriterion, options);
                     break;
@@ -1451,6 +1455,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "ThirdPartyMeasurementSetting" => jsonObj.Deserialize<ThirdPartyMeasurementSetting>(options),
                 "AppSetting" => jsonObj.Deserialize<AppSetting>(options),
                 "VanityPharmaSetting" => jsonObj.Deserialize<VanityPharmaSetting>(options),
                 "CallToActionSetting" => jsonObj.Deserialize<CallToActionSetting>(options),
@@ -1475,6 +1480,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case ThirdPartyMeasurementSetting thirdPartyMeasurementSetting:
+                    JsonSerializer.Serialize(writer, thirdPartyMeasurementSetting, options);
+                    break;
                 case AppSetting appSetting:
                     JsonSerializer.Serialize(writer, appSetting, options);
                     break;

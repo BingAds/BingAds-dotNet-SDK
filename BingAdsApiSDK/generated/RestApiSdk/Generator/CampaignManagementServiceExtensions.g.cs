@@ -639,6 +639,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.ApplyOnlineConversionAdjustmentsAsync(r), request);
         }
 
+        public static Task<GetOfflineConversionReportsResponse> GetOfflineConversionReportsAsync(this ServiceClient<ICampaignManagementService> service, GetOfflineConversionReportsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetOfflineConversionReportsAsync(r), request);
+        }
+
         public static Task<AddLabelsResponse> AddLabelsAsync(this ServiceClient<ICampaignManagementService> service, AddLabelsRequest request)
         {
             return service.CallAsync((s, r) => s.AddLabelsAsync(r), request);
@@ -822,6 +827,36 @@ namespace Microsoft.BingAds
         public static Task<GetSeasonalityAdjustmentsByAccountIdResponse> GetSeasonalityAdjustmentsByAccountIdAsync(this ServiceClient<ICampaignManagementService> service, GetSeasonalityAdjustmentsByAccountIdRequest request)
         {
             return service.CallAsync((s, r) => s.GetSeasonalityAdjustmentsByAccountIdAsync(r), request);
+        }
+
+        public static Task<CreateAssetGroupRecommendationResponse> CreateAssetGroupRecommendationAsync(this ServiceClient<ICampaignManagementService> service, CreateAssetGroupRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.CreateAssetGroupRecommendationAsync(r), request);
+        }
+
+        public static Task<CreateResponsiveAdRecommendationResponse> CreateResponsiveAdRecommendationAsync(this ServiceClient<ICampaignManagementService> service, CreateResponsiveAdRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.CreateResponsiveAdRecommendationAsync(r), request);
+        }
+
+        public static Task<CreateResponsiveSearchAdRecommendationResponse> CreateResponsiveSearchAdRecommendationAsync(this ServiceClient<ICampaignManagementService> service, CreateResponsiveSearchAdRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.CreateResponsiveSearchAdRecommendationAsync(r), request);
+        }
+
+        public static Task<RefineAssetGroupRecommendationResponse> RefineAssetGroupRecommendationAsync(this ServiceClient<ICampaignManagementService> service, RefineAssetGroupRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.RefineAssetGroupRecommendationAsync(r), request);
+        }
+
+        public static Task<RefineResponsiveAdRecommendationResponse> RefineResponsiveAdRecommendationAsync(this ServiceClient<ICampaignManagementService> service, RefineResponsiveAdRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.RefineResponsiveAdRecommendationAsync(r), request);
+        }
+
+        public static Task<RefineResponsiveSearchAdRecommendationResponse> RefineResponsiveSearchAdRecommendationAsync(this ServiceClient<ICampaignManagementService> service, RefineResponsiveSearchAdRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.RefineResponsiveSearchAdRecommendationAsync(r), request);
         }
     }
 }

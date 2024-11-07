@@ -1236,6 +1236,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<ApplyOnlineConversionAdjustmentsResponse>("ApplyOnlineConversionAdjustments", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetOfflineConversionReportsResponse GetOfflineConversionReports(GetOfflineConversionReportsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetOfflineConversionReportsResponse> GetOfflineConversionReportsAsync(GetOfflineConversionReportsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetOfflineConversionReportsResponse>("GetOfflineConversionReports", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public AddLabelsResponse AddLabels(AddLabelsRequest request)
         {
             throw new NotImplementedException();
@@ -1604,6 +1614,66 @@ namespace Microsoft.BingAds.Internal
         public Task<GetSeasonalityAdjustmentsByAccountIdResponse> GetSeasonalityAdjustmentsByAccountIdAsync(GetSeasonalityAdjustmentsByAccountIdRequest request)
         {
             return _restServiceClient.CallServiceAsync<GetSeasonalityAdjustmentsByAccountIdResponse>("GetSeasonalityAdjustmentsByAccountId", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public CreateAssetGroupRecommendationResponse CreateAssetGroupRecommendation(CreateAssetGroupRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CreateAssetGroupRecommendationResponse> CreateAssetGroupRecommendationAsync(CreateAssetGroupRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<CreateAssetGroupRecommendationResponse>("CreateAssetGroupRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public CreateResponsiveAdRecommendationResponse CreateResponsiveAdRecommendation(CreateResponsiveAdRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CreateResponsiveAdRecommendationResponse> CreateResponsiveAdRecommendationAsync(CreateResponsiveAdRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<CreateResponsiveAdRecommendationResponse>("CreateResponsiveAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public CreateResponsiveSearchAdRecommendationResponse CreateResponsiveSearchAdRecommendation(CreateResponsiveSearchAdRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CreateResponsiveSearchAdRecommendationResponse> CreateResponsiveSearchAdRecommendationAsync(CreateResponsiveSearchAdRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<CreateResponsiveSearchAdRecommendationResponse>("CreateResponsiveSearchAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public RefineAssetGroupRecommendationResponse RefineAssetGroupRecommendation(RefineAssetGroupRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<RefineAssetGroupRecommendationResponse> RefineAssetGroupRecommendationAsync(RefineAssetGroupRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<RefineAssetGroupRecommendationResponse>("RefineAssetGroupRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public RefineResponsiveAdRecommendationResponse RefineResponsiveAdRecommendation(RefineResponsiveAdRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<RefineResponsiveAdRecommendationResponse> RefineResponsiveAdRecommendationAsync(RefineResponsiveAdRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<RefineResponsiveAdRecommendationResponse>("RefineResponsiveAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public RefineResponsiveSearchAdRecommendationResponse RefineResponsiveSearchAdRecommendation(RefineResponsiveSearchAdRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<RefineResponsiveSearchAdRecommendationResponse> RefineResponsiveSearchAdRecommendationAsync(RefineResponsiveSearchAdRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<RefineResponsiveSearchAdRecommendationResponse>("RefineResponsiveSearchAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
     }
 }

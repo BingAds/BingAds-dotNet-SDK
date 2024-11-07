@@ -454,6 +454,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.ImpressionTrackingUrls,
             StringTable.Videos,
             StringTable.VerifiedTrackingDatas,
+            StringTable.AdType,
 
             // Structured Snippet Ad Extension
             StringTable.StructuredSnippetHeader,

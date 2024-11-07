@@ -163,6 +163,10 @@ public static partial class RestApiGeneration
             { typeof(AdGroupCriterion), static t => CustomizeAdGroupCriterion(t) },
             { typeof(AdGroupCriterionAction), static t => CustomizeAdGroupCriterionAction(t) },
             { typeof(AdGroupNegativeSites), static t => CustomizeAdGroupNegativeSites(t) },
+            { typeof(AdRecommendationImageSuggestion), static t => CustomizeAdRecommendationImageSuggestion(t) },
+            { typeof(AdRecommendationTextRefineOperation), static t => CustomizeAdRecommendationTextRefineOperation(t) },
+            { typeof(AdRecommendationTextSuggestion), static t => CustomizeAdRecommendationTextSuggestion(t) },
+            { typeof(AdRecommendationVideoSuggestion), static t => CustomizeAdRecommendationVideoSuggestion(t) },
             { typeof(AdRotation), static t => CustomizeAdRotation(t) },
             { typeof(AgeCriterion), static t => CustomizeAgeCriterion(t) },
             { typeof(AgeDimension), static t => CustomizeAgeDimension(t) },
@@ -237,6 +241,12 @@ public static partial class RestApiGeneration
             { typeof(ConversionGoalRevenue), static t => CustomizeConversionGoalRevenue(t) },
             { typeof(CoOpSetting), static t => CustomizeCoOpSetting(t) },
             { typeof(CostPerSaleBiddingScheme), static t => CustomizeCostPerSaleBiddingScheme(t) },
+            { typeof(CreateAssetGroupRecommendationRequest), static t => CustomizeCreateAssetGroupRecommendationRequest(t) },
+            { typeof(CreateAssetGroupRecommendationResponse), static t => CustomizeCreateAssetGroupRecommendationResponse(t) },
+            { typeof(CreateResponsiveAdRecommendationRequest), static t => CustomizeCreateResponsiveAdRecommendationRequest(t) },
+            { typeof(CreateResponsiveAdRecommendationResponse), static t => CustomizeCreateResponsiveAdRecommendationResponse(t) },
+            { typeof(CreateResponsiveSearchAdRecommendationRequest), static t => CustomizeCreateResponsiveSearchAdRecommendationRequest(t) },
+            { typeof(CreateResponsiveSearchAdRecommendationResponse), static t => CustomizeCreateResponsiveSearchAdRecommendationResponse(t) },
             { typeof(Criterion), static t => CustomizeCriterion(t) },
             { typeof(CriterionBid), static t => CustomizeCriterionBid(t) },
             { typeof(CriterionCashback), static t => CustomizeCriterionCashback(t) },
@@ -249,6 +259,7 @@ public static partial class RestApiGeneration
             { typeof(CustomEventsRule), static t => CustomizeCustomEventsRule(t) },
             { typeof(CustomParameter), static t => CustomizeCustomParameter(t) },
             { typeof(CustomParameters), static t => CustomizeCustomParameters(t) },
+            { typeof(DailySummary), static t => CustomizeDailySummary(t) },
             { typeof(DataExclusion), static t => CustomizeDataExclusion(t) },
             { typeof(Date), static t => CustomizeDate(t) },
             { typeof(DayTime), static t => CustomizeDayTime(t) },
@@ -447,6 +458,8 @@ public static partial class RestApiGeneration
             { typeof(GetNegativeSitesByAdGroupIdsResponse), static t => CustomizeGetNegativeSitesByAdGroupIdsResponse(t) },
             { typeof(GetNegativeSitesByCampaignIdsRequest), static t => CustomizeGetNegativeSitesByCampaignIdsRequest(t) },
             { typeof(GetNegativeSitesByCampaignIdsResponse), static t => CustomizeGetNegativeSitesByCampaignIdsResponse(t) },
+            { typeof(GetOfflineConversionReportsRequest), static t => CustomizeGetOfflineConversionReportsRequest(t) },
+            { typeof(GetOfflineConversionReportsResponse), static t => CustomizeGetOfflineConversionReportsResponse(t) },
             { typeof(GetProfileDataFileUrlRequest), static t => CustomizeGetProfileDataFileUrlRequest(t) },
             { typeof(GetProfileDataFileUrlResponse), static t => CustomizeGetProfileDataFileUrlResponse(t) },
             { typeof(GetSeasonalityAdjustmentsByAccountIdRequest), static t => CustomizeGetSeasonalityAdjustmentsByAccountIdRequest(t) },
@@ -528,6 +541,7 @@ public static partial class RestApiGeneration
             { typeof(Paging), static t => CustomizePaging(t) },
             { typeof(PercentCpcBiddingScheme), static t => CustomizePercentCpcBiddingScheme(t) },
             { typeof(PerformanceMaxSetting), static t => CustomizePerformanceMaxSetting(t) },
+            { typeof(PlacementCriterion), static t => CustomizePlacementCriterion(t) },
             { typeof(PlacementExclusionList), static t => CustomizePlacementExclusionList(t) },
             { typeof(PriceAdExtension), static t => CustomizePriceAdExtension(t) },
             { typeof(PriceTableRow), static t => CustomizePriceTableRow(t) },
@@ -541,6 +555,12 @@ public static partial class RestApiGeneration
             { typeof(RadiusCriterion), static t => CustomizeRadiusCriterion(t) },
             { typeof(RateAmount), static t => CustomizeRateAmount(t) },
             { typeof(RateBid), static t => CustomizeRateBid(t) },
+            { typeof(RefineAssetGroupRecommendationRequest), static t => CustomizeRefineAssetGroupRecommendationRequest(t) },
+            { typeof(RefineAssetGroupRecommendationResponse), static t => CustomizeRefineAssetGroupRecommendationResponse(t) },
+            { typeof(RefineResponsiveAdRecommendationRequest), static t => CustomizeRefineResponsiveAdRecommendationRequest(t) },
+            { typeof(RefineResponsiveAdRecommendationResponse), static t => CustomizeRefineResponsiveAdRecommendationResponse(t) },
+            { typeof(RefineResponsiveSearchAdRecommendationRequest), static t => CustomizeRefineResponsiveSearchAdRecommendationRequest(t) },
+            { typeof(RefineResponsiveSearchAdRecommendationResponse), static t => CustomizeRefineResponsiveSearchAdRecommendationResponse(t) },
             { typeof(RemarketingList), static t => CustomizeRemarketingList(t) },
             { typeof(RemarketingRule), static t => CustomizeRemarketingRule(t) },
             { typeof(ResponsiveAd), static t => CustomizeResponsiveAd(t) },
@@ -585,6 +605,7 @@ public static partial class RestApiGeneration
             { typeof(TargetSettingDetail), static t => CustomizeTargetSettingDetail(t) },
             { typeof(TextAd), static t => CustomizeTextAd(t) },
             { typeof(TextAsset), static t => CustomizeTextAsset(t) },
+            { typeof(ThirdPartyMeasurementSetting), static t => CustomizeThirdPartyMeasurementSetting(t) },
             { typeof(UetTag), static t => CustomizeUetTag(t) },
             { typeof(UpdateAdExtensionsRequest), static t => CustomizeUpdateAdExtensionsRequest(t) },
             { typeof(UpdateAdExtensionsResponse), static t => CustomizeUpdateAdExtensionsResponse(t) },
@@ -1836,6 +1857,62 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAdGroupNegativeSites(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationImageSuggestion(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationTextRefineOperation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationTextSuggestion(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationVideoSuggestion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -3328,6 +3405,108 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeCreateAssetGroupRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCreateAssetGroupRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCreateResponsiveAdRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCreateResponsiveAdRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCreateResponsiveSearchAdRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCreateResponsiveSearchAdRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -3543,6 +3722,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeCustomParameters(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDailySummary(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -7083,6 +7276,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetOfflineConversionReportsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetOfflineConversionReportsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetProfileDataFileUrlRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -7446,6 +7673,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "NewBrandSuitability":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "NewConversionGoals":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -7487,6 +7718,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "UpdateAdUrls":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "UpdateBrandSuitability":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
@@ -8982,6 +9217,30 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizePlacementCriterion(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "PlacementCriterion";
+                        break;
+                }
+            }
+        }
+
         private static void CustomizePlacementExclusionList(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -9270,6 +9529,108 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "RateBid";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineAssetGroupRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineAssetGroupRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineResponsiveAdRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineResponsiveAdRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineResponsiveSearchAdRecommendationRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRefineResponsiveSearchAdRecommendationResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }
@@ -10203,6 +10564,30 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "TextAsset";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeThirdPartyMeasurementSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "ThirdPartyMeasurementSetting";
                         break;
                 }
             }
