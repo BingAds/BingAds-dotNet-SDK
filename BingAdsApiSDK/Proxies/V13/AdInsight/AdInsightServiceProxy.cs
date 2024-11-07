@@ -12762,7 +12762,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for RemoveConflictingNegativeKeywordRecommendation.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/removeconflictingnegativekeywordrecommendation?view=bingads-13">RemoveConflictingNegativeKeywordRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/removeconflictingnegativekeywordrecommendation?view=bingads-13 for details.
@@ -12914,7 +12914,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for UseBroadMatchKeywordRecommendation.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/usebroadmatchkeywordrecommendation?view=bingads-13">UseBroadMatchKeywordRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/usebroadmatchkeywordrecommendation?view=bingads-13 for details.
@@ -13089,7 +13089,7 @@ namespace Microsoft.BingAds.V13.AdInsight
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a data object for ResponsiveSearchAdAssetRecommendation.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/ad-insight-service/responsivesearchadassetrecommendation?view=bingads-13">ResponsiveSearchAdAssetRecommendation Data Object</see> https:/learn.microsoft.com/advertising/ad-insight-service/responsivesearchadassetrecommendation?view=bingads-13 for details.

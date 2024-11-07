@@ -768,6 +768,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string SquareLogoMediaId = "Square Logo Media Id";
         public const string ImpressionTrackingUrls = "Impression Tracking Urls";
         public const string Videos = "Videos";
+        public const string AdType = "Ad Type";
 
         // Responsive Search Ad
         public const string ResponsiveSearchAd = "Responsive Search Ad";
@@ -845,6 +846,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignIndustryCriterion = "Campaign Industry Criterion";
         public const string CampaignJobFunctionCriterion = "Campaign Job Function Criterion";
         public const string CampaignJobTitleCriterion = "Campaign Job Title Criterion";
+        public const string CampaignJobSeniorityCriterion = "Campaign Job Seniority Criterion";
         public const string CampaignLocationCriterion = "Campaign Location Criterion";
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";

@@ -320,9 +320,9 @@ public static partial class RestApiGeneration
 
             return type switch
             {
-                "EntityParameter" => jsonObj.Deserialize<EntityParameter>(options),
-                "UrlParameter" => jsonObj.Deserialize<UrlParameter>(options),
-                "TextParameter" => jsonObj.Deserialize<TextParameter>(options),
+                "Entities" => jsonObj.Deserialize<EntityParameter>(options),
+                "Url" => jsonObj.Deserialize<UrlParameter>(options),
+                "Text" => jsonObj.Deserialize<TextParameter>(options),
                 "PerformanceInsightsMessageParameter" => jsonObj.Deserialize<PerformanceInsightsMessageParameter>(_originalOptions),
                 _ => throw new JsonException(null, _createUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
