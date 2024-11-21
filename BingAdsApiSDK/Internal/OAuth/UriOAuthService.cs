@@ -121,7 +121,7 @@ namespace Microsoft.BingAds.Internal.OAuth
 
             var OAuthTokenUrl = EndpointUrls[endpointType].OAuthTokenUrl;
 
-            if (endpointType == OAuthEndpointType.ProductionMSIdentityV2 && !(string.IsNullOrEmpty(tenant)))
+            if ((endpointType == OAuthEndpointType.ProductionMSIdentityV2 || endpointType == OAuthEndpointType.ProductionMSIdentityV2_MSScope) && !(string.IsNullOrEmpty(tenant)))
             {
                 OAuthTokenUrl = OAuthTokenUrl.Replace("common", tenant);
             }
@@ -169,7 +169,7 @@ namespace Microsoft.BingAds.Internal.OAuth
 
             var authorizationEndpointUrl = EndpointUrls[endpointType].AuthorizationEndpointUrl;
 
-            if (endpointType == OAuthEndpointType.ProductionMSIdentityV2 && !(string.IsNullOrEmpty(tenant)))
+            if ((endpointType == OAuthEndpointType.ProductionMSIdentityV2 || endpointType == OAuthEndpointType.ProductionMSIdentityV2_MSScope) && !(string.IsNullOrEmpty(tenant)))
             {
                 authorizationEndpointUrl = authorizationEndpointUrl.Replace("common", tenant);
             }
