@@ -858,5 +858,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.RefineResponsiveSearchAdRecommendationAsync(r), request);
         }
+
+        public static Task<AddConversionValueRulesResponse> AddConversionValueRulesAsync(this ServiceClient<ICampaignManagementService> service, AddConversionValueRulesRequest request)
+        {
+            return service.CallAsync((s, r) => s.AddConversionValueRulesAsync(r), request);
+        }
     }
 }

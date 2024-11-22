@@ -116,6 +116,7 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AssetPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryInsightsReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -4550,12 +4551,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13">AssetGroupPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4574,9 +4569,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4594,9 +4586,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportColumn> Columns
         {
@@ -4614,9 +4603,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportFilter Filter
         {
@@ -4634,9 +4620,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope Scope
         {
@@ -4654,9 +4637,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4675,12 +4655,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for SearchInsightPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportrequest?view=bingads-13">SearchInsightPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4699,9 +4673,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4719,9 +4690,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.SearchInsightPerformanceReportColumn> Columns
         {
@@ -4739,9 +4707,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.SearchInsightPerformanceReportFilter Filter
         {
@@ -4759,9 +4724,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
         {
@@ -4779,9 +4741,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4800,12 +4759,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an asset performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13">AssetPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4821,9 +4774,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4841,9 +4791,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetPerformanceReportColumn> Columns
         {
@@ -4861,9 +4808,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4881,9 +4825,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4902,12 +4843,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13">CategoryInsightsReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4924,9 +4859,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryInsightsReportColumn> Columns
         {
@@ -4944,9 +4876,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CategoryInsightsReportFilter Filter
         {
@@ -4964,9 +4893,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
         {
@@ -4984,9 +4910,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -5005,12 +4928,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13">CategoryClickCoverageReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5027,9 +4944,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportColumn> Columns
         {
@@ -5047,9 +4961,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportFilter Filter
         {
@@ -5067,9 +4978,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
         {
@@ -5087,9 +4995,110 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CombinationPerformanceReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V13.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -5341,7 +5350,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13">ReportTime Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/>, <see cref="CategoryInsightsReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/>, <see cref="CategoryInsightsReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -5474,7 +5483,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13">ReportAggregation Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5723,7 +5732,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Ptr = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -6023,7 +6032,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 78,
         
         /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
+        /// The number of completed video views divided by the number of total video views.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 79,
@@ -6046,111 +6055,57 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 82,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 83,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 84,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 85,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 86,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 87,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 88,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Downloads = 89,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickDownloadRate = 90,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerDownload = 91,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstalls = 92,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickInstallRate = 93,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPI = 94,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Purchases = 95,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallPurchaseRate = 96,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPP = 97,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscriptions = 98,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallSubscriptionRate = 99,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPS = 100,
     }
@@ -6656,7 +6611,7 @@ namespace Microsoft.BingAds.V13.Reporting
         BangkokHanoiJakarta = 21,
         
         /// <summary>
-        /// The corresponding report time zone
+        /// The corresponding report time zone.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
@@ -6866,7 +6821,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Greenland = 56,
         
         /// <summary>
-        /// The corresponding report time zone
+        /// The corresponding report time zone.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
@@ -7141,7 +7096,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-13">AccountThroughCampaignReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="BudgetSummaryReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/> and <see cref="SearchInsightPerformanceReportRequest"/> data objects.</para>
+    /// <para>Used by <see cref="BudgetSummaryReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/> and <see cref="SearchInsightPerformanceReportRequest"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7476,7 +7431,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Ptr = 39,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 40,
@@ -7836,7 +7791,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 99,
         
         /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
+        /// The number of completed video views divided by the number of total video views.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 100,
@@ -7859,111 +7814,57 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 103,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 104,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 105,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 106,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 107,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 108,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 109,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Downloads = 110,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickDownloadRate = 111,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerDownload = 112,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstalls = 113,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickInstallRate = 114,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPI = 115,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Purchases = 116,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallPurchaseRate = 117,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPP = 118,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscriptions = 119,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallSubscriptionRate = 120,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPS = 121,
     }
@@ -9689,7 +9590,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Ptr = 36,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 37,
@@ -10025,7 +9926,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 92,
         
         /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
+        /// The number of completed video views divided by the number of total video views.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 93,
@@ -10048,45 +9949,24 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 96,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 97,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 98,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 99,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 100,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 101,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 102,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 103,
     }
@@ -10503,7 +10383,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdStatus = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -10839,7 +10719,7 @@ namespace Microsoft.BingAds.V13.Reporting
         CompletedVideoViews = 84,
         
         /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
+        /// The number of completed video views divided by the number of total video views.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 85,
@@ -10862,21 +10742,12 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 88,
         
-        /// <summary>
-        /// The ad strength score of responsive search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStrength = 89,
         
-        /// <summary>
-        /// The suggestion based on ad strength of your responsive search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStrengthActionItems = 90,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 91,
     }
@@ -11555,7 +11426,7 @@ namespace Microsoft.BingAds.V13.Reporting
         KeywordStatus = 41,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 42,
@@ -11776,9 +11647,6 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 78,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 79,
     }
@@ -12360,7 +12228,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
@@ -13572,7 +13440,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country or region where the user was physically located when they clicked the ad.
+        /// The country where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
@@ -13584,7 +13452,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Microsoft Market Area in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMAÃ¯Â¿Â½ in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -13662,7 +13530,7 @@ namespace Microsoft.BingAds.V13.Reporting
         City = 22,
         
         /// <summary>
-        /// The name of a country or region if the user's geographical intent can be determined.
+        /// The name of a country if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 23,
@@ -13680,7 +13548,7 @@ namespace Microsoft.BingAds.V13.Reporting
         QueryIntentCity = 25,
         
         /// <summary>
-        /// The name of a metro area (Microsoft Market Area in the United States) if the user's geographical intent can be determined.
+        /// The name of a metro area (Nielsen DMA? in the United States) if the user's geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
@@ -13698,7 +13566,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -13908,7 +13776,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Neighborhood = 63,
         
         /// <summary>
-        /// The name of a neighborhood if the user?s geographical intent can be determined.
+        /// The name of a neighborhood if the userÃ¯Â¿Â½s geographical intent can be determined.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentNeighborhood = 64,
@@ -13919,21 +13787,12 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 65,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 66,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 67,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 68,
     }
@@ -14045,9 +13904,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -14268,7 +14124,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 22,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 23,
@@ -14441,59 +14297,31 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 51,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 52,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 53,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 54,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 55,
     }
     
-    /// <summary>
-    /// Defines the asset group status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13">AssetGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/> and <see cref="SearchInsightPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetGroupStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain asset groups that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain asset groups that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
-        /// <summary>
-        /// The report will contain asset groups that are deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
     }
@@ -14956,7 +14784,7 @@ namespace Microsoft.BingAds.V13.Reporting
         KeywordId = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -15591,7 +15419,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ViewThroughRevenue = 40,
         
         /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 41,
@@ -16936,7 +16764,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -17097,9 +16925,6 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 53,
     }
@@ -17452,7 +17277,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -18355,7 +18180,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 25,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
@@ -18998,7 +18823,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeviceType = 32,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 33,
@@ -19276,9 +19101,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -19429,7 +19251,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupStatus = 7,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 8,
@@ -19657,7 +19479,7 @@ namespace Microsoft.BingAds.V13.Reporting
         OfferLanguage = 45,
         
         /// <summary>
-        /// The country/region of sale for the product catalog.
+        /// The country of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 46,
@@ -19915,74 +19737,41 @@ namespace Microsoft.BingAds.V13.Reporting
         ViewThroughRevenue = 88,
         
         /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 89,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 90,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 91,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 92,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 93,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 94,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 95,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 96,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 97,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 98,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 99,
         
-        /// <summary>
-        /// The collection ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CollectionId = 100,
     }
@@ -20097,9 +19886,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -20382,7 +20168,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DestinationUrl = 29,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
@@ -20430,7 +20216,7 @@ namespace Microsoft.BingAds.V13.Reporting
         OfferLanguage = 37,
         
         /// <summary>
-        /// The country/region of sale for the product catalog.
+        /// The country of sale for the product catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 38,
@@ -20651,27 +20437,15 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 74,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 75,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 76,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 77,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 78,
     }
@@ -20786,9 +20560,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -21065,7 +20836,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DestinationUrl = 28,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
@@ -21256,27 +21027,15 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 60,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 61,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 62,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 63,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 64,
     }
@@ -21417,9 +21176,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -21626,7 +21382,7 @@ namespace Microsoft.BingAds.V13.Reporting
         SearchQuery = 13,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 14,
@@ -21859,21 +21615,12 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 53,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 54,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 55,
     }
@@ -21980,21 +21727,12 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtProductGroup = 14,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 15,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 16,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 17,
     }
@@ -22080,9 +21818,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -22258,27 +21993,15 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 18,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 20,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 21,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 22,
     }
@@ -22606,9 +22329,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -22759,7 +22479,7 @@ namespace Microsoft.BingAds.V13.Reporting
         AdGroupId = 7,
         
         /// <summary>
-        /// The country or region where the user was physically located when they clicked the ad.
+        /// The country where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
@@ -22771,7 +22491,7 @@ namespace Microsoft.BingAds.V13.Reporting
         State = 9,
         
         /// <summary>
-        /// The metro area (Microsoft Market Area in the United States) where the user was physically located when they clicked the ad.
+        /// The metro area (Nielsen DMAÃ¯Â¿Â½ in the United States) where the user was physically located when they clicked the ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
@@ -22861,7 +22581,7 @@ namespace Microsoft.BingAds.V13.Reporting
         DeliveredMatchType = 24,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
@@ -23094,27 +22814,15 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 63,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 64,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 65,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 66,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 67,
     }
@@ -23489,7 +23197,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Language = 21,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 22,
@@ -23975,7 +23683,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Language = 12,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 13,
@@ -24232,9 +23940,6 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 55,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 56,
     }
@@ -24548,7 +24253,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Language = 17,
         
         /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
+        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 18,
@@ -24988,7 +24693,7 @@ namespace Microsoft.BingAds.V13.Reporting
         SourceHotelId = 13,
         
         /// <summary>
-        /// The identifier of the lodging campaign.
+        /// The identifier of the hotel campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignHotelId = 14,
@@ -25042,31 +24747,31 @@ namespace Microsoft.BingAds.V13.Reporting
         StarRating = 22,
         
         /// <summary>
-        /// The value of the Custom_0 field in your Microsoft Hotel Center feed.
+        /// The value of the Custom_label_0 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel0 = 23,
         
         /// <summary>
-        /// The value of the Custom_1 field in your Microsoft Hotel Center feed.
+        /// The value of the Custom_label_1 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel1 = 24,
         
         /// <summary>
-        /// The value of the Custom_2 field in your Microsoft Hotel Center feed.
+        /// The value of the Custom_label_2 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel2 = 25,
         
         /// <summary>
-        /// The value of the Custom_3 field in your Microsoft Hotel Center feed.
+        /// The value of the Custom_label_3 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel3 = 26,
         
         /// <summary>
-        /// The value of the Custom_4 field in your Microsoft Hotel Center feed.
+        /// The value of the Custom_label_4 field in your Microsoft Merchant Center catalog.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel4 = 27,
@@ -25275,27 +24980,15 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdvancedBookingWindow = 61,
         
-        /// <summary>
-        /// The Bing website that users used to search for hotels.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SiteType = 62,
         
-        /// <summary>
-        /// The country of location for the user.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UserCountry = 63,
         
-        /// <summary>
-        /// The estimated percentage of clicks, out of the total number of clicks available, in auctions your ad showed in or was competitive in.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 64,
         
-        /// <summary>
-        /// The number of impressions lost because there were insufficient bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 65,
     }
@@ -25727,26 +25420,13 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsOther = 46,
         
-        /// <summary>
-        /// The estimated percentage of clicks, out of the total number of clicks available, in auctions your ad showed in or was competitive in.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 47,
         
-        /// <summary>
-        /// The number of impressions lost because there were insufficient bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 48,
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupPerformanceReportFilter.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13">AssetGroupPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -25778,9 +25458,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -25798,9 +25475,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -25818,9 +25492,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -25850,13 +25521,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a AccountThroughAssetGroupReportScope data object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13">AccountThroughAssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountThroughAssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -25888,9 +25552,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 1,000 account identifiers to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -25908,9 +25569,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Array of asset groups to update for the specified campaign.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupReportScope> AssetGroups
         {
@@ -25928,9 +25586,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// list of up to 300 campaigns to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> Campaigns
         {
@@ -25960,134 +25615,66 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a value set for AssetGroupPerformanceReportColumn.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13">AssetGroupPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetGroupPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 5,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 7,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 8,
         
-        /// <summary>
-        /// The current asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 9,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 10,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 11,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 12,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 13,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 16,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 17,
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupReportScope.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13">AssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountThroughAssetGroupReportScope"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26116,9 +25703,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AccountId
         {
@@ -26136,9 +25720,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
         {
@@ -26156,9 +25737,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public long AssetGroupId
         {
@@ -26188,13 +25766,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for SearchInsightPerformanceReportFilter.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportfilter?view=bingads-13">SearchInsightPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchInsightPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26235,9 +25806,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -26255,9 +25823,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -26275,9 +25840,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -26295,9 +25857,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -26315,9 +25874,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchCategory
         {
@@ -26335,9 +25891,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchQueries
         {
@@ -26367,333 +25920,165 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the SearcyhInsightPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportcolumn?view=bingads-13">SearchInsightPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchInsightPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum SearchInsightPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 8,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 9,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 10,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 11,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 12,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchQuery = 13,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 14,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 15,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 16,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 17,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 18,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 22,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 23,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 24,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 25,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchCategory = 26,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchVolume = 27,
     }
     
-    /// <summary>
-    /// |Defines the attributes and performance statistics columns that you can include in the AssetPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportcolumn?view=bingads-13">AssetPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetId = 7,
         
-        /// <summary>
-        /// The content of the asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetContent = 8,
         
-        /// <summary>
-        /// A string that indicates the role this asset plays in the ad (e.g, Headline, Description, Call to Action, Image).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetType = 9,
         
-        /// <summary>
-        /// A string, which is either "Advertiser Provided" or "Autogenerated", which indicates the source of the asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetSource = 10,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 14,
         
-        /// <summary>
-        /// The number of times a potential customer watched the video in its entirety.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 15,
         
-        /// <summary>
-        /// The number of times a user completed at least 25% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 16,
         
-        /// <summary>
-        /// The number of times a user completed at least 50% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 17,
         
-        /// <summary>
-        /// The number of times a user completed at least 75% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 18,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 19,
         
-        /// <summary>
-        /// Completed video views divided by total number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 20,
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13">CategoryInsightsReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26728,9 +26113,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -26748,9 +26130,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L1Vertical
         {
@@ -26768,9 +26147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L2Vertical
         {
@@ -26788,9 +26164,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L3Vertical
         {
@@ -26820,128 +26193,63 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13">CategoryInsightsReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CategoryInsightsReportColumn : int
     {
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L1Vertical = 0,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L2Vertical = 1,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L3Vertical = 2,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WeekStartingMonday = 3,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WoWSearches = 4,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoMSearches = 5,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast1WeekSearches = 6,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast4WeeksSearches = 7,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchesIndexed = 8,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchesPeakWeek = 9,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WoWClicks = 10,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoMClicks = 11,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast1WeekClicks = 12,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClicksIndexed = 13,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClicksPeakWeek = 14,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast4WeeksClicks = 15,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 16,
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13">CategoryClickCoverageReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26976,9 +26284,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -26996,9 +26301,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L1Vertical
         {
@@ -27016,9 +26318,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L2Vertical
         {
@@ -27036,9 +26335,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L3Vertical
         {
@@ -27068,65 +26364,149 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13">CategoryClickCoverageReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CategoryClickCoverageReportColumn : int
     {
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 1,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L1Vertical = 2,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L2Vertical = 3,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L3Vertical = 4,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WeekStartingMonday = 5,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MarketplaceClickCoverage = 6,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 7,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class CombinationPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum CombinationPerformanceReportColumn : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupName = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdType = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Headline1 = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Headline2 = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Headline3 = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CombinationLongHeadline = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Description1 = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Description2 = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Image = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Logo = 19,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 20,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 21,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 22,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 24,
     }
     
     /// <summary>
