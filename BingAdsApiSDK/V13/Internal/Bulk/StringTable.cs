@@ -994,6 +994,18 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         // Deal
         public const string IsDealCampaign = "Is Deal Campaign";
 
+        // Asset Group Url Target
+        public const string AssetGroupUrlTarget = "Asset Group Url Target";
+        public const string AssetGroupTargetCondition1 = "Asset Group Target Condition 1";
+        public const string AssetGroupTargetCondition2 = "Asset Group Target Condition 2";
+        public const string AssetGroupTargetCondition3 = "Asset Group Target Condition 3";
+        public const string AssetGroupTargetConditionOperator1 = "Asset Group Target Condition Operator 1";
+        public const string AssetGroupTargetConditionOperator2 = "Asset Group Target Condition Operator 2";
+        public const string AssetGroupTargetConditionOperator3 = "Asset Group Target Condition Operator 3";
+        public const string AssetGroupTargetValue1 = "Asset Group Target Value 1";
+        public const string AssetGroupTargetValue2 = "Asset Group Target Value 2";
+        public const string AssetGroupTargetValue3 = "Asset Group Target Value 3";
+
         public const string AppStore = "App Store";
     }
 }

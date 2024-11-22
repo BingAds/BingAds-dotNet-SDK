@@ -246,7 +246,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Active = 1,
         
         /// <summary>
-        /// The account was deactivated as it generated no traffic for 15 months.
+        /// The account is inactive, which means that the system deleted the account.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
@@ -2308,7 +2308,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         ZWD = 91,
         
         /// <summary>
-        /// The corresponding currency type.
+        /// Reserved.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NGN = 92,
@@ -2501,81 +2501,42 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimplifiedChinese = 17,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Thai = 18,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Turkish = 19,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Filipino = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Indonesian = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Polish = 22,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vietnamese = 23,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Malay = 24,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ukrainian = 25,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Czech = 26,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Romanian = 27,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greek = 28,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hungarian = 29,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hindi = 30,
     }
@@ -3014,7 +2975,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Nairobi = 34,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding time zone type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
@@ -3044,7 +3005,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         Perth = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding time zone type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
@@ -4146,85 +4107,85 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         ArabicSaudiArabia = 1025,
         
         /// <summary>
-        /// Arabic (Algeria)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicAlgeria = 5121,
         
         /// <summary>
-        /// Arabic (Bahrain)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicBahrain = 15361,
         
         /// <summary>
-        /// Arabic (Egypt)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicEgypt = 3073,
         
         /// <summary>
-        /// Arabic (Iraq)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicIraq = 2049,
         
         /// <summary>
-        /// Arabic (Jordan)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicJordan = 11265,
         
         /// <summary>
-        /// Arabic (Kuwait)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicKuwait = 13313,
         
         /// <summary>
-        /// Arabic (Lebanon)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLebanon = 12289,
         
         /// <summary>
-        /// Arabic (Libya)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLibya = 4097,
         
         /// <summary>
-        /// Arabic (Morocco)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicMorocco = 6145,
         
         /// <summary>
-        /// Arabic (Oman)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicOman = 8193,
         
         /// <summary>
-        /// Arabic (Qatar)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicQatar = 16385,
         
         /// <summary>
-        /// Arabic (Tunisia)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicTunisia = 7169,
         
         /// <summary>
-        /// Arabic (United Arab Emirates)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicUnitedArabEmirates = 14337,
         
         /// <summary>
-        /// Arabic (Yemen)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicYemen = 9217,
@@ -4308,7 +4269,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         NorwegianNorway = 1044,
         
         /// <summary>
-        /// Portuguese (Brazil)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PortugueseBrazil = 1046,
@@ -4343,9 +4304,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishVietnam = 1066,
         
-        /// <summary>
-        /// Chinese (China)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseChina = 2052,
         
@@ -4368,7 +4326,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         SpanishMexico = 2058,
         
         /// <summary>
-        /// Chinese (Hong Kong SAR)
+        /// Chinese (Hong Kong)
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseHongKong = 3076,
@@ -4404,7 +4362,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         EnglishNewZealand = 5129,
         
         /// <summary>
-        /// English (Ireland)
+        /// The corresponding LCID type.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIreland = 6153,
@@ -4463,63 +4421,33 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
         
-        /// <summary>
-        /// Turkish (Turkey)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishTurkey = 1055,
         
-        /// <summary>
-        /// Filipino (Philippines)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilipinoPhilippines = 1124,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PolandPolish = 1045,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MalayMalaysia = 1086,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UkrainianUkraine = 1058,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CzechRepublicCZ = 1029,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RomaniaRO = 1048,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreekGreece = 1032,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HungaryHU = 1038,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HindiIndia = 1081,
     }
@@ -5498,9 +5426,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountMode = 2,
         
-        /// <summary>
-        /// Request that the CouponClaimInfo element be included within each returned AdvertiserAccount object.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClaimInfo = 4,
     }
@@ -7180,13 +7105,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         UnlinkFailed = 13,
     }
     
-    /// <summary>
-    /// Defines a Notification object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13">Notification Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Notification", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7227,9 +7145,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the type of Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TypeId
         {
@@ -7247,9 +7162,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public long Id
         {
@@ -7267,9 +7179,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The severity of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public byte Severity
         {
@@ -7287,9 +7196,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The title of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string Title
         {
@@ -7307,9 +7213,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The message of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string Message
         {
@@ -7327,9 +7230,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The supporting data of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOfstringstring> AdditionalInfo
         {
@@ -7359,13 +7259,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// The key and value entity of string and string values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13">KeyValueEntityOfstringstring Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13 for details.
-    /// <para>Used by <see cref="Notification"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOfstringstring", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7394,9 +7287,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Key
         {
@@ -7414,9 +7304,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The value of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Value
         {
@@ -7446,13 +7333,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// The key and value entity of long and int values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13">KeyValueEntityOflongint Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOflongint", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7481,9 +7361,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The key of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Key
         {
@@ -7501,9 +7378,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The value of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value
         {
@@ -8562,16 +8436,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tatusResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
             "tionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
@@ -8580,30 +8444,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tionsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
             "tionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
             "ficationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
@@ -8612,16 +8456,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ficationsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
             "ficationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
@@ -9374,7 +9208,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         public System.Nullable<long> UserId;
         
         /// <summary>
-        /// The user to create.
+        /// The user to create if you want to sign up a new customer and create user simultaneously.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=5)]
         public Microsoft.BingAds.V13.CustomerManagement.User User;
@@ -9400,7 +9234,7 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// <param name="ParentCustomerId">The customer identifier of the aggregator or agency that will manage the new child customer.</param>
         /// <param name="UserInvitation">The user invitation to send if you want to sign up a new customer on behalf of a client and optionally link to the new account as an agency.</param>
         /// <param name="UserId">The identifier of an existing user who will be added as Super Admin in the new customer.</param>
-        /// <param name="User">The user to create.</param>
+        /// <param name="User">The user to create if you want to sign up a new customer and create user simultaneously.</param>
         public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation, System.Nullable<long> UserId, Microsoft.BingAds.V13.CustomerManagement.User User)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12575,13 +12409,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of notification objects.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12603,43 +12430,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The locale of the message.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public string Locale;
         
-        /// <summary>
-        /// The UserId filter.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Nullable<int> UserId;
         
-        /// <summary>
-        /// A list of notification type filter.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Collections.Generic.IList<int> TypeIds;
         
-        /// <summary>
-        /// Constructor for the GetNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
         public GetNotificationsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Locale">The locale of the message.</param>
-        /// <param name="UserId">The UserId filter.</param>
-        /// <param name="TypeIds">A list of notification type filter.</param>
         public GetNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Locale, System.Nullable<int> UserId, System.Collections.Generic.IList<int> TypeIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12653,13 +12456,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of notification objects.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12669,29 +12465,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A collection of Notification objects that contains information about the Notification.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications;
         
-        /// <summary>
-        /// Constructor for the GetNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
         public GetNotificationsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Notifications">A collection of Notification objects that contains information about the Notification.</param>
         public GetNotificationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications)
         {
             this.TrackingId = TrackingId;
@@ -12699,13 +12479,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// A service operation to dismiss notifications.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12727,36 +12500,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The user's identification number.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<int> UserId;
         
-        /// <summary>
-        /// The key and value of a notification entity.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs;
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserId">The user's identification number.</param>
-        /// <param name="NotificationTypePairs">The key and value of a notification entity.</param>
         public DismissNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<int> UserId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12769,13 +12522,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// A service operation to dismiss notifications.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12785,22 +12531,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
@@ -13791,61 +13525,21 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             return base.Channel.GetUserMFAStatusAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
         {
             return base.Channel.GetNotifications(request);
         }
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
         {
             return base.Channel.GetNotificationsAsync(request);
         }
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
         {
             return base.Channel.DismissNotifications(request);
         }
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
         {
             return base.Channel.DismissNotificationsAsync(request);

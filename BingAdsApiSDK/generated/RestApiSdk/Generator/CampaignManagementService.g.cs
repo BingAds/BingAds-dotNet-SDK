@@ -1675,5 +1675,15 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<RefineResponsiveSearchAdRecommendationResponse>("RefineResponsiveSearchAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public AddConversionValueRulesResponse AddConversionValueRules(AddConversionValueRulesRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddConversionValueRulesResponse> AddConversionValueRulesAsync(AddConversionValueRulesRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<AddConversionValueRulesResponse>("AddConversionValueRules", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }
