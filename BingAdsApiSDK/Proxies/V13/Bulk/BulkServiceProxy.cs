@@ -66,7 +66,7 @@ namespace Microsoft.BingAds.V13.Bulk
     
     
     /// <summary>
-    /// Defines the possible compression types for the file to download.
+    /// Defines the possible compression types for the file to download with the Bulk service.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/bulk-service/compressiontype?view=bingads-13">CompressionType Value Set</see> https:/learn.microsoft.com/advertising/bulk-service/compressiontype?view=bingads-13 for details.
@@ -1004,122 +1004,269 @@ namespace Microsoft.BingAds.V13.Bulk
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupHotelListingGroups = 145,
         
+        /// <summary>
+        /// Array of asset groups to add to the specified campaign.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroups = 146,
         
+        /// <summary>
+        /// Array of audience groups.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceGroups = 147,
         
+        /// <summary>
+        /// Defines a negative site assigned to an campaign that can be uploaded and downloaded in a bulk file.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeWebpages = 148,
         
+        /// <summary>
+        /// The list of Audience Group associations.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceGroupAssetGroupAssociations = 149,
         
+        /// <summary>
+        /// The list of listing groups that correspond directly to the identifiers specified in the request.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupListingGroups = 150,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LogoAdExtensions = 151,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountLogoAdExtensions = 152,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLogoAdExtensions = 153,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupLogoAdExtensions = 154,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LeadFormAdExtensions = 155,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountLeadFormAdExtensions = 156,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLeadFormAdExtensions = 157,
         
+        /// <summary>
+        /// Include Account Negative Keyword List records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNegativeKeywordList = 158,
         
+        /// <summary>
+        /// Include Account Negative Keyword List Association records in the download that represents the association relationship between an account and an account negative keyword list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNegativeKeywordListAssociation = 159,
         
+        /// <summary>
+        /// Include Account Negative Keyword List records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNegativeKeyword = 160,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionGoal = 161,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EventGoal = 162,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstallGoal = 163,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MultiStageGoal = 164,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DurationGoal = 165,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfflineConversionGoal = 166,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UrlGoal = 167,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InStoreTransactionGoal = 168,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PagesViewedPerVisitGoal = 169,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SmartGoal = 170,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InStoreVisitGoal = 171,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGoal = 172,
         
+        /// <summary>
+        /// Include SeasonalityAdjustments records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SeasonalityAdjustments = 173,
         
+        /// <summary>
+        /// Include DataExclusions records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DataExclusions = 174,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrandList = 175,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrandItem = 176,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignBrandListAssociation = 177,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupSearchThemes = 178,
         
+        /// <summary>
+        /// Include Impression Based Remarketing List records in the download data.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 179,
         
+        /// <summary>
+        /// Include Ad Group Impression Based Remarketing List Association records in the download that each represent the association relationship between an ad group and an impression based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupImpressionBasedRemarketingListAssociations = 180,
         
+        /// <summary>
+        /// Include Ad Group Negative Impression Based Remarketing List Association records in the download that each represent the association relationship between an ad group and an impression based remarketing list exclusion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupNegativeImpressionBasedRemarketingListAssociations = 181,
         
+        /// <summary>
+        /// Include Campaign Impression Based Remarketing List Association records in the download that each represent the association relationship between a campaign and an impression based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignImpressionBasedRemarketingListAssociations = 182,
         
+        /// <summary>
+        /// Include Campaign Negative Impression Based Remarketing List Association records in the download that each represent the association relationship between a campaign and an impression based remarketing list exclusion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignNegativeImpressionBasedRemarketingListAssociations = 183,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupUrlTargets = 184,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewCustomerAcquisitionGoal = 185,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionValueRule = 186,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountPlacementExclusionList = 187,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountPlacementExclusionListItem = 188,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignAccountPlacementExclusionListAssociation = 189,
     }
     
     /// <summary>

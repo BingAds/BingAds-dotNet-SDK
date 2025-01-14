@@ -136,6 +136,8 @@ public static partial class RestApiGeneration
             { typeof(CategoryClickCoverageReportRequest), static t => CustomizeCategoryClickCoverageReportRequest(t) },
             { typeof(CategoryInsightsReportFilter), static t => CustomizeCategoryInsightsReportFilter(t) },
             { typeof(CategoryInsightsReportRequest), static t => CustomizeCategoryInsightsReportRequest(t) },
+            { typeof(CombinationPerformanceReportFilter), static t => CustomizeCombinationPerformanceReportFilter(t) },
+            { typeof(CombinationPerformanceReportRequest), static t => CustomizeCombinationPerformanceReportRequest(t) },
             { typeof(ConversionPerformanceReportFilter), static t => CustomizeConversionPerformanceReportFilter(t) },
             { typeof(ConversionPerformanceReportRequest), static t => CustomizeConversionPerformanceReportRequest(t) },
             { typeof(Date), static t => CustomizeDate(t) },
@@ -837,6 +839,37 @@ public static partial class RestApiGeneration
             }
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "CategoryInsightsReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeCombinationPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCombinationPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "CombinationPerformanceReportRequest";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
