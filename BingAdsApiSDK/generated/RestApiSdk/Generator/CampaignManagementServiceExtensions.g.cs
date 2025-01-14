@@ -859,9 +859,29 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.RefineResponsiveSearchAdRecommendationAsync(r), request);
         }
 
+        public static Task<UpdateConversionValueRulesResponse> UpdateConversionValueRulesAsync(this ServiceClient<ICampaignManagementService> service, UpdateConversionValueRulesRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateConversionValueRulesAsync(r), request);
+        }
+
+        public static Task<UpdateConversionValueRulesStatusResponse> UpdateConversionValueRulesStatusAsync(this ServiceClient<ICampaignManagementService> service, UpdateConversionValueRulesStatusRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateConversionValueRulesStatusAsync(r), request);
+        }
+
         public static Task<AddConversionValueRulesResponse> AddConversionValueRulesAsync(this ServiceClient<ICampaignManagementService> service, AddConversionValueRulesRequest request)
         {
             return service.CallAsync((s, r) => s.AddConversionValueRulesAsync(r), request);
+        }
+
+        public static Task<GetConversionValueRulesByAccountIdResponse> GetConversionValueRulesByAccountIdAsync(this ServiceClient<ICampaignManagementService> service, GetConversionValueRulesByAccountIdRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetConversionValueRulesByAccountIdAsync(r), request);
+        }
+
+        public static Task<GetConversionValueRulesByIdsResponse> GetConversionValueRulesByIdsAsync(this ServiceClient<ICampaignManagementService> service, GetConversionValueRulesByIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetConversionValueRulesByIdsAsync(r), request);
         }
     }
 }

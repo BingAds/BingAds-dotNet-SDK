@@ -96,6 +96,7 @@ public static partial class RestApiGeneration
         {
             { typeof(AccountMigrationStatusesInfo), static t => CustomizeAccountMigrationStatusesInfo(t) },
             { typeof(AccountNegativeKeywordList), static t => CustomizeAccountNegativeKeywordList(t) },
+            { typeof(AccountPlacementExclusionList), static t => CustomizeAccountPlacementExclusionList(t) },
             { typeof(AccountProperty), static t => CustomizeAccountProperty(t) },
             { typeof(ActionAdExtension), static t => CustomizeActionAdExtension(t) },
             { typeof(Ad), static t => CustomizeAd(t) },
@@ -421,6 +422,10 @@ public static partial class RestApiGeneration
             { typeof(GetConversionGoalsByIdsResponse), static t => CustomizeGetConversionGoalsByIdsResponse(t) },
             { typeof(GetConversionGoalsByTagIdsRequest), static t => CustomizeGetConversionGoalsByTagIdsRequest(t) },
             { typeof(GetConversionGoalsByTagIdsResponse), static t => CustomizeGetConversionGoalsByTagIdsResponse(t) },
+            { typeof(GetConversionValueRulesByAccountIdRequest), static t => CustomizeGetConversionValueRulesByAccountIdRequest(t) },
+            { typeof(GetConversionValueRulesByAccountIdResponse), static t => CustomizeGetConversionValueRulesByAccountIdResponse(t) },
+            { typeof(GetConversionValueRulesByIdsRequest), static t => CustomizeGetConversionValueRulesByIdsRequest(t) },
+            { typeof(GetConversionValueRulesByIdsResponse), static t => CustomizeGetConversionValueRulesByIdsResponse(t) },
             { typeof(GetDataExclusionsByAccountIdRequest), static t => CustomizeGetDataExclusionsByAccountIdRequest(t) },
             { typeof(GetDataExclusionsByAccountIdResponse), static t => CustomizeGetDataExclusionsByAccountIdResponse(t) },
             { typeof(GetDataExclusionsByIdsRequest), static t => CustomizeGetDataExclusionsByIdsRequest(t) },
@@ -537,6 +542,7 @@ public static partial class RestApiGeneration
             { typeof(NegativeKeyword), static t => CustomizeNegativeKeyword(t) },
             { typeof(NegativeKeywordList), static t => CustomizeNegativeKeywordList(t) },
             { typeof(NegativeSite), static t => CustomizeNegativeSite(t) },
+            { typeof(NewCustomerAcquisitionGoalSetting), static t => CustomizeNewCustomerAcquisitionGoalSetting(t) },
             { typeof(NumberRuleItem), static t => CustomizeNumberRuleItem(t) },
             { typeof(OfflineConversion), static t => CustomizeOfflineConversion(t) },
             { typeof(OfflineConversionAdjustment), static t => CustomizeOfflineConversionAdjustment(t) },
@@ -640,6 +646,10 @@ public static partial class RestApiGeneration
             { typeof(UpdateCampaignsResponse), static t => CustomizeUpdateCampaignsResponse(t) },
             { typeof(UpdateConversionGoalsRequest), static t => CustomizeUpdateConversionGoalsRequest(t) },
             { typeof(UpdateConversionGoalsResponse), static t => CustomizeUpdateConversionGoalsResponse(t) },
+            { typeof(UpdateConversionValueRulesRequest), static t => CustomizeUpdateConversionValueRulesRequest(t) },
+            { typeof(UpdateConversionValueRulesResponse), static t => CustomizeUpdateConversionValueRulesResponse(t) },
+            { typeof(UpdateConversionValueRulesStatusRequest), static t => CustomizeUpdateConversionValueRulesStatusRequest(t) },
+            { typeof(UpdateConversionValueRulesStatusResponse), static t => CustomizeUpdateConversionValueRulesStatusResponse(t) },
             { typeof(UpdateDataExclusionsRequest), static t => CustomizeUpdateDataExclusionsRequest(t) },
             { typeof(UpdateDataExclusionsResponse), static t => CustomizeUpdateDataExclusionsResponse(t) },
             { typeof(UpdateExperimentsRequest), static t => CustomizeUpdateExperimentsRequest(t) },
@@ -702,6 +712,30 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "AccountNegativeKeywordList";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAccountPlacementExclusionList(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "AccountPlacementExclusionList";
                         break;
                 }
             }
@@ -2551,6 +2585,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "AssetGroupUrlTargets":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "Videos":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
@@ -6645,6 +6683,74 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetConversionValueRulesByAccountIdRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetConversionValueRulesByAccountIdResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetConversionValueRulesByIdsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetConversionValueRulesByIdsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetDataExclusionsByAccountIdRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -8634,6 +8740,10 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "ManualCpc":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => "ManualCpc";
                         break;
@@ -9009,6 +9119,30 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "NegativeSite";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeNewCustomerAcquisitionGoalSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "NewCustomerAcquisitionGoalSetting";
                         break;
                 }
             }
@@ -11147,6 +11281,74 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeUpdateConversionGoalsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateConversionValueRulesRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateConversionValueRulesResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateConversionValueRulesStatusRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateConversionValueRulesStatusResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
