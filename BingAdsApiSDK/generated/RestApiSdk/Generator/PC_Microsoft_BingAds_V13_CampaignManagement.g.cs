@@ -1455,6 +1455,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "NewCustomerAcquisitionGoalSetting" => jsonObj.Deserialize<NewCustomerAcquisitionGoalSetting>(options),
                 "ThirdPartyMeasurementSetting" => jsonObj.Deserialize<ThirdPartyMeasurementSetting>(options),
                 "AppSetting" => jsonObj.Deserialize<AppSetting>(options),
                 "VanityPharmaSetting" => jsonObj.Deserialize<VanityPharmaSetting>(options),
@@ -1480,6 +1481,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case NewCustomerAcquisitionGoalSetting newCustomerAcquisitionGoalSetting:
+                    JsonSerializer.Serialize(writer, newCustomerAcquisitionGoalSetting, options);
+                    break;
                 case ThirdPartyMeasurementSetting thirdPartyMeasurementSetting:
                     JsonSerializer.Serialize(writer, thirdPartyMeasurementSetting, options);
                     break;
@@ -1554,6 +1558,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AccountPlacementExclusionList" => jsonObj.Deserialize<AccountPlacementExclusionList>(options),
                 "BrandList" => jsonObj.Deserialize<BrandList>(options),
                 "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
@@ -1570,6 +1575,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AccountPlacementExclusionList accountPlacementExclusionList:
+                    JsonSerializer.Serialize(writer, accountPlacementExclusionList, options);
+                    break;
                 case BrandList brandList:
                     JsonSerializer.Serialize(writer, brandList, options);
                     break;
@@ -1617,6 +1625,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AccountPlacementExclusionList" => jsonObj.Deserialize<AccountPlacementExclusionList>(options),
                 "BrandList" => jsonObj.Deserialize<BrandList>(options),
                 "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
@@ -1632,6 +1641,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AccountPlacementExclusionList accountPlacementExclusionList:
+                    JsonSerializer.Serialize(writer, accountPlacementExclusionList, options);
+                    break;
                 case BrandList brandList:
                     JsonSerializer.Serialize(writer, brandList, options);
                     break;

@@ -1676,6 +1676,26 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<RefineResponsiveSearchAdRecommendationResponse>("RefineResponsiveSearchAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public UpdateConversionValueRulesResponse UpdateConversionValueRules(UpdateConversionValueRulesRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateConversionValueRulesResponse> UpdateConversionValueRulesAsync(UpdateConversionValueRulesRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateConversionValueRulesResponse>("UpdateConversionValueRules", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateConversionValueRulesStatusResponse UpdateConversionValueRulesStatus(UpdateConversionValueRulesStatusRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateConversionValueRulesStatusResponse> UpdateConversionValueRulesStatusAsync(UpdateConversionValueRulesStatusRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateConversionValueRulesStatusResponse>("UpdateConversionValueRulesStatus", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public AddConversionValueRulesResponse AddConversionValueRules(AddConversionValueRulesRequest request)
         {
             throw new NotImplementedException();
@@ -1684,6 +1704,26 @@ namespace Microsoft.BingAds.Internal
         public Task<AddConversionValueRulesResponse> AddConversionValueRulesAsync(AddConversionValueRulesRequest request)
         {
             return _restServiceClient.CallServiceAsync<AddConversionValueRulesResponse>("AddConversionValueRules", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetConversionValueRulesByAccountIdResponse GetConversionValueRulesByAccountId(GetConversionValueRulesByAccountIdRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetConversionValueRulesByAccountIdResponse> GetConversionValueRulesByAccountIdAsync(GetConversionValueRulesByAccountIdRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetConversionValueRulesByAccountIdResponse>("GetConversionValueRulesByAccountId", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetConversionValueRulesByIdsResponse GetConversionValueRulesByIds(GetConversionValueRulesByIdsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetConversionValueRulesByIdsResponse> GetConversionValueRulesByIdsAsync(GetConversionValueRulesByIdsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetConversionValueRulesByIdsResponse>("GetConversionValueRulesByIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
     }
 }
