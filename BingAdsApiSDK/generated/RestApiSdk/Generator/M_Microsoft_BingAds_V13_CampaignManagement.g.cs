@@ -204,6 +204,7 @@ public static partial class RestApiGeneration
             { typeof(AssetGroupListingGroup), static t => CustomizeAssetGroupListingGroup(t) },
             { typeof(AssetGroupListingGroupAction), static t => CustomizeAssetGroupListingGroupAction(t) },
             { typeof(AssetGroupSearchTheme), static t => CustomizeAssetGroupSearchTheme(t) },
+            { typeof(AssetGroupUrlTarget), static t => CustomizeAssetGroupUrlTarget(t) },
             { typeof(AssetLink), static t => CustomizeAssetLink(t) },
             { typeof(Audience), static t => CustomizeAudience(t) },
             { typeof(AudienceCondition), static t => CustomizeAudienceCondition(t) },
@@ -2549,6 +2550,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "AssetGroupUrlTargets":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                 }
             }
         }
@@ -2610,6 +2615,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAssetGroupSearchTheme(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAssetGroupUrlTarget(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

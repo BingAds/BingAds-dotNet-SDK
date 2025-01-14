@@ -936,6 +936,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string DestinationChannel = "Destination Channel";
         public const string IsMultiChannelCampaign = "Is Multi Channel Campaign";
 
+        public const string EnabledExternalChannelSync = "Enabled External Channel Sync";
+
         // DNV Serving on MSAN
         public const string ShouldServeOnMSAN = "Should Serve On MSAN";
 

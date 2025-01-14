@@ -50,6 +50,7 @@
 using Microsoft.BingAds.V13.CampaignManagement;
 using Microsoft.BingAds.V13.Bulk.Entities;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
+using System;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
 {
@@ -65,6 +66,13 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
         MoreBrandAwareness = 4,
 
         MoreSales = 5
+    }
+
+    [Flags]
+    public enum EnabledExternalChannelSync
+    {
+        None = 0,
+        LinkedIn = 4
     }
 
     public class LinkedInSetting : Setting

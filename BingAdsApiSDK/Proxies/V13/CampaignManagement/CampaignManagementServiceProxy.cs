@@ -246,6 +246,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A list of unique system identifiers corresponding to the deals that were added.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<long> DealIds
         {
@@ -324,7 +327,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// A list of goal IDs.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<long> GoalIds
@@ -363,6 +366,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The campaign is a deal campaign if true.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> IsDealCampaign
         {
@@ -381,7 +387,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percent amount by which to adjust your bid for multimedia ads above or below the base ad group or keyword bid
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> MultimediaAdsBidAdjustment
@@ -521,7 +527,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, or Shopping campaign.
+        /// The campaign type determines whether the campaign is an Audience, Dynamic Search Ads, Search, Shopping campaign, Hotel Ads, or Performance Max.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
@@ -909,17 +915,20 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Audience = 8,
         
         /// <summary>
-        /// The campaign is a Hotel campaign.
+        /// The campaign is a Lodging campaign (formerly Hotel campaigns).
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hotel = 32,
         
         /// <summary>
-        /// Reserved.
+        /// The campaign is a Performance max campaign.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PerformanceMax = 64,
         
+        /// <summary>
+        /// The campaign is an App campaign.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         App = 128,
     }
@@ -949,6 +958,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.VanityPharmaSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AppSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ThirdPartyMeasurementSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NewCustomerAcquisitionGoalSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -1079,7 +1089,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The target cost per action that you want to spend.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<double> TargetCpa
@@ -1171,6 +1181,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.SerializableAttribute()]
     public partial class ManualCpcBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
     {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> ManualCpcField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<double> ManualCpc
+        {
+            get
+            {
+                return this.ManualCpcField;
+            }
+            set
+            {
+                if ((this.ManualCpcField.Equals(value) != true))
+                {
+                    this.ManualCpcField = value;
+                    this.RaisePropertyChanged("ManualCpc");
+                }
+            }
+        }
     }
     
     /// <summary>
@@ -1366,7 +1399,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> TargetRoasField;
         
         /// <summary>
-        /// Reserved for future use.
+        /// The target return on ad spend.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetRoas
@@ -1543,6 +1576,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an object that represents the manual CPA bid strategy type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/manualcpabiddingscheme?view=bingads-13">ManualCpaBiddingScheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/manualcpabiddingscheme?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ManualCpaBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -1553,6 +1592,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> ManualCpiField;
         
+        /// <summary>
+        /// The manual cost per install.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<double> ManualCpi
         {
@@ -1571,6 +1613,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an object that represents the cost per sale bid strategy type.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/costpersalebiddingscheme?view=bingads-13">CostPerSaleBiddingScheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/costpersalebiddingscheme?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CostPerSaleBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -1581,6 +1629,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> TargetCostPerSaleField;
         
+        /// <summary>
+        /// The target cost per sale that you want used by Microsoft Advertising to maximize conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetCostPerSale
         {
@@ -1768,7 +1819,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> DetailsField;
         
         /// <summary>
-        /// Reserved.
+        /// Key-value pairs for the VerifiedTrackingSetting object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> Details
@@ -1819,6 +1870,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> StoreIdField;
         
+        /// <summary>
+        /// Lets you advertise all products with the same feed label in a Shopping or Performance Max campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string FeedLabel
         {
@@ -1896,6 +1950,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether shoppable ads are enabled for the Microsoft Merchant Center store.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> ShoppableAdsEnabled
         {
@@ -1951,7 +2008,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> FeedIdField;
         
         /// <summary>
-        /// Reserved.
+        /// The ID of the feed.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> FeedId
@@ -2000,7 +2057,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.DynamicSearchAdsSource> SourceField;
         
         /// <summary>
-        /// Reserved.
+        /// The website name corresponding to the pages you want your ads to target.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DomainName
@@ -2258,7 +2315,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines whether ad group will target Hotel Price Ads (HPA) or Property Price Ads (PPA).
+    /// Defines whether the ad group will target Hotel Price Ads (HPA) or Property Price Ads (PPA).
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/hotelsetting?view=bingads-13">HotelSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/hotelsetting?view=bingads-13 for details.
@@ -2295,7 +2352,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the ResponsiveSearchAdsSetting object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/responsivesearchadssetting?view=bingads-13">ResponsiveSearchAdsSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/responsivesearchadssetting?view=bingads-13 for details.
@@ -2311,7 +2368,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> AutoGeneratedAssetsEnabledField;
         
         /// <summary>
-        /// Reserved.
+        /// Determines whether to automatically generate responsive search ad assets in addition to the ad text you provide.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> AutoGeneratedAssetsEnabled
@@ -2332,7 +2389,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the PerformanceMaxSetting object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/performancemaxsetting?view=bingads-13">PerformanceMaxSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/performancemaxsetting?view=bingads-13 for details.
@@ -2359,6 +2416,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<long> PageFeedIdsField;
         
+        /// <summary>
+        /// If false, then image assets will be dynamically generated.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> AutoGeneratedImageOptOut
         {
@@ -2376,6 +2436,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// If false, then text assets will be dynamically generated.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> AutoGeneratedTextOptOut
         {
@@ -2393,6 +2456,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// If true, then bidding will be opted out of cost per sale.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> CostPerSaleOptOut
         {
@@ -2411,7 +2477,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// If false, then the entire domain will be targeted.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool FinalUrlExpansionOptOut
@@ -2430,6 +2496,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The page feed identifiers for performance max ads.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<long> PageFeedIds
         {
@@ -2448,6 +2517,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the CallToActionSetting data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/calltoactionsetting?view=bingads-13">CallToActionSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/calltoactionsetting?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CallToActionSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -2461,6 +2536,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> CallToActionOptOutField;
         
+        /// <summary>
+        /// Determines whether to opt out of automatic selection of call to action ad asset for the multimedia ads in the campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> AutomatedCallToActionOptOut
         {
@@ -2478,6 +2556,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether to opt out of call to action ad asset for the audience ads in the campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> CallToActionOptOut
         {
@@ -2496,6 +2577,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a data object for VanityPharmaSetting.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmasetting?view=bingads-13">VanityPharmaSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmasetting?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VanityPharmaSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -2509,6 +2596,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaWebsiteDescription> WebsiteDescriptionField;
         
+        /// <summary>
+        /// The display mode for vanity pharma URLs for a campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaDisplayUrlMode> DisplayUrlMode
         {
@@ -2526,6 +2616,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The text that shows in the display URL of a text ad when WebsiteDescription is the selected display mode for vanity pharma URLs for the campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.VanityPharmaWebsiteDescription> WebsiteDescription
         {
@@ -2544,6 +2637,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// The app setting data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/appsetting?view=bingads-13">AppSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/appsetting?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AppSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -2557,6 +2656,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.AppStore AppStoreField;
         
+        /// <summary>
+        /// The unique identifier of the mobile app.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string AppId
         {
@@ -2574,6 +2676,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The app store where the app is distributed.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.AppStore AppStore
         {
@@ -2592,6 +2697,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/thirdpartymeasurementsetting?view=bingads-13">ThirdPartyMeasurementSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/thirdpartymeasurementsetting?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ThirdPartyMeasurementSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -2602,6 +2713,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> DetailsField;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>>> Details
         {
@@ -2615,6 +2729,89 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.DetailsField = value;
                     this.RaisePropertyChanged("Details");
+                }
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/newcustomeracquisitiongoalsetting?view=bingads-13">NewCustomerAcquisitionGoalSetting Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/newcustomeracquisitiongoalsetting?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NewCustomerAcquisitionGoalSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class NewCustomerAcquisitionGoalSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> AdditionalConversionValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> NewCustomerAcquisitionBidOnlyModeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<long> NewCustomerAcquisitionGoalIdField;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<decimal> AdditionalConversionValue
+        {
+            get
+            {
+                return this.AdditionalConversionValueField;
+            }
+            set
+            {
+                if ((this.AdditionalConversionValueField.Equals(value) != true))
+                {
+                    this.AdditionalConversionValueField = value;
+                    this.RaisePropertyChanged("AdditionalConversionValue");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> NewCustomerAcquisitionBidOnlyMode
+        {
+            get
+            {
+                return this.NewCustomerAcquisitionBidOnlyModeField;
+            }
+            set
+            {
+                if ((this.NewCustomerAcquisitionBidOnlyModeField.Equals(value) != true))
+                {
+                    this.NewCustomerAcquisitionBidOnlyModeField = value;
+                    this.RaisePropertyChanged("NewCustomerAcquisitionBidOnlyMode");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<long> NewCustomerAcquisitionGoalId
+        {
+            get
+            {
+                return this.NewCustomerAcquisitionGoalIdField;
+            }
+            set
+            {
+                if ((this.NewCustomerAcquisitionGoalIdField.Equals(value) != true))
+                {
+                    this.NewCustomerAcquisitionGoalIdField = value;
+                    this.RaisePropertyChanged("NewCustomerAcquisitionGoalId");
                 }
             }
         }
@@ -2825,7 +3022,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// The ad group type for hotel campaigns.
+    /// The ad group type for Lodging campaigns (formerly Hotel campaigns).
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/hoteladgrouptype?view=bingads-13">HotelAdGroupType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/hoteladgrouptype?view=bingads-13 for details.
@@ -2838,7 +3035,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// The default ad group type for hotel campaigns.
+        /// The default ad group type for lodging campaigns.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelAd = 1,
@@ -2850,75 +3047,150 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         PropertyAd = 2,
     }
     
+    /// <summary>
+    /// Defines a value set for VanityPharmaDisplayUrlMode.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmadisplayurlmode?view=bingads-13">VanityPharmaDisplayUrlMode Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmadisplayurlmode?view=bingads-13 for details.
+    /// <para>Used by <see cref="VanityPharmaSetting"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VanityPharmaDisplayUrlMode", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum VanityPharmaDisplayUrlMode : int
     {
         
+        /// <summary>
+        /// Replace the vanity pharma URL with the manufacturer website URL.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManufacturerWebsiteUrl = 1,
         
+        /// <summary>
+        /// Replace the vanity pharma URL with a description of the website.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WebsiteDescription = 2,
     }
     
+    /// <summary>
+    /// Defines a value set for VanityPharmaWebsiteDescription.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmawebsitedescription?view=bingads-13">VanityPharmaWebsiteDescription Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/vanitypharmawebsitedescription?view=bingads-13 for details.
+    /// <para>Used by <see cref="VanityPharmaSetting"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VanityPharmaWebsiteDescription", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum VanityPharmaWebsiteDescription : int
     {
         
+        /// <summary>
+        /// The website description is not specified.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unspecified = 0,
         
+        /// <summary>
+        /// A prescription treatment website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionTreatmentWebsite_En = 1,
         
+        /// <summary>
+        /// A prescription treatment website with website content in Spanish (Sitio de tratamientos con receta).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionTreatmentWebsite_Es = 2,
         
+        /// <summary>
+        /// A prescription device website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionDeviceWebsite_En = 3,
         
+        /// <summary>
+        /// A prescription treatment website with website content in Spanish.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionDeviceWebsite_Es = 4,
         
+        /// <summary>
+        /// A medical device website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MedicalDeviceWebsite_En = 5,
         
+        /// <summary>
+        /// A medical device website with website content in Spanish (Sitio de dispositivos medicos).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MedicalDeviceWebsite_Es = 6,
         
+        /// <summary>
+        /// A preventative treatment website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PreventativeTreatmentWebsite_En = 7,
         
+        /// <summary>
+        /// A preventative treatment website with website content in Spanish (Sitio de tratamientos preventivos).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PreventativeTreatmentWebsite_Es = 8,
         
+        /// <summary>
+        /// A prescription contraception website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionContraceptionWebsite_En = 9,
         
+        /// <summary>
+        /// A prescription contraception website with website content in Spanish (Sitio de anticonceptivos con receta).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionContraceptionWebsite_Es = 10,
         
+        /// <summary>
+        /// A prescription vaccine website with website content in English.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionVaccineWebsite_En = 11,
         
+        /// <summary>
+        /// A prescription vaccine website with website content in Spanish (Sitio de vacunas con receta).
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PrescriptionVaccineWebsite_Es = 12,
     }
     
+    /// <summary>
+    /// The app store the mobile app is distributed in.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/appstore?view=bingads-13">AppStore Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/appstore?view=bingads-13 for details.
+    /// <para>Used by <see cref="AppSetting"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AppStore", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AppStore : int
     {
         
+        /// <summary>
+        /// The app is distributed in the Google app store.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoogleAppStore = 1,
         
+        /// <summary>
+        /// The app is distributed in the Apple app store.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppleAppStore = 2,
         
+        /// <summary>
+        /// The app is distributed in the Microsoft app store.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MicrosoftAppStore = 3,
     }
@@ -2929,7 +3201,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/batcherror?view=bingads-13">BatchError Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/batcherror?view=bingads-13 for details.
     /// <para>Used by <see cref="ApiFaultDetail"/>, <see cref="BatchErrorCollection"/> and <see cref="EditorialApiFaultDetail"/> data objects.</para>
-    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAssetGroups">AddAssetGroups</see>, <see cref="CampaignManagementServiceClient.AddAudienceGroups">AddAudienceGroups</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddConversionValueRules">AddConversionValueRules</see>, <see cref="CampaignManagementServiceClient.AddDataExclusions">AddDataExclusions</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSeasonalityAdjustments">AddSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AddVideos">AddVideos</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyAssetGroupListingGroupActions">ApplyAssetGroupListingGroupActions</see>, <see cref="CampaignManagementServiceClient.ApplyCustomerListItems">ApplyCustomerListItems</see>, <see cref="CampaignManagementServiceClient.ApplyCustomerListUserData">ApplyCustomerListUserData</see>, <see cref="CampaignManagementServiceClient.ApplyHotelGroupActions">ApplyHotelGroupActions</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyOnlineConversionAdjustments">ApplyOnlineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAssetGroups">DeleteAssetGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAudienceGroupAssetGroupAssociations">DeleteAudienceGroupAssetGroupAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAudienceGroups">DeleteAudienceGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteDataExclusions">DeleteDataExclusions</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSeasonalityAdjustments">DeleteSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteVideos">DeleteVideos</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsEditorialReasons">GetAssetGroupsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupsByIds">GetAudienceGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByAccountId">GetDataExclusionsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByIds">GetDataExclusionsByIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByAccountId">GetSeasonalityAdjustmentsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByIds">GetSeasonalityAdjustmentsByIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.GetVideosByIds">GetVideosByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetAudienceGroupAssetGroupAssociations">SetAudienceGroupAssetGroupAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAssetGroups">UpdateAssetGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAudienceGroups">UpdateAudienceGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateDataExclusions">UpdateDataExclusions</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateImportJobs">UpdateImportJobs</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSeasonalityAdjustments">UpdateSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see>, <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> and <see cref="CampaignManagementServiceClient.UpdateVideos">UpdateVideos</see> service operations.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAdGroups">AddAdGroups</see>, <see cref="CampaignManagementServiceClient.AddAds">AddAds</see>, <see cref="CampaignManagementServiceClient.AddAssetGroups">AddAssetGroups</see>, <see cref="CampaignManagementServiceClient.AddAudienceGroups">AddAudienceGroups</see>, <see cref="CampaignManagementServiceClient.AddAudiences">AddAudiences</see>, <see cref="CampaignManagementServiceClient.AddBidStrategies">AddBidStrategies</see>, <see cref="CampaignManagementServiceClient.AddBudgets">AddBudgets</see>, <see cref="CampaignManagementServiceClient.AddCampaignConversionGoals">AddCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddCampaigns">AddCampaigns</see>, <see cref="CampaignManagementServiceClient.AddConversionGoals">AddConversionGoals</see>, <see cref="CampaignManagementServiceClient.AddConversionValueRules">AddConversionValueRules</see>, <see cref="CampaignManagementServiceClient.AddDataExclusions">AddDataExclusions</see>, <see cref="CampaignManagementServiceClient.AddExperiments">AddExperiments</see>, <see cref="CampaignManagementServiceClient.AddImportJobs">AddImportJobs</see>, <see cref="CampaignManagementServiceClient.AddKeywords">AddKeywords</see>, <see cref="CampaignManagementServiceClient.AddLabels">AddLabels</see>, <see cref="CampaignManagementServiceClient.AddListItemsToSharedList">AddListItemsToSharedList</see>, <see cref="CampaignManagementServiceClient.AddSeasonalityAdjustments">AddSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.AddSharedEntity">AddSharedEntity</see>, <see cref="CampaignManagementServiceClient.AddUetTags">AddUetTags</see>, <see cref="CampaignManagementServiceClient.AddVideos">AddVideos</see>, <see cref="CampaignManagementServiceClient.AppealEditorialRejections">AppealEditorialRejections</see>, <see cref="CampaignManagementServiceClient.ApplyAssetGroupListingGroupActions">ApplyAssetGroupListingGroupActions</see>, <see cref="CampaignManagementServiceClient.ApplyCustomerListItems">ApplyCustomerListItems</see>, <see cref="CampaignManagementServiceClient.ApplyCustomerListUserData">ApplyCustomerListUserData</see>, <see cref="CampaignManagementServiceClient.ApplyHotelGroupActions">ApplyHotelGroupActions</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversionAdjustments">ApplyOfflineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyOfflineConversions">ApplyOfflineConversions</see>, <see cref="CampaignManagementServiceClient.ApplyOnlineConversionAdjustments">ApplyOnlineConversionAdjustments</see>, <see cref="CampaignManagementServiceClient.ApplyProductPartitionActions">ApplyProductPartitionActions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensions">DeleteAdExtensions</see>, <see cref="CampaignManagementServiceClient.DeleteAdExtensionsAssociations">DeleteAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroupCriterions">DeleteAdGroupCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteAdGroups">DeleteAdGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAds">DeleteAds</see>, <see cref="CampaignManagementServiceClient.DeleteAssetGroups">DeleteAssetGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAudienceGroupAssetGroupAssociations">DeleteAudienceGroupAssetGroupAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteAudienceGroups">DeleteAudienceGroups</see>, <see cref="CampaignManagementServiceClient.DeleteAudiences">DeleteAudiences</see>, <see cref="CampaignManagementServiceClient.DeleteBidStrategies">DeleteBidStrategies</see>, <see cref="CampaignManagementServiceClient.DeleteBudgets">DeleteBudgets</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignConversionGoals">DeleteCampaignConversionGoals</see>, <see cref="CampaignManagementServiceClient.DeleteCampaignCriterions">DeleteCampaignCriterions</see>, <see cref="CampaignManagementServiceClient.DeleteCampaigns">DeleteCampaigns</see>, <see cref="CampaignManagementServiceClient.DeleteDataExclusions">DeleteDataExclusions</see>, <see cref="CampaignManagementServiceClient.DeleteExperiments">DeleteExperiments</see>, <see cref="CampaignManagementServiceClient.DeleteImportJobs">DeleteImportJobs</see>, <see cref="CampaignManagementServiceClient.DeleteKeywords">DeleteKeywords</see>, <see cref="CampaignManagementServiceClient.DeleteLabelAssociations">DeleteLabelAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteLabels">DeleteLabels</see>, <see cref="CampaignManagementServiceClient.DeleteListItemsFromSharedList">DeleteListItemsFromSharedList</see>, <see cref="CampaignManagementServiceClient.DeleteMedia">DeleteMedia</see>, <see cref="CampaignManagementServiceClient.DeleteSeasonalityAdjustments">DeleteSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntities">DeleteSharedEntities</see>, <see cref="CampaignManagementServiceClient.DeleteSharedEntityAssociations">DeleteSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.DeleteVideos">DeleteVideos</see>, <see cref="CampaignManagementServiceClient.GetAccountProperties">GetAccountProperties</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsAssociations">GetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsByIds">GetAdExtensionsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdExtensionsEditorialReasons">GetAdExtensionsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAdGroupsByIds">GetAdGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAdsByIds">GetAdsByIds</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsEditorialReasons">GetAssetGroupsEditorialReasons</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupsByIds">GetAudienceGroupsByIds</see>, <see cref="CampaignManagementServiceClient.GetAudiencesByIds">GetAudiencesByIds</see>, <see cref="CampaignManagementServiceClient.GetBidStrategiesByIds">GetBidStrategiesByIds</see>, <see cref="CampaignManagementServiceClient.GetBudgetsByIds">GetBudgetsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignCriterionsByIds">GetCampaignCriterionsByIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBidStrategyIds">GetCampaignIdsByBidStrategyIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignIdsByBudgetIds">GetCampaignIdsByBudgetIds</see>, <see cref="CampaignManagementServiceClient.GetCampaignsByIds">GetCampaignsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByIds">GetConversionGoalsByIds</see>, <see cref="CampaignManagementServiceClient.GetConversionGoalsByTagIds">GetConversionGoalsByTagIds</see>, <see cref="CampaignManagementServiceClient.GetConversionValueRulesByIds">GetConversionValueRulesByIds</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByAccountId">GetDataExclusionsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByIds">GetDataExclusionsByIds</see>, <see cref="CampaignManagementServiceClient.GetEditorialReasonsByIds">GetEditorialReasonsByIds</see>, <see cref="CampaignManagementServiceClient.GetExperimentsByIds">GetExperimentsByIds</see>, <see cref="CampaignManagementServiceClient.GetImportEntityIdsMapping">GetImportEntityIdsMapping</see>, <see cref="CampaignManagementServiceClient.GetImportJobsByIds">GetImportJobsByIds</see>, <see cref="CampaignManagementServiceClient.GetKeywordsByIds">GetKeywordsByIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByEntityIds">GetLabelAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetLabelAssociationsByLabelIds">GetLabelAssociationsByLabelIds</see>, <see cref="CampaignManagementServiceClient.GetLabelsByIds">GetLabelsByIds</see>, <see cref="CampaignManagementServiceClient.GetMediaAssociations">GetMediaAssociations</see>, <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeKeywordsByEntityIds">GetNegativeKeywordsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByAdGroupIds">GetNegativeSitesByAdGroupIds</see>, <see cref="CampaignManagementServiceClient.GetNegativeSitesByCampaignIds">GetNegativeSitesByCampaignIds</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByAccountId">GetSeasonalityAdjustmentsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByIds">GetSeasonalityAdjustmentsByIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsByEntityIds">GetSharedEntityAssociationsByEntityIds</see>, <see cref="CampaignManagementServiceClient.GetSharedEntityAssociationsBySharedEntityIds">GetSharedEntityAssociationsBySharedEntityIds</see>, <see cref="CampaignManagementServiceClient.GetUetTagsByIds">GetUetTagsByIds</see>, <see cref="CampaignManagementServiceClient.GetVideosByIds">GetVideosByIds</see>, <see cref="CampaignManagementServiceClient.SetAdExtensionsAssociations">SetAdExtensionsAssociations</see>, <see cref="CampaignManagementServiceClient.SetAudienceGroupAssetGroupAssociations">SetAudienceGroupAssetGroupAssociations</see>, <see cref="CampaignManagementServiceClient.SetLabelAssociations">SetLabelAssociations</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToAdGroups">SetNegativeSitesToAdGroups</see>, <see cref="CampaignManagementServiceClient.SetNegativeSitesToCampaigns">SetNegativeSitesToCampaigns</see>, <see cref="CampaignManagementServiceClient.SetSharedEntityAssociations">SetSharedEntityAssociations</see>, <see cref="CampaignManagementServiceClient.UpdateAdGroups">UpdateAdGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAds">UpdateAds</see>, <see cref="CampaignManagementServiceClient.UpdateAssetGroups">UpdateAssetGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAudienceGroups">UpdateAudienceGroups</see>, <see cref="CampaignManagementServiceClient.UpdateAudiences">UpdateAudiences</see>, <see cref="CampaignManagementServiceClient.UpdateBidStrategies">UpdateBidStrategies</see>, <see cref="CampaignManagementServiceClient.UpdateBudgets">UpdateBudgets</see>, <see cref="CampaignManagementServiceClient.UpdateCampaigns">UpdateCampaigns</see>, <see cref="CampaignManagementServiceClient.UpdateConversionGoals">UpdateConversionGoals</see>, <see cref="CampaignManagementServiceClient.UpdateConversionValueRules">UpdateConversionValueRules</see>, <see cref="CampaignManagementServiceClient.UpdateConversionValueRulesStatus">UpdateConversionValueRulesStatus</see>, <see cref="CampaignManagementServiceClient.UpdateDataExclusions">UpdateDataExclusions</see>, <see cref="CampaignManagementServiceClient.UpdateExperiments">UpdateExperiments</see>, <see cref="CampaignManagementServiceClient.UpdateImportJobs">UpdateImportJobs</see>, <see cref="CampaignManagementServiceClient.UpdateKeywords">UpdateKeywords</see>, <see cref="CampaignManagementServiceClient.UpdateLabels">UpdateLabels</see>, <see cref="CampaignManagementServiceClient.UpdateSeasonalityAdjustments">UpdateSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.UpdateSharedEntities">UpdateSharedEntities</see>, <see cref="CampaignManagementServiceClient.UpdateUetTags">UpdateUetTags</see> and <see cref="CampaignManagementServiceClient.UpdateVideos">UpdateVideos</see> service operations.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -3872,7 +4144,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         DisclaimerSetting = 1024,
         
         /// <summary>
-        /// Reserved.
+        /// The base object of a campaign conversion goal.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignConversionGoal = 2048,
@@ -3889,47 +4161,101 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveSearchAdsSetting = 8192,
         
+        /// <summary>
+        /// Request that the CostPerSaleBiddingScheme object be returned within the BiddingScheme element of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSaleBiddingScheme = 16384,
         
+        /// <summary>
+        /// Request that the ShoppableAdsEnabled element be returned within the ShoppingSetting object of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ShoppingSettingShoppableAdsEnabled = 32768,
         
+        /// <summary>
+        /// Request that the FeedLabel element be returned within the ShoppingSetting object of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ShoppingSettingFeedLabel = 65536,
         
+        /// <summary>
+        /// Request that the CallToActionSetting object be returned within the Settings element of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallToActionSetting = 131072,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PageFeedInPerformanceMaxSettings = 262144,
         
+        /// <summary>
+        /// Request that the DealIds element be included within each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DealIds = 524288,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AutoGeneratedTextAndImageOptOutInPerformanceMaxSettings = 1048576,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSaleOptOutInPerformanceMaxSettings = 2097152,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VanityPharmaSetting = 4194304,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCpi = 8388608,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IsDealCampaign = 16777216,
         
+        /// <summary>
+        /// Request that the AppSetting object be returned within the Settings element of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppSetting = 33554432,
         
+        /// <summary>
+        /// Request that the CallToActionOptOut object be returned within the Settings element of each returned Campaign object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CallToActionOptOut = 67108864,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThirdPartyMeasurementSetting = 134217728,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ManualCpc = 268435456,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewCustomerAcquisitionGoalSetting = 536870912,
     }
     
     /// <summary>
@@ -4193,7 +4519,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The commission rate charged to the advertiser when someone books a hotel and stays there.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.RateBid CommissionRate
@@ -4293,7 +4619,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Settings for the frequency cap.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.FrequencyCapSettings> FrequencyCapSettings
@@ -4353,7 +4679,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percent amount by which to adjust your bid for multimedia ads above or below the base ad group or keyword bid.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> MultimediaAdsBidAdjustment
@@ -4413,7 +4739,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The percent CPC bid strategy type (total hotel price per night, including taxes and fees).
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.RateBid PercentCpcBid
@@ -4553,7 +4879,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// This will be deprecated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UseOptimizedTargeting
@@ -4572,6 +4898,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UsePredictiveTargeting
         {
@@ -4630,7 +4959,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The manual CPV bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=25)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpvBid
@@ -4650,7 +4979,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The manual CPM bid strategy type.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid CpmBid
@@ -4669,6 +4998,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The manual CPA bid strategy type.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
         public Microsoft.BingAds.V13.CampaignManagement.Bid McpaBid
         {
@@ -4954,7 +5286,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the FrequencyCapSettings object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/frequencycapsettings?view=bingads-13">FrequencyCapSettings Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/frequencycapsettings?view=bingads-13 for details.
@@ -4989,7 +5321,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// A limit to the number of times an ad is shown.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int CapValue
@@ -5009,7 +5341,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The smallest time interval to limit ad serves.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.FrequencyCapTimeGranularity TimeGranularity
@@ -5065,7 +5397,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         OwnedAndOperatedOnly = 1,
         
         /// <summary>
-        /// Display ads on only syndicated search networks.
+        /// Note: SyndicatedSearchOnly is deprecated as of July 2024.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SyndicatedSearchOnly = 2,
@@ -5382,7 +5714,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines the possible values for FrequencyCapTimeGranularity.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/frequencycaptimegranularity?view=bingads-13">FrequencyCapTimeGranularity Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/frequencycaptimegranularity?view=bingads-13 for details.
@@ -5394,19 +5726,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// The number of hours to limit ad serves by.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HOUR = 0,
         
         /// <summary>
-        /// Reserved.
+        /// The number of days to limit ad serves by.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DAY = 1,
         
         /// <summary>
-        /// Reserved.
+        /// The number of weeks to limit ad serves by.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WEEK = 2,
@@ -5456,35 +5788,38 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         MultimediaAdsBidAdjustment = 16,
         
         /// <summary>
-        /// Reserved.
+        /// The commission rate charged to the advertiser when someone books a hotel and stays there.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CommissionRate = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the PercentCpcBid element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PercentCpcBid = 64,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the McpaBid element be included within each returned AdGroup object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         McpaBid = 128,
         
         /// <summary>
-        /// Reserved.
+        /// This will be deprecated.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UseOptimizedTargeting = 256,
         
         /// <summary>
-        /// Reserved.
+        /// Settings for the frequency cap.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrequencyCapSettings = 512,
         
+        /// <summary>
+        /// Indicates if predictive targeting is enabled for an AdGroup.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UsePredictiveTargeting = 1024,
     }
@@ -5577,7 +5912,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Defines the possible compression types for the file to download.
+    /// Defines the possible compression types for the file to download with the Campaign Management service.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/compressiontype?view=bingads-13">CompressionType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/compressiontype?view=bingads-13 for details.
@@ -5738,7 +6073,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -6575,6 +6910,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> VideosField;
         
+        /// <summary>
+        /// The possible ad sub types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdSubType> AdSubType
         {
@@ -6753,7 +7091,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For Audience campaigns, LongHeadline is the longer of two possible responsive ad headlines.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AssetLink LongHeadline
@@ -6793,7 +7131,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
+        /// You must set between 1-5 long headlines.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> LongHeadlines
@@ -6832,6 +7170,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// VerifiedTrackingSetting relates third-party measurement settings.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.VerifiedTrackingSetting VerifiedTrackingSettings
         {
@@ -7224,7 +7565,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ResponsiveSearch = 7,
         
         /// <summary>
-        /// Reserved.
+        /// Refers to a HotelAd.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hotel = 8,
@@ -7235,7 +7576,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetlink?view=bingads-13">AssetLink Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetlink?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroup"/>, <see cref="ImageAdExtension"/>, <see cref="ResponsiveAd"/> and <see cref="ResponsiveSearchAd"/> data objects.</para>
+    /// <para>Used by <see cref="AdRecommendationImageSuggestion"/>, <see cref="AssetGroup"/>, <see cref="ImageAdExtension"/>, <see cref="ResponsiveAd"/> and <see cref="ResponsiveSearchAd"/> data objects.</para>
     /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7363,15 +7704,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the possible ad sub types.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adsubtype?view=bingads-13">AdSubType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/adsubtype?view=bingads-13 for details.
+    /// <para>Used by <see cref="ResponsiveAd"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdSubType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AdSubType : int
     {
         
+        /// <summary>
+        /// The ad is a video ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Video = 1,
         
+        /// <summary>
+        /// The ad is a display ad.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Display = 2,
     }
@@ -8152,32 +8507,50 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Japanese = 56,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hebrew = 46,
         
         /// <summary>
-        /// Reserved.
+        /// The corresponding language name.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Russian = 93,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Malay = 73,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Thai = 118,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Indonesian = 50,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tagalog = 113,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vietnamese = 129,
         
+        /// <summary>
+        /// The corresponding language name.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hindi = 47,
         
@@ -8516,6 +8889,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The target height dimension of an image asset.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> TargetHeight
         {
@@ -8533,6 +8909,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The target width dimension of an image asset.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> TargetWidth
         {
@@ -8591,7 +8970,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The image to use as a thumbnail.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.ImageAsset ThumbnailImage
@@ -8642,9 +9021,15 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LongHeadlines = 4,
         
+        /// <summary>
+        /// The target dimension of an image asset.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImageTargetDimension = 8,
         
+        /// <summary>
+        /// Defines the possible ad sub types.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdSubType = 16,
     }
@@ -8813,7 +9198,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -9333,6 +9718,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
         
+        /// <summary>
+        /// The entity is an asset group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroup = 5,
     }
@@ -9563,7 +9951,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// A list of countries where the ad or keyword failed editorial review.
+        /// A list of countries or regions where the ad or keyword failed editorial review.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> PublisherCountries
@@ -9967,7 +10355,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved for internal use.
+        /// For internal use only.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
@@ -10021,19 +10409,19 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         AutoApplyRecommendations = 128,
         
         /// <summary>
-        /// Reserved.
+        /// Include auto bidding view through conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IncludeAutoBiddingViewThroughConversions = 256,
         
         /// <summary>
-        /// Reserved.
+        /// The weight of the auto bidding view through conversions value attribution.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AutoBiddingViewThroughConversionsValueAttributionWeight = 512,
         
         /// <summary>
-        /// Reserved.
+        /// The loopback window for view through conversions.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LoopBackWindowForViewThroughConversions = 1024,
@@ -10045,23 +10433,32 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         BusinessAttributes = 2048,
         
         /// <summary>
-        /// Reserved.
+        /// Enable Microsoft Monitring Agent under dynamic search ads ad groups.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnableMMAUnderDSAAdgroups = 4096,
         
         /// <summary>
-        /// Reserved.
+        /// The output from Microsoft Configuration Manager.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OptOutFromMCM = 8192,
         
+        /// <summary>
+        /// The Netflix terms and conditions are accepted.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetflixTCAccepted = 16384,
         
+        /// <summary>
+        /// The segments that advertisers can block.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BlockedContentSegments = 32768,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetAIEnhancementOptout = 65536,
     }
@@ -10812,7 +11209,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -10951,6 +11348,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The source type.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string SourceType
         {
@@ -11133,7 +11533,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -11520,7 +11920,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -12130,7 +12530,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -12948,7 +13348,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> VideoIdField;
         
         /// <summary>
-        /// Reserved.
+        /// The action text for the video asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ActionText
@@ -12968,7 +13368,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The alt text for the video asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AlternativeText
@@ -12988,7 +13388,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The display text for the video asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DisplayText
@@ -13008,7 +13408,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -13028,7 +13428,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The landing page URL for mobile devices.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -13048,7 +13448,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FinalUrlSuffix
@@ -13068,7 +13468,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The landing page URL.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -13088,7 +13488,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The name of the video asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
@@ -13108,7 +13508,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The ID of the thumbnail asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ThumbnailId
@@ -13128,7 +13528,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The thumbnail URL of the video asset.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ThumbnailUrl
@@ -13148,7 +13548,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The tracking template to use as a default for all FinalUrls and FinalMobileUrls.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingUrlTemplate
@@ -13168,7 +13568,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Your custom collection of key and value parameters for URL tracking.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.CustomParameters UrlCustomParameters
@@ -13188,7 +13588,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The ID of the video.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> VideoId
@@ -13273,7 +13673,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -13473,6 +13873,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an ad extension that specifies a business logo.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/logoadextension?view=bingads-13">LogoAdExtension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/logoadextension?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LogoAdExtension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -13492,6 +13898,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DomainNameField;
         
+        /// <summary>
+        /// The asset ID for the business logo.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BusinessLogo
         {
@@ -13509,6 +13918,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The URL of the business logo.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessLogoUrl
         {
@@ -13526,6 +13938,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The business name.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessName
         {
@@ -13543,6 +13958,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The domain name.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DomainName
         {
@@ -15388,7 +15806,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -15610,25 +16028,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Deals = 36,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of BestSellers in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BestSellers = 37,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of AgeGroups in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgeGroups = 38,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Occasions in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Occasions = 39,
         
         /// <summary>
-        /// Reserved.
+        /// Use the translated version of Flowers in the ad extension header.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Flowers = 40,
@@ -16197,11 +16615,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         VideoAdExtension = 8192,
         
         /// <summary>
-        /// Reserved.
+        /// An ad extension that specifies disclaimer text to include in an expanded text ad or responsive search ad.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisclaimerAdExtension = 16384,
         
+        /// <summary>
+        /// An ad extension that contains the business logo.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LogoAdExtension = 32768,
     }
@@ -16250,11 +16671,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         ActionTypesPhase4 = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the AdExtensionHeaderType element be included within each returned FilterLinkAdExtension object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewFilterLinkHeaders = 32,
         
+        /// <summary>
+        /// Request that the SourceType element be included within each returned ImageAdExtension object
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SourceType = 64,
     }
@@ -16525,7 +16949,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The list of publisher countries whose editorial guidelines do not allow the specified term.
+        /// The list of publisher countries or regions whose editorial guidelines do not allow the specified term.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> PublisherCountries
@@ -16910,6 +17334,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The media text.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Text
         {
@@ -17109,12 +17536,22 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a value set for MediaAdditionalField.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/mediaadditionalfield?view=bingads-13">MediaAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/mediaadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetMediaMetaDataByAccountId">GetMediaMetaDataByAccountId</see> and <see cref="CampaignManagementServiceClient.GetMediaMetaDataByIds">GetMediaMetaDataByIds</see> service operations.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="MediaAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum MediaAdditionalField : int
     {
         
+        /// <summary>
+        /// The media text.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Text = 1,
     }
@@ -17222,6 +17659,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The media text.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Text
         {
@@ -17686,50 +18126,62 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         CombinedList = 1048576,
         
         /// <summary>
-        /// Reserved.
+        /// The criterion type for lodging campaigns.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelGroup = 2097152,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a hotel advance booking window criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelAdvanceBookingWindow = 4194304,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a hotel check in day criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelCheckInDay = 8388608,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a hotel length of stay criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelLengthOfStay = 16777216,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a hotel date selection type criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelDateSelectionType = 33554432,
         
         /// <summary>
-        /// Reserved.
+        /// The ad group criterion is a hotel check in date criterion.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelCheckInDate = 67108864,
         
+        /// <summary>
+        /// The ad group criterion is a genre criterion.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Genre = 134217728,
         
+        /// <summary>
+        /// The ad group criterion is a customer list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 268435456,
         
+        /// <summary>
+        /// The ad group criterion is an impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 536870912,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Placement = 1073741824,
     }
@@ -17754,11 +18206,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         CriterionCashback = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Defines the relationship between the field and the value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Operator = 2,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Placement = 4,
     }
@@ -18092,7 +18547,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdGroupCriterionEditorialStatus> EditorialStatus
@@ -18112,7 +18567,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AppUrl> FinalAppUrls
@@ -18132,7 +18587,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
@@ -18172,7 +18627,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
@@ -18232,7 +18687,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Defines the CriterionCashback data object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
         public Microsoft.BingAds.V13.CampaignManagement.CriterionCashback CriterionCashback
@@ -19481,6 +19936,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a criterion that can be used to show ads for a specific deal.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13">DealCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/dealcriterion?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DealCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -19491,6 +19952,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long DealIdField;
         
+        /// <summary>
+        /// The Microsoft Advertising identifier of the Deal.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long DealId
         {
@@ -19509,6 +19973,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a criterion that can be used to show ads from a specific genre.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/genrecriterion?view=bingads-13">GenreCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/genrecriterion?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GenreCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -19519,6 +19989,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long GenreIdField;
         
+        /// <summary>
+        /// The Microsoft Advertising identifier of the Genre.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long GenreId
         {
@@ -19537,6 +20010,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a data object for PlacementCriterion.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/placementcriterion?view=bingads-13">PlacementCriterion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/placementcriterion?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PlacementCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -19550,6 +20029,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PlacementNameField;
         
+        /// <summary>
+        /// The ID of the placement.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long PlacementId
         {
@@ -19567,6 +20049,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the placement.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string PlacementName
         {
@@ -19663,6 +20148,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The rule item operator.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Operator
         {
@@ -19817,13 +20305,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// If you are partitioning the products based on more specific product conditions, then set the Sub Type field to Subdivision, the Parent Listing Group Id to null or empty, and the Id to a negative value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subdivision = 1,
         
         /// <summary>
-        /// Reserved.
+        /// If you are bidding on all products in the catalog equally, set the Sub Type field to Unit.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unit = 2,
@@ -20119,7 +20607,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unknown = 0,
@@ -20185,9 +20673,15 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SixtyFiveAndAbove = 5,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThirtyFiveToFiftyFour = 6,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FiftyFiveAndAbove = 7,
     }
@@ -20273,7 +20767,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         PeopleIn = 1,
         
         /// <summary>
-        /// Show ads to people searching for or viewing pages about your targeted location.
+        /// PeopleSearchingForOrViewingPages is deprecated as of April 2024.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PeopleSearchingForOrViewingPages = 2,
@@ -20329,9 +20823,15 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CombinedList = 32,
         
+        /// <summary>
+        /// The audience is a customer list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 64,
         
+        /// <summary>
+        /// The audience is an impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 128,
     }
@@ -20368,15 +20868,21 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Industry = 2,
         
+        /// <summary>
+        /// Target people at a specific job seniority level according to LinkedIn.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobSeniority = 3,
         
+        /// <summary>
+        /// Target people with a specific job title according to LinkedIn.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobTitle = 4,
     }
     
     /// <summary>
-    /// Defines the CriterionCashback Data Object.
+    /// Defines the CriterionCashback data object.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/criterioncashback?view=bingads-13">CriterionCashback Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/criterioncashback?view=bingads-13 for details.
@@ -20409,7 +20915,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The type of criterion cashback.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
@@ -20494,7 +21000,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<double> CashbackPercentField;
         
         /// <summary>
-        /// Reserved.
+        /// The percent to receive in cashback.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> CashbackPercent
@@ -20631,6 +21137,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Update = 3,
     }
     
+    /// <summary>
+    /// An object that contains an Action element and a ListingGroup element.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistinggroupaction?view=bingads-13">AssetGroupListingGroupAction Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistinggroupaction?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyAssetGroupListingGroupActions">ApplyAssetGroupListingGroupActions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupListingGroupAction", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -20658,6 +21171,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The action to be applied for the AssetGroupListingGroup.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.CampaignManagement.ItemAction Action
         {
@@ -20675,6 +21191,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The AssetGroupListingGroup to apply action to.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroup ListingGroup
         {
@@ -20704,6 +21223,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// A listing group that corresponds directly to the identifiers specified in the request.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistinggroup?view=bingads-13">AssetGroupListingGroup Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistinggroup?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupListingGroupAction"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupListingGroupsByIds">GetAssetGroupListingGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupListingGroup", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -20744,6 +21271,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the asset group this listing group belongs to.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AssetGroupId
         {
@@ -20761,6 +21291,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of listing group, e.g., Subdivision or Unit.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingType AssetGroupListingType
         {
@@ -20778,6 +21311,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A condition that helps determine whether a product from the Microsoft Merchant Center store gets served as an ad.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.ProductCondition Dimension
         {
@@ -20795,6 +21331,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The unique Microsoft Advertising identifier of the AssetGroupListingGroup.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -20812,6 +21351,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Set to true If you want to exclude products specified by current.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsExcluded
         {
@@ -20829,6 +21371,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the parent listing group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> ParentListingGroupId
         {
@@ -20858,14 +21403,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// The type of listing group, for example Subdivision or Unit.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistingtype?view=bingads-13">AssetGroupListingType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgrouplistingtype?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupListingGroup"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupListingType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AssetGroupListingType : int
     {
         
+        /// <summary>
+        /// If you are partitioning the products based on more specific product conditions, then set the Sub Type field to Subdivision, the Parent Listing Group Id to null or empty, and the Id to a negative value.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subdivision = 1,
         
+        /// <summary>
+        /// If you are bidding on all products in the catalog equally, set the Sub Type field to Unit.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Unit = 2,
     }
@@ -20889,6 +21447,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GlobalStore = 1,
         
+        /// <summary>
+        /// The store's destination URL.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StoreUrl = 2,
     }
@@ -21043,6 +21604,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The store's destination URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string StoreUrl
         {
@@ -21460,6 +22024,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// A data object for the BrandItem.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/branditem?view=bingads-13">BrandItem Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/branditem?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BrandItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -21470,6 +22040,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long BrandIdField;
         
+        /// <summary>
+        /// The ID of the brand.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long BrandId
         {
@@ -21568,6 +22141,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.BrandList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementExclusionList))]
     public partial class SharedEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -21728,6 +22302,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.BrandList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementExclusionList))]
     public partial class SharedList : Microsoft.BingAds.V13.CampaignManagement.SharedEntity
     {
         
@@ -21783,6 +22358,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
     }
     
+    /// <summary>
+    /// Defines a negative keyword list that is associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/accountnegativekeywordlist?view=bingads-13">AccountNegativeKeywordList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/accountnegativekeywordlist?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountNegativeKeywordList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -21791,11 +22372,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
     }
     
+    /// <summary>
+    /// A data object for the BrandList.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/brandlist?view=bingads-13">BrandList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/brandlist?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BrandList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class BrandList : Microsoft.BingAds.V13.CampaignManagement.SharedList
+    {
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/accountplacementexclusionlist?view=bingads-13">AccountPlacementExclusionList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/accountplacementexclusionlist?view=bingads-13 for details.
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountPlacementExclusionList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AccountPlacementExclusionList : Microsoft.BingAds.V13.CampaignManagement.SharedList
     {
     }
     
@@ -22292,7 +22893,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// Defines the CriterionCashback data object.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public Microsoft.BingAds.V13.CampaignManagement.CriterionCashback CriterionCashback
@@ -22482,9 +23083,15 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CombinedList = 2097152,
         
+        /// <summary>
+        /// The campaign criterion is a customer list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerList = 4194304,
         
+        /// <summary>
+        /// The campaign criterion is an impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 8388608,
     }
@@ -22801,6 +23408,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an AudienceGroup data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroup?view=bingads-13">AudienceGroup Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroup?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAudienceGroups">AddAudienceGroups</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupsByIds">GetAudienceGroupsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateAudienceGroups">UpdateAudienceGroups</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceGroup", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -22838,6 +23452,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The number of asset groups that associate with this audience group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> AssociationCount
         {
@@ -22855,6 +23472,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The description of the audience.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -22872,6 +23492,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Positive dimensions that specifying the audience composition.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupDimension> Dimensions
         {
@@ -22889,6 +23512,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The system-generated ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -22906,6 +23532,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the audience signal, the name must be unique among all audience groups within the account.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -22935,6 +23564,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an AudienceGroupDimension data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupdimension?view=bingads-13">AudienceGroupDimension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupdimension?view=bingads-13 for details.
+    /// <para>Used by <see cref="AudienceGroup"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceGroupDimension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -22963,6 +23599,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of audience dimensions, the following dimension types are supported as of now: Age, Gender, Audience.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AudienceGroupDimensionType Type
         {
@@ -22992,6 +23631,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Data object that specifies users by their age.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/agedimension?view=bingads-13">AgeDimension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/agedimension?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgeDimension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23002,6 +23647,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AgeRange> AgeRangesField;
         
+        /// <summary>
+        /// A list of age ranges.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AgeRange> AgeRanges
         {
@@ -23020,6 +23668,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a GenderDimension data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/genderdimension?view=bingads-13">GenderDimension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/genderdimension?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GenderDimension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23030,6 +23684,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.GenderType> GenderTypesField;
         
+        /// <summary>
+        /// A list of gender types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.GenderType> GenderTypes
         {
@@ -23048,6 +23705,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// An object that inherits AudienceGroupDimension.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencedimension?view=bingads-13">AudienceDimension Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencedimension?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceDimension", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23058,6 +23721,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceInfo> AudiencesField;
         
+        /// <summary>
+        /// A list of audiences.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceInfo> Audiences
         {
@@ -23076,21 +23742,44 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an AudienceGroupDimensionType value set.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupdimensiontype?view=bingads-13">AudienceGroupDimensionType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupdimensiontype?view=bingads-13 for details.
+    /// <para>Used by <see cref="AudienceGroupDimension"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceGroupDimensionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AudienceGroupDimensionType : int
     {
         
+        /// <summary>
+        /// The age dimension type for an audience group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Age = 0,
         
+        /// <summary>
+        /// The gender dimension type for an audience group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Gender = 1,
         
+        /// <summary>
+        /// The audience dimension type for an audience group.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 2,
     }
     
+    /// <summary>
+    /// An object containing and ID an type for an audience.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audienceinfo?view=bingads-13">AudienceInfo Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audienceinfo?view=bingads-13 for details.
+    /// <para>Used by <see cref="AudienceDimension"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceInfo", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23119,6 +23808,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The ID of the audience.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -23136,6 +23828,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of the audience.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AudienceType Type
         {
@@ -23165,6 +23860,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an asset group in an advertising campaign.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroup?view=bingads-13">AssetGroup Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroup?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAssetGroups">AddAssetGroups</see>, <see cref="CampaignManagementServiceClient.CreateAssetGroupRecommendation">CreateAssetGroupRecommendation</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see>, <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see>, <see cref="CampaignManagementServiceClient.RefineAssetGroupRecommendation">RefineAssetGroupRecommendation</see> and <see cref="CampaignManagementServiceClient.UpdateAssetGroups">UpdateAssetGroups</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroup", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23232,6 +23934,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupStatus> StatusField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> VideosField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -23244,6 +23949,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A list of asset group search themes.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupSearchTheme> AssetGroupSearchThemes
         {
@@ -23261,6 +23969,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupUrlTarget> AssetGroupUrlTargets
         {
@@ -23278,6 +23989,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the business.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BusinessName
         {
@@ -23295,6 +24009,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A brief, punchy reason for customers to click your ad right now.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CallToAction> CallToAction
         {
@@ -23312,6 +24029,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The descriptions that are shown below the path in your ad.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Descriptions
         {
@@ -23329,6 +24049,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The editorial review status of the asset group, which indicates whether the asset group is pending review, has been approved, or has been disapproved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupEditorialStatus> EditorialStatus
         {
@@ -23346,6 +24069,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The date that the asset group will expire.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Date EndDate
         {
@@ -23363,6 +24089,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The mobile landing page URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalMobileUrls
         {
@@ -23380,6 +24109,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The landing page URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> FinalUrls
         {
@@ -23397,6 +24129,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -23414,6 +24149,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Headlines are the most prominent text that appears in your ad, so you should make the most out of the available characters.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Headlines
         {
@@ -23431,6 +24169,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The system generated asset group ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -23448,6 +24189,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Image assets with different sizes and aspect ratios so they can flexibly display across a variety of publishers and placements.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Images
         {
@@ -23465,6 +24209,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// You must set between 1-5 long headlines.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> LongHeadlines
         {
@@ -23482,6 +24229,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the asset group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -23499,6 +24249,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The first part of the optional path that will be appended to the domain portion of your display URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Path1
         {
@@ -23516,6 +24269,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The second part of the optional path that will be appended to the domain portion of your display URL.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Path2
         {
@@ -23533,6 +24289,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The date that the asset group can begin serving; otherwise, the service can begin serving ads the day that the asset group becomes active.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Date StartDate
         {
@@ -23550,6 +24309,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The status of the Asset group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupStatus> Status
         {
@@ -23567,6 +24329,26 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> Videos
+        {
+            get
+            {
+                return this.VideosField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.VideosField, value) != true))
+                {
+                    this.VideosField = value;
+                    this.RaisePropertyChanged("Videos");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -23579,6 +24361,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an AssetGroupSearchTheme data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupsearchtheme?view=bingads-13">AssetGroupSearchTheme Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupsearchtheme?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroup"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupSearchTheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23607,6 +24396,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the search theme.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -23624,6 +24416,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The type of search theme.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SearchTheme
         {
@@ -23653,6 +24448,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupurltarget?view=bingads-13">AssetGroupUrlTarget Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupurltarget?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroup"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupUrlTarget", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23705,6 +24507,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -23722,6 +24527,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetCondition1
         {
@@ -23739,6 +24547,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetCondition2
         {
@@ -23756,6 +24567,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetCondition3
         {
@@ -23773,6 +24587,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetConditionOperator1
         {
@@ -23790,6 +24607,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetConditionOperator2
         {
@@ -23807,6 +24627,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetConditionOperator3
         {
@@ -23824,6 +24647,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetValue1
         {
@@ -23841,6 +24667,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetValue2
         {
@@ -23858,6 +24687,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TargetValue3
         {
@@ -23887,55 +24719,113 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// The editorial review status of the asset group, which indicates whether the asset group is pending review, has been approved, or has been disapproved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialstatus?view=bingads-13">AssetGroupEditorialStatus Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialstatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroup"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupEditorialStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AssetGroupEditorialStatus : int
     {
         
+        /// <summary>
+        /// The ad passed editorial review.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 0,
         
+        /// <summary>
+        /// The ad failed editorial review.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Disapproved = 1,
         
+        /// <summary>
+        /// One or more elements of the ad is undergoing editorial review.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
         
+        /// <summary>
+        /// The ad passed editorial review in one or more markets, and one or more elements of the ad is undergoing editorial review in another market.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ActiveLimited = 3,
     }
     
+    /// <summary>
+    /// The status of the AssetGroup.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupstatus?view=bingads-13">AssetGroupStatus Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupstatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroup"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AssetGroupStatus : int
     {
         
+        /// <summary>
+        /// The asset group is active, which indicates that the asset group can be served.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 0,
         
+        /// <summary>
+        /// The asset group is paused, which indicates that the asset group will not serve.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 1,
         
+        /// <summary>
+        /// This status is for internal use only.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
         
+        /// <summary>
+        /// The asset group is expired.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Expired = 3,
     }
     
+    /// <summary>
+    /// Defines the possible additional fields for an asset group.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupadditionalfield?view=bingads-13">AssetGroupAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupadditionalfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see> and <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see> service operations.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AssetGroupAdditionalField : int
     {
         
+        /// <summary>
+        /// Include the AssetGroupSearchThemes field.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupSearchThemes = 1,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupUrlTargets = 2,
     }
     
+    /// <summary>
+    /// Defines a collection of asset groups that failed editorial review.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialreasoncollection?view=bingads-13">AssetGroupEditorialReasonCollection Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialreasoncollection?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsEditorialReasons">GetAssetGroupsEditorialReasons</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupEditorialReasonCollection", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -23970,6 +24860,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A value that determines whether you can appeal the issues found by the editorial review.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AppealStatus AppealStatus
         {
@@ -23987,6 +24880,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the asset group that failed editorial review.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long AssetGroupId
         {
@@ -24004,6 +24900,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The identifier of the associated campaign.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
@@ -24021,6 +24920,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A list of AssetGroupEditorialReason objects that identify the component of an asset group that failed editorial review, and the reason for the failure.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupEditorialReason> Reasons
         {
@@ -24050,6 +24952,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an object that you can use to determine the component of an asset group that failed editorial review, and the reason for the failure.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialreason?view=bingads-13">AssetGroupEditorialReason Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/assetgroupeditorialreason?view=bingads-13 for details.
+    /// <para>Used by <see cref="AssetGroupEditorialReasonCollection"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupEditorialReason", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -24084,6 +24993,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The component of the asset group that failed editorial review.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Location
         {
@@ -24101,6 +25013,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The list of publisher countries or regions whose editorial guidelines do not allow the specified term.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> PublisherCountries
         {
@@ -24118,6 +25033,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A code that identifies the reason for the failure.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int ReasonCode
         {
@@ -24135,6 +25053,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The term that failed editorial review.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Term
         {
@@ -24164,6 +25085,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines an AudienceGroupAssetGroupAssociation data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupassetgroupassociation?view=bingads-13">AudienceGroupAssetGroupAssociation Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencegroupassetgroupassociation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAudienceGroupAssetGroupAssociations">DeleteAudienceGroupAssetGroupAssociations</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds</see>, <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds</see> and <see cref="CampaignManagementServiceClient.SetAudienceGroupAssetGroupAssociations">SetAudienceGroupAssetGroupAssociations</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceGroupAssetGroupAssociation", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -24190,6 +25118,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The ID of the asset group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AssetGroupId
         {
@@ -24207,6 +25138,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The ID of the audience group.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AudienceGroupId
         {
@@ -24870,6 +25804,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a CustomerList data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/customerlist?view=bingads-13">CustomerList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/customerlist?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListItems">ApplyCustomerListItems</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -24878,6 +25819,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
     }
     
+    /// <summary>
+    /// Defines a data object for ImpressionBasedRemarketingList.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedremarketinglist?view=bingads-13">ImpressionBasedRemarketingList Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedremarketinglist?view=bingads-13 for details.
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImpressionBasedRemarketingList", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -24894,6 +25841,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedEntityType EntityTypeField;
         
+        /// <summary>
+        /// The ad group identifier to associate with the impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AdGroupId
         {
@@ -24911,6 +25861,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The campaign identifier to associate with the impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CampaignId
         {
@@ -24928,6 +25881,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The entity type of an impression-based remarketing list.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedEntityType EntityType
         {
@@ -25828,7 +26784,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Reserved.
+    /// Defines a rule expression that depends on the operand, operator, and value.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/numberruleitem?view=bingads-13">NumberRuleItem Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/numberruleitem?view=bingads-13 for details.
@@ -25850,7 +26806,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string ValueField;
         
         /// <summary>
-        /// Reserved.
+        /// The rule operand or key on the left hand side of the operator.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Operand
@@ -25870,7 +26826,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The rule item operator.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.NumberOperator Operator
@@ -25890,7 +26846,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The rule value on the right hand side of the operator.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Value
@@ -25990,7 +26946,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         /// <summary>
-        /// Reserved for future use.
+        /// For future use.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
@@ -26026,7 +26982,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         LessThanEqualTo = 5,
         
         /// <summary>
-        /// Reserved.
+        /// The field must not equal the specified value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotEquals = 6,
@@ -26192,17 +27148,33 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         Not = 3,
     }
     
+    /// <summary>
+    /// Defines a value set for ImpressionBasedEntityType.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedentitytype?view=bingads-13">ImpressionBasedEntityType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/impressionbasedentitytype?view=bingads-13 for details.
+    /// <para>Used by <see cref="ImpressionBasedRemarketingList"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImpressionBasedEntityType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum ImpressionBasedEntityType : int
     {
         
+        /// <summary>
+        /// The impression-based remarketing list type is none.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
+        /// <summary>
+        /// The impression-based remarketing list type is Campaign.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 1,
         
+        /// <summary>
+        /// The impression-based remarketing list type is AdGroup.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 2,
     }
@@ -26227,15 +27199,25 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         NormalForm = 1,
         
         /// <summary>
-        /// Reserved.
+        /// Defines a rule expression that depends on the operand, operator, and value.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NumberRuleItem = 2,
         
+        /// <summary>
+        /// Request that the ImpressionBasedRemarketingList element be included when you call the GetAudiencesByIds service operation.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 4,
     }
     
+    /// <summary>
+    /// Defines a CustomerListUserData data object.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/customerlistuserdata?view=bingads-13">CustomerListUserData Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/customerlistuserdata?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListUserData">ApplyCustomerListUserData</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerListUserData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -26266,6 +27248,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The action type when uploading user data.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerListActionType ActionType
         {
@@ -26283,6 +27268,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The Microsoft Advertising assigned identifier of an audience, for example the customer list ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AudienceId
         {
@@ -26300,6 +27288,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The user data type of the customer list item.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerListItemSubType CustomerListItemSubType
         {
@@ -26317,6 +27308,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Take an action for a customer list item within this array.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<string> CustomerListItems
         {
@@ -26346,32 +27340,64 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a CustomerListActionType value set.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/customerlistactiontype?view=bingads-13">CustomerListActionType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/customerlistactiontype?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerListUserData"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerListActionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum CustomerListActionType : int
     {
         
+        /// <summary>
+        /// The requested action is to take no action for the customer list item.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
+        /// <summary>
+        /// The requested action is to add the customer list item.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Add = 1,
         
+        /// <summary>
+        /// The requested action is to remove the customer list item.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Remove = 2,
         
+        /// <summary>
+        /// The requested action is to replace the customer list item.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Replace = 3,
     }
     
+    /// <summary>
+    /// Defines a CustomerListItemSubType value set.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/customerlistitemsubtype?view=bingads-13">CustomerListItemSubType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/customerlistitemsubtype?view=bingads-13 for details.
+    /// <para>Used by <see cref="CustomerListUserData"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerListItemSubType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum CustomerListItemSubType : int
     {
         
+        /// <summary>
+        /// The user data type is email.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Email = 0,
         
+        /// <summary>
+        /// The user data type is CRM.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CRM = 1,
     }
@@ -26709,6 +27735,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AttributionModelType = 16,
         
+        /// <summary>
+        /// Determines whether enhanced conversions are enabled for a conversion goal.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IsEnhancedConversionsEnabled = 32,
     }
@@ -26914,6 +27943,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Determines whether enhanced conversions are enabled for a conversion goal.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> IsEnhancedConversionsEnabled
         {
@@ -27657,7 +28689,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     /// <summary>
-    /// Determines which attribution model, _LastTouch_ or _LastClick_, is used with a conversion goal.
+    /// Determines which attribution model is used with a conversion goal.
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/attributionmodeltype?view=bingads-13">AttributionModelType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/attributionmodeltype?view=bingads-13 for details.
@@ -28164,6 +29196,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The hashed email address using the SHA-256 algorithm for use with enhanced conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string HashedEmailAddress
         {
@@ -28181,6 +29216,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The hashed phone number according to the E.164 standard for use with enhanced conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string HashedPhoneNumber
         {
@@ -28406,6 +29444,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The hashed email address using the SHA-256 algorithm for use with enhanced conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string HashedEmailAddress
         {
@@ -28423,6 +29464,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The hashed phone number according to the E.164 standard for use with enhanced conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string HashedPhoneNumber
         {
@@ -28651,6 +29695,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a data object for a summary of the offline conversion reports for the day.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/dailysummary?view=bingads-13">DailySummary Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/dailysummary?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetOfflineConversionReports">GetOfflineConversionReports</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DailySummary", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -28688,6 +29739,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The number of failed conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int FailureCount
         {
@@ -28705,6 +29759,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The URL of the report.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FileUrl
         {
@@ -28722,6 +29779,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The expiry time of the report in UTC time.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime FileUrlExpiryTimeUtc
         {
@@ -28739,6 +29799,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The number of successful conversions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int SuccessCount
         {
@@ -28756,6 +29819,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The date of the report in local time.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime UploadDate
         {
@@ -30470,7 +31536,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// The identifier of the Microsoft Merchant Center store that you want to associate with imported product ads and product filters.
+        /// Note: AssociatedStoreId is deprecated.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> AssociatedStoreId
@@ -30589,6 +31655,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import account negative keywords that have not previously been imported.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> NewAccountNegativeKeywords
         {
@@ -30746,6 +31815,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import brand suitability that has not previously been imported.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> NewBrandSuitability
         {
@@ -30803,6 +31875,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import conversion goals that have not previously been imported.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> NewConversionGoals
         {
@@ -30960,6 +32035,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> NewLeadFormAdExtensions
         {
@@ -31017,6 +32095,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import logo ad extensions that have not previously been imported.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> NewLogoAdExtensions
         {
@@ -31614,6 +32695,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to existing account negative keywords.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateAccountNegativeKeywords
         {
@@ -31631,6 +32715,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to existing ad customizer feeds.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateAdCustomizerAttributes
         {
@@ -31709,7 +32796,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Note: Not everyone has this feature yet.
+        /// Import updates to existing ad landing page URLs.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateAdUrls
@@ -31808,6 +32895,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to brand suitablity.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateBrandSuitability
         {
@@ -31925,6 +33015,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to existing conversion goals.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateConversionGoals
         {
@@ -32062,6 +33155,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateLeadFormAdExtensions
         {
@@ -32119,6 +33215,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to existing logo ad extensions.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateLogoAdExtensions
         {
@@ -32296,6 +33395,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Import updates to existing Sitelink Extension URLs.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> UpdateSitelinkUrls
         {
@@ -32687,74 +33789,110 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         SearchAndReplaceForCustomParameters = 8,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the AdScheduleUseSearcherTimezone element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdScheduleUseSearcherTimezone = 16,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the NewImageAdExtensions element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewImageAdExtensions = 32,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the UpdateImageAdExtensions element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateImageAdExtensions = 64,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the SearchAndReplaceForFinalURLSuffix element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchAndReplaceForFinalURLSuffix = 128,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the RenameCampaignNameWithSuffix element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RenameCampaignNameWithSuffix = 256,
         
         /// <summary>
-        /// Reserved.
+        /// Request that the UpdateAdUrls element be included within each returned GoogleImportOption object.
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateAdUrls = 512,
         
+        /// <summary>
+        /// Request that the NewLogoAdExtensions element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewLogoAdExtensions = 1024,
         
+        /// <summary>
+        /// Request that the UpdateLogoAdExtensions element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateLogoAdExtensions = 2048,
         
+        /// <summary>
+        /// Request that the UpdateSitelinkUrls element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateSitelinkUrls = 4096,
         
+        /// <summary>
+        /// Request that the NewLeadFormAdExtensions element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewLeadFormAdExtensions = 8192,
         
+        /// <summary>
+        /// Request that the UpdateLeadFormAdExtensions element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateLeadFormAdExtensions = 16384,
         
+        /// <summary>
+        /// Request that the NewAccountNegativeKeywords element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewAccountNegativeKeywords = 32768,
         
+        /// <summary>
+        /// Request that the UpdateAccountNegativeKeywords element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateAccountNegativeKeywords = 65536,
         
+        /// <summary>
+        /// Request that the UpdateAdCustomizerAttributes element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateAdCustomizerAttributes = 131072,
         
+        /// <summary>
+        /// Request that the NewConversionGoals element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewConversionGoals = 262144,
         
+        /// <summary>
+        /// Request that the UpdateConversionGoals element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateConversionGoals = 524288,
         
+        /// <summary>
+        /// Request that the NewBrandSuitability element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewBrandSuitability = 1048576,
         
+        /// <summary>
+        /// Request that the UpdateBrandSuitability element be included within each returned GoogleImportOption object.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateBrandSuitability = 2097152,
     }
@@ -33512,7 +34650,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a campaign.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
@@ -33532,7 +34670,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         /// <summary>
-        /// Reserved.
+        /// The Microsoft Advertising assigned identifier of a conversion goal.
         /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long GoalId
@@ -33563,6 +34701,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a data object for DataExclusion.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/dataexclusion?view=bingads-13">DataExclusion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/dataexclusion?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddDataExclusions">AddDataExclusions</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByAccountId">GetDataExclusionsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetDataExclusionsByIds">GetDataExclusionsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateDataExclusions">UpdateDataExclusions</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DataExclusion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -33609,6 +34754,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Which campaigns to include for the data exclusion.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignAssociation> CampaignAssociations
         {
@@ -33626,6 +34774,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Which campaign types to include for the data exclusion.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignTypeFilter
         {
@@ -33643,6 +34794,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A description for the data exclusion.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -33660,6 +34814,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Which devices types to include for the data exclusion.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.DeviceType> DeviceTypeFilter
         {
@@ -33677,6 +34834,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The end date.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> EndDate
         {
@@ -33694,6 +34854,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The data exclusion ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -33711,6 +34874,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The data exclusion name.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -33728,6 +34894,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The start date.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> StartDate
         {
@@ -33757,6 +34926,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines a data object for which campaigns to associate to data exclusions and seasonality adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/campaignassociation?view=bingads-13">CampaignAssociation Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/campaignassociation?view=bingads-13 for details.
+    /// <para>Used by <see cref="DataExclusion"/> and <see cref="SeasonalityAdjustment"/> data objects.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignAssociation", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -33782,6 +34958,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The campaign ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
@@ -33811,28 +34990,57 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// The device type for data exclusions and seasonality adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/devicetype?view=bingads-13">DeviceType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/devicetype?view=bingads-13 for details.
+    /// <para>Used by <see cref="DataExclusion"/>, <see cref="DeviceCondition"/> and <see cref="SeasonalityAdjustment"/> data objects.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum DeviceType : int
     {
         
+        /// <summary>
+        /// No devices.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
+        /// <summary>
+        /// The device type is Computers.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Computers = 1,
         
+        /// <summary>
+        /// The device type is Smartphones.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Smartphones = 2,
         
+        /// <summary>
+        /// The device type is Tablets.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tablets = 4,
         
+        /// <summary>
+        /// All devices.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         All = 7,
     }
     
+    /// <summary>
+    /// Defines a data object for the seasonality adjustment.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/seasonalityadjustment?view=bingads-13">SeasonalityAdjustment Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/seasonalityadjustment?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSeasonalityAdjustments">AddSeasonalityAdjustments</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByAccountId">GetSeasonalityAdjustmentsByAccountId</see>, <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByIds">GetSeasonalityAdjustmentsByIds</see> and <see cref="CampaignManagementServiceClient.UpdateSeasonalityAdjustments">UpdateSeasonalityAdjustments</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SeasonalityAdjustment", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -33882,6 +35090,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The percentage of the conversion rate adjustment.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> AdjustmentPercentage
         {
@@ -33899,6 +35110,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Make the seasonality adjustment to these campaigns.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignAssociation> CampaignAssociations
         {
@@ -33916,6 +35130,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Make the seasonality adjustment to these campaign types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignTypeFilter
         {
@@ -33933,6 +35150,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// A description for the seasonality adjustment.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Description
         {
@@ -33950,6 +35170,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Make the seasonality adjustment to these device types.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.DeviceType> DeviceTypeFilter
         {
@@ -33967,6 +35190,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The end date.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> EndDate
         {
@@ -33984,6 +35210,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The seasonality adjustment ID.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -34001,6 +35230,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The name of the seasonality adjustment.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -34018,6 +35250,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// The start date.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> StartDate
         {
@@ -34047,24 +35282,51 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtexttone?view=bingads-13">AdRecommendationTextTone Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtexttone?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdRecommendationTextRefineOperation"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateAssetGroupRecommendation">CreateAssetGroupRecommendation</see>, <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> and <see cref="CampaignManagementServiceClient.CreateResponsiveSearchAdRecommendation">CreateResponsiveSearchAdRecommendation</see> service operations.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationTextTone", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AdRecommendationTextTone : int
     {
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Friendly = 1,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Persuasive = 2,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cute = 3,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inspiring = 4,
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationimagesuggestion?view=bingads-13">AdRecommendationImageSuggestion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationimagesuggestion?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateAssetGroupRecommendation">CreateAssetGroupRecommendation</see> and <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationImageSuggestion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34074,6 +35336,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.AssetLink AssetLinkField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.Image ImageField;
@@ -34093,6 +35358,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.AssetLink AssetLink
+        {
+            get
+            {
+                return this.AssetLinkField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AssetLinkField, value) != true))
+                {
+                    this.AssetLinkField = value;
+                    this.RaisePropertyChanged("AssetLink");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Image Image
         {
@@ -34110,6 +35398,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ImageUrl
         {
@@ -34139,6 +35430,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationvideosuggestion?view=bingads-13">AdRecommendationVideoSuggestion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationvideosuggestion?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationVideoSuggestion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34164,6 +35462,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.Video Video
         {
@@ -34193,6 +35494,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextrefineoperation?view=bingads-13">AdRecommendationTextRefineOperation Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextrefineoperation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineAssetGroupRecommendation">RefineAssetGroupRecommendation</see>, <see cref="CampaignManagementServiceClient.RefineResponsiveAdRecommendation">RefineResponsiveAdRecommendation</see> and <see cref="CampaignManagementServiceClient.RefineResponsiveSearchAdRecommendation">RefineResponsiveSearchAdRecommendation</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationTextRefineOperation", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34224,6 +35532,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextField TextField
         {
@@ -34241,6 +35552,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TextFieldIndex
         {
@@ -34258,6 +35572,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone
         {
@@ -34287,21 +35604,44 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextfield?view=bingads-13">AdRecommendationTextField Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextfield?view=bingads-13 for details.
+    /// <para>Used by <see cref="AdRecommendationTextRefineOperation"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationTextField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AdRecommendationTextField : int
     {
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline = 0,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LongHeadline = 1,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Description = 2,
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextsuggestion?view=bingads-13">AdRecommendationTextSuggestion Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adrecommendationtextsuggestion?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineAssetGroupRecommendation">RefineAssetGroupRecommendation</see>, <see cref="CampaignManagementServiceClient.RefineResponsiveAdRecommendation">RefineResponsiveAdRecommendation</see> and <see cref="CampaignManagementServiceClient.RefineResponsiveSearchAdRecommendation">RefineResponsiveSearchAdRecommendation</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationTextSuggestion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34327,6 +35667,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Text
         {
@@ -34356,6 +35699,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/conversionvaluerule?view=bingads-13">ConversionValueRule Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/conversionvaluerule?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionValueRules">AddConversionValueRules</see>, <see cref="CampaignManagementServiceClient.GetConversionValueRulesByAccountId">GetConversionValueRulesByAccountId</see>, <see cref="CampaignManagementServiceClient.GetConversionValueRulesByIds">GetConversionValueRulesByIds</see> and <see cref="CampaignManagementServiceClient.UpdateConversionValueRules">UpdateConversionValueRules</see> service operations.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionValueRule", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34405,6 +35755,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.AudienceCondition AudienceCondition
         {
@@ -34422,6 +35775,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CurrencyCode
         {
@@ -34439,6 +35795,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.DeviceCondition DeviceCondition
         {
@@ -34456,6 +35815,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -34473,6 +35835,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CampaignManagement.LocationCondition LocationCondition
         {
@@ -34490,6 +35855,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -34507,6 +35875,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRuleOperator> Operation
         {
@@ -34524,6 +35895,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRuleStatus> Status
         {
@@ -34541,6 +35915,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<decimal> Value
         {
@@ -34570,6 +35947,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audiencecondition?view=bingads-13">AudienceCondition Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audiencecondition?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionValueRule"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceCondition", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34598,6 +35982,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceConditionItem> Audiences
         {
@@ -34615,6 +36002,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsPrimary
         {
@@ -34644,6 +36034,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/devicecondition?view=bingads-13">DeviceCondition Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/devicecondition?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionValueRule"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceCondition", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34655,7 +36052,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DeviceType> DeviceTypesField;
+        private Microsoft.BingAds.V13.CampaignManagement.DeviceType DeviceTypesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsPrimaryField;
@@ -34672,8 +36069,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DeviceType> DeviceTypes
+        public Microsoft.BingAds.V13.CampaignManagement.DeviceType DeviceTypes
         {
             get
             {
@@ -34681,7 +36081,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
             set
             {
-                if ((object.ReferenceEquals(this.DeviceTypesField, value) != true))
+                if ((this.DeviceTypesField.Equals(value) != true))
                 {
                     this.DeviceTypesField = value;
                     this.RaisePropertyChanged("DeviceTypes");
@@ -34689,6 +36089,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsPrimary
         {
@@ -34718,6 +36121,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/locationcondition?view=bingads-13">LocationCondition Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/locationcondition?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionValueRule"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LocationCondition", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34755,6 +36165,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.IntentOption> ExcludedLocationIntent
         {
@@ -34772,6 +36185,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.LocationConditionItem> ExcludedLocations
         {
@@ -34789,6 +36205,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.IntentOption> IncludedLocationIntent
         {
@@ -34806,6 +36225,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.LocationConditionItem> IncludedLocations
         {
@@ -34823,6 +36245,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool IsPrimary
         {
@@ -34852,36 +36277,76 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/conversionvalueruleoperator?view=bingads-13">ConversionValueRuleOperator Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/conversionvalueruleoperator?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionValueRule"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionValueRuleOperator", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum ConversionValueRuleOperator : int
     {
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Add = 0,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Multiply = 1,
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/conversionvaluerulestatus?view=bingads-13">ConversionValueRuleStatus Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/conversionvaluerulestatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="ConversionValueRule"/> data object.</para>
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionValueRulesStatus">UpdateConversionValueRulesStatus</see> service operation.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionValueRuleStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum ConversionValueRuleStatus : int
     {
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 3,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Invalid = 4,
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/audienceconditionitem?view=bingads-13">AudienceConditionItem Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/audienceconditionitem?view=bingads-13 for details.
+    /// <para>Used by <see cref="AudienceCondition"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceConditionItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -34913,6 +36378,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
         {
@@ -34930,6 +36398,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -34947,6 +36418,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AudienceType> Type
         {
@@ -34976,6 +36450,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/locationconditionitem?view=bingads-13">LocationConditionItem Data Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/locationconditionitem?view=bingads-13 for details.
+    /// <para>Used by <see cref="LocationCondition"/> data object.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LocationConditionItem", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -35007,6 +36488,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id
         {
@@ -35024,6 +36508,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -35041,6 +36528,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.LocationType> Type
         {
@@ -35070,29 +36560,57 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/locationtype?view=bingads-13">LocationType Value Set</see> https:/learn.microsoft.com/advertising/campaign-management-service/locationtype?view=bingads-13 for details.
+    /// <para>Used by <see cref="LocationConditionItem"/> data object.</para>
+    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LocationType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum LocationType : int
     {
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 1,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SubGeography = 2,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 4,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 8,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostalCode = 16,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         County = 32,
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Neighborhood = 64,
     }
@@ -36810,6 +38328,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pplyHotelGroupActionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyHotelGroupActionsResponse> ApplyHotelGroupActionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyHotelGroupActionsRequest request);
         
+        /// <summary>
+        /// Applies an action to an asset group listing group.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyAssetGroupListingGroupActions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyAssetGroupListingGroupActionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -36818,10 +38346,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pplyAssetGroupListingGroupActionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsResponse ApplyAssetGroupListingGroupActions(Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsRequest request);
         
+        /// <summary>
+        /// Applies an action to an asset group listing group.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyAssetGroupListingGroupActions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyAssetGroupListingGroupActionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsResponse> ApplyAssetGroupListingGroupActionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AssetGroupListingGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of listing groups that correspond directly to the identifiers specified in the request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupListingGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupListingGroupsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -36830,6 +38378,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAssetGroupListingGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsResponse GetAssetGroupListingGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AssetGroupListingGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of listing groups that correspond directly to the identifiers specified in the request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupListingGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupListingGroupsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsResponse> GetAssetGroupListingGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsRequest request);
@@ -37806,6 +39364,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etCampaignIdsByBidStrategyIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsResponse> GetCampaignIdsByBidStrategyIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetCampaignIdsByBidStrategyIdsRequest request);
         
+        /// <summary>
+        /// Adds array of audience groups to the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddAudienceGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -37814,10 +39382,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddAudienceGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsResponse AddAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Adds array of audience groups to the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddAudienceGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsResponse> AddAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Updates the specified audience groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateAudienceGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -37826,10 +39414,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pdateAudienceGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsResponse UpdateAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Updates the specified audience groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateAudienceGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsResponse> UpdateAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAudienceGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -37838,10 +39446,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "eleteAudienceGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsResponse DeleteAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAudienceGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAudienceGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsResponse> DeleteAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsRequest request);
         
+        /// <summary>
+        /// Retrieves specified AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37850,10 +39478,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAudienceGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsResponse GetAudienceGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsRequest request);
         
+        /// <summary>
+        /// Retrieves specified AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsResponse> GetAudienceGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsRequest request);
         
+        /// <summary>
+        /// Adds array of asset groups to a specified campaign.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddAssetGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -37862,10 +39510,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddAssetGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsResponse AddAssetGroups(Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsRequest request);
         
+        /// <summary>
+        /// Adds array of asset groups to a specified campaign.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddAssetGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsResponse> AddAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsRequest request);
         
+        /// <summary>
+        /// Updates the specified asset groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateAssetGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -37874,10 +39542,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pdateAssetGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsResponse UpdateAssetGroups(Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsRequest request);
         
+        /// <summary>
+        /// Updates the specified asset groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateAssetGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsResponse> UpdateAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAssetGroupsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -37886,10 +39574,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "eleteAssetGroupsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsResponse DeleteAssetGroups(Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAssetGroups", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAssetGroupsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsResponse> DeleteAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsRequest request);
         
+        /// <summary>
+        /// Retrieves specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37898,10 +39606,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAssetGroupsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsResponse GetAssetGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsRequest request);
         
+        /// <summary>
+        /// Retrieves specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsResponse> GetAssetGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsByCampaignId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsByCampaignIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37910,10 +39638,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAssetGroupsByCampaignIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdResponse GetAssetGroupsByCampaignId(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsByCampaignId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsByCampaignIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdResponse> GetAssetGroupsByCampaignIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdRequest request);
         
+        /// <summary>
+        /// Gets reasons for asset group editorial issues.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsEditorialReasons", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsEditorialReasonsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37922,10 +39670,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAssetGroupsEditorialReasonsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsResponse GetAssetGroupsEditorialReasons(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsRequest request);
         
+        /// <summary>
+        /// Gets reasons for asset group editorial issues.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAssetGroupsEditorialReasons", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAssetGroupsEditorialReasonsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsResponse> GetAssetGroupsEditorialReasonsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsRequest request);
         
+        /// <summary>
+        /// Sets AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SetAudienceGroupAssetGroupAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
             "etAudienceGroupAssetGroupAssociationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
@@ -37934,10 +39702,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAudienceGroupAssetGroupAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsResponse SetAudienceGroupAssetGroupAssociations(Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsRequest request);
         
+        /// <summary>
+        /// Sets AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SetAudienceGroupAssetGroupAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/S" +
             "etAudienceGroupAssetGroupAssociationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsResponse> SetAudienceGroupAssetGroupAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAudienceGroupAssetGroupAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAudienceGroupAssetGroupAssociationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -37946,10 +39734,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "eleteAudienceGroupAssetGroupAssociationsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsResponse DeleteAudienceGroupAssetGroupAssociations(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsRequest request);
         
+        /// <summary>
+        /// Deletes one or more AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAudienceGroupAssetGroupAssociations", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteAudienceGroupAssetGroupAssociationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsResponse> DeleteAudienceGroupAssetGroupAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupAssetGroupAssociationsByAssetGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37958,10 +39766,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAudienceGroupAssetGroupAssociationsByAssetGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse GetAudienceGroupAssetGroupAssociationsByAssetGroupIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupAssetGroupAssociationsByAssetGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse> GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -37970,6 +39798,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAudienceGroupAssetGroupAssociationsByAudienceGroupIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request);
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse> GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request);
@@ -38102,6 +39940,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etAudiencesByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudiencesByIdsResponse> GetAudiencesByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudiencesByIdsRequest request);
         
+        /// <summary>
+        /// Defines the ApplyCustomerListItems service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyCustomerListItems", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyCustomerListItemsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -38110,10 +39958,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pplyCustomerListItemsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsResponse ApplyCustomerListItems(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsRequest request);
         
+        /// <summary>
+        /// Defines the ApplyCustomerListItems service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyCustomerListItems", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyCustomerListItemsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsResponse> ApplyCustomerListItemsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsRequest request);
         
+        /// <summary>
+        /// Defines the ApplyCustomerListUserData service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyCustomerListUserData", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyCustomerListUserDataResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -38122,6 +39990,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pplyCustomerListUserDataApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataResponse ApplyCustomerListUserData(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataRequest request);
         
+        /// <summary>
+        /// Defines the ApplyCustomerListUserData service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ApplyCustomerListUserData", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "pplyCustomerListUserDataResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataResponse> ApplyCustomerListUserDataAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataRequest request);
@@ -38446,6 +40324,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pplyOnlineConversionAdjustmentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyOnlineConversionAdjustmentsResponse> ApplyOnlineConversionAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyOnlineConversionAdjustmentsRequest request);
         
+        /// <summary>
+        /// Gets the offline conversion reports in the requested date range.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A summary of the reports for the day.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetOfflineConversionReports", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etOfflineConversionReportsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -38454,6 +40342,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etOfflineConversionReportsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsResponse GetOfflineConversionReports(Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsRequest request);
         
+        /// <summary>
+        /// Gets the offline conversion reports in the requested date range.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A summary of the reports for the day.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetOfflineConversionReports", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etOfflineConversionReportsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsResponse> GetOfflineConversionReportsAsync(Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsRequest request);
@@ -39267,7 +41165,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddCampaignConversionGoalsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -39285,7 +41183,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddCampaignConversionGoalsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse> AddCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request);
@@ -39299,7 +41197,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteCampaignConversionGoalsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -39317,11 +41215,21 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteCampaignConversionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteCampaignConversionGoalsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse> DeleteCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request);
         
+        /// <summary>
+        /// Add a data exclusion to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddDataExclusionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -39330,10 +41238,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddDataExclusionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsResponse AddDataExclusions(Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsRequest request);
         
+        /// <summary>
+        /// Add a data exclusion to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddDataExclusionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsResponse> AddDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsRequest request);
         
+        /// <summary>
+        /// Make updates to the specified data exclusions.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateDataExclusionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -39342,10 +41270,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pdateDataExclusionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsResponse UpdateDataExclusions(Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsRequest request);
         
+        /// <summary>
+        /// Make updates to the specified data exclusions.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateDataExclusionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsResponse> UpdateDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsRequest request);
         
+        /// <summary>
+        /// Deletes the specified data exclusions from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteDataExclusionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -39354,10 +41302,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "eleteDataExclusionsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsResponse DeleteDataExclusions(Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsRequest request);
         
+        /// <summary>
+        /// Deletes the specified data exclusions from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteDataExclusions", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteDataExclusionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsResponse> DeleteDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsRequest request);
         
+        /// <summary>
+        /// Gets the specified data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetDataExclusionsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etDataExclusionsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -39366,10 +41334,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etDataExclusionsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsResponse GetDataExclusionsByIds(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the specified data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetDataExclusionsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etDataExclusionsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsResponse> GetDataExclusionsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetDataExclusionsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etDataExclusionsByAccountIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -39378,10 +41366,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etDataExclusionsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdResponse GetDataExclusionsByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdRequest request);
         
+        /// <summary>
+        /// Gets the data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetDataExclusionsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etDataExclusionsByAccountIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdResponse> GetDataExclusionsByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdRequest request);
         
+        /// <summary>
+        /// Add seasonality adjustments to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddSeasonalityAdjustmentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -39390,10 +41398,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddSeasonalityAdjustmentsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsResponse AddSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Add seasonality adjustments to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddSeasonalityAdjustmentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsResponse> AddSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Make updates to the specified seasonality adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateSeasonalityAdjustmentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -39402,10 +41430,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "pdateSeasonalityAdjustmentsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsResponse UpdateSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Make updates to the specified seasonality adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateSeasonalityAdjustmentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsResponse> UpdateSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Deletes the specified seasonality adjustments from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteSeasonalityAdjustmentsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -39414,10 +41462,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "eleteSeasonalityAdjustmentsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsResponse DeleteSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Deletes the specified seasonality adjustments from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteSeasonalityAdjustments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteSeasonalityAdjustmentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsResponse> DeleteSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsRequest request);
         
+        /// <summary>
+        /// Gets the specified seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSeasonalityAdjustmentsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSeasonalityAdjustmentsByIdsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -39426,10 +41494,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etSeasonalityAdjustmentsByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsResponse GetSeasonalityAdjustmentsByIds(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the specified seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSeasonalityAdjustmentsByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSeasonalityAdjustmentsByIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsResponse> GetSeasonalityAdjustmentsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsRequest request);
         
+        /// <summary>
+        /// Gets the seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSeasonalityAdjustmentsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSeasonalityAdjustmentsByAccountIdResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
@@ -39438,10 +41526,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "etSeasonalityAdjustmentsByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdResponse GetSeasonalityAdjustmentsByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdRequest request);
         
+        /// <summary>
+        /// Gets the seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetSeasonalityAdjustmentsByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etSeasonalityAdjustmentsByAccountIdResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdResponse> GetSeasonalityAdjustmentsByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateAssetGroupRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateAssetGroupRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
@@ -39450,10 +41558,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "reateAssetGroupRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationResponse CreateAssetGroupRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateAssetGroupRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateAssetGroupRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationResponse> CreateAssetGroupRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateResponsiveAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateResponsiveAdRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
@@ -39462,10 +41590,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "reateResponsiveAdRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationResponse CreateResponsiveAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateResponsiveAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateResponsiveAdRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationResponse> CreateResponsiveAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateResponsiveSearchAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateResponsiveSearchAdRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
@@ -39474,10 +41622,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "reateResponsiveSearchAdRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationResponse CreateResponsiveSearchAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="CreateResponsiveSearchAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
             "reateResponsiveSearchAdRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationResponse> CreateResponsiveSearchAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineAssetGroupRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineAssetGroupRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
@@ -39486,10 +41654,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "efineAssetGroupRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationResponse RefineAssetGroupRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineAssetGroupRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineAssetGroupRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationResponse> RefineAssetGroupRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineResponsiveAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineResponsiveAdRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
@@ -39498,10 +41686,30 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "efineResponsiveAdRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationResponse RefineResponsiveAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineResponsiveAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineResponsiveAdRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationResponse> RefineResponsiveAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineResponsiveSearchAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineResponsiveSearchAdRecommendationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
@@ -39510,10 +41718,94 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "efineResponsiveSearchAdRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationResponse RefineResponsiveSearchAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="RefineResponsiveSearchAdRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/R" +
             "efineResponsiveSearchAdRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationResponse> RefineResponsiveSearchAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionValueRules", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesResponse UpdateConversionValueRules(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionValueRules", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesResponse> UpdateConversionValueRulesAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionValueRulesStatus", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesStatusResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesStatusAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesStatusApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusResponse UpdateConversionValueRulesStatus(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionValueRulesStatus", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateConversionValueRulesStatusResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusResponse> UpdateConversionValueRulesStatusAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddConversionValueRules", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddConversionValueRulesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
@@ -39522,9 +41814,83 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddConversionValueRulesApiFaultDetail2Fault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesResponse AddConversionValueRules(Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesRequest request);
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddConversionValueRules", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddConversionValueRulesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesResponse> AddConversionValueRulesAsync(Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetConversionValueRulesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByAccountIdResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByAccountIdAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByAccountIdApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdResponse GetConversionValueRulesByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetConversionValueRulesByAccountId", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByAccountIdResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdResponse> GetConversionValueRulesByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetConversionValueRulesByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByIdsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByIdsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByIdsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsResponse GetConversionValueRulesByIds(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsRequest request);
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        [System.ServiceModel.OperationContractAttribute(Action="GetConversionValueRulesByIds", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etConversionValueRulesByIdsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsResponse> GetConversionValueRulesByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsRequest request);
     }
     
     /// <summary>
@@ -45435,6 +47801,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo;
         
+        /// <summary>
+        /// The list of additional properties that you want included within each returned auction insight KPI.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.MediaAdditionalField> ReturnAdditionalFields;
         
@@ -45456,7 +47825,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// </remarks>
         /// <param name="MediaEnabledEntities">Determines the type of media enabled entity to get meta data.</param>
         /// <param name="PageInfo">Determines the index and size of media meta data results per page.</param>
-        /// <param name="ReturnAdditionalFields"></param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned auction insight KPI.</param>
         public GetMediaMetaDataByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.MediaEnabledEntityFilter MediaEnabledEntities, Microsoft.BingAds.V13.CampaignManagement.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.MediaAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -45558,6 +47927,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> MediaIds;
         
+        /// <summary>
+        /// The list of additional properties that you want included within each returned auction insight KPI.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.MediaAdditionalField> ReturnAdditionalFields;
         
@@ -45578,7 +47950,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getmediametadatabyids?view=bingads-13">GetMediaMetaDataByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getmediametadatabyids?view=bingads-13 for details.
         /// </remarks>
         /// <param name="MediaIds">The identifiers of the media to get.</param>
-        /// <param name="ReturnAdditionalFields"></param>
+        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned auction insight KPI.</param>
         public GetMediaMetaDataByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> MediaIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.MediaAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46555,6 +48927,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Applies an action to an asset group listing group.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyAssetGroupListingGroupActions">ApplyAssetGroupListingGroupActions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyAssetGroupListingGroupActionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -46582,13 +48961,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroupAction> ListingGroupActions;
         
+        /// <summary>
+        /// Constructor for the ApplyAssetGroupListingGroupActionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
         public ApplyAssetGroupListingGroupActionsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyAssetGroupListingGroupActionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ListingGroupActions">A list of AssetGroupListingGroupAction objects that each contain an Action element and a ListingGroup element.</param>
         public ApplyAssetGroupListingGroupActionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroupAction> ListingGroupActions)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46602,6 +48997,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Applies an action to an asset group listing group.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyAssetGroupListingGroupActions">ApplyAssetGroupListingGroupActions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyAssetGroupListingGroupActionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -46611,16 +49013,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of IDs that for the listing groups that had the action applied.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> AssetGroupListingGroupIds;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that weren't successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the ApplyAssetGroupListingGroupActionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
         public ApplyAssetGroupListingGroupActionsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyAssetGroupListingGroupActionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroupListingGroupIds">A list of IDs that for the listing groups that had the action applied.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that weren't successful.</param>
         public ApplyAssetGroupListingGroupActionsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> AssetGroupListingGroupIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -46629,6 +49051,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AssetGroupListingGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupListingGroupsByIds">GetAssetGroupListingGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupListingGroupsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -46656,16 +49085,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The ID of the AssetGroup.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AssetGroupId;
         
+        /// <summary>
+        /// A list of identifiers that identify the listing groups that had the action applied.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> AssetGroupListingGroupIds;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupListingGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupListingGroupsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupListingGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroupId">The ID of the AssetGroup.</param>
+        /// <param name="AssetGroupListingGroupIds">A list of identifiers that identify the listing groups that had the action applied.</param>
         public GetAssetGroupListingGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AssetGroupId, System.Collections.Generic.IList<long> AssetGroupListingGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -46680,6 +49129,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AssetGroupListingGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupListingGroupsByIds">GetAssetGroupListingGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupListingGroupsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -46689,13 +49145,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The list of listing groups that correspond directly to the identifiers specified in the request.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroup> AssetGroupListingGroups;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupListingGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupListingGroupsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupListingGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroupListingGroups">The list of listing groups that correspond directly to the identifiers specified in the request.</param>
         public GetAssetGroupListingGroupsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupListingGroup> AssetGroupListingGroups)
         {
             this.TrackingId = TrackingId;
@@ -50593,6 +53065,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds array of audience groups to the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAudienceGroups">AddAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAudienceGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50620,13 +53099,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Array of audience groups.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups;
         
+        /// <summary>
+        /// Constructor for the AddAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public AddAudienceGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroups">Array of audience groups.</param>
         public AddAudienceGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups)
         {
             this.ApplicationToken = ApplicationToken;
@@ -50640,6 +53135,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds array of audience groups to the account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAudienceGroups">AddAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAudienceGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50649,16 +53151,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Array of audience group ids to be added.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> AudienceGroupIds;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that weren't successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public AddAudienceGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupIds">Array of audience group ids to be added.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that weren't successful.</param>
         public AddAudienceGroupsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> AudienceGroupIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50667,6 +53189,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified audience groups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateAudienceGroups">UpdateAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAudienceGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50694,13 +53223,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Array of audience groups to update.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups;
         
+        /// <summary>
+        /// Constructor for the UpdateAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public UpdateAudienceGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroups">Array of audience groups to update.</param>
         public UpdateAudienceGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups)
         {
             this.ApplicationToken = ApplicationToken;
@@ -50714,6 +53259,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified audience groups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateAudienceGroups">UpdateAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAudienceGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50723,13 +53275,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public UpdateAudienceGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateAudienceGroupsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50737,6 +53305,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AudienceGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAudienceGroups">DeleteAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAudienceGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50764,13 +53339,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Array of audience group IDs to be deleted.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> AudienceGroupIds;
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAudienceGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupIds">Array of audience group IDs to be deleted.</param>
         public DeleteAudienceGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -50784,6 +53375,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AudienceGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAudienceGroups">DeleteAudienceGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAudienceGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50793,13 +53391,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAudienceGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteAudienceGroupsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50807,6 +53421,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves specified AudienceGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupsByIds">GetAudienceGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50834,13 +53455,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Array of audience group ids to get.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> AudienceGroupIds;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupIds">Array of audience group ids to get.</param>
         public GetAudienceGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -50854,6 +53491,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves specified AudienceGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupsByIds">GetAudienceGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50863,16 +53507,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Array of audience groups.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroups">Array of audience groups.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAudienceGroupsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroup> AudienceGroups, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50881,6 +53545,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds array of asset groups to a specified campaign.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAssetGroups">AddAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAssetGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50908,16 +53579,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Array of asset groups to add to the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups;
         
+        /// <summary>
+        /// The ID of the Performace Max campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public long CampaignId;
         
+        /// <summary>
+        /// Constructor for the AddAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public AddAssetGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroups">Array of asset groups to add to the specified campaign.</param>
+        /// <param name="CampaignId">The ID of the Performace Max campaign.</param>
         public AddAssetGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups, long CampaignId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -50932,6 +53623,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Adds array of asset groups to a specified campaign.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddAssetGroups">AddAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAssetGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50941,16 +53639,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Array of asset group IDs to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> AssetGroupIds;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that weren't successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public AddAssetGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroupIds">Array of asset group IDs to update for the specified campaign.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that weren't successful.</param>
         public AddAssetGroupsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> AssetGroupIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -50959,6 +53677,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified asset groups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateAssetGroups">UpdateAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAssetGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -50986,16 +53711,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The ID of the performance max campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long CampaignId;
         
+        /// <summary>
+        /// Array of asset groups to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups;
         
+        /// <summary>
+        /// Constructor for the UpdateAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public UpdateAssetGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignId">The ID of the performance max campaign.</param>
+        /// <param name="AssetGroups">Array of asset groups to update for the specified campaign.</param>
         public UpdateAssetGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51010,6 +53755,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Updates the specified asset groups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateAssetGroups">UpdateAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAssetGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51019,13 +53771,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public UpdateAssetGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public UpdateAssetGroupsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51033,6 +53801,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAssetGroups">DeleteAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAssetGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51060,16 +53835,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The ID of the performance max campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long CampaignId;
         
+        /// <summary>
+        /// Array of asset group IDs to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> AssetGroupIds;
         
+        /// <summary>
+        /// Constructor for the DeleteAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAssetGroupsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAssetGroupsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroupsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignId">The ID of the performance max campaign.</param>
+        /// <param name="AssetGroupIds">Array of asset group IDs to update for the specified campaign.</param>
         public DeleteAssetGroupsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AssetGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51084,6 +53879,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAssetGroups">DeleteAssetGroups</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAssetGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51093,13 +53895,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAssetGroupsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAssetGroupsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroupsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteAssetGroupsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51107,6 +53925,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves specified AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51134,19 +53959,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The ID of the performance max campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long CampaignId;
         
+        /// <summary>
+        /// Array of asset group ids to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> AssetGroupIds;
         
+        /// <summary>
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignId">The ID of the performance max campaign.</param>
+        /// <param name="AssetGroupIds">Array of asset group ids to update for the specified campaign.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetAssetGroupsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Collections.Generic.IList<long> AssetGroupIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51162,6 +54011,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves specified AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsByIds">GetAssetGroupsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51171,16 +54027,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Array of asset groups to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroups">Array of asset groups to update for the specified campaign.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAssetGroupsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51189,6 +54065,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsByCampaignIdRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51216,16 +54099,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The ID of the performance max campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long CampaignId;
         
+        /// <summary>
+        /// The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByCampaignIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsByCampaignIdRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByCampaignIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CampaignId">The ID of the performance max campaign.</param>
+        /// <param name="ReturnAdditionalFields">The additional field values enable you to get the latest features using the current version of Campaign Management API, and in the next version the corresponding elements will be included by default.</param>
         public GetAssetGroupsByCampaignIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long CampaignId, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AssetGroupAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51240,6 +54143,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AssetGroups.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsByCampaignId">GetAssetGroupsByCampaignId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsByCampaignIdResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51249,16 +54159,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Array of asset groups to update for the specified campaign.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByCampaignIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsByCampaignIdResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsByCampaignIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroups">Array of asset groups to update for the specified campaign.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAssetGroupsByCampaignIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroup> AssetGroups, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51267,6 +54197,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets reasons for asset group editorial issues.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsEditorialReasons">GetAssetGroupsEditorialReasons</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsEditorialReasonsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51294,16 +54231,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The identifier of the account that owns the asset groups.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The list of asset groups and corresponding entity associations to get.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.EntityIdToParentIdAssociation> AssetGroupIdToCampaignIdAssociations;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsEditorialReasonsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasonsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsEditorialReasonsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsEditorialReasonsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasonsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The identifier of the account that owns the asset groups.</param>
+        /// <param name="AssetGroupIdToCampaignIdAssociations">The list of asset groups and corresponding entity associations to get.</param>
         public GetAssetGroupsEditorialReasonsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.EntityIdToParentIdAssociation> AssetGroupIdToCampaignIdAssociations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51318,6 +54275,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets reasons for asset group editorial issues.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAssetGroupsEditorialReasons">GetAssetGroupsEditorialReasons</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAssetGroupsEditorialReasonsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51327,16 +54291,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The collection of asset group editorial reasons.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupEditorialReasonCollection> EditorialReasons;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsEditorialReasonsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasonsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
         public GetAssetGroupsEditorialReasonsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAssetGroupsEditorialReasonsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasonsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="EditorialReasons">The collection of asset group editorial reasons.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAssetGroupsEditorialReasonsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetGroupEditorialReasonCollection> EditorialReasons, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51345,6 +54329,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Sets AudienceGroupAssetGroupAssociations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetAudienceGroupAssetGroupAssociations">SetAudienceGroupAssetGroupAssociations</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SetAudienceGroupAssetGroupAssociationsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51372,13 +54363,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The list of Audience Group associations to set.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations;
         
+        /// <summary>
+        /// Constructor for the SetAudienceGroupAssetGroupAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociationsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
         public SetAudienceGroupAssetGroupAssociationsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the SetAudienceGroupAssetGroupAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociationsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupAssetGroupAssociations">The list of Audience Group associations to set.</param>
         public SetAudienceGroupAssetGroupAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51392,6 +54399,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Sets AudienceGroupAssetGroupAssociations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.SetAudienceGroupAssetGroupAssociations">SetAudienceGroupAssetGroupAssociations</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SetAudienceGroupAssetGroupAssociationsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51401,13 +54415,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the SetAudienceGroupAssetGroupAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociationsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
         public SetAudienceGroupAssetGroupAssociationsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the SetAudienceGroupAssetGroupAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociationsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public SetAudienceGroupAssetGroupAssociationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51415,6 +54445,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AudienceGroupAssetGroupAssociations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAudienceGroupAssetGroupAssociations">DeleteAudienceGroupAssetGroupAssociations</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAudienceGroupAssetGroupAssociationsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51442,13 +54479,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The list of Audience Group associations to be deleted.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations;
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupAssetGroupAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociationsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAudienceGroupAssetGroupAssociationsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupAssetGroupAssociationsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociationsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupAssetGroupAssociations">The list of Audience Group associations to be deleted.</param>
         public DeleteAudienceGroupAssetGroupAssociationsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51462,6 +54515,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes one or more AudienceGroupAssetGroupAssociations.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteAudienceGroupAssetGroupAssociations">DeleteAudienceGroupAssetGroupAssociations</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAudienceGroupAssetGroupAssociationsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51471,13 +54531,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupAssetGroupAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociationsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
         public DeleteAudienceGroupAssetGroupAssociationsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteAudienceGroupAssetGroupAssociationsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociationsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public DeleteAudienceGroupAssetGroupAssociationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51485,6 +54561,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51512,13 +54595,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The list of AssetGroup ids used to fetch the associations.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> AssetGroupIds;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroupIds">The list of AssetGroup ids used to fetch the associations.</param>
         public GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AssetGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51532,6 +54631,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51541,16 +54647,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The list of Audience Group associations.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupAssetGroupAssociations">The list of Audience Group associations.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -51559,6 +54685,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51586,13 +54719,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The list of AudienceGroup ids used to fetch the associations.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> AudienceGroupIds;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupIds">The list of AudienceGroup ids used to fetch the associations.</param>
         public GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> AudienceGroupIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -51606,6 +54755,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -51615,16 +54771,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The list of Audience Group associations to get.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
         public GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AudienceGroupAssetGroupAssociations">The list of Audience Group associations to get.</param>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that were not successful.</param>
         public GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AudienceGroupAssetGroupAssociation> AudienceGroupAssetGroupAssociations, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -52129,6 +55305,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the ApplyCustomerListItems service operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListItems">ApplyCustomerListItems</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyCustomerListItemsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -52156,13 +55339,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The customer list associated with the audience.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerList CustomerListAudience;
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListItemsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItemsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
         public ApplyCustomerListItemsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListItemsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItemsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CustomerListAudience">The customer list associated with the audience.</param>
         public ApplyCustomerListItemsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.CustomerList CustomerListAudience)
         {
             this.ApplicationToken = ApplicationToken;
@@ -52176,6 +55375,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the ApplyCustomerListItems service operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListItems">ApplyCustomerListItems</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyCustomerListItemsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -52185,13 +55391,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that weren't successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListItemsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItemsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
         public ApplyCustomerListItemsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListItemsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItemsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that weren't successful.</param>
         public ApplyCustomerListItemsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -52199,6 +55421,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the ApplyCustomerListUserData service operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListUserData">ApplyCustomerListUserData</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyCustomerListUserDataRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -52226,13 +55455,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Defines the CustomerListUserData data object.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.CustomerListUserData CustomerListUserData;
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListUserDataRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserDataRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
         public ApplyCustomerListUserDataRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListUserDataRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserDataRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="CustomerListUserData">Defines the CustomerListUserData data object.</param>
         public ApplyCustomerListUserDataRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.CustomerListUserData CustomerListUserData)
         {
             this.ApplicationToken = ApplicationToken;
@@ -52246,6 +55491,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Defines the ApplyCustomerListUserData service operation.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.ApplyCustomerListUserData">ApplyCustomerListUserData</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ApplyCustomerListUserDataResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -52255,13 +55507,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array of BatchError objects that contain details for any request items that weren't successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListUserDataResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserDataResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
         public ApplyCustomerListUserDataResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the ApplyCustomerListUserDataResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserDataResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array of BatchError objects that contain details for any request items that weren't successful.</param>
         public ApplyCustomerListUserDataResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -53501,6 +56769,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the offline conversion reports in the requested date range.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetOfflineConversionReports">GetOfflineConversionReports</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetOfflineConversionReportsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -53528,16 +56803,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The start date in UTC time.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.DateTime StartDateUtc;
         
+        /// <summary>
+        /// The end date in UTC time.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.DateTime EndDateUtc;
         
+        /// <summary>
+        /// Constructor for the GetOfflineConversionReportsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReportsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
         public GetOfflineConversionReportsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetOfflineConversionReportsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReportsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="StartDateUtc">The start date in UTC time.</param>
+        /// <param name="EndDateUtc">The end date in UTC time.</param>
         public GetOfflineConversionReportsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.DateTime StartDateUtc, System.DateTime EndDateUtc)
         {
             this.ApplicationToken = ApplicationToken;
@@ -53552,6 +56847,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the offline conversion reports in the requested date range.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetOfflineConversionReports">GetOfflineConversionReports</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetOfflineConversionReportsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -53561,13 +56863,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A summary of the reports for the day.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DailySummary> DailySummaries;
         
+        /// <summary>
+        /// Constructor for the GetOfflineConversionReportsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReportsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
         public GetOfflineConversionReportsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetOfflineConversionReportsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReportsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="DailySummaries">A summary of the reports for the day.</param>
         public GetOfflineConversionReportsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DailySummary> DailySummaries)
         {
             this.TrackingId = TrackingId;
@@ -56024,7 +59342,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType;
         
         /// <summary>
-        /// Reserved.
+        /// The ID of the source parent.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<long> SourceParentId;
@@ -56048,7 +59366,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <param name="ImportType">The type of import job to get entity ID mappings.</param>
         /// <param name="SourceEntityIds">The source entity IDs that you want mapped to Microsoft Advertising entity IDs.</param>
         /// <param name="ImportEntityType">The type of entity to get ID mappings.</param>
-        /// <param name="SourceParentId">Reserved.</param>
+        /// <param name="SourceParentId">The ID of the source parent.</param>
         public GetImportEntityIdsMappingRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ImportType, System.Collections.Generic.IList<long> SourceEntityIds, Microsoft.BingAds.V13.CampaignManagement.ImportEntityType ImportEntityType, System.Nullable<long> SourceParentId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -56766,7 +60084,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// An array of the base object of a campaign conversion goal.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal;
@@ -56787,7 +60105,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CampaignConversionGoal">Reserved.</param>
+        /// <param name="CampaignConversionGoal">An array of the base object of a campaign conversion goal.</param>
         public AddCampaignConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal)
         {
             this.ApplicationToken = ApplicationToken;
@@ -56818,7 +60136,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array BatchError that contains details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -56839,7 +60157,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13">AddCampaignConversionGoalsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addcampaignconversiongoals?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public AddCampaignConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -56882,7 +60200,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string UserName;
         
         /// <summary>
-        /// Reserved.
+        /// An array of the base object of a campaign conversion goal.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal;
@@ -56903,7 +60221,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="CampaignConversionGoal">Reserved.</param>
+        /// <param name="CampaignConversionGoal">An array of the base object of a campaign conversion goal.</param>
         public DeleteCampaignConversionGoalsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.CampaignConversionGoal> CampaignConversionGoal)
         {
             this.ApplicationToken = ApplicationToken;
@@ -56934,7 +60252,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         /// <summary>
-        /// Reserved.
+        /// An array BatchError that contains details for any request items that were not successful.
         /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
@@ -56955,7 +60273,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <remarks>
         /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13">DeleteCampaignConversionGoalsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletecampaignconversiongoals?view=bingads-13 for details.
         /// </remarks>
-        /// <param name="PartialErrors">Reserved.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public DeleteCampaignConversionGoalsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -56963,6 +60281,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Add a data exclusion to the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddDataExclusions">AddDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddDataExclusionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -56990,16 +60315,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The data exclusions to add.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions;
         
+        /// <summary>
+        /// Constructor for the AddDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public AddDataExclusionsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="DataExclusions">The data exclusions to add.</param>
         public AddDataExclusionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57014,6 +60359,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Add a data exclusion to the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddDataExclusions">AddDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddDataExclusionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57023,16 +60375,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The data exclusion IDs.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> DataExclusionIds;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public AddDataExclusionsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="DataExclusionIds">The data exclusion IDs.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public AddDataExclusionsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> DataExclusionIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57041,6 +60413,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Make updates to the specified data exclusions.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateDataExclusions">UpdateDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDataExclusionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57068,16 +60447,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The data exclusions to update.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions;
         
+        /// <summary>
+        /// Constructor for the UpdateDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public UpdateDataExclusionsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="DataExclusions">The data exclusions to update.</param>
         public UpdateDataExclusionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57092,6 +60491,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Make updates to the specified data exclusions.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateDataExclusions">UpdateDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateDataExclusionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57101,13 +60507,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public UpdateDataExclusionsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public UpdateDataExclusionsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57115,6 +60537,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified data exclusions from the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteDataExclusions">DeleteDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDataExclusionsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57142,16 +60571,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The IDs of the data exclusions to delete.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> DataExclusionIds;
         
+        /// <summary>
+        /// Constructor for the DeleteDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public DeleteDataExclusionsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteDataExclusionsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusionsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="DataExclusionIds">The IDs of the data exclusions to delete.</param>
         public DeleteDataExclusionsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> DataExclusionIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57166,6 +60615,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified data exclusions from the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteDataExclusions">DeleteDataExclusions</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteDataExclusionsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57175,13 +60631,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
         public DeleteDataExclusionsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteDataExclusionsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusionsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public DeleteDataExclusionsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57189,6 +60661,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified data exclusions associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetDataExclusionsByIds">GetDataExclusionsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataExclusionsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57216,16 +60695,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The data exclusion IDs.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> DataExclusionIds;
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetDataExclusionsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="DataExclusionIds">The data exclusion IDs.</param>
         public GetDataExclusionsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> DataExclusionIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57240,6 +60739,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified data exclusions associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetDataExclusionsByIds">GetDataExclusionsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataExclusionsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57249,16 +60755,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of the specified data exclusions associated with the specified account.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetDataExclusionsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="DataExclusions">A list of the specified data exclusions associated with the specified account.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public GetDataExclusionsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57267,6 +60793,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the data exclusions associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetDataExclusionsByAccountId">GetDataExclusionsByAccountId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataExclusionsByAccountIdRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57294,13 +60827,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
         public GetDataExclusionsByAccountIdRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
         public GetDataExclusionsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57314,6 +60863,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the data exclusions associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetDataExclusionsByAccountId">GetDataExclusionsByAccountId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetDataExclusionsByAccountIdResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57323,16 +60879,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of the data exclusions associated with the specified account.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
         public GetDataExclusionsByAccountIdResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetDataExclusionsByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="DataExclusions">A list of the data exclusions associated with the specified account.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public GetDataExclusionsByAccountIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DataExclusion> DataExclusions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57341,6 +60917,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Add seasonality adjustments to the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSeasonalityAdjustments">AddSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddSeasonalityAdjustmentsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57368,16 +60951,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The seasonality adjustments to add.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments;
         
+        /// <summary>
+        /// Constructor for the AddSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public AddSeasonalityAdjustmentsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="SeasonalityAdjustments">The seasonality adjustments to add.</param>
         public AddSeasonalityAdjustmentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57392,6 +60995,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Add seasonality adjustments to the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddSeasonalityAdjustments">AddSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddSeasonalityAdjustmentsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57401,16 +61011,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// The seasonality adjustment IDs.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Nullable<long>> SeasonalityAdjustmentIds;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public AddSeasonalityAdjustmentsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SeasonalityAdjustmentIds">The seasonality adjustment IDs.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public AddSeasonalityAdjustmentsResponse(string TrackingId, System.Collections.Generic.IList<System.Nullable<long>> SeasonalityAdjustmentIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57419,6 +61049,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Make updates to the specified seasonality adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateSeasonalityAdjustments">UpdateSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateSeasonalityAdjustmentsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57446,16 +61083,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The seasonality adjustments to update.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments;
         
+        /// <summary>
+        /// Constructor for the UpdateSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public UpdateSeasonalityAdjustmentsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="SeasonalityAdjustments">The seasonality adjustments to update.</param>
         public UpdateSeasonalityAdjustmentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57470,6 +61127,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Make updates to the specified seasonality adjustments.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateSeasonalityAdjustments">UpdateSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateSeasonalityAdjustmentsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57479,13 +61143,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the UpdateSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public UpdateSeasonalityAdjustmentsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the UpdateSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public UpdateSeasonalityAdjustmentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57493,6 +61173,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified seasonality adjustments from the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteSeasonalityAdjustments">DeleteSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteSeasonalityAdjustmentsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57520,16 +61207,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The IDs of the seasonality adjustments to delete.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> SeasonalityAdjustmentIds;
         
+        /// <summary>
+        /// Constructor for the DeleteSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public DeleteSeasonalityAdjustmentsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteSeasonalityAdjustmentsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustmentsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="SeasonalityAdjustmentIds">The IDs of the seasonality adjustments to delete.</param>
         public DeleteSeasonalityAdjustmentsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> SeasonalityAdjustmentIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57544,6 +61251,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Deletes the specified seasonality adjustments from the specified account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.DeleteSeasonalityAdjustments">DeleteSeasonalityAdjustments</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteSeasonalityAdjustmentsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57553,13 +61267,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the DeleteSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
         public DeleteSeasonalityAdjustmentsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the DeleteSeasonalityAdjustmentsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustmentsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public DeleteSeasonalityAdjustmentsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57567,6 +61297,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified seasonality adjustments associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByIds">GetSeasonalityAdjustmentsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetSeasonalityAdjustmentsByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57594,16 +61331,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// The seasonality adjustment IDs.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> SeasonalityAdjustmentIds;
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetSeasonalityAdjustmentsByIdsRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
+        /// <param name="SeasonalityAdjustmentIds">The seasonality adjustment IDs.</param>
         public GetSeasonalityAdjustmentsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> SeasonalityAdjustmentIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57618,6 +61375,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the specified seasonality adjustments associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByIds">GetSeasonalityAdjustmentsByIds</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetSeasonalityAdjustmentsByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57627,16 +61391,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of the specified seasonality adjustments.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
         public GetSeasonalityAdjustmentsByIdsResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SeasonalityAdjustments">A list of the specified seasonality adjustments.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public GetSeasonalityAdjustmentsByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57645,6 +61429,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the seasonality adjustments associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByAccountId">GetSeasonalityAdjustmentsByAccountId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetSeasonalityAdjustmentsByAccountIdRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57672,13 +61463,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// The account ID.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
         public GetSeasonalityAdjustmentsByAccountIdRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">The account ID.</param>
         public GetSeasonalityAdjustmentsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57692,6 +61499,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Gets the seasonality adjustments associated with an account.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetSeasonalityAdjustmentsByAccountId">GetSeasonalityAdjustmentsByAccountId</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetSeasonalityAdjustmentsByAccountIdResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57701,16 +61515,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// A list of the seasaonality adjustments associated with the specified account.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments;
         
+        /// <summary>
+        /// An array BatchError that contains details for any request items that were not successful.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
         public GetSeasonalityAdjustmentsByAccountIdResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the GetSeasonalityAdjustmentsByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="SeasonalityAdjustments">A list of the seasaonality adjustments associated with the specified account.</param>
+        /// <param name="PartialErrors">An array BatchError that contains details for any request items that were not successful.</param>
         public GetSeasonalityAdjustmentsByAccountIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.SeasonalityAdjustment> SeasonalityAdjustments, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -57719,6 +61553,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateAssetGroupRecommendation">CreateAssetGroupRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateAssetGroupRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57746,19 +61587,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<string> FinalUrls;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public string Prompt;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone;
         
+        /// <summary>
+        /// Constructor for the CreateAssetGroupRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateAssetGroupRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateAssetGroupRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FinalUrls">Reserved.</param>
+        /// <param name="Prompt">Reserved.</param>
+        /// <param name="TextTone">Reserved.</param>
         public CreateAssetGroupRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> FinalUrls, string Prompt, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57774,6 +61639,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateAssetGroupRecommendation">CreateAssetGroupRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateAssetGroupRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57783,16 +61655,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.AssetGroup AssetGroup;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions;
         
+        /// <summary>
+        /// Constructor for the CreateAssetGroupRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateAssetGroupRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateAssetGroupRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroup">Reserved.</param>
+        /// <param name="ImageSuggestions">Reserved.</param>
         public CreateAssetGroupRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.AssetGroup AssetGroup, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions)
         {
             this.TrackingId = TrackingId;
@@ -57801,6 +61693,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateResponsiveAdRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57828,22 +61727,50 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdSubType> AdSubType;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<string> FinalUrls;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public string Prompt;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone;
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateResponsiveAdRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AdSubType">Reserved.</param>
+        /// <param name="FinalUrls">Reserved.</param>
+        /// <param name="Prompt">Reserved.</param>
+        /// <param name="TextTone">Reserved.</param>
         public CreateResponsiveAdRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdSubType> AdSubType, System.Collections.Generic.IList<string> FinalUrls, string Prompt, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57860,6 +61787,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveAdRecommendation">CreateResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateResponsiveAdRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57869,19 +61803,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions;
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateResponsiveAdRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ResponsiveAd">Reserved.</param>
+        /// <param name="ImageSuggestions">Reserved.</param>
+        /// <param name="VideoSuggestions">Reserved.</param>
         public CreateResponsiveAdRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions)
         {
             this.TrackingId = TrackingId;
@@ -57891,6 +61849,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveSearchAdRecommendation">CreateResponsiveSearchAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateResponsiveSearchAdRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57918,19 +61883,43 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<string> FinalUrls;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public string Prompt;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone;
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveSearchAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateResponsiveSearchAdRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveSearchAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="FinalUrls">Reserved.</param>
+        /// <param name="Prompt">Reserved.</param>
+        /// <param name="TextTone">Reserved.</param>
         public CreateResponsiveSearchAdRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<string> FinalUrls, string Prompt, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextTone> TextTone)
         {
             this.ApplicationToken = ApplicationToken;
@@ -57946,6 +61935,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.CreateResponsiveSearchAdRecommendation">CreateResponsiveSearchAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="CreateResponsiveSearchAdRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57955,13 +61951,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.ResponsiveSearchAd ResponsiveSearchAd;
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveSearchAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public CreateResponsiveSearchAdRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the CreateResponsiveSearchAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ResponsiveSearchAd">Reserved.</param>
         public CreateResponsiveSearchAdRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.ResponsiveSearchAd ResponsiveSearchAd)
         {
             this.TrackingId = TrackingId;
@@ -57969,6 +61981,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineAssetGroupRecommendation">RefineAssetGroupRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineAssetGroupRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -57996,16 +62015,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.AssetGroup AssetGroup;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations;
         
+        /// <summary>
+        /// Constructor for the RefineAssetGroupRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineAssetGroupRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineAssetGroupRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AssetGroup">Reserved.</param>
+        /// <param name="TextRefineOperations">Reserved.</param>
         public RefineAssetGroupRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.AssetGroup AssetGroup, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -58020,6 +62059,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineAssetGroupRecommendation">RefineAssetGroupRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineAssetGroupRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58029,13 +62075,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions;
         
+        /// <summary>
+        /// Constructor for the RefineAssetGroupRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineAssetGroupRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineAssetGroupRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="TextSuggestions">Reserved.</param>
         public RefineAssetGroupRecommendationResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions)
         {
             this.TrackingId = TrackingId;
@@ -58043,6 +62105,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineResponsiveAdRecommendation">RefineResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineResponsiveAdRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58070,16 +62139,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations;
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineResponsiveAdRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ResponsiveAd">Reserved.</param>
+        /// <param name="TextRefineOperations">Reserved.</param>
         public RefineResponsiveAdRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -58094,6 +62183,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineResponsiveAdRecommendation">RefineResponsiveAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineResponsiveAdRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58103,13 +62199,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions;
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineResponsiveAdRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="TextSuggestions">Reserved.</param>
         public RefineResponsiveAdRecommendationResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions)
         {
             this.TrackingId = TrackingId;
@@ -58117,6 +62229,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineResponsiveSearchAdRecommendation">RefineResponsiveSearchAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineResponsiveSearchAdRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58144,16 +62263,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public Microsoft.BingAds.V13.CampaignManagement.ResponsiveSearchAd ResponsiveSearchAd;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations;
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveSearchAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineResponsiveSearchAdRecommendationRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveSearchAdRecommendationRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendationRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ResponsiveSearchAd">Reserved.</param>
+        /// <param name="TextRefineOperations">Reserved.</param>
         public RefineResponsiveSearchAdRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CampaignManagement.ResponsiveSearchAd ResponsiveSearchAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextRefineOperation> TextRefineOperations)
         {
             this.ApplicationToken = ApplicationToken;
@@ -58168,6 +62307,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.RefineResponsiveSearchAdRecommendation">RefineResponsiveSearchAdRecommendation</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="RefineResponsiveSearchAdRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58177,13 +62323,29 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions;
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveSearchAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
         public RefineResponsiveSearchAdRecommendationResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the RefineResponsiveSearchAdRecommendationResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendationResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="TextSuggestions">Reserved.</param>
         public RefineResponsiveSearchAdRecommendationResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationTextSuggestion>> TextSuggestions)
         {
             this.TrackingId = TrackingId;
@@ -58191,6 +62353,261 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionValueRules">UpdateConversionValueRules</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionValueRulesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateConversionValueRulesRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<int> Lcid;
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRulesRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateConversionValueRulesRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRulesRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ConversionValueRules">Reserved.</param>
+        /// <param name="Lcid">Reserved.</param>
+        public UpdateConversionValueRulesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules, System.Nullable<int> Lcid)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.ConversionValueRules = ConversionValueRules;
+            this.Lcid = Lcid;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionValueRules">UpdateConversionValueRules</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionValueRulesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateConversionValueRulesResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRulesResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateConversionValueRulesResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRulesResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public UpdateConversionValueRulesResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionValueRulesStatus">UpdateConversionValueRulesStatus</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionValueRulesStatusRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateConversionValueRulesStatusRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> RuleIds;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public Microsoft.BingAds.V13.CampaignManagement.ConversionValueRuleStatus Status;
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesStatusRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatusRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateConversionValueRulesStatusRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesStatusRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatusRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="RuleIds">Reserved.</param>
+        /// <param name="Status">Reserved.</param>
+        public UpdateConversionValueRulesStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RuleIds, Microsoft.BingAds.V13.CampaignManagement.ConversionValueRuleStatus Status)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RuleIds = RuleIds;
+            this.Status = Status;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.UpdateConversionValueRulesStatus">UpdateConversionValueRulesStatus</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateConversionValueRulesStatusResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateConversionValueRulesStatusResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesStatusResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatusResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        public UpdateConversionValueRulesStatusResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the UpdateConversionValueRulesStatusResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatusResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="PartialErrors">Reserved.</param>
+        public UpdateConversionValueRulesStatusResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionValueRules">AddConversionValueRules</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddConversionValueRulesRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58218,16 +62635,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string UserName;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Nullable<int> Lcid;
         
+        /// <summary>
+        /// Constructor for the AddConversionValueRulesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRulesRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
         public AddConversionValueRulesRequest()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddConversionValueRulesRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRulesRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ConversionValueRules">Reserved.</param>
+        /// <param name="Lcid">Reserved.</param>
         public AddConversionValueRulesRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules, System.Nullable<int> Lcid)
         {
             this.ApplicationToken = ApplicationToken;
@@ -58242,6 +62679,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.AddConversionValueRules">AddConversionValueRules</see> service operation.</para>
+    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddConversionValueRulesResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -58251,20 +62695,296 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
         public string TrackingId;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> ConversionValueRuleIds;
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
         
+        /// <summary>
+        /// Constructor for the AddConversionValueRulesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRulesResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
         public AddConversionValueRulesResponse()
         {
         }
         
+        /// <summary>
+        /// Constructor for the AddConversionValueRulesResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRulesResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ConversionValueRuleIds">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
         public AddConversionValueRulesResponse(string TrackingId, System.Collections.Generic.IList<long> ConversionValueRuleIds, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
         {
             this.TrackingId = TrackingId;
             this.ConversionValueRuleIds = ConversionValueRuleIds;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionValueRulesByAccountId">GetConversionValueRulesByAccountId</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionValueRulesByAccountIdRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetConversionValueRulesByAccountIdRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public long AccountId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<int> Lcid;
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        public GetConversionValueRulesByAccountIdRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByAccountIdRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountIdRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="AccountId">Reserved.</param>
+        /// <param name="Lcid">Reserved.</param>
+        public GetConversionValueRulesByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<int> Lcid)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountId = AccountId;
+            this.Lcid = Lcid;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionValueRulesByAccountId">GetConversionValueRulesByAccountId</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionValueRulesByAccountIdResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetConversionValueRulesByAccountIdResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules;
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        public GetConversionValueRulesByAccountIdResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByAccountIdResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountIdResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ConversionValueRules">Reserved.</param>
+        public GetConversionValueRulesByAccountIdResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules)
+        {
+            this.TrackingId = TrackingId;
+            this.ConversionValueRules = ConversionValueRules;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Request Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionValueRulesByIds">GetConversionValueRulesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionValueRulesByIdsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetConversionValueRulesByIdsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<long> RuleIds;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<int> Lcid;
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetConversionValueRulesByIdsRequest()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByIdsRequest request object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIdsRequest</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="RuleIds">Reserved.</param>
+        /// <param name="Lcid">Reserved.</param>
+        public GetConversionValueRulesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> RuleIds, System.Nullable<int> Lcid)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.RuleIds = RuleIds;
+            this.Lcid = Lcid;
+        }
+    }
+    
+    /// <summary>
+    /// Reserved.
+    /// </summary>
+    /// <remarks>
+    /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Response Object</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+    /// <para>Used by <see cref="CampaignManagementServiceClient.GetConversionValueRulesByIds">GetConversionValueRulesByIds</see> service operation.</para>
+    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetConversionValueRulesByIdsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetConversionValueRulesByIdsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules;
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        public GetConversionValueRulesByIdsResponse()
+        {
+        }
+        
+        /// <summary>
+        /// Constructor for the GetConversionValueRulesByIdsResponse response object.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIdsResponse</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <param name="ConversionValueRules">Reserved.</param>
+        /// <param name="PartialErrors">Reserved.</param>
+        public GetConversionValueRulesByIdsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ConversionValueRule> ConversionValueRules, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.ConversionValueRules = ConversionValueRules;
             this.PartialErrors = PartialErrors;
         }
     }
@@ -59903,21 +64623,61 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.ApplyHotelGroupActionsAsync(request);
         }
         
+        /// <summary>
+        /// Applies an action to an asset group listing group.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsResponse ApplyAssetGroupListingGroupActions(Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsRequest request)
         {
             return base.Channel.ApplyAssetGroupListingGroupActions(request);
         }
         
+        /// <summary>
+        /// Applies an action to an asset group listing group.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13">ApplyAssetGroupListingGroupActions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applyassetgrouplistinggroupactions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsResponse> ApplyAssetGroupListingGroupActionsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyAssetGroupListingGroupActionsRequest request)
         {
             return base.Channel.ApplyAssetGroupListingGroupActionsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AssetGroupListingGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of listing groups that correspond directly to the identifiers specified in the request.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsResponse GetAssetGroupListingGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsRequest request)
         {
             return base.Channel.GetAssetGroupListingGroupsByIds(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AssetGroupListingGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13">GetAssetGroupListingGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgrouplistinggroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The list of listing groups that correspond directly to the identifiers specified in the request.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsResponse> GetAssetGroupListingGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupListingGroupsByIdsRequest request)
         {
             return base.Channel.GetAssetGroupListingGroupsByIdsAsync(request);
@@ -60833,141 +65593,421 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.GetCampaignIdsByBidStrategyIdsAsync(request);
         }
         
+        /// <summary>
+        /// Adds array of audience groups to the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsResponse AddAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsRequest request)
         {
             return base.Channel.AddAudienceGroups(request);
         }
         
+        /// <summary>
+        /// Adds array of audience groups to the account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13">AddAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsResponse> AddAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.AddAudienceGroupsRequest request)
         {
             return base.Channel.AddAudienceGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Updates the specified audience groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsResponse UpdateAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsRequest request)
         {
             return base.Channel.UpdateAudienceGroups(request);
         }
         
+        /// <summary>
+        /// Updates the specified audience groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13">UpdateAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsResponse> UpdateAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAudienceGroupsRequest request)
         {
             return base.Channel.UpdateAudienceGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsResponse DeleteAudienceGroups(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsRequest request)
         {
             return base.Channel.DeleteAudienceGroups(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13">DeleteAudienceGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsResponse> DeleteAudienceGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupsRequest request)
         {
             return base.Channel.DeleteAudienceGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves specified AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsResponse GetAudienceGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsRequest request)
         {
             return base.Channel.GetAudienceGroupsByIds(request);
         }
         
+        /// <summary>
+        /// Retrieves specified AudienceGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13">GetAudienceGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsResponse> GetAudienceGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupsByIdsRequest request)
         {
             return base.Channel.GetAudienceGroupsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Adds array of asset groups to a specified campaign.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsResponse AddAssetGroups(Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsRequest request)
         {
             return base.Channel.AddAssetGroups(request);
         }
         
+        /// <summary>
+        /// Adds array of asset groups to a specified campaign.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13">AddAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsResponse> AddAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.AddAssetGroupsRequest request)
         {
             return base.Channel.AddAssetGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Updates the specified asset groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsResponse UpdateAssetGroups(Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsRequest request)
         {
             return base.Channel.UpdateAssetGroups(request);
         }
         
+        /// <summary>
+        /// Updates the specified asset groups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13">UpdateAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsResponse> UpdateAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAssetGroupsRequest request)
         {
             return base.Channel.UpdateAssetGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsResponse DeleteAssetGroups(Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsRequest request)
         {
             return base.Channel.DeleteAssetGroups(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13">DeleteAssetGroups Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteassetgroups?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsResponse> DeleteAssetGroupsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAssetGroupsRequest request)
         {
             return base.Channel.DeleteAssetGroupsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsResponse GetAssetGroupsByIds(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsRequest request)
         {
             return base.Channel.GetAssetGroupsByIds(request);
         }
         
+        /// <summary>
+        /// Retrieves specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13">GetAssetGroupsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsResponse> GetAssetGroupsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByIdsRequest request)
         {
             return base.Channel.GetAssetGroupsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdResponse GetAssetGroupsByCampaignId(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdRequest request)
         {
             return base.Channel.GetAssetGroupsByCampaignId(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AssetGroups.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13">GetAssetGroupsByCampaignId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupsbycampaignid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdResponse> GetAssetGroupsByCampaignIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsByCampaignIdRequest request)
         {
             return base.Channel.GetAssetGroupsByCampaignIdAsync(request);
         }
         
+        /// <summary>
+        /// Gets reasons for asset group editorial issues.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsResponse GetAssetGroupsEditorialReasons(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsRequest request)
         {
             return base.Channel.GetAssetGroupsEditorialReasons(request);
         }
         
+        /// <summary>
+        /// Gets reasons for asset group editorial issues.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13">GetAssetGroupsEditorialReasons Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getassetgroupseditorialreasons?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsResponse> GetAssetGroupsEditorialReasonsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAssetGroupsEditorialReasonsRequest request)
         {
             return base.Channel.GetAssetGroupsEditorialReasonsAsync(request);
         }
         
+        /// <summary>
+        /// Sets AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsResponse SetAudienceGroupAssetGroupAssociations(Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsRequest request)
         {
             return base.Channel.SetAudienceGroupAssetGroupAssociations(request);
         }
         
+        /// <summary>
+        /// Sets AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13">SetAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/setaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsResponse> SetAudienceGroupAssetGroupAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.SetAudienceGroupAssetGroupAssociationsRequest request)
         {
             return base.Channel.SetAudienceGroupAssetGroupAssociationsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsResponse DeleteAudienceGroupAssetGroupAssociations(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsRequest request)
         {
             return base.Channel.DeleteAudienceGroupAssetGroupAssociations(request);
         }
         
+        /// <summary>
+        /// Deletes one or more AudienceGroupAssetGroupAssociations.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13">DeleteAudienceGroupAssetGroupAssociations Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteaudiencegroupassetgroupassociations?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsResponse> DeleteAudienceGroupAssetGroupAssociationsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteAudienceGroupAssetGroupAssociationsRequest request)
         {
             return base.Channel.DeleteAudienceGroupAssetGroupAssociationsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse GetAudienceGroupAssetGroupAssociationsByAssetGroupIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request)
         {
             return base.Channel.GetAudienceGroupAssetGroupAssociationsByAssetGroupIds(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by asset group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAssetGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyassetgroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsResponse> GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsRequest request)
         {
             return base.Channel.GetAudienceGroupAssetGroupAssociationsByAssetGroupIdsAsync(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request)
         {
             return base.Channel.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds(request);
         }
         
+        /// <summary>
+        /// Retrieves the specified AudienceGroupAssetGroupAssociations by audience group IDs.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13">GetAudienceGroupAssetGroupAssociationsByAudienceGroupIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getaudiencegroupassetgroupassociationsbyaudiencegroupids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsResponse> GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsRequest request)
         {
             return base.Channel.GetAudienceGroupAssetGroupAssociationsByAudienceGroupIdsAsync(request);
@@ -61093,21 +66133,61 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.GetAudiencesByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Defines the ApplyCustomerListItems service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsResponse ApplyCustomerListItems(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsRequest request)
         {
             return base.Channel.ApplyCustomerListItems(request);
         }
         
+        /// <summary>
+        /// Defines the ApplyCustomerListItems service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13">ApplyCustomerListItems Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistitems?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsResponse> ApplyCustomerListItemsAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListItemsRequest request)
         {
             return base.Channel.ApplyCustomerListItemsAsync(request);
         }
         
+        /// <summary>
+        /// Defines the ApplyCustomerListUserData service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataResponse ApplyCustomerListUserData(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataRequest request)
         {
             return base.Channel.ApplyCustomerListUserData(request);
         }
         
+        /// <summary>
+        /// Defines the ApplyCustomerListUserData service operation.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13">ApplyCustomerListUserData Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/applycustomerlistuserdata?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array of BatchError objects that contain details for any request items that weren't successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataResponse> ApplyCustomerListUserDataAsync(Microsoft.BingAds.V13.CampaignManagement.ApplyCustomerListUserDataRequest request)
         {
             return base.Channel.ApplyCustomerListUserDataAsync(request);
@@ -61413,11 +66493,31 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.ApplyOnlineConversionAdjustmentsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the offline conversion reports in the requested date range.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A summary of the reports for the day.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsResponse GetOfflineConversionReports(Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsRequest request)
         {
             return base.Channel.GetOfflineConversionReports(request);
         }
         
+        /// <summary>
+        /// Gets the offline conversion reports in the requested date range.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13">GetOfflineConversionReports Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getofflineconversionreports?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>A summary of the reports for the day.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsResponse> GetOfflineConversionReportsAsync(Microsoft.BingAds.V13.CampaignManagement.GetOfflineConversionReportsRequest request)
         {
             return base.Channel.GetOfflineConversionReportsAsync(request);
@@ -62182,7 +67282,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse AddCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request)
         {
             return base.Channel.AddCampaignConversionGoals(request);
@@ -62197,7 +67297,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsResponse> AddCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.AddCampaignConversionGoalsRequest request)
         {
             return base.Channel.AddCampaignConversionGoalsAsync(request);
@@ -62212,7 +67312,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse DeleteCampaignConversionGoals(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request)
         {
             return base.Channel.DeleteCampaignConversionGoals(request);
@@ -62227,180 +67327,640 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         /// <exception cref="AdApiFaultDetail"></exception>
         /// <exception cref="ApiFaultDetail"></exception>
         /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Reserved.</returns>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsResponse> DeleteCampaignConversionGoalsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteCampaignConversionGoalsRequest request)
         {
             return base.Channel.DeleteCampaignConversionGoalsAsync(request);
         }
         
+        /// <summary>
+        /// Add a data exclusion to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsResponse AddDataExclusions(Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsRequest request)
         {
             return base.Channel.AddDataExclusions(request);
         }
         
+        /// <summary>
+        /// Add a data exclusion to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13">AddDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/adddataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsResponse> AddDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.AddDataExclusionsRequest request)
         {
             return base.Channel.AddDataExclusionsAsync(request);
         }
         
+        /// <summary>
+        /// Make updates to the specified data exclusions.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsResponse UpdateDataExclusions(Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsRequest request)
         {
             return base.Channel.UpdateDataExclusions(request);
         }
         
+        /// <summary>
+        /// Make updates to the specified data exclusions.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13">UpdateDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updatedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsResponse> UpdateDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateDataExclusionsRequest request)
         {
             return base.Channel.UpdateDataExclusionsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes the specified data exclusions from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsResponse DeleteDataExclusions(Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsRequest request)
         {
             return base.Channel.DeleteDataExclusions(request);
         }
         
+        /// <summary>
+        /// Deletes the specified data exclusions from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13">DeleteDataExclusions Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deletedataexclusions?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsResponse> DeleteDataExclusionsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteDataExclusionsRequest request)
         {
             return base.Channel.DeleteDataExclusionsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the specified data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsResponse GetDataExclusionsByIds(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsRequest request)
         {
             return base.Channel.GetDataExclusionsByIds(request);
         }
         
+        /// <summary>
+        /// Gets the specified data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13">GetDataExclusionsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsResponse> GetDataExclusionsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByIdsRequest request)
         {
             return base.Channel.GetDataExclusionsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdResponse GetDataExclusionsByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdRequest request)
         {
             return base.Channel.GetDataExclusionsByAccountId(request);
         }
         
+        /// <summary>
+        /// Gets the data exclusions associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13">GetDataExclusionsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getdataexclusionsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdResponse> GetDataExclusionsByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetDataExclusionsByAccountIdRequest request)
         {
             return base.Channel.GetDataExclusionsByAccountIdAsync(request);
         }
         
+        /// <summary>
+        /// Add seasonality adjustments to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsResponse AddSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.AddSeasonalityAdjustments(request);
         }
         
+        /// <summary>
+        /// Add seasonality adjustments to the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13">AddSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsResponse> AddSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.AddSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.AddSeasonalityAdjustmentsAsync(request);
         }
         
+        /// <summary>
+        /// Make updates to the specified seasonality adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsResponse UpdateSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.UpdateSeasonalityAdjustments(request);
         }
         
+        /// <summary>
+        /// Make updates to the specified seasonality adjustments.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13">UpdateSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsResponse> UpdateSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.UpdateSeasonalityAdjustmentsAsync(request);
         }
         
+        /// <summary>
+        /// Deletes the specified seasonality adjustments from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsResponse DeleteSeasonalityAdjustments(Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.DeleteSeasonalityAdjustments(request);
         }
         
+        /// <summary>
+        /// Deletes the specified seasonality adjustments from the specified account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13">DeleteSeasonalityAdjustments Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/deleteseasonalityadjustments?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>An array BatchError that contains details for any request items that were not successful.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsResponse> DeleteSeasonalityAdjustmentsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteSeasonalityAdjustmentsRequest request)
         {
             return base.Channel.DeleteSeasonalityAdjustmentsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the specified seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsResponse GetSeasonalityAdjustmentsByIds(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsRequest request)
         {
             return base.Channel.GetSeasonalityAdjustmentsByIds(request);
         }
         
+        /// <summary>
+        /// Gets the specified seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13">GetSeasonalityAdjustmentsByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsResponse> GetSeasonalityAdjustmentsByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByIdsRequest request)
         {
             return base.Channel.GetSeasonalityAdjustmentsByIdsAsync(request);
         }
         
+        /// <summary>
+        /// Gets the seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdResponse GetSeasonalityAdjustmentsByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdRequest request)
         {
             return base.Channel.GetSeasonalityAdjustmentsByAccountId(request);
         }
         
+        /// <summary>
+        /// Gets the seasonality adjustments associated with an account.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13">GetSeasonalityAdjustmentsByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getseasonalityadjustmentsbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdResponse> GetSeasonalityAdjustmentsByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetSeasonalityAdjustmentsByAccountIdRequest request)
         {
             return base.Channel.GetSeasonalityAdjustmentsByAccountIdAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationResponse CreateAssetGroupRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationRequest request)
         {
             return base.Channel.CreateAssetGroupRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13">CreateAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationResponse> CreateAssetGroupRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateAssetGroupRecommendationRequest request)
         {
             return base.Channel.CreateAssetGroupRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationResponse CreateResponsiveAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationRequest request)
         {
             return base.Channel.CreateResponsiveAdRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13">CreateResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationResponse> CreateResponsiveAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveAdRecommendationRequest request)
         {
             return base.Channel.CreateResponsiveAdRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationResponse CreateResponsiveSearchAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationRequest request)
         {
             return base.Channel.CreateResponsiveSearchAdRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13">CreateResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/createresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationResponse> CreateResponsiveSearchAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateResponsiveSearchAdRecommendationRequest request)
         {
             return base.Channel.CreateResponsiveSearchAdRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationResponse RefineAssetGroupRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationRequest request)
         {
             return base.Channel.RefineAssetGroupRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13">RefineAssetGroupRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineassetgrouprecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationResponse> RefineAssetGroupRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineAssetGroupRecommendationRequest request)
         {
             return base.Channel.RefineAssetGroupRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationResponse RefineResponsiveAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationRequest request)
         {
             return base.Channel.RefineResponsiveAdRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13">RefineResponsiveAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsiveadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationResponse> RefineResponsiveAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveAdRecommendationRequest request)
         {
             return base.Channel.RefineResponsiveAdRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationResponse RefineResponsiveSearchAdRecommendation(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationRequest request)
         {
             return base.Channel.RefineResponsiveSearchAdRecommendation(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13">RefineResponsiveSearchAdRecommendation Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/refineresponsivesearchadrecommendation?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationResponse> RefineResponsiveSearchAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationRequest request)
         {
             return base.Channel.RefineResponsiveSearchAdRecommendationAsync(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesResponse UpdateConversionValueRules(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesRequest request)
+        {
+            return base.Channel.UpdateConversionValueRules(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13">UpdateConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesResponse> UpdateConversionValueRulesAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesRequest request)
+        {
+            return base.Channel.UpdateConversionValueRulesAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusResponse UpdateConversionValueRulesStatus(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusRequest request)
+        {
+            return base.Channel.UpdateConversionValueRulesStatus(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13">UpdateConversionValueRulesStatus Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/updateconversionvaluerulesstatus?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusResponse> UpdateConversionValueRulesStatusAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesStatusRequest request)
+        {
+            return base.Channel.UpdateConversionValueRulesStatusAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesResponse AddConversionValueRules(Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesRequest request)
         {
             return base.Channel.AddConversionValueRules(request);
         }
         
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13">AddConversionValueRules Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/addconversionvaluerules?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesResponse> AddConversionValueRulesAsync(Microsoft.BingAds.V13.CampaignManagement.AddConversionValueRulesRequest request)
         {
             return base.Channel.AddConversionValueRulesAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdResponse GetConversionValueRulesByAccountId(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdRequest request)
+        {
+            return base.Channel.GetConversionValueRulesByAccountId(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13">GetConversionValueRulesByAccountId Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyaccountid?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>Reserved.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdResponse> GetConversionValueRulesByAccountIdAsync(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByAccountIdRequest request)
+        {
+            return base.Channel.GetConversionValueRulesByAccountIdAsync(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsResponse GetConversionValueRulesByIds(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsRequest request)
+        {
+            return base.Channel.GetConversionValueRulesByIds(request);
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        /// <remarks>
+        /// See <see href="https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13">GetConversionValueRulesByIds Service Operation</see> https:/learn.microsoft.com/advertising/campaign-management-service/getconversionvaluerulesbyids?view=bingads-13 for details.
+        /// </remarks>
+        /// <exception cref="AdApiFaultDetail"></exception>
+        /// <exception cref="ApiFaultDetail"></exception>
+        /// <param name="request">The request object for this service operation.</param>
+        /// <returns>The response object for this service operation.</returns>
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsResponse> GetConversionValueRulesByIdsAsync(Microsoft.BingAds.V13.CampaignManagement.GetConversionValueRulesByIdsRequest request)
+        {
+            return base.Channel.GetConversionValueRulesByIdsAsync(request);
         }
     }
 }

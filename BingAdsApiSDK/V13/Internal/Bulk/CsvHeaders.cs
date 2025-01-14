@@ -556,6 +556,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             // MultiChannel Campaign
             StringTable.DestinationChannel,
             StringTable.IsMultiChannelCampaign,
+
+            StringTable.EnabledExternalChannelSync,
             
             // DNV serving through MSAN
             StringTable.ShouldServeOnMSAN,
