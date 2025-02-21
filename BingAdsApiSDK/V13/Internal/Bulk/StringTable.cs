@@ -213,6 +213,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         public const string BusinessId = "Business Id";
 
+        public const string CampaignId = "Campaign Id";
+
         public const string ParentId = "Parent Id";
 
         public const string TimeZone = "Time Zone";
@@ -892,7 +894,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
 
         // Campaign Conversion Goal
         public const string GoalId = "Goal Id";
-        public const string CampaignConversionGoal = "Campaign Conversion Goal";
+        public const string CampaignConversionGoal = "Campaign Conversion Goal"; 
         public const string CampaignGoal = "Campaign Goal";
 
         // RSA AdCustomizer
@@ -1007,6 +1009,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AssetGroupTargetValue1 = "Asset Group Target Value 1";
         public const string AssetGroupTargetValue2 = "Asset Group Target Value 2";
         public const string AssetGroupTargetValue3 = "Asset Group Target Value 3";
+
+        // New Customer Acquisition Goal
+        public const string NewCustomerAcquisitionGoal = "New Customer Acquisition Goal";
+        public const string AdditionalConversionValue = "Additional Conversion Value";
+        public const string NewCustomerAcquisitionGoalId = "New Customer Acquisition Goal Id";
+        public const string NewCustomerAcquisitionBidOnlyMode = "New Customer Acquisition Bid Only Mode";
 
         public const string AppStore = "App Store";
     }

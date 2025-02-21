@@ -81,7 +81,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.CategoryOperator,
                 c => c.ConversionGoal.CategoryOperator.ToBulkString(),
-                (v, c) => c.ConversionGoal.CategoryOperator = v.ParseOptional<ExpressionOperator>()
+                (v, c) => 
+                {
+                    switch (v)
+                    {
+                        case "EqualsTo":
+                            c.ConversionGoal.CategoryOperator = ExpressionOperator.Equals;
+                            break;
+                        case "NoExpression":
+                            c.ConversionGoal.CategoryOperator = null;
+                            break;
+                        default:
+                            c.ConversionGoal.CategoryOperator = v.ParseOptional<ExpressionOperator>();
+                            break;
+                    }
+                }
             ),
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.ActionExpression,
@@ -91,7 +105,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.ActionOperator,
                 c => c.ConversionGoal.ActionOperator.ToBulkString(),
-                (v, c) => c.ConversionGoal.ActionOperator = v.ParseOptional<ExpressionOperator>()
+                (v, c) =>
+                {
+                    switch (v)
+                    {
+                        case "EqualsTo":
+                            c.ConversionGoal.ActionOperator = ExpressionOperator.Equals;
+                            break;
+                        case "NoExpression":
+                            c.ConversionGoal.ActionOperator = null;
+                            break;
+                        default:
+                            c.ConversionGoal.ActionOperator = v.ParseOptional<ExpressionOperator>();
+                            break;
+                    }
+                }
+
             ),
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.LabelExpression,
@@ -101,7 +130,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.LabelOperator,
                 c => c.ConversionGoal.LabelOperator.ToBulkString(),
-                (v, c) => c.ConversionGoal.LabelOperator = v.ParseOptional<ExpressionOperator>()
+                (v, c) =>
+                {
+                    switch (v)
+                    {
+                        case "EqualsTo":
+                            c.ConversionGoal.LabelOperator = ExpressionOperator.Equals;
+                            break;
+                        case "NoExpression":
+                            c.ConversionGoal.LabelOperator = null;
+                            break;
+                        default:
+                            c.ConversionGoal.LabelOperator = v.ParseOptional<ExpressionOperator>();
+                            break;
+                    }
+                }
             ),
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.EventValue,
@@ -111,7 +154,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkEventGoal>(StringTable.EventValueOperator,
                 c => c.ConversionGoal.ValueOperator.ToBulkString(),
-                (v, c) => c.ConversionGoal.ValueOperator = v.ParseOptional<ValueOperator>()
+                (v, c) => 
+                {
+                    switch (v)
+                    {
+                        case "EqualsTo":
+                            c.ConversionGoal.ValueOperator = ValueOperator.Equals;
+                            break;
+                        case "NoValue":
+                            c.ConversionGoal.ValueOperator = null;
+                            break;
+                        default:
+                            c.ConversionGoal.ValueOperator = v.ParseOptional<ValueOperator>();
+                            break;
+                    }
+                }
             ),
         };
 

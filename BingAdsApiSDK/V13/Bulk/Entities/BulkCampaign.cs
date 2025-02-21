@@ -223,6 +223,10 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                             {
                                 Type = typeof(ShoppingSetting).Name,
                             },
+                            new NewCustomerAcquisitionGoalSetting
+                            {
+                                Type = typeof(NewCustomerAcquisitionGoalSetting).Name,
+                            },
                         };
                     }
                     break;
@@ -712,6 +716,51 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.EnabledExternalChannelSync,
                 c => c.EnabledExternalChannelSync.ToBulkString(),
                 (v, c) => c.EnabledExternalChannelSync = v.ParseOptional<EnabledExternalChannelSync>()
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.NewCustomerAcquisitionGoalId,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting))) as NewCustomerAcquisitionGoalSetting;
+                    return setting?.NewCustomerAcquisitionGoalId.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting), true)) as NewCustomerAcquisitionGoalSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.NewCustomerAcquisitionGoalId = v.ParseOptional<long>();
+                    }
+                }
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.NewCustomerAcquisitionBidOnlyMode,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting))) as NewCustomerAcquisitionGoalSetting;
+                    return setting?.NewCustomerAcquisitionBidOnlyMode.ToString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting), true)) as NewCustomerAcquisitionGoalSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.NewCustomerAcquisitionBidOnlyMode = v.ParseOptional<bool>();
+                    }
+                }
+            ),
+            new SimpleBulkMapping<BulkCampaign>(StringTable.AdditionalConversionValue,
+                c =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting))) as NewCustomerAcquisitionGoalSetting;
+                    return setting?.AdditionalConversionValue.ToBulkString();
+                },
+                (v, c) =>
+                {
+                    var setting = (c.GetCampaignSetting(typeof(NewCustomerAcquisitionGoalSetting), true)) as NewCustomerAcquisitionGoalSetting;
+                    if (setting != null && !string.IsNullOrEmpty(v))
+                    {
+                        setting.AdditionalConversionValue = v.ParseOptional<decimal>();
+                    }
+                }
             ),
         };
 

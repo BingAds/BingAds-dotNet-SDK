@@ -1085,6 +1085,17 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "AssetGroupStatus":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeGoalsAndFunnelsReportRequest(JsonTypeInfo jsonTypeInfo)

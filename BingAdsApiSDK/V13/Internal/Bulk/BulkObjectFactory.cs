@@ -395,6 +395,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.BrandItem, new EntityInfo(() => new BulkBrandItem())},
                 {StringTable.CampaignBrandList, new EntityInfo(() => new BulkCampaignBrandListAssociation())},
                 {StringTable.AssetGroupUrlTarget, new EntityInfo(() => new BulkAssetGroupUrlTarget())},
+                {StringTable.NewCustomerAcquisitionGoal, new EntityInfo(() => new BulkNewCustomerAcquisitionGoal())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

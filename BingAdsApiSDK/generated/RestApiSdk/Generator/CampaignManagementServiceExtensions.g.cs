@@ -883,5 +883,45 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.GetConversionValueRulesByIdsAsync(r), request);
         }
+
+        public static Task<AddBrandKitsResponse> AddBrandKitsAsync(this ServiceClient<ICampaignManagementService> service, AddBrandKitsRequest request)
+        {
+            return service.CallAsync((s, r) => s.AddBrandKitsAsync(r), request);
+        }
+
+        public static Task<UpdateBrandKitsResponse> UpdateBrandKitsAsync(this ServiceClient<ICampaignManagementService> service, UpdateBrandKitsRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateBrandKitsAsync(r), request);
+        }
+
+        public static Task<DeleteBrandKitsResponse> DeleteBrandKitsAsync(this ServiceClient<ICampaignManagementService> service, DeleteBrandKitsRequest request)
+        {
+            return service.CallAsync((s, r) => s.DeleteBrandKitsAsync(r), request);
+        }
+
+        public static Task<AddNewCustomerAcquisitionGoalsResponse> AddNewCustomerAcquisitionGoalsAsync(this ServiceClient<ICampaignManagementService> service, AddNewCustomerAcquisitionGoalsRequest request)
+        {
+            return service.CallAsync((s, r) => s.AddNewCustomerAcquisitionGoalsAsync(r), request);
+        }
+
+        public static Task<UpdateNewCustomerAcquisitionGoalsResponse> UpdateNewCustomerAcquisitionGoalsAsync(this ServiceClient<ICampaignManagementService> service, UpdateNewCustomerAcquisitionGoalsRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateNewCustomerAcquisitionGoalsAsync(r), request);
+        }
+
+        public static Task<GetNewCustomerAcquisitionGoalsByAccountIdResponse> GetNewCustomerAcquisitionGoalsByAccountIdAsync(this ServiceClient<ICampaignManagementService> service, GetNewCustomerAcquisitionGoalsByAccountIdRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetNewCustomerAcquisitionGoalsByAccountIdAsync(r), request);
+        }
+
+        public static Task<GetBrandKitsByAccountIdResponse> GetBrandKitsByAccountIdAsync(this ServiceClient<ICampaignManagementService> service, GetBrandKitsByAccountIdRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBrandKitsByAccountIdAsync(r), request);
+        }
+
+        public static Task<GetClipchampTemplatesResponse> GetClipchampTemplatesAsync(this ServiceClient<ICampaignManagementService> service, GetClipchampTemplatesRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetClipchampTemplatesAsync(r), request);
+        }
     }
 }
