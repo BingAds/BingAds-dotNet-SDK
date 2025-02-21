@@ -81,7 +81,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkUrlGoal>(StringTable.UrlOperator,
                 c => c.ConversionGoal.UrlOperator.ToBulkString(),
-                (v, c) => c.ConversionGoal.UrlOperator = v.ParseOptional<ExpressionOperator>()
+                (v, c) => 
+                {
+                    switch (v)
+                    {
+                        case "EqualsTo":
+                            c.ConversionGoal.UrlOperator = ExpressionOperator.Equals;
+                            break;
+                        case "NoExpression":
+                            c.ConversionGoal.UrlOperator = null;
+                            break;
+                        default:
+                            c.ConversionGoal.UrlOperator = v.ParseOptional<ExpressionOperator>();
+                            break;
+                    }
+                } 
             ),
 
         };

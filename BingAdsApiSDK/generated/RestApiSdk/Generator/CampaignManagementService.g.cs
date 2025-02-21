@@ -1725,5 +1725,85 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<GetConversionValueRulesByIdsResponse>("GetConversionValueRulesByIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public AddBrandKitsResponse AddBrandKits(AddBrandKitsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddBrandKitsResponse> AddBrandKitsAsync(AddBrandKitsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<AddBrandKitsResponse>("AddBrandKits", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateBrandKitsResponse UpdateBrandKits(UpdateBrandKitsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateBrandKitsResponse> UpdateBrandKitsAsync(UpdateBrandKitsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateBrandKitsResponse>("UpdateBrandKits", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public DeleteBrandKitsResponse DeleteBrandKits(DeleteBrandKitsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DeleteBrandKitsResponse> DeleteBrandKitsAsync(DeleteBrandKitsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<DeleteBrandKitsResponse>("DeleteBrandKits", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public AddNewCustomerAcquisitionGoalsResponse AddNewCustomerAcquisitionGoals(AddNewCustomerAcquisitionGoalsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddNewCustomerAcquisitionGoalsResponse> AddNewCustomerAcquisitionGoalsAsync(AddNewCustomerAcquisitionGoalsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<AddNewCustomerAcquisitionGoalsResponse>("AddNewCustomerAcquisitionGoals", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateNewCustomerAcquisitionGoalsResponse UpdateNewCustomerAcquisitionGoals(UpdateNewCustomerAcquisitionGoalsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateNewCustomerAcquisitionGoalsResponse> UpdateNewCustomerAcquisitionGoalsAsync(UpdateNewCustomerAcquisitionGoalsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateNewCustomerAcquisitionGoalsResponse>("UpdateNewCustomerAcquisitionGoals", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetNewCustomerAcquisitionGoalsByAccountIdResponse GetNewCustomerAcquisitionGoalsByAccountId(GetNewCustomerAcquisitionGoalsByAccountIdRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetNewCustomerAcquisitionGoalsByAccountIdResponse> GetNewCustomerAcquisitionGoalsByAccountIdAsync(GetNewCustomerAcquisitionGoalsByAccountIdRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetNewCustomerAcquisitionGoalsByAccountIdResponse>("GetNewCustomerAcquisitionGoalsByAccountId", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetBrandKitsByAccountIdResponse GetBrandKitsByAccountId(GetBrandKitsByAccountIdRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetBrandKitsByAccountIdResponse> GetBrandKitsByAccountIdAsync(GetBrandKitsByAccountIdRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetBrandKitsByAccountIdResponse>("GetBrandKitsByAccountId", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetClipchampTemplatesResponse GetClipchampTemplates(GetClipchampTemplatesRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetClipchampTemplatesResponse> GetClipchampTemplatesAsync(GetClipchampTemplatesRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetClipchampTemplatesResponse>("GetClipchampTemplates", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

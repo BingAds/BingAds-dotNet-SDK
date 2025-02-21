@@ -92,8 +92,23 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.AttributionModelType,
                 c => c.ConversionGoal.AttributionModelType.ToBulkString(),
-                (v, c) => c.ConversionGoal.AttributionModelType = v.ParseOptional<AttributionModelType>()
+                (v, c) => 
+                {
+                    switch (v)
+                    {
+                        case "Default":
+                            c.ConversionGoal.AttributionModelType = AttributionModelType.LastClick;
+                            break;
+                        case "External":
+                            c.ConversionGoal.AttributionModelType = null;
+                            break;
+                        default:
+                            c.ConversionGoal.AttributionModelType = v.ParseOptional<AttributionModelType>();
+                            break;
+                    }
+                }
             ),
+
 
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.ConversionWindowInMinutes,
                 c => c.ConversionGoal.ConversionWindowInMinutes.ToBulkString(),
@@ -112,7 +127,18 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.GoalCategory,
                 c => c.ConversionGoal.GoalCategory.ToBulkString(),
-                (v, c) => c.ConversionGoal.GoalCategory = v.ParseOptional<ConversionGoalCategory>()
+                (v, c) =>
+                {
+                    // To handle the old typo. 
+                    if (v == "Subcribe")
+                    {
+                        c.ConversionGoal.GoalCategory = ConversionGoalCategory.Subscribe;
+                    } 
+                    else
+                    {
+                        c.ConversionGoal.GoalCategory = v.ParseOptional<ConversionGoalCategory>();
+                    }
+                }
             ),
 
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.IsEnhancedConversionsEnabled,
@@ -196,6 +222,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.ConversionGoal.TagId = v.ParseOptional<long>()
             ),
 
+            // Need to check.
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.ViewThroughConversionWindowInMinutes,
                 c => c.ConversionGoal.ViewThroughConversionWindowInMinutes.ToBulkString(),
                 (v, c) => c.ConversionGoal.ViewThroughConversionWindowInMinutes = v.ParseOptional<int>()

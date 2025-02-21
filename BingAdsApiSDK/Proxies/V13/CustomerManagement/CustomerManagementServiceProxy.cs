@@ -2596,6 +2596,18 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatian = 33,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Latvian = 34,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovenian = 35,
     }
     
     /// <summary>
@@ -4354,6 +4366,18 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndonesia = 1057,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Slovenian = 1060,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Latvian = 1062,
         
         /// <summary>
         /// English (Vietnam)

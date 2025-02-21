@@ -14657,7 +14657,7 @@ namespace Microsoft.BingAds.V13.Reporting
     /// </summary>
     /// <remarks>
     /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13">AssetGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/> and <see cref="SearchInsightPerformanceReportFilter"/> data objects.</para>
+    /// <para>Used by <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/> and <see cref="SearchInsightPerformanceReportFilter"/> data objects.</para>
     /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
@@ -15810,6 +15810,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -15892,6 +15895,26 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdGroupStatusField = value;
                     this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -16175,6 +16198,30 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 25,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 26,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 27,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 28,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 29,
     }
     
     /// <summary>
@@ -26871,6 +26918,18 @@ namespace Microsoft.BingAds.V13.Reporting
         /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 20,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 21,
+        
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 22,
     }
     
     /// <summary>

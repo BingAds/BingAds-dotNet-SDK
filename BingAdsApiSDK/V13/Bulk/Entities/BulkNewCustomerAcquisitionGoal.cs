@@ -56,61 +56,59 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents a campaign conversion goal that can be read or written in a bulk file. 
-    /// This class exposes properties that can be read and written 
-    /// as fields of the Campaign Conversion Goal record in a bulk file. 
+    /// Represents a new customer acquisition goal that can be read or written in a bulk file. 
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Campaign Conversion Goal</see>. </para>
+    /// <para>Properties of this class and of classes that it is derived from, correspond to fields of the NewCustomerAcquisitionGoal record in a bulk file.
+    /// For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">NewCustomerAcquisitionGoal</see>. </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
     /// <seealso cref="BulkFileReader"/>
     /// <seealso cref="BulkFileWriter"/>
-    public class BulkCampaignConversionGoal : SingleRecordBulkEntity
+    public class BulkNewCustomerAcquisitionGoal : SingleRecordBulkEntity
     {
-        public CampaignConversionGoal CampaignConversionGoal { get; set; }
-
-        ///<summary>
-        /// The sub type for the conversion goal.
+        /// <summary>
+        /// Defines a new customer acquisition goal.
         /// </summary>
-        public string SubType { get; set; }
+        public NewCustomerAcquisitionGoal NewCustomerAcquisitionGoal { get; set; }
 
-        ///<summary>
-        /// The action type for the bulk campaign conversion goal. Set it to 'Add' or 'Delete'
+        /// <summary>
+        /// The ids of audiences within the new customer acquisition.
+        /// It should be split by simicolon. example: "123;456;789"
+        /// Corresponds to the 'Target' field in the bulk file. 
         /// </summary>
-        public string ActionType { get; set; }
+        public string Target { get; set; }
 
-        private static readonly IBulkMapping<BulkCampaignConversionGoal>[] Mappings =
+        private static readonly IBulkMapping<BulkNewCustomerAcquisitionGoal>[] Mappings =
         {
-            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.ParentId,
-                c => c.CampaignConversionGoal.CampaignId.ToBulkString(),
-                (v, c) => c.CampaignConversionGoal.CampaignId = v.Parse<long>()
+            new SimpleBulkMapping<BulkNewCustomerAcquisitionGoal>(StringTable.Id,
+                c => c.NewCustomerAcquisitionGoal.Id.ToBulkString(),
+                (v, c) => c.NewCustomerAcquisitionGoal.Id = v.Parse<long>()
             ),
 
-            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.GoalId,
-                c => c.CampaignConversionGoal.GoalId.ToBulkString(),
-                (v, c) => c.CampaignConversionGoal.GoalId = v.Parse<long>()
+            new SimpleBulkMapping<BulkNewCustomerAcquisitionGoal>(StringTable.Target,
+                c => c.Target,
+                (v, c) => c.Target = v
             ),
 
-            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.SubType,
-                c => c.SubType,
-                (v, c) => c.SubType= v
-            ),
 
-            new SimpleBulkMapping<BulkCampaignConversionGoal>(StringTable.ActionType,
-                c => c.ActionType,
-                (v, c) => c.ActionType= v
-            ),
+            new SimpleBulkMapping<BulkNewCustomerAcquisitionGoal>(StringTable.AdditionalConversionValue,
+                c => c.NewCustomerAcquisitionGoal.AdditionalValue.ToBulkString(),
+                (v, c) => c.NewCustomerAcquisitionGoal.AdditionalValue = v.ParseOptional<decimal>()
+                ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
-            CampaignConversionGoal = new CampaignConversionGoal();
+            NewCustomerAcquisitionGoal = new NewCustomerAcquisitionGoal();
+
             values.ConvertToEntity(this, Mappings);
         }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
+            ValidatePropertyNotNull(NewCustomerAcquisitionGoal, "NewCustomerAcquisitionGoal");
+
             this.ConvertToValues(values, Mappings);
         }
     }

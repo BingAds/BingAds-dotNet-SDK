@@ -75,6 +75,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.Status,
             StringTable.Id,
             StringTable.ParentId,
+            StringTable.CampaignId,
             StringTable.SubType,
             StringTable.Campaign,
             StringTable.AdGroup,
@@ -612,6 +613,11 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AssetGroupTargetValue1,
             StringTable.AssetGroupTargetValue2,
             StringTable.AssetGroupTargetValue3,
+
+            // New Customer Acquisition Goal
+            StringTable.AdditionalConversionValue,
+            StringTable.NewCustomerAcquisitionGoalId,
+            StringTable.NewCustomerAcquisitionBidOnlyMode,
 
             StringTable.AppStore,
         };
