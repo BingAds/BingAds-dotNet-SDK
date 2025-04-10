@@ -919,9 +919,24 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.GetBrandKitsByAccountIdAsync(r), request);
         }
 
+        public static Task<GetBrandKitsByIdsResponse> GetBrandKitsByIdsAsync(this ServiceClient<ICampaignManagementService> service, GetBrandKitsByIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBrandKitsByIdsAsync(r), request);
+        }
+
         public static Task<GetClipchampTemplatesResponse> GetClipchampTemplatesAsync(this ServiceClient<ICampaignManagementService> service, GetClipchampTemplatesRequest request)
         {
             return service.CallAsync((s, r) => s.GetClipchampTemplatesAsync(r), request);
+        }
+
+        public static Task<GetSupportedClipchampAudioResponse> GetSupportedClipchampAudioAsync(this ServiceClient<ICampaignManagementService> service, GetSupportedClipchampAudioRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetSupportedClipchampAudioAsync(r), request);
+        }
+
+        public static Task<GetSupportedFontsResponse> GetSupportedFontsAsync(this ServiceClient<ICampaignManagementService> service, GetSupportedFontsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetSupportedFontsAsync(r), request);
         }
     }
 }

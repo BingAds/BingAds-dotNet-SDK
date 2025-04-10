@@ -119,6 +119,8 @@ public static partial class RestApiGeneration
             { typeof(AgeGenderAudienceReportRequest), static t => CustomizeAgeGenderAudienceReportRequest(t) },
             { typeof(ApiFaultDetail), static t => CustomizeApiFaultDetail(t) },
             { typeof(ApplicationFault), static t => CustomizeApplicationFault(t) },
+            { typeof(AppsPerformanceReportFilter), static t => CustomizeAppsPerformanceReportFilter(t) },
+            { typeof(AppsPerformanceReportRequest), static t => CustomizeAppsPerformanceReportRequest(t) },
             { typeof(AssetGroupPerformanceReportFilter), static t => CustomizeAssetGroupPerformanceReportFilter(t) },
             { typeof(AssetGroupPerformanceReportRequest), static t => CustomizeAssetGroupPerformanceReportRequest(t) },
             { typeof(AssetGroupReportScope), static t => CustomizeAssetGroupReportScope(t) },
@@ -577,6 +579,37 @@ public static partial class RestApiGeneration
             }
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "ApplicationFault";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeAppsPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAppsPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "AppsPerformanceReportRequest";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 

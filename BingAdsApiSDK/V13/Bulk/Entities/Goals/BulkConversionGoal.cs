@@ -207,7 +207,15 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                         {
                             c.ConversionGoal.Revenue = new ConversionGoalRevenue();
                         }
-                        c.ConversionGoal.Revenue.Type = v.ParseOptional<ConversionGoalRevenueType>();
+
+                        if (v == "VariantValue")
+                        {
+                            c.ConversionGoal.Revenue.Type = ConversionGoalRevenueType.VariableValue;
+                        }
+                        else
+                        {
+                            c.ConversionGoal.Revenue.Type = v.ParseOptional<ConversionGoalRevenueType>();
+                        }
                     }
                 }
             ),
@@ -222,7 +230,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.ConversionGoal.TagId = v.ParseOptional<long>()
             ),
 
-            // Need to check.
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.ViewThroughConversionWindowInMinutes,
                 c => c.ConversionGoal.ViewThroughConversionWindowInMinutes.ToBulkString(),
                 (v, c) => c.ConversionGoal.ViewThroughConversionWindowInMinutes = v.ParseOptional<int>()

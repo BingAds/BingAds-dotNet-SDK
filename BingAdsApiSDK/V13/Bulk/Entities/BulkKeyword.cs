@@ -99,7 +99,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// <summary>
         /// The bid suggestion data for the keyword.
         /// </summary>
-        public BidSuggestionData BidSuggestions { get; private set; }        
+        public BidSuggestionData BidSuggestions { get; private set; }
 
         internal override void ReadAdditionalData(IBulkRecordReader reader)
         {
@@ -124,7 +124,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 {
                     BidSuggestions.FirstPage = nextBidSuggestion;
                 }
-            }            
+            }
         }
 
         internal override void WriteAdditionalData(IBulkObjectWriter writer)
@@ -178,13 +178,13 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkKeyword>(StringTable.Keyword,
                 c => c.Keyword.Text,
                 (v, c) => c.Keyword.Text = v
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.DestinationUrl,
                 c => c.Keyword.DestinationUrl.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.DestinationUrl = v.GetValueOrEmptyString()
             ),
- 
+
             new SimpleBulkMapping<BulkKeyword>(StringTable.EditorialStatus,
                 c => c.Keyword.EditorialStatus.ToBulkString(),
                 (v, c) => c.Keyword.EditorialStatus = v.ParseOptional<KeywordEditorialStatus>()
@@ -193,37 +193,37 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkKeyword>(StringTable.MatchType,
                 c => c.Keyword.MatchType.ToBulkString(),
                 (v, c) => c.Keyword.MatchType = v.ParseOptional<MatchType>()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Bid,
                 c => c.Keyword.Bid.ToKeywordBidBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Bid = v.ParseKeywordBid()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param1,
                 c => c.Keyword.Param1.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param1 = v.GetValueOrEmptyString()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param2,
                 c => c.Keyword.Param2.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param2 = v.GetValueOrEmptyString()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param3,
                 c => c.Keyword.Param3.ToOptionalBulkString(c.Keyword.Id),
                 (v, c) => c.Keyword.Param3 = v.GetValueOrEmptyString()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.FinalUrl,
                 c => c.Keyword.FinalUrls.WriteUrls("; ", c.Keyword.Id),
                 (v, c) => c.Keyword.FinalUrls = v.ParseUrls()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.FinalMobileUrl,
                 c => c.Keyword.FinalMobileUrls.WriteUrls("; ", c.Keyword.Id),
                 (v, c) => c.Keyword.FinalMobileUrls = v.ParseUrls()
-            ), 
+            ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.TrackingTemplate,
                 c => c.Keyword.TrackingUrlTemplate.ToOptionalBulkString(c.Keyword.Id),
@@ -251,7 +251,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             QualityScoreData = QualityScoreData.ReadFromRowValuesOrNull(values);
 
-        }        
+        }
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {

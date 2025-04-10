@@ -57,21 +57,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-#pragma warning disable 1573
-#pragma warning disable 1591
-#pragma warning disable 3005
-
 namespace Microsoft.BingAds.V13.Reporting
 {
+    using System.Runtime.Serialization;
+    using System;
     
     
-    /// <summary>
-    /// Defines the base object for all report requests.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportrequest?view=bingads-13">ReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reportrequest?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -117,6 +108,7 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryInsightsReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AppsPerformanceReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -156,9 +148,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines whether or not the downloaded report should contain header descriptions for each column.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeColumnHeaders
         {
@@ -176,9 +165,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines whether or not the downloaded report should contain footer metadata such as Microsoft copyright (@2020 Microsoft Corporation.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportFooter
         {
@@ -196,9 +182,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines whether or not the downloaded report should contain header metadata such as report name, date range, and aggregation.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ExcludeReportHeader
         {
@@ -216,9 +199,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The format of the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.ReportFormat> Format
         {
@@ -236,9 +216,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines the format for certain fields in the downloaded report file.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FormatVersion
         {
@@ -256,9 +233,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The name of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportName
         {
@@ -276,9 +250,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines whether or not the service must ensure that all the data has been processed and is available.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ReturnOnlyCompleteData
         {
@@ -308,12 +279,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an account performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportrequest?view=bingads-13">AccountPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -332,9 +297,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -352,9 +314,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AccountPerformanceReportColumn> Columns
         {
@@ -372,9 +331,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AccountPerformanceReportFilter Filter
         {
@@ -392,9 +348,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
         {
@@ -412,9 +365,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -433,12 +383,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a campaign performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportrequest?view=bingads-13">CampaignPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -457,9 +401,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -477,9 +418,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignPerformanceReportColumn> Columns
         {
@@ -497,9 +435,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CampaignPerformanceReportFilter Filter
         {
@@ -517,9 +452,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
         {
@@ -537,9 +469,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -558,12 +487,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad dynamic text performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportrequest?view=bingads-13">AdDynamicTextPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdDynamicTextPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -582,9 +505,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -602,9 +522,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdDynamicTextPerformanceReportColumn> Columns
         {
@@ -622,9 +539,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdDynamicTextPerformanceReportFilter Filter
         {
@@ -642,9 +556,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -662,9 +573,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -683,12 +591,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad group performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportrequest?view=bingads-13">AdGroupPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -707,9 +609,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -727,9 +626,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdGroupPerformanceReportColumn> Columns
         {
@@ -747,9 +643,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdGroupPerformanceReportFilter Filter
         {
@@ -767,9 +660,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -787,9 +677,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -808,12 +695,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adperformancereportrequest?view=bingads-13">AdPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -832,9 +713,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -852,9 +730,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdPerformanceReportColumn> Columns
         {
@@ -872,9 +747,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdPerformanceReportFilter Filter
         {
@@ -892,9 +764,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -912,9 +781,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -933,12 +799,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a keyword performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportrequest?view=bingads-13">KeywordPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -963,9 +823,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -983,9 +840,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.KeywordPerformanceReportColumn> Columns
         {
@@ -1003,9 +857,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.KeywordPerformanceReportFilter Filter
         {
@@ -1023,9 +874,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The top number of data rows to return in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int MaxRows
         {
@@ -1043,9 +891,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1063,9 +908,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of the columns to sort, and the corresponding sort order.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.KeywordPerformanceReportSort> Sort
         {
@@ -1083,9 +925,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1104,12 +943,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a destination URL performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportrequest?view=bingads-13">DestinationUrlPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DestinationUrlPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1128,9 +961,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1148,9 +978,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.DestinationUrlPerformanceReportColumn> Columns
         {
@@ -1168,9 +995,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.DestinationUrlPerformanceReportFilter Filter
         {
@@ -1188,9 +1012,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1208,9 +1029,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1229,12 +1047,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a budget summary report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/budgetsummaryreportrequest?view=bingads-13">BudgetSummaryReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/budgetsummaryreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BudgetSummaryReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1248,9 +1060,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.BudgetSummaryReportColumn> Columns
         {
@@ -1268,9 +1077,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
         {
@@ -1288,9 +1094,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1309,12 +1112,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an age and gender audience report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportrequest?view=bingads-13">AgeGenderAudienceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1333,9 +1130,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1353,9 +1147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AgeGenderAudienceReportColumn> Columns
         {
@@ -1373,9 +1164,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AgeGenderAudienceReportFilter Filter
         {
@@ -1393,9 +1181,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1413,9 +1198,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1434,12 +1216,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a professional demographics audience report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-13">ProfessionalDemographicsAudienceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1458,9 +1234,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1478,9 +1251,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProfessionalDemographicsAudienceReportColumn> Columns
         {
@@ -1498,9 +1268,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProfessionalDemographicsAudienceReportFilter Filter
         {
@@ -1518,9 +1285,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1538,9 +1302,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1559,12 +1320,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a user location performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportrequest?view=bingads-13">UserLocationPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocationPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1583,9 +1338,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1603,9 +1355,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.UserLocationPerformanceReportColumn> Columns
         {
@@ -1623,9 +1372,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.UserLocationPerformanceReportFilter Filter
         {
@@ -1643,9 +1389,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1663,9 +1406,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1684,12 +1424,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a publisher usage performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportrequest?view=bingads-13">PublisherUsagePerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PublisherUsagePerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1708,9 +1442,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1728,9 +1459,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.PublisherUsagePerformanceReportColumn> Columns
         {
@@ -1748,9 +1476,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.PublisherUsagePerformanceReportFilter Filter
         {
@@ -1768,9 +1493,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1788,9 +1510,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1809,12 +1528,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a search query performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportrequest?view=bingads-13">SearchQueryPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchQueryPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1833,9 +1546,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1853,9 +1563,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.SearchQueryPerformanceReportColumn> Columns
         {
@@ -1873,9 +1580,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.SearchQueryPerformanceReportFilter Filter
         {
@@ -1893,9 +1597,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -1913,9 +1614,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -1934,12 +1632,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a conversion performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportrequest?view=bingads-13">ConversionPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -1958,9 +1650,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -1978,9 +1667,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ConversionPerformanceReportColumn> Columns
         {
@@ -1998,9 +1684,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ConversionPerformanceReportFilter Filter
         {
@@ -2018,9 +1701,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2038,9 +1718,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2059,12 +1736,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a goals and funnels report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportrequest?view=bingads-13">GoalsAndFunnelsReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GoalsAndFunnelsReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2083,9 +1754,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2103,9 +1771,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.GoalsAndFunnelsReportColumn> Columns
         {
@@ -2123,9 +1788,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.GoalsAndFunnelsReportFilter Filter
         {
@@ -2143,9 +1805,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2163,9 +1822,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2184,12 +1840,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a negative keyword conflict report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportrequest?view=bingads-13">NegativeKeywordConflictReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NegativeKeywordConflictReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2204,9 +1854,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope ScopeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.NegativeKeywordConflictReportColumn> Columns
         {
@@ -2224,9 +1871,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.NegativeKeywordConflictReportFilter Filter
         {
@@ -2244,9 +1888,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2265,12 +1906,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a change history report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-13">SearchCampaignChangeHistoryReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchCampaignChangeHistoryReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2287,9 +1922,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.SearchCampaignChangeHistoryReportColumn> Columns
         {
@@ -2307,9 +1939,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.SearchCampaignChangeHistoryReportFilter Filter
         {
@@ -2327,9 +1956,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2347,9 +1973,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2368,12 +1991,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad extension by ad report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportrequest?view=bingads-13">AdExtensionByAdReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByAdReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2392,9 +2009,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2412,9 +2026,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdExtensionByAdReportColumn> Columns
         {
@@ -2432,9 +2043,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdExtensionByAdReportFilter Filter
         {
@@ -2452,9 +2060,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2472,9 +2077,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2493,12 +2095,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad extension by keyword report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportrequest?view=bingads-13">AdExtensionByKeywordReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByKeywordReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2517,9 +2113,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2537,9 +2130,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdExtensionByKeywordReportColumn> Columns
         {
@@ -2557,9 +2147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdExtensionByKeywordReportFilter Filter
         {
@@ -2577,9 +2164,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2597,9 +2181,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2618,12 +2199,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an audience performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportrequest?view=bingads-13">AudiencePerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudiencePerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2642,9 +2217,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2662,9 +2234,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AudiencePerformanceReportColumn> Columns
         {
@@ -2682,9 +2251,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AudiencePerformanceReportFilter Filter
         {
@@ -2702,9 +2268,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2722,9 +2285,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2743,12 +2303,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an ad extension detail report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportrequest?view=bingads-13">AdExtensionDetailReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2767,9 +2321,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2787,9 +2338,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdExtensionDetailReportColumn> Columns
         {
@@ -2807,9 +2355,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AdExtensionDetailReportFilter Filter
         {
@@ -2827,9 +2372,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2847,9 +2389,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2868,12 +2407,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a share of voice (SOV) report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportrequest?view=bingads-13">ShareOfVoiceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShareOfVoiceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -2892,9 +2425,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -2912,9 +2442,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ShareOfVoiceReportColumn> Columns
         {
@@ -2932,9 +2459,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ShareOfVoiceReportFilter Filter
         {
@@ -2952,9 +2476,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -2972,9 +2493,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -2993,12 +2511,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a product dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportrequest?view=bingads-13">ProductDimensionPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3017,9 +2529,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3037,9 +2546,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductDimensionPerformanceReportColumn> Columns
         {
@@ -3057,9 +2563,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProductDimensionPerformanceReportFilter Filter
         {
@@ -3077,9 +2580,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3097,9 +2597,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3118,12 +2615,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a product partition performance report request that aggregates the performance data by product group and product partition type for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportrequest?view=bingads-13">ProductPartitionPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3142,9 +2633,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3162,9 +2650,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductPartitionPerformanceReportColumn> Columns
         {
@@ -3182,9 +2667,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProductPartitionPerformanceReportFilter Filter
         {
@@ -3202,9 +2684,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3222,9 +2701,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3243,12 +2719,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a product partition unit performance report request that aggregates the performance data by product partition unit for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportrequest?view=bingads-13">ProductPartitionUnitPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionUnitPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3267,9 +2737,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3287,9 +2754,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductPartitionUnitPerformanceReportColumn> Columns
         {
@@ -3307,9 +2771,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProductPartitionUnitPerformanceReportFilter Filter
         {
@@ -3327,9 +2788,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3347,9 +2805,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3368,12 +2823,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Microsoft Shopping campaign product search query performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportrequest?view=bingads-13">ProductSearchQueryPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductSearchQueryPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3392,9 +2841,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3412,9 +2858,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductSearchQueryPerformanceReportColumn> Columns
         {
@@ -3432,9 +2875,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProductSearchQueryPerformanceReportFilter Filter
         {
@@ -3452,9 +2892,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3472,9 +2909,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3493,12 +2927,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a product match count report request that aggregates the performance data by product group for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productmatchcountreportrequest?view=bingads-13">ProductMatchCountReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productmatchcountreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductMatchCountReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3514,9 +2942,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3534,9 +2959,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductMatchCountReportColumn> Columns
         {
@@ -3554,9 +2976,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3574,9 +2993,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3595,12 +3011,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a product negative keyword conflict report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportrequest?view=bingads-13">ProductNegativeKeywordConflictReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3615,9 +3025,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope ScopeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportColumn> Columns
         {
@@ -3635,9 +3042,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ProductNegativeKeywordConflictReportFilter Filter
         {
@@ -3655,9 +3059,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3676,12 +3077,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a call detail report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/calldetailreportrequest?view=bingads-13">CallDetailReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/calldetailreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CallDetailReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3700,9 +3095,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3720,9 +3112,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CallDetailReportColumn> Columns
         {
@@ -3740,9 +3129,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CallDetailReportFilter Filter
         {
@@ -3760,9 +3146,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3780,9 +3163,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3801,12 +3181,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a geographic performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportrequest?view=bingads-13">GeographicPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeographicPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3825,9 +3199,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3845,9 +3216,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.GeographicPerformanceReportColumn> Columns
         {
@@ -3865,9 +3233,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.GeographicPerformanceReportFilter Filter
         {
@@ -3885,9 +3250,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -3905,9 +3267,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -3926,12 +3285,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a DSA search query performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-13">DSASearchQueryPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSASearchQueryPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -3950,9 +3303,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -3970,9 +3320,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.DSASearchQueryPerformanceReportColumn> Columns
         {
@@ -3990,9 +3337,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.DSASearchQueryPerformanceReportFilter Filter
         {
@@ -4010,9 +3354,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4030,9 +3371,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4051,12 +3389,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a DSA auto target performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportrequest?view=bingads-13">DSAAutoTargetPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSAAutoTargetPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4075,9 +3407,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4095,9 +3424,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.DSAAutoTargetPerformanceReportColumn> Columns
         {
@@ -4115,9 +3441,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.DSAAutoTargetPerformanceReportFilter Filter
         {
@@ -4135,9 +3458,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4155,9 +3475,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4176,12 +3493,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a DSA category performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportrequest?view=bingads-13">DSACategoryPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSACategoryPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4200,9 +3511,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4220,9 +3528,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.DSACategoryPerformanceReportColumn> Columns
         {
@@ -4240,9 +3545,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.DSACategoryPerformanceReportFilter Filter
         {
@@ -4260,9 +3562,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4280,9 +3579,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4301,12 +3597,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a hotel dimension performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportrequest?view=bingads-13">HotelDimensionPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelDimensionPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4325,9 +3615,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4345,9 +3632,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.HotelDimensionPerformanceReportColumn> Columns
         {
@@ -4365,9 +3649,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.HotelDimensionPerformanceReportFilter Filter
         {
@@ -4385,9 +3666,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4405,9 +3683,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4426,12 +3701,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a hotel group performance report request that aggregates the performance data by product category, custom label, title, and type for a specified time period.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportrequest?view=bingads-13">HotelGroupPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelGroupPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4450,9 +3719,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4470,9 +3736,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.HotelGroupPerformanceReportColumn> Columns
         {
@@ -4490,9 +3753,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.HotelGroupPerformanceReportFilter Filter
         {
@@ -4510,9 +3770,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4530,9 +3787,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4551,12 +3805,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13">AssetGroupPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4575,9 +3823,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4595,9 +3840,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportColumn> Columns
         {
@@ -4615,9 +3857,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The criteria to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.AssetGroupPerformanceReportFilter Filter
         {
@@ -4635,9 +3874,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope Scope
         {
@@ -4655,9 +3891,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4676,12 +3909,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for SearchInsightPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportrequest?view=bingads-13">SearchInsightPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4700,9 +3927,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4720,9 +3944,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.SearchInsightPerformanceReportColumn> Columns
         {
@@ -4740,9 +3961,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.SearchInsightPerformanceReportFilter Filter
         {
@@ -4760,9 +3978,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
         {
@@ -4780,9 +3995,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4801,12 +4013,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines an asset performance report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13">AssetPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4822,9 +4028,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The type of aggregation to use to aggregate the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -4842,9 +4045,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetPerformanceReportColumn> Columns
         {
@@ -4862,9 +4062,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
         {
@@ -4882,9 +4079,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -4903,12 +4097,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a category insights report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13">CategoryInsightsReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -4925,9 +4113,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryInsightsReportColumn> Columns
         {
@@ -4945,9 +4130,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CategoryInsightsReportFilter Filter
         {
@@ -4965,9 +4147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
         {
@@ -4985,9 +4164,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -5006,12 +4182,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a category click coverage report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13">CategoryClickCoverageReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5028,9 +4198,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// The list of attributes and performance statistics to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportColumn> Columns
         {
@@ -5048,9 +4215,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The filter information to use to filter the report data.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportFilter Filter
         {
@@ -5068,9 +4232,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The entity scope of the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
         {
@@ -5088,9 +4249,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The time period to use for the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -5109,12 +4267,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportrequest?view=bingads-13">CombinationPerformanceReportRequest Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportrequest?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5133,9 +4285,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
         {
@@ -5153,9 +4302,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportColumn> Columns
         {
@@ -5173,9 +4319,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportFilter Filter
         {
@@ -5193,9 +4336,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.AccountThroughCampaignReportScope Scope
         {
@@ -5213,9 +4353,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.ReportTime Time
         {
@@ -5234,44 +4371,125 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the file formats that you can use for a report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportformat?view=bingads-13">ReportFormat Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reportformat?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportRequest"/> data object.</para>
-    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppsPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AppsPerformanceReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V13.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AppsPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.AppsPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AppsPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.AppsPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountThroughAssetGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportFormat", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportFormat : int
     {
         
-        /// <summary>
-        /// The report format will be comma-separated values (.csv).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Csv = 0,
         
-        /// <summary>
-        /// The report format will be tab-separated values (.tsv).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tsv = 1,
         
-        /// <summary>
-        /// The report format will be XML (.xml).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Xml = 2,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the account performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportfilter?view=bingads-13">AccountPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5306,9 +4524,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -5326,9 +4541,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -5346,9 +4558,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -5366,9 +4575,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -5398,13 +4604,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the set of accounts to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountreportscope?view=bingads-13">AccountReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/> and <see cref="CategoryInsightsReportRequest"/> data objects.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5430,9 +4629,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 1,000 account identifiers to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -5462,13 +4658,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the date range values of a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13">ReportTime Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reporttime?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="BudgetSummaryReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CategoryClickCoverageReportRequest"/>, <see cref="CategoryInsightsReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportTime", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -5503,9 +4692,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The end date of the custom date range.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.Date CustomDateRangeEnd
         {
@@ -5523,9 +4709,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The start date of the custom date range.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.Date CustomDateRangeStart
         {
@@ -5543,9 +4726,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A predefined date range value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.ReportTimePeriod> PredefinedTime
         {
@@ -5563,9 +4743,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Determines the time zone that is used to establish today's date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.ReportTimeZone> ReportTimeZone
         {
@@ -5595,869 +4772,433 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the aggregation values that you can use for a report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13">ReportAggregation Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reportaggregation?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/>, <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetGroupPerformanceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchInsightPerformanceReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportAggregation", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportAggregation : int
     {
         
-        /// <summary>
-        /// The report data will be aggregated by the entire specified report time.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Summary = 0,
         
-        /// <summary>
-        /// Each row of the report identifies the hour when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hourly = 1,
         
-        /// <summary>
-        /// Each row of the report identifies the month, day, and year when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Daily = 2,
         
-        /// <summary>
-        /// Each row of the report identifies the week when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Weekly = 3,
         
-        /// <summary>
-        /// Each row of the report identifies the month when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Monthly = 4,
         
-        /// <summary>
-        /// Each row of the report identifies the year when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yearly = 5,
         
-        /// <summary>
-        /// Each row of the report identifies the hour of the day when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HourOfDay = 6,
         
-        /// <summary>
-        /// Each row of the report identifies the day of the week when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DayOfWeek = 7,
         
-        /// <summary>
-        /// Each row of the report identifies the week when the transaction occurred.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WeeklyStartingMonday = 8,
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AccountPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportcolumn?view=bingads-13">AccountPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/accountperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AccountPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 4,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 5,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 6,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 7,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 8,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 9,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 10,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 11,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 12,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 13,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 14,
         
-        /// <summary>
-        /// Clicks that exhibit a low likelihood of commercial intent.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 15,
         
-        /// <summary>
-        /// The low-quality clicks as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicksPercent = 16,
         
-        /// <summary>
-        /// The number of impressions that result from low-quality keyword searches.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressions = 17,
         
-        /// <summary>
-        /// The low-quality impressions as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressionsPercent = 18,
         
-        /// <summary>
-        /// The number of conversions that originate from low-quality clicks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversions = 19,
         
-        /// <summary>
-        /// The low-quality conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionRate = 20,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 22,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 23,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 24,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankAggPercent = 25,
         
-        /// <summary>
-        /// The number of times your tracked number was shown on all devices.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneImpressions = 26,
         
-        /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 27,
         
-        /// <summary>
-        /// The phone-through rate (Ptr).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 28,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 31,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 32,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 34,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 36,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 39,
         
-        /// <summary>
-        /// Clicks that are filtered by general methods, such as deny lists and activity-based detection, and that exhibit a low likelihood of commercial intent.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 40,
         
-        /// <summary>
-        /// Invalid clicks that use sophisticated means to appear valid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualitySophisticatedClicks = 41,
         
-        /// <summary>
-        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 42,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 43,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 44,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 45,
         
-        /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 46,
         
-        /// <summary>
-        /// A percentage estimate of how often poor ad rank kept your ad from showing in the mainline, the top ad placements above the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToRankPercent = 47,
         
-        /// <summary>
-        /// The estimated percentage of mainline impressions, where ads appear above the search results, that were lost due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToBudgetPercent = 48,
         
-        /// <summary>
-        /// The estimated percentage of how often poor ad rank kept your ad from showing in the first ad position at the top of search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToRankPercent = 49,
         
-        /// <summary>
-        /// The estimated percentage of how often your ad missed showing in the very top ad position, above search results, due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToBudgetPercent = 50,
         
-        /// <summary>
-        /// The percentage of impressions for your ad in the mainline, the top ad placements above the search results, out of the estimated number of mainline impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionSharePercent = 51,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 52,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 53,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 54,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 55,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 56,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 57,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 58,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 59,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 60,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 61,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 62,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionSharePercent = 63,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToRankPercent = 64,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 65,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 66,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 67,
         
-        /// <summary>
-        /// The number of conversions that originate from low-quality clicks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionsQualified = 68,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 69,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 70,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 71,
         
-        /// <summary>
-        /// The number of times the video was played and watched for at least two continuous seconds with more than 50% of the screen in view.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 72,
         
-        /// <summary>
-        /// The number of video views divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRate = 73,
         
-        /// <summary>
-        /// Average total spend divided by video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCPV = 74,
         
-        /// <summary>
-        /// The number of times a person completed at least 25% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 75,
         
-        /// <summary>
-        /// The number of times a person completed at least 50% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 76,
         
-        /// <summary>
-        /// The number of times a person completed at least 75% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 77,
         
-        /// <summary>
-        /// Number of times a person watched the entire video to completion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 78,
         
-        /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 79,
         
-        /// <summary>
-        /// Total amount of time a person spent watching the video in milliseconds.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalWatchTimeInMS = 80,
         
-        /// <summary>
-        /// Total watch time divided by the number of video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerVideoView = 81,
         
-        /// <summary>
-        /// Total watch time, in milliseconds, divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 82,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 83,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 84,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 85,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 86,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 87,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 88,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Downloads = 89,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickDownloadRate = 90,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerDownload = 91,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstalls = 92,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickInstallRate = 93,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPI = 94,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Purchases = 95,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallPurchaseRate = 96,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPP = 97,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscriptions = 98,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallSubscriptionRate = 99,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPS = 100,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerConversions = 101,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerRevenue = 102,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerConversionRate = 103,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerCPA = 104,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerReturnOnAdSpend = 105,
     }
     
-    /// <summary>
-    /// Defines the account status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountstatusreportfilter?view=bingads-13">AccountStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/accountstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchInsightPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AccountStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain accounts that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain accounts that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
-        /// <summary>
-        /// The report will contain accounts that are not active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 4,
     }
     
-    /// <summary>
-    /// Defines the ad distribution medium values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/addistributionreportfilter?view=bingads-13">AdDistributionReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/addistributionreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchCampaignChangeHistoryReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdDistributionReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdDistributionReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Search = 1,
         
-        /// <summary>
-        /// The report will contain audience ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 16,
     }
     
-    /// <summary>
-    /// Defines the device operating system values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/deviceosreportfilter?view=bingads-13">DeviceOSReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/deviceosreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/> and <see cref="GoalsAndFunnelsReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceOSReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DeviceOSReportFilter : int
     {
         
-        /// <summary>
-        /// The report will include ads displayed on a device operating system other than Android, BlackBerry, iOS, and Windows.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Other = 1,
         
-        /// <summary>
-        /// The report will include ads displayed on Windows device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Windows = 2,
         
-        /// <summary>
-        /// The report will include ads displayed on iOS device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         iOS = 4,
         
-        /// <summary>
-        /// The report will include ads displayed on Android device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Android = 8,
         
-        /// <summary>
-        /// The report will include ads displayed on BlackBerry device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BlackBerry = 16,
     }
     
-    /// <summary>
-    /// Defines the device type values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/devicetypereportfilter?view=bingads-13">DeviceTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/devicetypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountPerformanceReportFilter"/>, <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeviceTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DeviceTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will include text ads displayed on computers.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Computer = 1,
         
-        /// <summary>
-        /// The report will include text ads displayed on smartphones (any high fidelity device capable of rendering full HTML).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SmartPhone = 2,
         
-        /// <summary>
-        /// The report will include mobile ads displayed on a mobile device.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NonSmartPhone = 4,
         
-        /// <summary>
-        /// The report will include text ads displayed on a tablet device.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tablet = 8,
     }
     
-    /// <summary>
-    /// Defines a calendar date by month, day, and year.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/date?view=bingads-13">Date Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/date?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportTime"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Date", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -6486,9 +5227,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Specifies the day of the month.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Day
         {
@@ -6506,9 +5244,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Specifies the month.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Month
         {
@@ -6526,9 +5261,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Specifies the year.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int Year
         {
@@ -6558,591 +5290,294 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the predefined time and date range values for a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttimeperiod?view=bingads-13">ReportTimePeriod Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reporttimeperiod?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportTime"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportTimePeriod", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportTimePeriod : int
     {
         
-        /// <summary>
-        /// A cumulative report for the current day.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Today = 0,
         
-        /// <summary>
-        /// A cumulative report for the previous day.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yesterday = 1,
         
-        /// <summary>
-        /// A cumulative report for the previous seven days.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastSevenDays = 2,
         
-        /// <summary>
-        /// A cumulative report for the current week that runs from Sunday through Saturday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThisWeek = 3,
         
-        /// <summary>
-        /// A cumulative report for the previous week that runs from Sunday through Saturday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastWeek = 4,
         
-        /// <summary>
-        /// A cumulative report for the previous 14 days.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last14Days = 5,
         
-        /// <summary>
-        /// A cumulative report for the previous 30 days.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Last30Days = 6,
         
-        /// <summary>
-        /// A cumulative report for the previous four weeks that run from Sunday through Saturday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastFourWeeks = 7,
         
-        /// <summary>
-        /// A cumulative report for the current calendar month.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThisMonth = 8,
         
-        /// <summary>
-        /// A cumulative report for the previous calendar month.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastMonth = 9,
         
-        /// <summary>
-        /// A cumulative report for the previous three calendar months.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastThreeMonths = 10,
         
-        /// <summary>
-        /// A cumulative report for the previous six calendar months.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastSixMonths = 11,
         
-        /// <summary>
-        /// A cumulative report for the current calendar year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThisYear = 12,
         
-        /// <summary>
-        /// A cumulative report for the previous calendar year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastYear = 13,
         
-        /// <summary>
-        /// A cumulative report for the current week that runs from Monday through Sunday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ThisWeekStartingMonday = 14,
         
-        /// <summary>
-        /// A cumulative report for the previous week that runs from Monday through Sunday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastWeekStartingMonday = 15,
         
-        /// <summary>
-        /// A cumulative report for the previous four weeks that run from Monday through Sunday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LastFourWeeksStartingMonday = 16,
     }
     
-    /// <summary>
-    /// Defines possible values for the time zone that you want the Reporting service to use for the selected date range.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reporttimezone?view=bingads-13">ReportTimeZone Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reporttimezone?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportTime"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportTimeZone", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportTimeZone : int
     {
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nukualofa = 1,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FijiKamchatkaMarshallIsland = 2,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AucklandWellington = 3,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MagadanSolomonIslandNewCaledonia = 4,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vladivostok = 5,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hobart = 6,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuamPortMoresby = 7,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanberraMelbourneSydney = 8,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brisbane = 9,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Darwin = 10,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Adelaide = 11,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yakutsk = 12,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Seoul = 13,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OsakaSapporoTokyo = 14,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Taipei = 15,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Perth = 16,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KualaLumpurSingapore = 17,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IrkutskUlaanBataar = 18,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BeijingChongqingHongKongUrumqi = 19,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Krasnoyarsk = 20,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BangkokHanoiJakarta = 21,
         
-        /// <summary>
-        /// The corresponding report time zone
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SriJayawardenepura = 23,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AstanaDhaka = 24,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlmatyNovosibirsk = 25,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kathmandu = 26,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChennaiKolkataMumbaiNewDelhi = 27,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IslandamabadKarachiTashkent = 28,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ekaterinburg = 29,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kabul = 30,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BakuTbilisiYerevan = 31,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbuDhabiMuscat = 32,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tehran = 33,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nairobi = 34,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoscowStPetersburgVolgograd = 35,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KuwaitRiyadh = 36,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baghdad = 37,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Jerusalem = 38,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelsinkiKyivRigaSofiaTallinnVilnius = 39,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HararePretoria = 40,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cairo = 41,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bucharest = 42,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AthensIslandanbulMinsk = 43,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WestCentralAfrica = 44,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SarajevoSkopjeWarsawZagreb = 45,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrusselsCopenhagenMadridParis = 46,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelgradeBratislavaBudapestLjubljanaPrague = 47,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AmsterdamBerlinBernRomeStockholmVienna = 48,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CasablancaMonrovia = 49,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreenwichMeanTimeDublinEdinburghLisbonLondon = 50,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Azores = 51,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CapeVerdeIsland = 52,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidAtlantic = 53,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brasilia = 54,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuenosAiresGeorgetown = 55,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greenland = 56,
         
-        /// <summary>
-        /// The corresponding report time zone
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AtlanticTimeCanada = 58,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CaracasLaPaz = 59,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Santiago = 60,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BogotaLimaQuito = 61,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EasternTimeUSCanada = 62,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianaEast = 63,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralAmerica = 64,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralTimeUSCanada = 65,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuadalajaraMexicoCityMonterrey = 66,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Saskatchewan = 67,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arizona = 68,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChihuahuaLaPazMazatlan = 69,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MountainTimeUSCanada = 70,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PacificTimeUSCanadaTijuana = 71,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Alaska = 72,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hawaii = 73,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidwayIslandandSamoa = 74,
         
-        /// <summary>
-        /// The corresponding report time zone.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InternationalDateLineWest = 75,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the campaign performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportfilter?view=bingads-13">CampaignPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -7180,9 +5615,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -7200,9 +5632,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -7220,9 +5649,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -7240,9 +5666,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -7260,9 +5683,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified campaign status values.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> Status
         {
@@ -7292,13 +5712,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the set of accounts and campaigns to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-13">AccountThroughCampaignReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughcampaignreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="BudgetSummaryReportRequest"/>, <see cref="CampaignPerformanceReportRequest"/>, <see cref="CombinationPerformanceReportRequest"/> and <see cref="SearchInsightPerformanceReportRequest"/> data objects.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountThroughCampaignReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -7327,9 +5740,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 1,000 account identifiers to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -7347,9 +5757,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 300 campaigns to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> Campaigns
         {
@@ -7379,832 +5786,415 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the CampaignPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportcolumn?view=bingads-13">CampaignPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/campaignperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CampaignPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CampaignPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 4,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 7,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 8,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 9,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 10,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 11,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 12,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 13,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 16,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 17,
         
-        /// <summary>
-        /// Clicks that exhibit a low likelihood of commercial intent.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicks = 18,
         
-        /// <summary>
-        /// The low-quality clicks as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityClicksPercent = 19,
         
-        /// <summary>
-        /// The number of impressions that result from low-quality keyword searches.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressions = 20,
         
-        /// <summary>
-        /// The low-quality impressions as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityImpressionsPercent = 21,
         
-        /// <summary>
-        /// The number of conversions that originate from low-quality clicks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversions = 22,
         
-        /// <summary>
-        /// The low-quality conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionRate = 23,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 26,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 27,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankAggPercent = 28,
         
-        /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 29,
         
-        /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 30,
         
-        /// <summary>
-        /// How closely related your ads is to the customer's search query or other input.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 31,
         
-        /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 32,
         
-        /// <summary>
-        /// The historical quality score for each row is the value that was calculated for quality score on that date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalQualityScore = 33,
         
-        /// <summary>
-        /// Historical average of expected click-through rate scores going back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalExpectedCtr = 34,
         
-        /// <summary>
-        /// Historical average of ad relevance scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalAdRelevance = 35,
         
-        /// <summary>
-        /// Historical average of landing page experience scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalLandingPageExperience = 36,
         
-        /// <summary>
-        /// The number of times your tracked number was shown on all devices.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneImpressions = 37,
         
-        /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 38,
         
-        /// <summary>
-        /// The phone-through rate (Ptr).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 39,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 40,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 41,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 42,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 43,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 44,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 45,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 46,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 47,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 48,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 49,
         
-        /// <summary>
-        /// The current tracking template for the campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 50,
         
-        /// <summary>
-        /// The current set of custom parameters for the campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 51,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 52,
         
-        /// <summary>
-        /// The name of the budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetName = 53,
         
-        /// <summary>
-        /// The budget status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetStatus = 54,
         
-        /// <summary>
-        /// Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetAssociationStatus = 55,
         
-        /// <summary>
-        /// Clicks that are filtered by general methods, such as deny lists and activity-based detection, and that exhibit a low likelihood of commercial intent.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityGeneralClicks = 56,
         
-        /// <summary>
-        /// Invalid clicks that use sophisticated means to appear valid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualitySophisticatedClicks = 57,
         
-        /// <summary>
-        /// The labels applied to the campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignLabels = 58,
         
-        /// <summary>
-        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 59,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 60,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 61,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 62,
         
-        /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 63,
         
-        /// <summary>
-        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 64,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 65,
         
-        /// <summary>
-        /// A percentage estimate of how often poor ad rank kept your ad from showing in the mainline, the top ad placements above the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToRankPercent = 66,
         
-        /// <summary>
-        /// The estimated percentage of mainline impressions, where ads appear above the search results, that were lost due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToBudgetPercent = 67,
         
-        /// <summary>
-        /// The estimated percentage of how often poor ad rank kept your ad from showing in the first ad position at the top of search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToRankPercent = 68,
         
-        /// <summary>
-        /// The estimated percentage of how often your ad missed showing in the very top ad position, above search results, due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToBudgetPercent = 69,
         
-        /// <summary>
-        /// The percentage of impressions for your ad in the mainline, the top ad placements above the search results, out of the estimated number of mainline impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionSharePercent = 70,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 71,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 72,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 73,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 74,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 75,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 76,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 77,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 78,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 79,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 80,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 81,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 82,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionSharePercent = 83,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToRankPercent = 84,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 85,
         
-        /// <summary>
-        /// Your click-through rate divided by the average click-through rate of all ads that appear in the same sections of websites that show your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RelativeCtr = 86,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 87,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 88,
         
-        /// <summary>
-        /// The number of conversions that originate from low-quality clicks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LowQualityConversionsQualified = 89,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 90,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 91,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 92,
         
-        /// <summary>
-        /// The number of times the video was played and watched for at least two continuous seconds with more than 50% of the screen in view.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 93,
         
-        /// <summary>
-        /// The number of video views divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRate = 94,
         
-        /// <summary>
-        /// Average total spend divided by video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCPV = 95,
         
-        /// <summary>
-        /// The number of times a person completed at least 25% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 96,
         
-        /// <summary>
-        /// The number of times a person completed at least 50% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 97,
         
-        /// <summary>
-        /// The number of times a person completed at least 75% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 98,
         
-        /// <summary>
-        /// Number of times a person watched the entire video to completion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 99,
         
-        /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 100,
         
-        /// <summary>
-        /// Total amount of time a person spent watching the video in milliseconds.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalWatchTimeInMS = 101,
         
-        /// <summary>
-        /// Total watch time divided by the number of video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerVideoView = 102,
         
-        /// <summary>
-        /// Total watch time, in milliseconds, divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 103,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 104,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 105,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 106,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 107,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 108,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 109,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Downloads = 110,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickDownloadRate = 111,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerDownload = 112,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstalls = 113,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostClickInstallRate = 114,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPI = 115,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Purchases = 116,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallPurchaseRate = 117,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPP = 118,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Subscriptions = 119,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostInstallSubscriptionRate = 120,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPS = 121,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerConversions = 122,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerRevenue = 123,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerConversionRate = 124,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerCPA = 125,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerReturnOnAdSpend = 126,
     }
     
-    /// <summary>
-    /// Defines the campaign status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13">CampaignStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/campaignstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="CampaignPerformanceReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchInsightPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CampaignStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain campaigns that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain campaigns that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
         
-        /// <summary>
-        /// The report will contain campaigns that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 8,
         
-        /// <summary>
-        /// The report will contain campaigns that are paused due to budget restrictions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BudgetPaused = 16,
         
-        /// <summary>
-        /// The report will contain campaigns that have been suspended.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Suspended = 64,
     }
     
-    /// <summary>
-    /// Defines a campaign to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/campaignreportscope?view=bingads-13">CampaignReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/campaignreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/>, <see cref="AccountThroughAssetGroupReportScope"/> and <see cref="AccountThroughCampaignReportScope"/> data objects.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -8231,9 +6221,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the account that the campaign belongs to.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AccountId
         {
@@ -8251,9 +6238,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the campaign to limit the scope to.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
         {
@@ -8283,13 +6267,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad dynamic text performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportfilter?view=bingads-13">AdDynamicTextPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdDynamicTextPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -8336,9 +6313,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -8356,9 +6330,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -8376,9 +6347,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -8396,9 +6364,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -8416,9 +6381,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdType
         {
@@ -8436,9 +6398,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -8456,9 +6415,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -8476,9 +6432,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -8508,13 +6461,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the set of accounts, campaigns, and ad groups to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-13">AccountThroughAdGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughadgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/>, <see cref="AdExtensionByAdReportRequest"/>, <see cref="AdExtensionByKeywordReportRequest"/>, <see cref="AdExtensionDetailReportRequest"/>, <see cref="AdGroupPerformanceReportRequest"/>, <see cref="AdPerformanceReportRequest"/>, <see cref="AgeGenderAudienceReportRequest"/>, <see cref="AssetPerformanceReportRequest"/>, <see cref="AudiencePerformanceReportRequest"/>, <see cref="CallDetailReportRequest"/>, <see cref="ConversionPerformanceReportRequest"/>, <see cref="DestinationUrlPerformanceReportRequest"/>, <see cref="DSAAutoTargetPerformanceReportRequest"/>, <see cref="DSACategoryPerformanceReportRequest"/>, <see cref="DSASearchQueryPerformanceReportRequest"/>, <see cref="GeographicPerformanceReportRequest"/>, <see cref="GoalsAndFunnelsReportRequest"/>, <see cref="HotelDimensionPerformanceReportRequest"/>, <see cref="HotelGroupPerformanceReportRequest"/>, <see cref="KeywordPerformanceReportRequest"/>, <see cref="NegativeKeywordConflictReportRequest"/>, <see cref="ProductDimensionPerformanceReportRequest"/>, <see cref="ProductMatchCountReportRequest"/>, <see cref="ProductNegativeKeywordConflictReportRequest"/>, <see cref="ProductPartitionPerformanceReportRequest"/>, <see cref="ProductPartitionUnitPerformanceReportRequest"/>, <see cref="ProductSearchQueryPerformanceReportRequest"/>, <see cref="ProfessionalDemographicsAudienceReportRequest"/>, <see cref="PublisherUsagePerformanceReportRequest"/>, <see cref="SearchCampaignChangeHistoryReportRequest"/>, <see cref="SearchQueryPerformanceReportRequest"/>, <see cref="ShareOfVoiceReportRequest"/> and <see cref="UserLocationPerformanceReportRequest"/> data objects.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountThroughAdGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -8546,9 +6492,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 1,000 account identifiers to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -8566,9 +6509,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 300 ad groups to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdGroupReportScope> AdGroups
         {
@@ -8586,9 +6526,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 300 campaigns to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> Campaigns
         {
@@ -8618,726 +6555,362 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdDynamicTextPerformanceReportRequest Data Object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportcolumn?view=bingads-13">AdDynamicTextPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/addynamictextperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdDynamicTextPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdDynamicTextPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
         
-        /// <summary>
-        /// The ad title.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 8,
         
-        /// <summary>
-        /// The ad type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdType = 9,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 10,
         
-        /// <summary>
-        /// The first dynamic substitution parameter (Param1) of a keyword or biddable ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Param1 = 11,
         
-        /// <summary>
-        /// The second dynamic substitution parameter (Param2) of a keyword or biddable ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Param2 = 12,
         
-        /// <summary>
-        /// The third dynamic substitution parameter (Param3) of a keyword or biddable ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Param3 = 13,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 15,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 16,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 19,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 20,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 21,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 22,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 23,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 24,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 27,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 28,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 29,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 30,
         
-        /// <summary>
-        /// The title part 1 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 31,
         
-        /// <summary>
-        /// The title part 2 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 32,
         
-        /// <summary>
-        /// The title part 3 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 33,
         
-        /// <summary>
-        /// The path 1 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 34,
         
-        /// <summary>
-        /// The path 2 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 35,
         
-        /// <summary>
-        /// The Final URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 36,
         
-        /// <summary>
-        /// The Final Mobile URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileUrl = 37,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppUrl = 38,
         
-        /// <summary>
-        /// The first ad description that appears below the path in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 39,
         
-        /// <summary>
-        /// The second ad description that appears below the path in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription2 = 40,
         
-        /// <summary>
-        /// The labels applied to the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdLabels = 41,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 42,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 43,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 44,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 45,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 46,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 48,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 49,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 51,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 53,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 54,
     }
     
-    /// <summary>
-    /// Defines the ad group status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-13">AdGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="AudiencePerformanceReportFilter"/>, <see cref="CallDetailReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="HotelDimensionPerformanceReportFilter"/>, <see cref="HotelGroupPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchInsightPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdGroupStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain ad groups that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain ad groups that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
         
-        /// <summary>
-        /// The report will contain ad groups that have expired.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Expired = 4,
         
-        /// <summary>
-        /// The report will contain ad groups that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 16,
     }
     
-    /// <summary>
-    /// Defines the ad status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adstatusreportfilter?view=bingads-13">AdStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByAdReportFilter"/>, <see cref="AdExtensionDetailReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain ads that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain ads that have failed editorial review.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rejected = 2,
         
-        /// <summary>
-        /// The report will contain ads that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
         
-        /// <summary>
-        /// The report will contain ads that are pending editorial review.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 8,
         
-        /// <summary>
-        /// The report will contain ads that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 16,
     }
     
-    /// <summary>
-    /// Defines the ad type values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adtypereportfilter?view=bingads-13">AdTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adtypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/> and <see cref="SearchQueryPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will include text ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Text = 1,
         
-        /// <summary>
-        /// Not supported.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Local = 8,
         
-        /// <summary>
-        /// The report will include product ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Product = 128,
         
-        /// <summary>
-        /// The report will include app install ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AppInstall = 256,
         
-        /// <summary>
-        /// The report will include dynamic search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicSearchAd = 512,
         
-        /// <summary>
-        /// The report will include expanded text ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpandedText = 1024,
         
-        /// <summary>
-        /// The report will include responsive ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveAd = 4096,
         
-        /// <summary>
-        /// The report will include responsive search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ResponsiveSearchAd = 8192,
     }
     
-    /// <summary>
-    /// Defines the keyword status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/keywordstatusreportfilter?view=bingads-13">KeywordStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/keywordstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdExtensionByKeywordReportFilter"/>, <see cref="ConversionPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="NegativeKeywordConflictReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum KeywordStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain keywords that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain keywords that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
-        /// <summary>
-        /// The report will contain keywords that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
     }
     
-    /// <summary>
-    /// Defines the language values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/languagereportfilter?view=bingads-13">LanguageReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/languagereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdDynamicTextPerformanceReportFilter"/>, <see cref="AdGroupPerformanceReportFilter"/>, <see cref="AdPerformanceReportFilter"/>, <see cref="AgeGenderAudienceReportFilter"/>, <see cref="DestinationUrlPerformanceReportFilter"/>, <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="DSACategoryPerformanceReportFilter"/>, <see cref="DSASearchQueryPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="ProfessionalDemographicsAudienceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/>, <see cref="ShareOfVoiceReportFilter"/> and <see cref="UserLocationPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="LanguageReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum LanguageReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Danish.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Danish = 1,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Dutch.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dutch = 2,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in English.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         English = 4,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Finnish.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Finnish = 8,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in French.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         French = 16,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in German.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         German = 32,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Italian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Italian = 64,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Japanese.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Japanese = 128,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Norwegian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Norwegian = 256,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Portuguese.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Portuguese = 512,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Swedish.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Swedish = 1024,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Spanish.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spanish = 2048,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Arabic.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arabic = 4096,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Hebrew.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hebrew = 8192,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Korean.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Korean = 16384,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Russian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Russian = 32768,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Traditional Chinese.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TraditionalChinese = 65536,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Greek.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greek = 131072,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Polish.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Polish = 262144,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Czech.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Czech = 524288,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Romanian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Romanian = 1048576,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Hungarian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hungarian = 2097152,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Slovak.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovak = 4194304,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Bulgarian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bulgarian = 8388608,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Croatian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatian = 16777216,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Lithuanian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lithuanian = 33554432,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Slovenian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovenian = 67108864,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Estonian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Estonian = 134217728,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Latvian.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Latvian = 268435456,
         
-        /// <summary>
-        /// The report will contain data for ads that were viewed in Maltese.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Maltese = 536870912,
     }
     
-    /// <summary>
-    /// Defines an ad group to include in the report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adgroupreportscope?view=bingads-13">AdGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountThroughAdGroupReportScope"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -9366,9 +6939,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the account that the ad group belongs to.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AccountId
         {
@@ -9386,9 +6956,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the campaign that the ad group belongs to.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
         {
@@ -9406,9 +6973,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the ad group to limit the scope to.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public long AdGroupId
         {
@@ -9438,13 +7002,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad group performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-13">AdGroupPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -9488,9 +7045,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -9508,9 +7062,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -9528,9 +7079,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -9548,9 +7096,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -9568,9 +7113,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -9588,9 +7130,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -9608,9 +7147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad group status values.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> Status
         {
@@ -9640,650 +7176,324 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdGroupPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportcolumn?view=bingads-13">AdGroupPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adgroupperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdGroupPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The current ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Status = 4,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 10,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 15,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 16,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 17,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 22,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 23,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 24,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankAggPercent = 25,
         
-        /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 26,
         
-        /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 27,
         
-        /// <summary>
-        /// How closely related your ads is to the customer's search query or other input.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 28,
         
-        /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 29,
         
-        /// <summary>
-        /// The historical quality score for each row is the value that was calculated for quality score on that date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalQualityScore = 30,
         
-        /// <summary>
-        /// Historical average of expected click-through rate scores going back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalExpectedCtr = 31,
         
-        /// <summary>
-        /// Historical average of ad relevance scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalAdRelevance = 32,
         
-        /// <summary>
-        /// Historical average of landing page experience scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalLandingPageExperience = 33,
         
-        /// <summary>
-        /// The number of times your tracked number was shown on all devices.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneImpressions = 34,
         
-        /// <summary>
-        /// The number of total calls to the tracked phone number that showed with your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhoneCalls = 35,
         
-        /// <summary>
-        /// The phone-through rate (Ptr).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ptr = 36,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 37,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 38,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 39,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 40,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 41,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 42,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 43,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 44,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 45,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 46,
         
-        /// <summary>
-        /// The current tracking template for the ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 47,
         
-        /// <summary>
-        /// The current custom parameters set for the ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 48,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 49,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 50,
         
-        /// <summary>
-        /// The labels applied to the ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupLabels = 51,
         
-        /// <summary>
-        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 52,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 53,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 54,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 55,
         
-        /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 56,
         
-        /// <summary>
-        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 57,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 58,
         
-        /// <summary>
-        /// A percentage estimate of how often poor ad rank kept your ad from showing in the mainline, the top ad placements above the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToRankPercent = 59,
         
-        /// <summary>
-        /// The estimated percentage of mainline impressions, where ads appear above the search results, that were lost due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToBudgetPercent = 60,
         
-        /// <summary>
-        /// The estimated percentage of how often poor ad rank kept your ad from showing in the first ad position at the top of search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToRankPercent = 61,
         
-        /// <summary>
-        /// The estimated percentage of how often your ad missed showing in the very top ad position, above search results, due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToBudgetPercent = 62,
         
-        /// <summary>
-        /// The percentage of impressions for your ad in the mainline, the top ad placements above the search results, out of the estimated number of mainline impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionSharePercent = 63,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 64,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 65,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 66,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 67,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 68,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 69,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 70,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 71,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 72,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 73,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 74,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 75,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions you could have received on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionSharePercent = 76,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to low rank on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToRankPercent = 77,
         
-        /// <summary>
-        /// The percentage of impression share you lost due to insufficient budget on the Microsoft Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceImpressionLostToBudgetPercent = 78,
         
-        /// <summary>
-        /// Your click-through rate divided by the average click-through rate of all ads that appear in the same sections of websites that show your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RelativeCtr = 79,
         
-        /// <summary>
-        /// The ad group type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupType = 80,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 81,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 82,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 83,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 84,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 85,
         
-        /// <summary>
-        /// The number of times the video was played and watched for at least two continuous seconds with more than 50% of the screen in view.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 86,
         
-        /// <summary>
-        /// The number of video views divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRate = 87,
         
-        /// <summary>
-        /// Average total spend divided by video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCPV = 88,
         
-        /// <summary>
-        /// The number of times a person completed at least 25% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 89,
         
-        /// <summary>
-        /// The number of times a person completed at least 50% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 90,
         
-        /// <summary>
-        /// The number of times a person completed at least 75% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 91,
         
-        /// <summary>
-        /// Number of times a person watched the entire video to completion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 92,
         
-        /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 93,
         
-        /// <summary>
-        /// Total amount of time a person spent watching the video in milliseconds.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalWatchTimeInMS = 94,
         
-        /// <summary>
-        /// Total watch time divided by the number of video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerVideoView = 95,
         
-        /// <summary>
-        /// Total watch time, in milliseconds, divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 96,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 97,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 98,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 99,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 100,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 101,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 102,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 103,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad performance report request data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adperformancereportfilter?view=bingads-13">AdPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -10330,9 +7540,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -10350,9 +7557,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -10370,9 +7574,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -10390,9 +7591,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -10410,9 +7608,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdType
         {
@@ -10430,9 +7625,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -10450,9 +7642,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -10470,9 +7659,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -10502,578 +7688,288 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adperformancereportcolumn?view=bingads-13">AdPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The ad title.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 9,
         
-        /// <summary>
-        /// The first ad description that appears below the path in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
         
-        /// <summary>
-        /// The second ad description that appears below the path in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription2 = 11,
         
-        /// <summary>
-        /// The ad type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdType = 12,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 13,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 14,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 15,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 17,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 18,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 19,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 20,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 21,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 22,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 23,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 24,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 26,
         
-        /// <summary>
-        /// The ad display URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisplayUrl = 27,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 28,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 31,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 32,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 33,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 34,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 35,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 36,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 37,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 38,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 39,
         
-        /// <summary>
-        /// The current tracking template of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 40,
         
-        /// <summary>
-        /// The current custom parameters set of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 41,
         
-        /// <summary>
-        /// The Final URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 42,
         
-        /// <summary>
-        /// The Final Mobile URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileUrl = 43,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppUrl = 44,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 45,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 46,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 47,
         
-        /// <summary>
-        /// The title part 1 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 48,
         
-        /// <summary>
-        /// The title part 2 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 49,
         
-        /// <summary>
-        /// The title part 3 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 50,
         
-        /// <summary>
-        /// The shorter of two possible responsive ad headlines for Audience campaigns.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline = 51,
         
-        /// <summary>
-        /// The longer of two possible responsive ad headlines for Audience campaigns.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LongHeadline = 52,
         
-        /// <summary>
-        /// Depending on your responsive ad's placement, your business's name may appear in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BusinessName = 53,
         
-        /// <summary>
-        /// The path 1 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path1 = 54,
         
-        /// <summary>
-        /// The path 2 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Path2 = 55,
         
-        /// <summary>
-        /// The labels applied to the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdLabels = 56,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 57,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 58,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 59,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 60,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 61,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 62,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 63,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 64,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 65,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 66,
         
-        /// <summary>
-        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 67,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 68,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 69,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 70,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 71,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 72,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 73,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 74,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 75,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 76,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 77,
         
-        /// <summary>
-        /// The number of times the video was played and watched for at least two continuous seconds with more than 50% of the screen in view.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 78,
         
-        /// <summary>
-        /// The number of video views divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRate = 79,
         
-        /// <summary>
-        /// Average total spend divided by video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCPV = 80,
         
-        /// <summary>
-        /// The number of times a person completed at least 25% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 81,
         
-        /// <summary>
-        /// The number of times a person completed at least 50% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 82,
         
-        /// <summary>
-        /// The number of times a person completed at least 75% of a video.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 83,
         
-        /// <summary>
-        /// Number of times a person watched the entire video to completion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 84,
         
-        /// <summary>
-        /// The number of completed video views divided by the total number of impressions, multiplied by 100.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 85,
         
-        /// <summary>
-        /// Total amount of time a person spent watching the video in milliseconds.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalWatchTimeInMS = 86,
         
-        /// <summary>
-        /// Total watch time divided by the number of video views.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerVideoView = 87,
         
-        /// <summary>
-        /// Total watch time, in milliseconds, divided by the number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageWatchTimePerImpression = 88,
         
-        /// <summary>
-        /// The ad strength score of responsive search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStrength = 89,
         
-        /// <summary>
-        /// The suggestion based on ad strength of your responsive search ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStrengthActionItems = 90,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 91,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the keyword performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportfilter?view=bingads-13">KeywordPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -11144,9 +8040,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -11164,9 +8057,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -11184,9 +8074,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -11204,9 +8091,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// How closely related your ads is to the customer's search query or other input.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> AdRelevance
         {
@@ -11224,9 +8108,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdType
         {
@@ -11244,9 +8125,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified bid match types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.BidMatchTypeReportFilter> BidMatchType
         {
@@ -11264,9 +8142,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified bid strategy type or types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.BidStrategyTypeReportFilter> BidStrategyType
         {
@@ -11284,9 +8159,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -11304,9 +8176,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified delivered match types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
         {
@@ -11324,9 +8193,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -11344,9 +8210,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> ExpectedCtr
         {
@@ -11364,9 +8227,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -11384,9 +8244,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified keywords.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
         {
@@ -11404,9 +8261,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> LandingPageExperience
         {
@@ -11424,9 +8278,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -11444,9 +8295,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only keywords with the specified quality scores.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<int> QualityScore
         {
@@ -11476,506 +8324,252 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the KeywordPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportcolumn?view=bingads-13">KeywordPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> and <see cref="KeywordPerformanceReportSort"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum KeywordPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 10,
         
-        /// <summary>
-        /// The ad type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdType = 11,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 12,
         
-        /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 13,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 14,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 15,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 16,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 17,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 18,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 19,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 20,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 21,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 22,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 23,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 24,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 25,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 26,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
         
-        /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 28,
         
-        /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 29,
         
-        /// <summary>
-        /// How closely related your ads is to the customer's search query or other input.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 30,
         
-        /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 31,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 32,
         
-        /// <summary>
-        /// The historical quality score for each row is the value that was calculated for quality score on that date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalQualityScore = 33,
         
-        /// <summary>
-        /// Historical average of expected click-through rate scores going back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalExpectedCtr = 34,
         
-        /// <summary>
-        /// Historical average of ad relevance scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalAdRelevance = 35,
         
-        /// <summary>
-        /// Historical average of landing page experience scores back as far as 18 months from the current date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HistoricalLandingPageExperience = 36,
         
-        /// <summary>
-        /// The numeric score that indicates the possible increase in the number of impressions that the keyword could receive if the corresponding QualityScore column would rise above underperforming:0 - Not available.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityImpact = 37,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 38,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 39,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 40,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 41,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 42,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 43,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 44,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 45,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 46,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 47,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 48,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 49,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 50,
         
-        /// <summary>
-        /// The current tracking template of the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 51,
         
-        /// <summary>
-        /// The current custom parameter set of the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 52,
         
-        /// <summary>
-        /// The Final URL of the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 53,
         
-        /// <summary>
-        /// The Final Mobile URL of the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileUrl = 54,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppUrl = 55,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 56,
         
-        /// <summary>
-        /// The labels applied to the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordLabels = 57,
         
-        /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates will place your ad at the top of search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Mainline1Bid = 58,
         
-        /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates for your ad to be placed on the first page in the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MainlineBid = 59,
         
-        /// <summary>
-        /// Based on your campaign performance and marketplace dynamics, this estimate is the bid amount that Microsoft Advertising calculates for your ad to be placed on the first page in the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FirstPageBid = 60,
         
-        /// <summary>
-        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 61,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 62,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 63,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 64,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 65,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 66,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 67,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 68,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 69,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 70,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 71,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 72,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 73,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 74,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 75,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 76,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 77,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 78,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 79,
     }
     
-    /// <summary>
-    /// Defines a keyword performance report column and corresponding sort order.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportsort?view=bingads-13">KeywordPerformanceReportSort Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/keywordperformancereportsort?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeywordPerformanceReportSort", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -12002,9 +8596,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The keyword performance report column by which to sort.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.KeywordPerformanceReportColumn SortColumn
         {
@@ -12022,9 +8613,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Defines the ascending or descending sort order of values within the specified report column.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public Microsoft.BingAds.V13.Reporting.SortOrder SortOrder
         {
@@ -12054,140 +8642,69 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the bid match type values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/bidmatchtypereportfilter?view=bingads-13">BidMatchTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/bidmatchtypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="BidMatchTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum BidMatchTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain keywords that set a bid value for the exact match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Exact = 1,
         
-        /// <summary>
-        /// The report will contain keywords that set a bid value for the phrase match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Phrase = 2,
         
-        /// <summary>
-        /// The report will contain keywords that set a bid value for the broad match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Broad = 4,
     }
     
-    /// <summary>
-    /// Defines the possible values that you can use to use to filter the report data by bid strategy type.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/bidstrategytypereportfilter?view=bingads-13">BidStrategyTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/bidstrategytypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/>, <see cref="KeywordPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="BidStrategyTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum BidStrategyTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain data related to keywords, ad groups, or campaigns that use the manual CPC bid strategy.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ManualCpc = 1,
         
-        /// <summary>
-        /// The report will contain data related to keywords, ad groups, or campaigns that use the enhanced CPC bid strategy.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnhancedCpc = 16,
     }
     
-    /// <summary>
-    /// Defines the delivered match type values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/deliveredmatchtypereportfilter?view=bingads-13">DeliveredMatchTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/deliveredmatchtypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportFilter"/>, <see cref="SearchQueryPerformanceReportFilter"/> and <see cref="ShareOfVoiceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="DeliveredMatchTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DeliveredMatchTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain ads that were delivered by using an exact match comparison.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Exact = 1,
         
-        /// <summary>
-        /// The report will contain ads that were delivered by using a phrase match comparison.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Phrase = 2,
         
-        /// <summary>
-        /// The report will contain ads that were delivered using a broad match comparison.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Broad = 4,
         
-        /// <summary>
-        /// The report will contain ads that were delivered by using a close variant exact match comparison.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactCloseVariant = 8,
         
-        /// <summary>
-        /// The report will contain ads that were delivered by using a close variant phrase match comparison.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PhraseCloseVariant = 16,
     }
     
-    /// <summary>
-    /// Defines the ascending or descending sort order of values within the specified report column.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/sortorder?view=bingads-13">SortOrder Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/sortorder?view=bingads-13 for details.
-    /// <para>Used by <see cref="KeywordPerformanceReportSort"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SortOrder", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum SortOrder : int
     {
         
-        /// <summary>
-        /// The results will be sorted ascending.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ascending = 0,
         
-        /// <summary>
-        /// The results will be sorted descending.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Descending = 1,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the destination URL performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportfilter?view=bingads-13">DestinationUrlPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DestinationUrlPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -12231,9 +8748,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -12251,9 +8765,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -12271,9 +8782,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -12291,9 +8799,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -12311,9 +8816,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -12331,9 +8833,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -12351,9 +8850,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -12383,471 +8879,234 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the DestinationUrlPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportcolumn?view=bingads-13">DestinationUrlPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/destinationurlperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="DestinationUrlPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DestinationUrlPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DestinationUrlPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 9,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 10,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 11,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 14,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 15,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 16,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 17,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 18,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 19,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 20,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 21,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 23,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 24,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 27,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 32,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 33,
         
-        /// <summary>
-        /// The current tracking template of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 34,
         
-        /// <summary>
-        /// The current custom parameter set of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 35,
         
-        /// <summary>
-        /// The Final URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 36,
         
-        /// <summary>
-        /// The Final Mobile URL of the ad, keyword, or criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalMobileUrl = 37,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalAppUrl = 38,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 39,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 40,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 41,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 42,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 43,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 44,
         
-        /// <summary>
-        /// A place in your final URL where you can add parameters that will be attached to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 45,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 46,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 47,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 48,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 49,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 50,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 51,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 52,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 53,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 54,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 55,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 56,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 57,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 58,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 59,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 60,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 61,
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the BudgetSummaryReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/budgetsummaryreportcolumn?view=bingads-13">BudgetSummaryReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/budgetsummaryreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="BudgetSummaryReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BudgetSummaryReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum BudgetSummaryReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
         
-        /// <summary>
-        /// The date for the downloaded report records.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Date = 5,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 6,
         
-        /// <summary>
-        /// The anticipated maximum monthly budget amount that was calculated on the date of the most recent budget change.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MonthlyBudget = 7,
         
-        /// <summary>
-        /// The average amount of campaign budget spent per day.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DailySpend = 8,
         
-        /// <summary>
-        /// The amount of money spent to date for the month.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MonthToDateSpend = 9,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the age and gender audience report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-13">AgeGenderAudienceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -12885,9 +9144,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -12905,9 +9161,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -12925,9 +9178,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -12945,9 +9195,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -12965,9 +9212,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -12997,230 +9241,114 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AgeGenderAudienceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportcolumn?view=bingads-13">AgeGenderAudienceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/agegenderaudiencereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AgeGenderAudienceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AgeGenderAudienceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AgeGenderAudienceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 8,
         
-        /// <summary>
-        /// The age group of the audience who viewed the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgeGroup = 9,
         
-        /// <summary>
-        /// The gender (male or female) of the search users to whom the ad was delivered.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Gender = 10,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages or other sites on the Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 13,
         
-        /// <summary>
-        /// The sum of your cost-per-click (CPC) charges for your ads and keywords.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 14,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 15,
         
-        /// <summary>
-        /// Cost information that is optionally provided by advertisers, including non-advertising costs, taxes, and shipping.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExtendedCost = 16,
         
-        /// <summary>
-        /// The number of times an entity (an account, campaign, ad group, or keyword, for example) contributed to a conversion that is associated with a different entity.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 17,
         
-        /// <summary>
-        /// This is The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 18,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 20,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 21,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 22,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 23,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 24,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 25,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 26,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 27,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 28,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 29,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 30,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 31,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 32,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 33,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the professional demographics audience report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-13">ProfessionalDemographicsAudienceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -13258,9 +9386,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -13278,9 +9403,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -13298,9 +9420,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -13318,9 +9437,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -13338,9 +9454,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -13370,230 +9483,114 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProfessionalDemographicsAudienceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-13">ProfessionalDemographicsAudienceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/professionaldemographicsaudiencereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProfessionalDemographicsAudienceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProfessionalDemographicsAudienceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProfessionalDemographicsAudienceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The name of the company (according to LinkedIn) of the person who viewed the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompanyName = 8,
         
-        /// <summary>
-        /// The name of the industry (according to LinkedIn) of the person who viewed the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndustryName = 9,
         
-        /// <summary>
-        /// The name of the job function (according to LinkedIn) of the person who viewed the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobFunctionName = 10,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 11,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages or other sites on the Audience Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
         
-        /// <summary>
-        /// The sum of your cost-per-click (CPC) charges for your ads and keywords.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// This is The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 16,
         
-        /// <summary>
-        /// The number of times an entity (an account, campaign, ad group, or keyword, for example) contributed to a conversion that is associated with a different entity.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 17,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 18,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 20,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 21,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 22,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 23,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 24,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 25,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 26,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 27,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 28,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 29,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 30,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 31,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 32,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 33,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the user location performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportfilter?view=bingads-13">UserLocationPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocationPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -13625,9 +9622,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -13645,9 +9639,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -13665,9 +9656,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -13697,440 +9685,219 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the UserLocationPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportcolumn?view=bingads-13">UserLocationPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/userlocationperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="UserLocationPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLocationPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum UserLocationPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The country or region where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
         
-        /// <summary>
-        /// The state where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 9,
         
-        /// <summary>
-        /// The metro area (Microsoft Market Area in the United States) where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 11,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 12,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 17,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 18,
         
-        /// <summary>
-        /// The radius target bid name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProximityTargetLocation = 19,
         
-        /// <summary>
-        /// The radius of a radius target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Radius = 20,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
         
-        /// <summary>
-        /// The city where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 22,
         
-        /// <summary>
-        /// The name of a country or region if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCountry = 23,
         
-        /// <summary>
-        /// The name of a state if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentState = 24,
         
-        /// <summary>
-        /// The name of a city if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCity = 25,
         
-        /// <summary>
-        /// The name of a metro area (Microsoft Market Area in the United States) if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentDMA = 26,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 27,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 28,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 34,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 35,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 36,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 37,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 38,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 39,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 40,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 41,
         
-        /// <summary>
-        /// The county where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         County = 42,
         
-        /// <summary>
-        /// The postal code where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostalCode = 43,
         
-        /// <summary>
-        /// The name of a county if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentCounty = 44,
         
-        /// <summary>
-        /// The name of a postal code if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentPostalCode = 45,
         
-        /// <summary>
-        /// The Microsoft Advertising identifier of the location where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 46,
         
-        /// <summary>
-        /// The location identifier if the user's geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentLocationId = 47,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 48,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 49,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 50,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 51,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 52,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 53,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 54,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 55,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 56,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 57,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 58,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 59,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 60,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 61,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 62,
         
-        /// <summary>
-        /// The neighborhood where an ad was physically served, or the neighborhood that your customer had shown interest in through searches or content they had viewed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Neighborhood = 63,
         
-        /// <summary>
-        /// The name of a neighborhood if the user?s geographical intent can be determined.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QueryIntentNeighborhood = 64,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 65,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 66,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 67,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 68,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the publisher usage performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportfilter?view=bingads-13">PublisherUsagePerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PublisherUsagePerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -14171,9 +9938,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -14191,9 +9955,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -14211,9 +9972,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -14231,9 +9989,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -14251,9 +10006,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -14271,9 +10023,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -14303,394 +10052,196 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the PublisherUsagePerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportcolumn?view=bingads-13">PublisherUsagePerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/publisherusageperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="PublisherUsagePerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PublisherUsagePerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum PublisherUsagePerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 8,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 9,
         
-        /// <summary>
-        /// The URL of the website that displayed the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublisherUrl = 10,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 15,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 16,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 17,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 20,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 21,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 22,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 23,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 24,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 25,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 26,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 27,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 28,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 29,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 30,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 31,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 32,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 33,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 34,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 35,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 36,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 37,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 38,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 39,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 40,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 41,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 42,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 43,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 44,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 45,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 46,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 48,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 49,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 50,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 51,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 52,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 53,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 54,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 55,
     }
     
-    /// <summary>
-    /// Defines the asset group status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13">AssetGroupStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportFilter"/>, <see cref="GeographicPerformanceReportFilter"/>, <see cref="GoalsAndFunnelsReportFilter"/>, <see cref="ProductDimensionPerformanceReportFilter"/>, <see cref="ProductNegativeKeywordConflictReportFilter"/>, <see cref="ProductPartitionPerformanceReportFilter"/>, <see cref="ProductPartitionUnitPerformanceReportFilter"/>, <see cref="ProductSearchQueryPerformanceReportFilter"/>, <see cref="PublisherUsagePerformanceReportFilter"/> and <see cref="SearchInsightPerformanceReportFilter"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetGroupStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain asset groups that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain asset groups that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
-        /// <summary>
-        /// The report will contain asset groups that are deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the search query performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-13">SearchQueryPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchQueryPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -14743,9 +10294,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -14763,9 +10311,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -14783,9 +10328,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for ads that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -14803,9 +10345,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdType
         {
@@ -14823,9 +10362,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for campaigns that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -14843,9 +10379,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified delivered match types (as opposed to the bid match type).
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
         {
@@ -14863,9 +10396,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// If the value of this element is set to true, search terms that had one or more ad impressions but resulted in zero clicks in the specified time duration will be excluded from the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool ExcludeZeroClicks
         {
@@ -14883,9 +10413,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -14903,9 +10430,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -14923,9 +10447,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified search query strings.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchQueries
         {
@@ -14955,374 +10476,186 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the SearchQueryPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportcolumn?view=bingads-13">SearchQueryPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/searchqueryperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchQueryPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum SearchQueryPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
         
-        /// <summary>
-        /// The ad type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdType = 9,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 10,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 11,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 12,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 13,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 14,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 15,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 17,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 18,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 19,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 20,
         
-        /// <summary>
-        /// The search term used by your potential audience.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchQuery = 21,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 22,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 23,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 24,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 25,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 26,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 27,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 28,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 31,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 32,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 34,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 36,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 39,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 40,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 41,
         
-        /// <summary>
-        /// The type of campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 42,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 43,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 44,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 45,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 46,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 47,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 48,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 49,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 50,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 51,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 52,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 53,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 54,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 56,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 57,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the conversion performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportfilter?view=bingads-13">ConversionPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -15366,9 +10699,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -15386,9 +10716,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -15406,9 +10733,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -15426,9 +10750,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -15446,9 +10767,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -15466,9 +10784,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -15486,9 +10801,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified keywords.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
         {
@@ -15518,278 +10830,138 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ConversionPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-13">ConversionPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ConversionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ConversionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ConversionPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 10,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 11,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 12,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 13,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 14,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 15,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 16,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 17,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 18,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 19,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 20,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 21,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 22,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 24,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 25,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 26,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 27,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 28,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 29,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 30,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 31,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 32,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 33,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 34,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 35,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 36,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 37,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 38,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 39,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 40,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 41,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the goals and funnels report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-13">GoalsAndFunnelsReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GoalsAndFunnelsReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -15839,9 +11011,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -15859,9 +11028,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -15879,9 +11045,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -15899,9 +11062,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -15919,9 +11079,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -15939,9 +11096,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -15959,9 +11113,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -15979,9 +11130,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified goals.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> GoalIds
         {
@@ -15999,9 +11147,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -16031,206 +11176,102 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the GoalsAndFunnelsReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportcolumn?view=bingads-13">GoalsAndFunnelsReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/goalsandfunnelsreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="GoalsAndFunnelsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GoalsAndFunnelsReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum GoalsAndFunnelsReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 9,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 10,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 11,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 12,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 13,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 14,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 17,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 18,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 19,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 20,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 21,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 22,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 23,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 24,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 25,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 26,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 27,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 28,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 29,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the negative keyword conflict report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportfilter?view=bingads-13">NegativeKeywordConflictReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NegativeKeywordConflictReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -16265,9 +11306,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for accounts with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -16285,9 +11323,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for ad groups with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -16305,9 +11340,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for campaigns with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -16325,9 +11357,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for keywords with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -16357,152 +11386,75 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes columns that you can include in the NegativeKeywordConflictReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportcolumn?view=bingads-13">NegativeKeywordConflictReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/negativekeywordconflictreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="NegativeKeywordConflictReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="NegativeKeywordConflictReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum NegativeKeywordConflictReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 6,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 8,
         
-        /// <summary>
-        /// The negative keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeyword = 9,
         
-        /// <summary>
-        /// The entity level where the keyword and negative keyword conflict occurs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConflictLevel = 10,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 11,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a negative keyword list.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordListId = 12,
         
-        /// <summary>
-        /// The name of the negative keyword list.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordList = 13,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a negative keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordId = 14,
         
-        /// <summary>
-        /// The type of match to compare the negative keyword and the user's search term.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 15,
         
-        /// <summary>
-        /// The current account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 16,
         
-        /// <summary>
-        /// The current campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 17,
         
-        /// <summary>
-        /// The current ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 18,
         
-        /// <summary>
-        /// The current keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 19,
         
-        /// <summary>
-        /// The type of negative keyword conflict encountered.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConflictType = 20,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the campaign change history report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-13">SearchCampaignChangeHistoryReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchCampaignChangeHistoryReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -16534,9 +11486,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -16554,9 +11503,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified type of change.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.ChangeTypeReportFilter> HowChanged
         {
@@ -16574,9 +11520,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified type of entity.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.ChangeEntityReportFilter> ItemChanged
         {
@@ -16606,228 +11549,113 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attribute columns that you can include in the SearchCampaignChangeHistoryReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-13">SearchCampaignChangeHistoryReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/searchcampaignchangehistoryreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchCampaignChangeHistoryReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchCampaignChangeHistoryReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum SearchCampaignChangeHistoryReportColumn : int
     {
         
-        /// <summary>
-        /// The date and time of the change.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DateTime = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
         
-        /// <summary>
-        /// The username of the user that made the change to settings within the account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChangedBy = 4,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The ad title parts.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 9,
         
-        /// <summary>
-        /// The first ad description that appears below the path in your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDescription = 10,
         
-        /// <summary>
-        /// The ad display URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DisplayUrl = 11,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 12,
         
-        /// <summary>
-        /// The value that identifies the entity that changed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ItemChanged = 13,
         
-        /// <summary>
-        /// Identifies the attribute or property of the entity from the ItemChanged column that changed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AttributeChanged = 14,
         
-        /// <summary>
-        /// The value that indicates whether the element was added, updated, or deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HowChanged = 15,
         
-        /// <summary>
-        /// The value before the change.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OldValue = 16,
         
-        /// <summary>
-        /// The value after the change.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewValue = 17,
         
-        /// <summary>
-        /// The name of the entity that was updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityName = 18,
         
-        /// <summary>
-        /// The Microsoft Advertising system identifier of the entity that was updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EntityId = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising tool used to make changes.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tool = 20,
     }
     
-    /// <summary>
-    /// Defines the types of changes to entities by which you can filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/changetypereportfilter?view=bingads-13">ChangeTypeReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/changetypereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="ChangeTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ChangeTypeReportFilter : int
     {
         
-        /// <summary>
-        /// The report will include data for entities that have been added.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Added = 1,
         
-        /// <summary>
-        /// The report will include data for entities that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 2,
         
-        /// <summary>
-        /// The report will include data for elements of entities whose values have been updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Changed = 4,
     }
     
-    /// <summary>
-    /// Defines the types of entities by which you can filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/changeentityreportfilter?view=bingads-13">ChangeEntityReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/changeentityreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchCampaignChangeHistoryReportFilter"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="ChangeEntityReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ChangeEntityReportFilter : int
     {
         
-        /// <summary>
-        /// The report will include data for accounts that have been added or deleted, or that have had account elements updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Account = 1,
         
-        /// <summary>
-        /// The report will include data for campaigns that have been added or deleted, or that have had campaign elements updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Campaign = 2,
         
-        /// <summary>
-        /// The report will include data for ad groups that have been added or deleted, or that have had ad group elements updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroup = 4,
         
-        /// <summary>
-        /// The report will include data for ads that have been added or deleted, or that have had ad elements updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ad = 8,
         
-        /// <summary>
-        /// The report will include data for keywords that have been added or deleted, or that have had keyword elements updated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 16,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad extension by ad report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportfilter?view=bingads-13">AdExtensionByAdReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByAdReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -16868,9 +11696,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -16888,9 +11713,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -16908,9 +11730,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -16928,9 +11747,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -16948,9 +11764,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -16968,9 +11781,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -17000,350 +11810,174 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByAdReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportcolumn?view=bingads-13">AdExtensionByAdReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbyadreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByAdReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByAdReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdExtensionByAdReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The ad title.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 7,
         
-        /// <summary>
-        /// The type name that corresponds to the AdExtensionTypeId column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionType = 8,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
         
-        /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 11,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
         
-        /// <summary>
-        /// The number of billable and non-billable times that the ad extension was clicked.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicks = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 20,
         
-        /// <summary>
-        /// The version attribute of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionVersion = 21,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 22,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 23,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 31,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 32,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 33,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 34,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 35,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 36,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 37,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 38,
         
-        /// <summary>
-        /// The title part 1 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart1 = 39,
         
-        /// <summary>
-        /// The title part 2 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart2 = 40,
         
-        /// <summary>
-        /// The title part 3 attribute of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TitlePart3 = 41,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 42,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 43,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 44,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 45,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 46,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 47,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 48,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 49,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 51,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 53,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad extension by keyword report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportfilter?view=bingads-13">AdExtensionByKeywordReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByKeywordReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -17384,9 +12018,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -17404,9 +12035,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -17424,9 +12052,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -17444,9 +12069,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -17464,9 +12086,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -17484,9 +12103,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -17516,326 +12132,162 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdExtensionByKeywordReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportcolumn?view=bingads-13">AdExtensionByKeywordReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adextensionbykeywordreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionByKeywordReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionByKeywordReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdExtensionByKeywordReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 7,
         
-        /// <summary>
-        /// The type name that corresponds to the AdExtensionTypeId column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionType = 8,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 9,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 10,
         
-        /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 11,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 12,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 13,
         
-        /// <summary>
-        /// The number of billable and non-billable times that the ad extension was clicked.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicks = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 18,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 20,
         
-        /// <summary>
-        /// The version attribute of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionVersion = 21,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 22,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 23,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 31,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 32,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 33,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 34,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 35,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 36,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 37,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 38,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 39,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 40,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 41,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 42,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 43,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 44,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 45,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 46,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 47,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 48,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 49,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the audience performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportfilter?view=bingads-13">AudiencePerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudiencePerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -17867,9 +12319,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -17887,9 +12336,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -17907,9 +12353,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -17939,314 +12382,156 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AudiencePerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportcolumn?view=bingads-13">AudiencePerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/audienceperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AudiencePerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudiencePerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AudiencePerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of the audience, for example the remarketing list ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceId = 8,
         
-        /// <summary>
-        /// The audience name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceName = 9,
         
-        /// <summary>
-        /// The status of the association between the audience and either an ad group or campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationStatus = 10,
         
-        /// <summary>
-        /// This attribute reflects the current value of your ad group's audience bid adjustment, even if a different bid adjustment value was used when the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidAdjustment = 11,
         
-        /// <summary>
-        /// This attribute reflects the current value of your ad group's audience targeting setting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TargetingSetting = 12,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 17,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 18,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 19,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 20,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 21,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 22,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 23,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 24,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 25,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 26,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 27,
         
-        /// <summary>
-        /// The audience type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AudienceType = 28,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 29,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 30,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 31,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 32,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 33,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 34,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 35,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of the association between the audience and either an ad group or campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationId = 36,
         
-        /// <summary>
-        /// The level of the audience's association.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssociationLevel = 37,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 38,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 39,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 40,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 41,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 42,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 43,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 44,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 45,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 46,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 47,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the ad extension detail report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-13">AdExtensionDetailReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -18287,9 +12572,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -18307,9 +12589,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -18327,9 +12606,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -18347,9 +12623,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -18367,9 +12640,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device operating systems.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceOSReportFilter> DeviceOS
         {
@@ -18387,9 +12657,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data where the ad is displayed on the specified device types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -18419,320 +12686,159 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the AdExtensionDetailReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportcolumn?view=bingads-13">AdExtensionDetailReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/adextensiondetailreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdExtensionDetailReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdExtensionDetailReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AdExtensionDetailReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 2,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 6,
         
-        /// <summary>
-        /// The ad title.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdTitle = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 8,
         
-        /// <summary>
-        /// The type name that corresponds to the AdExtensionTypeId column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionType = 9,
         
-        /// <summary>
-        /// The system identifier that corresponds to the AdExtensionType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionTypeId = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionId = 11,
         
-        /// <summary>
-        /// The version attribute of an ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionVersion = 12,
         
-        /// <summary>
-        /// The human readable ad extension property value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdExtensionPropertyValue = 13,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 14,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 19,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 20,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 22,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 23,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 24,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 25,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 26,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 27,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 28,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 29,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 30,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 32,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 33,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 34,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 35,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 36,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 37,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 38,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 39,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 40,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 41,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 42,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 43,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 44,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 45,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 46,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 47,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 48,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the share of voice report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportfilter?view=bingads-13">ShareOfVoiceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShareOfVoiceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -18788,9 +12894,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -18808,9 +12911,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -18828,9 +12928,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -18848,9 +12945,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified bid match types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.BidMatchTypeReportFilter> BidMatchType
         {
@@ -18868,9 +12962,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified bid strategy type or types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.BidStrategyTypeReportFilter> BidStrategyType
         {
@@ -18888,9 +12979,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -18908,9 +12996,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified delivered match types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeliveredMatchTypeReportFilter> DeliveredMatchType
         {
@@ -18928,9 +13013,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -18948,9 +13030,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the keyword status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.KeywordStatusReportFilter> KeywordStatus
         {
@@ -18968,9 +13047,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified keywords.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> Keywords
         {
@@ -18988,9 +13064,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -19020,392 +13093,195 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ShareOfVoiceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportcolumn?view=bingads-13">ShareOfVoiceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/shareofvoicereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ShareOfVoiceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ShareOfVoiceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ShareOfVoiceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 1,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 2,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 3,
         
-        /// <summary>
-        /// The keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Keyword = 4,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 5,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 6,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 9,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordId = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 11,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 12,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 13,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 14,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 15,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 16,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 17,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 18,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 19,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 20,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankAggPercent = 21,
         
-        /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 22,
         
-        /// <summary>
-        /// The numeric score shows you how competitive your ads are in the marketplace by measuring how relevant your keywords and landing pages are to customers' search terms.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QualityScore = 23,
         
-        /// <summary>
-        /// How well your keyword competes against other keywords targeting the same traffic.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExpectedCtr = 24,
         
-        /// <summary>
-        /// How closely related your ads is to the customer's search query or other input.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdRelevance = 25,
         
-        /// <summary>
-        /// An aggregate quality assessment of all landing pages on your site.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageExperience = 26,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 27,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 28,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 29,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 30,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 31,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 32,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 33,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 34,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 35,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 36,
         
-        /// <summary>
-        /// The keyword status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordStatus = 37,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 38,
         
-        /// <summary>
-        /// The labels applied to the keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KeywordLabels = 39,
         
-        /// <summary>
-        /// The estimated percentage of impressions that your account received for searches that exactly matched your keyword, out of the total available exact match impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ExactMatchImpressionSharePercent = 40,
         
-        /// <summary>
-        /// A percentage estimate of how often poor ad rank kept your ad from showing in the mainline, the top ad placements above the search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToRankPercent = 41,
         
-        /// <summary>
-        /// The estimated percentage of mainline impressions, where ads appear above the search results, that were lost due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionShareLostToBudgetPercent = 42,
         
-        /// <summary>
-        /// The estimated percentage of how often poor ad rank kept your ad from showing in the first ad position at the top of search results.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToRankPercent = 43,
         
-        /// <summary>
-        /// The estimated percentage of how often your ad missed showing in the very top ad position, above search results, due to insufficient budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionShareLostToBudgetPercent = 44,
         
-        /// <summary>
-        /// The estimated percentage of times your ad was in the first position of all results, out of the estimated number of first position impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 45,
         
-        /// <summary>
-        /// The percentage of impressions for your ad in the mainline, the top ad placements above the search results, out of the estimated number of mainline impressions you were eligible to receive.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionSharePercent = 46,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 47,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 48,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 49,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 50,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 51,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 52,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 53,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 54,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 55,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 56,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 57,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 58,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 59,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 60,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the product dimension performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportfilter?view=bingads-13">ProductDimensionPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -19449,9 +13325,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -19469,9 +13342,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -19489,9 +13359,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -19509,9 +13376,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -19529,9 +13393,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -19549,9 +13410,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -19569,9 +13427,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -19601,632 +13456,318 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductDimensionPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportcolumn?view=bingads-13">ProductDimensionPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productdimensionperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductDimensionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductDimensionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductDimensionPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 4,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 5,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 6,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 7,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 9,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 10,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 11,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 13,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 14,
         
-        /// <summary>
-        /// The unique identifier provided by a merchant for each product offer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 15,
         
-        /// <summary>
-        /// The product item name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Title = 16,
         
-        /// <summary>
-        /// The condition of a product item.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Condition = 17,
         
-        /// <summary>
-        /// The product item's manufacturer, brand, or publisher.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brand = 18,
         
-        /// <summary>
-        /// The different price for products in your catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Price = 19,
         
-        /// <summary>
-        /// The value of the Custom_label_0 field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel0 = 20,
         
-        /// <summary>
-        /// The value of the Custom_label_1 field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel1 = 21,
         
-        /// <summary>
-        /// The value of the Custom_label_2 field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel2 = 22,
         
-        /// <summary>
-        /// The value of the Custom_label_3 field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel3 = 23,
         
-        /// <summary>
-        /// The value of the Custom_label_4 field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel4 = 24,
         
-        /// <summary>
-        /// The first level value of the Product_type field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType1 = 25,
         
-        /// <summary>
-        /// The second level value of the Product_type field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType2 = 26,
         
-        /// <summary>
-        /// The third level value of the Product_type field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType3 = 27,
         
-        /// <summary>
-        /// The fourth level value of the Product_type field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType4 = 28,
         
-        /// <summary>
-        /// The fifth level value of the Product_type field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductType5 = 29,
         
-        /// <summary>
-        /// The first level value of the Product_category field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory1 = 30,
         
-        /// <summary>
-        /// The second level value of the Product_category field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory2 = 31,
         
-        /// <summary>
-        /// The third level value of the Product_category field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory3 = 32,
         
-        /// <summary>
-        /// The fourth level value of the Product_category field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory4 = 33,
         
-        /// <summary>
-        /// The fifth level value of the Product_category field in your Microsoft Merchant Center catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductCategory5 = 34,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 35,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 36,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 37,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 38,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 39,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 40,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 41,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 42,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 43,
         
-        /// <summary>
-        /// The merchant or store name that offers the product.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SellerName = 44,
         
-        /// <summary>
-        /// The language for the product offer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 45,
         
-        /// <summary>
-        /// The country/region of sale for the product catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 46,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 47,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 48,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 49,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 50,
         
-        /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 51,
         
-        /// <summary>
-        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 52,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 53,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 54,
         
-        /// <summary>
-        /// The click type ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickTypeId = 55,
         
-        /// <summary>
-        /// The number of clicks when this ad element was present in the ad copy, whether this or another ad element was clicked on.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicksOnAdElements = 56,
         
-        /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 57,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 58,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 59,
         
-        /// <summary>
-        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalStoreCode = 60,
         
-        /// <summary>
-        /// The unique identifier for the Microsoft Merchant Center store.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StoreId = 61,
         
-        /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 62,
         
-        /// <summary>
-        /// Clicks on your ads that have received co-bids from your manufacturer partners.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 63,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 64,
         
-        /// <summary>
-        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 65,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 66,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 67,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 68,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 69,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 70,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 71,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 72,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 73,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 74,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 75,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 76,
         
-        /// <summary>
-        /// The product purchased from your catalog or via your retail partner.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductBought = 77,
         
-        /// <summary>
-        /// The quantity of the product purchased (ProductBought) from your catalog or via your retail partner.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QuantityBought = 78,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 79,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 80,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 81,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversionsQualified = 82,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 83,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 84,
         
-        /// <summary>
-        /// The title associated with the purchased product.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductBoughtTitle = 85,
         
-        /// <summary>
-        /// Global Trade Item Number (GTIN) is a unique numerical value for commercial products that usually appears printed under the barcode on retail products.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GTIN = 86,
         
-        /// <summary>
-        /// Manufacturer Part Number (MPN) is a unique number that identifies the product to its manufacturer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MPN = 87,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 88,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 89,
         
-        /// <summary>
-        /// The total number of sales.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Sales = 90,
         
-        /// <summary>
-        /// The cost per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerSale = 91,
         
-        /// <summary>
-        /// The revenue per sale.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerSale = 92,
         
-        /// <summary>
-        /// The total number of installs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Installs = 93,
         
-        /// <summary>
-        /// The cost per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerInstall = 94,
         
-        /// <summary>
-        /// The revenue per install.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerInstall = 95,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 96,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 97,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 98,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 99,
         
-        /// <summary>
-        /// The collection ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CollectionId = 100,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeedLabel = 101,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the product partition performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportfilter?view=bingads-13">ProductPartitionPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -20253,6 +13794,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignTypeReportFilter> CampaignTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -20270,9 +13814,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -20290,9 +13831,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -20310,9 +13848,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -20330,9 +13865,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -20350,9 +13882,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -20370,9 +13899,23 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignTypeReportFilter> CampaignType
+        {
+            get
+            {
+                return this.CampaignTypeField;
+            }
+            set
+            {
+                if ((this.CampaignTypeField.Equals(value) != true))
+                {
+                    this.CampaignTypeField = value;
+                    this.RaisePropertyChanged("CampaignType");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -20390,9 +13933,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -20422,500 +13962,280 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportcolumn?view=bingads-13">ProductPartitionPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductPartitionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductPartitionPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion, or product group in the context of a Microsoft Shopping campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 9,
         
-        /// <summary>
-        /// The product partition type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartitionType = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
         
-        /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 12,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 13,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 14,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 15,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 16,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 17,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 18,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 19,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 20,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 21,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 22,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 23,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 25,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 26,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 27,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 28,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 29,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 30,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 31,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 32,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 33,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 34,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 35,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 36,
         
-        /// <summary>
-        /// The language for the product offer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfferLanguage = 37,
         
-        /// <summary>
-        /// The country/region of sale for the product catalog.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryOfSale = 38,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 39,
         
-        /// <summary>
-        /// The current tracking template of the criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 40,
         
-        /// <summary>
-        /// The current custom parameter set of the criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 41,
         
-        /// <summary>
-        /// The estimated percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 42,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your daily or monthly budget.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToBudgetPercent = 43,
         
-        /// <summary>
-        /// The estimated percentage of impressions your ad did not receive due to issues with your ad ranking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionLostToRankPercent = 44,
         
-        /// <summary>
-        /// Shows you how much other advertisers are bidding on average on similar products as your current target.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkBid = 45,
         
-        /// <summary>
-        /// Shows you how other product ads for similar products are performing on average based on how often people who see the ad end up clicking on it.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BenchmarkCtr = 46,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 47,
         
-        /// <summary>
-        /// The click type ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickTypeId = 48,
         
-        /// <summary>
-        /// The number of clicks when this ad element was present in the ad copy, whether this or another ad element was clicked on.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicksOnAdElements = 49,
         
-        /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 50,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 51,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 52,
         
-        /// <summary>
-        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalStoreCode = 53,
         
-        /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 54,
         
-        /// <summary>
-        /// Clicks on your ads that have received co-bids from your manufacturer partners.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 55,
         
-        /// <summary>
-        /// The percentage of clicks that went to your ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickSharePercent = 56,
         
-        /// <summary>
-        /// The number of times your ad is shown in the top position as a percentage of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionSharePercent = 57,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 58,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 59,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 60,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 61,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 62,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 63,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 64,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 65,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 66,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 67,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 68,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 69,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 70,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversionsQualified = 71,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 72,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 73,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 74,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 75,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 76,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 77,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 78,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the product partition  performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportfilter?view=bingads-13">ProductPartitionUnitPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CampaignTypeReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum CampaignTypeReportFilter : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchAndContent = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Shopping = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DynamicSearch = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Audience = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Smart = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Hotel = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PerformanceMax = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        App = 10,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionUnitPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -20959,9 +14279,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -20979,9 +14296,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -20999,9 +14313,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -21019,9 +14330,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -21039,9 +14347,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -21059,9 +14364,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -21079,9 +14381,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -21111,416 +14410,207 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductPartitionUnitPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-13">ProductPartitionUnitPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productpartitionunitperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductPartitionUnitPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductPartitionUnitPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductPartitionUnitPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion, or product group in the context of a Microsoft Shopping campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 9,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 10,
         
-        /// <summary>
-        /// The maximum cost per click bid that was in effect at the time the report was generated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrentMaxCpc = 11,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 13,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 14,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 15,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 16,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 17,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 18,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 19,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 20,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 22,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 23,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 24,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 25,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 26,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 27,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 28,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 29,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 30,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 33,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 34,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 35,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 36,
         
-        /// <summary>
-        /// The current tracking template of the criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 37,
         
-        /// <summary>
-        /// The current custom parameter set of the criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 38,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 39,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 40,
         
-        /// <summary>
-        /// An alphanumeric identifier defined by the merchant to uniquely identify each local store.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocalStoreCode = 41,
         
-        /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 42,
         
-        /// <summary>
-        /// Clicks on your ads that have received co-bids from your manufacturer partners.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 43,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 44,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 45,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 46,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 47,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 48,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 49,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 50,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 51,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 52,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 53,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 54,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 55,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 56,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversionsQualified = 57,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 58,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 59,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 60,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 61,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 62,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 63,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 64,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the product search query performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-13">ProductSearchQueryPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductSearchQueryPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -21570,9 +14660,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -21590,9 +14677,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -21610,9 +14694,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for ads that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -21630,9 +14711,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified ad types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdTypeReportFilter> AdType
         {
@@ -21650,9 +14728,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -21670,9 +14745,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for campaigns that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -21690,9 +14762,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// If the value of this element is set to true, search terms that had one or more ad impressions but resulted in zero clicks in the specified time duration will be excluded from the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool ExcludeZeroClicks
         {
@@ -21710,9 +14779,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -21730,9 +14796,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified search query strings.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchQueries
         {
@@ -21762,483 +14825,240 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductSearchQueryPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-13">ProductSearchQueryPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productsearchqueryperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductSearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductSearchQueryPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductSearchQueryPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 2,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 7,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 8,
         
-        /// <summary>
-        /// The destination URL attribute of the ad, keyword, or ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DestinationUrl = 9,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 10,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 11,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
         
-        /// <summary>
-        /// The search term used by your potential audience.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchQuery = 13,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 14,
         
-        /// <summary>
-        /// The unique identifier provided by a merchant for each product offer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 15,
         
-        /// <summary>
-        /// The product item name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Title = 16,
         
-        /// <summary>
-        /// The click type ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickTypeId = 17,
         
-        /// <summary>
-        /// The number of clicks when this ad element was present in the ad copy, whether this or another ad element was clicked on.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TotalClicksOnAdElements = 18,
         
-        /// <summary>
-        /// Click type refers to each component of an ad that a customer can click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickType = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 20,
         
-        /// <summary>
-        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 21,
         
-        /// <summary>
-        /// The product partition type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartitionType = 22,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 23,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 24,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 25,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 26,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 27,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 28,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 29,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 30,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 31,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 33,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 34,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 35,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 36,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 37,
         
-        /// <summary>
-        /// The number of times an ad that is being co-bid by your manufacturer partners has been displayed on search results pages or other sites on the Microsoft Advertising Network.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedImpressions = 38,
         
-        /// <summary>
-        /// Clicks on your ads that have received co-bids from your manufacturer partners.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedClicks = 39,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversions = 40,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 41,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 42,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 43,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 44,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 45,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 46,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 48,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 49,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 50,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssistedConversionsQualified = 51,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 53,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 54,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 55,
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the ProductMatchCountReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productmatchcountreportcolumn?view=bingads-13">ProductMatchCountReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productmatchcountreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductMatchCountReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductMatchCountReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductMatchCountReportColumn : int
     {
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 0,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 8,
         
-        /// <summary>
-        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 9,
         
-        /// <summary>
-        /// The product partition type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartitionType = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 11,
         
-        /// <summary>
-        /// The number of products per campaign that matched your product group targets.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtCampaign = 12,
         
-        /// <summary>
-        /// The number of products per ad group that matched your product group targets.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtAdGroup = 13,
         
-        /// <summary>
-        /// The number of products per product group that matched your product group targets.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MatchedProductsAtProductGroup = 14,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 15,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 16,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 17,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the product negative keyword conflict report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportfilter?view=bingads-13">ProductNegativeKeywordConflictReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductNegativeKeywordConflictReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -22273,9 +15093,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for accounts with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -22293,9 +15110,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for ad groups with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -22313,9 +15127,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -22333,9 +15144,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for campaigns with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -22365,164 +15173,81 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes columns that you can include in the ProductNegativeKeywordConflictReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportcolumn?view=bingads-13">ProductNegativeKeywordConflictReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/productnegativekeywordconflictreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="ProductNegativeKeywordConflictReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ProductNegativeKeywordConflictReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ProductNegativeKeywordConflictReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The current account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The current campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 6,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The current ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 9,
         
-        /// <summary>
-        /// The unique identifier provided by a merchant for each product offer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MerchantProductId = 10,
         
-        /// <summary>
-        /// The product item name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Title = 11,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupCriterionId = 12,
         
-        /// <summary>
-        /// The backward slash delimited list of product conditions, reported as Operand = Attribute.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProductGroup = 13,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a negative keyword.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordId = 14,
         
-        /// <summary>
-        /// The negative keyword text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeyword = 15,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a negative keyword list.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordListId = 16,
         
-        /// <summary>
-        /// The entity level where the keyword and negative keyword conflict occurs.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConflictLevel = 17,
         
-        /// <summary>
-        /// The type of match to compare the negative keyword and the user's search term.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NegativeKeywordMatchType = 18,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 20,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 21,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 22,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the call detail report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/calldetailreportfilter?view=bingads-13">CallDetailReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/calldetailreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CallDetailReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -22554,9 +15279,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -22574,9 +15296,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -22594,9 +15313,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -22626,116 +15342,57 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the CallDetailReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/calldetailreportcolumn?view=bingads-13">CallDetailReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/calldetailreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CallDetailReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CallDetailReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CallDetailReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 1,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 2,
         
-        /// <summary>
-        /// The start time of the call expressed in Coordinated Universal Time (UTC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartTime = 3,
         
-        /// <summary>
-        /// The end time of the call expressed in Coordinated Universal Time (UTC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EndTime = 4,
         
-        /// <summary>
-        /// The duration of each forwarded call that originated from a call ad extension.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Duration = 5,
         
-        /// <summary>
-        /// The area code where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AreaCode = 6,
         
-        /// <summary>
-        /// The city used to deliver the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 7,
         
-        /// <summary>
-        /// The state used to deliver the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 9,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 11,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 12,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 13,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 14,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the geographic performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportfilter?view=bingads-13">GeographicPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeographicPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -22779,9 +15436,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -22799,9 +15453,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified distribution medium.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdDistributionReportFilter> AdDistribution
         {
@@ -22819,9 +15470,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -22839,9 +15487,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -22859,9 +15504,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -22879,9 +15521,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -22899,9 +15538,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -22931,434 +15567,216 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the GeographicPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportcolumn?view=bingads-13">GeographicPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/geographicperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="GeographicPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GeographicPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum GeographicPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The country or region where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 8,
         
-        /// <summary>
-        /// The state where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 9,
         
-        /// <summary>
-        /// The metro area (Microsoft Market Area in the United States) where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MetroArea = 10,
         
-        /// <summary>
-        /// The city where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 11,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 12,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 13,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 14,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 15,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 16,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 17,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 18,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 19,
         
-        /// <summary>
-        /// The radius target bid name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProximityTargetLocation = 20,
         
-        /// <summary>
-        /// The radius of a radius target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Radius = 21,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 22,
         
-        /// <summary>
-        /// The keyword bid match type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidMatchType = 23,
         
-        /// <summary>
-        /// The match type used to deliver an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeliveredMatchType = 24,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, cross-network traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 25,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 26,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 27,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 28,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 29,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 30,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 31,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 33,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 34,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 35,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 36,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 37,
         
-        /// <summary>
-        /// The location type used to deliver ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationType = 38,
         
-        /// <summary>
-        /// The most specific location used to deliver ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MostSpecificLocation = 39,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 40,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 41,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 42,
         
-        /// <summary>
-        /// The county where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         County = 43,
         
-        /// <summary>
-        /// The postal code where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PostalCode = 44,
         
-        /// <summary>
-        /// The Microsoft Advertising identifier of the location where the user was physically located when they clicked the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LocationId = 45,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an experiment campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseCampaignId = 46,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 47,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 48,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 49,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 50,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 51,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 52,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 53,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 54,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 55,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 56,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 57,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 58,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 59,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 60,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 61,
         
-        /// <summary>
-        /// The neighborhood where an ad was physically served, or the neighborhood that your customer had shown interest in through searches or content they had viewed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Neighborhood = 62,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 63,
         
-        /// <summary>
-        /// The campaign type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 64,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 65,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 66,
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 67,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the DSA search query performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-13">DSASearchQueryPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSASearchQueryPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -23405,9 +15823,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -23425,9 +15840,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -23445,9 +15857,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for ads that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -23465,9 +15874,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for campaigns that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -23485,9 +15891,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// If the value of this element is set to true, search terms that had one or more ad impressions but resulted in zero clicks in the specified time duration will be excluded from the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public bool ExcludeZeroClicks
         {
@@ -23505,9 +15908,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The feed URL will appear either as "True" or "False".
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> FeedUrl
         {
@@ -23525,9 +15925,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -23545,9 +15942,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified search query strings.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchQueries
         {
@@ -23577,374 +15971,186 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the DSASearchQueryPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-13">DSASearchQueryPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/dsasearchqueryperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSASearchQueryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSASearchQueryPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DSASearchQueryPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 6,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 9,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 12,
         
-        /// <summary>
-        /// The search term used by your potential audience.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchQuery = 13,
         
-        /// <summary>
-        /// The Dynamic Search Ad headline that was dynamically generated by Microsoft Advertising.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline = 14,
         
-        /// <summary>
-        /// The list of categories that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CategoryList = 15,
         
-        /// <summary>
-        /// The title of your webpage where the search user landed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LandingPageTitle = 16,
         
-        /// <summary>
-        /// The URL address of the page on your website that people reach when they click your ad from a desktop or laptop.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrl = 17,
         
-        /// <summary>
-        /// The dynamic ad target or webpage condition that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTarget = 18,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTargetId = 19,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 20,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 21,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 22,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 23,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 24,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 25,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 26,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 27,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 28,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 29,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 30,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 31,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 32,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 33,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 34,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 35,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 36,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 37,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 38,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 39,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 40,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 41,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 42,
         
-        /// <summary>
-        /// The feed URL will appear either as "True" or "False".
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FeedUrl = 43,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 44,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 45,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 46,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 47,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 48,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 49,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 50,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 51,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 52,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 53,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 54,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 55,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 56,
         
-        /// <summary>
-        /// The dynamic search ad text automatically generated by Microsoft Advertising when DynamicDescriptionEnabled is set to true.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Description = 57,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the DSA auto target performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportfilter?view=bingads-13">DSAAutoTargetPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSAAutoTargetPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -23985,9 +16191,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -24005,9 +16208,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -24025,9 +16225,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified bid strategy types.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.BidStrategyTypeReportFilter> BidStrategyType
         {
@@ -24045,9 +16242,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for campaigns that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -24065,9 +16259,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the dynamic ad targets that have the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DynamicAdTargetStatusReportFilter> DynamicAdTargetStatus
         {
@@ -24085,9 +16276,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -24117,400 +16305,199 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the DSAAutoTargetPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-13">DSAAutoTargetPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/dsaautotargetperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSAAutoTargetPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSAAutoTargetPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DSAAutoTargetPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 6,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 9,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 10,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 11,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 12,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 13,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 14,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 15,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 16,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 17,
         
-        /// <summary>
-        /// The current tracking template of the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TrackingTemplate = 18,
         
-        /// <summary>
-        /// The current custom parameters of the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 19,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of the dynamic ad target, also known in Campaign Management and Bulk API as the ad group criterion ID.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTargetId = 20,
         
-        /// <summary>
-        /// The dynamic ad target or webpage condition that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTarget = 21,
         
-        /// <summary>
-        /// The current status of the dynamic ad target.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DynamicAdTargetStatus = 22,
         
-        /// <summary>
-        /// A score from 0.0 to 1.0 that indicates the percentage of pages in the requested language that belong to a particular domain out of all the pages that Bing has indexed for the same language your website's domain.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WebsiteCoverage = 23,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 24,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 25,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 26,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 27,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 28,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 29,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 30,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 31,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 32,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 33,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 34,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 35,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 36,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 37,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 38,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 39,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 40,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 41,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 42,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 43,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 44,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 45,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 46,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 47,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 48,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 49,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 50,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 51,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 52,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 53,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 54,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 55,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalId = 56,
     }
     
-    /// <summary>
-    /// Defines the dynamic ad target status values that you can use to filter the report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-13">DynamicAdTargetStatusReportFilter Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/dynamicadtargetstatusreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSAAutoTargetPerformanceReportFilter"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="DynamicAdTargetStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DynamicAdTargetStatusReportFilter : int
     {
         
-        /// <summary>
-        /// The report will contain dynamic ad targets that are active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The report will contain dynamic ad targets that are paused.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Paused = 2,
         
-        /// <summary>
-        /// The report will contain dynamic ad targets that have been deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 4,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the DSA category performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13">DSACategoryPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSACategoryPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -24548,9 +16535,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -24568,9 +16552,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -24588,9 +16569,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for ads that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdStatusReportFilter> AdStatus
         {
@@ -24608,9 +16586,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for campaigns that have the specified status value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -24628,9 +16603,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only websites that used the specified languages.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.LanguageReportFilter> Language
         {
@@ -24660,344 +16632,171 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the DSACategoryPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportcolumn?view=bingads-13">DSACategoryPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/dsacategoryperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="DSACategoryPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DSACategoryPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum DSACategoryPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned number of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 3,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 6,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 7,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 8,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 9,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 10,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 11,
         
-        /// <summary>
-        /// The ad status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdStatus = 12,
         
-        /// <summary>
-        /// The top level category that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category0 = 13,
         
-        /// <summary>
-        /// The mid level category that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category1 = 14,
         
-        /// <summary>
-        /// The low level category that Bing matched to your website.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category2 = 15,
         
-        /// <summary>
-        /// The network where you want your ads to show.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdDistribution = 16,
         
-        /// <summary>
-        /// The language of the publisher where the ad was shown.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Language = 17,
         
-        /// <summary>
-        /// The entire Microsoft Advertising Network made up of Microsoft sites and select traffic, and only partner traffic (this network type is deprecated as of July 2024).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Network = 18,
         
-        /// <summary>
-        /// Indicates whether the ad impression appeared in a top position or elsewhere.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopVsOther = 19,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 20,
         
-        /// <summary>
-        /// The operating system of the device reported in the DeviceType column.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceOS = 21,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 22,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 23,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 24,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 25,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 26,
         
-        /// <summary>
-        /// The average position of the ad on a webpage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AveragePosition = 27,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 28,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 29,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerConversion = 30,
         
-        /// <summary>
-        /// The number of conversions from other ads within the same account that were preceded by one or more clicks from this ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Assists = 31,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 32,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 33,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 34,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 35,
         
-        /// <summary>
-        /// The revenue per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAssist = 36,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversions = 37,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenue = 38,
         
-        /// <summary>
-        /// The conversion rate as a percentage.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionRate = 39,
         
-        /// <summary>
-        /// The cost per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllCostPerConversion = 40,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllReturnOnAdSpend = 41,
         
-        /// <summary>
-        /// The revenue per conversion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllRevenuePerConversion = 42,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversions = 43,
         
-        /// <summary>
-        /// The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Goal = 44,
         
-        /// <summary>
-        /// The type of conversion goal.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GoalType = 45,
         
-        /// <summary>
-        /// How often your ad was in the first position of all results, as a percentage of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbsoluteTopImpressionRatePercent = 46,
         
-        /// <summary>
-        /// The percentage of times your ad showed in the mainline, the top placement where ads appear above the search results, out of your total impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TopImpressionRatePercent = 47,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 48,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionsQualified = 49,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AllConversionsQualified = 50,
         
-        /// <summary>
-        /// View-through conversions are conversions that people make after they have seen your ad, even though they did not click the ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughConversionsQualified = 51,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of view-through conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 52,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the hotel dimension performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportfilter?view=bingads-13">HotelDimensionPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="HotelDimensionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelDimensionPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -25032,9 +16831,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -25052,9 +16848,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -25072,9 +16865,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -25092,9 +16882,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -25124,422 +16911,210 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the HotelDimensionPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportcolumn?view=bingads-13">HotelDimensionPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/hoteldimensionperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="HotelDimensionPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelDimensionPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum HotelDimensionPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 1,
         
-        /// <summary>
-        /// The name of the customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 2,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 4,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 9,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 10,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 11,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 12,
         
-        /// <summary>
-        /// The identifier of the source hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SourceHotelId = 13,
         
-        /// <summary>
-        /// The identifier of the lodging campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignHotelId = 14,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an advertiser hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdvertiserHotelId = 15,
         
-        /// <summary>
-        /// The name of the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelName = 16,
         
-        /// <summary>
-        /// The name of the country where the hotel is located.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CountryName = 17,
         
-        /// <summary>
-        /// The name of the state where the hotel is located.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         State = 18,
         
-        /// <summary>
-        /// The city where the hotel is located.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         City = 19,
         
-        /// <summary>
-        /// The hotel chain's brand.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brand = 20,
         
-        /// <summary>
-        /// A user-defined category that identifies the type of hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Category = 21,
         
-        /// <summary>
-        /// The hotel's star rating.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StarRating = 22,
         
-        /// <summary>
-        /// The value of the Custom_0 field in your Microsoft Hotel Center feed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel0 = 23,
         
-        /// <summary>
-        /// The value of the Custom_1 field in your Microsoft Hotel Center feed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel1 = 24,
         
-        /// <summary>
-        /// The value of the Custom_2 field in your Microsoft Hotel Center feed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel2 = 25,
         
-        /// <summary>
-        /// The value of the Custom_3 field in your Microsoft Hotel Center feed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel3 = 26,
         
-        /// <summary>
-        /// The value of the Custom_4 field in your Microsoft Hotel Center feed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLabel4 = 27,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 28,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 29,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 30,
         
-        /// <summary>
-        /// Defines a key and value custom parameter for URL tracking.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 31,
         
-        /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 32,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 33,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 34,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 35,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 36,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 37,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 38,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 39,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 40,
         
-        /// <summary>
-        /// The net revenue.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetRevenue = 41,
         
-        /// <summary>
-        /// The gross return on ad spend.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GrossReturnOnAdSpend = 42,
         
-        /// <summary>
-        /// The net return on ad spend.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetReturnOnAdSpend = 43,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 44,
         
-        /// <summary>
-        /// The booked length of stay in number of days.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookedLengthOfStay = 45,
         
-        /// <summary>
-        /// The average advanced booking window for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedABW = 46,
         
-        /// <summary>
-        /// The average nights booked for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedNights = 47,
         
-        /// <summary>
-        /// The total advanced booking window days for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookedABW = 48,
         
-        /// <summary>
-        /// The check-in date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CheckInDate = 49,
         
-        /// <summary>
-        /// Indicates whether the user searched for hotels using specific dates.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DateType = 50,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages on our partner networks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartnerImpressions = 51,
         
-        /// <summary>
-        /// The total number of realized and unrealized impressions (impressions plus missed impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EligibleImpressions = 52,
         
-        /// <summary>
-        /// The total number of impressions lost.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressions = 53,
         
-        /// <summary>
-        /// The percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionShare = 54,
         
-        /// <summary>
-        /// The number of impressions lost because there were no bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoBid = 55,
         
-        /// <summary>
-        /// The number of impressions lost because you reached your daily spending limit.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsSpendingCapReached = 56,
         
-        /// <summary>
-        /// The number of impressions lost because the hotel didn't specify taxes.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoTax = 57,
         
-        /// <summary>
-        /// The number of impressions lost for all other reasons.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsOther = 58,
         
-        /// <summary>
-        /// The check-in date and day of the week.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CheckInDateDayOfWeek = 59,
         
-        /// <summary>
-        /// The length of stay in nights.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LengthOfStay = 60,
         
-        /// <summary>
-        /// The number of days before the check-in date that the user is asking to book the hotel room.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdvancedBookingWindow = 61,
         
-        /// <summary>
-        /// The Bing website that users used to search for hotels.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SiteType = 62,
         
-        /// <summary>
-        /// The country of location for the user.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UserCountry = 63,
         
-        /// <summary>
-        /// The estimated percentage of clicks, out of the total number of clicks available, in auctions your ad showed in or was competitive in.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 64,
         
-        /// <summary>
-        /// The number of impressions lost because there were insufficient bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 65,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the hotel group performance report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportfilter?view=bingads-13">HotelGroupPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="HotelGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelGroupPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -25574,9 +17149,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -25594,9 +17166,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the ad group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -25614,9 +17183,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -25634,9 +17200,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified types of devices on which the ad is displayed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.DeviceTypeReportFilter> DeviceType
         {
@@ -25666,320 +17229,159 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the HotelGroupPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportcolumn?view=bingads-13">HotelGroupPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/hotelgroupperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="HotelGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HotelGroupPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum HotelGroupPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 1,
         
-        /// <summary>
-        /// The name of the customer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 2,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 4,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 5,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 8,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 9,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 10,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 11,
         
-        /// <summary>
-        /// The ad group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 12,
         
-        /// <summary>
-        /// A group of hotel ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelGroup = 13,
         
-        /// <summary>
-        /// The identifier for a hotel group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HotelGroupNodeId = 14,
         
-        /// <summary>
-        /// The type of hotel partition, for example Subdivision or Unit.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartitionType = 15,
         
-        /// <summary>
-        /// The bid strategy type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BidStrategyType = 16,
         
-        /// <summary>
-        /// The device name attribute of a device OS target bid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DeviceType = 17,
         
-        /// <summary>
-        /// The account currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CurrencyCode = 18,
         
-        /// <summary>
-        /// The current custom parameter set of the criterion.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomParameters = 19,
         
-        /// <summary>
-        /// The final URL suffix can include tracking parameters that will be appended to the end of your landing page URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinalUrlSuffix = 20,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 21,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 22,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 23,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 24,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 25,
         
-        /// <summary>
-        /// The total advertising cost divided by the number of impressions (in thousands).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpm = 26,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 27,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 28,
         
-        /// <summary>
-        /// The net revenue.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetRevenue = 29,
         
-        /// <summary>
-        /// The gross return on ad spend.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GrossReturnOnAdSpend = 30,
         
-        /// <summary>
-        /// The net return on ad spend.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NetReturnOnAdSpend = 31,
         
-        /// <summary>
-        /// The cost per assist.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CostPerAssist = 32,
         
-        /// <summary>
-        /// The booked length of stay in number of nights.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookedLengthOfStay = 33,
         
-        /// <summary>
-        /// The average advanced booking window for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedABW = 34,
         
-        /// <summary>
-        /// The average nights booked for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AvgBookedNights = 35,
         
-        /// <summary>
-        /// The total advanced booking window days for the hotel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BookedABW = 36,
         
-        /// <summary>
-        /// The check-in date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CheckInDate = 37,
         
-        /// <summary>
-        /// Indicates whether the user searched for hotels using specific dates.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DateType = 38,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages on our partner networks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PartnerImpressions = 39,
         
-        /// <summary>
-        /// The total number of realized and unrealized impressions (impressions plus missed impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EligibleImpressions = 40,
         
-        /// <summary>
-        /// The total number of impressions lost.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressions = 41,
         
-        /// <summary>
-        /// The percentage of impressions, out of the total available impressions in the market you were targeting.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionShare = 42,
         
-        /// <summary>
-        /// The number of impressions lost because there were no bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoBid = 43,
         
-        /// <summary>
-        /// The number of impressions lost because you reached your daily spending limit.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsSpendingCapReached = 44,
         
-        /// <summary>
-        /// The number of impressions lost because the hotel didn't specify taxes.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsNoTax = 45,
         
-        /// <summary>
-        /// The number of impressions lost for all other reasons.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsOther = 46,
         
-        /// <summary>
-        /// The estimated percentage of clicks, out of the total number of clicks available, in auctions your ad showed in or was competitive in.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClickShare = 47,
         
-        /// <summary>
-        /// The number of impressions lost because there were insufficient bids.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 48,
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupPerformanceReportFilter.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13">AssetGroupPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26011,9 +17413,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -26031,9 +17430,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -26051,9 +17447,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -26083,13 +17476,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a AccountThroughAssetGroupReportScope data object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13">AccountThroughAssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/accountthroughassetgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountThroughAssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26121,9 +17507,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A list of up to 1,000 account identifiers to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -26141,9 +17524,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Array of asset groups to update for the specified campaign.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AssetGroupReportScope> AssetGroups
         {
@@ -26161,9 +17541,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// list of up to 300 campaigns to include in the report.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.CampaignReportScope> Campaigns
         {
@@ -26193,134 +17570,66 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a value set for AssetGroupPerformanceReportColumn.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13">AssetGroupPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetGroupPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetGroupPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 1,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 3,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 4,
         
-        /// <summary>
-        /// The account status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 5,
         
-        /// <summary>
-        /// The campaign status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 7,
         
-        /// <summary>
-        /// The asset group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 8,
         
-        /// <summary>
-        /// The current asset group status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 9,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 10,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 11,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 12,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 13,
         
-        /// <summary>
-        /// The average cost per click (CPC).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AverageCpc = 14,
         
-        /// <summary>
-        /// The number of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 15,
         
-        /// <summary>
-        /// The revenue optionally reported by the advertiser as a result of conversions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 16,
         
-        /// <summary>
-        /// The return on ad spend (ROAS).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 17,
     }
     
-    /// <summary>
-    /// Defines a data object for AssetGroupReportScope.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13">AssetGroupReportScope Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/assetgroupreportscope?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountThroughAssetGroupReportScope"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupReportScope", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26349,9 +17658,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The ID of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long AccountId
         {
@@ -26369,9 +17675,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The ID of the campaign.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long CampaignId
         {
@@ -26389,9 +17692,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The ID of the asset group.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public long AssetGroupId
         {
@@ -26421,13 +17721,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a data object for SearchInsightPerformanceReportFilter.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportfilter?view=bingads-13">SearchInsightPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchInsightPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26468,9 +17761,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for accounts with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
         {
@@ -26488,9 +17778,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for ad groups with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatus
         {
@@ -26508,9 +17795,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the asset group status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
         {
@@ -26528,9 +17812,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will only include data for campaigns with the specified status.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
         {
@@ -26548,9 +17829,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchCategory
         {
@@ -26568,9 +17846,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> SearchQueries
         {
@@ -26600,345 +17875,171 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the SearcyhInsightPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportcolumn?view=bingads-13">SearchInsightPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/searchinsightperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="SearchInsightPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SearchInsightPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum SearchInsightPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountNumber = 1,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 2,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 3,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 5,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 7,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignStatus = 8,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 9,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 10,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 11,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 12,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchQuery = 13,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 14,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 15,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 16,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 17,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerConversion = 18,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountStatus = 19,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupStatus = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerId = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 22,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 23,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 24,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 25,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchCategory = 26,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchVolume = 27,
     }
     
-    /// <summary>
-    /// |Defines the attributes and performance statistics columns that you can include in the AssetPerformanceReportRequest.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportcolumn?view=bingads-13">AssetPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/assetperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="AssetPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AssetPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum AssetPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// The time period of each report row.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of a campaign.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
         
-        /// <summary>
-        /// The campaign name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an ad group.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 5,
         
-        /// <summary>
-        /// The ad group name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 6,
         
-        /// <summary>
-        /// The Microsoft Advertising assigned identifier of an asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetId = 7,
         
-        /// <summary>
-        /// The content of the asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetContent = 8,
         
-        /// <summary>
-        /// A string that indicates the role this asset plays in the ad (e.g, Headline, Description, Call to Action, Image).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetType = 9,
         
-        /// <summary>
-        /// A string, which is either "Advertiser Provided" or "Autogenerated", which indicates the source of the asset.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetSource = 10,
         
-        /// <summary>
-        /// The number of times an ad has been displayed on search results pages.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 11,
         
-        /// <summary>
-        /// Clicks are what you pay for.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 12,
         
-        /// <summary>
-        /// The click-through rate (CTR) is the number of times an ad was clicked, divided by the number of times the ad was shown (impressions).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 13,
         
-        /// <summary>
-        /// The cost per click (CPC) summed for each click.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 14,
         
-        /// <summary>
-        /// The number of times a potential customer watched the video in its entirety.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViews = 15,
         
-        /// <summary>
-        /// The number of times a user completed at least 25% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt25Percent = 16,
         
-        /// <summary>
-        /// The number of times a user completed at least 50% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt50Percent = 17,
         
-        /// <summary>
-        /// The number of times a user completed at least 75% of the video (measured directly).
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoViewsAt75Percent = 18,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CompletedVideoViews = 19,
         
-        /// <summary>
-        /// Completed video views divided by total number of impressions.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VideoCompletionRate = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Revenue = 22,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the category insights report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13">CategoryInsightsReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -26973,9 +18074,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -26993,9 +18091,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A particular supply sector, such as Travel and Tourism or Apparel.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L1Vertical
         {
@@ -27013,9 +18108,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A more detailed segment of an L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L2Vertical
         {
@@ -27033,9 +18125,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The most specific segment within a larger L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L3Vertical
         {
@@ -27065,128 +18154,63 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the CategoryInsightsReportColumn.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13">CategoryInsightsReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryinsightsreportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryInsightsReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryInsightsReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CategoryInsightsReportColumn : int
     {
         
-        /// <summary>
-        /// A particular supply sector, such as Travel and Tourism or Apparel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L1Vertical = 0,
         
-        /// <summary>
-        /// A more detailed segment of an L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L2Vertical = 1,
         
-        /// <summary>
-        /// The most specific segment within a larger L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L3Vertical = 2,
         
-        /// <summary>
-        /// The date range for the week that your data is from starting with Monday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WeekStartingMonday = 3,
         
-        /// <summary>
-        /// The change in search volume from last week to this week.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WoWSearches = 4,
         
-        /// <summary>
-        /// The change in search volume from the last four-week period to the current four-week period.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoMSearches = 5,
         
-        /// <summary>
-        /// The change in search volume between this week and the same week last year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast1WeekSearches = 6,
         
-        /// <summary>
-        /// The change in search volume between the current four weeks and the same four-week period last year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast4WeeksSearches = 7,
         
-        /// <summary>
-        /// The number of indexed searches.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchesIndexed = 8,
         
-        /// <summary>
-        /// Peak week represents the week with the highest search volume within your selected date range.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SearchesPeakWeek = 9,
         
-        /// <summary>
-        /// The change in click volume from last week to this week.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WoWClicks = 10,
         
-        /// <summary>
-        /// The change in click volume from the last four-week period to the current four-week period.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoMClicks = 11,
         
-        /// <summary>
-        /// The change in click volume between this week and the same week last year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast1WeekClicks = 12,
         
-        /// <summary>
-        /// The number of indexed clicks.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClicksIndexed = 13,
         
-        /// <summary>
-        /// Peak week represents the week with the highest click volume within your selected date range.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClicksPeakWeek = 14,
         
-        /// <summary>
-        /// The change in click volume between the current four weeks and the same four-week period last year.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YoYLast4WeeksClicks = 15,
         
-        /// <summary>
-        /// The country-specific Bing marketplace, such as Bing France or Bing India.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 16,
     }
     
-    /// <summary>
-    /// Defines the criteria to use to filter the category click coverage report data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13">CategoryClickCoverageReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -27221,9 +18245,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The report will include data for only the specified countries/regions where the user that clicked the ad is located.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> CountryCode
         {
@@ -27241,9 +18262,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A particular supply sector, such as Travel and Tourism or Apparel.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L1Vertical
         {
@@ -27261,9 +18279,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A more detailed segment of an L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L2Vertical
         {
@@ -27281,9 +18296,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The most specific segment within a larger L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<string> L3Vertical
         {
@@ -27313,80 +18325,39 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the attributes and performance statistics columns that you can include in the CategoryClickCoverageReportColumn.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13">CategoryClickCoverageReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/categoryclickcoveragereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CategoryClickCoverageReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CategoryClickCoverageReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CategoryClickCoverageReportColumn : int
     {
         
-        /// <summary>
-        /// The account name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 0,
         
-        /// <summary>
-        /// The customer name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomerName = 1,
         
-        /// <summary>
-        /// A particular supply sector, such as Travel and Tourism or Apparel.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L1Vertical = 2,
         
-        /// <summary>
-        /// A more detailed segment of an L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L2Vertical = 3,
         
-        /// <summary>
-        /// The most specific segment within a larger L1 vertical.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         L3Vertical = 4,
         
-        /// <summary>
-        /// The date range for the week that your data is from starting with Monday.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WeekStartingMonday = 5,
         
-        /// <summary>
-        /// The percentage of clicks your account(s) received compared to the total number of clicks by all advertisers for a specific L1 ? L3 slice.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MarketplaceClickCoverage = 6,
         
-        /// <summary>
-        /// The country-specific Bing marketplace, such as Bing France or Bing India.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Country = 7,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProportionOfSpend = 8,
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportfilter?view=bingads-13">CombinationPerformanceReportFilter Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportfilter?view=bingads-13 for details.
-    /// <para>Used by <see cref="CombinationPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -27421,175 +18392,328 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Reserved.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportcolumn?view=bingads-13">CombinationPerformanceReportColumn Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/combinationperformancereportcolumn?view=bingads-13 for details.
-    /// <para>Used by <see cref="CombinationPerformanceReportRequest"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CombinationPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum CombinationPerformanceReportColumn : int
     {
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TimePeriod = 0,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountId = 1,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountName = 2,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignId = 3,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignName = 4,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignType = 5,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupId = 6,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupName = 7,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupId = 8,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 9,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdId = 10,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdType = 11,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline1 = 12,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline2 = 13,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Headline3 = 14,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CombinationLongHeadline = 15,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Description1 = 16,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Description2 = 17,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Image = 18,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Logo = 19,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Impressions = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Clicks = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spend = 22,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ctr = 23,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Conversions = 24,
     }
     
-    /// <summary>
-    /// Defines the base object from which all Reporting fault detail objects derive.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/applicationfault?view=bingads-13 for details.
-    /// </remarks>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppsPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class AppsPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AccountStatusReportFilter> AccountStatus
+        {
+            get
+            {
+                return this.AccountStatusField;
+            }
+            set
+            {
+                if ((this.AccountStatusField.Equals(value) != true))
+                {
+                    this.AccountStatusField = value;
+                    this.RaisePropertyChanged("AccountStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatus
+        {
+            get
+            {
+                return this.CampaignStatusField;
+            }
+            set
+            {
+                if ((this.CampaignStatusField.Equals(value) != true))
+                {
+                    this.CampaignStatusField = value;
+                    this.RaisePropertyChanged("CampaignStatus");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AppsPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum AppsPerformanceReportColumn : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountStatus = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignStatus = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CurrencyCode = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Language = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BidStrategyType = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Goal = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GoalType = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 19,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 20,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpm = 21,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 22,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 24,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 25,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 26,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 27,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversions = 28,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionRate = 29,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughCostPerConversion = 30,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Downloads = 31,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickDownloadRate = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerDownload = 33,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstalls = 34,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickInstallRate = 35,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPI = 36,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Purchases = 37,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallPurchaseRate = 38,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPP = 39,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscriptions = 40,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallSubscriptionRate = 41,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPS = 42,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 43,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 44,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerDownload = 45,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAppInstall = 46,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
@@ -27617,9 +18741,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The identifier of the log entry that contains the details of the API call.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingId
         {
@@ -27649,12 +18770,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Reporting API fault detail object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/apifaultdetail?view=bingads-13">ApiFaultDetail Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/apifaultdetail?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiFaultDetail", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -27668,9 +18783,6 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.OperationError> OperationErrorsField;
         
-        /// <summary>
-        /// An array of batch errors that identifies the items in the batch of items in the request message that caused the operation to fail.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.BatchError> BatchErrors
         {
@@ -27688,9 +18800,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// An array of operation errors that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.OperationError> OperationErrors
         {
@@ -27709,12 +18818,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Reporting Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adapifaultdetail?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
@@ -27725,9 +18828,6 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdApiError> ErrorsField;
         
-        /// <summary>
-        /// An array of AdApiError objects that contains the details that explain why the service operation failed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.AdApiError> Errors
         {
@@ -27746,13 +18846,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Reporting Ad API error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/adapierror?view=bingads-13">AdApiError Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/adapierror?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
@@ -27787,9 +18880,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
         {
@@ -27807,9 +18897,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that contains additional details about the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
         {
@@ -27827,9 +18914,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A symbolic string constant that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
         {
@@ -27847,9 +18931,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -27879,13 +18960,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Reporting batch error object that identifies the item within the batch of items in the request message that caused the operation to fail, and describes the reason for the failure.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/batcherror?view=bingads-13">BatchError Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/batcherror?view=bingads-13 for details.
-    /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BatchError", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -27923,9 +18997,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
         {
@@ -27943,9 +19014,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that provides additional details about the batch error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
         {
@@ -27963,9 +19031,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A symbolic string constant that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
         {
@@ -27983,9 +19048,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The zero-based index of the item in the batch of items in the request message that failed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Index
         {
@@ -28003,9 +19065,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -28035,13 +19094,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines a Reporting operation error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/operationerror?view=bingads-13">OperationError Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/operationerror?view=bingads-13 for details.
-    /// <para>Used by <see cref="ApiFaultDetail"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OperationError", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -28076,9 +19128,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
         {
@@ -28096,9 +19145,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that provides additional details about the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
         {
@@ -28116,9 +19162,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A symbolic string constant that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
         {
@@ -28136,9 +19179,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -28168,13 +19208,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the status of a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportrequeststatus?view=bingads-13">ReportRequestStatus Data Object</see> https:/learn.microsoft.com/advertising/reporting-service/reportrequeststatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportRequestStatus", Namespace="https://bingads.microsoft.com/Reporting/v13")]
@@ -28203,9 +19236,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The encoded URL from where the report can be downloaded.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ReportDownloadUrl
         {
@@ -28223,9 +19253,6 @@ namespace Microsoft.BingAds.V13.Reporting
             }
         }
         
-        /// <summary>
-        /// The status of a report request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.Reporting.ReportRequestStatusType Status
         {
@@ -28255,33 +19282,17 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Defines the status of a report.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/reportrequeststatustype?view=bingads-13">ReportRequestStatusType Value Set</see> https:/learn.microsoft.com/advertising/reporting-service/reportrequeststatustype?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportRequestStatus"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportRequestStatusType", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportRequestStatusType : int
     {
         
-        /// <summary>
-        /// An error occurred while generating the report.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Error = 0,
         
-        /// <summary>
-        /// The report was successfully completed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Success = 1,
         
-        /// <summary>
-        /// The report is not yet complete.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 2,
     }
@@ -28291,16 +19302,6 @@ namespace Microsoft.BingAds.V13.Reporting
     public interface IReportingService
     {
         
-        /// <summary>
-        /// Submits a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SubmitGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v13/IReportingService/SubmitGenerateRepor" +
             "tResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.Reporting.AdApiFaultDetail), Action="https://bingads.microsoft.com/Reporting/v13/IReportingService/SubmitGenerateRepor" +
@@ -28309,30 +19310,10 @@ namespace Microsoft.BingAds.V13.Reporting
             "tApiFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.Reporting.SubmitGenerateReportResponse SubmitGenerateReport(Microsoft.BingAds.V13.Reporting.SubmitGenerateReportRequest request);
         
-        /// <summary>
-        /// Submits a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SubmitGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v13/IReportingService/SubmitGenerateRepor" +
             "tResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.Reporting.SubmitGenerateReportResponse> SubmitGenerateReportAsync(Microsoft.BingAds.V13.Reporting.SubmitGenerateReportRequest request);
         
-        /// <summary>
-        /// Gets the status of a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Contains the status of the report request and the download URL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="PollGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v13/IReportingService/PollGenerateReportR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.Reporting.AdApiFaultDetail), Action="https://bingads.microsoft.com/Reporting/v13/IReportingService/PollGenerateReportA" +
@@ -28341,28 +19322,11 @@ namespace Microsoft.BingAds.V13.Reporting
             "piFaultDetailFault", Name="ApiFaultDetail")]
         Microsoft.BingAds.V13.Reporting.PollGenerateReportResponse PollGenerateReport(Microsoft.BingAds.V13.Reporting.PollGenerateReportRequest request);
         
-        /// <summary>
-        /// Gets the status of a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Contains the status of the report request and the download URL.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="PollGenerateReport", ReplyAction="https://bingads.microsoft.com/Reporting/v13/IReportingService/PollGenerateReportR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.Reporting.PollGenerateReportResponse> PollGenerateReportAsync(Microsoft.BingAds.V13.Reporting.PollGenerateReportRequest request);
     }
     
-    /// <summary>
-    /// Submits a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Request Object</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SubmitGenerateReportRequest", WrapperNamespace="https://bingads.microsoft.com/Reporting/v13", IsWrapped=true)]
@@ -28390,29 +19354,13 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The report request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13", Order=0)]
         public Microsoft.BingAds.V13.Reporting.ReportRequest ReportRequest;
         
-        /// <summary>
-        /// Constructor for the SubmitGenerateReportRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReportRequest</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
         public SubmitGenerateReportRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SubmitGenerateReportRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReportRequest</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ReportRequest">The report request.</param>
         public SubmitGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.Reporting.ReportRequest ReportRequest)
         {
             this.ApplicationToken = ApplicationToken;
@@ -28426,13 +19374,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Submits a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Response Object</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.SubmitGenerateReport">SubmitGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SubmitGenerateReportResponse", WrapperNamespace="https://bingads.microsoft.com/Reporting/v13", IsWrapped=true)]
@@ -28442,29 +19383,13 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The identifier of the report request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13", Order=0)]
         public string ReportRequestId;
         
-        /// <summary>
-        /// Constructor for the SubmitGenerateReportResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReportResponse</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
         public SubmitGenerateReportResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SubmitGenerateReportResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReportResponse</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ReportRequestId">The identifier of the report request.</param>
         public SubmitGenerateReportResponse(string TrackingId, string ReportRequestId)
         {
             this.TrackingId = TrackingId;
@@ -28472,13 +19397,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Gets the status of a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Request Object</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="PollGenerateReportRequest", WrapperNamespace="https://bingads.microsoft.com/Reporting/v13", IsWrapped=true)]
@@ -28506,29 +19424,13 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the report request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13", Order=0)]
         public string ReportRequestId;
         
-        /// <summary>
-        /// Constructor for the PollGenerateReportRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReportRequest</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
         public PollGenerateReportRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the PollGenerateReportRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReportRequest</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ReportRequestId">The identifier of the report request.</param>
         public PollGenerateReportRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string ReportRequestId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -28542,13 +19444,6 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
-    /// <summary>
-    /// Gets the status of a report request.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Response Object</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-    /// <para>Used by <see cref="ReportingServiceClient.PollGenerateReport">PollGenerateReport</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="PollGenerateReportResponse", WrapperNamespace="https://bingads.microsoft.com/Reporting/v13", IsWrapped=true)]
@@ -28558,29 +19453,13 @@ namespace Microsoft.BingAds.V13.Reporting
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Contains the status of the report request and the download URL.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Reporting/v13", Order=0)]
         public Microsoft.BingAds.V13.Reporting.ReportRequestStatus ReportRequestStatus;
         
-        /// <summary>
-        /// Constructor for the PollGenerateReportResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReportResponse</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
         public PollGenerateReportResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the PollGenerateReportResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReportResponse</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ReportRequestStatus">Contains the status of the report request and the download URL.</param>
         public PollGenerateReportResponse(string TrackingId, Microsoft.BingAds.V13.Reporting.ReportRequestStatus ReportRequestStatus)
         {
             this.TrackingId = TrackingId;
@@ -28622,61 +19501,21 @@ namespace Microsoft.BingAds.V13.Reporting
         {
         }
         
-        /// <summary>
-        /// Submits a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request.</returns>
         public Microsoft.BingAds.V13.Reporting.SubmitGenerateReportResponse SubmitGenerateReport(Microsoft.BingAds.V13.Reporting.SubmitGenerateReportRequest request)
         {
             return base.Channel.SubmitGenerateReport(request);
         }
         
-        /// <summary>
-        /// Submits a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13">SubmitGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/submitgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The identifier of the report request.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.Reporting.SubmitGenerateReportResponse> SubmitGenerateReportAsync(Microsoft.BingAds.V13.Reporting.SubmitGenerateReportRequest request)
         {
             return base.Channel.SubmitGenerateReportAsync(request);
         }
         
-        /// <summary>
-        /// Gets the status of a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Contains the status of the report request and the download URL.</returns>
         public Microsoft.BingAds.V13.Reporting.PollGenerateReportResponse PollGenerateReport(Microsoft.BingAds.V13.Reporting.PollGenerateReportRequest request)
         {
             return base.Channel.PollGenerateReport(request);
         }
         
-        /// <summary>
-        /// Gets the status of a report request.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13">PollGenerateReport Service Operation</see> https:/learn.microsoft.com/advertising/reporting-service/pollgeneratereport?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFaultDetail"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Contains the status of the report request and the download URL.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.Reporting.PollGenerateReportResponse> PollGenerateReportAsync(Microsoft.BingAds.V13.Reporting.PollGenerateReportRequest request)
         {
             return base.Channel.PollGenerateReportAsync(request);
