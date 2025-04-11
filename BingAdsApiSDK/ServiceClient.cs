@@ -53,8 +53,11 @@ using System.ServiceModel;
 using System.Threading.Tasks;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.V13.AdInsight;
+using Microsoft.BingAds.V13.Bulk;
+using Microsoft.BingAds.V13.CampaignManagement;
 using Microsoft.BingAds.V13.CustomerBilling;
 using Microsoft.BingAds.V13.CustomerManagement;
+using Microsoft.BingAds.V13.Reporting;
 
 namespace Microsoft.BingAds
 {
@@ -83,6 +86,14 @@ namespace Microsoft.BingAds
         {
             get
             {
+                // Remove disabling of SOAP for the following services. 
+                if (typeof(TService) == typeof(ICampaignManagementService) ||
+                    typeof(TService) == typeof(IBulkService) ||
+                    typeof(TService) == typeof(IReportingService))
+                {
+                    return false;
+                }
+
                 if (AppContext.TryGetSwitch($"Switch.BingAds.{typeof(TService).Name}.DisableRestApi", out var isSwitchOn) && isSwitchOn)
                 {
                     Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "AppContext switch");
