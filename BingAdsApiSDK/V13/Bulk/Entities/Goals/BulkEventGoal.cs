@@ -158,7 +158,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 {
                     switch (v)
                     {
-                        case "EqualsTo":
+                        case "EqualTo":
                             c.ConversionGoal.ValueOperator = ValueOperator.Equals;
                             break;
                         case "NoValue":

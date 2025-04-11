@@ -396,6 +396,13 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignBrandList, new EntityInfo(() => new BulkCampaignBrandListAssociation())},
                 {StringTable.AssetGroupUrlTarget, new EntityInfo(() => new BulkAssetGroupUrlTarget())},
                 {StringTable.NewCustomerAcquisitionGoal, new EntityInfo(() => new BulkNewCustomerAcquisitionGoal())},
+
+                {StringTable.AccountPlacementExclusionList, new EntityInfo(() => new BulkAccountPlacementExclusionList())},
+                {StringTable.AccountPlacementExclusionListItem, new EntityInfo(() => new BulkSharedListNegativeSite())},
+                {StringTable.CampaignAccountPlacementListAssociation, new EntityInfo(() => new BulkAccountPlacementExclusionListAssociation())},
+                {StringTable.AccountPlacementInclusionList, new EntityInfo(() => new BulkAccountPlacementInclusionList())},
+                {StringTable.AccountPlacementInclusionListItem, new EntityInfo(() => new BulkSharedListSite())},
+                {StringTable.CampaignAccountPlacementInclusionListAssociation, new EntityInfo(() => new BulkAccountPlacementInclusionListAssociation())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

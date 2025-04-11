@@ -171,7 +171,14 @@ public static partial class RestApiGeneration
             { typeof(AdGroupCriterion), static t => CustomizeAdGroupCriterion(t) },
             { typeof(AdGroupCriterionAction), static t => CustomizeAdGroupCriterionAction(t) },
             { typeof(AdGroupNegativeSites), static t => CustomizeAdGroupNegativeSites(t) },
+            { typeof(AdRecommendationCustomizedProperty), static t => CustomizeAdRecommendationCustomizedProperty(t) },
+            { typeof(AdRecommendationImageAssetProperty), static t => CustomizeAdRecommendationImageAssetProperty(t) },
+            { typeof(AdRecommendationImageRefineOperation), static t => CustomizeAdRecommendationImageRefineOperation(t) },
             { typeof(AdRecommendationImageSuggestion), static t => CustomizeAdRecommendationImageSuggestion(t) },
+            { typeof(AdRecommendationImageSuggestionMetadata), static t => CustomizeAdRecommendationImageSuggestionMetadata(t) },
+            { typeof(AdRecommendationMediaRefineResult), static t => CustomizeAdRecommendationMediaRefineResult(t) },
+            { typeof(AdRecommendationRefinedMedia), static t => CustomizeAdRecommendationRefinedMedia(t) },
+            { typeof(AdRecommendationTextAssetProperty), static t => CustomizeAdRecommendationTextAssetProperty(t) },
             { typeof(AdRecommendationTextRefineOperation), static t => CustomizeAdRecommendationTextRefineOperation(t) },
             { typeof(AdRecommendationTextRefineResult), static t => CustomizeAdRecommendationTextRefineResult(t) },
             { typeof(AdRecommendationVideoSuggestion), static t => CustomizeAdRecommendationVideoSuggestion(t) },
@@ -222,6 +229,7 @@ public static partial class RestApiGeneration
             { typeof(AudienceGroupDimension), static t => CustomizeAudienceGroupDimension(t) },
             { typeof(AudienceIdName), static t => CustomizeAudienceIdName(t) },
             { typeof(AudienceInfo), static t => CustomizeAudienceInfo(t) },
+            { typeof(AudioFilter), static t => CustomizeAudioFilter(t) },
             { typeof(BatchError), static t => CustomizeBatchError(t) },
             { typeof(BatchErrorCollection), static t => CustomizeBatchErrorCollection(t) },
             { typeof(Bid), static t => CustomizeBid(t) },
@@ -416,6 +424,8 @@ public static partial class RestApiGeneration
             { typeof(GetBMCStoresByCustomerIdResponse), static t => CustomizeGetBMCStoresByCustomerIdResponse(t) },
             { typeof(GetBrandKitsByAccountIdRequest), static t => CustomizeGetBrandKitsByAccountIdRequest(t) },
             { typeof(GetBrandKitsByAccountIdResponse), static t => CustomizeGetBrandKitsByAccountIdResponse(t) },
+            { typeof(GetBrandKitsByIdsRequest), static t => CustomizeGetBrandKitsByIdsRequest(t) },
+            { typeof(GetBrandKitsByIdsResponse), static t => CustomizeGetBrandKitsByIdsResponse(t) },
             { typeof(GetBSCCountriesRequest), static t => CustomizeGetBSCCountriesRequest(t) },
             { typeof(GetBSCCountriesResponse), static t => CustomizeGetBSCCountriesResponse(t) },
             { typeof(GetBudgetsByIdsRequest), static t => CustomizeGetBudgetsByIdsRequest(t) },
@@ -506,6 +516,10 @@ public static partial class RestApiGeneration
             { typeof(GetSharedEntityAssociationsByEntityIdsResponse), static t => CustomizeGetSharedEntityAssociationsByEntityIdsResponse(t) },
             { typeof(GetSharedEntityAssociationsBySharedEntityIdsRequest), static t => CustomizeGetSharedEntityAssociationsBySharedEntityIdsRequest(t) },
             { typeof(GetSharedEntityAssociationsBySharedEntityIdsResponse), static t => CustomizeGetSharedEntityAssociationsBySharedEntityIdsResponse(t) },
+            { typeof(GetSupportedClipchampAudioRequest), static t => CustomizeGetSupportedClipchampAudioRequest(t) },
+            { typeof(GetSupportedClipchampAudioResponse), static t => CustomizeGetSupportedClipchampAudioResponse(t) },
+            { typeof(GetSupportedFontsRequest), static t => CustomizeGetSupportedFontsRequest(t) },
+            { typeof(GetSupportedFontsResponse), static t => CustomizeGetSupportedFontsResponse(t) },
             { typeof(GetUetTagsByIdsRequest), static t => CustomizeGetUetTagsByIdsRequest(t) },
             { typeof(GetUetTagsByIdsResponse), static t => CustomizeGetUetTagsByIdsResponse(t) },
             { typeof(GetVideosByIdsRequest), static t => CustomizeGetVideosByIdsRequest(t) },
@@ -637,6 +651,10 @@ public static partial class RestApiGeneration
             { typeof(StoreCriterion), static t => CustomizeStoreCriterion(t) },
             { typeof(StringRuleItem), static t => CustomizeStringRuleItem(t) },
             { typeof(StructuredSnippetAdExtension), static t => CustomizeStructuredSnippetAdExtension(t) },
+            { typeof(SupportedClipchampAudio), static t => CustomizeSupportedClipchampAudio(t) },
+            { typeof(SupportedClipchampAudioData), static t => CustomizeSupportedClipchampAudioData(t) },
+            { typeof(SupportedFont), static t => CustomizeSupportedFont(t) },
+            { typeof(SupportedFontsData), static t => CustomizeSupportedFontsData(t) },
             { typeof(TargetCpaBiddingScheme), static t => CustomizeTargetCpaBiddingScheme(t) },
             { typeof(TargetImpressionShareBiddingScheme), static t => CustomizeTargetImpressionShareBiddingScheme(t) },
             { typeof(TargetRoasBiddingScheme), static t => CustomizeTargetRoasBiddingScheme(t) },
@@ -2068,6 +2086,48 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeAdRecommendationCustomizedProperty(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationImageAssetProperty(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationImageRefineOperation(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeAdRecommendationImageSuggestion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -2077,6 +2137,83 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ImageMetadata":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationImageSuggestionMetadata(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationMediaRefineResult(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationRefinedMedia(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAdRecommendationTextAssetProperty(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TextField1":
+                        jsonPropertyInfo.Name = "TextField";
                         break;
                 }
             }
@@ -2962,6 +3099,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAudienceInfo(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAudioFilter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -6608,6 +6759,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetBrandKitsByIdsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetBrandKitsByIdsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetBSCCountriesRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -8125,6 +8310,74 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeGetSharedEntityAssociationsBySharedEntityIdsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetSupportedClipchampAudioRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetSupportedClipchampAudioResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetSupportedFontsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetSupportedFontsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -11128,6 +11381,62 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "StructuredSnippetAdExtension";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSupportedClipchampAudio(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSupportedClipchampAudioData(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSupportedFont(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSupportedFontsData(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }

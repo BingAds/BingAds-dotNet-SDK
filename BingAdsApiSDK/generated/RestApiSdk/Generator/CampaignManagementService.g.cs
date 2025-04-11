@@ -1796,6 +1796,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<GetBrandKitsByAccountIdResponse>("GetBrandKitsByAccountId", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetBrandKitsByIdsResponse GetBrandKitsByIds(GetBrandKitsByIdsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetBrandKitsByIdsResponse> GetBrandKitsByIdsAsync(GetBrandKitsByIdsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetBrandKitsByIdsResponse>("GetBrandKitsByIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public GetClipchampTemplatesResponse GetClipchampTemplates(GetClipchampTemplatesRequest request)
         {
             throw new NotImplementedException();
@@ -1804,6 +1814,26 @@ namespace Microsoft.BingAds.Internal
         public Task<GetClipchampTemplatesResponse> GetClipchampTemplatesAsync(GetClipchampTemplatesRequest request)
         {
             return _restServiceClient.CallServiceAsync<GetClipchampTemplatesResponse>("GetClipchampTemplates", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetSupportedClipchampAudioResponse GetSupportedClipchampAudio(GetSupportedClipchampAudioRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetSupportedClipchampAudioResponse> GetSupportedClipchampAudioAsync(GetSupportedClipchampAudioRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetSupportedClipchampAudioResponse>("GetSupportedClipchampAudio", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetSupportedFontsResponse GetSupportedFonts(GetSupportedFontsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetSupportedFontsResponse> GetSupportedFontsAsync(GetSupportedFontsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetSupportedFontsResponse>("GetSupportedFonts", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
     }
 }

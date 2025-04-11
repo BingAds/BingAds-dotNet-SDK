@@ -785,7 +785,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string SourceUrl = "Source Url";
         public const string AspectRatio = "Aspect Ratio";
         public const string DurationInMillionSeconds = "Duration In Milliseconds";
-    
+
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";
         public const string CampaignStructuredSnippetAdExtension = "Campaign Structured Snippet Ad Extension";
@@ -1017,5 +1017,25 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string NewCustomerAcquisitionBidOnlyMode = "New Customer Acquisition Bid Only Mode";
 
         public const string AppStore = "App Store";
+
+        public const string AccountPlacementExclusionList = "Account Placement Exclusion List";
+        public const string AccountPlacementExclusionListItem = "Account Placement Exclusion List Item";
+        public const string AccountPlacementListItemUrl = "Site List Item Url";
+        public const string CampaignAccountPlacementListAssociation = "Campaign Account Placement Exclusion List Association";
+        public const string AccountPlacementExclusionListId = "Account Placement Exclusion List Id";
+        public const string AccountPlacementExclusionListItemId = "Account Placement Exclusion List Item Id";
+        public const string AccountPlacementInclusionList = "Account Placement Inclusion List";
+        public const string AccountPlacementInclusionListItem = "Account Placement Inclusion List Item";
+        public const string CampaignAccountPlacementInclusionListAssociation = "Campaign Account Placement Inclusion List Association";
+        public const string AccountPlacementInclusionListId = "Account Placement Inclusion List Id";
+        public const string AccountPlacementInclusionListItemId = "Account Placement Inclusion List Item Id";
+
+        //Brand Kit
+        public const string BrandKit = "Brand Kit";
+        public const string SquareLogos = "Square Logos";
+        public const string LandscapeLogos = "Landscape Logos";
+        public const string Palettes = "Palettes";
+        public const string Fonts = "Fonts";
+
     }
 }

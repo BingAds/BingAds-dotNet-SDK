@@ -620,6 +620,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.NewCustomerAcquisitionBidOnlyMode,
 
             StringTable.AppStore,
+
+            StringTable.AccountPlacementListItemUrl,
+
+            // Brand Kit 
+            StringTable.SquareLogos,
+            StringTable.LandscapeLogos,
+            StringTable.Palettes,
+            StringTable.Fonts,
         };
 
         /// <summary>
