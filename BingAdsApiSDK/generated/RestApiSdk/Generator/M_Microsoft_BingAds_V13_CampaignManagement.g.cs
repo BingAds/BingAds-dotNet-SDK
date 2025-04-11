@@ -171,7 +171,6 @@ public static partial class RestApiGeneration
             { typeof(AdGroupCriterion), static t => CustomizeAdGroupCriterion(t) },
             { typeof(AdGroupCriterionAction), static t => CustomizeAdGroupCriterionAction(t) },
             { typeof(AdGroupNegativeSites), static t => CustomizeAdGroupNegativeSites(t) },
-            { typeof(AdRecommendationAIImageSetting), static t => CustomizeAdRecommendationAIImageSetting(t) },
             { typeof(AdRecommendationCustomizedProperty), static t => CustomizeAdRecommendationCustomizedProperty(t) },
             { typeof(AdRecommendationImageAssetProperty), static t => CustomizeAdRecommendationImageAssetProperty(t) },
             { typeof(AdRecommendationImageRefineOperation), static t => CustomizeAdRecommendationImageRefineOperation(t) },
@@ -2074,20 +2073,6 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAdGroupNegativeSites(JsonTypeInfo jsonTypeInfo)
-        {
-            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
-            {
-                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
-                switch (jsonPropertyInfo.Name)
-                {
-                    case "ExtensionData":
-                        jsonTypeInfo.Properties.RemoveAt(i);
-                        break;
-                }
-            }
-        }
-
-        private static void CustomizeAdRecommendationAIImageSetting(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
