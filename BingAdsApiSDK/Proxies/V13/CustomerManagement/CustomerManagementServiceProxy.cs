@@ -57,21 +57,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-#pragma warning disable 1573
-#pragma warning disable 1591
-#pragma warning disable 3005
-
 namespace Microsoft.BingAds.V13.CustomerManagement
 {
+    using System.Runtime.Serialization;
+    using System;
     
     
-    /// <summary>
-    /// Defines an object that contains an account's identifier, name, and number.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accountinfo?view=bingads-13">AccountInfo Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/accountinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see>, <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> and <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountInfo", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -109,9 +100,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
         {
@@ -129,9 +117,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -149,9 +134,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The account number.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Number
         {
@@ -169,9 +151,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public Microsoft.BingAds.V13.CustomerManagement.AccountLifeCycleStatus AccountLifeCycleStatus
         {
@@ -189,9 +168,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A flag value that indicates who paused the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<byte> PauseReason
         {
@@ -221,61 +197,30 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the possible status values of an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accountlifecyclestatus?view=bingads-13">AccountLifeCycleStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/accountlifecyclestatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountInfo"/>, <see cref="AccountInfoWithCustomerData"/> and <see cref="AdvertiserAccount"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountLifeCycleStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum AccountLifeCycleStatus : int
     {
         
-        /// <summary>
-        /// The account is in a draft state.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Draft = 0,
         
-        /// <summary>
-        /// The account is active, which means that the account and its campaigns can be managed and its ads served.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// The account was deactivated as it generated no traffic for 15 months.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pause = 3,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 4,
         
-        /// <summary>
-        /// Your account has been suspended because of suspicious activity, and no ads are eligible for delivery.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Suspended = 5,
     }
     
-    /// <summary>
-    /// Defines the base object from which all Customer Management fault detail objects derive.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/applicationfault?view=bingads-13">ApplicationFault Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/applicationfault?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApplicationFault", Namespace="https://adapi.microsoft.com")]
@@ -303,9 +248,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the log entry that contains the details of the API call.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TrackingId
         {
@@ -335,12 +277,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a Customer Management API fault detail object that operations return when web service-specific errors occur, such as when the request message contains incomplete or invalid data.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/apifault?view=bingads-13">ApiFault Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/apifault?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ApiFault", Namespace="https://bingads.microsoft.com/Customer/v13/Exception")]
@@ -351,9 +287,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrorsField;
         
-        /// <summary>
-        /// An array of OperationError objects that contains the reasons that explain why the service operation failed when the error is not related to a specific item in the batch of items.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrors
         {
@@ -372,12 +305,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a Customer Management Ad API fault detail object that operations return when generic errors occur, such as an authentication error.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/adapifaultdetail?view=bingads-13">AdApiFaultDetail Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/adapifaultdetail?view=bingads-13 for details.
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
@@ -388,9 +315,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdApiError> ErrorsField;
         
-        /// <summary>
-        /// An array of AdApiError objects that contains the details that explain why the service operation failed.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdApiError> Errors
         {
@@ -409,13 +333,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a Customer Management Ad API error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/adapierror?view=bingads-13">AdApiError Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/adapierror?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdApiFaultDetail"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdApiError", Namespace="https://adapi.microsoft.com")]
@@ -450,9 +367,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
         {
@@ -470,9 +384,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A message that contains additional details about the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Detail
         {
@@ -490,9 +401,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A symbolic string constant that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ErrorCode
         {
@@ -510,9 +418,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -542,14 +447,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a Customer Management operation error object that contains the details that explain why the service operation failed.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/operationerror?view=bingads-13">OperationError Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/operationerror?view=bingads-13 for details.
-    /// <para>Used by <see cref="ApiFault"/> data object.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OperationError", Namespace="https://bingads.microsoft.com/Customer/v13/Exception")]
@@ -581,9 +478,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A numeric error code that identifies the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Code
         {
@@ -601,9 +495,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A message that provides additional details about the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Details
         {
@@ -621,9 +512,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A message that describes the error.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Message
         {
@@ -653,13 +541,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines an advertiser account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/advertiseraccount?view=bingads-13">AdvertiserAccount Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/advertiseraccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see>, <see cref="CustomerManagementServiceClient.AddPrepayAccount">AddPrepayAccount</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see>, <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see>, <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> and <see cref="CustomerManagementServiceClient.UpdatePrepayAccount">UpdatePrepayAccount</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdvertiserAccount", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -766,9 +647,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer that is billed for the charges that the account generates.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> BillToCustomerId
         {
@@ -786,9 +664,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The ISO code for the currency that is used to settle the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.CurrencyCode> CurrencyCode
         {
@@ -806,9 +681,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The financial status of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountFinancialStatus> AccountFinancialStatus
         {
@@ -826,9 +698,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Nullable<long> Id
         {
@@ -846,9 +715,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The language used to render the billing documents that you receive from Microsoft Advertising (if you use an invoice as your payment method).
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.LanguageType> Language
         {
@@ -866,9 +732,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the last user to update the account's information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Nullable<long> LastModifiedByUserId
         {
@@ -886,9 +749,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the account was last updated.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<System.DateTime> LastModifiedTime
         {
@@ -906,9 +766,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string Name
         {
@@ -926,9 +783,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string Number
         {
@@ -946,9 +800,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer that owns the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public long ParentCustomerId
         {
@@ -966,9 +817,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the payment instrument to use to settle the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<long> PaymentMethodId
         {
@@ -986,9 +834,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The type of payment instrument to use to settle the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.PaymentMethodType> PaymentMethodType
         {
@@ -1006,9 +851,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the account manager who is primarily responsible for managing this account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public System.Nullable<long> PrimaryUserId
         {
@@ -1026,9 +868,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountLifeCycleStatus> AccountLifeCycleStatus
         {
@@ -1046,9 +885,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The time-stamp value that the system uses internally to reconcile updates when you call the UpdateAccount and DeleteAccount operations.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public byte[] TimeStamp
         {
@@ -1066,9 +902,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The default time-zone value to use for campaigns in this account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.TimeZoneType> TimeZone
         {
@@ -1086,9 +919,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A flag value that indicates who paused the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.Nullable<byte> PauseReason
         {
@@ -1106,9 +936,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -1126,9 +953,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of agencies linked to this account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> LinkedAgencies
         {
@@ -1146,9 +970,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the third party that is responsible for a sales lead.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
         public System.Nullable<long> SalesHouseCustomerId
         {
@@ -1166,9 +987,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// For a list of valid key and value strings for this element, see AdvertiserAccount TaxInformation in the section below.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> TaxInformation
         {
@@ -1186,9 +1004,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of a backup  payment instrument to use to settle the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=21)]
         public System.Nullable<long> BackUpPaymentInstrumentId
         {
@@ -1206,9 +1021,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A customer specified amount for settling against the selected payment instrument.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=22)]
         public System.Nullable<decimal> BillingThresholdAmount
         {
@@ -1226,9 +1038,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The location where your business is legally registered.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=23)]
         public Microsoft.BingAds.V13.CustomerManagement.Address BusinessAddress
         {
@@ -1246,9 +1055,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether to append or replace the supported UTM tracking codes.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=24)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AutoTagType> AutoTagType
         {
@@ -1266,9 +1072,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the payment instrument of your client (the sold-to customer) to use to settle the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=25)]
         public System.Nullable<long> SoldToPaymentInstrumentId
         {
@@ -1286,9 +1089,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The account tax certificate data object.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=26)]
         public Microsoft.BingAds.V13.CustomerManagement.AccountTaxCertificate TaxCertificate
         {
@@ -1306,9 +1106,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The account mode distinguishes between smart and expert accounts.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
         public string AccountMode
         {
@@ -1338,14 +1135,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a postal address for accounts and user contact information.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/address?view=bingads-13">Address Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/address?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/>, <see cref="ContactInfo"/> and <see cref="Customer"/> data objects.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Address", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -1401,9 +1190,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The city, which can contain a maximum of 35 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string City
         {
@@ -1421,9 +1207,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The country/region code.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CountryCode
         {
@@ -1441,9 +1224,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the address object.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -1461,9 +1241,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The first line of the address, which can contain a maximum of 35 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Line1
         {
@@ -1481,9 +1258,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The second line of the address, which can contain a maximum of 35 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Line2
         {
@@ -1501,9 +1275,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The third line of the address, which can contain a maximum of 35 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Line3
         {
@@ -1521,9 +1292,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The fourth line of the address, which can contain a maximum of 35 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Line4
         {
@@ -1541,9 +1309,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The Postal or ZIP Code, which can contain a maximum of 10 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string PostalCode
         {
@@ -1561,9 +1326,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The state or province.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string StateOrProvince
         {
@@ -1581,9 +1343,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the address was last updated.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public byte[] TimeStamp
         {
@@ -1601,9 +1360,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The legal business name, which can contain a maximum of 100 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public string BusinessName
         {
@@ -1633,13 +1389,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the AccountTaxCertificate Data Object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accounttaxcertificate?view=bingads-13">AccountTaxCertificate Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/accounttaxcertificate?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountTaxCertificate", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -1671,9 +1420,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The container name of the tax certificate.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TaxCertificateBlobContainerName
         {
@@ -1691,9 +1437,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A list of tax certificates.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, byte[]>> TaxCertificates
         {
@@ -1711,9 +1454,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the tax certificate: Valid, Invalid, or Pending.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.TaxCertificateStatus> Status
         {
@@ -1743,1411 +1483,702 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a selection of currency values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/currencycode?view=bingads-13">CurrencyCode Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/currencycode?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CurrencyCode", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum CurrencyCode : int
     {
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AED = 0,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ALL = 1,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AMD = 2,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ARS = 3,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AUD = 4,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AZM = 5,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BGL = 6,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BHD = 7,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BND = 8,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BOB = 9,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BRL = 10,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BYB = 11,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BZD = 12,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CAD = 13,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CHF = 14,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CLP = 15,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CNY = 16,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         COP = 17,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CRC = 18,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CZK = 19,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DOP = 20,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DKK = 21,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DZD = 22,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EEK = 23,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EGP = 24,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EUR = 25,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GBP = 26,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GEL = 27,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GTQ = 28,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HKD = 29,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HNL = 30,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HRK = 31,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HUF = 32,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IDR = 33,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ILS = 34,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         INR = 35,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IQD = 36,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IRR = 37,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ISK = 38,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JMD = 39,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JOD = 40,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JPY = 41,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KES = 42,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KGS = 43,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KRW = 44,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KWD = 45,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KZT = 46,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LBP = 47,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LTL = 48,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LVL = 49,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LYD = 50,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MAD = 51,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MKD = 52,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MOP = 53,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MNT = 54,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MVR = 55,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MXN = 56,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MYR = 57,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NIO = 58,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NOK = 59,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NZD = 60,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OMR = 61,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PAB = 62,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PEN = 63,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PHP = 64,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PKR = 65,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PLN = 66,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PYG = 67,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         QAR = 68,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ROL = 69,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RUR = 70,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SAR = 71,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SEK = 72,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SGD = 73,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SIT = 74,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SKK = 75,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SYP = 76,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         THB = 77,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TND = 78,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TRY = 79,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TTD = 80,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TWD = 81,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UAH = 82,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         USD = 83,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UYU = 84,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UZS = 85,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VEF = 86,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YER = 87,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VND = 88,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         YUN = 89,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZAR = 90,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ZWD = 91,
         
-        /// <summary>
-        /// The corresponding currency type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NGN = 92,
     }
     
-    /// <summary>
-    /// Defines the possible financial status values of an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accountfinancialstatus?view=bingads-13">AccountFinancialStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/accountfinancialstatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountFinancialStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum AccountFinancialStatus : int
     {
         
-        /// <summary>
-        /// For an advertiser account, this status indicates that the customer can add campaigns to the account; however, the service will not deliver the account's ads.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Proposed = 0,
         
-        /// <summary>
-        /// Not used.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingCreditCheck = 1,
         
-        /// <summary>
-        /// The account is in good standing.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClearFinancialStatus = 2,
         
-        /// <summary>
-        /// Not used.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SoldToOnly = 3,
         
-        /// <summary>
-        /// Not used.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditWarning = 4,
         
-        /// <summary>
-        /// For an advertiser account, this status indicates that the account is past due.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hold = 5,
         
-        /// <summary>
-        /// The account is past due; however, collection is no longer being pursued.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WriteOff = 6,
         
-        /// <summary>
-        /// For a publisher account, this status indicates that the publisher has yet to provide a valid tax instrument.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TaxOnHold = 7,
         
-        /// <summary>
-        /// For a publisher account, this status indicates that the payout to the publisher was placed on hold by publisher.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UserHold = 8,
     }
     
-    /// <summary>
-    /// Defines a selection of language values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/languagetype?view=bingads-13">LanguageType Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/languagetype?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> and <see cref="Customer"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LanguageType", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum LanguageType : int
     {
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Danish = 0,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Dutch = 1,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         English = 2,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Finnish = 3,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         French = 4,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         German = 5,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Italian = 6,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Japanese = 7,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Norwegian = 8,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Portuguese = 9,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Swedish = 10,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Spanish = 11,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arabic = 12,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hebrew = 13,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Korean = 14,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Russian = 15,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TraditionalChinese = 16,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SimplifiedChinese = 17,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Thai = 18,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Turkish = 19,
         
-        /// <summary>
-        /// The corresponding language type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Filipino = 20,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Indonesian = 21,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Polish = 22,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vietnamese = 23,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Malay = 24,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ukrainian = 25,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Czech = 26,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Romanian = 27,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greek = 28,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hungarian = 29,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hindi = 30,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bulgarian = 31,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lithuanian = 32,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatian = 33,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Latvian = 34,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovenian = 35,
     }
     
-    /// <summary>
-    /// Defines possible payment methods for a Microsoft Advertising account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/paymentmethodtype?view=bingads-13">PaymentMethodType Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/paymentmethodtype?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PaymentMethodType", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum PaymentMethodType : int
     {
         
-        /// <summary>
-        /// The payments are made with a credit card.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditCard = 1,
         
-        /// <summary>
-        /// An invoice is sent to the customer requesting payment.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Invoice = 2,
         
-        /// <summary>
-        /// The payments are made with a check.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Check = 3,
         
-        /// <summary>
-        /// The payments are made with an electronic funds transfer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ElectronicFundsTransfer = 4,
         
-        /// <summary>
-        /// A payment service that allows customers to pay for their Microsoft Advertising transactions online.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PayPal = 5,
         
-        /// <summary>
-        /// The ELV value represents the SEPA payment method.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ELV = 6,
         
-        /// <summary>
-        /// Meant to signal when a customer is funding a prepay account by making payment via a check or a bank transfer.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OfflinePaymentMethod = 7,
         
-        /// <summary>
-        /// Virtual Bank Account is a form of payment used widely in Taiwan.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         VBA = 8,
         
-        /// <summary>
-        /// Boleto is a form of payment used widely in Brazil.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Boleto = 9,
     }
     
-    /// <summary>
-    /// Defines the possible time zones for the customer management service.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/timezonetype?view=bingads-13">TimeZoneType Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/timezonetype?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TimeZoneType", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum TimeZoneType : int
     {
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AbuDhabiMuscat = 32,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Adelaide = 11,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Alaska = 72,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AlmatyNovosibirsk = 25,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AmsterdamBerlinBernRomeStockholmVienna = 48,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Arizona = 68,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AstanaDhaka = 24,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AthensBuckarestIstanbul = 43,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AtlanticTimeCanada = 58,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AucklandWellington = 3,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Azores = 51,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Baghdad = 37,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BakuTbilisiYerevan = 31,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BangkokHanoiJakarta = 21,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BeijingChongqingHongKongUrumqi = 19,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BelgradeBratislavaBudapestLjubljanaPrague = 47,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BogotaLimaQuito = 61,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brasilia = 54,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Brisbane = 9,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrusselsCopenhagenMadridParis = 46,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bucharest = 42,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BuenosAiresGeorgetown = 55,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Cairo = 41,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CanberraMelbourneSydney = 8,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CapeVerdeIsland = 52,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CaracasLaPaz = 59,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CasablancaMonrovia = 49,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralAmerica = 64,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CentralTimeUSCanada = 65,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChennaiKolkataMumbaiNewDelhi = 27,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChihuahuaLaPazMazatlan = 69,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Darwin = 10,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EasternTimeUSCanada = 62,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ekaterinburg = 29,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FijiKamchatkaMarshallIsland = 2,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Greenland = 56,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreenwichMeanTimeDublinEdinburghLisbonLondon = 50,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuadalajaraMexicoCityMonterrey = 66,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GuamPortMoresby = 7,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HararePretoria = 40,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hawaii = 73,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HelsinkiKyivRigaSofiaTallinnVilnius = 39,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Hobart = 6,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IndianaEast = 63,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         InternationalDateLineWest = 75,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IrkutskUlaanBataar = 18,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IslamabadKarachiTashkent = 28,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Jerusalem = 38,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kabul = 30,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Kathmandu = 26,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Krasnoyarsk = 20,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KualaLumpurSingapore = 17,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KuwaitRiyadh = 36,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SolomonIslandNewCaledonia = 4,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidAtlantic = 53,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MidwayIslandAndSamoa = 74,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MoscowStPetersburgVolgograd = 35,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MountainTimeUSCanada = 70,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nairobi = 34,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Newfoundland = 57,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Nukualofa = 1,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OsakaSapporoTokyo = 14,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PacificTimeUSCanadaTijuana = 71,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Perth = 16,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Rangoon = 22,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Santiago = 60,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SarajevoSkopjeWarsawZagreb = 45,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Saskatchewan = 67,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Seoul = 13,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SriJayawardenepura = 23,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Taipei = 15,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Tehran = 33,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Vladivostok = 5,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         WestCentralAfrica = 44,
         
-        /// <summary>
-        /// The corresponding time zone type.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Yakutsk = 12,
     }
     
-    /// <summary>
-    /// Defines an object that contains a customer's identifier and name.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/customerinfo?view=bingads-13">CustomerInfo Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/customerinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> and <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerInfo", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -3176,9 +2207,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -3196,9 +2224,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Name
         {
@@ -3228,75 +2253,36 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines possible values for an account level setting that determines whether to append or replace the supported UTM tracking codes.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/autotagtype?view=bingads-13">AutoTagType Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/autotagtype?view=bingads-13 for details.
-    /// <para>Used by <see cref="AdvertiserAccount"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AutoTagType", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum AutoTagType : int
     {
         
-        /// <summary>
-        /// Microsoft Advertising will not append any UTM tracking codes to your ad or keyword final URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 0,
         
-        /// <summary>
-        /// Microsoft Advertising will automatically append the supported UTM tracking codes, and preserve any existing UTM tracking codes that you added to your ad or keyword's final URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Preserve = 1,
         
-        /// <summary>
-        /// Microsoft Advertising will automatically append the supported UTM tracking codes, and replace any of the existing and supported UTM tracking codes that you added to your ad or keyword's final URL.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Replace = 2,
     }
     
-    /// <summary>
-    /// Defines the TaxCertificateStatus Value Set.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/taxcertificatestatus?view=bingads-13">TaxCertificateStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/taxcertificatestatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="AccountTaxCertificate"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TaxCertificateStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum TaxCertificateStatus : int
     {
         
-        /// <summary>
-        /// The status of the tax certificate is Valid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Valid = 174,
         
-        /// <summary>
-        /// The status of the tax certificate is Invalid.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Invalid = 175,
         
-        /// <summary>
-        /// The status of the tax certificate is Pending.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 176,
     }
     
-    /// <summary>
-    /// Defines a customer object that contains one or more Microsoft Advertising accounts.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/customer?view=bingads-13">Customer Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/customer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccessibleCustomer">GetAccessibleCustomer</see>, <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> and <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -3361,9 +2347,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The financial status of the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.CustomerFinancialStatus> CustomerFinancialStatus
         {
@@ -3381,9 +2364,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated customer identifier.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -3401,9 +2381,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The primary business segment of the customer, for example, automotive, food, or entertainment.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.Industry> Industry
         {
@@ -3421,9 +2398,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the last user to update the customer's information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LastModifiedByUserId
         {
@@ -3441,9 +2415,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the customer information was last updated.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> LastModifiedTime
         {
@@ -3461,9 +2432,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The primary country where the customer operates.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MarketCountry
         {
@@ -3481,9 +2449,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -3501,9 +2466,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The primary language that the customer uses.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.LanguageType> MarketLanguage
         {
@@ -3521,9 +2483,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string Name
         {
@@ -3541,9 +2500,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.ServiceLevel> ServiceLevel
         {
@@ -3561,9 +2517,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.CustomerLifeCycleStatus> CustomerLifeCycleStatus
         {
@@ -3581,9 +2534,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A time-stamp value that the system uses internally to reconcile updates when you call the UpdateCustomer and DeleteCustomer operations.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public byte[] TimeStamp
         {
@@ -3601,9 +2551,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A system-generated customer number that is used in the Microsoft Advertising web application.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public string Number
         {
@@ -3621,9 +2568,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The customer's business address.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public Microsoft.BingAds.V13.CustomerManagement.Address CustomerAddress
         {
@@ -3653,269 +2597,132 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the possible financial status values of a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/customerfinancialstatus?view=bingads-13">CustomerFinancialStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/customerfinancialstatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="Customer"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerFinancialStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum CustomerFinancialStatus : int
     {
         
-        /// <summary>
-        /// Not used.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ProposalsOnly = 0,
         
-        /// <summary>
-        /// The customer is undergoing a credit check as part of the customer sign-up process.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PendingCreditCheck = 1,
         
-        /// <summary>
-        /// The customer is in good standing.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ClearFinancialStatus = 2,
         
-        /// <summary>
-        /// The customer is considered to be a credit risk.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SoldToOnly = 3,
         
-        /// <summary>
-        /// One of the customer's accounts is past due.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditHold = 4,
         
-        /// <summary>
-        /// Not used.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CreditWarning = 5,
     }
     
-    /// <summary>
-    /// Defines the possible industry segments in which a customer operates.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/industry?view=bingads-13">Industry Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/industry?view=bingads-13 for details.
-    /// <para>Used by <see cref="Customer"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Industry", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum Industry : int
     {
         
-        /// <summary>
-        /// Not applicable.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NA = 0,
         
-        /// <summary>
-        /// The advertising agency sales house industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AgencySalesHouse = 1,
         
-        /// <summary>
-        /// The automotive industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Automotive = 2,
         
-        /// <summary>
-        /// The consumer packaged goods industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConsumerPackagedGoods = 3,
         
-        /// <summary>
-        /// The education industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Education = 4,
         
-        /// <summary>
-        /// The entertainment industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Entertainment = 5,
         
-        /// <summary>
-        /// The financial services industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinancialServices = 6,
         
-        /// <summary>
-        /// The food services industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FoodServices = 7,
         
-        /// <summary>
-        /// The gaming industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Gaming = 8,
         
-        /// <summary>
-        /// The government, non-profit, or political industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GovernmentNonprofitPolitical = 9,
         
-        /// <summary>
-        /// The healthcare industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Healthcare = 10,
         
-        /// <summary>
-        /// This value is reserved for internal use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Internal = 11,
         
-        /// <summary>
-        /// The publishing and web media industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PublishingAndWebMedia = 12,
         
-        /// <summary>
-        /// The real estate industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RealEstate = 13,
         
-        /// <summary>
-        /// The retail industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Retail = 14,
         
-        /// <summary>
-        /// The services industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Services = 15,
         
-        /// <summary>
-        /// The technology industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Technology = 16,
         
-        /// <summary>
-        /// The telecommunications industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Telecommunications = 17,
         
-        /// <summary>
-        /// The travel and hospitality industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TravelHospitality = 18,
         
-        /// <summary>
-        /// An industry that is not listed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Other = 19,
         
-        /// <summary>
-        /// The pharmaceuticals industry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pharmaceuticals = 20,
     }
     
-    /// <summary>
-    /// For internal use only.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/servicelevel?view=bingads-13">ServiceLevel Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/servicelevel?view=bingads-13 for details.
-    /// <para>Used by <see cref="Customer"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ServiceLevel", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum ServiceLevel : int
     {
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SelfServe = 0,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SelfServeTrusted = 1,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Premium = 2,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Internal = 3,
         
-        /// <summary>
-        /// For internal use only.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Select = 4,
     }
     
-    /// <summary>
-    /// Defines the possible status values of a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/customerlifecyclestatus?view=bingads-13">CustomerLifeCycleStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/customerlifecyclestatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="Customer"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerLifeCycleStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum CustomerLifeCycleStatus : int
     {
         
-        /// <summary>
-        /// The customer is active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 0,
         
-        /// <summary>
-        /// The customer is inactive, which means that the customer was deleted.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 1,
     }
     
-    /// <summary>
-    /// Defines an invitation for a user to sign up for Microsoft Advertising.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/userinvitation?view=bingads-13">UserInvitation Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/userinvitation?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see>, <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> and <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserInvitation", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -3965,9 +2772,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A system-generated unique identifier for the user invitation.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
         {
@@ -3985,9 +2789,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The first name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public string FirstName
         {
@@ -4005,9 +2806,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The last name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string LastName
         {
@@ -4025,9 +2823,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The email address corresponding to the user's Microsoft account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string Email
         {
@@ -4045,9 +2840,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer this user is invited to manage.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public long CustomerId
         {
@@ -4065,9 +2857,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The role that the user has for each customer or list of accounts.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public int RoleId
         {
@@ -4085,9 +2874,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// An array of identifiers of the accounts that the user can manage.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -4105,9 +2891,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the user invitation will expire.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public System.DateTime ExpirationDate
         {
@@ -4125,9 +2908,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The locale to use when sending correspondence to the user by email or postal mail.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public Microsoft.BingAds.V13.CustomerManagement.LCID Lcid
         {
@@ -4157,440 +2937,219 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a selection of locale values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/lcid?view=bingads-13">LCID Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/lcid?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> and <see cref="UserInvitation"/> data objects.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LCID", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum LCID : int
     {
         
-        /// <summary>
-        /// Arabic (Saudi Arabia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicSaudiArabia = 1025,
         
-        /// <summary>
-        /// Arabic (Algeria)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicAlgeria = 5121,
         
-        /// <summary>
-        /// Arabic (Bahrain)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicBahrain = 15361,
         
-        /// <summary>
-        /// Arabic (Egypt)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicEgypt = 3073,
         
-        /// <summary>
-        /// Arabic (Iraq)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicIraq = 2049,
         
-        /// <summary>
-        /// Arabic (Jordan)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicJordan = 11265,
         
-        /// <summary>
-        /// Arabic (Kuwait)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicKuwait = 13313,
         
-        /// <summary>
-        /// Arabic (Lebanon)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLebanon = 12289,
         
-        /// <summary>
-        /// Arabic (Libya)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicLibya = 4097,
         
-        /// <summary>
-        /// Arabic (Morocco)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicMorocco = 6145,
         
-        /// <summary>
-        /// Arabic (Oman)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicOman = 8193,
         
-        /// <summary>
-        /// Arabic (Qatar)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicQatar = 16385,
         
-        /// <summary>
-        /// Arabic (Tunisia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicTunisia = 7169,
         
-        /// <summary>
-        /// Arabic (United Arab Emirates)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicUnitedArabEmirates = 14337,
         
-        /// <summary>
-        /// Arabic (Yemen)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ArabicYemen = 9217,
         
-        /// <summary>
-        /// Chinese (Taiwan)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseTaiwan = 1028,
         
-        /// <summary>
-        /// Danish (Denmark)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DanishDenmark = 1030,
         
-        /// <summary>
-        /// German (Germany)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanGermany = 1031,
         
-        /// <summary>
-        /// English (United States)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUS = 1033,
         
-        /// <summary>
-        /// Spanish (Spain)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishSpain = 1034,
         
-        /// <summary>
-        /// Finnish (Finland)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FinnishFinland = 1035,
         
-        /// <summary>
-        /// French (France)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchFrance = 1036,
         
-        /// <summary>
-        /// Hebrew (Israel)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HebrewIsrael = 1037,
         
-        /// <summary>
-        /// Italian (Italy)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ItalianItaly = 1040,
         
-        /// <summary>
-        /// Japanese (Japan)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JapaneseJapan = 1041,
         
-        /// <summary>
-        /// Korean (Korea)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         KoreanKorea = 1042,
         
-        /// <summary>
-        /// Dutch (Netherlands)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         DutchNetherlands = 1043,
         
-        /// <summary>
-        /// Norwegian (Norway)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NorwegianNorway = 1044,
         
-        /// <summary>
-        /// Portuguese (Brazil)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PortugueseBrazil = 1046,
         
-        /// <summary>
-        /// Russian (Russia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RussianRussia = 1049,
         
-        /// <summary>
-        /// Swedish (Sweden)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SwedishSweden = 1053,
         
-        /// <summary>
-        /// English (Thailand)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishThailand = 1054,
         
-        /// <summary>
-        /// English (Indonesia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndonesia = 1057,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Slovenian = 1060,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Latvian = 1062,
         
-        /// <summary>
-        /// English (Vietnam)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishVietnam = 1066,
         
-        /// <summary>
-        /// Chinese (China)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseChina = 2052,
         
-        /// <summary>
-        /// German (Switzerland)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanSwitzerland = 2055,
         
-        /// <summary>
-        /// English (United Kingdom)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishUK = 2057,
         
-        /// <summary>
-        /// Spanish (Mexico)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishMexico = 2058,
         
-        /// <summary>
-        /// Chinese (Hong Kong SAR)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ChineseHongKong = 3076,
         
-        /// <summary>
-        /// German (Austria)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GermanAustria = 3079,
         
-        /// <summary>
-        /// English (Australia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishAustralia = 3081,
         
-        /// <summary>
-        /// French (Canada)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FrenchCanada = 3084,
         
-        /// <summary>
-        /// English (Canada)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishCanada = 4105,
         
-        /// <summary>
-        /// English (New Zealand)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishNewZealand = 5129,
         
-        /// <summary>
-        /// English (Ireland)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIreland = 6153,
         
-        /// <summary>
-        /// Spanish (Venezuela)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishVenezuela = 8202,
         
-        /// <summary>
-        /// Spanish (Colombia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishColombia = 9226,
         
-        /// <summary>
-        /// Spanish (Peru)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishPeru = 10250,
         
-        /// <summary>
-        /// Spanish (Argentina)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishArgentina = 11274,
         
-        /// <summary>
-        /// English (Philippines)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishPhilippines = 13321,
         
-        /// <summary>
-        /// Spanish (Chile)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpanishChile = 13322,
         
-        /// <summary>
-        /// English (India)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishIndia = 16393,
         
-        /// <summary>
-        /// English (Malaysia)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishMalaysia = 17417,
         
-        /// <summary>
-        /// English (Singapore)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         EnglishSingapore = 18441,
         
-        /// <summary>
-        /// Turkish (Turkey)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TurkishTurkey = 1055,
         
-        /// <summary>
-        /// Filipino (Philippines)
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FilipinoPhilippines = 1124,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         PolandPolish = 1045,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MalayMalaysia = 1086,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UkrainianUkraine = 1058,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CzechRepublicCZ = 1029,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RomaniaRO = 1048,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreekGreece = 1032,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HungaryHU = 1038,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HindiIndia = 1081,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Bulgarian = 1026,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Lithuanian = 1063,
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Croatian = 1050,
     }
     
-    /// <summary>
-    /// Defines personal and business contact information about a Microsoft Advertising user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/user?view=bingads-13">User Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/user?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCurrentUser">GetCurrentUser</see>, <see cref="CustomerManagementServiceClient.GetUser">GetUser</see>, <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> and <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -4661,9 +3220,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The user's contact information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.ContactInfo ContactInfo
         {
@@ -4681,9 +3237,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer for this user to access.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
         {
@@ -4701,9 +3254,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The Microsoft Advertising identifier of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -4721,9 +3271,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The user's job title.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string JobTitle
         {
@@ -4741,9 +3288,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the last user to update the user's information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> LastModifiedByUserId
         {
@@ -4761,9 +3305,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that that the user information was last updated.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<System.DateTime> LastModifiedTime
         {
@@ -4781,9 +3322,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The locale to use when sending correspondence to the user by email or postal mail.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.LCID> Lcid
         {
@@ -4801,9 +3339,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.PersonName Name
         {
@@ -4821,9 +3356,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// This element is reserved for internal use and will be removed from a future version of the API.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Password
         {
@@ -4841,9 +3373,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// This element is reserved for internal use and will be removed from a future version of the API.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string SecretAnswer
         {
@@ -4861,9 +3390,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// This element is reserved for internal use and will be removed from a future version of the API.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.SecretQuestion SecretQuestion
         {
@@ -4881,9 +3407,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.UserLifeCycleStatus> UserLifeCycleStatus
         {
@@ -4901,9 +3424,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A time-stamp value that the system uses internally to reconcile updates when you call UpdateUser or DeleteUser.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public byte[] TimeStamp
         {
@@ -4921,9 +3441,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The logon user name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public string UserName
         {
@@ -4941,9 +3458,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -4961,9 +3475,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The OAuth access token that represents the credentials of the user who has permissions to Microsoft Advertising accounts.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
         public string AuthenticationToken
         {
@@ -4993,13 +3504,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the contact information for a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/contactinfo?view=bingads-13">ContactInfo Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/contactinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ContactInfo", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -5055,9 +3559,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The address of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.Address Address
         {
@@ -5075,9 +3576,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A value that determines whether the user should be contacted by telephone.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ContactByPhone
         {
@@ -5095,9 +3593,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A value that determines whether the user should be contacted by postal mail.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> ContactByPostalMail
         {
@@ -5115,9 +3610,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The email address is used to send the account activation notification to the user, and can contain a maximum of 100 characters.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Email
         {
@@ -5135,9 +3627,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The format of the body of an email message to use when correspondence is sent to the user (this does not apply to the activation notification email message).
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.EmailFormat> EmailFormat
         {
@@ -5155,9 +3644,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The fax telephone number of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Fax
         {
@@ -5175,9 +3661,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The home telephone number of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string HomePhone
         {
@@ -5195,9 +3678,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the object.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -5215,9 +3695,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The mobile telephone number of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Mobile
         {
@@ -5235,9 +3712,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The primary telephone number of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Phone1
         {
@@ -5255,9 +3729,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// An alternate telephone number for the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Phone2
         {
@@ -5287,13 +3758,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the name of a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/personname?view=bingads-13">PersonName Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/personname?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PersonName", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -5325,9 +3789,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The first name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string FirstName
         {
@@ -5345,9 +3806,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The last name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string LastName
         {
@@ -5365,9 +3823,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The middle initial of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MiddleInitial
         {
@@ -5397,181 +3852,88 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the possible secret questions that users can choose from to help them recall their password.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/secretquestion?view=bingads-13">SecretQuestion Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/secretquestion?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SecretQuestion", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum SecretQuestion : int
     {
         
-        /// <summary>
-        /// Do not specify this value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         None = 0,
         
-        /// <summary>
-        /// The name of your favorite pet.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FavoritePetsName = 1,
         
-        /// <summary>
-        /// The title of your favorite movie.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FavoriteMovie = 2,
         
-        /// <summary>
-        /// An anniversary date.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Anniversary = 3,
         
-        /// <summary>
-        /// The middle name of your father.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FatherMiddleName = 4,
         
-        /// <summary>
-        /// The middle name of your spouse.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SpouseMiddleName = 5,
         
-        /// <summary>
-        /// The middle name of your first child.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FirstChildMiddleName = 6,
         
-        /// <summary>
-        /// The name of the high school that you attended.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         HighSchoolName = 7,
         
-        /// <summary>
-        /// The name of your favorite teacher.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FavoriteTeacherName = 8,
         
-        /// <summary>
-        /// The name of your favorite sports team.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         FavoriteSportsTeam = 9,
     }
     
-    /// <summary>
-    /// Defines the possible status values of a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/userlifecyclestatus?view=bingads-13">UserLifeCycleStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/userlifecyclestatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="User"/> data object.</para>
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserLifeCycleStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum UserLifeCycleStatus : int
     {
         
-        /// <summary>
-        /// The user is a new user who has not been activated.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Pending = 0,
         
-        /// <summary>
-        /// The user is active.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 1,
         
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 2,
         
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Deleted = 3,
     }
     
-    /// <summary>
-    /// Defines the possible formats of the body of an email message.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/emailformat?view=bingads-13">EmailFormat Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/emailformat?view=bingads-13 for details.
-    /// <para>Used by <see cref="ContactInfo"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EmailFormat", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum EmailFormat : int
     {
         
-        /// <summary>
-        /// The format of the body of the email message is HTML.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Html = 1,
         
-        /// <summary>
-        /// The format of the body of the email message is plain text.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Text = 2,
     }
     
-    /// <summary>
-    /// Defines a list of optional account properties that you can request when calling GetAccount, FindAccountsOrCustomersInfo, and SearchAccounts.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accountadditionalfield?view=bingads-13">AccountAdditionalField Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/accountadditionalfield?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see>, <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> and <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operations.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountAdditionalField", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum AccountAdditionalField : int
     {
         
-        /// <summary>
-        /// Request that the TaxCertificate element be included within each returned AdvertiserAccount object.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         TaxCertificate = 1,
         
-        /// <summary>
-        /// Request that the AccountMode element be included within each returned AdvertiserAccount or AccountInfoWithCustomerData object.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AccountMode = 2,
         
-        /// <summary>
-        /// Request that the CouponClaimInfo element be included within each returned AdvertiserAccount object.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClaimInfo = 4,
     }
     
-    /// <summary>
-    /// Defines account access rights for a person who acts on behalf of a specific customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/customerrole?view=bingads-13">CustomerRole Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/customerrole?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="CustomerRole", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -5609,9 +3971,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The role that the user has when accessing advertiser accounts through the CustomerId.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int RoleId
         {
@@ -5629,9 +3988,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer where the user has either signed up or has some account hierarchy relationship.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public long CustomerId
         {
@@ -5649,9 +4005,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of accounts that the user can access in the customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public System.Collections.Generic.IList<long> AccountIds
         {
@@ -5669,9 +4022,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of linked accounts that the user can access through the CustomerId as an agency on behalf of another customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public System.Collections.Generic.IList<long> LinkedAccountIds
         {
@@ -5689,9 +4039,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the user's access to the accounts is restricted by customer hierarchy i.e., customer level client linking.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string CustomerLinkPermission
         {
@@ -5721,13 +4068,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a user identification object that contains information that identifies a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/userinfo?view=bingads-13">UserInfo Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/userinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -5756,9 +4096,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Id
         {
@@ -5776,9 +4113,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The logon user name of the user.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string UserName
         {
@@ -5836,9 +4170,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id
         {
@@ -5856,9 +4187,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Reserved.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Collections.Generic.IList<string> Countries
         {
@@ -5888,13 +4216,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines an object that contains information that identifies an account and the customer that manages or owns the account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/accountinfowithcustomerdata?view=bingads-13">AccountInfoWithCustomerData Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/accountinfowithcustomerdata?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AccountInfoWithCustomerData", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -5941,9 +4262,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the customer that manages or owns the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CustomerId
         {
@@ -5961,9 +4279,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the customer that manages or owns the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CustomerName
         {
@@ -5981,9 +4296,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated identifier of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public long AccountId
         {
@@ -6001,9 +4313,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string AccountName
         {
@@ -6021,9 +4330,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string AccountNumber
         {
@@ -6041,9 +4347,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The status of the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public Microsoft.BingAds.V13.CustomerManagement.AccountLifeCycleStatus AccountLifeCycleStatus
         {
@@ -6061,9 +4364,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// A flag value that indicates who paused the account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public System.Nullable<byte> PauseReason
         {
@@ -6081,9 +4381,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The account mode distinguishes between smart and expert accounts.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public string AccountMode
         {
@@ -6113,13 +4410,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a predicate for the list of entities requested using one of the search operations, for example SearchAccounts, SearchClientLinks, SearchCustomers, or SearchUserInvitations.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/predicate?view=bingads-13">Predicate Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/predicate?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> and <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Predicate", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -6151,9 +4441,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the element for  the object you are searching.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Field
         {
@@ -6171,9 +4458,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Defines the relationship between the field and the value.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.PredicateOperator Operator
         {
@@ -6191,9 +4475,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The string to search in the specified field.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Value
         {
@@ -6223,74 +4504,36 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the condition of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/predicateoperator?view=bingads-13">PredicateOperator Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/predicateoperator?view=bingads-13 for details.
-    /// <para>Used by <see cref="Predicate"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PredicateOperator", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum PredicateOperator : int
     {
         
-        /// <summary>
-        /// The field must equal the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Equals = 0,
         
-        /// <summary>
-        /// The field must not equal the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotEquals = 1,
         
-        /// <summary>
-        /// The field must contain the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Contains = 2,
         
-        /// <summary>
-        /// The field must equal one of the specified comma separated values.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         In = 3,
         
-        /// <summary>
-        /// The field must be greater than or equal to the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GreaterThanEquals = 4,
         
-        /// <summary>
-        /// The field must be less than or equal to the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LessThanEquals = 5,
         
-        /// <summary>
-        /// The field must start with the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         StartsWith = 6,
         
-        /// <summary>
-        /// The field must not contain the specified value.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NotContains = 7,
     }
     
-    /// <summary>
-    /// Defines a date range object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/daterange?view=bingads-13">DateRange Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/daterange?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DateRange", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -6319,9 +4562,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The minimum date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string MinDate
         {
@@ -6339,9 +4579,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The maximum date.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public string MaxDate
         {
@@ -6371,13 +4608,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines an order for the list of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/orderby?view=bingads-13">OrderBy Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/orderby?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrderBy", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -6406,9 +4636,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines the field to order the results.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.OrderByField Field
         {
@@ -6426,9 +4653,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the results are ascending or descending.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public Microsoft.BingAds.V13.CustomerManagement.SortOrder Order
         {
@@ -6458,87 +4682,42 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the field order of entities returned using one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/orderbyfield?view=bingads-13">OrderByField Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/orderbyfield?view=bingads-13 for details.
-    /// <para>Used by <see cref="OrderBy"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrderByField", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum OrderByField : int
     {
         
-        /// <summary>
-        /// The order is determined by a predicate identifier.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Id = 0,
         
-        /// <summary>
-        /// The order is determined by a predicate name.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Name = 1,
         
-        /// <summary>
-        /// The order is determined by a predicate number.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Number = 2,
         
-        /// <summary>
-        /// The order is determined by a predicate life cycle status.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LifeCycleStatus = 3,
         
-        /// <summary>
-        /// This value is not supported with the customer management service.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClassName = 4,
         
-        /// <summary>
-        /// This value is not supported with the customer management service.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponStartDate = 5,
     }
     
-    /// <summary>
-    /// Defines the ascending or descending sort order of results for one of the search operations, for example SearchAccounts, SearchClientLinks, or SearchCustomers.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/sortorder?view=bingads-13">SortOrder Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/sortorder?view=bingads-13 for details.
-    /// <para>Used by <see cref="OrderBy"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SortOrder", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum SortOrder : int
     {
         
-        /// <summary>
-        /// The results will be sorted ascending.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Ascending = 0,
         
-        /// <summary>
-        /// The results will be sorted descending.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Descending = 1,
     }
     
-    /// <summary>
-    /// Defines a paging object to request Customer Management objects in batches.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/paging?view=bingads-13">Paging Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/paging?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Paging", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -6567,9 +4746,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The zero-based results page index.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Index
         {
@@ -6587,9 +4763,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The page size and the number of results to return in the specified page.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Size
         {
@@ -6619,13 +4792,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines a client link object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/clientlink?view=bingads-13">ClientLink Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/clientlink?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see>, <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> and <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operations.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ClientLink", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -6711,9 +4877,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the link is to a client advertiser account or a client customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Type
         {
@@ -6731,9 +4894,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public System.Nullable<long> ClientEntityId
         {
@@ -6751,9 +4911,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The number of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public string ClientEntityNumber
         {
@@ -6771,9 +4928,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the client advertiser account or client customer to manage<br/><br/>The Type element determines whether the link is to a client advertiser account or a client customer.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string ClientEntityName
         {
@@ -6791,9 +4945,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the customer who manages or is requesting to manage the client advertiser account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public System.Nullable<long> ManagingCustomerId
         {
@@ -6811,9 +4962,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The number of the customer who manages or is requesting to manage the client advertiser account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public string ManagingCustomerNumber
         {
@@ -6831,9 +4979,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the customer who manages or is requesting to manage the client advertiser account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
         public string ManagingCustomerName
         {
@@ -6851,9 +4996,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Optional message from the requestor providing context and details about the client link invitation.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
         public string Note
         {
@@ -6871,9 +5013,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The friendly name that can be used to reference this client link.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
         public string Name
         {
@@ -6891,9 +5030,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The email of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
         public string InviterEmail
         {
@@ -6911,9 +5047,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the parent customer of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
         public string InviterName
         {
@@ -6931,9 +5064,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The phone number of the user who created the client link request.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
         public string InviterPhone
         {
@@ -6951,9 +5081,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the owner of the client advertiser account or the managing customer is responsible for billing payments.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
         public System.Nullable<bool> IsBillToClient
         {
@@ -6971,9 +5098,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date when the status would update.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
         public System.Nullable<System.DateTime> StartDate
         {
@@ -6991,9 +5115,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines the life cycle status of the client link, for example whether the client link has been accepted or declined.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.ClientLinkStatus> Status
         {
@@ -7011,9 +5132,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether or not to send email notification of the client link invitation to the primary user of the client advertiser account.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
         public bool SuppressNotification
         {
@@ -7031,9 +5149,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The date and time that the client link was last updated.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
         public System.DateTime LastModifiedDateTime
         {
@@ -7051,9 +5166,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the last user to update the client link's information.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=17)]
         public long LastModifiedByUserId
         {
@@ -7071,9 +5183,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=18)]
         public byte[] Timestamp
         {
@@ -7091,9 +5200,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The list of key and value strings for forward compatibility to avoid otherwise breaking changes when new elements are added in the current API version.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=19)]
         public System.Collections.Generic.IList<System.Collections.Generic.KeyValuePair<string, string>> ForwardCompatibilityMap
         {
@@ -7111,9 +5217,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// Determines whether the user's access to the accounts is restricted by customer hierarchy i.e., customer level client linking.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=20)]
         public string CustomerLinkPermission
         {
@@ -7143,110 +5246,54 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Defines the possible status values of a ClientLink.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/clientlinkstatus?view=bingads-13">ClientLinkStatus Value Set</see> https:/learn.microsoft.com/advertising/customer-management-service/clientlinkstatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="ClientLink"/> data object.</para>
-    /// </remarks>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ClientLinkStatus", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
     public enum ClientLinkStatus : byte
     {
         
-        /// <summary>
-        /// The ClientLink has been added via the AddClientLinks operation.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkPending = 0,
         
-        /// <summary>
-        /// The link request has been canceled by the agency.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkCanceled = 1,
         
-        /// <summary>
-        /// The link is inactive due to expiry.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkExpired = 2,
         
-        /// <summary>
-        /// The invited client should use this value to accept the link invitation.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkAccepted = 3,
         
-        /// <summary>
-        /// The link request has been declined by the invited client.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkDeclined = 4,
         
-        /// <summary>
-        /// The link process is in progress and either waiting for the billing transition to complete or the specified client link start date has not yet arrived.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkInProgress = 5,
         
-        /// <summary>
-        /// The link is established and the managing customer can access the client account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Active = 6,
         
-        /// <summary>
-        /// The link process failed to complete successfully.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LinkFailed = 7,
         
-        /// <summary>
-        /// The agency should use this value to request an unlink.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkRequested = 8,
         
-        /// <summary>
-        /// A request to terminate the link has been sent.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkPending = 9,
         
-        /// <summary>
-        /// Reserved for future use.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkCanceled = 10,
         
-        /// <summary>
-        /// The unlink process is in progress and waiting for the billing transition to complete.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkInProgress = 11,
         
-        /// <summary>
-        /// The unlink process has completed and the managing customer can no longer access the client account.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 12,
         
-        /// <summary>
-        /// The unlink process failed to complete successfully, for example because the billing transition could not be completed.
-        /// </summary>
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UnlinkFailed = 13,
     }
     
-    /// <summary>
-    /// Defines a Notification object.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13">Notification Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/notification?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Notification", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7287,9 +5334,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the type of Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int TypeId
         {
@@ -7307,9 +5351,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The identifier of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=1)]
         public long Id
         {
@@ -7327,9 +5368,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The severity of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
         public byte Severity
         {
@@ -7347,9 +5385,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The title of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
         public string Title
         {
@@ -7367,9 +5402,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The message of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
         public string Message
         {
@@ -7387,9 +5419,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The supporting data of the Notification.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOfstringstring> AdditionalInfo
         {
@@ -7419,13 +5448,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// The key and value entity of string and string values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13">KeyValueEntityOfstringstring Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityofstringstring?view=bingads-13 for details.
-    /// <para>Used by <see cref="Notification"/> data object.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOfstringstring", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7454,9 +5476,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The name of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Key
         {
@@ -7474,9 +5493,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The value of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Value
         {
@@ -7506,13 +5522,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// The key and value entity of long and int values.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13">KeyValueEntityOflongint Data Object</see> https:/learn.microsoft.com/advertising/customer-management-service/keyvalueentityoflongint?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="KeyValueEntityOflongint", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
@@ -7541,9 +5550,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The key of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public long Key
         {
@@ -7561,9 +5567,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
-        /// <summary>
-        /// The value of the setting.
-        /// </summary>
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Value
         {
@@ -7598,16 +5601,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
     public interface ICustomerManagementService
     {
         
-        /// <summary>
-        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about advertiser accounts that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountsInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
             "InfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
@@ -7616,30 +5609,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "InfoApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse GetAccountsInfo(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request);
         
-        /// <summary>
-        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about advertiser accounts that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountsInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccounts" +
             "InfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse> GetAccountsInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request);
         
-        /// <summary>
-        /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfo objects of the accounts that match the specified filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="FindAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
             "sResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
@@ -7648,30 +5621,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "sApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.FindAccountsResponse FindAccounts(Microsoft.BingAds.V13.CustomerManagement.FindAccountsRequest request);
         
-        /// <summary>
-        /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfo objects of the accounts that match the specified filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="FindAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
             "sResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.FindAccountsResponse> FindAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.FindAccountsRequest request);
         
-        /// <summary>
-        /// Creates a new account within an existing customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddAccountR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddAccountA" +
@@ -7680,30 +5633,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "piFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.AddAccountResponse AddAccount(Microsoft.BingAds.V13.CustomerManagement.AddAccountRequest request);
         
-        /// <summary>
-        /// Creates a new account within an existing customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddAccountR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.AddAccountResponse> AddAccountAsync(Microsoft.BingAds.V13.CustomerManagement.AddAccountRequest request);
         
-        /// <summary>
-        /// Updates the details of the specified account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the account was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateAccou" +
             "ntResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateAccou" +
@@ -7712,30 +5645,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ntApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.UpdateAccountResponse UpdateAccount(Microsoft.BingAds.V13.CustomerManagement.UpdateAccountRequest request);
         
-        /// <summary>
-        /// Updates the details of the specified account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the account was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateAccou" +
             "ntResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateAccountResponse> UpdateAccountAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateAccountRequest request);
         
-        /// <summary>
-        /// Gets the details of a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A Customer object that contains information about the customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "Response")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
@@ -7744,30 +5657,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetCustomerResponse GetCustomer(Microsoft.BingAds.V13.CustomerManagement.GetCustomerRequest request);
         
-        /// <summary>
-        /// Gets the details of a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A Customer object that contains information about the customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "Response")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerResponse> GetCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerRequest request);
         
-        /// <summary>
-        /// Updates the details of the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the customer was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateCusto" +
             "merResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateCusto" +
@@ -7776,30 +5669,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "merApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerResponse UpdateCustomer(Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerRequest request);
         
-        /// <summary>
-        /// Updates the details of the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the customer was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateCusto" +
             "merResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerRequest request);
         
-        /// <summary>
-        /// Creates a new customer and account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SignupCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SignupCusto" +
             "merResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SignupCusto" +
@@ -7808,30 +5681,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "merApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SignupCustomerResponse SignupCustomer(Microsoft.BingAds.V13.CustomerManagement.SignupCustomerRequest request);
         
-        /// <summary>
-        /// Creates a new customer and account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SignupCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SignupCusto" +
             "merResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SignupCustomerResponse> SignupCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.SignupCustomerRequest request);
         
-        /// <summary>
-        /// Gets the details of an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An account object that contains information about the account, such as payment method, account type, and parent customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountA" +
@@ -7840,30 +5693,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "piFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetAccountResponse GetAccount(Microsoft.BingAds.V13.CustomerManagement.GetAccountRequest request);
         
-        /// <summary>
-        /// Gets the details of an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An account object that contains information about the account, such as payment method, account type, and parent customer.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountResponse> GetAccountAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountRequest request);
         
-        /// <summary>
-        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about customers that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "sInfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
@@ -7872,30 +5705,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "sInfoApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse GetCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request);
         
-        /// <summary>
-        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about customers that match the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "sInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse> GetCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request);
         
-        /// <summary>
-        /// Deletes an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteAccou" +
             "ntResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteAccou" +
@@ -7904,30 +5717,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ntApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.DeleteAccountResponse DeleteAccount(Microsoft.BingAds.V13.CustomerManagement.DeleteAccountRequest request);
         
-        /// <summary>
-        /// Deletes an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteAccount", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteAccou" +
             "ntResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteAccountResponse> DeleteAccountAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteAccountRequest request);
         
-        /// <summary>
-        /// Deletes a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteCusto" +
             "merResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteCusto" +
@@ -7936,30 +5729,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "merApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerResponse DeleteCustomer(Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerRequest request);
         
-        /// <summary>
-        /// Deletes a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteCustomer", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteCusto" +
             "merResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerResponse> DeleteCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerRequest request);
         
-        /// <summary>
-        /// Updates the personal and business contact information about a Microsoft Advertising user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserA" +
@@ -7968,30 +5741,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "piFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.UpdateUserResponse UpdateUser(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRequest request);
         
-        /// <summary>
-        /// Updates the personal and business contact information about a Microsoft Advertising user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user was last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateUserResponse> UpdateUserAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRequest request);
         
-        /// <summary>
-        /// Updates the roles of the specified user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user roles were last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUserRoles", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserR" +
             "olesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserR" +
@@ -8000,30 +5753,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "olesApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesResponse UpdateUserRoles(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesRequest request);
         
-        /// <summary>
-        /// Updates the roles of the specified user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user roles were last updated.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateUserRoles", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateUserR" +
             "olesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesResponse> UpdateUserRolesAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesRequest request);
         
-        /// <summary>
-        /// Gets the details of a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserResp" +
             "onse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserAdAp" +
@@ -8032,16 +5765,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetUserResponse GetUser(Microsoft.BingAds.V13.CustomerManagement.GetUserRequest request);
         
-        /// <summary>
-        /// Gets the details of a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserResp" +
             "onse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserResponse> GetUserAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserRequest request);
@@ -8058,16 +5781,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "serResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCurrentUserResponse> GetCurrentUserAsync(Microsoft.BingAds.V13.CustomerManagement.GetCurrentUserRequest request);
         
-        /// <summary>
-        /// Deletes a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteUserR" +
             "esponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteUserA" +
@@ -8076,30 +5789,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "piFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.DeleteUserResponse DeleteUser(Microsoft.BingAds.V13.CustomerManagement.DeleteUserRequest request);
         
-        /// <summary>
-        /// Deletes a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DeleteUser", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DeleteUserR" +
             "esponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteUserResponse> DeleteUserAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteUserRequest request);
         
-        /// <summary>
-        /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of UserInfo objects that identifies the list of users who meet the filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUsersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUsersInf" +
             "oResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUsersInf" +
@@ -8108,30 +5801,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "oApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoResponse GetUsersInfo(Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoRequest request);
         
-        /// <summary>
-        /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of UserInfo objects that identifies the list of users who meet the filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUsersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUsersInf" +
             "oResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoResponse> GetUsersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoRequest request);
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
@@ -8140,30 +5813,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "PilotFeaturesApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request);
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetCustomerPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetCustomer" +
             "PilotFeaturesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request);
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for the ad account.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
             "ilotFeaturesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
@@ -8172,16 +5825,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ilotFeaturesApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse GetAccountPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request);
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for the ad account.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetAccountPilotFeatures", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetAccountP" +
             "ilotFeaturesResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse> GetAccountPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request);
@@ -8210,16 +5853,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "leCustomerResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccessibleCustomerResponse> GetAccessibleCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccessibleCustomerRequest request);
         
-        /// <summary>
-        /// Gets a list of the accounts and customers that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="FindAccountsOrCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
             "sOrCustomersInfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
@@ -8228,16 +5861,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "sOrCustomersInfoApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoResponse FindAccountsOrCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoRequest request);
         
-        /// <summary>
-        /// Gets a list of the accounts and customers that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="FindAccountsOrCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/FindAccount" +
             "sOrCustomersInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoResponse> FindAccountsOrCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoRequest request);
@@ -8302,16 +5925,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "dToExternalAccountIdsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.MapAccountIdToExternalAccountIdsResponse> MapAccountIdToExternalAccountIdsAsync(Microsoft.BingAds.V13.CustomerManagement.MapAccountIdToExternalAccountIdsRequest request);
         
-        /// <summary>
-        /// Searches for customers that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
@@ -8320,30 +5933,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "mersApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse SearchCustomers(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request);
         
-        /// <summary>
-        /// Searches for customers that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchCustomers", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchCusto" +
             "mersResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request);
         
-        /// <summary>
-        /// Initiates the client link process to manage the accounts of another customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddClientLi" +
             "nksResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddClientLi" +
@@ -8352,30 +5945,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "nksApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.AddClientLinksResponse AddClientLinks(Microsoft.BingAds.V13.CustomerManagement.AddClientLinksRequest request);
         
-        /// <summary>
-        /// Initiates the client link process to manage the accounts of another customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="AddClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/AddClientLi" +
             "nksResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.AddClientLinksResponse> AddClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.AddClientLinksRequest request);
         
-        /// <summary>
-        /// Updates the status of the specified client links.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateClien" +
             "tLinksResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateClien" +
@@ -8384,30 +5957,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tLinksApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksResponse UpdateClientLinks(Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksRequest request);
         
-        /// <summary>
-        /// Updates the status of the specified client links.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="UpdateClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/UpdateClien" +
             "tLinksResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksResponse> UpdateClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksRequest request);
         
-        /// <summary>
-        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of client link invitations.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchClien" +
             "tLinksResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchClien" +
@@ -8416,30 +5969,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tLinksApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksResponse SearchClientLinks(Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksRequest request);
         
-        /// <summary>
-        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of client link invitations.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchClientLinks", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchClien" +
             "tLinksResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksResponse> SearchClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksRequest request);
         
-        /// <summary>
-        /// Searches for accounts that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
@@ -8448,30 +5981,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ntsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request);
         
-        /// <summary>
-        /// Searches for accounts that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the request criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchAccounts", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchAccou" +
             "ntsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request);
         
-        /// <summary>
-        /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A system-generated identifier for the user invitation that was sent.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SendUserInvitation", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SendUserInv" +
             "itationResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SendUserInv" +
@@ -8480,30 +5993,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "itationApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse SendUserInvitation(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request);
         
-        /// <summary>
-        /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A system-generated identifier for the user invitation that was sent.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SendUserInvitation", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SendUserInv" +
             "itationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse> SendUserInvitationAsync(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request);
         
-        /// <summary>
-        /// Searches for user invitations that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchUserI" +
@@ -8512,30 +6005,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "nvitationsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse SearchUserInvitations(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request);
         
-        /// <summary>
-        /// Searches for user invitations that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="SearchUserInvitations", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/SearchUserI" +
             "nvitationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request);
         
-        /// <summary>
-        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ValidateAddress", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/ValidateAdd" +
             "ressResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/ValidateAdd" +
@@ -8544,30 +6017,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ressApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request);
         
-        /// <summary>
-        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="ValidateAddress", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/ValidateAdd" +
             "ressResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request);
         
-        /// <summary>
-        /// Gets the customer and account hierarchy under the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetLinkedAccountsAndCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetLinkedAc" +
             "countsAndCustomersInfoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetLinkedAc" +
@@ -8576,30 +6029,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "countsAndCustomersInfoApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse GetLinkedAccountsAndCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
         
-        /// <summary>
-        /// Gets the customer and account hierarchy under the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetLinkedAccountsAndCustomersInfo", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetLinkedAc" +
             "countsAndCustomersInfoResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request);
         
-        /// <summary>
-        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
             "tatusResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
@@ -8608,30 +6041,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tatusApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
         
-        /// <summary>
-        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetUserMFAStatus", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetUserMFAS" +
             "tatusResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request);
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
             "tionsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
@@ -8640,30 +6053,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "tionsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="GetNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/GetNotifica" +
             "tionsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request);
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
             "ficationsResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
@@ -8672,28 +6065,11 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             "ficationsApiFault", Name="ApiFault")]
         Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         [System.ServiceModel.OperationContractAttribute(Action="DismissNotifications", ReplyAction="https://bingads.microsoft.com/Customer/v13/ICustomerManagementService/DismissNoti" +
             "ficationsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request);
     }
     
-    /// <summary>
-    /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountsInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -8715,36 +6091,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer used to get the account information.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> CustomerId;
         
-        /// <summary>
-        /// Determines whether to return only the advertiser accounts that belong to the customer or to also return linked advertiser accounts under other customers.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public bool OnlyParentAccounts;
         
-        /// <summary>
-        /// Constructor for the GetAccountsInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountsInfoRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountsInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer used to get the account information.</param>
-        /// <param name="OnlyParentAccounts">Determines whether to return only the advertiser accounts that belong to the customer or to also return linked advertiser accounts under other customers.</param>
         public GetAccountsInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8757,13 +6113,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountsInfo">GetAccountsInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountsInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -8773,29 +6122,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The list of information about advertiser accounts that match the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
         
-        /// <summary>
-        /// Constructor for the GetAccountsInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountsInfoResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountsInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountsInfo">The list of information about advertiser accounts that match the request criteria.</param>
         public GetAccountsInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo)
         {
             this.TrackingId = TrackingId;
@@ -8803,13 +6136,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="FindAccountsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -8831,43 +6157,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer whose accounts you want to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> CustomerId;
         
-        /// <summary>
-        /// The criteria to use to filter the list of accounts.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string AccountFilter;
         
-        /// <summary>
-        /// A nonzero positive integer that specifies the number of accounts to return in the result.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public int TopN;
         
-        /// <summary>
-        /// Constructor for the FindAccountsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
         public FindAccountsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the FindAccountsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer whose accounts you want to get.</param>
-        /// <param name="AccountFilter">The criteria to use to filter the list of accounts.</param>
-        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
         public FindAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, string AccountFilter, int TopN)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8881,13 +6183,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccounts">FindAccounts</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="FindAccountsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -8897,29 +6192,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of AccountInfo objects of the accounts that match the specified filter criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
         
-        /// <summary>
-        /// Constructor for the FindAccountsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
         public FindAccountsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the FindAccountsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccountsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountsInfo">A list of AccountInfo objects of the accounts that match the specified filter criteria.</param>
         public FindAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo)
         {
             this.TrackingId = TrackingId;
@@ -8927,13 +6206,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Creates a new account within an existing customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAccountRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -8955,29 +6227,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The account that you want to add to the existing customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
-        /// <summary>
-        /// Constructor for the AddAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
         public AddAccountRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the AddAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Account">The account that you want to add to the existing customer.</param>
         public AddAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
         {
             this.ApplicationToken = ApplicationToken;
@@ -8989,13 +6245,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Creates a new account within an existing customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddAccount">AddAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddAccountResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9005,43 +6254,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A system-generated account identifier corresponding to the new account specified in the request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long AccountId;
         
-        /// <summary>
-        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string AccountNumber;
         
-        /// <summary>
-        /// The date and time that the account was added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.DateTime CreateTime;
         
-        /// <summary>
-        /// Constructor for the AddAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
         public AddAccountResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the AddAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
-        /// <param name="AccountNumber">The system-generated account number that is used to identify the account in the Microsoft Advertising web application.</param>
-        /// <param name="CreateTime">The date and time that the account was added.</param>
         public AddAccountResponse(string TrackingId, long AccountId, string AccountNumber, System.DateTime CreateTime)
         {
             this.TrackingId = TrackingId;
@@ -9051,13 +6276,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the details of the specified account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAccountRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9079,29 +6297,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// An AdvertiserAccount object that contains the updated account information.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
-        /// <summary>
-        /// Constructor for the UpdateAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
         public UpdateAccountRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Account">An AdvertiserAccount object that contains the updated account information.</param>
         public UpdateAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9113,13 +6315,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the details of the specified account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateAccount">UpdateAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAccountResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9129,29 +6324,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The date and time that the account was last updated.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.DateTime LastModifiedTime;
         
-        /// <summary>
-        /// Constructor for the UpdateAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
         public UpdateAccountResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="LastModifiedTime">The date and time that the account was last updated.</param>
         public UpdateAccountResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -9159,13 +6338,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomerRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9187,29 +6359,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer whose information you want to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// Constructor for the GetCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomerRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer whose information you want to get.</param>
         public GetCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9221,13 +6377,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomer">GetCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomerResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9237,29 +6386,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A Customer object that contains information about the customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.Customer Customer;
         
-        /// <summary>
-        /// Constructor for the GetCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomerResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Customer">A Customer object that contains information about the customer.</param>
         public GetCustomerResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.Customer Customer)
         {
             this.TrackingId = TrackingId;
@@ -9267,13 +6400,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the details of the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCustomerRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9295,29 +6421,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// A customer object that contains the updated customer information.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.Customer Customer;
         
-        /// <summary>
-        /// Constructor for the UpdateCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
         public UpdateCustomerRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Customer">A customer object that contains the updated customer information.</param>
         public UpdateCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9329,13 +6439,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the details of the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateCustomer">UpdateCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateCustomerResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9345,29 +6448,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The date and time that the customer was last updated.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.DateTime LastModifiedTime;
         
-        /// <summary>
-        /// Constructor for the UpdateCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
         public UpdateCustomerResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="LastModifiedTime">The date and time that the customer was last updated.</param>
         public UpdateCustomerResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -9375,13 +6462,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Creates a new customer and account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SignupCustomerRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9403,64 +6483,28 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// A Customer that specifies the details of the customer that you are adding.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.Customer Customer;
         
-        /// <summary>
-        /// An AdvertiserAccount that specifies the details of the customer's primary account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
-        /// <summary>
-        /// The customer identifier of the aggregator or agency that will manage the new child customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<long> ParentCustomerId;
         
-        /// <summary>
-        /// The user invitation to send if you want to sign up a new customer on behalf of a client and optionally link to the new account as an agency.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation;
         
-        /// <summary>
-        /// The identifier of an existing user who will be added as Super Admin in the new customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=4)]
         public System.Nullable<long> UserId;
         
-        /// <summary>
-        /// The user to create.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=5)]
         public Microsoft.BingAds.V13.CustomerManagement.User User;
         
-        /// <summary>
-        /// Constructor for the SignupCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
         public SignupCustomerRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SignupCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Customer">A Customer that specifies the details of the customer that you are adding.</param>
-        /// <param name="Account">An AdvertiserAccount that specifies the details of the customer's primary account.</param>
-        /// <param name="ParentCustomerId">The customer identifier of the aggregator or agency that will manage the new child customer.</param>
-        /// <param name="UserInvitation">The user invitation to send if you want to sign up a new customer on behalf of a client and optionally link to the new account as an agency.</param>
-        /// <param name="UserId">The identifier of an existing user who will be added as Super Admin in the new customer.</param>
-        /// <param name="User">The user to create.</param>
         public SignupCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Customer Customer, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account, System.Nullable<long> ParentCustomerId, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation, System.Nullable<long> UserId, Microsoft.BingAds.V13.CustomerManagement.User User)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9477,13 +6521,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Creates a new customer and account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SignupCustomer">SignupCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SignupCustomerResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9493,57 +6530,25 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A system-generated customer identifier corresponding to the new customer specified in the request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// A system-generated customer number that is used in the Microsoft Advertising web application.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string CustomerNumber;
         
-        /// <summary>
-        /// A system-generated account identifier corresponding to the new account specified in the request.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<long> AccountId;
         
-        /// <summary>
-        /// The system-generated account number that is used to identify the account in the Microsoft Advertising web application.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public string AccountNumber;
         
-        /// <summary>
-        /// The date and time that the account was added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=4)]
         public System.DateTime CreateTime;
         
-        /// <summary>
-        /// Constructor for the SignupCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
         public SignupCustomerResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SignupCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">A system-generated customer identifier corresponding to the new customer specified in the request.</param>
-        /// <param name="CustomerNumber">A system-generated customer number that is used in the Microsoft Advertising web application.</param>
-        /// <param name="AccountId">A system-generated account identifier corresponding to the new account specified in the request.</param>
-        /// <param name="AccountNumber">The system-generated account number that is used to identify the account in the Microsoft Advertising web application.</param>
-        /// <param name="CreateTime">The date and time that the account was added.</param>
         public SignupCustomerResponse(string TrackingId, long CustomerId, string CustomerNumber, System.Nullable<long> AccountId, string AccountNumber, System.DateTime CreateTime)
         {
             this.TrackingId = TrackingId;
@@ -9555,13 +6560,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9583,36 +6581,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the account to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long AccountId;
         
-        /// <summary>
-        /// The list of additional properties that you want included within each returned account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
         
-        /// <summary>
-        /// Constructor for the GetAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountId">The identifier of the account to get.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
         public GetAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9625,13 +6603,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccount">GetAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9641,29 +6612,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// An account object that contains information about the account, such as payment method, account type, and parent customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account;
         
-        /// <summary>
-        /// Constructor for the GetAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Account">An account object that contains information about the account, such as payment method, account type, and parent customer.</param>
         public GetAccountResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount Account)
         {
             this.TrackingId = TrackingId;
@@ -9671,13 +6626,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomersInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9699,36 +6647,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// A partial or full name of the customers that you want to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public string CustomerNameFilter;
         
-        /// <summary>
-        /// A nonzero positive integer that specifies the number of customers to return in the result.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public int TopN;
         
-        /// <summary>
-        /// Constructor for the GetCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomersInfoRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerNameFilter">A partial or full name of the customers that you want to get.</param>
-        /// <param name="TopN">A nonzero positive integer that specifies the number of customers to return in the result.</param>
         public GetCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string CustomerNameFilter, int TopN)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9741,13 +6669,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomersInfo">GetCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomersInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9757,29 +6678,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The list of information about customers that match the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo;
         
-        /// <summary>
-        /// Constructor for the GetCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomersInfoResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomersInfo">The list of information about customers that match the request criteria.</param>
         public GetCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
         {
             this.TrackingId = TrackingId;
@@ -9787,13 +6692,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Deletes an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAccountRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9815,36 +6713,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the account to delete.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long AccountId;
         
-        /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public byte[] TimeStamp;
         
-        /// <summary>
-        /// Constructor for the DeleteAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
         public DeleteAccountRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteAccountRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountId">The identifier of the account to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteAccountRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9857,13 +6735,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Deletes an account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteAccount">DeleteAccount</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteAccountResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9873,35 +6744,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Constructor for the DeleteAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
         public DeleteAccountResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteAccountResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccountResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
         public DeleteAccountResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
         }
     }
     
-    /// <summary>
-    /// Deletes a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCustomerRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9923,36 +6775,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer to delete.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public byte[] TimeStamp;
         
-        /// <summary>
-        /// Constructor for the DeleteCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
         public DeleteCustomerRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteCustomerRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteCustomerRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -9965,13 +6797,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Deletes a customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteCustomer">DeleteCustomer</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteCustomerResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -9981,35 +6806,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Constructor for the DeleteCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
         public DeleteCustomerResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteCustomerResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomerResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
         public DeleteCustomerResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
         }
     }
     
-    /// <summary>
-    /// Updates the personal and business contact information about a Microsoft Advertising user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10031,29 +6837,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The user object that contains the updated user information.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.User User;
         
-        /// <summary>
-        /// Constructor for the UpdateUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
         public UpdateUserRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="User">The user object that contains the updated user information.</param>
         public UpdateUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.User User)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10065,13 +6855,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the personal and business contact information about a Microsoft Advertising user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUser">UpdateUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10081,29 +6864,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The date and time that the user was last updated.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.DateTime LastModifiedTime;
         
-        /// <summary>
-        /// Constructor for the UpdateUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
         public UpdateUserResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="LastModifiedTime">The date and time that the user was last updated.</param>
         public UpdateUserResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -10111,13 +6878,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the roles of the specified user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserRolesRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10139,78 +6899,34 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer to which the user belongs.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// The identifier of the user whose role you want to update.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public long UserId;
         
-        /// <summary>
-        /// The identifier of the role to which the values specified in the NewAccountIds or NewCustomerIds element applies to, if set.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<int> NewRoleId;
         
-        /// <summary>
-        /// An array of identifiers of the accounts to restrict the user to.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public System.Collections.Generic.IList<long> NewAccountIds;
         
-        /// <summary>
-        /// An array of identifiers of the customers to restrict the user to.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=4)]
         public System.Collections.Generic.IList<long> NewCustomerIds;
         
-        /// <summary>
-        /// The identifier of the role to which the values specified in the DeleteAccountIds or DeleteCustomerIds element applies, if set.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=5)]
         public System.Nullable<int> DeleteRoleId;
         
-        /// <summary>
-        /// An array of identifiers of the accounts to remove from the list of accounts that the user can manage.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=6)]
         public System.Collections.Generic.IList<long> DeleteAccountIds;
         
-        /// <summary>
-        /// An array of identifiers of the customers to remove from the list of customers that the user can manage.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=7)]
         public System.Collections.Generic.IList<long> DeleteCustomerIds;
         
-        /// <summary>
-        /// Constructor for the UpdateUserRolesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
         public UpdateUserRolesRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateUserRolesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer to which the user belongs.</param>
-        /// <param name="UserId">The identifier of the user whose role you want to update.</param>
-        /// <param name="NewRoleId">The identifier of the role to which the values specified in the NewAccountIds or NewCustomerIds element applies to, if set.</param>
-        /// <param name="NewAccountIds">An array of identifiers of the accounts to restrict the user to.</param>
-        /// <param name="NewCustomerIds">An array of identifiers of the customers to restrict the user to.</param>
-        /// <param name="DeleteRoleId">The identifier of the role to which the values specified in the DeleteAccountIds or DeleteCustomerIds element applies, if set.</param>
-        /// <param name="DeleteAccountIds">An array of identifiers of the accounts to remove from the list of accounts that the user can manage.</param>
-        /// <param name="DeleteCustomerIds">An array of identifiers of the customers to remove from the list of customers that the user can manage.</param>
         public UpdateUserRolesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, long UserId, System.Nullable<int> NewRoleId, System.Collections.Generic.IList<long> NewAccountIds, System.Collections.Generic.IList<long> NewCustomerIds, System.Nullable<int> DeleteRoleId, System.Collections.Generic.IList<long> DeleteAccountIds, System.Collections.Generic.IList<long> DeleteCustomerIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10229,13 +6945,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the roles of the specified user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateUserRoles">UpdateUserRoles</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateUserRolesResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10245,29 +6954,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The date and time that the user roles were last updated.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.DateTime LastModifiedTime;
         
-        /// <summary>
-        /// Constructor for the UpdateUserRolesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
         public UpdateUserRolesResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateUserRolesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRolesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="LastModifiedTime">The date and time that the user roles were last updated.</param>
         public UpdateUserRolesResponse(string TrackingId, System.DateTime LastModifiedTime)
         {
             this.TrackingId = TrackingId;
@@ -10275,13 +6968,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10303,29 +6989,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the user to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> UserId;
         
-        /// <summary>
-        /// Constructor for the GetUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
         public GetUserRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserId">The identifier of the user to get.</param>
         public GetUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> UserId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10337,13 +7007,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the details of a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUser">GetUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10353,36 +7016,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A user object that contains information about the user.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.User User;
         
-        /// <summary>
-        /// The list of roles that a user has for each customer or list of accounts.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerRole> CustomerRoles;
         
-        /// <summary>
-        /// Constructor for the GetUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
         public GetUserResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="User">A user object that contains information about the user.</param>
-        /// <param name="CustomerRoles">The list of roles that a user has for each customer or list of accounts.</param>
         public GetUserResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.User User, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerRole> CustomerRoles)
         {
             this.TrackingId = TrackingId;
@@ -10449,13 +7092,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Deletes a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteUserRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10477,36 +7113,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the user to delete.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long UserId;
         
-        /// <summary>
-        /// The time-stamp value that the operation uses to reconcile the update.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public byte[] TimeStamp;
         
-        /// <summary>
-        /// Constructor for the DeleteUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
         public DeleteUserRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteUserRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserId">The identifier of the user to delete.</param>
-        /// <param name="TimeStamp">The time-stamp value that the operation uses to reconcile the update.</param>
         public DeleteUserRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long UserId, byte[] TimeStamp)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10519,13 +7135,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Deletes a user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DeleteUser">DeleteUser</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteUserResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10535,35 +7144,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Constructor for the DeleteUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
         public DeleteUserResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DeleteUserResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUserResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
         public DeleteUserResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
         }
     }
     
-    /// <summary>
-    /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUsersInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10585,36 +7175,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer to which the users belong.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// The status value that the operation uses to filter the list of users that it returns.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.UserLifeCycleStatus> StatusFilter;
         
-        /// <summary>
-        /// Constructor for the GetUsersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetUsersInfoRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUsersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer to which the users belong.</param>
-        /// <param name="StatusFilter">The status value that the operation uses to filter the list of users that it returns.</param>
         public GetUsersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.UserLifeCycleStatus> StatusFilter)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10627,13 +7197,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUsersInfo">GetUsersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUsersInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10643,29 +7206,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of UserInfo objects that identifies the list of users who meet the filter criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInfo> UsersInfo;
         
-        /// <summary>
-        /// Constructor for the GetUsersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetUsersInfoResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUsersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UsersInfo">A list of UserInfo objects that identifies the list of users who meet the filter criteria.</param>
         public GetUsersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInfo> UsersInfo)
         {
             this.TrackingId = TrackingId;
@@ -10673,13 +7220,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomerPilotFeaturesRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10701,29 +7241,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer used to get a list of feature pilot IDs.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long CustomerId;
         
-        /// <summary>
-        /// Constructor for the GetCustomerPilotFeaturesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomerPilotFeaturesRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomerPilotFeaturesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer used to get a list of feature pilot IDs.</param>
         public GetCustomerPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10735,13 +7259,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetCustomerPilotFeatures">GetCustomerPilotFeatures</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetCustomerPilotFeaturesResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10751,29 +7268,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<int> FeaturePilotFlags;
         
-        /// <summary>
-        /// Constructor for the GetCustomerPilotFeaturesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
         public GetCustomerPilotFeaturesResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetCustomerPilotFeaturesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeaturesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="FeaturePilotFlags">A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).</param>
         public GetCustomerPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
         {
             this.TrackingId = TrackingId;
@@ -10781,13 +7282,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountPilotFeatures">GetAccountPilotFeatures</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPilotFeaturesRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10809,29 +7303,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the account used to get a list of feature pilot IDs.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long AccountId;
         
-        /// <summary>
-        /// Constructor for the GetAccountPilotFeaturesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountPilotFeaturesRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountPilotFeaturesRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountId">The identifier of the account used to get a list of feature pilot IDs.</param>
         public GetAccountPilotFeaturesRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long AccountId)
         {
             this.ApplicationToken = ApplicationToken;
@@ -10843,13 +7321,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetAccountPilotFeatures">GetAccountPilotFeatures</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetAccountPilotFeaturesResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -10859,29 +7330,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of integers that identify the feature pilots that are enabled for the ad account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<int> FeaturePilotFlags;
         
-        /// <summary>
-        /// Constructor for the GetAccountPilotFeaturesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
         public GetAccountPilotFeaturesResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetAccountPilotFeaturesResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeaturesResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="FeaturePilotFlags">A list of integers that identify the feature pilots that are enabled for the ad account.</param>
         public GetAccountPilotFeaturesResponse(string TrackingId, System.Collections.Generic.IList<int> FeaturePilotFlags)
         {
             this.TrackingId = TrackingId;
@@ -11013,13 +7468,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the accounts and customers that match the specified filter criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="FindAccountsOrCustomersInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11041,43 +7489,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The criteria to use to filter the list of accounts and customers.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public string Filter;
         
-        /// <summary>
-        /// A nonzero positive integer that specifies the number of accounts to return in the result.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public int TopN;
         
-        /// <summary>
-        /// The list of additional properties that you want included within each returned account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
         
-        /// <summary>
-        /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public FindAccountsOrCustomersInfoRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the FindAccountsOrCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Filter">The criteria to use to filter the list of accounts and customers.</param>
-        /// <param name="TopN">A nonzero positive integer that specifies the number of accounts to return in the result.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
         public FindAccountsOrCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Filter, int TopN, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11091,13 +7515,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of the accounts and customers that match the specified filter criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.FindAccountsOrCustomersInfo">FindAccountsOrCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="FindAccountsOrCustomersInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11107,29 +7524,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfoWithCustomerData> AccountInfoWithCustomerData;
         
-        /// <summary>
-        /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public FindAccountsOrCustomersInfoResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the FindAccountsOrCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountInfoWithCustomerData">A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</param>
         public FindAccountsOrCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfoWithCustomerData> AccountInfoWithCustomerData)
         {
             this.TrackingId = TrackingId;
@@ -11451,13 +7852,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for customers that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCustomersRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11479,50 +7873,22 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// Determines the conditions that all must be met to return customers.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates;
         
-        /// <summary>
-        /// Determines the minimum and maximum customer creation date range.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public Microsoft.BingAds.V13.CustomerManagement.DateRange DateRange;
         
-        /// <summary>
-        /// Determines the order of results by the specified property of a customer.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering;
         
-        /// <summary>
-        /// Determines the index and size of  results per page.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo;
         
-        /// <summary>
-        /// Constructor for the SearchCustomersRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
         public SearchCustomersRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchCustomersRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Predicates">Determines the conditions that all must be met to return customers.</param>
-        /// <param name="DateRange">Determines the minimum and maximum customer creation date range.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of a customer.</param>
-        /// <param name="PageInfo">Determines the index and size of  results per page.</param>
         public SearchCustomersRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, Microsoft.BingAds.V13.CustomerManagement.DateRange DateRange, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11537,13 +7903,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for customers that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchCustomers">SearchCustomers</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchCustomersResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11553,29 +7912,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A  list of customers that meet the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Customer> Customers;
         
-        /// <summary>
-        /// Constructor for the SearchCustomersResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
         public SearchCustomersResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchCustomersResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomersResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Customers">A  list of customers that meet the request criteria.</param>
         public SearchCustomersResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Customer> Customers)
         {
             this.TrackingId = TrackingId;
@@ -11583,13 +7926,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Initiates the client link process to manage the accounts of another customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddClientLinksRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11611,29 +7947,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The list of client links to add.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks;
         
-        /// <summary>
-        /// Constructor for the AddClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public AddClientLinksRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the AddClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ClientLinks">The list of client links to add.</param>
         public AddClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11645,13 +7965,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Initiates the client link process to manage the accounts of another customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.AddClientLinks">AddClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddClientLinksResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11661,36 +7974,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of one or more reasons why the service operation failed, and no client links were added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrors;
         
-        /// <summary>
-        /// An array of OperationError lists that contain details for any client links that were not successfully added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError>> PartialErrors;
         
-        /// <summary>
-        /// Constructor for the AddClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public AddClientLinksResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the AddClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
-        /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
         public AddClientLinksResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrors, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError>> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -11699,13 +7992,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the status of the specified client links.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateClientLinksRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11727,29 +8013,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The list of client links to update.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks;
         
-        /// <summary>
-        /// Constructor for the UpdateClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public UpdateClientLinksRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ClientLinks">The list of client links to update.</param>
         public UpdateClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11761,13 +8031,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Updates the status of the specified client links.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.UpdateClientLinks">UpdateClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateClientLinksResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11777,36 +8040,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of one or more reasons why the service operation failed, and no client links were added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrors;
         
-        /// <summary>
-        /// An array of OperationError lists that contain details for any client links that were not successfully added.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError>> PartialErrors;
         
-        /// <summary>
-        /// Constructor for the UpdateClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public UpdateClientLinksResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the UpdateClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="OperationErrors">A list of one or more reasons why the service operation failed, and no client links were added.</param>
-        /// <param name="PartialErrors">An array of OperationError lists that contain details for any client links that were not successfully added.</param>
         public UpdateClientLinksResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError> OperationErrors, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OperationError>> PartialErrors)
         {
             this.TrackingId = TrackingId;
@@ -11815,13 +8058,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchClientLinksRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11843,43 +8079,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// Determines the conditions that must be met to return client links.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates;
         
-        /// <summary>
-        /// Determines the order of results.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering;
         
-        /// <summary>
-        /// Determines the index and size of results per page.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo;
         
-        /// <summary>
-        /// Constructor for the SearchClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public SearchClientLinksRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchClientLinksRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Predicates">Determines the conditions that must be met to return client links.</param>
-        /// <param name="Ordering">Determines the order of results.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
         public SearchClientLinksRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo)
         {
             this.ApplicationToken = ApplicationToken;
@@ -11893,13 +8105,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchClientLinks">SearchClientLinks</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchClientLinksResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11909,29 +8114,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The list of client link invitations.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks;
         
-        /// <summary>
-        /// Constructor for the SearchClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
         public SearchClientLinksResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchClientLinksResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinksResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="ClientLinks">The list of client link invitations.</param>
         public SearchClientLinksResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.ClientLink> ClientLinks)
         {
             this.TrackingId = TrackingId;
@@ -11939,13 +8128,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for accounts that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchAccountsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -11967,50 +8149,22 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// Determines the conditions that all must be met to return accounts.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates;
         
-        /// <summary>
-        /// Determines the order of results by the specified property of an account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering;
         
-        /// <summary>
-        /// Determines the index and size of results per page.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo;
         
-        /// <summary>
-        /// The list of additional properties that you want included within each returned account.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields;
         
-        /// <summary>
-        /// Constructor for the SearchAccountsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
         public SearchAccountsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchAccountsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Predicates">Determines the conditions that all must be met to return accounts.</param>
-        /// <param name="Ordering">Determines the order of results by the specified property of an account.</param>
-        /// <param name="PageInfo">Determines the index and size of results per page.</param>
-        /// <param name="ReturnAdditionalFields">The list of additional properties that you want included within each returned account.</param>
         public SearchAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.OrderBy> Ordering, Microsoft.BingAds.V13.CustomerManagement.Paging PageInfo, System.Nullable<Microsoft.BingAds.V13.CustomerManagement.AccountAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12025,13 +8179,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for accounts that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchAccounts">SearchAccounts</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchAccountsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12041,29 +8188,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of accounts that meet the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount> Accounts;
         
-        /// <summary>
-        /// Constructor for the SearchAccountsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
         public SearchAccountsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchAccountsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccountsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Accounts">A list of accounts that meet the request criteria.</param>
         public SearchAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AdvertiserAccount> Accounts)
         {
             this.TrackingId = TrackingId;
@@ -12071,13 +8202,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SendUserInvitationRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12099,29 +8223,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The user invitation to send.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation;
         
-        /// <summary>
-        /// Constructor for the SendUserInvitationRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
         public SendUserInvitationRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SendUserInvitationRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserInvitation">The user invitation to send.</param>
         public SendUserInvitationRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.UserInvitation UserInvitation)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12133,13 +8241,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SendUserInvitation">SendUserInvitation</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SendUserInvitationResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12149,29 +8250,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A system-generated identifier for the user invitation that was sent.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public long UserInvitationId;
         
-        /// <summary>
-        /// Constructor for the SendUserInvitationResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
         public SendUserInvitationResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SendUserInvitationResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitationResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserInvitationId">A system-generated identifier for the user invitation that was sent.</param>
         public SendUserInvitationResponse(string TrackingId, long UserInvitationId)
         {
             this.TrackingId = TrackingId;
@@ -12179,13 +8264,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for user invitations that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchUserInvitationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12207,29 +8285,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// Determines the conditions that all must be met to return user invitations.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates;
         
-        /// <summary>
-        /// Constructor for the SearchUserInvitationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
         public SearchUserInvitationsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchUserInvitationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Predicates">Determines the conditions that all must be met to return user invitations.</param>
         public SearchUserInvitationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Predicate> Predicates)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12241,13 +8303,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Searches for user invitations that match the request criteria.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.SearchUserInvitations">SearchUserInvitations</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="SearchUserInvitationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12257,29 +8312,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A list of user invitations that meet the specified criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInvitation> UserInvitations;
         
-        /// <summary>
-        /// Constructor for the SearchUserInvitationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
         public SearchUserInvitationsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the SearchUserInvitationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserInvitations">A list of user invitations that meet the specified criteria.</param>
         public SearchUserInvitationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.UserInvitation> UserInvitations)
         {
             this.TrackingId = TrackingId;
@@ -12287,13 +8326,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ValidateAddressRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12315,29 +8347,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The address to validate.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.Address Address;
         
-        /// <summary>
-        /// Constructor for the ValidateAddressRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
         public ValidateAddressRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the ValidateAddressRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Address">The address to validate.</param>
         public ValidateAddressRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, Microsoft.BingAds.V13.CustomerManagement.Address Address)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12349,13 +8365,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.ValidateAddress">ValidateAddress</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="ValidateAddressResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12365,43 +8374,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The address that was submitted for validation.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public Microsoft.BingAds.V13.CustomerManagement.Address OriginalAddress;
         
-        /// <summary>
-        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public string Status;
         
-        /// <summary>
-        /// One or more suggested addresses if the Status is either AddressValidWithSuggestions or AddressInvalidWithSuggestions.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Address> SuggestedAddresses;
         
-        /// <summary>
-        /// Constructor for the ValidateAddressResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
         public ValidateAddressResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the ValidateAddressResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddressResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="OriginalAddress">The address that was submitted for validation.</param>
-        /// <param name="Status">Determines whether or not the submitted address is valid for Microsoft Advertising accounts, and whether or not any address suggestions are available via the SuggestedAddresses response element.</param>
-        /// <param name="SuggestedAddresses">One or more suggested addresses if the Status is either AddressValidWithSuggestions or AddressInvalidWithSuggestions.</param>
         public ValidateAddressResponse(string TrackingId, Microsoft.BingAds.V13.CustomerManagement.Address OriginalAddress, string Status, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Address> SuggestedAddresses)
         {
             this.TrackingId = TrackingId;
@@ -12411,13 +8396,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the customer and account hierarchy under the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetLinkedAccountsAndCustomersInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12439,36 +8417,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The identifier of the customer whose hierarchy you want to get.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<long> CustomerId;
         
-        /// <summary>
-        /// Determines whether to return only the advertiser accounts that belong to the customer or to also return linked customers and linked advertiser accounts under other customers.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public bool OnlyParentAccounts;
         
-        /// <summary>
-        /// Constructor for the GetLinkedAccountsAndCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetLinkedAccountsAndCustomersInfoRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetLinkedAccountsAndCustomersInfoRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="CustomerId">The identifier of the customer whose hierarchy you want to get.</param>
-        /// <param name="OnlyParentAccounts">Determines whether to return only the advertiser accounts that belong to the customer or to also return linked customers and linked advertiser accounts under other customers.</param>
         public GetLinkedAccountsAndCustomersInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<long> CustomerId, bool OnlyParentAccounts)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12481,13 +8439,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets the customer and account hierarchy under the specified customer.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetLinkedAccountsAndCustomersInfo">GetLinkedAccountsAndCustomersInfo</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetLinkedAccountsAndCustomersInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12497,36 +8448,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// The list of information about advertiser accounts that match the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo;
         
-        /// <summary>
-        /// The list of information about customers that match the request criteria.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo;
         
-        /// <summary>
-        /// Constructor for the GetLinkedAccountsAndCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
         public GetLinkedAccountsAndCustomersInfoResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetLinkedAccountsAndCustomersInfoResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfoResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="AccountsInfo">The list of information about advertiser accounts that match the request criteria.</param>
-        /// <param name="CustomersInfo">The list of information about customers that match the request criteria.</param>
         public GetLinkedAccountsAndCustomersInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.AccountInfo> AccountsInfo, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.CustomerInfo> CustomersInfo)
         {
             this.TrackingId = TrackingId;
@@ -12535,13 +8466,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUserMFAStatus">GetUserMFAStatus</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserMFAStatusRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12563,22 +8487,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// Constructor for the GetUserMFAStatusRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
         public GetUserMFAStatusRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUserMFAStatusRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
         public GetUserMFAStatusRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12589,13 +8501,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetUserMFAStatus">GetUserMFAStatus</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetUserMFAStatusResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12605,29 +8510,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public bool MFAStatus;
         
-        /// <summary>
-        /// Constructor for the GetUserMFAStatusResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
         public GetUserMFAStatusResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetUserMFAStatusResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatusResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="MFAStatus">Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</param>
         public GetUserMFAStatusResponse(string TrackingId, bool MFAStatus)
         {
             this.TrackingId = TrackingId;
@@ -12635,13 +8524,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of notification objects.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12663,43 +8545,19 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The locale of the message.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public string Locale;
         
-        /// <summary>
-        /// The UserId filter.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Nullable<int> UserId;
         
-        /// <summary>
-        /// A list of notification type filter.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=2)]
         public System.Collections.Generic.IList<int> TypeIds;
         
-        /// <summary>
-        /// Constructor for the GetNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
         public GetNotificationsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Locale">The locale of the message.</param>
-        /// <param name="UserId">The UserId filter.</param>
-        /// <param name="TypeIds">A list of notification type filter.</param>
         public GetNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, string Locale, System.Nullable<int> UserId, System.Collections.Generic.IList<int> TypeIds)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12713,13 +8571,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// Gets a list of notification objects.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.GetNotifications">GetNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="GetNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12729,29 +8580,13 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// A collection of Notification objects that contains information about the Notification.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications;
         
-        /// <summary>
-        /// Constructor for the GetNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
         public GetNotificationsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the GetNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="Notifications">A collection of Notification objects that contains information about the Notification.</param>
         public GetNotificationsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.Notification> Notifications)
         {
             this.TrackingId = TrackingId;
@@ -12759,13 +8594,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// A service operation to dismiss notifications.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Request Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsRequest", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12787,36 +8615,16 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string UserName;
         
-        /// <summary>
-        /// The user's identification number.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=0)]
         public System.Nullable<int> UserId;
         
-        /// <summary>
-        /// The key and value of a notification entity.
-        /// </summary>
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Customer/v13", Order=1)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs;
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsRequest()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsRequest request object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsRequest</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <param name="UserId">The user's identification number.</param>
-        /// <param name="NotificationTypePairs">The key and value of a notification entity.</param>
         public DismissNotificationsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Nullable<int> UserId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerManagement.KeyValueEntityOflongint> NotificationTypePairs)
         {
             this.ApplicationToken = ApplicationToken;
@@ -12829,13 +8637,6 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         }
     }
     
-    /// <summary>
-    /// A service operation to dismiss notifications.
-    /// </summary>
-    /// <remarks>
-    /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Response Object</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-    /// <para>Used by <see cref="CustomerManagementServiceClient.DismissNotifications">DismissNotifications</see> service operation.</para>
-    /// </remarks>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DismissNotificationsResponse", WrapperNamespace="https://bingads.microsoft.com/Customer/v13", IsWrapped=true)]
@@ -12845,22 +8646,10 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Customer/v13")]
         public string TrackingId;
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsResponse()
         {
         }
         
-        /// <summary>
-        /// Constructor for the DismissNotificationsResponse response object.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotificationsResponse</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
         public DismissNotificationsResponse(string TrackingId)
         {
             this.TrackingId = TrackingId;
@@ -12901,421 +8690,141 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         {
         }
         
-        /// <summary>
-        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about advertiser accounts that match the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse GetAccountsInfo(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request)
         {
             return base.Channel.GetAccountsInfo(request);
         }
         
-        /// <summary>
-        /// Gets the identifiers, names, and numbers of accounts that are accessible from the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13">GetAccountsInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountsinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about advertiser accounts that match the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoResponse> GetAccountsInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountsInfoRequest request)
         {
             return base.Channel.GetAccountsInfoAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfo objects of the accounts that match the specified filter criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.FindAccountsResponse FindAccounts(Microsoft.BingAds.V13.CustomerManagement.FindAccountsRequest request)
         {
             return base.Channel.FindAccounts(request);
         }
         
-        /// <summary>
-        /// Gets a list of accounts owned by the specified customer that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13">FindAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfo objects of the accounts that match the specified filter criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.FindAccountsResponse> FindAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.FindAccountsRequest request)
         {
             return base.Channel.FindAccountsAsync(request);
         }
         
-        /// <summary>
-        /// Creates a new account within an existing customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.AddAccountResponse AddAccount(Microsoft.BingAds.V13.CustomerManagement.AddAccountRequest request)
         {
             return base.Channel.AddAccount(request);
         }
         
-        /// <summary>
-        /// Creates a new account within an existing customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13">AddAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.AddAccountResponse> AddAccountAsync(Microsoft.BingAds.V13.CustomerManagement.AddAccountRequest request)
         {
             return base.Channel.AddAccountAsync(request);
         }
         
-        /// <summary>
-        /// Updates the details of the specified account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the account was last updated.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.UpdateAccountResponse UpdateAccount(Microsoft.BingAds.V13.CustomerManagement.UpdateAccountRequest request)
         {
             return base.Channel.UpdateAccount(request);
         }
         
-        /// <summary>
-        /// Updates the details of the specified account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13">UpdateAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the account was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateAccountResponse> UpdateAccountAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateAccountRequest request)
         {
             return base.Channel.UpdateAccountAsync(request);
         }
         
-        /// <summary>
-        /// Gets the details of a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A Customer object that contains information about the customer.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetCustomerResponse GetCustomer(Microsoft.BingAds.V13.CustomerManagement.GetCustomerRequest request)
         {
             return base.Channel.GetCustomer(request);
         }
         
-        /// <summary>
-        /// Gets the details of a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13">GetCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A Customer object that contains information about the customer.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerResponse> GetCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerRequest request)
         {
             return base.Channel.GetCustomerAsync(request);
         }
         
-        /// <summary>
-        /// Updates the details of the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the customer was last updated.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerResponse UpdateCustomer(Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerRequest request)
         {
             return base.Channel.UpdateCustomer(request);
         }
         
-        /// <summary>
-        /// Updates the details of the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13">UpdateCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updatecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the customer was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerResponse> UpdateCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateCustomerRequest request)
         {
             return base.Channel.UpdateCustomerAsync(request);
         }
         
-        /// <summary>
-        /// Creates a new customer and account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SignupCustomerResponse SignupCustomer(Microsoft.BingAds.V13.CustomerManagement.SignupCustomerRequest request)
         {
             return base.Channel.SignupCustomer(request);
         }
         
-        /// <summary>
-        /// Creates a new customer and account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13">SignupCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/signupcustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SignupCustomerResponse> SignupCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.SignupCustomerRequest request)
         {
             return base.Channel.SignupCustomerAsync(request);
         }
         
-        /// <summary>
-        /// Gets the details of an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An account object that contains information about the account, such as payment method, account type, and parent customer.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetAccountResponse GetAccount(Microsoft.BingAds.V13.CustomerManagement.GetAccountRequest request)
         {
             return base.Channel.GetAccount(request);
         }
         
-        /// <summary>
-        /// Gets the details of an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13">GetAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>An account object that contains information about the account, such as payment method, account type, and parent customer.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountResponse> GetAccountAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountRequest request)
         {
             return base.Channel.GetAccountAsync(request);
         }
         
-        /// <summary>
-        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about customers that match the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse GetCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request)
         {
             return base.Channel.GetCustomersInfo(request);
         }
         
-        /// <summary>
-        /// Gets the identifiers and names of customers that are accessible to the current authenticated user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13">GetCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of information about customers that match the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoResponse> GetCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomersInfoRequest request)
         {
             return base.Channel.GetCustomersInfoAsync(request);
         }
         
-        /// <summary>
-        /// Deletes an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.DeleteAccountResponse DeleteAccount(Microsoft.BingAds.V13.CustomerManagement.DeleteAccountRequest request)
         {
             return base.Channel.DeleteAccount(request);
         }
         
-        /// <summary>
-        /// Deletes an account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13">DeleteAccount Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteaccount?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteAccountResponse> DeleteAccountAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteAccountRequest request)
         {
             return base.Channel.DeleteAccountAsync(request);
         }
         
-        /// <summary>
-        /// Deletes a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerResponse DeleteCustomer(Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerRequest request)
         {
             return base.Channel.DeleteCustomer(request);
         }
         
-        /// <summary>
-        /// Deletes a customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13">DeleteCustomer Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deletecustomer?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerResponse> DeleteCustomerAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteCustomerRequest request)
         {
             return base.Channel.DeleteCustomerAsync(request);
         }
         
-        /// <summary>
-        /// Updates the personal and business contact information about a Microsoft Advertising user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user was last updated.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.UpdateUserResponse UpdateUser(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRequest request)
         {
             return base.Channel.UpdateUser(request);
         }
         
-        /// <summary>
-        /// Updates the personal and business contact information about a Microsoft Advertising user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13">UpdateUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user was last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateUserResponse> UpdateUserAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRequest request)
         {
             return base.Channel.UpdateUserAsync(request);
         }
         
-        /// <summary>
-        /// Updates the roles of the specified user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user roles were last updated.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesResponse UpdateUserRoles(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesRequest request)
         {
             return base.Channel.UpdateUserRoles(request);
         }
         
-        /// <summary>
-        /// Updates the roles of the specified user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13">UpdateUserRoles Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateuserroles?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The date and time that the user roles were last updated.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesResponse> UpdateUserRolesAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateUserRolesRequest request)
         {
             return base.Channel.UpdateUserRolesAsync(request);
         }
         
-        /// <summary>
-        /// Gets the details of a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetUserResponse GetUser(Microsoft.BingAds.V13.CustomerManagement.GetUserRequest request)
         {
             return base.Channel.GetUser(request);
         }
         
-        /// <summary>
-        /// Gets the details of a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13">GetUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserResponse> GetUserAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserRequest request)
         {
             return base.Channel.GetUserAsync(request);
@@ -13331,121 +8840,41 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             return base.Channel.GetCurrentUserAsync(request);
         }
         
-        /// <summary>
-        /// Deletes a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.DeleteUserResponse DeleteUser(Microsoft.BingAds.V13.CustomerManagement.DeleteUserRequest request)
         {
             return base.Channel.DeleteUser(request);
         }
         
-        /// <summary>
-        /// Deletes a user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13">DeleteUser Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/deleteuser?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DeleteUserResponse> DeleteUserAsync(Microsoft.BingAds.V13.CustomerManagement.DeleteUserRequest request)
         {
             return base.Channel.DeleteUserAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of UserInfo objects that identifies the list of users who meet the filter criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoResponse GetUsersInfo(Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoRequest request)
         {
             return base.Channel.GetUsersInfo(request);
         }
         
-        /// <summary>
-        /// Gets a list of objects that contains user identification information, for example the user name and identifier of the user.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13">GetUsersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of UserInfo objects that identifies the list of users who meet the filter criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoResponse> GetUsersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetUsersInfoRequest request)
         {
             return base.Channel.GetUsersInfoAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse GetCustomerPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeatures(request);
         }
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for all ad accounts owned by a customer (manager account).
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13">GetCustomerPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getcustomerpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for all accounts owned by a customer (manager account).</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesResponse> GetCustomerPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetCustomerPilotFeaturesRequest request)
         {
             return base.Channel.GetCustomerPilotFeaturesAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for the ad account.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse GetAccountPilotFeatures(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request)
         {
             return base.Channel.GetAccountPilotFeatures(request);
         }
         
-        /// <summary>
-        /// Gets a list of the feature pilot IDs that are enabled for an ad account.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13">GetAccountPilotFeatures Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getaccountpilotfeatures?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of integers that identify the feature pilots that are enabled for the ad account.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesResponse> GetAccountPilotFeaturesAsync(Microsoft.BingAds.V13.CustomerManagement.GetAccountPilotFeaturesRequest request)
         {
             return base.Channel.GetAccountPilotFeaturesAsync(request);
@@ -13471,31 +8900,11 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             return base.Channel.GetAccessibleCustomerAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of the accounts and customers that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoResponse FindAccountsOrCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoRequest request)
         {
             return base.Channel.FindAccountsOrCustomersInfo(request);
         }
         
-        /// <summary>
-        /// Gets a list of the accounts and customers that match the specified filter criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13">FindAccountsOrCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/findaccountsorcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of AccountInfoWithCustomerData objects of the accounts and customers that match the specified filter criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoResponse> FindAccountsOrCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.FindAccountsOrCustomersInfoRequest request)
         {
             return base.Channel.FindAccountsOrCustomersInfoAsync(request);
@@ -13551,361 +8960,121 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             return base.Channel.MapAccountIdToExternalAccountIdsAsync(request);
         }
         
-        /// <summary>
-        /// Searches for customers that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse SearchCustomers(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomers(request);
         }
         
-        /// <summary>
-        /// Searches for customers that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13">SearchCustomers Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchcustomers?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A  list of customers that meet the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchCustomersResponse> SearchCustomersAsync(Microsoft.BingAds.V13.CustomerManagement.SearchCustomersRequest request)
         {
             return base.Channel.SearchCustomersAsync(request);
         }
         
-        /// <summary>
-        /// Initiates the client link process to manage the accounts of another customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.AddClientLinksResponse AddClientLinks(Microsoft.BingAds.V13.CustomerManagement.AddClientLinksRequest request)
         {
             return base.Channel.AddClientLinks(request);
         }
         
-        /// <summary>
-        /// Initiates the client link process to manage the accounts of another customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13">AddClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/addclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.AddClientLinksResponse> AddClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.AddClientLinksRequest request)
         {
             return base.Channel.AddClientLinksAsync(request);
         }
         
-        /// <summary>
-        /// Updates the status of the specified client links.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksResponse UpdateClientLinks(Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksRequest request)
         {
             return base.Channel.UpdateClientLinks(request);
         }
         
-        /// <summary>
-        /// Updates the status of the specified client links.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13">UpdateClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/updateclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksResponse> UpdateClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.UpdateClientLinksRequest request)
         {
             return base.Channel.UpdateClientLinksAsync(request);
         }
         
-        /// <summary>
-        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of client link invitations.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksResponse SearchClientLinks(Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksRequest request)
         {
             return base.Channel.SearchClientLinks(request);
         }
         
-        /// <summary>
-        /// Searches for the client links for the customer of the current authenticated user, filtered by the search criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13">SearchClientLinks Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchclientlinks?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The list of client link invitations.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksResponse> SearchClientLinksAsync(Microsoft.BingAds.V13.CustomerManagement.SearchClientLinksRequest request)
         {
             return base.Channel.SearchClientLinksAsync(request);
         }
         
-        /// <summary>
-        /// Searches for accounts that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the request criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse SearchAccounts(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccounts(request);
         }
         
-        /// <summary>
-        /// Searches for accounts that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13">SearchAccounts Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchaccounts?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of accounts that meet the request criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchAccountsResponse> SearchAccountsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchAccountsRequest request)
         {
             return base.Channel.SearchAccountsAsync(request);
         }
         
-        /// <summary>
-        /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A system-generated identifier for the user invitation that was sent.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse SendUserInvitation(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request)
         {
             return base.Channel.SendUserInvitation(request);
         }
         
-        /// <summary>
-        /// Sends an email invitation for a user to sign up for Microsoft Advertising.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13">SendUserInvitation Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/senduserinvitation?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A system-generated identifier for the user invitation that was sent.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationResponse> SendUserInvitationAsync(Microsoft.BingAds.V13.CustomerManagement.SendUserInvitationRequest request)
         {
             return base.Channel.SendUserInvitationAsync(request);
         }
         
-        /// <summary>
-        /// Searches for user invitations that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse SearchUserInvitations(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitations(request);
         }
         
-        /// <summary>
-        /// Searches for user invitations that match the request criteria.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13">SearchUserInvitations Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/searchuserinvitations?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A list of user invitations that meet the specified criteria.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsResponse> SearchUserInvitationsAsync(Microsoft.BingAds.V13.CustomerManagement.SearchUserInvitationsRequest request)
         {
             return base.Channel.SearchUserInvitationsAsync(request);
         }
         
-        /// <summary>
-        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse ValidateAddress(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request)
         {
             return base.Channel.ValidateAddress(request);
         }
         
-        /// <summary>
-        /// Determines whether or not the submitted address is valid for Microsoft Advertising accounts.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13">ValidateAddress Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/validateaddress?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.ValidateAddressResponse> ValidateAddressAsync(Microsoft.BingAds.V13.CustomerManagement.ValidateAddressRequest request)
         {
             return base.Channel.ValidateAddressAsync(request);
         }
         
-        /// <summary>
-        /// Gets the customer and account hierarchy under the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse GetLinkedAccountsAndCustomersInfo(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request)
         {
             return base.Channel.GetLinkedAccountsAndCustomersInfo(request);
         }
         
-        /// <summary>
-        /// Gets the customer and account hierarchy under the specified customer.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13">GetLinkedAccountsAndCustomersInfo Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getlinkedaccountsandcustomersinfo?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoResponse> GetLinkedAccountsAndCustomersInfoAsync(Microsoft.BingAds.V13.CustomerManagement.GetLinkedAccountsAndCustomersInfoRequest request)
         {
             return base.Channel.GetLinkedAccountsAndCustomersInfoAsync(request);
         }
         
-        /// <summary>
-        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse GetUserMFAStatus(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
         {
             return base.Channel.GetUserMFAStatus(request);
         }
         
-        /// <summary>
-        /// Used to estimate adoption of multi-factor authentication (MFA) by users of your application.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13">GetUserMFAStatus Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getusermfastatus?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>Used to estimate adoption of multi-factor authentication (MFA) by users of your application.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusResponse> GetUserMFAStatusAsync(Microsoft.BingAds.V13.CustomerManagement.GetUserMFAStatusRequest request)
         {
             return base.Channel.GetUserMFAStatusAsync(request);
         }
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse GetNotifications(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
         {
             return base.Channel.GetNotifications(request);
         }
         
-        /// <summary>
-        /// Gets a list of notification objects.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13">GetNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/getnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>A collection of Notification objects that contains information about the Notification.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.GetNotificationsResponse> GetNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.GetNotificationsRequest request)
         {
             return base.Channel.GetNotificationsAsync(request);
         }
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse DismissNotifications(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
         {
             return base.Channel.DismissNotifications(request);
         }
         
-        /// <summary>
-        /// A service operation to dismiss notifications.
-        /// </summary>
-        /// <remarks>
-        /// See <see href="https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13">DismissNotifications Service Operation</see> https:/learn.microsoft.com/advertising/customer-management-service/dismissnotifications?view=bingads-13 for details.
-        /// </remarks>
-        /// <exception cref="AdApiFaultDetail"></exception>
-        /// <exception cref="ApiFault"></exception>
-        /// <param name="request">The request object for this service operation.</param>
-        /// <returns>The response object for this service operation.</returns>
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsResponse> DismissNotificationsAsync(Microsoft.BingAds.V13.CustomerManagement.DismissNotificationsRequest request)
         {
             return base.Channel.DismissNotificationsAsync(request);

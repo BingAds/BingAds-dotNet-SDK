@@ -125,9 +125,7 @@ namespace Microsoft.BingAds.Internal
                 return;
             }
 
-            var isDataContract = jsonTypeInfo.Type.GetCustomAttributes(typeof(DataContractAttribute)).Any() ||
-                                 jsonTypeInfo.Type.Name.EndsWith("Request", StringComparison.InvariantCulture) ||
-                                 jsonTypeInfo.Type.Name.EndsWith("Response", StringComparison.InvariantCulture);
+            var isDataContract = jsonTypeInfo.Type.GetCustomAttributes(typeof(DataContractAttribute)).Any();
 
             if (!isDataContract)
             {
