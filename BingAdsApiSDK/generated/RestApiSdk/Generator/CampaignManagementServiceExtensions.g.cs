@@ -938,5 +938,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.GetSupportedFontsAsync(r), request);
         }
+
+        public static Task<GetHealthCheckResponse> GetHealthCheckAsync(this ServiceClient<ICampaignManagementService> service, GetHealthCheckRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetHealthCheckAsync(r), request);
+        }
     }
 }

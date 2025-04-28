@@ -105,7 +105,7 @@ namespace Microsoft.BingAds.Internal
         /// <remarks>
         /// For more information about using a client identifier for authentication, see <see href="https://tools.ietf.org/html/rfc6749#section-3.1">Client Password Authentication section of the OAuth 2.0 spec</see>.
         /// </remarks>
-        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, OAuthScope oAuthScope, string tenant)
+        protected OAuthAuthorization(string clientId, ApiEnvironment? environment, OAuthScope oAuthScope, string tenant, bool useMsaProd=true)
         {
             if (clientId == null)
             {
@@ -123,7 +123,7 @@ namespace Microsoft.BingAds.Internal
                 Environment = environment.Value;
             }
 
-            OAuthScope = oAuthScope;
+            OAuthScope = (Environment == ApiEnvironment.Sandbox && useMsaProd) ? OAuthScope.MSA_PROD : oAuthScope;
 
             Tenant = tenant;
 

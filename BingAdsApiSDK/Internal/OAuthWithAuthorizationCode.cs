@@ -127,8 +127,9 @@ namespace Microsoft.BingAds.Internal
             string refreshToken, 
             ApiEnvironment? environment,
             OAuthScope oAuthScope,
-            string tenant)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuthScope, tenant)
+            string tenant,
+            bool useMsaProd = true)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuthScope, tenant, useMsaProd)
         {
             if (refreshToken == null)
             {
@@ -171,8 +172,9 @@ namespace Microsoft.BingAds.Internal
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment,
             OAuthScope oAuhthScope,
-            string tenant)
-            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuhthScope, tenant)
+            string tenant,
+            bool useMsaProd = true)
+            : this(clientId, optionalClientSecret, redirectionUri, environment, oAuhthScope, tenant, useMsaProd)
         {
             if (oauthTokens == null || oauthTokens.RefreshToken == null)
             {
@@ -209,13 +211,14 @@ namespace Microsoft.BingAds.Internal
             string optionalClientSecret, 
             Uri redirectionUri, 
             ApiEnvironment? environment,
-            OAuthScope oAuhthScope, 
-            string tenant)
-            :  base(clientId, environment, oAuhthScope, tenant)
+            OAuthScope oAuthScope, 
+            string tenant,
+            bool useMsaProd = true)
+            :  base(clientId, environment, oAuthScope, tenant, useMsaProd)
         {
             _optionalClientSecret = optionalClientSecret;
             _oauthService = new UriOAuthService(Environment);
-            _redirectionUri = redirectionUri ?? _oauthService.RedirectionUri(oAuhthScope);
+            _redirectionUri = redirectionUri ?? _oauthService.RedirectionUri(OAuthScope);
         }
 
         internal OAuthWithAuthorizationCode(
@@ -225,8 +228,9 @@ namespace Microsoft.BingAds.Internal
             IOAuthService oauthService, 
             ApiEnvironment env,
             OAuthScope oAuhthScope, 
-            string tenant)
-            : base(clientId, env, oAuhthScope, tenant)
+            string tenant,
+            bool useMsaProd = true)
+            : base(clientId, env, oAuhthScope, tenant, useMsaProd)
         {
             if (redirectionUri == null)
             {

@@ -70,7 +70,11 @@ namespace Microsoft.BingAds.Internal.OAuth
         /// <summary>
         /// Sandbox for Live Connect
         /// </summary>
-        Sandbox
+        Sandbox,
+        /// <summary>
+        /// Sandbox for Msa Production
+        /// </summary>
+        MsaProd
     }
 
     internal static class OAuthEndpointTypeUtil

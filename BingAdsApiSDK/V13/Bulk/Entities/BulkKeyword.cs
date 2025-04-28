@@ -197,7 +197,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Bid,
                 c => c.Keyword.Bid.ToKeywordBidBulkString(c.Keyword.Id),
-                (v, c) => c.Keyword.Bid = v.ParseKeywordBid()
+                (v, c) => c.Keyword.Bid = v.ParseBid()
             ),
 
             new SimpleBulkMapping<BulkKeyword>(StringTable.Param1,

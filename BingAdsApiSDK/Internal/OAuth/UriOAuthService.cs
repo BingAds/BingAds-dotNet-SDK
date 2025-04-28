@@ -218,6 +218,15 @@ namespace Microsoft.BingAds.Internal.OAuth
                     Scope = "https://api.ads.microsoft.com/msads.manage offline_access"
                 }
             },
+            {
+                OAuthEndpointType.MsaProd, new OAuthEndpoints
+                {
+                    RedirectUrl = "https://login.microsoftonline.com/common/oauth2/nativeclient",
+                    OAuthTokenUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+                    AuthorizationEndpointUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={0}&scope=https%3A%2F%2Fsi.ads.microsoft.com%2Fmsads.manage%20offline_access&response_type={1}&redirect_uri={2}",
+                    Scope = "https://si.ads.microsoft.com/msads.manage offline_access"
+                }
+            },
         };
     }
 }

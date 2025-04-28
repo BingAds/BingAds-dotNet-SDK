@@ -110,6 +110,7 @@ public static partial class RestApiGeneration
             { typeof(ClaimFeatureAdoptionCouponsResponse), static t => CustomizeClaimFeatureAdoptionCouponsResponse(t) },
             { typeof(Coupon), static t => CustomizeCoupon(t) },
             { typeof(CouponClaimInfo), static t => CustomizeCouponClaimInfo(t) },
+            { typeof(CouponInfoData), static t => CustomizeCouponInfoData(t) },
             { typeof(CouponRedemption), static t => CustomizeCouponRedemption(t) },
             { typeof(DispatchCouponsRequest), static t => CustomizeDispatchCouponsRequest(t) },
             { typeof(DispatchCouponsResponse), static t => CustomizeDispatchCouponsResponse(t) },
@@ -119,6 +120,8 @@ public static partial class RestApiGeneration
             { typeof(GetBillingDocumentsInfoResponse), static t => CustomizeGetBillingDocumentsInfoResponse(t) },
             { typeof(GetBillingDocumentsRequest), static t => CustomizeGetBillingDocumentsRequest(t) },
             { typeof(GetBillingDocumentsResponse), static t => CustomizeGetBillingDocumentsResponse(t) },
+            { typeof(GetCouponInfoRequest), static t => CustomizeGetCouponInfoRequest(t) },
+            { typeof(GetCouponInfoResponse), static t => CustomizeGetCouponInfoResponse(t) },
             { typeof(InsertionOrder), static t => CustomizeInsertionOrder(t) },
             { typeof(InsertionOrderPendingChanges), static t => CustomizeInsertionOrderPendingChanges(t) },
             { typeof(KeyValueEntityOflongdateTime), static t => CustomizeKeyValueEntityOflongdateTime(t) },
@@ -422,6 +425,20 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeCouponInfoData(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeCouponRedemption(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -551,6 +568,38 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeGetBillingDocumentsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetCouponInfoRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetCouponInfoResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

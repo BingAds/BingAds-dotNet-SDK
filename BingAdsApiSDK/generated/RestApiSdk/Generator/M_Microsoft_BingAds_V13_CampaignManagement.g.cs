@@ -466,6 +466,8 @@ public static partial class RestApiGeneration
             { typeof(GetFileImportUploadUrlResponse), static t => CustomizeGetFileImportUploadUrlResponse(t) },
             { typeof(GetGeoLocationsFileUrlRequest), static t => CustomizeGetGeoLocationsFileUrlRequest(t) },
             { typeof(GetGeoLocationsFileUrlResponse), static t => CustomizeGetGeoLocationsFileUrlResponse(t) },
+            { typeof(GetHealthCheckRequest), static t => CustomizeGetHealthCheckRequest(t) },
+            { typeof(GetHealthCheckResponse), static t => CustomizeGetHealthCheckResponse(t) },
             { typeof(GetImportEntityIdsMappingRequest), static t => CustomizeGetImportEntityIdsMappingRequest(t) },
             { typeof(GetImportEntityIdsMappingResponse), static t => CustomizeGetImportEntityIdsMappingResponse(t) },
             { typeof(GetImportJobsByIdsRequest), static t => CustomizeGetImportJobsByIdsRequest(t) },
@@ -526,6 +528,12 @@ public static partial class RestApiGeneration
             { typeof(GetVideosByIdsResponse), static t => CustomizeGetVideosByIdsResponse(t) },
             { typeof(GoogleImportJob), static t => CustomizeGoogleImportJob(t) },
             { typeof(GoogleImportOption), static t => CustomizeGoogleImportOption(t) },
+            { typeof(HealthCheckActionLinkMetadata), static t => CustomizeHealthCheckActionLinkMetadata(t) },
+            { typeof(HealthCheckColumnMetadata), static t => CustomizeHealthCheckColumnMetadata(t) },
+            { typeof(HealthCheckData), static t => CustomizeHealthCheckData(t) },
+            { typeof(HealthCheckEntity), static t => CustomizeHealthCheckEntity(t) },
+            { typeof(HealthCheckError), static t => CustomizeHealthCheckError(t) },
+            { typeof(HealthCheckMetadata), static t => CustomizeHealthCheckMetadata(t) },
             { typeof(HotelAd), static t => CustomizeHotelAd(t) },
             { typeof(HotelAdvanceBookingWindowCriterion), static t => CustomizeHotelAdvanceBookingWindowCriterion(t) },
             { typeof(HotelCheckInDateCriterion), static t => CustomizeHotelCheckInDateCriterion(t) },
@@ -2894,6 +2902,17 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ListingGroupPath":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeAssetGroupListingGroupAction(JsonTypeInfo jsonTypeInfo)
@@ -3364,6 +3383,17 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "BusinessName":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
                         break;
                 }
             }
@@ -7473,6 +7503,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetHealthCheckRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetHealthCheckResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetImportEntityIdsMappingRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -8520,6 +8584,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "NewCarouselAd":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "NewConversionGoals":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -8590,6 +8658,90 @@ public static partial class RestApiGeneration
                         break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => "GoogleImportOption";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckActionLinkMetadata(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckColumnMetadata(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckData(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckEntity(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckError(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckMetadata(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }

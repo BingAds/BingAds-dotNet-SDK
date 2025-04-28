@@ -101,11 +101,12 @@ namespace Microsoft.BingAds
             string clientId, 
             ApiEnvironment? environment = ApiEnvironment.Production, 
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, environment, oAuthScope, tenant, useMsaProd)
         {
             _oauthService = new UriOAuthService(Environment);
-            _redirectionUri = _oauthService.RedirectionUri(oAuthScope);
+            _redirectionUri = _oauthService.RedirectionUri(OAuthScope);
         }
 
         /// <summary>
@@ -126,8 +127,9 @@ namespace Microsoft.BingAds
             OAuthTokens oAuthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, environment, oAuthScope, tenant, useMsaProd)
         {
             OAuthTokens = oAuthTokens;
         }

@@ -368,14 +368,14 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             return bid.Amount.ToBulkString();
         }
 
-        public static Bid ParseKeywordBid(this string s)
+        public static Bid ParseBid(this string s)
         {
             if (string.IsNullOrEmpty(s) || s.Equals(DeleteValue))
             {
-                return new Bid() {Amount = null};
+                return new Bid() { Amount = null };
             }
 
-            return new Bid {Amount = s.Parse<double>()};
+            return new Bid { Amount = s.Parse<double>() };
         }
 
         public static string ToBidBulkString(this Bid bid, long? id)
@@ -391,16 +391,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             }
 
             return bid.Amount.ToBulkString();
-        }
-
-        public static Bid ParseBid(this string s)
-        {
-            if (string.IsNullOrEmpty(s))
-            {
-                return new Bid() { Amount = null };
-            }
-
-            return new Bid { Amount = s.Parse<double>() };
         }
 
         public static long? ParseDevicePreference(this string s)

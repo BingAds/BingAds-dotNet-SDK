@@ -107,8 +107,9 @@ namespace Microsoft.BingAds
             Uri redirectionUri, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, clientSecret, redirectionUri, environment, oAuthScope, tenant, useMsaProd)
         {
             if (redirectionUri == null)
             {
@@ -156,8 +157,9 @@ namespace Microsoft.BingAds
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, clientSecret, redirectionUri, refreshToken, environment, oAuthScope, tenant, useMsaProd)
         {
             if (clientSecret == null)
             {
@@ -201,8 +203,9 @@ namespace Microsoft.BingAds
             OAuthTokens oAuthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, clientSecret, redirectionUri, oAuthTokens, environment, oAuthScope, tenant, useMsaProd)
         {
             if (clientSecret == null)
             {
@@ -217,8 +220,9 @@ namespace Microsoft.BingAds
             IOAuthService oauthService, 
             ApiEnvironment env,
             OAuthScope oAuthScope,
-            string tenant="common")
-            : base(clientId, clientSecret, redirectionUri, oauthService, env, oAuthScope, tenant)
+            string tenant="common",
+            bool useMsaProd = true)
+            : base(clientId, clientSecret, redirectionUri, oauthService, env, oAuthScope, tenant, useMsaProd)
         {
         }
     }
