@@ -83,7 +83,14 @@ namespace Microsoft.BingAds.Internal.OAuth
         {
             if (env == ApiEnvironment.Sandbox)
             {
-                return OAuthEndpointType.Sandbox;
+                if (oAuthScope == OAuthScope.MSA_PROD)
+                {
+                    return OAuthEndpointType.MsaProd;
+                }
+                else
+                {
+                    return OAuthEndpointType.Sandbox;
+                }
             }
 
             switch (oAuthScope)
