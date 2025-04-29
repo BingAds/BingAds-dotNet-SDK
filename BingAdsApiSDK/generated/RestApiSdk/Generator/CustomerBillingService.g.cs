@@ -175,5 +175,15 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<ClaimFeatureAdoptionCouponsResponse>("ClaimFeatureAdoptionCoupons", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public GetCouponInfoResponse GetCouponInfo(GetCouponInfoRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetCouponInfoResponse> GetCouponInfoAsync(GetCouponInfoRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetCouponInfoResponse>("GetCouponInfo", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

@@ -2850,6 +2850,220 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CouponInfoData", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class CouponInfoData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CouponIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ClaimDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> RedemptionDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> ExpirationDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<double> PercentOffField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> CouponValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> UpfrontSpendingField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CouponId
+        {
+            get
+            {
+                return this.CouponIdField;
+            }
+            set
+            {
+                if ((this.CouponIdField.Equals(value) != true))
+                {
+                    this.CouponIdField = value;
+                    this.RaisePropertyChanged("CouponId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Nullable<System.DateTime> ClaimDate
+        {
+            get
+            {
+                return this.ClaimDateField;
+            }
+            set
+            {
+                if ((this.ClaimDateField.Equals(value) != true))
+                {
+                    this.ClaimDateField = value;
+                    this.RaisePropertyChanged("ClaimDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Nullable<byte> Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((this.StatusField.Equals(value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=4)]
+        public System.Nullable<System.DateTime> RedemptionDate
+        {
+            get
+            {
+                return this.RedemptionDateField;
+            }
+            set
+            {
+                if ((this.RedemptionDateField.Equals(value) != true))
+                {
+                    this.RedemptionDateField = value;
+                    this.RaisePropertyChanged("RedemptionDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public System.Nullable<System.DateTime> ExpirationDate
+        {
+            get
+            {
+                return this.ExpirationDateField;
+            }
+            set
+            {
+                if ((this.ExpirationDateField.Equals(value) != true))
+                {
+                    this.ExpirationDateField = value;
+                    this.RaisePropertyChanged("ExpirationDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=6)]
+        public System.Nullable<double> PercentOff
+        {
+            get
+            {
+                return this.PercentOffField;
+            }
+            set
+            {
+                if ((this.PercentOffField.Equals(value) != true))
+                {
+                    this.PercentOffField = value;
+                    this.RaisePropertyChanged("PercentOff");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public System.Nullable<decimal> CouponValue
+        {
+            get
+            {
+                return this.CouponValueField;
+            }
+            set
+            {
+                if ((this.CouponValueField.Equals(value) != true))
+                {
+                    this.CouponValueField = value;
+                    this.RaisePropertyChanged("CouponValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public System.Nullable<decimal> UpfrontSpending
+        {
+            get
+            {
+                return this.UpfrontSpendingField;
+            }
+            set
+            {
+                if ((this.UpfrontSpendingField.Equals(value) != true))
+                {
+                    this.UpfrontSpendingField = value;
+                    this.RaisePropertyChanged("UpfrontSpending");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", ConfigurationName="Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICustomerBillingService
@@ -2990,6 +3204,18 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.ServiceModel.OperationContractAttribute(Action="ClaimFeatureAdoptionCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/ClaimFeatureAdo" +
             "ptionCouponsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetCouponInfo", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetCouponInfoRe" +
+            "sponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetCouponInfoAd" +
+            "ApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetCouponInfoAp" +
+            "iFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse GetCouponInfo(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetCouponInfo", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetCouponInfoRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse> GetCouponInfoAsync(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3746,6 +3972,68 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCouponInfoRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetCouponInfoRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public long CustomerId;
+        
+        public GetCouponInfoRequest()
+        {
+        }
+        
+        public GetCouponInfoRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CustomerId = CustomerId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetCouponInfoResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetCouponInfoResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.CouponInfoData> CouponInfoData;
+        
+        public GetCouponInfoResponse()
+        {
+        }
+        
+        public GetCouponInfoResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.CouponInfoData> CouponInfoData)
+        {
+            this.TrackingId = TrackingId;
+            this.CouponInfoData = CouponInfoData;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
@@ -3888,6 +4176,16 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsResponse> ClaimFeatureAdoptionCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.ClaimFeatureAdoptionCouponsRequest request)
         {
             return base.Channel.ClaimFeatureAdoptionCouponsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse GetCouponInfo(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request)
+        {
+            return base.Channel.GetCouponInfo(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse> GetCouponInfoAsync(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request)
+        {
+            return base.Channel.GetCouponInfoAsync(request);
         }
     }
 }

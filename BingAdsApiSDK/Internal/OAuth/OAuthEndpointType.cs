@@ -70,7 +70,11 @@ namespace Microsoft.BingAds.Internal.OAuth
         /// <summary>
         /// Sandbox for Live Connect
         /// </summary>
-        Sandbox
+        Sandbox,
+        /// <summary>
+        /// Sandbox for Msa Production
+        /// </summary>
+        MsaProd
     }
 
     internal static class OAuthEndpointTypeUtil
@@ -79,7 +83,14 @@ namespace Microsoft.BingAds.Internal.OAuth
         {
             if (env == ApiEnvironment.Sandbox)
             {
-                return OAuthEndpointType.Sandbox;
+                if (oAuthScope == OAuthScope.MSA_PROD)
+                {
+                    return OAuthEndpointType.MsaProd;
+                }
+                else
+                {
+                    return OAuthEndpointType.Sandbox;
+                }
             }
 
             switch (oAuthScope)

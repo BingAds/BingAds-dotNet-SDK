@@ -87,8 +87,9 @@ namespace Microsoft.BingAds
             string clientId, 
             ApiEnvironment environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, null, null, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, null, null, environment, oAuthScope, tenant, useMsaProd)
         {
         }
 
@@ -111,8 +112,9 @@ namespace Microsoft.BingAds
             string refreshToken, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, null, null, refreshToken, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, null, null, refreshToken, environment, oAuthScope, tenant, useMsaProd)
         {
         }
 
@@ -134,8 +136,9 @@ namespace Microsoft.BingAds
             OAuthTokens oauthTokens, 
             ApiEnvironment? environment = ApiEnvironment.Production,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, null, null, oauthTokens, environment, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, null, null, oauthTokens, environment, oAuthScope, tenant, useMsaProd)
         {
         }
 
@@ -145,8 +148,9 @@ namespace Microsoft.BingAds
             IOAuthService oauthService, 
             ApiEnvironment env,
             OAuthScope oAuthScope = OAuthScope.MSADS_MANAGE,
-            string tenant = "common")
-            : base(clientId, null, redirectUri, oauthService, env, oAuthScope, tenant)
+            string tenant = "common",
+            bool useMsaProd = true)
+            : base(clientId, null, redirectUri, oauthService, env, oAuthScope, tenant, useMsaProd)
         {
         }
     }

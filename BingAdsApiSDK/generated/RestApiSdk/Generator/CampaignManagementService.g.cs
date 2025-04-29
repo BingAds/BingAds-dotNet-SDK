@@ -1835,5 +1835,15 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<GetSupportedFontsResponse>("GetSupportedFonts", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public GetHealthCheckResponse GetHealthCheck(GetHealthCheckRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetHealthCheckResponse> GetHealthCheckAsync(GetHealthCheckRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetHealthCheckResponse>("GetHealthCheck", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

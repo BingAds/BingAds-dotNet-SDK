@@ -108,5 +108,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.ClaimFeatureAdoptionCouponsAsync(r), request);
         }
+
+        public static Task<GetCouponInfoResponse> GetCouponInfoAsync(this ServiceClient<ICustomerBillingService> service, GetCouponInfoRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetCouponInfoAsync(r), request);
+        }
     }
 }
