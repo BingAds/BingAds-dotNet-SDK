@@ -28,6 +28,8 @@ namespace BingAdsConsoleApp
 
         private static AuthorizationData _authorizationData;
         private static string ClientState = "ClientStateGoesHere";
+        private static string DevToken = "BBD37VB98";
+        private static string ClientId = "4c0b021c-00c3-4508-838f-d3127e8167ff";
 
         static void Main(string[] args)
         {
@@ -114,7 +116,7 @@ namespace BingAdsConsoleApp
                 ConfigurationManager.AppSettings["BingAdsEnvironment"] == ApiEnvironment.Sandbox.ToString() ?
                 ApiEnvironment.Sandbox : ApiEnvironment.Production;
             var oAuthDesktopMobileAuthCodeGrant = new OAuthDesktopMobileAuthCodeGrant(
-                Settings.Default["ClientId"].ToString(),
+                ClientId,
                 apiEnvironment
             );
 
@@ -244,7 +246,7 @@ namespace BingAdsConsoleApp
             _authorizationData = new AuthorizationData
             {
                 Authentication = authentication,
-                DeveloperToken = Settings.Default["DeveloperToken"].ToString()
+                DeveloperToken = DevToken
             };
 
             ApiEnvironment environment = ((OAuthDesktopMobileAuthCodeGrant)_authorizationData.Authentication).Environment;
