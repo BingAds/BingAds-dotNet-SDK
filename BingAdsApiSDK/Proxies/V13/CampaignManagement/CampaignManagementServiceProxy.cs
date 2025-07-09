@@ -1185,7 +1185,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpcField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<double> TargetRoasField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V13.CampaignManagement.Bid MaxCpc
+        {
+            get
+            {
+                return this.MaxCpcField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MaxCpcField, value) != true))
+                {
+                    this.MaxCpcField = value;
+                    this.RaisePropertyChanged("MaxCpc");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<double> TargetRoas
@@ -3285,7 +3305,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="CampaignAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum CampaignAdditionalField : int
+    public enum CampaignAdditionalField : long
     {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -3380,6 +3400,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         LifetimeBudgetFields = 1073741824,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MaxConversionValueWithMaxCpc = 2147483648,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4623,6 +4646,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UsePredictiveTargeting = 1024,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MaxConversionValueWithMaxCpc = 2048,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -6165,6 +6191,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Display = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HTML5 = 3,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -7415,6 +7444,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Inactive = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="KeywordAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum KeywordAdditionalField : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MaxConversionValueWithMaxCpc = 2,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -13895,7 +13934,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupCriterionType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum AdGroupCriterionType : int
+    public enum AdGroupCriterionType : long
     {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -13987,6 +14026,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Placement = 1073741824,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Topic = 2147483648,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -14167,6 +14209,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.DealCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.GenreCriterion))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementCriterion))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TopicCriterion))]
     public partial class Criterion : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -15497,6 +15540,54 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.PlacementNameField = value;
                     this.RaisePropertyChanged("PlacementName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TopicCriterion", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class TopicCriterion : Microsoft.BingAds.V13.CampaignManagement.Criterion
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long TopicIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TopicNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long TopicId
+        {
+            get
+            {
+                return this.TopicIdField;
+            }
+            set
+            {
+                if ((this.TopicIdField.Equals(value) != true))
+                {
+                    this.TopicIdField = value;
+                    this.RaisePropertyChanged("TopicId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TopicName
+        {
+            get
+            {
+                return this.TopicNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TopicNameField, value) != true))
+                {
+                    this.TopicNameField = value;
+                    this.RaisePropertyChanged("TopicName");
                 }
             }
         }
@@ -18125,6 +18216,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PortfolioBidStrategyAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum PortfolioBidStrategyAdditionalField : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MaxConversionValueWithMaxCpc = 2,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AudienceGroup", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -20300,7 +20401,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<long> AdGroupIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> AdGroupIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> CampaignIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> CampaignIdsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedEntityType EntityTypeField;
@@ -20322,6 +20429,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<long> AdGroupIds
+        {
+            get
+            {
+                return this.AdGroupIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AdGroupIdsField, value) != true))
+                {
+                    this.AdGroupIdsField = value;
+                    this.RaisePropertyChanged("AdGroupIds");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> CampaignId
         {
@@ -20335,6 +20459,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.CampaignIdField = value;
                     this.RaisePropertyChanged("CampaignId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<long> CampaignIds
+        {
+            get
+            {
+                return this.CampaignIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CampaignIdsField, value) != true))
+                {
+                    this.CampaignIdsField = value;
+                    this.RaisePropertyChanged("CampaignIds");
                 }
             }
         }
@@ -21351,6 +21492,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignIdsAdGroupIds = 8,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21733,6 +21877,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IsEnhancedConversionsEnabled = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsAutoGoal = 64,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21769,6 +21916,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsAutoGoalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> IsEnhancedConversionsEnabledField;
@@ -21907,6 +22057,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsAutoGoal
+        {
+            get
+            {
+                return this.IsAutoGoalField;
+            }
+            set
+            {
+                if ((this.IsAutoGoalField.Equals(value) != true))
+                {
+                    this.IsAutoGoalField = value;
+                    this.RaisePropertyChanged("IsAutoGoal");
                 }
             }
         }
@@ -24713,6 +24880,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> UpdateAppAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateAssetAutomationCampaignSettingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateAudienceTargetsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -26007,6 +26177,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateAssetAutomationCampaignSetting
+        {
+            get
+            {
+                return this.UpdateAssetAutomationCampaignSettingField;
+            }
+            set
+            {
+                if ((this.UpdateAssetAutomationCampaignSettingField.Equals(value) != true))
+                {
+                    this.UpdateAssetAutomationCampaignSettingField = value;
+                    this.RaisePropertyChanged("UpdateAssetAutomationCampaignSetting");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> UpdateAudienceTargets
         {
@@ -26854,6 +27041,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCarouselAd = 4194304,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateAssetAutomationCampaignSetting = 8388608,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -28716,6 +28906,120 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationJobInfo", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AdRecommendationJobInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long JobIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string JobStatusField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorCode
+        {
+            get
+            {
+                return this.ErrorCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ErrorCodeField, value) != true))
+                {
+                    this.ErrorCodeField = value;
+                    this.RaisePropertyChanged("ErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage
+        {
+            get
+            {
+                return this.ErrorMessageField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true))
+                {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long JobId
+        {
+            get
+            {
+                return this.JobIdField;
+            }
+            set
+            {
+                if ((this.JobIdField.Equals(value) != true))
+                {
+                    this.JobIdField = value;
+                    this.RaisePropertyChanged("JobId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string JobStatus
+        {
+            get
+            {
+                return this.JobStatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.JobStatusField, value) != true))
+                {
+                    this.JobStatusField = value;
+                    this.RaisePropertyChanged("JobStatus");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdRecommendationTextRefineOperation", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class AdRecommendationTextRefineOperation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -29868,6 +30172,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.BrandVoice BrandVoiceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BusinessNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -29900,6 +30207,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             set
             {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public Microsoft.BingAds.V13.CampaignManagement.BrandVoice BrandVoice
+        {
+            get
+            {
+                return this.BrandVoiceField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.BrandVoiceField, value) != true))
+                {
+                    this.BrandVoiceField = value;
+                    this.RaisePropertyChanged("BrandVoice");
+                }
             }
         }
         
@@ -30053,6 +30377,80 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BrandVoice", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class BrandVoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PersonalityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> TonesField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Personality
+        {
+            get
+            {
+                return this.PersonalityField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PersonalityField, value) != true))
+                {
+                    this.PersonalityField = value;
+                    this.RaisePropertyChanged("Personality");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Tones
+        {
+            get
+            {
+                return this.TonesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TonesField, value) != true))
+                {
+                    this.TonesField = value;
+                    this.RaisePropertyChanged("Tones");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BrandKitFont", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class BrandKitFont : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -30062,7 +30460,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Microsoft.BingAds.V13.CampaignManagement.FontTextAssetType TextAssetTypeField;
+        private string TextAssetTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TypefaceField;
@@ -30083,7 +30481,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Microsoft.BingAds.V13.CampaignManagement.FontTextAssetType TextAssetType
+        public string TextAssetType
         {
             get
             {
@@ -30091,7 +30489,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
             set
             {
-                if ((this.TextAssetTypeField.Equals(value) != true))
+                if ((object.ReferenceEquals(this.TextAssetTypeField, value) != true))
                 {
                     this.TextAssetTypeField = value;
                     this.RaisePropertyChanged("TextAssetType");
@@ -30335,6 +30733,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BrandKitColor> ColorsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -30381,6 +30782,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -30393,24 +30811,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FontTextAssetType", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum FontTextAssetType : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ShortHeadline = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LongHeadline = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Description = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        CallToAction = 3,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BrandKitColor", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -30421,6 +30821,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HexCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -30438,7 +30839,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string HexCode
         {
             get
@@ -30650,16 +31051,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="BrandKitAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum BrandKitAdditionalField : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        BusinessName = 1,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -31505,9 +31896,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> HealthCheckActionLinksMetadataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HealthCheckCategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -31521,9 +31909,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HealthCheckDisplayNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HealthCheckHelpTooltipField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HealthCheckNameField;
@@ -31543,23 +31928,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             set
             {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> HealthCheckActionLinksMetadata
-        {
-            get
-            {
-                return this.HealthCheckActionLinksMetadataField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.HealthCheckActionLinksMetadataField, value) != true))
-                {
-                    this.HealthCheckActionLinksMetadataField = value;
-                    this.RaisePropertyChanged("HealthCheckActionLinksMetadata");
-                }
             }
         }
         
@@ -31649,23 +32017,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HealthCheckHelpTooltip
-        {
-            get
-            {
-                return this.HealthCheckHelpTooltipField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.HealthCheckHelpTooltipField, value) != true))
-                {
-                    this.HealthCheckHelpTooltipField = value;
-                    this.RaisePropertyChanged("HealthCheckHelpTooltip");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string HealthCheckName
         {
             get
@@ -31712,6 +32063,120 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.HealthCheckSubTypeField = value;
                     this.RaisePropertyChanged("HealthCheckSubType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HealthCheckColumnMetadata", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class HealthCheckColumnMetadata : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> HealthCheckActionLinksMetadataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> HealthCheckActionLinksMetadata
+        {
+            get
+            {
+                return this.HealthCheckActionLinksMetadataField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.HealthCheckActionLinksMetadataField, value) != true))
+                {
+                    this.HealthCheckActionLinksMetadataField = value;
+                    this.RaisePropertyChanged("HealthCheckActionLinksMetadata");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Key
+        {
+            get
+            {
+                return this.KeyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeyField, value) != true))
+                {
+                    this.KeyField = value;
+                    this.RaisePropertyChanged("Key");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title
+        {
+            get
+            {
+                return this.TitleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TitleField, value) != true))
+                {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type
+        {
+            get
+            {
+                return this.TypeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TypeField, value) != true))
+                {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }
@@ -31824,100 +32289,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="HealthCheckColumnMetadata", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    [System.SerializableAttribute()]
-    public partial class HealthCheckColumnMetadata : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
-    {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string KeyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
-        {
-            get
-            {
-                return this.extensionDataField;
-            }
-            set
-            {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Key
-        {
-            get
-            {
-                return this.KeyField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.KeyField, value) != true))
-                {
-                    this.KeyField = value;
-                    this.RaisePropertyChanged("Key");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title
-        {
-            get
-            {
-                return this.TitleField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TitleField, value) != true))
-                {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type
-        {
-            get
-            {
-                return this.TypeField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.TypeField, value) != true))
-                {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName)
-        {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null))
-            {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HealthCheckData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class HealthCheckData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -31925,9 +32296,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.IList<string> HealthCheckActionLinksField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HealthCheckDataVersionField;
@@ -31941,6 +32309,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HealthCheckNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.HealthCheckSubEntityData HealthCheckSubEntityResultsField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -31950,23 +32321,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             set
             {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.IList<string> HealthCheckActionLinks
-        {
-            get
-            {
-                return this.HealthCheckActionLinksField;
-            }
-            set
-            {
-                if ((object.ReferenceEquals(this.HealthCheckActionLinksField, value) != true))
-                {
-                    this.HealthCheckActionLinksField = value;
-                    this.RaisePropertyChanged("HealthCheckActionLinks");
-                }
             }
         }
         
@@ -32034,6 +32388,117 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.HealthCheckNameField = value;
                     this.RaisePropertyChanged("HealthCheckName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.HealthCheckSubEntityData HealthCheckSubEntityResults
+        {
+            get
+            {
+                return this.HealthCheckSubEntityResultsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.HealthCheckSubEntityResultsField, value) != true))
+                {
+                    this.HealthCheckSubEntityResultsField = value;
+                    this.RaisePropertyChanged("HealthCheckSubEntityResults");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="HealthCheckSubEntityData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class HealthCheckSubEntityData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int SubEntityHealthIssueCountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<long> SubEntityIdsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SubEntityLevelField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int SubEntityHealthIssueCount
+        {
+            get
+            {
+                return this.SubEntityHealthIssueCountField;
+            }
+            set
+            {
+                if ((this.SubEntityHealthIssueCountField.Equals(value) != true))
+                {
+                    this.SubEntityHealthIssueCountField = value;
+                    this.RaisePropertyChanged("SubEntityHealthIssueCount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<long> SubEntityIds
+        {
+            get
+            {
+                return this.SubEntityIdsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SubEntityIdsField, value) != true))
+                {
+                    this.SubEntityIdsField = value;
+                    this.RaisePropertyChanged("SubEntityIds");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SubEntityLevel
+        {
+            get
+            {
+                return this.SubEntityLevelField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.SubEntityLevelField, value) != true))
+                {
+                    this.SubEntityLevelField = value;
+                    this.RaisePropertyChanged("SubEntityLevel");
                 }
             }
         }
@@ -32128,6 +32593,462 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.HealthCheckNameField = value;
                     this.RaisePropertyChanged("HealthCheckName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiagnosticTileData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DiagnosticTileData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HeadlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProgressPercentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true))
+                {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Headline
+        {
+            get
+            {
+                return this.HeadlineField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.HeadlineField, value) != true))
+                {
+                    this.HeadlineField = value;
+                    this.RaisePropertyChanged("Headline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProgressPercent
+        {
+            get
+            {
+                return this.ProgressPercentField;
+            }
+            set
+            {
+                if ((this.ProgressPercentField.Equals(value) != true))
+                {
+                    this.ProgressPercentField = value;
+                    this.RaisePropertyChanged("ProgressPercent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title
+        {
+            get
+            {
+                return this.TitleField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TitleField, value) != true))
+                {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiagnosticCategoryData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DiagnosticCategoryData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> ActionLinksField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryDisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryKeyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategorySeverityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckActionLinkMetadata> ActionLinks
+        {
+            get
+            {
+                return this.ActionLinksField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ActionLinksField, value) != true))
+                {
+                    this.ActionLinksField = value;
+                    this.RaisePropertyChanged("ActionLinks");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryDisplayName
+        {
+            get
+            {
+                return this.CategoryDisplayNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryDisplayNameField, value) != true))
+                {
+                    this.CategoryDisplayNameField = value;
+                    this.RaisePropertyChanged("CategoryDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryKey
+        {
+            get
+            {
+                return this.CategoryKeyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryKeyField, value) != true))
+                {
+                    this.CategoryKeyField = value;
+                    this.RaisePropertyChanged("CategoryKey");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategorySeverity
+        {
+            get
+            {
+                return this.CategorySeverityField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategorySeverityField, value) != true))
+                {
+                    this.CategorySeverityField = value;
+                    this.RaisePropertyChanged("CategorySeverity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CategoryStatus
+        {
+            get
+            {
+                return this.CategoryStatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CategoryStatusField, value) != true))
+                {
+                    this.CategoryStatusField = value;
+                    this.RaisePropertyChanged("CategoryStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true))
+                {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DiagnosticCardData", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class DiagnosticCardData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> CheckpointsDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata MetadataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> CheckpointsData
+        {
+            get
+            {
+                return this.CheckpointsDataField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CheckpointsDataField, value) != true))
+                {
+                    this.CheckpointsDataField = value;
+                    this.RaisePropertyChanged("CheckpointsData");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata Metadata
+        {
+            get
+            {
+                return this.MetadataField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MetadataField, value) != true))
+                {
+                    this.MetadataField = value;
+                    this.RaisePropertyChanged("Metadata");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnnotationOptOut", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AnnotationOptOut : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AnnotationGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsOptOutField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AnnotationGroupId
+        {
+            get
+            {
+                return this.AnnotationGroupIdField;
+            }
+            set
+            {
+                if ((this.AnnotationGroupIdField.Equals(value) != true))
+                {
+                    this.AnnotationGroupIdField = value;
+                    this.RaisePropertyChanged("AnnotationGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CustomerId
+        {
+            get
+            {
+                return this.CustomerIdField;
+            }
+            set
+            {
+                if ((this.CustomerIdField.Equals(value) != true))
+                {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsOptOut
+        {
+            get
+            {
+                return this.IsOptOutField;
+            }
+            set
+            {
+                if ((this.IsOptOutField.Equals(value) != true))
+                {
+                    this.IsOptOutField = value;
+                    this.RaisePropertyChanged("IsOptOut");
                 }
             }
         }
@@ -34081,6 +35002,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "efineResponsiveSearchAdRecommendationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationResponse> RefineResponsiveSearchAdRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.RefineResponsiveSearchAdRecommendationRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="GetResponsiveAdRecommendationJob", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etResponsiveAdRecommendationJobResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etResponsiveAdRecommendationJobAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etResponsiveAdRecommendationJobApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobResponse GetResponsiveAdRecommendationJob(Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetResponsiveAdRecommendationJob", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etResponsiveAdRecommendationJobResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobResponse> GetResponsiveAdRecommendationJobAsync(Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="UpdateConversionValueRules", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateConversionValueRulesResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
@@ -34176,6 +35109,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="DeleteBrandKits", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteBrandKitsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteBrandKitsResponse> DeleteBrandKitsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteBrandKitsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="CreateBrandKitRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
+            "reateBrandKitRecommendationResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
+            "reateBrandKitRecommendationAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
+            "reateBrandKitRecommendationApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationResponse CreateBrandKitRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="CreateBrandKitRecommendation", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/C" +
+            "reateBrandKitRecommendationResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationResponse> CreateBrandKitRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="AddNewCustomerAcquisitionGoals", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/A" +
             "ddNewCustomerAcquisitionGoalsResponse")]
@@ -34284,6 +35229,42 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="GetHealthCheck", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
             "etHealthCheckResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetHealthCheckResponse> GetHealthCheckAsync(Microsoft.BingAds.V13.CampaignManagement.GetHealthCheckRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetDiagnostics", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etDiagnosticsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etDiagnosticsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etDiagnosticsApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsResponse GetDiagnostics(Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetDiagnostics", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etDiagnosticsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsResponse> GetDiagnosticsAsync(Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetAnnotationOptOut", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etAnnotationOptOutResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etAnnotationOptOutAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etAnnotationOptOutApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutResponse GetAnnotationOptOut(Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetAnnotationOptOut", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etAnnotationOptOutResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutResponse> GetAnnotationOptOutAsync(Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateAnnotationOptOut", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateAnnotationOptOutResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateAnnotationOptOutAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateAnnotationOptOutApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutResponse UpdateAnnotationOptOut(Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateAnnotationOptOut", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateAnnotationOptOutResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutResponse> UpdateAnnotationOptOutAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -36269,11 +37250,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public Microsoft.BingAds.V13.CampaignManagement.KeywordEditorialStatus EditorialStatus;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
         public GetKeywordsByEditorialStatusRequest()
         {
         }
         
-        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V13.CampaignManagement.KeywordEditorialStatus EditorialStatus)
+        public GetKeywordsByEditorialStatusRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, Microsoft.BingAds.V13.CampaignManagement.KeywordEditorialStatus EditorialStatus, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -36284,6 +37268,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.EditorialStatus = EditorialStatus;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -36343,11 +37328,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> KeywordIds;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
         public GetKeywordsByIdsRequest()
         {
         }
         
-        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds)
+        public GetKeywordsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Collections.Generic.IList<long> KeywordIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -36358,6 +37346,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
             this.KeywordIds = KeywordIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -36418,11 +37407,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AdGroupId;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields;
+        
         public GetKeywordsByAdGroupIdRequest()
         {
         }
         
-        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId)
+        public GetKeywordsByAdGroupIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AdGroupId, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.KeywordAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -36432,6 +37424,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AdGroupId = AdGroupId;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -40850,11 +41843,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> BidStrategyIds;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PortfolioBidStrategyAdditionalField> ReturnAdditionalFields;
+        
         public GetBidStrategiesByIdsRequest()
         {
         }
         
-        public GetBidStrategiesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> BidStrategyIds)
+        public GetBidStrategiesByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> BidStrategyIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.PortfolioBidStrategyAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -40864,6 +41860,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.BidStrategyIds = BidStrategyIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -46214,17 +47211,21 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public string PromptBrandWarning;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public Microsoft.BingAds.V13.CampaignManagement.AdRecommendationJobInfo JobInfo;
+        
         public CreateResponsiveAdRecommendationResponse()
         {
         }
         
-        public CreateResponsiveAdRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions, string PromptBrandWarning)
+        public CreateResponsiveAdRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions, string PromptBrandWarning, Microsoft.BingAds.V13.CampaignManagement.AdRecommendationJobInfo JobInfo)
         {
             this.TrackingId = TrackingId;
             this.ResponsiveAd = ResponsiveAd;
             this.ImageSuggestions = ImageSuggestions;
             this.VideoSuggestions = VideoSuggestions;
             this.PromptBrandWarning = PromptBrandWarning;
+            this.JobInfo = JobInfo;
         }
     }
     
@@ -46557,6 +47558,92 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
             this.TrackingId = TrackingId;
             this.TextRefineResults = TextRefineResults;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetResponsiveAdRecommendationJobRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetResponsiveAdRecommendationJobRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public long JobId;
+        
+        public GetResponsiveAdRecommendationJobRequest()
+        {
+        }
+        
+        public GetResponsiveAdRecommendationJobRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long JobId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.JobId = JobId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetResponsiveAdRecommendationJobResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetResponsiveAdRecommendationJobResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public string PromptBrandWarning;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public Microsoft.BingAds.V13.CampaignManagement.AdRecommendationJobInfo JobInfo;
+        
+        public GetResponsiveAdRecommendationJobResponse()
+        {
+        }
+        
+        public GetResponsiveAdRecommendationJobResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.ResponsiveAd ResponsiveAd, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationImageSuggestion> ImageSuggestions, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AdRecommendationVideoSuggestion> VideoSuggestions, string PromptBrandWarning, Microsoft.BingAds.V13.CampaignManagement.AdRecommendationJobInfo JobInfo)
+        {
+            this.TrackingId = TrackingId;
+            this.ResponsiveAd = ResponsiveAd;
+            this.ImageSuggestions = ImageSuggestions;
+            this.VideoSuggestions = VideoSuggestions;
+            this.PromptBrandWarning = PromptBrandWarning;
+            this.JobInfo = JobInfo;
         }
     }
     
@@ -47166,6 +48253,80 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreateBrandKitRecommendationRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class CreateBrandKitRecommendationRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public long AccountId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public string FinalUrl;
+        
+        public CreateBrandKitRecommendationRequest()
+        {
+        }
+        
+        public CreateBrandKitRecommendationRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, string FinalUrl)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountId = AccountId;
+            this.FinalUrl = FinalUrl;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="CreateBrandKitRecommendationResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class CreateBrandKitRecommendationResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public Microsoft.BingAds.V13.CampaignManagement.BrandKit BrandKit;
+        
+        public CreateBrandKitRecommendationResponse()
+        {
+        }
+        
+        public CreateBrandKitRecommendationResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.BrandKit BrandKit)
+        {
+            this.TrackingId = TrackingId;
+            this.BrandKit = BrandKit;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="AddNewCustomerAcquisitionGoalsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
     public partial class AddNewCustomerAcquisitionGoalsRequest
     {
@@ -47408,14 +48569,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public long AccountId;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
-        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BrandKitAdditionalField> ReturnAdditionalFields;
-        
         public GetBrandKitsByAccountIdRequest()
         {
         }
         
-        public GetBrandKitsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BrandKitAdditionalField> ReturnAdditionalFields)
+        public GetBrandKitsByAccountIdRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -47425,7 +48583,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.AccountId = AccountId;
-            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -47485,14 +48642,11 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
         public System.Collections.Generic.IList<long> BrandKitIds;
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
-        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BrandKitAdditionalField> ReturnAdditionalFields;
-        
         public GetBrandKitsByIdsRequest()
         {
         }
         
-        public GetBrandKitsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> BrandKitIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.BrandKitAdditionalField> ReturnAdditionalFields)
+        public GetBrandKitsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<long> BrandKitIds)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -47503,7 +48657,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.UserName = UserName;
             this.AccountId = AccountId;
             this.BrandKitIds = BrandKitIds;
-            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -47817,10 +48970,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public string TrackingId;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata> HealthCheckMetadatas;
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata> HealthCheckResultsMetadata;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
-        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> HealthCheckDatas;
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> HealthCheckResults;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckError> HealthCheckErrors;
@@ -47829,12 +48982,254 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         {
         }
         
-        public GetHealthCheckResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata> HealthCheckMetadatas, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> HealthCheckDatas, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckError> HealthCheckErrors)
+        public GetHealthCheckResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckMetadata> HealthCheckResultsMetadata, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckData> HealthCheckResults, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckError> HealthCheckErrors)
         {
             this.TrackingId = TrackingId;
-            this.HealthCheckMetadatas = HealthCheckMetadatas;
-            this.HealthCheckDatas = HealthCheckDatas;
+            this.HealthCheckResultsMetadata = HealthCheckResultsMetadata;
+            this.HealthCheckResults = HealthCheckResults;
             this.HealthCheckErrors = HealthCheckErrors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDiagnosticsRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetDiagnosticsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckEntity> HealthCheckEntities;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<string> HealthCheckTypes;
+        
+        public GetDiagnosticsRequest()
+        {
+        }
+        
+        public GetDiagnosticsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckEntity> HealthCheckEntities, System.Collections.Generic.IList<string> HealthCheckTypes)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.HealthCheckEntities = HealthCheckEntities;
+            this.HealthCheckTypes = HealthCheckTypes;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDiagnosticsResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetDiagnosticsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public Microsoft.BingAds.V13.CampaignManagement.DiagnosticTileData DiagnosticTileData;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DiagnosticCategoryData> DiagnosticCategoryData;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DiagnosticCardData> DiagnosticCardData;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckError> DiagnosticErrors;
+        
+        public GetDiagnosticsResponse()
+        {
+        }
+        
+        public GetDiagnosticsResponse(string TrackingId, Microsoft.BingAds.V13.CampaignManagement.DiagnosticTileData DiagnosticTileData, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DiagnosticCategoryData> DiagnosticCategoryData, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.DiagnosticCardData> DiagnosticCardData, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.HealthCheckError> DiagnosticErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.DiagnosticTileData = DiagnosticTileData;
+            this.DiagnosticCategoryData = DiagnosticCategoryData;
+            this.DiagnosticCardData = DiagnosticCardData;
+            this.DiagnosticErrors = DiagnosticErrors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAnnotationOptOutRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetAnnotationOptOutRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        public GetAnnotationOptOutRequest()
+        {
+        }
+        
+        public GetAnnotationOptOutRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAnnotationOptOutResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetAnnotationOptOutResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string Justification;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AnnotationOptOut> AnnotationOptOuts;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=2)]
+        public bool IsAccountOptOut;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
+        public bool IsCustomerOptOut;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public bool IsCustomerOptOutOfEverything;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=5)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        public GetAnnotationOptOutResponse()
+        {
+        }
+        
+        public GetAnnotationOptOutResponse(string TrackingId, string Justification, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AnnotationOptOut> AnnotationOptOuts, bool IsAccountOptOut, bool IsCustomerOptOut, bool IsCustomerOptOutOfEverything, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.Justification = Justification;
+            this.AnnotationOptOuts = AnnotationOptOuts;
+            this.IsAccountOptOut = IsAccountOptOut;
+            this.IsCustomerOptOut = IsCustomerOptOut;
+            this.IsCustomerOptOutOfEverything = IsCustomerOptOutOfEverything;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAnnotationOptOutRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateAnnotationOptOutRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string Justification;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AnnotationOptOut> AnnotationOptOuts;
+        
+        public UpdateAnnotationOptOutRequest()
+        {
+        }
+        
+        public UpdateAnnotationOptOutRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string Justification, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AnnotationOptOut> AnnotationOptOuts)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Justification = Justification;
+            this.AnnotationOptOuts = AnnotationOptOuts;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateAnnotationOptOutResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateAnnotationOptOutResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        public UpdateAnnotationOptOutResponse()
+        {
+        }
+        
+        public UpdateAnnotationOptOutResponse(string TrackingId)
+        {
+            this.TrackingId = TrackingId;
         }
     }
     
@@ -49482,6 +50877,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.RefineResponsiveSearchAdRecommendationAsync(request);
         }
         
+        public Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobResponse GetResponsiveAdRecommendationJob(Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobRequest request)
+        {
+            return base.Channel.GetResponsiveAdRecommendationJob(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobResponse> GetResponsiveAdRecommendationJobAsync(Microsoft.BingAds.V13.CampaignManagement.GetResponsiveAdRecommendationJobRequest request)
+        {
+            return base.Channel.GetResponsiveAdRecommendationJobAsync(request);
+        }
+        
         public Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesResponse UpdateConversionValueRules(Microsoft.BingAds.V13.CampaignManagement.UpdateConversionValueRulesRequest request)
         {
             return base.Channel.UpdateConversionValueRules(request);
@@ -49560,6 +50965,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.DeleteBrandKitsResponse> DeleteBrandKitsAsync(Microsoft.BingAds.V13.CampaignManagement.DeleteBrandKitsRequest request)
         {
             return base.Channel.DeleteBrandKitsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationResponse CreateBrandKitRecommendation(Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationRequest request)
+        {
+            return base.Channel.CreateBrandKitRecommendation(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationResponse> CreateBrandKitRecommendationAsync(Microsoft.BingAds.V13.CampaignManagement.CreateBrandKitRecommendationRequest request)
+        {
+            return base.Channel.CreateBrandKitRecommendationAsync(request);
         }
         
         public Microsoft.BingAds.V13.CampaignManagement.AddNewCustomerAcquisitionGoalsResponse AddNewCustomerAcquisitionGoals(Microsoft.BingAds.V13.CampaignManagement.AddNewCustomerAcquisitionGoalsRequest request)
@@ -49650,6 +51065,36 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetHealthCheckResponse> GetHealthCheckAsync(Microsoft.BingAds.V13.CampaignManagement.GetHealthCheckRequest request)
         {
             return base.Channel.GetHealthCheckAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsResponse GetDiagnostics(Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsRequest request)
+        {
+            return base.Channel.GetDiagnostics(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsResponse> GetDiagnosticsAsync(Microsoft.BingAds.V13.CampaignManagement.GetDiagnosticsRequest request)
+        {
+            return base.Channel.GetDiagnosticsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutResponse GetAnnotationOptOut(Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutRequest request)
+        {
+            return base.Channel.GetAnnotationOptOut(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutResponse> GetAnnotationOptOutAsync(Microsoft.BingAds.V13.CampaignManagement.GetAnnotationOptOutRequest request)
+        {
+            return base.Channel.GetAnnotationOptOutAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutResponse UpdateAnnotationOptOut(Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutRequest request)
+        {
+            return base.Channel.UpdateAnnotationOptOut(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutResponse> UpdateAnnotationOptOutAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateAnnotationOptOutRequest request)
+        {
+            return base.Channel.UpdateAnnotationOptOutAsync(request);
         }
     }
 }

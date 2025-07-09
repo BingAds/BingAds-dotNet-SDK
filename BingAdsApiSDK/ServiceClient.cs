@@ -47,17 +47,9 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Diagnostics;
 using System.ServiceModel;
-using System.Threading.Tasks;
 using Microsoft.BingAds.Internal;
-using Microsoft.BingAds.V13.AdInsight;
-using Microsoft.BingAds.V13.Bulk;
-using Microsoft.BingAds.V13.CampaignManagement;
-using Microsoft.BingAds.V13.CustomerBilling;
-using Microsoft.BingAds.V13.CustomerManagement;
-using Microsoft.BingAds.V13.Reporting;
 
 namespace Microsoft.BingAds
 {
@@ -78,46 +70,12 @@ namespace Microsoft.BingAds
     public class ServiceClient<TService> : IDisposable
         where TService : class
     {
-        private readonly WcfServiceClient<TService> _wcfServiceClient;
-
         private readonly RestServiceClient _restServiceClient;
-
-        private bool DisableRestApi
-        {
-            get
-            {
-                // Remove disabling of SOAP for the following services. 
-                if (typeof(TService) == typeof(ICampaignManagementService) ||
-                    typeof(TService) == typeof(IBulkService) ||
-                    typeof(TService) == typeof(IReportingService))
-                {
-                    return false;
-                }
-
-                if (AppContext.TryGetSwitch($"Switch.BingAds.{typeof(TService).Name}.DisableRestApi", out var isSwitchOn) && isSwitchOn)
-                {
-                    Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "AppContext switch");
-
-                    return true;
-                }
-
-                var envVarValue = Environment.GetEnvironmentVariable($"BINGADS_{typeof(TService).Name}.DisableRestApi");
-
-                if (envVarValue != null && bool.TryParse(envVarValue, out var disableRestApi) && disableRestApi)
-                {
-                    Events.Log.RestApiDisable(Activity.Current?.Id, typeof(TService).Name, "Environment variable");
-
-                    return true;
-                }
-
-                return false;
-            }
-        }
 
         /// <summary>
         /// Represents a user who intends to access the corresponding customer and account.
         /// </summary>
-        public AuthorizationData AuthorizationData => _wcfServiceClient.AuthorizationData;
+        public AuthorizationData AuthorizationData => _restServiceClient.AuthorizationData;
 
         /// <summary>
         /// Gets or sets a value indicating whether OAuth access and refresh tokens should be refreshed automatically upon access token expiration.
@@ -127,10 +85,9 @@ namespace Microsoft.BingAds
         /// </remarks>
         public bool RefreshOAuthTokensAutomatically
         {
-            get { return _wcfServiceClient.RefreshOAuthTokensAutomatically; }
+            get { return _restServiceClient.RefreshOAuthTokensAutomatically; }
             set
             {
-                _wcfServiceClient.RefreshOAuthTokensAutomatically = value;
                 _restServiceClient.RefreshOAuthTokensAutomatically = value;
             }
         }
@@ -151,8 +108,6 @@ namespace Microsoft.BingAds
         /// <param name="environment">Bing Ads API environment</param>
         public ServiceClient(AuthorizationData authorizationData, ApiEnvironment? environment)
         {
-            _wcfServiceClient = new WcfServiceClient<TService>(authorizationData, environment);
-
             _restServiceClient = new RestServiceClient(authorizationData, environment);
         }
 
@@ -184,17 +139,7 @@ namespace Microsoft.BingAds
             Func<TService, TRequest, Task<TResponse>> method, TRequest request)
             where TRequest : class
         {
-            if (DisableRestApi)
-            {
-                return await _wcfServiceClient.CallAsync(method, request).ConfigureAwait(false);
-            }
-
             var restApiResponse = await _restServiceClient.CallAsync(method, request).ConfigureAwait(false);
-
-            if (restApiResponse == null)
-            {
-                return await _wcfServiceClient.CallAsync(method, request).ConfigureAwait(false);
-            }
 
             return restApiResponse;
         }
@@ -207,24 +152,7 @@ namespace Microsoft.BingAds
         /// <remarks>You should use this method when finished with an instance of <see cref="ServiceClient{TService}"/>.</remarks>
         public void Dispose()
         {
-            Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <param name="disposing">Disposes of the channel factory if set to true.</param>
-        /// <remarks>You should use this method when finished with an instance of <see cref="ServiceClient{TService}"/>.</remarks>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (_wcfServiceClient != null)
-                {
-                    _wcfServiceClient.Dispose();
-                }
-            }
         }
     }
 }

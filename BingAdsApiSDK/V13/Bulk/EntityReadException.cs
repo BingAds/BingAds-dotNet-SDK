@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds.V13.Bulk
@@ -91,33 +90,6 @@ namespace Microsoft.BingAds.V13.Bulk
         public EntityReadException(string message, string columnValues, Exception inner) : base(message, inner)
         {
             ColumnValues = columnValues;
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        /// <param name="info">Reserved for internal use.</param>
-        /// <param name="context">Reserved for internal use.</param>
-        protected EntityReadException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
-        {
-            ColumnValues = (string)info.GetValue("ColumnValues", typeof(string));
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            base.GetObjectData(info, context);
-
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            info.AddValue("ColumnValues", ColumnValues);
         }
     }
 }

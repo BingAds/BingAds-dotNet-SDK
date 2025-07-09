@@ -534,6 +534,7 @@ public static partial class RestApiGeneration
             { typeof(HealthCheckEntity), static t => CustomizeHealthCheckEntity(t) },
             { typeof(HealthCheckError), static t => CustomizeHealthCheckError(t) },
             { typeof(HealthCheckMetadata), static t => CustomizeHealthCheckMetadata(t) },
+            { typeof(HealthCheckSubEntityData), static t => CustomizeHealthCheckSubEntityData(t) },
             { typeof(HotelAd), static t => CustomizeHotelAd(t) },
             { typeof(HotelAdvanceBookingWindowCriterion), static t => CustomizeHotelAdvanceBookingWindowCriterion(t) },
             { typeof(HotelCheckInDateCriterion), static t => CustomizeHotelCheckInDateCriterion(t) },
@@ -8734,6 +8735,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeHealthCheckMetadata(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHealthCheckSubEntityData(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

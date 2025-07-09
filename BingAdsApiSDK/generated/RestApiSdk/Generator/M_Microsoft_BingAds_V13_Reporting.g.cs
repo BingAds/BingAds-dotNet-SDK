@@ -151,6 +151,8 @@ public static partial class RestApiGeneration
             { typeof(DSACategoryPerformanceReportRequest), static t => CustomizeDSACategoryPerformanceReportRequest(t) },
             { typeof(DSASearchQueryPerformanceReportFilter), static t => CustomizeDSASearchQueryPerformanceReportFilter(t) },
             { typeof(DSASearchQueryPerformanceReportRequest), static t => CustomizeDSASearchQueryPerformanceReportRequest(t) },
+            { typeof(FeedItemPerformanceReportFilter), static t => CustomizeFeedItemPerformanceReportFilter(t) },
+            { typeof(FeedItemPerformanceReportRequest), static t => CustomizeFeedItemPerformanceReportRequest(t) },
             { typeof(GeographicPerformanceReportFilter), static t => CustomizeGeographicPerformanceReportFilter(t) },
             { typeof(GeographicPerformanceReportRequest), static t => CustomizeGeographicPerformanceReportRequest(t) },
             { typeof(GoalsAndFunnelsReportFilter), static t => CustomizeGoalsAndFunnelsReportFilter(t) },
@@ -1072,6 +1074,37 @@ public static partial class RestApiGeneration
             }
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "DSASearchQueryPerformanceReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeFeedItemPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeFeedItemPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "FeedItemPerformanceReportRequest";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 

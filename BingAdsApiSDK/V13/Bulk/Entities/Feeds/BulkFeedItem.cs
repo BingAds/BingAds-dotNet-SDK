@@ -47,13 +47,11 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-
 using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 using Microsoft.BingAds.V13.CampaignManagement;
-using System.Collections.Generic;
+using MatchType = Microsoft.BingAds.V13.CampaignManagement.MatchType;
 
 namespace Microsoft.BingAds.V13.Bulk.Entities.Feeds
 {

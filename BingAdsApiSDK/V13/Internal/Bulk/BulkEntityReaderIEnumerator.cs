@@ -47,11 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.BingAds.V13.Bulk;
 using Microsoft.BingAds.V13.Bulk.Entities;
 

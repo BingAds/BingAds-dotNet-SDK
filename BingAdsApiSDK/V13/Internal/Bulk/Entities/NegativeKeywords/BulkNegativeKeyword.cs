@@ -48,11 +48,9 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.V13.Bulk.Entities;
-using Microsoft.BingAds.V13.Internal;
-using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
-using Microsoft.BingAds.V13.Internal.Bulk.Entities;
 using Microsoft.BingAds.V13.CampaignManagement;
+using MatchType = Microsoft.BingAds.V13.CampaignManagement.MatchType;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.BingAds.V13.Internal.Bulk.Entities

@@ -47,11 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.IO;
 using System.ServiceModel;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.BingAds.Internal;
 using Microsoft.BingAds.Internal.Utilities;
 using Microsoft.BingAds.V13.Internal.Bulk.Operations;

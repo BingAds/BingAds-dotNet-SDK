@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 
 namespace Microsoft.BingAds.Internal
 {
@@ -56,11 +55,9 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public static class ServiceClientFactoryFactory
     {
-        public static Func<IServiceClientFactory> CreateCustomClientFactory { get; set; }
-
         public static IServiceClientFactory CreateServiceClientFactory()
         {
-            return CreateCustomClientFactory == null ? new ServiceClientFactory() : CreateCustomClientFactory();
+            return new ServiceClientFactory();
         }
     }
 }

@@ -56,16 +56,24 @@ using System.Text.Json.Serialization.Metadata;
 
 public static partial class RestApiGeneration
 {
+    public static IList<Action<JsonTypeInfo>> CustomizeEntityModifiers = new List<Action<JsonTypeInfo>>
+    {
+        Microsoft_BingAds_V13_AdInsight_EntityModifiers.CustomizeEntities,
+        Microsoft_BingAds_V13_Bulk_EntityModifiers.CustomizeEntities,
+        Microsoft_BingAds_V13_CampaignManagement_EntityModifiers.CustomizeEntities,
+        Microsoft_BingAds_V13_CustomerBilling_EntityModifiers.CustomizeEntities,
+        Microsoft_BingAds_V13_CustomerManagement_EntityModifiers.CustomizeEntities,
+        Microsoft_BingAds_V13_Reporting_EntityModifiers.CustomizeEntities
+    };
+
     public static void Apply(JsonSerializerOptions jsonSerializationOptions, Func<string, Exception> createUnsupportedTypeValueException)
     {
         var modifiers = ((DefaultJsonTypeInfoResolver)jsonSerializationOptions.TypeInfoResolver).Modifiers;
 
-        modifiers.Add(Microsoft_BingAds_V13_AdInsight_EntityModifiers.CustomizeEntities);
-        modifiers.Add(Microsoft_BingAds_V13_Bulk_EntityModifiers.CustomizeEntities);
-        modifiers.Add(Microsoft_BingAds_V13_CampaignManagement_EntityModifiers.CustomizeEntities);
-        modifiers.Add(Microsoft_BingAds_V13_CustomerBilling_EntityModifiers.CustomizeEntities);
-        modifiers.Add(Microsoft_BingAds_V13_CustomerManagement_EntityModifiers.CustomizeEntities);
-        modifiers.Add(Microsoft_BingAds_V13_Reporting_EntityModifiers.CustomizeEntities);
+        foreach (var customizeEntityModifier in CustomizeEntityModifiers)
+        {
+            modifiers.Add(customizeEntityModifier);
+        }
 
         Microsoft_BingAds_V13_AdInsight_AllPolymorphicConverters.AddTo(jsonSerializationOptions, createUnsupportedTypeValueException);
         Microsoft_BingAds_V13_Bulk_AllPolymorphicConverters.AddTo(jsonSerializationOptions, createUnsupportedTypeValueException);

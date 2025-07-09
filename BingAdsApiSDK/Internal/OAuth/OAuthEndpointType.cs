@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Microsoft.BingAds.Internal.OAuth

@@ -50,7 +50,6 @@
 using Microsoft.BingAds.V13.CampaignManagement;
 using Microsoft.BingAds.V13.Bulk.Entities;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
-using System;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
 {
@@ -82,7 +81,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk.Entities
 
     public class MaxImpressionsBiddingScheme : BiddingScheme
     {
-
+        public Bid MaxCpm { get; set; }
     }
 
     public class MaxReachBiddingScheme : BiddingScheme

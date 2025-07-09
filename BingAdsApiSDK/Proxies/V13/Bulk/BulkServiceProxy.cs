@@ -671,6 +671,15 @@ namespace Microsoft.BingAds.V13.Bulk
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CampaignAccountPlacementInclusionListAssociation = 192,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Topic = 193,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ContentPlacement = 194,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandKit = 195,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

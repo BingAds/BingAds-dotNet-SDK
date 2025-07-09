@@ -2887,6 +2887,30 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<decimal> UpfrontSpendingField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ActiveDurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> SpendToThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<decimal> BalanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrencyCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> FeatureIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> CouponTypeField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -3048,6 +3072,142 @@ namespace Microsoft.BingAds.V13.CustomerBilling
                 {
                     this.UpfrontSpendingField = value;
                     this.RaisePropertyChanged("UpfrontSpending");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public System.Nullable<int> ActiveDuration
+        {
+            get
+            {
+                return this.ActiveDurationField;
+            }
+            set
+            {
+                if ((this.ActiveDurationField.Equals(value) != true))
+                {
+                    this.ActiveDurationField = value;
+                    this.RaisePropertyChanged("ActiveDuration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public System.Nullable<decimal> SpendToThreshold
+        {
+            get
+            {
+                return this.SpendToThresholdField;
+            }
+            set
+            {
+                if ((this.SpendToThresholdField.Equals(value) != true))
+                {
+                    this.SpendToThresholdField = value;
+                    this.RaisePropertyChanged("SpendToThreshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public System.Nullable<System.DateTime> StartDate
+        {
+            get
+            {
+                return this.StartDateField;
+            }
+            set
+            {
+                if ((this.StartDateField.Equals(value) != true))
+                {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public System.Nullable<System.DateTime> EndDate
+        {
+            get
+            {
+                return this.EndDateField;
+            }
+            set
+            {
+                if ((this.EndDateField.Equals(value) != true))
+                {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=13)]
+        public System.Nullable<decimal> Balance
+        {
+            get
+            {
+                return this.BalanceField;
+            }
+            set
+            {
+                if ((this.BalanceField.Equals(value) != true))
+                {
+                    this.BalanceField = value;
+                    this.RaisePropertyChanged("Balance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=14)]
+        public string CurrencyCode
+        {
+            get
+            {
+                return this.CurrencyCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.CurrencyCodeField, value) != true))
+                {
+                    this.CurrencyCodeField = value;
+                    this.RaisePropertyChanged("CurrencyCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=15)]
+        public System.Nullable<int> FeatureId
+        {
+            get
+            {
+                return this.FeatureIdField;
+            }
+            set
+            {
+                if ((this.FeatureIdField.Equals(value) != true))
+                {
+                    this.FeatureIdField = value;
+                    this.RaisePropertyChanged("FeatureId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=16)]
+        public System.Nullable<byte> CouponType
+        {
+            get
+            {
+                return this.CouponTypeField;
+            }
+            set
+            {
+                if ((this.CouponTypeField.Equals(value) != true))
+                {
+                    this.CouponTypeField = value;
+                    this.RaisePropertyChanged("CouponType");
                 }
             }
         }

@@ -47,13 +47,11 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using System.Threading;
 
 namespace Microsoft.BingAds
 {
