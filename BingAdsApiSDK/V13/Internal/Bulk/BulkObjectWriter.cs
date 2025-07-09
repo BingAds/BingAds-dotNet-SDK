@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.IO;
 using System.Text;
 using Microsoft.BingAds.V13.Bulk;
 

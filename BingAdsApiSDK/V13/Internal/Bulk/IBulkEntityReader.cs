@@ -48,10 +48,6 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.V13.Bulk.Entities;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {

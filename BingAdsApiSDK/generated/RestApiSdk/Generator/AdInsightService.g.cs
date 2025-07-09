@@ -48,7 +48,6 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Threading.Tasks;
 using Microsoft.BingAds.V13.AdInsight;
 
 namespace Microsoft.BingAds.Internal

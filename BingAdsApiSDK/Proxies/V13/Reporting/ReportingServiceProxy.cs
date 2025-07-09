@@ -109,6 +109,8 @@ namespace Microsoft.BingAds.V13.Reporting
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CategoryClickCoverageReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.CombinationPerformanceReportRequest))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.AppsPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportRequest))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportRequest))]
     public partial class ReportRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -4475,6 +4477,195 @@ namespace Microsoft.BingAds.V13.Reporting
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FeedItemPerformanceReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class FeedItemPerformanceReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private Microsoft.BingAds.V13.Reporting.ReportAggregation AggregationField;
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportAggregation Aggregation
+        {
+            get
+            {
+                return this.AggregationField;
+            }
+            set
+            {
+                if ((this.AggregationField.Equals(value) != true))
+                {
+                    this.AggregationField = value;
+                    this.RaisePropertyChanged("Aggregation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountThroughAdGroupReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TravelQueryInsightReportRequest", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class TravelQueryInsightReportRequest : Microsoft.BingAds.V13.Reporting.ReportRequest
+    {
+        
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportColumn> ColumnsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportFilter FilterField;
+        
+        private Microsoft.BingAds.V13.Reporting.AccountReportScope ScopeField;
+        
+        private Microsoft.BingAds.V13.Reporting.ReportTime TimeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportColumn> Columns
+        {
+            get
+            {
+                return this.ColumnsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ColumnsField, value) != true))
+                {
+                    this.ColumnsField = value;
+                    this.RaisePropertyChanged("Columns");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportFilter Filter
+        {
+            get
+            {
+                return this.FilterField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.FilterField, value) != true))
+                {
+                    this.FilterField = value;
+                    this.RaisePropertyChanged("Filter");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.AccountReportScope Scope
+        {
+            get
+            {
+                return this.ScopeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ScopeField, value) != true))
+                {
+                    this.ScopeField = value;
+                    this.RaisePropertyChanged("Scope");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public Microsoft.BingAds.V13.Reporting.ReportTime Time
+        {
+            get
+            {
+                return this.TimeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TimeField, value) != true))
+                {
+                    this.TimeField = value;
+                    this.RaisePropertyChanged("Time");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ReportFormat", Namespace="https://bingads.microsoft.com/Reporting/v13")]
     public enum ReportFormat : int
@@ -5127,6 +5318,18 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerReturnOnAdSpend = 105,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionDelay = 106,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnknownCustomerConversions = 107,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnknownCustomerRevenue = 108,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewCustomerCount = 109,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -6171,6 +6374,18 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NewCustomerReturnOnAdSpend = 126,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionDelay = 127,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnknownCustomerConversions = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnknownCustomerRevenue = 129,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NewCustomerCount = 130,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10224,6 +10439,51 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 55,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppName = 56,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppBundle = 57,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppStoreUrl = 58,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Downloads = 59,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickDownloadRate = 60,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerDownload = 61,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstalls = 62,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickInstallRate = 63,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPI = 64,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Purchases = 65,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallPurchaseRate = 66,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPP = 67,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscriptions = 68,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallSubscriptionRate = 69,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPS = 70,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -11270,6 +11530,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 29,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionDelay = 30,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -17628,6 +17891,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ReturnOnAdSpend = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 18,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18712,6 +18978,254 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         RevenuePerAppInstall = 46,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FeedItemPerformanceReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class FeedItemPerformanceReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FeedItemPerformanceReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum FeedItemPerformanceReportColumn : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimePeriod = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountId = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountName = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountNumber = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignId = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignName = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupId = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeedId = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FeedItemId = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Impressions = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Clicks = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Spend = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Ctr = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AverageCpc = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AveragePosition = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Conversions = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Assists = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Revenue = 18,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ExtendedCost = 19,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionsQualified = 20,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ConversionRate = 21,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerConversion = 22,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ReturnOnAdSpend = 23,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerAssist = 24,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerConversion = 25,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RevenuePerAssist = 26,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversions = 27,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionsQualified = 28,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenue = 29,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllCostPerConversion = 30,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllConversionRate = 31,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllRevenuePerConversion = 32,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AllReturnOnAdSpend = 33,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversions = 34,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionsQualified = 35,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughRevenue = 36,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ViewThroughConversionRate = 37,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TravelQueryInsightReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    [System.SerializableAttribute()]
+    public partial class TravelQueryInsightReportFilter : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TravelQueryInsightReportColumn", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum TravelQueryInsightReportColumn : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SearchQuery = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Country = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Region = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MetroArea = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        City = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostalCode = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L1Vertical = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L2Vertical = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        L3Vertical = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        POSCountry = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        POSRegion = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        POSCity = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandImpressions = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandClicks = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandSpend = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MSAImpressions = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MSAClicks = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MSASpend = 17,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

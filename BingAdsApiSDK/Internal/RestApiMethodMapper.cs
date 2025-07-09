@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.Collections.Generic;
-using System;
 using System.Net.Http;
 
 #pragma warning disable CA1815 // Override equals and operator equals on value types
@@ -91,6 +89,7 @@ static class RestApiMethodMapper
         { "RefineAssetGroupRecommendation", (Entity: "AssetGroupRecommendation", Action: "Refine" ) },
         { "RefineResponsiveAdRecommendation", (Entity: "ResponsiveAdRecommendation", Action: "Refine" ) },
         { "RefineResponsiveSearchAdRecommendation", (Entity: "ResponsiveSearchAdRecommendation", Action: "Refine" ) },
+        { "CreateBrandKitRecommendation", (Entity: "BrandKitRecommendation", Action: "Create")},
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> BulkServiceActionMethods = new()

@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk.Mappings
 {

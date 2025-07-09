@@ -47,13 +47,10 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Globalization;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -63,7 +60,6 @@ using System.ServiceModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
-using System.Threading.Tasks;
 using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.Internal
@@ -81,6 +77,11 @@ namespace Microsoft.BingAds.Internal
         private static readonly JsonSerializerOptions SerializerOptions;
 
         private static readonly ConcurrentDictionary<Type, DateTimeOffset> RetryAfter = new();
+
+        public AuthorizationData AuthorizationData
+        {
+            get { return _authorizationData; }
+        }
 
         static RestServiceClient()
         {

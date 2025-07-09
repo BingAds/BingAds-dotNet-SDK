@@ -129,16 +129,14 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.ConversionGoal.GoalCategory.ToBulkString(),
                 (v, c) =>
                 {
-                    // To handle the old typo. 
-                    if (v == "Subcribe")
+                    c.ConversionGoal.GoalCategory = v switch
                     {
-                        c.ConversionGoal.GoalCategory = ConversionGoalCategory.Subscribe;
-                    } 
-                    else
-                    {
-                        c.ConversionGoal.GoalCategory = v.ParseOptional<ConversionGoalCategory>();
-                    }
-                }
+                        // To handle the old typo. 
+                        "Subcribe" => (ConversionGoalCategory?)ConversionGoalCategory.Subscribe,
+                        "InStoreVisit" => (ConversionGoalCategory?)ConversionGoalCategory.Other,
+                        _ => v.ParseOptional<ConversionGoalCategory>(),
+                    };
+                 }
             ),
 
             new SimpleBulkMapping<BulkConversionGoal<T>>(StringTable.IsEnhancedConversionsEnabled,

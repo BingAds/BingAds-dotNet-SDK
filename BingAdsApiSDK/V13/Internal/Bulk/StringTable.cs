@@ -681,6 +681,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string BidStrategyPercentMaxCpc = "Bid Strategy PercentMaxCpc";
         public const string BidStrategyCommissionRate = "Bid Strategy CommissionRate";
         public const string BidStrategyTargetCostPerSale = "Bid Strategy TargetCostPerSale";
+        public const string BidStrategyMaxCpm = "Bid Strategy MaxCpm";
 
         // Target and bid
         public const string TargetSetting = "Target Setting";
@@ -743,6 +744,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string EntityType = "Entity Type";
         public const string ImpressionCampaignId = "Impression Campaign Id";
         public const string ImpressionAdGroupId = "Impression Ad Group Id";
+        public const string ImpressionCampaignIds = "Impression Campaign Ids";
+        public const string ImpressionAdGroupIds = "Impression Ad Group Ids";
 
         // Expanded Text Ad
         public const string ExpandedTextAd = "Expanded Text Ad";
@@ -1036,6 +1039,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string LandscapeLogos = "Landscape Logos";
         public const string Palettes = "Palettes";
         public const string Fonts = "Fonts";
+        public const string BrandVoice = "Brand Voice";
 
     }
 }
