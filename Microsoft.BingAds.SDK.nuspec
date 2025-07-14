@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Microsoft.BingAds.SDK</id>
+        <version>13.0.25</version>
+        <title>Bing Ads SDK</title>
+        <authors>Microsoft</authors>
+        <owners>Microsoft</owners>
+        <license type="file">LICENSE.txt</license>
+        <projectUrl>https://docs.microsoft.com/en-us/bingads/guides/client-libraries</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>The Bing Ads SDK increases efficiency for Microsoft Advertising developers. The SDK includes SOAP web services proxies, simplified OAuth authentication, and file management with the Bulk and Reporting service operations.</description>
+		<readme>docs\README.md</readme>
+        <summary />
+        <releaseNotes>* Disable SOAP call for all services, REST call will be enforced.
+
+API Updates:
+* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
+* New Reports in Reporting Service: AppsPerformanceReport, TravelQueryInsightReport and FeedIemPerformanceReport.
+* Support CampaignTypeReportFilter in Reporting API.
+* New APIs in CampaignManagement Service: GetAnnotationOptOut, UpdateAnnotationOptOut, CreateBrandKitRecommendation and GetResponsiveAdRecommendationJob.
+* New field ListingGroupPath in AssetGroupListingGroup.
+* New field IsAutoGoal in ConversionGoal.
+* New field MaxCpc in MaxConversionValueBiddingScheme.
+* New API in CustomerBilling Service: GetCouponInfo.
+
+Bulk Mapping Updates:
+* Added bulk mappings for Site Exclusion: BulkAccountPlacementExclusionList, BulkSharedListNegativeSite, BulkAccountPlacementExclusionListAssociation, BulkAccountPlacementInclusionList, BulkSharedListSite and BulkAccountPlacementInclusionListAssociation.</releaseNotes>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
+            <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="" />
+        </frameworkAssemblies>
+	<dependencies>
+		<dependency id="Microsoft.CSharp" version="4.7.0" exclude="Build,Analyzers" />
+		<dependency id="Microsoft.Extensions.Http" version="8.0.0" exclude="Build,Analyzers" />
+		<dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+		<dependency id="System.Dynamic.Runtime" version="4.3.0" exclude="Build,Analyzers" />
+		<dependency id="System.ServiceModel.Primitives" version="4.10.2" exclude="Build,Analyzers" />
+		<dependency id="System.Text.Json" version="8.0.5" exclude="Build,Analyzers" />
+	</dependencies>
+    </metadata>
+    <files>
+        <file src="lib\netstandard2.0\Microsoft.BingAds.deps.json" target="lib\netstandard2.0\Microsoft.BingAds.deps.json" />
+        <file src="lib\netstandard2.0\Microsoft.BingAds.dll" target="lib\netstandard2.0\Microsoft.BingAds.dll" />
+        <file src="lib\netstandard2.0\Microsoft.BingAds.pdb" target="lib\netstandard2.0\Microsoft.BingAds.pdb" />
+        <file src="lib\netstandard2.0\Microsoft.BingAds.xml" target="lib\netstandard2.0\Microsoft.BingAds.xml" />
+        <file src="licenses\LICENSE.txt" target="" />
+		<file src=".\README.md" target="docs\" />
+    </files>
+</package>

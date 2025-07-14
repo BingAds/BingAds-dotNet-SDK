@@ -53,6 +53,12 @@ steps:
     FolderPath: $(Pipeline.Workspace)/s/BingAdsApiSDK/bin/Any CPU/Release/net80
     Pattern: '*.dll,*.nuget'
 
+- task: NuGetCommand@2
+  displayName: 'Create NuGet Package with Symbols'
+  inputs:
+    command: custom
+    arguments: 'pack Microsoft.BingAds.SDK.nuspec -Symbols -SymbolPackageFormat snupkg'
+
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact: drop-dll'
   inputs:
