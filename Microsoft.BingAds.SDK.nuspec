@@ -6,7 +6,7 @@
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
-        <license type="file">LICENSE.txt</license>
+        <license type="file">LICENSE.md</license>
         <projectUrl>https://docs.microsoft.com/en-us/bingads/guides/client-libraries</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>The Bing Ads SDK increases efficiency for Microsoft Advertising developers. The SDK includes SOAP web services proxies, simplified OAuth authentication, and file management with the Bulk and Reporting service operations.</description>
