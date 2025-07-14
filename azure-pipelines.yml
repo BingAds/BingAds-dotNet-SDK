@@ -50,7 +50,7 @@ steps:
     AuthAKVName: BingAdsSDKESRPReleaseKV
     AuthCertName: NewBingAdsSDKESRP
     AuthSignCertName: NewBingAdsSDKESRPSigning
-    FolderPath: $(Pipeline.Workspace)/Microsoft.BingAds/s/BingAdsSDK/bin/Any CPU/Release/net80
+    FolderPath: $(Pipeline.Workspace)/s/BingAdsApiSDK/bin/Any CPU/Release/net80
     Pattern: '*.dll,*.nuget'
 
 - task: PublishPipelineArtifact@0
