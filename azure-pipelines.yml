@@ -59,8 +59,8 @@ steps:
     command: custom
     arguments: 'pack Microsoft.BingAds.SDK.nuspec -Symbols -SymbolPackageFormat snupkg'
 
-- task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@5
-  displayName: ESRP CodeSigning nuget
+- task: EsrpCodeSigning@5
+  displayName: ESRP CodeSigning NuGet
   inputs:
     ConnectedServiceName: BingAdsSDKRelease
     AppRegistrationClientId: 947b0f8c-e90a-47de-b15d-81396e5220af
