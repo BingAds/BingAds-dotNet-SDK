@@ -920,6 +920,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "TopicCriterion" => jsonObj.Deserialize<TopicCriterion>(options),
                 "PlacementCriterion" => jsonObj.Deserialize<PlacementCriterion>(options),
                 "GenreCriterion" => jsonObj.Deserialize<GenreCriterion>(options),
                 "DealCriterion" => jsonObj.Deserialize<DealCriterion>(options),
@@ -953,6 +954,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case TopicCriterion topicCriterion:
+                    JsonSerializer.Serialize(writer, topicCriterion, options);
+                    break;
                 case PlacementCriterion placementCriterion:
                     JsonSerializer.Serialize(writer, placementCriterion, options);
                     break;

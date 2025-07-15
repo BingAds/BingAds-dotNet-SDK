@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System.IO;
 using System.IO.Compression;
 
 namespace Microsoft.BingAds.Internal.Utilities

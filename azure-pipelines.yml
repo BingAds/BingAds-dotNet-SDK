@@ -41,6 +41,47 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@5
+  displayName: ESRP CodeSigning dll
+  inputs:
+    ConnectedServiceName: BingAdsSDKRelease
+    AppRegistrationClientId: 947b0f8c-e90a-47de-b15d-81396e5220af
+    AppRegistrationTenantId: 975f013f-7f24-47e8-a7d3-abc4752bf346
+    AuthAKVName: BingAdsSDKESRPReleaseKV
+    AuthCertName: NewBingAdsSDKESRP
+    AuthSignCertName: NewBingAdsSDKESRPSigning
+    FolderPath: $(Pipeline.Workspace)/s/BingAdsApiSDK/bin/Any CPU/Release/net80
+    Pattern: '*.dll'
+
+- task: NuGetCommand@2
+  displayName: 'Create NuGet Package with Symbols'
+  inputs:
+    command: custom
+    arguments: 'pack Microsoft.BingAds.SDK.nuspec -Symbols -SymbolPackageFormat snupkg'
+
+- task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@5
+  displayName: ESRP CodeSigning NuGet
+  inputs:
+    ConnectedServiceName: BingAdsSDKRelease
+    AppRegistrationClientId: 947b0f8c-e90a-47de-b15d-81396e5220af
+    AppRegistrationTenantId: 975f013f-7f24-47e8-a7d3-abc4752bf346
+    AuthAKVName: BingAdsSDKESRPReleaseKV
+    AuthCertName: NewBingAdsSDKESRP
+    AuthSignCertName: NewBingAdsSDKESRPSigning
+    FolderPath: $(Pipeline.Workspace)/s
+    Pattern: '*.nupkg'
+    signConfigType: 'inlineSignParams'
+    inlineOperation: |
+      [
+       {
+        "KeyCode": "CP-401405",
+        "OperationCode": "NuGetSign",
+        "ToolName": "sign",
+        "ToolVersion": "1.0",
+        "Parameters": {}
+       }
+      ]
+
 - task: PublishPipelineArtifact@0
   displayName: 'Publish Pipeline Artifact: drop-dll'
   inputs:

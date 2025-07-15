@@ -47,19 +47,14 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Microsoft.BingAds.Internal
 {
     internal class HttpService : IHttpService
     {
-        private static readonly string UserAgent = $"BingAdsSDK.NET_{typeof(UserAgentBehavior).Assembly.GetName().Version}";
+        private static readonly string UserAgent = $"BingAdsSDK.NET_{typeof(HttpService).Assembly.GetName().Version}";
         public Task<HttpResponseMessage> PostAsync(Uri requestUri, List<KeyValuePair<string, string>> formValues, TimeSpan timeout)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, requestUri)

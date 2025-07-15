@@ -151,6 +151,8 @@ public static partial class RestApiGeneration
             { typeof(DSACategoryPerformanceReportRequest), static t => CustomizeDSACategoryPerformanceReportRequest(t) },
             { typeof(DSASearchQueryPerformanceReportFilter), static t => CustomizeDSASearchQueryPerformanceReportFilter(t) },
             { typeof(DSASearchQueryPerformanceReportRequest), static t => CustomizeDSASearchQueryPerformanceReportRequest(t) },
+            { typeof(FeedItemPerformanceReportFilter), static t => CustomizeFeedItemPerformanceReportFilter(t) },
+            { typeof(FeedItemPerformanceReportRequest), static t => CustomizeFeedItemPerformanceReportRequest(t) },
             { typeof(GeographicPerformanceReportFilter), static t => CustomizeGeographicPerformanceReportFilter(t) },
             { typeof(GeographicPerformanceReportRequest), static t => CustomizeGeographicPerformanceReportRequest(t) },
             { typeof(GoalsAndFunnelsReportFilter), static t => CustomizeGoalsAndFunnelsReportFilter(t) },
@@ -195,6 +197,8 @@ public static partial class RestApiGeneration
             { typeof(ShareOfVoiceReportRequest), static t => CustomizeShareOfVoiceReportRequest(t) },
             { typeof(SubmitGenerateReportRequest), static t => CustomizeSubmitGenerateReportRequest(t) },
             { typeof(SubmitGenerateReportResponse), static t => CustomizeSubmitGenerateReportResponse(t) },
+            { typeof(TravelQueryInsightReportFilter), static t => CustomizeTravelQueryInsightReportFilter(t) },
+            { typeof(TravelQueryInsightReportRequest), static t => CustomizeTravelQueryInsightReportRequest(t) },
             { typeof(UserLocationPerformanceReportFilter), static t => CustomizeUserLocationPerformanceReportFilter(t) },
             { typeof(UserLocationPerformanceReportRequest), static t => CustomizeUserLocationPerformanceReportRequest(t) }
         };
@@ -1075,6 +1079,37 @@ public static partial class RestApiGeneration
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
+        private static void CustomizeFeedItemPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeFeedItemPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "FeedItemPerformanceReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
         private static void CustomizeGeographicPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -1769,6 +1804,37 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+        }
+
+        private static void CustomizeTravelQueryInsightReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeTravelQueryInsightReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "TravelQueryInsightReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
         private static void CustomizeUserLocationPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)

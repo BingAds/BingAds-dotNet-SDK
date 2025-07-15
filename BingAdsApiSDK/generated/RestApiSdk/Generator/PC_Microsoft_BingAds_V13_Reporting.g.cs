@@ -148,6 +148,8 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "TravelQueryInsightReportRequest" => jsonObj.Deserialize<TravelQueryInsightReportRequest>(options),
+                "FeedItemPerformanceReportRequest" => jsonObj.Deserialize<FeedItemPerformanceReportRequest>(options),
                 "AppsPerformanceReportRequest" => jsonObj.Deserialize<AppsPerformanceReportRequest>(options),
                 "CombinationPerformanceReportRequest" => jsonObj.Deserialize<CombinationPerformanceReportRequest>(options),
                 "CategoryClickCoverageReportRequest" => jsonObj.Deserialize<CategoryClickCoverageReportRequest>(options),
@@ -201,6 +203,12 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case TravelQueryInsightReportRequest travelQueryInsightReportRequest:
+                    JsonSerializer.Serialize(writer, travelQueryInsightReportRequest, options);
+                    break;
+                case FeedItemPerformanceReportRequest feedItemPerformanceReportRequest:
+                    JsonSerializer.Serialize(writer, feedItemPerformanceReportRequest, options);
+                    break;
                 case AppsPerformanceReportRequest appsPerformanceReportRequest:
                     JsonSerializer.Serialize(writer, appsPerformanceReportRequest, options);
                     break;

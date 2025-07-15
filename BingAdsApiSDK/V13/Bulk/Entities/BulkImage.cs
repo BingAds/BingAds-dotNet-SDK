@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using Microsoft.BingAds.V13.Internal;
 using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Entities;

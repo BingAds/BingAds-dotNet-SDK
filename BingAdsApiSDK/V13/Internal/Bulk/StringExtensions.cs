@@ -47,11 +47,7 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -772,6 +768,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             string maxPercentCpcRowValue;
             string commissionRateRowValue;
             string targetCostPerSaleRowValue;
+            string maxCpmRowValue;
             string InheritedBidStrategyType;
 
             values.TryGetValue(StringTable.BidStrategyMaxCpc, out maxCpcRowValue);
@@ -782,6 +779,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             values.TryGetValue(StringTable.BidStrategyCommissionRate, out commissionRateRowValue);
             values.TryGetValue(StringTable.BidStrategyPercentMaxCpc, out maxPercentCpcRowValue);
             values.TryGetValue(StringTable.BidStrategyTargetCostPerSale, out targetCostPerSaleRowValue);
+            values.TryGetValue(StringTable.BidStrategyMaxCpm, out maxCpmRowValue);
             values.TryGetValue(StringTable.InheritedBidStrategyType, out InheritedBidStrategyType);
 
             var maxCpcValue = maxCpcRowValue.ParseBid();
@@ -792,6 +790,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             var targetAdPositionValue = targetAdPositionRowValue;
             var targetImpressionShareValue = targetImpressionShareRowValue.ParseOptional<double>();
             var targetCostPerSale = targetCostPerSaleRowValue.ParseOptional<double>();
+            var maxCpmValue = maxCpmRowValue.ParseBid();
 
             switch (biddingScheme)
             {
@@ -866,6 +865,12 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                         Type = "InheritFromParent",
                         InheritedBidStrategyType = InheritedBidStrategyType
                     };
+                case MaxImpressionsBiddingScheme maxImpressionsBiddingScheme:
+                    return new MaxImpressionsBiddingScheme
+                    {
+                        Type = "MaxImpressions",
+                        MaxCpm = maxCpmValue,
+                    };
                 default:
                     return biddingScheme;
             }
@@ -923,6 +928,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 case ManualCpmBiddingScheme manualCpmBiddingScheme:
                     break;
                 case ManualCpaBiddingScheme manualCpaBiddingScheme:
+                    break;
+                case MaxImpressionsBiddingScheme maxImpressionsBiddingScheme:
+                    values[StringTable.BidStrategyMaxCpm] = maxImpressionsBiddingScheme.MaxCpm.ToBidBulkString(id);
                     break;
                 default:
                     break;

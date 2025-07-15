@@ -47,9 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {
@@ -408,6 +405,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BidStrategyCommissionRate,
             StringTable.BidStrategyPercentMaxCpc,
             StringTable.BidStrategyTargetCostPerSale,
+            StringTable.BidStrategyMaxCpm,
 
             // Target and bid
             StringTable.TargetSetting,
@@ -628,6 +626,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.LandscapeLogos,
             StringTable.Palettes,
             StringTable.Fonts,
+            StringTable.BrandVoice,
+
         };
 
         /// <summary>

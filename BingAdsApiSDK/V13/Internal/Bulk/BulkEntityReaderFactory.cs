@@ -48,7 +48,6 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.V13.Bulk;
-using System.Collections.Generic;
 
 namespace Microsoft.BingAds.V13.Internal.Bulk
 {

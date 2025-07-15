@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds
@@ -86,44 +85,6 @@ namespace Microsoft.BingAds
             : base(message, inner)
         {
             Details = details;
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        /// <param name="info">Reserved for internal use.</param>
-        /// <param name="context">Reserved for internal use.</param>
-        protected OAuthTokenRequestException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
-        {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            Details = new OAuthErrorDetails
-            {
-                Description = info.GetString("Description"),
-                Error = info.GetString("Error")
-            };
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            base.GetObjectData(info, context);
-
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            info.AddValue("Description", Details.Description);
-
-            info.AddValue("Error", Details.Error);
         }
 
         /// <summary>

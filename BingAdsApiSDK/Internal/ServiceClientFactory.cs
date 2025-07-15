@@ -48,8 +48,6 @@
 //=====================================================================================================================================================
 
 using Microsoft.BingAds.Logging;
-using System;
-using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 
@@ -113,79 +111,5 @@ namespace Microsoft.BingAds.Internal
             },
             // end v13
         };
-
-        private static readonly Type[] ServiceTypes;
-
-        public Type[] SupportedServiceTypes
-        {
-            get { return ServiceTypes; }
-        }
-
-        private static readonly Dictionary<Type, string> ConfigurationNamesByInterfaceTypes;
-
-        static ServiceClientFactory()
-        {
-            ServiceTypes = new[]
-            {
-                typeof (V13.CustomerBilling.ICustomerBillingService),
-                typeof (V13.Reporting.IReportingService),
-                typeof (V13.CustomerManagement.ICustomerManagementService),
-                typeof (V13.Bulk.IBulkService),
-                typeof (V13.CampaignManagement.ICampaignManagementService),
-                typeof (V13.AdInsight.IAdInsightService),
-            };
-
-            ConfigurationNamesByInterfaceTypes = new Dictionary<Type, string>();
-
-            foreach (var serviceType in ServiceTypes)
-            {
-                var serviceContractAttribute = (ServiceContractAttribute)Attribute.GetCustomAttribute(serviceType, typeof(ServiceContractAttribute));
-
-                ConfigurationNamesByInterfaceTypes[serviceType] = serviceContractAttribute.ConfigurationName;
-            }
-        }
-
-        public virtual IChannelFactory<TClient> CreateChannelFactory<TClient>(ApiEnvironment env)
-            where TClient : class
-        {
-            var factory = CreateChannelFactoryForStandardEndpoint<TClient>(env);
-            factory.Endpoint.EndpointBehaviors.Add(new UserAgentBehavior());
-            factory.Endpoint.EndpointBehaviors.Add(TraceBehavior.Instance);
-            factory.Endpoint.EndpointBehaviors.Add(DevTokenBehavior.Instance);
-            HttpClientFactory.ApplyEfficientHttpClientEndpointBehavior(factory.Endpoint.EndpointBehaviors);
-            return factory;
-        }
-
-        public T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T : class
-        {
-            var concreteChannelFactory = channelFactory as ChannelFactory<T>;
-
-            if (concreteChannelFactory != null)
-            {
-                return concreteChannelFactory.CreateChannel();
-            }
-
-            throw new InvalidOperationException("Invalid IChannelFactory type: " + channelFactory.GetType());
-        }
-
-
-        private static ChannelFactory<TClient> CreateChannelFactoryForStandardEndpoint<TClient>(ApiEnvironment env)
-            where TClient : class
-        {
-            var serviceInfo = Endpoints[typeof(TClient)];
-
-            var endpointAddress = new EndpointAddress(serviceInfo.GetUrl(env));
-
-            return new ChannelFactory<TClient>(new BasicHttpBinding(BasicHttpSecurityMode.Transport)
-            {
-                MaxReceivedMessageSize = 52428800,
-                MaxBufferSize = 52428800,
-                ReceiveTimeout = TimeSpan.FromMinutes(10),
-                SendTimeout = TimeSpan.FromMinutes(10),
-                OpenTimeout = TimeSpan.FromMinutes(1),
-                CloseTimeout = TimeSpan.FromMinutes(1)
-            }, endpointAddress);
-        }
     }
 }

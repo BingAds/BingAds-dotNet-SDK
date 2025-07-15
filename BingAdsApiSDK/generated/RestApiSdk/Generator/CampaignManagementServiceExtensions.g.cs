@@ -859,6 +859,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.RefineResponsiveSearchAdRecommendationAsync(r), request);
         }
 
+        public static Task<GetResponsiveAdRecommendationJobResponse> GetResponsiveAdRecommendationJobAsync(this ServiceClient<ICampaignManagementService> service, GetResponsiveAdRecommendationJobRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetResponsiveAdRecommendationJobAsync(r), request);
+        }
+
         public static Task<UpdateConversionValueRulesResponse> UpdateConversionValueRulesAsync(this ServiceClient<ICampaignManagementService> service, UpdateConversionValueRulesRequest request)
         {
             return service.CallAsync((s, r) => s.UpdateConversionValueRulesAsync(r), request);
@@ -897,6 +902,11 @@ namespace Microsoft.BingAds
         public static Task<DeleteBrandKitsResponse> DeleteBrandKitsAsync(this ServiceClient<ICampaignManagementService> service, DeleteBrandKitsRequest request)
         {
             return service.CallAsync((s, r) => s.DeleteBrandKitsAsync(r), request);
+        }
+
+        public static Task<CreateBrandKitRecommendationResponse> CreateBrandKitRecommendationAsync(this ServiceClient<ICampaignManagementService> service, CreateBrandKitRecommendationRequest request)
+        {
+            return service.CallAsync((s, r) => s.CreateBrandKitRecommendationAsync(r), request);
         }
 
         public static Task<AddNewCustomerAcquisitionGoalsResponse> AddNewCustomerAcquisitionGoalsAsync(this ServiceClient<ICampaignManagementService> service, AddNewCustomerAcquisitionGoalsRequest request)
@@ -942,6 +952,21 @@ namespace Microsoft.BingAds
         public static Task<GetHealthCheckResponse> GetHealthCheckAsync(this ServiceClient<ICampaignManagementService> service, GetHealthCheckRequest request)
         {
             return service.CallAsync((s, r) => s.GetHealthCheckAsync(r), request);
+        }
+
+        public static Task<GetDiagnosticsResponse> GetDiagnosticsAsync(this ServiceClient<ICampaignManagementService> service, GetDiagnosticsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetDiagnosticsAsync(r), request);
+        }
+
+        public static Task<GetAnnotationOptOutResponse> GetAnnotationOptOutAsync(this ServiceClient<ICampaignManagementService> service, GetAnnotationOptOutRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetAnnotationOptOutAsync(r), request);
+        }
+
+        public static Task<UpdateAnnotationOptOutResponse> UpdateAnnotationOptOutAsync(this ServiceClient<ICampaignManagementService> service, UpdateAnnotationOptOutRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateAnnotationOptOutAsync(r), request);
         }
     }
 }

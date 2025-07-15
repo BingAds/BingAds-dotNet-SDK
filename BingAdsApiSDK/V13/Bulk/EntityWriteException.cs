@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds.V13.Bulk
@@ -83,17 +82,6 @@ namespace Microsoft.BingAds.V13.Bulk
         /// <param name="inner">The details of the exception from the bulk service operation.</param>
         public EntityWriteException(string message, Exception inner)
             : base(message, inner)
-        {
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        /// <param name="info">Reserved for internal use.</param>
-        /// <param name="context">Reserved for internal use.</param>
-        protected EntityWriteException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
         {
         }
     }

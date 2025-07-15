@@ -49,7 +49,6 @@
 
 using Microsoft.BingAds.V13.Internal.Bulk;
 using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
-using System;
 
 namespace Microsoft.BingAds.V13.Bulk.Entities
 {

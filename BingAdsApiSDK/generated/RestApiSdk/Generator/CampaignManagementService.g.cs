@@ -48,7 +48,6 @@
 //=====================================================================================================================================================
 
 using System;
-using System.Threading.Tasks;
 using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.Internal
@@ -1676,6 +1675,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<RefineResponsiveSearchAdRecommendationResponse>("RefineResponsiveSearchAdRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetResponsiveAdRecommendationJobResponse GetResponsiveAdRecommendationJob(GetResponsiveAdRecommendationJobRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetResponsiveAdRecommendationJobResponse> GetResponsiveAdRecommendationJobAsync(GetResponsiveAdRecommendationJobRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetResponsiveAdRecommendationJobResponse>("GetResponsiveAdRecommendationJob", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public UpdateConversionValueRulesResponse UpdateConversionValueRules(UpdateConversionValueRulesRequest request)
         {
             throw new NotImplementedException();
@@ -1754,6 +1763,16 @@ namespace Microsoft.BingAds.Internal
         public Task<DeleteBrandKitsResponse> DeleteBrandKitsAsync(DeleteBrandKitsRequest request)
         {
             return _restServiceClient.CallServiceAsync<DeleteBrandKitsResponse>("DeleteBrandKits", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public CreateBrandKitRecommendationResponse CreateBrandKitRecommendation(CreateBrandKitRecommendationRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<CreateBrandKitRecommendationResponse> CreateBrandKitRecommendationAsync(CreateBrandKitRecommendationRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<CreateBrandKitRecommendationResponse>("CreateBrandKitRecommendation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
         public AddNewCustomerAcquisitionGoalsResponse AddNewCustomerAcquisitionGoals(AddNewCustomerAcquisitionGoalsRequest request)
@@ -1844,6 +1863,36 @@ namespace Microsoft.BingAds.Internal
         public Task<GetHealthCheckResponse> GetHealthCheckAsync(GetHealthCheckRequest request)
         {
             return _restServiceClient.CallServiceAsync<GetHealthCheckResponse>("GetHealthCheck", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetDiagnosticsResponse GetDiagnostics(GetDiagnosticsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetDiagnosticsResponse> GetDiagnosticsAsync(GetDiagnosticsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetDiagnosticsResponse>("GetDiagnostics", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetAnnotationOptOutResponse GetAnnotationOptOut(GetAnnotationOptOutRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetAnnotationOptOutResponse> GetAnnotationOptOutAsync(GetAnnotationOptOutRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetAnnotationOptOutResponse>("GetAnnotationOptOut", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateAnnotationOptOutResponse UpdateAnnotationOptOut(UpdateAnnotationOptOutRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateAnnotationOptOutResponse> UpdateAnnotationOptOutAsync(UpdateAnnotationOptOutRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateAnnotationOptOutResponse>("UpdateAnnotationOptOut", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
     }
 }

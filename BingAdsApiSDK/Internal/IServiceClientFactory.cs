@@ -47,7 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
 using System.ServiceModel.Channels;
 
 namespace Microsoft.BingAds.Internal
@@ -57,12 +56,6 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public partial interface IServiceClientFactory
     {
-        IChannelFactory<T> CreateChannelFactory<T>(ApiEnvironment env)
-            where T : class;
 
-        T CreateServiceFromFactory<T>(IChannelFactory<T> channelFactory)
-            where T : class;
-
-        Type[] SupportedServiceTypes { get; }
     }
 }

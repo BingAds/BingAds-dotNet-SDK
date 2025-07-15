@@ -47,8 +47,6 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Microsoft.BingAds.V13.Bulk
@@ -109,40 +107,6 @@ namespace Microsoft.BingAds.V13.Bulk
         {
             Errors = errors;
             Status = status;
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        /// <param name="info">Reserved for internal use.</param>
-        /// <param name="context">Reserved for internal use.</param>
-        protected BulkOperationCouldNotBeCompletedException(
-            SerializationInfo info,
-            StreamingContext context) : base(info, context)
-        {
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            Errors = (IList<OperationError>)info.GetValue("Errors", typeof(IList<OperationError>));
-            Status = (TStatus) info.GetValue("Status", typeof (TStatus));
-        }
-
-        /// <summary>
-        /// Reserved for internal use.
-        /// </summary>
-        public override void GetObjectData(SerializationInfo info, StreamingContext context)
-        {
-            base.GetObjectData(info, context);
-
-            if (info == null)
-            {
-                throw new ArgumentNullException("info");
-            }
-
-            info.AddValue("Errors", Errors);
-            info.AddValue("Status", Status);
         }
     }
 }
