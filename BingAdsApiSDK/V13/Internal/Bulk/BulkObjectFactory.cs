@@ -401,6 +401,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AccountPlacementInclusionList, new EntityInfo(() => new BulkAccountPlacementInclusionList())},
                 {StringTable.AccountPlacementInclusionListItem, new EntityInfo(() => new BulkSharedListSite())},
                 {StringTable.CampaignAccountPlacementInclusionListAssociation, new EntityInfo(() => new BulkAccountPlacementInclusionListAssociation())},
+                {StringTable.Topic, new EntityInfo(() => new BulkTopic())},
+                {StringTable.ContentPlacement, new EntityInfo(() => new BulkContentPlacement())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

@@ -1041,5 +1041,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Fonts = "Fonts";
         public const string BrandVoice = "Brand Voice";
 
+        public const string Topic = "Topic";
+        public const string ContentPlacement = "Content Placement";
+        public const string TopicParentId = "Topic Parent Id";
     }
 }

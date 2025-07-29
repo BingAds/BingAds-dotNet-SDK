@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net80</TargetFramework>
     <EmbedAllSources>true</EmbedAllSources>
-    <Version>13.0.25</Version>
+    <Version>13.0.25.1</Version>
     <QInstrumentForCoverage>false</QInstrumentForCoverage>
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>

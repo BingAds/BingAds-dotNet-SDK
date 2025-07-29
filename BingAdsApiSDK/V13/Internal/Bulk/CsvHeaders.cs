@@ -628,6 +628,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.Fonts,
             StringTable.BrandVoice,
 
+            StringTable.TopicParentId,
         };
 
         /// <summary>

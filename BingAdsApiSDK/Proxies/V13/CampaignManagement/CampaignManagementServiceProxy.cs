@@ -21637,6 +21637,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         CRM = 1,
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UetTagAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum UetTagAdditionalField : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Industry = 1,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="UetTag", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -21655,6 +21665,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.UetTagIndustry> IndustryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -21727,6 +21740,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.UetTagIndustry> Industry
+        {
+            get
+            {
+                return this.IndustryField;
+            }
+            set
+            {
+                if ((this.IndustryField.Equals(value) != true))
+                {
+                    this.IndustryField = value;
+                    this.RaisePropertyChanged("Industry");
                 }
             }
         }
@@ -21809,6 +21839,69 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UetTagIndustry", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum UetTagIndustry : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdultGambling = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Autos = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        B2BServices = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        B2CServices = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPG = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CareersEducation = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CommunitySocialCharitableGroups = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Entertainment = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FinancialServicesInsurance = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Government = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HealthWellness = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RealEstate = 11,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RestaurantsFood = 12,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Retail = 13,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ScienceSocialScienceOthers = 14,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TechnologyTelecommunications = 15,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TravelTransportation = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Other = 17,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 18,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -43475,11 +43568,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
         public System.Collections.Generic.IList<long> TagIds;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.UetTagAdditionalField> ReturnAdditionalFields;
+        
         public GetUetTagsByIdsRequest()
         {
         }
         
-        public GetUetTagsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds)
+        public GetUetTagsByIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> TagIds, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.UetTagAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -43489,6 +43585,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.Password = Password;
             this.UserName = UserName;
             this.TagIds = TagIds;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
