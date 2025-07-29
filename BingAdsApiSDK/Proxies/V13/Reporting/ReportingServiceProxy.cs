@@ -5359,6 +5359,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         Audience = 16,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CrossNetwork = 32,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -10111,6 +10114,42 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupName = 68,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Downloads = 69,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickDownloadRate = 70,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerDownload = 71,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstalls = 72,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickInstallRate = 73,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPI = 74,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Purchases = 75,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallPurchaseRate = 76,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPP = 77,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscriptions = 78,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallSubscriptionRate = 79,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPS = 80,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -16038,6 +16077,42 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupStatus = 67,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Downloads = 68,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickDownloadRate = 69,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CostPerDownload = 70,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AppInstalls = 71,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostClickInstallRate = 72,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPI = 73,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Purchases = 74,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallPurchaseRate = 75,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPP = 76,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Subscriptions = 77,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PostInstallSubscriptionRate = 78,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CPS = 79,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

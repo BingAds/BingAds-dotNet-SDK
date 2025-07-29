@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.25</version>
+        <version>13.0.25.1</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -12,20 +12,8 @@
         <description>The Bing Ads SDK increases efficiency for Microsoft Advertising developers. The SDK includes SOAP web services proxies, simplified OAuth authentication, and file management with the Bulk and Reporting service operations.</description>
 		<readme>docs\README.md</readme>
         <summary />
-        <releaseNotes>* Disable SOAP call for all services, REST call will be enforced.
-
-API Updates:
-* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
-* New Reports in Reporting Service: AppsPerformanceReport, TravelQueryInsightReport and FeedIemPerformanceReport.
-* Support CampaignTypeReportFilter in Reporting API.
-* New APIs in CampaignManagement Service: GetAnnotationOptOut, UpdateAnnotationOptOut, CreateBrandKitRecommendation and GetResponsiveAdRecommendationJob.
-* New field ListingGroupPath in AssetGroupListingGroup.
-* New field IsAutoGoal in ConversionGoal.
-* New field MaxCpc in MaxConversionValueBiddingScheme.
-* New API in CustomerBilling Service: GetCouponInfo.
-
-Bulk Mapping Updates:
-* Added bulk mappings for Site Exclusion: BulkAccountPlacementExclusionList, BulkSharedListNegativeSite, BulkAccountPlacementExclusionListAssociation, BulkAccountPlacementInclusionList, BulkSharedListSite and BulkAccountPlacementInclusionListAssociation.</releaseNotes>
+        <releaseNotes>* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
+* Add bulk mappings for Topic, Placement, TopicCriterion.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

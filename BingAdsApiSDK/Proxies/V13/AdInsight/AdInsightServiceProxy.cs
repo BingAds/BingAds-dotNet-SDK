@@ -14207,6 +14207,18 @@ namespace Microsoft.BingAds.V13.AdInsight
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=13)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=14)]
+        public System.Nullable<int> MultiAdTypes;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=15)]
+        public System.Nullable<System.DateTime> StartDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=16)]
+        public System.Nullable<System.DateTime> EndDate;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=17)]
+        public System.Nullable<decimal> TotalBudget;
+        
         public GetAudienceFullEstimationRequest()
         {
         }
@@ -14232,7 +14244,11 @@ namespace Microsoft.BingAds.V13.AdInsight
                     Microsoft.BingAds.V13.AdInsight.Feed Feed, 
                     System.Nullable<decimal> DailyBudget, 
                     System.Nullable<decimal> Bid, 
-                    System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency)
+                    System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency, 
+                    System.Nullable<int> MultiAdTypes, 
+                    System.Nullable<System.DateTime> StartDate, 
+                    System.Nullable<System.DateTime> EndDate, 
+                    System.Nullable<decimal> TotalBudget)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -14255,6 +14271,10 @@ namespace Microsoft.BingAds.V13.AdInsight
             this.DailyBudget = DailyBudget;
             this.Bid = Bid;
             this.Currency = Currency;
+            this.MultiAdTypes = MultiAdTypes;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
+            this.TotalBudget = TotalBudget;
         }
     }
     

@@ -325,6 +325,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupRadiusCriterion,  new EntityInfo(() => new BulkAdGroupRadiusCriterion())},
                 {StringTable.AdGroupGenreCriterion,  new EntityInfo(() => new BulkAdGroupGenreCriterion())},
                 {StringTable.AdGroupPlacementCriterion,  new EntityInfo(() => new BulkAdGroupPlacementCriterion())},
+                {StringTable.AdGroupTopicCriterion,  new EntityInfo(() => new BulkAdGroupTopicCriterion())},
                 {StringTable.CampaignAgeCriterion,  new EntityInfo(() => new BulkCampaignAgeCriterion())},
                 {StringTable.CampaignCompanyNameCriterion,  new EntityInfo(() => new BulkCampaignCompanyNameCriterion())},
                 {StringTable.CampaignDayTimeCriterion,  new EntityInfo(() => new BulkCampaignDayTimeCriterion())},
@@ -401,6 +402,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AccountPlacementInclusionList, new EntityInfo(() => new BulkAccountPlacementInclusionList())},
                 {StringTable.AccountPlacementInclusionListItem, new EntityInfo(() => new BulkSharedListSite())},
                 {StringTable.CampaignAccountPlacementInclusionListAssociation, new EntityInfo(() => new BulkAccountPlacementInclusionListAssociation())},
+                {StringTable.Topic, new EntityInfo(() => new BulkTopic())},
+                {StringTable.ContentPlacement, new EntityInfo(() => new BulkContentPlacement())},
             };
 
             AdditionalObjectMap = new Dictionary<string, Func<BulkObject>>

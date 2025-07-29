@@ -843,6 +843,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupRadiusCriterion = "Ad Group Radius Criterion";
         public const string AdGroupGenreCriterion = "Ad Group Genre Criterion";
         public const string AdGroupPlacementCriterion = "Ad Group Placement Criterion";
+        public const string AdGroupTopicCriterion = "Ad Group Topic Criterion";
         public const string CampaignAgeCriterion = "Campaign Age Criterion";
         public const string CampaignCompanyNameCriterion = "Campaign Company Name Criterion";
         public const string CampaignDayTimeCriterion = "Campaign DayTime Criterion";
@@ -1041,5 +1042,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Fonts = "Fonts";
         public const string BrandVoice = "Brand Voice";
 
+        public const string Topic = "Topic";
+        public const string ContentPlacement = "Content Placement";
+        public const string TopicParentId = "Topic Parent Id";
     }
 }
