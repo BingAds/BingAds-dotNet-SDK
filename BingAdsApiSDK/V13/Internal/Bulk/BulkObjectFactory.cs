@@ -325,6 +325,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.AdGroupRadiusCriterion,  new EntityInfo(() => new BulkAdGroupRadiusCriterion())},
                 {StringTable.AdGroupGenreCriterion,  new EntityInfo(() => new BulkAdGroupGenreCriterion())},
                 {StringTable.AdGroupPlacementCriterion,  new EntityInfo(() => new BulkAdGroupPlacementCriterion())},
+                {StringTable.AdGroupTopicCriterion,  new EntityInfo(() => new BulkAdGroupTopicCriterion())},
                 {StringTable.CampaignAgeCriterion,  new EntityInfo(() => new BulkCampaignAgeCriterion())},
                 {StringTable.CampaignCompanyNameCriterion,  new EntityInfo(() => new BulkCampaignCompanyNameCriterion())},
                 {StringTable.CampaignDayTimeCriterion,  new EntityInfo(() => new BulkCampaignDayTimeCriterion())},
