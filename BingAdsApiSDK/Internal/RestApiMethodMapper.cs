@@ -112,7 +112,8 @@ static class RestApiMethodMapper
         { "ApplyRecommendations", (Entity: "Recommendations", Action: "Apply" ) },
         { "DismissRecommendations", (Entity: "Recommendations", Action: "Dismiss" ) },
         { "RetrieveRecommendations", (Entity: "Recommendations", Action: "Retrieve" ) },
-        { "PutMetricData", (Entity: "MetricData", Action: "Put" ) }
+        { "PutMetricData", (Entity: "MetricData", Action: "Put" ) },
+        { "SuggestKeywordsFromExistingKeywords", (Entity: "KeywordSuggestions", Action: "QueryByKeywords" ) }
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> CustomerManagementServiceActionMethods = new()

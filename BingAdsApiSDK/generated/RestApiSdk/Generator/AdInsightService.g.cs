@@ -384,5 +384,15 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<GetAudienceFullEstimationResponse>("GetAudienceFullEstimation", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public GetAudienceBreakdownResponse GetAudienceBreakdown(GetAudienceBreakdownRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetAudienceBreakdownResponse> GetAudienceBreakdownAsync(GetAudienceBreakdownRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetAudienceBreakdownResponse>("GetAudienceBreakdown", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

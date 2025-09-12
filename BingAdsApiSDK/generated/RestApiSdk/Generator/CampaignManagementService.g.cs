@@ -1495,6 +1495,36 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<UpdateVideosResponse>("UpdateVideos", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public AddHTML5sResponse AddHTML5s(AddHTML5sRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddHTML5sResponse> AddHTML5sAsync(AddHTML5sRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<AddHTML5sResponse>("AddHTML5s", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetHTML5sByIdsResponse GetHTML5sByIds(GetHTML5sByIdsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetHTML5sByIdsResponse> GetHTML5sByIdsAsync(GetHTML5sByIdsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetHTML5sByIdsResponse>("GetHTML5sByIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public DeleteHTML5sResponse DeleteHTML5s(DeleteHTML5sRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DeleteHTML5sResponse> DeleteHTML5sAsync(DeleteHTML5sRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<DeleteHTML5sResponse>("DeleteHTML5s", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public AddCampaignConversionGoalsResponse AddCampaignConversionGoals(AddCampaignConversionGoalsRequest request)
         {
             throw new NotImplementedException();

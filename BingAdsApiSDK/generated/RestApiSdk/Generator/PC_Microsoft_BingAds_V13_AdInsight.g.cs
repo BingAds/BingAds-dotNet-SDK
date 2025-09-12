@@ -70,6 +70,7 @@ public static partial class RestApiGeneration
             var originalOptions = new JsonSerializerOptions(options);
 
             options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_ApplicationFaultConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_BreakdownConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_CriterionConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_KeywordOpportunityConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_AdInsight_OpportunityConverter(originalOptions, createUnsupportedTypeValueException));
@@ -125,6 +126,53 @@ public static partial class RestApiGeneration
                     break;
                 case ApplicationFault applicationFault:
                     JsonSerializer.Serialize(writer, applicationFault, _originalOptions);
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unknown type '{value.GetType().Name}'");
+            }
+        }
+    }
+
+    class Microsoft_BingAds_V13_AdInsight_BreakdownConverter : JsonConverter<Breakdown>
+    {
+        private readonly JsonSerializerOptions _originalOptions;
+
+        private readonly Func<string, Exception> _createUnsupportedTypeValueException;
+
+        public Microsoft_BingAds_V13_AdInsight_BreakdownConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        {
+            _originalOptions = originalOptions;
+
+            _createUnsupportedTypeValueException = createUnsupportedTypeValueException;
+        }
+        
+        public override Breakdown? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            RuntimeHelpers.EnsureSufficientExecutionStack(); // Additional protection from any potential infinite recursion
+
+            var jsonObj = JsonSerializer.Deserialize<JsonObject>(ref reader, options);
+
+            var type = (string?)jsonObj!["Type"];
+
+            return type switch
+            {
+                "LocationBreakdown" => jsonObj.Deserialize<LocationBreakdown>(options),
+                "Breakdown" => jsonObj.Deserialize<Breakdown>(_originalOptions),
+                _ => throw new JsonException(null, _createUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
+            };
+        }
+
+        public override void Write(Utf8JsonWriter writer, Breakdown value, JsonSerializerOptions options)
+        {
+            RuntimeHelpers.EnsureSufficientExecutionStack(); // Additional protection from any potential infinite recursion
+
+            switch (value)
+            {
+                case LocationBreakdown locationBreakdown:
+                    JsonSerializer.Serialize(writer, locationBreakdown, options);
+                    break;
+                case Breakdown breakdown:
+                    JsonSerializer.Serialize(writer, breakdown, _originalOptions);
                     break;
                 default:
                     throw new InvalidOperationException($"Unknown type '{value.GetType().Name}'");

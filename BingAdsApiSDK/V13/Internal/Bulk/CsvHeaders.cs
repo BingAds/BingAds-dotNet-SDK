@@ -629,6 +629,9 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BrandVoice,
 
             StringTable.TopicParentId,
+
+            //Political Ads
+            StringTable.IsPolitical,
         };
 
         /// <summary>

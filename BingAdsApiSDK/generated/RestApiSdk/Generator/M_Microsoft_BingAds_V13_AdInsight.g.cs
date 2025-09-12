@@ -113,6 +113,8 @@ public static partial class RestApiGeneration
             { typeof(BatchError), static t => CustomizeBatchError(t) },
             { typeof(BidLandscapePoint), static t => CustomizeBidLandscapePoint(t) },
             { typeof(BidOpportunity), static t => CustomizeBidOpportunity(t) },
+            { typeof(Breakdown), static t => CustomizeBreakdown(t) },
+            { typeof(Breakdowns), static t => CustomizeBreakdowns(t) },
             { typeof(BroadMatchKeywordOpportunity), static t => CustomizeBroadMatchKeywordOpportunity(t) },
             { typeof(BroadMatchSearchQueryKPI), static t => CustomizeBroadMatchSearchQueryKPI(t) },
             { typeof(BudgetOpportunity), static t => CustomizeBudgetOpportunity(t) },
@@ -125,6 +127,8 @@ public static partial class RestApiGeneration
             { typeof(Criterion), static t => CustomizeCriterion(t) },
             { typeof(DateRangeSearchParameter), static t => CustomizeDateRangeSearchParameter(t) },
             { typeof(DayMonthAndYear), static t => CustomizeDayMonthAndYear(t) },
+            { typeof(DecimalRoundedByType), static t => CustomizeDecimalRoundedByType(t) },
+            { typeof(DecimalRoundedRangeResultByType), static t => CustomizeDecimalRoundedRangeResultByType(t) },
             { typeof(DecimalRoundedResult), static t => CustomizeDecimalRoundedResult(t) },
             { typeof(DeviceCriterion), static t => CustomizeDeviceCriterion(t) },
             { typeof(DeviceSearchParameter), static t => CustomizeDeviceSearchParameter(t) },
@@ -140,6 +144,8 @@ public static partial class RestApiGeneration
             { typeof(Feed), static t => CustomizeFeed(t) },
             { typeof(GetAuctionInsightDataRequest), static t => CustomizeGetAuctionInsightDataRequest(t) },
             { typeof(GetAuctionInsightDataResponse), static t => CustomizeGetAuctionInsightDataResponse(t) },
+            { typeof(GetAudienceBreakdownRequest), static t => CustomizeGetAudienceBreakdownRequest(t) },
+            { typeof(GetAudienceBreakdownResponse), static t => CustomizeGetAudienceBreakdownResponse(t) },
             { typeof(GetAudienceFullEstimationRequest), static t => CustomizeGetAudienceFullEstimationRequest(t) },
             { typeof(GetAudienceFullEstimationResponse), static t => CustomizeGetAudienceFullEstimationResponse(t) },
             { typeof(GetAutoApplyOptInStatusRequest), static t => CustomizeGetAutoApplyOptInStatusRequest(t) },
@@ -215,7 +221,9 @@ public static partial class RestApiGeneration
             { typeof(KeywordSuggestion), static t => CustomizeKeywordSuggestion(t) },
             { typeof(LanguageCriterion), static t => CustomizeLanguageCriterion(t) },
             { typeof(LanguageSearchParameter), static t => CustomizeLanguageSearchParameter(t) },
+            { typeof(LocationBreakdown), static t => CustomizeLocationBreakdown(t) },
             { typeof(LocationCriterion), static t => CustomizeLocationCriterion(t) },
+            { typeof(LocationInfo), static t => CustomizeLocationInfo(t) },
             { typeof(LocationSearchParameter), static t => CustomizeLocationSearchParameter(t) },
             { typeof(MetricData), static t => CustomizeMetricData(t) },
             { typeof(NegativeKeyword), static t => CustomizeNegativeKeyword(t) },
@@ -230,6 +238,7 @@ public static partial class RestApiGeneration
             { typeof(PutMetricDataResponse), static t => CustomizePutMetricDataResponse(t) },
             { typeof(QuerySearchParameter), static t => CustomizeQuerySearchParameter(t) },
             { typeof(RadiusTarget), static t => CustomizeRadiusTarget(t) },
+            { typeof(RangeResultByTypeOfdouble), static t => CustomizeRangeResultByTypeOfdouble(t) },
             { typeof(RangeResultOfDecimalRoundedResult), static t => CustomizeRangeResultOfDecimalRoundedResult(t) },
             { typeof(RangeResultOfdouble), static t => CustomizeRangeResultOfdouble(t) },
             { typeof(Recommendation), static t => CustomizeRecommendation(t) },
@@ -564,6 +573,37 @@ public static partial class RestApiGeneration
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
+        private static void CustomizeBreakdown(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "Breakdown";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeBreakdowns(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeBroadMatchKeywordOpportunity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -747,6 +787,34 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeDayMonthAndYear(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDecimalRoundedByType(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDecimalRoundedRangeResultByType(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -988,6 +1056,40 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeGetAuctionInsightDataResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetAudienceBreakdownRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetAudienceBreakdownResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -2214,6 +2316,23 @@ public static partial class RestApiGeneration
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
+        private static void CustomizeLocationBreakdown(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "LocationBreakdown";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
         private static void CustomizeLocationCriterion(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -2229,6 +2348,20 @@ public static partial class RestApiGeneration
             var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
             newJsonPropertyInfo.Get = _ => "LocationCriterion";
             jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeLocationInfo(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
         }
 
         private static void CustomizeLocationSearchParameter(JsonTypeInfo jsonTypeInfo)
@@ -2435,6 +2568,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeRadiusTarget(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeRangeResultByTypeOfdouble(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

@@ -176,6 +176,21 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.AssetGroup.EditorialStatus.ToBulkString(),
                 (v, c) => c.AssetGroup.EditorialStatus = v.ParseOptional<AssetGroupEditorialStatus>()
             ),
+            
+            new SimpleBulkMapping<BulkAssetGroup>(StringTable.TrackingTemplate,
+                c => c.AssetGroup.TrackingUrlTemplate.ToOptionalBulkString(c.AssetGroup.Id),
+                (v, c) => c.AssetGroup.TrackingUrlTemplate = v.GetValueOrEmptyString()
+            ),
+            
+            new SimpleBulkMapping<BulkAssetGroup>(StringTable.FinalUrlSuffix,
+                c => c.AssetGroup.FinalUrlSuffix.ToOptionalBulkString(c.AssetGroup.Id),
+                (v, c) => c.AssetGroup.FinalUrlSuffix = v.GetValueOrEmptyString()
+            ),
+
+            new SimpleBulkMapping<BulkAssetGroup>(StringTable.CustomParameter,
+                c => c.AssetGroup.UrlCustomParameters.ToBulkString(c.AssetGroup.Id),
+                (v, c) => c.AssetGroup.UrlCustomParameters = v.ParseCustomParameters()
+            ),
         };
 
         internal override void ProcessMappingsFromRowValues(RowValues values)

@@ -1045,5 +1045,6 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string Topic = "Topic";
         public const string ContentPlacement = "Content Placement";
         public const string TopicParentId = "Topic Parent Id";
+        public const string IsPolitical = "Is Political";
     }
 }

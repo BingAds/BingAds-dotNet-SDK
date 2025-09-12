@@ -769,6 +769,21 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.UpdateVideosAsync(r), request);
         }
 
+        public static Task<AddHTML5sResponse> AddHTML5sAsync(this ServiceClient<ICampaignManagementService> service, AddHTML5sRequest request)
+        {
+            return service.CallAsync((s, r) => s.AddHTML5sAsync(r), request);
+        }
+
+        public static Task<GetHTML5sByIdsResponse> GetHTML5sByIdsAsync(this ServiceClient<ICampaignManagementService> service, GetHTML5sByIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetHTML5sByIdsAsync(r), request);
+        }
+
+        public static Task<DeleteHTML5sResponse> DeleteHTML5sAsync(this ServiceClient<ICampaignManagementService> service, DeleteHTML5sRequest request)
+        {
+            return service.CallAsync((s, r) => s.DeleteHTML5sAsync(r), request);
+        }
+
         public static Task<AddCampaignConversionGoalsResponse> AddCampaignConversionGoalsAsync(this ServiceClient<ICampaignManagementService> service, AddCampaignConversionGoalsRequest request)
         {
             return service.CallAsync((s, r) => s.AddCampaignConversionGoalsAsync(r), request);
