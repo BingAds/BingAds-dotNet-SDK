@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.25.2</version>
+        <version>13.0.25.3</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -12,7 +12,8 @@
         <description>The Bing Ads SDK increases efficiency for Microsoft Advertising developers. The SDK includes SOAP web services proxies, simplified OAuth authentication, and file management with the Bulk and Reporting service operations.</description>
 		<readme>docs\README.md</readme>
         <summary />
-        <releaseNotes>* Fix the improper test signature issue in versions 13.0.25 and 13.0.25.1.</releaseNotes>
+        <releaseNotes>* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
+* Support IsPolitical in BulkCampaign.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
