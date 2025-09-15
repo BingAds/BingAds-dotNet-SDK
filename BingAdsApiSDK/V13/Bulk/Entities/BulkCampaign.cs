@@ -106,6 +106,9 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         // Only for internal use
         public bool? IsLinkedInCampaign { get; set; }
 
+        // Setting the default value to false, as it is will always be false if not passed and we do not want to return it.
+        public bool IsPolitical { get; set; } = false;
+
         public EnabledExternalChannelSync? EnabledExternalChannelSync { get; set; }
 
         /// <summary>
@@ -338,7 +341,12 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidAdjustment,
                 c => c.Campaign.AudienceAdsBidAdjustment.ToBulkString(),
                 (v, c) => c.Campaign.AudienceAdsBidAdjustment = v.ParseOptional<int>()
-            ), 
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.IsPolitical,
+                c => c.IsPolitical.ToString(),
+                (v, c) => c.IsPolitical = (v.ParseOptional<bool>() ?? false)
+            ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.MerchantCenterId,
                 c =>

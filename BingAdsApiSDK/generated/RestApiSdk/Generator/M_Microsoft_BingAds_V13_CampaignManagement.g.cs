@@ -137,6 +137,8 @@ public static partial class RestApiGeneration
             { typeof(AddDataExclusionsResponse), static t => CustomizeAddDataExclusionsResponse(t) },
             { typeof(AddExperimentsRequest), static t => CustomizeAddExperimentsRequest(t) },
             { typeof(AddExperimentsResponse), static t => CustomizeAddExperimentsResponse(t) },
+            { typeof(AddHTML5sRequest), static t => CustomizeAddHTML5sRequest(t) },
+            { typeof(AddHTML5sResponse), static t => CustomizeAddHTML5sResponse(t) },
             { typeof(AddImportJobsRequest), static t => CustomizeAddImportJobsRequest(t) },
             { typeof(AddImportJobsResponse), static t => CustomizeAddImportJobsResponse(t) },
             { typeof(AddKeywordsRequest), static t => CustomizeAddKeywordsRequest(t) },
@@ -232,6 +234,12 @@ public static partial class RestApiGeneration
             { typeof(AudienceIdName), static t => CustomizeAudienceIdName(t) },
             { typeof(AudienceInfo), static t => CustomizeAudienceInfo(t) },
             { typeof(AudioFilter), static t => CustomizeAudioFilter(t) },
+            { typeof(AuditPointDetails), static t => CustomizeAuditPointDetails(t) },
+            { typeof(AuditPointJsonColumn), static t => CustomizeAuditPointJsonColumn(t) },
+            { typeof(AuditPointLink), static t => CustomizeAuditPointLink(t) },
+            { typeof(AuditPointResult), static t => CustomizeAuditPointResult(t) },
+            { typeof(AuditPointSubEnities), static t => CustomizeAuditPointSubEnities(t) },
+            { typeof(AuditPointTemplate), static t => CustomizeAuditPointTemplate(t) },
             { typeof(BatchError), static t => CustomizeBatchError(t) },
             { typeof(BatchErrorCollection), static t => CustomizeBatchErrorCollection(t) },
             { typeof(Bid), static t => CustomizeBid(t) },
@@ -261,6 +269,8 @@ public static partial class RestApiGeneration
             { typeof(CampaignNegativeSites), static t => CustomizeCampaignNegativeSites(t) },
             { typeof(CampaignSize), static t => CustomizeCampaignSize(t) },
             { typeof(CashbackAdjustment), static t => CustomizeCashbackAdjustment(t) },
+            { typeof(CategoryResult), static t => CustomizeCategoryResult(t) },
+            { typeof(CategoryTemplate), static t => CustomizeCategoryTemplate(t) },
             { typeof(ClipchampTemplateInfo), static t => CustomizeClipchampTemplateInfo(t) },
             { typeof(CombinationRule), static t => CustomizeCombinationRule(t) },
             { typeof(CombinedList), static t => CustomizeCombinedList(t) },
@@ -331,6 +341,8 @@ public static partial class RestApiGeneration
             { typeof(DeleteDataExclusionsResponse), static t => CustomizeDeleteDataExclusionsResponse(t) },
             { typeof(DeleteExperimentsRequest), static t => CustomizeDeleteExperimentsRequest(t) },
             { typeof(DeleteExperimentsResponse), static t => CustomizeDeleteExperimentsResponse(t) },
+            { typeof(DeleteHTML5sRequest), static t => CustomizeDeleteHTML5sRequest(t) },
+            { typeof(DeleteHTML5sResponse), static t => CustomizeDeleteHTML5sResponse(t) },
             { typeof(DeleteImportJobsRequest), static t => CustomizeDeleteImportJobsRequest(t) },
             { typeof(DeleteImportJobsResponse), static t => CustomizeDeleteImportJobsResponse(t) },
             { typeof(DeleteKeywordsRequest), static t => CustomizeDeleteKeywordsRequest(t) },
@@ -355,9 +367,10 @@ public static partial class RestApiGeneration
             { typeof(DeleteVideosResponse), static t => CustomizeDeleteVideosResponse(t) },
             { typeof(DeviceCondition), static t => CustomizeDeviceCondition(t) },
             { typeof(DeviceCriterion), static t => CustomizeDeviceCriterion(t) },
-            { typeof(DiagnosticCardData), static t => CustomizeDiagnosticCardData(t) },
-            { typeof(DiagnosticCategoryData), static t => CustomizeDiagnosticCategoryData(t) },
-            { typeof(DiagnosticTileData), static t => CustomizeDiagnosticTileData(t) },
+            { typeof(DiagnosticsEntity), static t => CustomizeDiagnosticsEntity(t) },
+            { typeof(DiagnosticsFilter), static t => CustomizeDiagnosticsFilter(t) },
+            { typeof(DiagnosticsRequestStatus), static t => CustomizeDiagnosticsRequestStatus(t) },
+            { typeof(DiagnosticsSettings), static t => CustomizeDiagnosticsSettings(t) },
             { typeof(DisclaimerAdExtension), static t => CustomizeDisclaimerAdExtension(t) },
             { typeof(DisclaimerSetting), static t => CustomizeDisclaimerSetting(t) },
             { typeof(DurationGoal), static t => CustomizeDurationGoal(t) },
@@ -372,6 +385,8 @@ public static partial class RestApiGeneration
             { typeof(EnhancedCpcBiddingScheme), static t => CustomizeEnhancedCpcBiddingScheme(t) },
             { typeof(EntityIdToParentIdAssociation), static t => CustomizeEntityIdToParentIdAssociation(t) },
             { typeof(EntityNegativeKeyword), static t => CustomizeEntityNegativeKeyword(t) },
+            { typeof(EntityResult), static t => CustomizeEntityResult(t) },
+            { typeof(EntityTemplate), static t => CustomizeEntityTemplate(t) },
             { typeof(EventGoal), static t => CustomizeEventGoal(t) },
             { typeof(ExpandedTextAd), static t => CustomizeExpandedTextAd(t) },
             { typeof(Experiment), static t => CustomizeExperiment(t) },
@@ -480,6 +495,8 @@ public static partial class RestApiGeneration
             { typeof(GetGeoLocationsFileUrlResponse), static t => CustomizeGetGeoLocationsFileUrlResponse(t) },
             { typeof(GetHealthCheckRequest), static t => CustomizeGetHealthCheckRequest(t) },
             { typeof(GetHealthCheckResponse), static t => CustomizeGetHealthCheckResponse(t) },
+            { typeof(GetHTML5sByIdsRequest), static t => CustomizeGetHTML5sByIdsRequest(t) },
+            { typeof(GetHTML5sByIdsResponse), static t => CustomizeGetHTML5sByIdsResponse(t) },
             { typeof(GetImportEntityIdsMappingRequest), static t => CustomizeGetImportEntityIdsMappingRequest(t) },
             { typeof(GetImportEntityIdsMappingResponse), static t => CustomizeGetImportEntityIdsMappingResponse(t) },
             { typeof(GetImportJobsByIdsRequest), static t => CustomizeGetImportJobsByIdsRequest(t) },
@@ -558,6 +575,7 @@ public static partial class RestApiGeneration
             { typeof(HotelLengthOfStayCriterion), static t => CustomizeHotelLengthOfStayCriterion(t) },
             { typeof(HotelListing), static t => CustomizeHotelListing(t) },
             { typeof(HotelSetting), static t => CustomizeHotelSetting(t) },
+            { typeof(HTML5), static t => CustomizeHTML5(t) },
             { typeof(IdCollection), static t => CustomizeIdCollection(t) },
             { typeof(Image), static t => CustomizeImage(t) },
             { typeof(ImageAdExtension), static t => CustomizeImageAdExtension(t) },
@@ -1486,6 +1504,40 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAddExperimentsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAddHTML5sRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAddHTML5sResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -2904,6 +2956,18 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "FinalUrlSuffix":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "TrackingUrlTemplate":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "UrlCustomParameters":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Videos":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -3182,6 +3246,90 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeAudioFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointDetails(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointJsonColumn(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointLink(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointResult(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointSubEnities(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeAuditPointTemplate(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -3670,6 +3818,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "IsPolitical":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => !EqualityComparer<bool>.Default.Equals(default, (bool)value);
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "MultimediaAdsBidAdjustment":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -3818,6 +3970,34 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "CashbackAdjustment";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCategoryResult(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCategoryTemplate(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }
@@ -5076,6 +5256,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeDeleteHTML5sRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDeleteHTML5sResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeDeleteImportJobsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -5488,7 +5702,7 @@ public static partial class RestApiGeneration
             }
         }
 
-        private static void CustomizeDiagnosticCardData(JsonTypeInfo jsonTypeInfo)
+        private static void CustomizeDiagnosticsEntity(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -5502,7 +5716,7 @@ public static partial class RestApiGeneration
             }
         }
 
-        private static void CustomizeDiagnosticCategoryData(JsonTypeInfo jsonTypeInfo)
+        private static void CustomizeDiagnosticsFilter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -5516,7 +5730,21 @@ public static partial class RestApiGeneration
             }
         }
 
-        private static void CustomizeDiagnosticTileData(JsonTypeInfo jsonTypeInfo)
+        private static void CustomizeDiagnosticsRequestStatus(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDiagnosticsSettings(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -5830,6 +6058,34 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeEntityNegativeKeyword(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeEntityResult(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeEntityTemplate(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -7761,6 +8017,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetHTML5sByIdsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetHTML5sByIdsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetImportEntityIdsMappingRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -8834,6 +9124,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "EnableCopilot":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "NewAccountNegativeKeywords":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -9224,6 +9518,20 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "HotelSetting";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeHTML5(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }

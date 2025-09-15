@@ -213,5 +213,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.GetAudienceFullEstimationAsync(r), request);
         }
+
+        public static Task<GetAudienceBreakdownResponse> GetAudienceBreakdownAsync(this ServiceClient<IAdInsightService> service, GetAudienceBreakdownRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetAudienceBreakdownAsync(r), request);
+        }
     }
 }

@@ -128,6 +128,8 @@ public static partial class RestApiGeneration
             { typeof(AudiencePerformanceReportFilter), static t => CustomizeAudiencePerformanceReportFilter(t) },
             { typeof(AudiencePerformanceReportRequest), static t => CustomizeAudiencePerformanceReportRequest(t) },
             { typeof(BatchError), static t => CustomizeBatchError(t) },
+            { typeof(BidStrategyReportFilter), static t => CustomizeBidStrategyReportFilter(t) },
+            { typeof(BidStrategyReportRequest), static t => CustomizeBidStrategyReportRequest(t) },
             { typeof(BudgetSummaryReportRequest), static t => CustomizeBudgetSummaryReportRequest(t) },
             { typeof(CallDetailReportFilter), static t => CustomizeCallDetailReportFilter(t) },
             { typeof(CallDetailReportRequest), static t => CustomizeCallDetailReportRequest(t) },
@@ -722,6 +724,37 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+        }
+
+        private static void CustomizeBidStrategyReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeBidStrategyReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "BidStrategyReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
         }
 
         private static void CustomizeBudgetSummaryReportRequest(JsonTypeInfo jsonTypeInfo)

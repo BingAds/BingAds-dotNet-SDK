@@ -69,6 +69,10 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.AdInsight.ApiFaultDetail), "ApiFaultDetail" },
                 { typeof(Microsoft.BingAds.V13.AdInsight.ApplicationFault), "ApplicationFault" } }
             },
+            { typeof(Microsoft.BingAds.V13.AdInsight.Breakdown), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.AdInsight.LocationBreakdown), "LocationBreakdown" },
+                { typeof(Microsoft.BingAds.V13.AdInsight.Breakdown), "Breakdown" } }
+            },
             { typeof(Microsoft.BingAds.V13.AdInsight.Criterion), new Dictionary<Type, string> {                
                 { typeof(Microsoft.BingAds.V13.AdInsight.LocationCriterion), "LocationCriterion" },
                 { typeof(Microsoft.BingAds.V13.AdInsight.DeviceCriterion), "DeviceCriterion" },
@@ -385,6 +389,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.Reporting.ApplicationFault), "ApplicationFault" } }
             },
             { typeof(Microsoft.BingAds.V13.Reporting.ReportRequest), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.Reporting.BidStrategyReportRequest), "BidStrategyReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportRequest), "TravelQueryInsightReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportRequest), "FeedItemPerformanceReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.AppsPerformanceReportRequest), "AppsPerformanceReportRequest" },

@@ -11278,6 +11278,600 @@ namespace Microsoft.BingAds.V13.AdInsight
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DecimalRoundedRangeResultByType", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class DecimalRoundedRangeResultByType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RangeResultByTypeOfdouble", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class RangeResultByTypeOfdouble : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DecimalRoundedByType", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class DecimalRoundedByType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BreakdownCategory", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    public enum BreakdownCategory : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        All = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Demographics = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Location = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Interest = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Device = 4,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Breakdowns", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class Breakdowns : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown DeviceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown GenderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown InMarketField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown IndustryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.Breakdown JobFunctionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationSubGeographyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationMetroAreaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationPostalCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCountyField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown Age
+        {
+            get
+            {
+                return this.AgeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AgeField, value) != true))
+                {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown Device
+        {
+            get
+            {
+                return this.DeviceField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DeviceField, value) != true))
+                {
+                    this.DeviceField = value;
+                    this.RaisePropertyChanged("Device");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown Gender
+        {
+            get
+            {
+                return this.GenderField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.GenderField, value) != true))
+                {
+                    this.GenderField = value;
+                    this.RaisePropertyChanged("Gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown InMarket
+        {
+            get
+            {
+                return this.InMarketField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.InMarketField, value) != true))
+                {
+                    this.InMarketField = value;
+                    this.RaisePropertyChanged("InMarket");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown Industry
+        {
+            get
+            {
+                return this.IndustryField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.IndustryField, value) != true))
+                {
+                    this.IndustryField = value;
+                    this.RaisePropertyChanged("Industry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.Breakdown JobFunction
+        {
+            get
+            {
+                return this.JobFunctionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.JobFunctionField, value) != true))
+                {
+                    this.JobFunctionField = value;
+                    this.RaisePropertyChanged("JobFunction");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCountry
+        {
+            get
+            {
+                return this.LocationCountryField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationCountryField, value) != true))
+                {
+                    this.LocationCountryField = value;
+                    this.RaisePropertyChanged("LocationCountry");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=7)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown Location
+        {
+            get
+            {
+                return this.LocationField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationField, value) != true))
+                {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=8)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationSubGeography
+        {
+            get
+            {
+                return this.LocationSubGeographyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationSubGeographyField, value) != true))
+                {
+                    this.LocationSubGeographyField = value;
+                    this.RaisePropertyChanged("LocationSubGeography");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=9)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationMetroArea
+        {
+            get
+            {
+                return this.LocationMetroAreaField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationMetroAreaField, value) != true))
+                {
+                    this.LocationMetroAreaField = value;
+                    this.RaisePropertyChanged("LocationMetroArea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=10)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCity
+        {
+            get
+            {
+                return this.LocationCityField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationCityField, value) != true))
+                {
+                    this.LocationCityField = value;
+                    this.RaisePropertyChanged("LocationCity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=11)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationPostalCode
+        {
+            get
+            {
+                return this.LocationPostalCodeField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationPostalCodeField, value) != true))
+                {
+                    this.LocationPostalCodeField = value;
+                    this.RaisePropertyChanged("LocationPostalCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=12)]
+        public Microsoft.BingAds.V13.AdInsight.LocationBreakdown LocationCounty
+        {
+            get
+            {
+                return this.LocationCountyField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.LocationCountyField, value) != true))
+                {
+                    this.LocationCountyField = value;
+                    this.RaisePropertyChanged("LocationCounty");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Breakdown", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.AdInsight.LocationBreakdown))]
+    public partial class Breakdown : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<string> KeysField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<int> ValuesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<int> GlobalValuesField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<string> Keys
+        {
+            get
+            {
+                return this.KeysField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.KeysField, value) != true))
+                {
+                    this.KeysField = value;
+                    this.RaisePropertyChanged("Keys");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<int> Values
+        {
+            get
+            {
+                return this.ValuesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ValuesField, value) != true))
+                {
+                    this.ValuesField = value;
+                    this.RaisePropertyChanged("Values");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public System.Collections.Generic.IList<int> GlobalValues
+        {
+            get
+            {
+                return this.GlobalValuesField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.GlobalValuesField, value) != true))
+                {
+                    this.GlobalValuesField = value;
+                    this.RaisePropertyChanged("GlobalValues");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationBreakdown", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class LocationBreakdown : Microsoft.BingAds.V13.AdInsight.Breakdown
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.LocationInfo> InfoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.LocationInfo> Info
+        {
+            get
+            {
+                return this.InfoField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.InfoField, value) != true))
+                {
+                    this.InfoField = value;
+                    this.RaisePropertyChanged("Info");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="LocationInfo", Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+    [System.SerializableAttribute()]
+    public partial class LocationInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", ConfigurationName="Microsoft.BingAds.V13.AdInsight.IAdInsightService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface IAdInsightService
@@ -11666,6 +12260,18 @@ namespace Microsoft.BingAds.V13.AdInsight
         [System.ServiceModel.OperationContractAttribute(Action="GetAudienceFullEstimation", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetAudienceFullEsti" +
             "mationResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationResponse> GetAudienceFullEstimationAsync(Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetAudienceBreakdown", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetAudienceBreakdow" +
+            "nResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.AdApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetAudienceBreakdow" +
+            "nAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.AdInsight.ApiFaultDetail), Action="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetAudienceBreakdow" +
+            "nApiFaultDetailFault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownResponse GetAudienceBreakdown(Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetAudienceBreakdown", ReplyAction="https://bingads.microsoft.com/AdInsight/v13/IAdInsightService/GetAudienceBreakdow" +
+            "nResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownResponse> GetAudienceBreakdownAsync(Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -14219,6 +14825,9 @@ namespace Microsoft.BingAds.V13.AdInsight
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=17)]
         public System.Nullable<decimal> TotalBudget;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=18)]
+        public System.Nullable<bool> IncludeImpressionsBreakdown;
+        
         public GetAudienceFullEstimationRequest()
         {
         }
@@ -14248,7 +14857,8 @@ namespace Microsoft.BingAds.V13.AdInsight
                     System.Nullable<int> MultiAdTypes, 
                     System.Nullable<System.DateTime> StartDate, 
                     System.Nullable<System.DateTime> EndDate, 
-                    System.Nullable<decimal> TotalBudget)
+                    System.Nullable<decimal> TotalBudget, 
+                    System.Nullable<bool> IncludeImpressionsBreakdown)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -14275,6 +14885,7 @@ namespace Microsoft.BingAds.V13.AdInsight
             this.StartDate = StartDate;
             this.EndDate = EndDate;
             this.TotalBudget = TotalBudget;
+            this.IncludeImpressionsBreakdown = IncludeImpressionsBreakdown;
         }
     }
     
@@ -14326,11 +14937,57 @@ namespace Microsoft.BingAds.V13.AdInsight
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=12)]
         public System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=13)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstImpressionByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=14)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstClickByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=15)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstSpendByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=16)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstCostPerEventByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=17)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstCPCByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=18)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstViewByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=19)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RangeResultByTypeOfdouble> EstCTRByType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=20)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedByType> EstReachImpressionByType;
+        
         public GetAudienceFullEstimationResponse()
         {
         }
         
-        public GetAudienceFullEstimationResponse(string TrackingId, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstImpression, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstAudienceSize, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstClick, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstSpend, Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstCostPerEvent, Microsoft.BingAds.V13.AdInsight.RangeResultOfdouble EstCTR, System.Nullable<decimal> SuggestedBid, System.Nullable<decimal> SuggestedBudget, System.Nullable<int> EventsLostToBid, System.Nullable<int> EventsLostToBudget, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachAudienceSize, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachImpression, System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency)
+        public GetAudienceFullEstimationResponse(
+                    string TrackingId, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstImpression, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstAudienceSize, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstClick, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstSpend, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfDecimalRoundedResult EstCostPerEvent, 
+                    Microsoft.BingAds.V13.AdInsight.RangeResultOfdouble EstCTR, 
+                    System.Nullable<decimal> SuggestedBid, 
+                    System.Nullable<decimal> SuggestedBudget, 
+                    System.Nullable<int> EventsLostToBid, 
+                    System.Nullable<int> EventsLostToBudget, 
+                    Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachAudienceSize, 
+                    Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstReachImpression, 
+                    System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstImpressionByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstClickByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstSpendByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstCostPerEventByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstCPCByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedRangeResultByType> EstViewByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RangeResultByTypeOfdouble> EstCTRByType, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.DecimalRoundedByType> EstReachImpressionByType)
         {
             this.TrackingId = TrackingId;
             this.EstImpression = EstImpression;
@@ -14346,6 +15003,181 @@ namespace Microsoft.BingAds.V13.AdInsight
             this.EstReachAudienceSize = EstReachAudienceSize;
             this.EstReachImpression = EstReachImpression;
             this.Currency = Currency;
+            this.EstImpressionByType = EstImpressionByType;
+            this.EstClickByType = EstClickByType;
+            this.EstSpendByType = EstSpendByType;
+            this.EstCostPerEventByType = EstCostPerEventByType;
+            this.EstCPCByType = EstCPCByType;
+            this.EstViewByType = EstViewByType;
+            this.EstCTRByType = EstCTRByType;
+            this.EstReachImpressionByType = EstReachImpressionByType;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceBreakdownRequest", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetAudienceBreakdownRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOfAgeEnum Age;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOfGenderEnum Gender;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOflong Audience;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOflong Company;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=4)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOflong Industry;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=5)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOflong JobFunction;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=6)]
+        public Microsoft.BingAds.V13.AdInsight.SelectionOflong Location;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=7)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RadiusTarget> RadiusTargets;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=8)]
+        public System.Nullable<int> CampaignBiddingStrategy;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=9)]
+        public System.Nullable<int> CampaignSubType;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=10)]
+        public Microsoft.BingAds.V13.AdInsight.Feed Feed;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=11)]
+        public System.Nullable<int> Lcid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=12)]
+        public Microsoft.BingAds.V13.AdInsight.BreakdownCategory BreakdownReturnCategory;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=13)]
+        public System.Nullable<int> MultiAdTypes;
+        
+        public GetAudienceBreakdownRequest()
+        {
+        }
+        
+        public GetAudienceBreakdownRequest(
+                    string ApplicationToken, 
+                    string AuthenticationToken, 
+                    string CustomerAccountId, 
+                    string CustomerId, 
+                    string DeveloperToken, 
+                    string Password, 
+                    string UserName, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOfAgeEnum Age, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOfGenderEnum Gender, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOflong Audience, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOflong Company, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOflong Industry, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOflong JobFunction, 
+                    Microsoft.BingAds.V13.AdInsight.SelectionOflong Location, 
+                    System.Collections.Generic.IList<Microsoft.BingAds.V13.AdInsight.RadiusTarget> RadiusTargets, 
+                    System.Nullable<int> CampaignBiddingStrategy, 
+                    System.Nullable<int> CampaignSubType, 
+                    Microsoft.BingAds.V13.AdInsight.Feed Feed, 
+                    System.Nullable<int> Lcid, 
+                    Microsoft.BingAds.V13.AdInsight.BreakdownCategory BreakdownReturnCategory, 
+                    System.Nullable<int> MultiAdTypes)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.Age = Age;
+            this.Gender = Gender;
+            this.Audience = Audience;
+            this.Company = Company;
+            this.Industry = Industry;
+            this.JobFunction = JobFunction;
+            this.Location = Location;
+            this.RadiusTargets = RadiusTargets;
+            this.CampaignBiddingStrategy = CampaignBiddingStrategy;
+            this.CampaignSubType = CampaignSubType;
+            this.Feed = Feed;
+            this.Lcid = Lcid;
+            this.BreakdownReturnCategory = BreakdownReturnCategory;
+            this.MultiAdTypes = MultiAdTypes;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetAudienceBreakdownResponse", WrapperNamespace="https://bingads.microsoft.com/AdInsight/v13", IsWrapped=true)]
+    public partial class GetAudienceBreakdownResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=0)]
+        public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstAudienceSize;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=1)]
+        public Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstImpression;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=2)]
+        public System.Nullable<bool> IsImpressionTooSpecific;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=3)]
+        public System.Nullable<bool> IsPrivacyCheckPassed;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=4)]
+        public System.Nullable<decimal> SuggestedBid;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=5)]
+        public System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/AdInsight/v13", Order=6)]
+        public Microsoft.BingAds.V13.AdInsight.Breakdowns Breakdowns;
+        
+        public GetAudienceBreakdownResponse()
+        {
+        }
+        
+        public GetAudienceBreakdownResponse(string TrackingId, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstAudienceSize, Microsoft.BingAds.V13.AdInsight.DecimalRoundedResult EstImpression, System.Nullable<bool> IsImpressionTooSpecific, System.Nullable<bool> IsPrivacyCheckPassed, System.Nullable<decimal> SuggestedBid, System.Nullable<Microsoft.BingAds.V13.AdInsight.Currency> Currency, Microsoft.BingAds.V13.AdInsight.Breakdowns Breakdowns)
+        {
+            this.TrackingId = TrackingId;
+            this.EstAudienceSize = EstAudienceSize;
+            this.EstImpression = EstImpression;
+            this.IsImpressionTooSpecific = IsImpressionTooSpecific;
+            this.IsPrivacyCheckPassed = IsPrivacyCheckPassed;
+            this.SuggestedBid = SuggestedBid;
+            this.Currency = Currency;
+            this.Breakdowns = Breakdowns;
         }
     }
     
@@ -14701,6 +15533,16 @@ namespace Microsoft.BingAds.V13.AdInsight
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationResponse> GetAudienceFullEstimationAsync(Microsoft.BingAds.V13.AdInsight.GetAudienceFullEstimationRequest request)
         {
             return base.Channel.GetAudienceFullEstimationAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownResponse GetAudienceBreakdown(Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownRequest request)
+        {
+            return base.Channel.GetAudienceBreakdown(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownResponse> GetAudienceBreakdownAsync(Microsoft.BingAds.V13.AdInsight.GetAudienceBreakdownRequest request)
+        {
+            return base.Channel.GetAudienceBreakdownAsync(request);
         }
     }
 }
