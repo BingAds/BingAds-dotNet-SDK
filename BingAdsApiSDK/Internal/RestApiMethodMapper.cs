@@ -134,7 +134,8 @@ static class RestApiMethodMapper
         { "DispatchCoupons", (Entity: "Coupons", Action: "Dispatch" ) },
         { "RedeemCoupon", (Entity: "Coupon", Action: "Redeem" ) },
         { "CheckFeatureAdoptionCouponEligibility", (Entity: "FeatureAdoptionCouponEligibility", Action: "Check" ) },
-        { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) }
+        { "ClaimFeatureAdoptionCoupons", (Entity: "FeatureAdoptionCoupons", Action: "Claim" ) },
+        { "DistributeCoupons", (Entity: "Coupons", Action: "Distribute" ) }
     };
 
     public static readonly Dictionary<string, (string Entity, string Action)> AggregatorServiceActionMethods = new()

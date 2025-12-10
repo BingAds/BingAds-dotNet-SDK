@@ -52,7 +52,6 @@ using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Globalization;
 using System.Net;
-using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -60,7 +59,6 @@ using System.ServiceModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Json.Serialization.Metadata;
-using Microsoft.BingAds.V13.CampaignManagement;
 
 namespace Microsoft.BingAds.Internal
 {
@@ -358,7 +356,7 @@ namespace Microsoft.BingAds.Internal
 
             if (serviceType == typeof(V13.CampaignManagement.ICampaignManagementService))
             {
-                var faultDetail = await ParseResponseAsync<ApplicationFault>(responseContent).ConfigureAwait(false);
+                var faultDetail = await ParseResponseAsync<V13.CampaignManagement.ApplicationFault>(responseContent).ConfigureAwait(false);
 
                 var faultReason = new FaultReason($"{faultMessage} {faultDetail.TrackingId}.");
 

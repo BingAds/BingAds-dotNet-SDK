@@ -111,6 +111,8 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 
         public EnabledExternalChannelSync? EnabledExternalChannelSync { get; set; }
 
+        public EntityScope? Scope { get; set; }
+
         /// <summary>
         /// Campaigns of type Shopping have exactly one ShoppingSetting.
         /// Campaigns of type Audience can have zero or one ShoppingSetting. 
@@ -331,6 +333,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyName,
                 c => c.BidStrategyName,
                 (v, c) => c.BidStrategyName= v
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyScope,
+                c => c.Scope.ToBulkString(),
+                (v, c) => c.Scope = v.ParseOptional<EntityScope>()
             ),
 
             new SimpleBulkMapping<BulkCampaign>(StringTable.BidStrategyId,

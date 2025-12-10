@@ -3376,6 +3376,18 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.ServiceModel.OperationContractAttribute(Action="GetCouponInfo", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetCouponInfoRe" +
             "sponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse> GetCouponInfoAsync(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="DistributeCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DistributeCoupo" +
+            "nsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DistributeCoupo" +
+            "nsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DistributeCoupo" +
+            "nsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse DistributeCoupons(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="DistributeCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DistributeCoupo" +
+            "nsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse> DistributeCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4194,6 +4206,84 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DistributeCouponsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class DistributeCouponsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<int> AccountIds;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public string ClassName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
+        public System.Nullable<int> FeatureId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=3)]
+        public bool SendNotification;
+        
+        public DistributeCouponsRequest()
+        {
+        }
+        
+        public DistributeCouponsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<int> AccountIds, string ClassName, System.Nullable<int> FeatureId, bool SendNotification)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountIds = AccountIds;
+            this.ClassName = ClassName;
+            this.FeatureId = FeatureId;
+            this.SendNotification = SendNotification;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DistributeCouponsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class DistributeCouponsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError> OperationErrors;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors;
+        
+        public DistributeCouponsResponse()
+        {
+        }
+        
+        public DistributeCouponsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError> OperationErrors, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.OperationErrors = OperationErrors;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
@@ -4346,6 +4436,16 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoResponse> GetCouponInfoAsync(Microsoft.BingAds.V13.CustomerBilling.GetCouponInfoRequest request)
         {
             return base.Channel.GetCouponInfoAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse DistributeCoupons(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request)
+        {
+            return base.Channel.DistributeCoupons(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse> DistributeCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request)
+        {
+            return base.Channel.DistributeCouponsAsync(request);
         }
     }
 }

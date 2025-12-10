@@ -145,6 +145,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<GetBidLandscapeByAdGroupIdsResponse>("GetBidLandscapeByAdGroupIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetBidLandscapeByCampaignIdsResponse GetBidLandscapeByCampaignIds(GetBidLandscapeByCampaignIdsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetBidLandscapeByCampaignIdsResponse> GetBidLandscapeByCampaignIdsAsync(GetBidLandscapeByCampaignIdsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetBidLandscapeByCampaignIdsResponse>("GetBidLandscapeByCampaignIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public GetBidLandscapeByKeywordIdsResponse GetBidLandscapeByKeywordIds(GetBidLandscapeByKeywordIdsRequest request)
         {
             throw new NotImplementedException();

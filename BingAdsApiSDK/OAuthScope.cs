@@ -57,6 +57,7 @@ namespace Microsoft.BingAds
         MSADS_MANAGE,
         BINGADS_MANAGE,
         ADS_MANAGE,
-        MSA_PROD
+        MSA_PROD,
+        GOOGLE_OPENID
     }
 }

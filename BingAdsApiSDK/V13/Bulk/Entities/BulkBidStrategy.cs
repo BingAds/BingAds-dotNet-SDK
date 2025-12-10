@@ -110,7 +110,22 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.BidStrategy.Name,
                 (v, c) => c.BidStrategy.Name = v
                 ),
-            
+
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.BidStrategyScope,
+                c => c.BidStrategy.Scope.ToBulkString(),
+                (v, c) => c.BidStrategy.Scope = v.ParseOptional<EntityScope>()
+            ),
+
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.CurrencyCode,
+                c => c.BidStrategy.CurrencyCode,
+                (v, c) => c.BidStrategy.CurrencyCode = v
+                ),
+
+            new SimpleBulkMapping<BulkBidStrategy>(StringTable.TimeZone,
+                c => c.BidStrategy.ReportingTimeZone,
+                (v, c) => c.BidStrategy.ReportingTimeZone = v
+                ),
+
             new ComplexBulkMapping<BulkBidStrategy>(BiddingSchemeToCsv, CsvToBiddingScheme)
         };
 

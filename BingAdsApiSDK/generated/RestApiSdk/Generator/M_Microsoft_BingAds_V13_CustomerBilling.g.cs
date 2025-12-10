@@ -114,6 +114,8 @@ public static partial class RestApiGeneration
             { typeof(CouponRedemption), static t => CustomizeCouponRedemption(t) },
             { typeof(DispatchCouponsRequest), static t => CustomizeDispatchCouponsRequest(t) },
             { typeof(DispatchCouponsResponse), static t => CustomizeDispatchCouponsResponse(t) },
+            { typeof(DistributeCouponsRequest), static t => CustomizeDistributeCouponsRequest(t) },
+            { typeof(DistributeCouponsResponse), static t => CustomizeDistributeCouponsResponse(t) },
             { typeof(GetAccountMonthlySpendRequest), static t => CustomizeGetAccountMonthlySpendRequest(t) },
             { typeof(GetAccountMonthlySpendResponse), static t => CustomizeGetAccountMonthlySpendResponse(t) },
             { typeof(GetBillingDocumentsInfoRequest), static t => CustomizeGetBillingDocumentsInfoRequest(t) },
@@ -472,6 +474,38 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeDispatchCouponsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDistributeCouponsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeDistributeCouponsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

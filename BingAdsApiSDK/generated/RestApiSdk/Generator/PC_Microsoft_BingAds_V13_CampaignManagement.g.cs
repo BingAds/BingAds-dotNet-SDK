@@ -86,6 +86,7 @@ public static partial class RestApiGeneration
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_CriterionCashbackConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ImportJobConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_ImportOptionConverter(originalOptions, createUnsupportedTypeValueException));
+            options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_LinkedInSegmentConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_MediaConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_MediaRepresentationConverter(originalOptions, createUnsupportedTypeValueException));
             options.Converters.Add(new Microsoft_BingAds_V13_CampaignManagement_RemarketingRuleConverter(originalOptions, createUnsupportedTypeValueException));
@@ -463,6 +464,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "CustomSegment" => jsonObj.Deserialize<CustomSegment>(options),
                 "ImpressionBasedRemarketingList" => jsonObj.Deserialize<ImpressionBasedRemarketingList>(options),
                 "CustomerList" => jsonObj.Deserialize<CustomerList>(options),
                 "CombinedList" => jsonObj.Deserialize<CombinedList>(options),
@@ -482,6 +484,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case CustomSegment customSegment:
+                    JsonSerializer.Serialize(writer, customSegment, options);
+                    break;
                 case ImpressionBasedRemarketingList impressionBasedRemarketingList:
                     JsonSerializer.Serialize(writer, impressionBasedRemarketingList, options);
                     break;
@@ -849,6 +854,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AppDownload" => jsonObj.Deserialize<AppDownloadGoal>(options),
                 "InStoreTransaction" => jsonObj.Deserialize<InStoreTransactionGoal>(options),
                 "OfflineConversion" => jsonObj.Deserialize<OfflineConversionGoal>(options),
                 "AppInstall" => jsonObj.Deserialize<AppInstallGoal>(options),
@@ -867,6 +873,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AppDownloadGoal appDownloadGoal:
+                    JsonSerializer.Serialize(writer, appDownloadGoal, options);
+                    break;
                 case InStoreTransactionGoal inStoreTransactionGoal:
                     JsonSerializer.Serialize(writer, inStoreTransactionGoal, options);
                     break;
@@ -1229,6 +1238,53 @@ public static partial class RestApiGeneration
                     break;
                 case ImportOption importOption:
                     JsonSerializer.Serialize(writer, importOption, _originalOptions);
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unknown type '{value.GetType().Name}'");
+            }
+        }
+    }
+
+    class Microsoft_BingAds_V13_CampaignManagement_LinkedInSegmentConverter : JsonConverter<LinkedInSegment>
+    {
+        private readonly JsonSerializerOptions _originalOptions;
+
+        private readonly Func<string, Exception> _createUnsupportedTypeValueException;
+
+        public Microsoft_BingAds_V13_CampaignManagement_LinkedInSegmentConverter(JsonSerializerOptions originalOptions, Func<string, Exception> createUnsupportedTypeValueException)
+        {
+            _originalOptions = originalOptions;
+
+            _createUnsupportedTypeValueException = createUnsupportedTypeValueException;
+        }
+        
+        public override LinkedInSegment? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            RuntimeHelpers.EnsureSufficientExecutionStack(); // Additional protection from any potential infinite recursion
+
+            var jsonObj = JsonSerializer.Deserialize<JsonObject>(ref reader, options);
+
+            var type = (string?)jsonObj!["Type"];
+
+            return type switch
+            {
+                "CompanyList" => jsonObj.Deserialize<CompanyList>(options),
+                "LinkedInSegment" => jsonObj.Deserialize<LinkedInSegment>(_originalOptions),
+                _ => throw new JsonException(null, _createUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
+            };
+        }
+
+        public override void Write(Utf8JsonWriter writer, LinkedInSegment value, JsonSerializerOptions options)
+        {
+            RuntimeHelpers.EnsureSufficientExecutionStack(); // Additional protection from any potential infinite recursion
+
+            switch (value)
+            {
+                case CompanyList companyList:
+                    JsonSerializer.Serialize(writer, companyList, options);
+                    break;
+                case LinkedInSegment linkedInSegment:
+                    JsonSerializer.Serialize(writer, linkedInSegment, _originalOptions);
                     break;
                 default:
                     throw new InvalidOperationException($"Unknown type '{value.GetType().Name}'");

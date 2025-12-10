@@ -1924,5 +1924,35 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<UpdateAnnotationOptOutResponse>("UpdateAnnotationOptOut", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public AddLinkedInSegmentsResponse AddLinkedInSegments(AddLinkedInSegmentsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<AddLinkedInSegmentsResponse> AddLinkedInSegmentsAsync(AddLinkedInSegmentsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<AddLinkedInSegmentsResponse>("AddLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public DeleteLinkedInSegmentsResponse DeleteLinkedInSegments(DeleteLinkedInSegmentsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<DeleteLinkedInSegmentsResponse> DeleteLinkedInSegmentsAsync(DeleteLinkedInSegmentsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<DeleteLinkedInSegmentsResponse>("DeleteLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateLinkedInSegmentsResponse UpdateLinkedInSegments(UpdateLinkedInSegmentsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(UpdateLinkedInSegmentsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateLinkedInSegmentsResponse>("UpdateLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

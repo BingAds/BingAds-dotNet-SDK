@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.25.3</version>
+        <version>13.0.26</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -12,8 +12,30 @@
         <description>The Bing Ads SDK increases efficiency for Microsoft Advertising developers. The SDK includes SOAP web services proxies, simplified OAuth authentication, and file management with the Bulk and Reporting service operations.</description>
 		<readme>docs\README.md</readme>
         <summary />
-        <releaseNotes>* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
-* Support IsPolitical in BulkCampaign.</releaseNotes>
+        <releaseNotes>API Updates:
+* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
+* New report: BidStrategyReport.
+* New column ConversionDelay in AccountPerformanceReport, CampaignPerformanceReport and GoalsAndFunnelsReport.
+* New column CostPerConversion in AssetGroupPerformanceReport.
+* New API in AdInsight Service: GetAudienceBreakdown.
+* New criterion type: TopicCriterion.
+* Support multiple campaignIds/adGroupIds in ImpressionBasedRemarketingList.
+* New field Industry in UetTag.
+* New fields TrackingUrlTemplate, FinalUrlSuffix and UrlCustomParameters in AssetGroup.
+* New field IsPolitical in Campaign.
+* New field CurrencyCode, ReportingTimeZone and Scope in BidStrategy.
+* New field BidStrategyScope in Campaign.
+* Add enum value DataDriven in AttributionModelType.
+* New option NewTopicTargets and UpdateTopicTargets in GoogleImportOption.
+
+Bulk Mapping Updates:
+* Add bulk mappings: BulkAdGroupTopicCriterion, BulkContentPlacement and BulkTopic.
+* Add TrackingTemplate, FinalUrlSuffix and CustomParameter in BulkAssetGroup mapping.
+* Add BidStrategyScope, CurrencyCode and TimeZone in BulkBidStrategy mapping.
+* Add BidStrategyScope in BulkCampaign mapping.
+
+Other:
+* Support for Google login is now available. You can use GoogleOAuthDesktopMobileAuthCodeGrant or GoogleOAuthWebAuthCodeGrant to sign in with a Google account and access the Bing Ads API.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />
@@ -21,11 +43,12 @@
         </frameworkAssemblies>
 	<dependencies>
 		<dependency id="Microsoft.CSharp" version="4.7.0" exclude="Build,Analyzers" />
-		<dependency id="Microsoft.Extensions.Http" version="8.0.0" exclude="Build,Analyzers" />
+		<dependency id="Microsoft.Extensions.Http" version="9.0.0" exclude="Build,Analyzers" />
 		<dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
 		<dependency id="System.Dynamic.Runtime" version="4.3.0" exclude="Build,Analyzers" />
 		<dependency id="System.ServiceModel.Primitives" version="4.10.2" exclude="Build,Analyzers" />
-		<dependency id="System.Text.Json" version="8.0.5" exclude="Build,Analyzers" />
+		<dependency id="System.Text.Json" version="9.0.0" exclude="Build,Analyzers" />
+		<dependency id="System.Security.Cryptography.Pkcs" version="6.0.3" exclude="Build,Analyzers" />
 	</dependencies>
     </metadata>
     <files>

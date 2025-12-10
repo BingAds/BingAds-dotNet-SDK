@@ -9698,6 +9698,9 @@ namespace Microsoft.BingAds.V13.Reporting
         private System.Nullable<Microsoft.BingAds.V13.Reporting.AdGroupStatusReportFilter> AdGroupStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<Microsoft.BingAds.V13.Reporting.CampaignStatusReportFilter> CampaignStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -9762,6 +9765,23 @@ namespace Microsoft.BingAds.V13.Reporting
                 {
                     this.AdGroupStatusField = value;
                     this.RaisePropertyChanged("AdGroupStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<Microsoft.BingAds.V13.Reporting.AssetGroupStatusReportFilter> AssetGroupStatus
+        {
+            get
+            {
+                return this.AssetGroupStatusField;
+            }
+            set
+            {
+                if ((this.AssetGroupStatusField.Equals(value) != true))
+                {
+                    this.AssetGroupStatusField = value;
+                    this.RaisePropertyChanged("AssetGroupStatus");
                 }
             }
         }
@@ -9918,6 +9938,34 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ViewThroughRevenue = 33,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CampaignType = 34,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 35,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 36,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 37,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
+    public enum AssetGroupStatusReportFilter : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Active = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Paused = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Deleted = 4,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -10634,22 +10682,6 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CPS = 70,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.FlagsAttribute()]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AssetGroupStatusReportFilter", Namespace="https://bingads.microsoft.com/Reporting/v13")]
-    public enum AssetGroupStatusReportFilter : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Active = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Paused = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Deleted = 4,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -19523,7 +19555,7 @@ namespace Microsoft.BingAds.V13.Reporting
         Spend = 19,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 20,
+        ConversionsQualified = 20,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ConversionRate = 21,
@@ -19535,7 +19567,7 @@ namespace Microsoft.BingAds.V13.Reporting
         ConversionDelay = 23,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CPA = 24,
+        CostPerConversionQualified = 24,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ROAS = 25,
@@ -19551,6 +19583,15 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionSharePercent = 29,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Owner = 30,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TimeZone = 31,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Currency = 32,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

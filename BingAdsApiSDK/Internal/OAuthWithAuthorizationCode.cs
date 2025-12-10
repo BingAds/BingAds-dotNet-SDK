@@ -49,6 +49,7 @@
 
 using Microsoft.BingAds.Internal.OAuth;
 using Microsoft.BingAds.Internal.Utilities;
+using System.Web;
 
 // ReSharper disable once CheckNamespace
 
@@ -276,30 +277,30 @@ namespace Microsoft.BingAds.Internal
                 throw new ArgumentNullException("responseUri");
             }
 
-            var queryParts = responseUri.ParseQuery();
+            var queryParts = HttpUtility.ParseQueryString(responseUri.Query);
 
-            string error;
+            var error = queryParts["error"];
 
-            if (queryParts.TryGetValue("error", out error))
+            if (!string.IsNullOrEmpty(error))
             {
-                var details = new OAuthErrorDetails { Error = Uri.UnescapeDataString(error) };
+                var details = new OAuthErrorDetails { Error = error };
 
-                string errorDescription;
+                var errorDescription = queryParts["error_description"];
 
-                if (queryParts.TryGetValue("error_description", out errorDescription))
+                if (!string.IsNullOrEmpty(errorDescription))
                 {
-                    details.Description = Uri.UnescapeDataString(errorDescription);
+                    details.Description = errorDescription;
                 }
 
                 throw new OAuthTokenRequestException(ErrorMessages.OAuthError, details);
             }
 
-            if (!queryParts.ContainsKey("code"))
+            var code = queryParts["code"];
+
+            if (string.IsNullOrEmpty(code))
             {
                 throw new ArgumentException(ErrorMessages.UriDoesntContainCode);
             }
-
-            var code = queryParts["code"];
 
             OAuthTokens = await _oauthService.GetAccessTokensAsync(new OAuthRequestParameters
             {
