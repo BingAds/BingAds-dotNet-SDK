@@ -983,5 +983,20 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.UpdateAnnotationOptOutAsync(r), request);
         }
+
+        public static Task<AddLinkedInSegmentsResponse> AddLinkedInSegmentsAsync(this ServiceClient<ICampaignManagementService> service, AddLinkedInSegmentsRequest request)
+        {
+            return service.CallAsync((s, r) => s.AddLinkedInSegmentsAsync(r), request);
+        }
+
+        public static Task<DeleteLinkedInSegmentsResponse> DeleteLinkedInSegmentsAsync(this ServiceClient<ICampaignManagementService> service, DeleteLinkedInSegmentsRequest request)
+        {
+            return service.CallAsync((s, r) => s.DeleteLinkedInSegmentsAsync(r), request);
+        }
+
+        public static Task<UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(this ServiceClient<ICampaignManagementService> service, UpdateLinkedInSegmentsRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateLinkedInSegmentsAsync(r), request);
+        }
     }
 }

@@ -113,5 +113,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.GetCouponInfoAsync(r), request);
         }
+
+        public static Task<DistributeCouponsResponse> DistributeCouponsAsync(this ServiceClient<ICustomerBillingService> service, DistributeCouponsRequest request)
+        {
+            return service.CallAsync((s, r) => s.DistributeCouponsAsync(r), request);
+        }
     }
 }

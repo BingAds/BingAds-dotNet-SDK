@@ -406,6 +406,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.BidStrategyPercentMaxCpc,
             StringTable.BidStrategyTargetCostPerSale,
             StringTable.BidStrategyMaxCpm,
+            StringTable.BidStrategyScope,
 
             // Target and bid
             StringTable.TargetSetting,

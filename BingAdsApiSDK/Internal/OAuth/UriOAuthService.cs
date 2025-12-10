@@ -135,7 +135,15 @@ namespace Microsoft.BingAds.Internal.OAuth
                 });
 
                 var fragments = (Dictionary<string, string>)fragmentsSer.ReadObject(stream);
-                return new OAuthTokens(fragments["access_token"], Convert.ToInt32(fragments["expires_in"]), fragments["refresh_token"], fragments);
+
+                // Handle Google OAuth response where refresh_token might not be present in every response
+                string refreshToken = null;
+                if (fragments.ContainsKey("refresh_token"))
+                {
+                    refreshToken = fragments["refresh_token"];
+                }
+
+                return new OAuthTokens(fragments["access_token"], Convert.ToInt32(fragments["expires_in"]), refreshToken, fragments);
             }
             else
             {
@@ -221,6 +229,15 @@ namespace Microsoft.BingAds.Internal.OAuth
                     OAuthTokenUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/token",
                     AuthorizationEndpointUrl = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={0}&scope=https%3A%2F%2Fsi.ads.microsoft.com%2Fmsads.manage%20offline_access&response_type={1}&redirect_uri={2}",
                     Scope = "https://si.ads.microsoft.com/msads.manage offline_access"
+                }
+            },
+            {
+                OAuthEndpointType.GoogleProduction, new OAuthEndpoints
+                {
+                    RedirectUrl = "http://localhost",
+                    OAuthTokenUrl = "https://oauth2.googleapis.com/token",
+                    AuthorizationEndpointUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id={0}&scope=openid%20email%20profile&response_type={1}&redirect_uri={2}&access_type=offline&prompt=consent",
+                    Scope = "openid email profile"
                 }
             },
         };

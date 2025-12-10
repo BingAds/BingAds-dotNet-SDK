@@ -94,6 +94,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.GetBidLandscapeByAdGroupIdsAsync(r), request);
         }
 
+        public static Task<GetBidLandscapeByCampaignIdsResponse> GetBidLandscapeByCampaignIdsAsync(this ServiceClient<IAdInsightService> service, GetBidLandscapeByCampaignIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBidLandscapeByCampaignIdsAsync(r), request);
+        }
+
         public static Task<GetBidLandscapeByKeywordIdsResponse> GetBidLandscapeByKeywordIdsAsync(this ServiceClient<IAdInsightService> service, GetBidLandscapeByKeywordIdsRequest request)
         {
             return service.CallAsync((s, r) => s.GetBidLandscapeByKeywordIdsAsync(r), request);

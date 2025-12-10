@@ -119,6 +119,8 @@ public static partial class RestApiGeneration
             { typeof(BroadMatchSearchQueryKPI), static t => CustomizeBroadMatchSearchQueryKPI(t) },
             { typeof(BudgetOpportunity), static t => CustomizeBudgetOpportunity(t) },
             { typeof(BudgetPoint), static t => CustomizeBudgetPoint(t) },
+            { typeof(CampaignBidLandscape), static t => CustomizeCampaignBidLandscape(t) },
+            { typeof(CampaignBidLandscapePoint), static t => CustomizeCampaignBidLandscapePoint(t) },
             { typeof(CampaignBudgetRecommendation), static t => CustomizeCampaignBudgetRecommendation(t) },
             { typeof(CampaignEstimate), static t => CustomizeCampaignEstimate(t) },
             { typeof(CampaignEstimator), static t => CustomizeCampaignEstimator(t) },
@@ -152,6 +154,8 @@ public static partial class RestApiGeneration
             { typeof(GetAutoApplyOptInStatusResponse), static t => CustomizeGetAutoApplyOptInStatusResponse(t) },
             { typeof(GetBidLandscapeByAdGroupIdsRequest), static t => CustomizeGetBidLandscapeByAdGroupIdsRequest(t) },
             { typeof(GetBidLandscapeByAdGroupIdsResponse), static t => CustomizeGetBidLandscapeByAdGroupIdsResponse(t) },
+            { typeof(GetBidLandscapeByCampaignIdsRequest), static t => CustomizeGetBidLandscapeByCampaignIdsRequest(t) },
+            { typeof(GetBidLandscapeByCampaignIdsResponse), static t => CustomizeGetBidLandscapeByCampaignIdsResponse(t) },
             { typeof(GetBidLandscapeByKeywordIdsRequest), static t => CustomizeGetBidLandscapeByKeywordIdsRequest(t) },
             { typeof(GetBidLandscapeByKeywordIdsResponse), static t => CustomizeGetBidLandscapeByKeywordIdsResponse(t) },
             { typeof(GetBidOpportunitiesRequest), static t => CustomizeGetBidOpportunitiesRequest(t) },
@@ -255,6 +259,7 @@ public static partial class RestApiGeneration
             { typeof(SearchParameter), static t => CustomizeSearchParameter(t) },
             { typeof(SearchVolumeSearchParameter), static t => CustomizeSearchVolumeSearchParameter(t) },
             { typeof(SelectionOfAgeEnum), static t => CustomizeSelectionOfAgeEnum(t) },
+            { typeof(SelectionOfDeviceEnum), static t => CustomizeSelectionOfDeviceEnum(t) },
             { typeof(SelectionOfGenderEnum), static t => CustomizeSelectionOfGenderEnum(t) },
             { typeof(SelectionOflong), static t => CustomizeSelectionOflong(t) },
             { typeof(SetAutoApplyOptInStatusRequest), static t => CustomizeSetAutoApplyOptInStatusRequest(t) },
@@ -653,6 +658,34 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeBudgetPoint(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCampaignBidLandscape(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeCampaignBidLandscapePoint(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -1192,6 +1225,40 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeGetBidLandscapeByAdGroupIdsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetBidLandscapeByCampaignIdsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetBidLandscapeByCampaignIdsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -2860,6 +2927,20 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeSelectionOfAgeEnum(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeSelectionOfDeviceEnum(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {

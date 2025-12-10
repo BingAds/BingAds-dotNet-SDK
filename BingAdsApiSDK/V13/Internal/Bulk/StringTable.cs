@@ -682,6 +682,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string BidStrategyCommissionRate = "Bid Strategy CommissionRate";
         public const string BidStrategyTargetCostPerSale = "Bid Strategy TargetCostPerSale";
         public const string BidStrategyMaxCpm = "Bid Strategy MaxCpm";
+        public const string BidStrategyScope = "Bid Strategy Scope";
 
         // Target and bid
         public const string TargetSetting = "Target Setting";
@@ -832,6 +833,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string AdGroupGenderCriterion = "Ad Group Gender Criterion";
         public const string AdGroupIndustryCriterion = "Ad Group Industry Criterion";
         public const string AdGroupJobFunctionCriterion = "Ad Group Job Function Criterion";
+        public const string AdGroupJobSeniorityCriterion = "Ad Group Job Seniority Criterion";
+        public const string AdGroupCustomLinkedInCriterion = "Ad Group Custom LinkedIn Criterion";
         public const string AdGroupLocationCriterion = "Ad Group Location Criterion";
         public const string AdGroupLocationIntentCriterion = "Ad Group Location Intent Criterion";
         public const string AdGroupNegativeAgeCriterion = "Ad Group Negative Age Criterion";
@@ -853,6 +856,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignJobFunctionCriterion = "Campaign Job Function Criterion";
         public const string CampaignJobTitleCriterion = "Campaign Job Title Criterion";
         public const string CampaignJobSeniorityCriterion = "Campaign Job Seniority Criterion";
+        public const string CampaignCustomLinkedInCriterion = "Campaign Custom LinkedIn Criterion";
         public const string CampaignLocationCriterion = "Campaign Location Criterion";
         public const string CampaignLocationIntentCriterion = "Campaign Location Intent Criterion";
         public const string CampaignNegativeLocationCriterion = "Campaign Negative Location Criterion";

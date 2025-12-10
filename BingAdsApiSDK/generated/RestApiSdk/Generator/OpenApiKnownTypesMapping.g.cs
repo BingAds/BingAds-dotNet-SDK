@@ -193,6 +193,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.Asset), "Asset" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Audience), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomSegment), "CustomSegment" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedRemarketingList), "ImpressionBasedRemarketingList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomerList), "CustomerList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CombinedList), "CombinedList" },
@@ -243,6 +244,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignCriterion), "CampaignCriterion" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.ConversionGoal), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AppDownloadGoal), "AppDownload" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.InStoreTransactionGoal), "InStoreTransaction" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.OfflineConversionGoal), "OfflineConversion" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AppInstallGoal), "AppInstall" },
@@ -297,6 +299,10 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.FileImportOption), "FileImportOption" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.GoogleImportOption), "GoogleImportOption" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImportOption), "ImportOption" } }
+            },
+            { typeof(Microsoft.BingAds.V13.CampaignManagement.LinkedInSegment), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CompanyList), "CompanyList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.LinkedInSegment), "LinkedInSegment" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Media), new Dictionary<Type, string> {                
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.Image), "Image" },

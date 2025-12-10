@@ -72,7 +72,11 @@ namespace Microsoft.BingAds.Internal.OAuth
         /// <summary>
         /// Sandbox for Msa Production
         /// </summary>
-        MsaProd
+        MsaProd,
+        /// <summary>
+        /// Production for Google OAuth
+        /// </summary>
+        GoogleProduction
     }
 
     internal static class OAuthEndpointTypeUtil
@@ -84,6 +88,10 @@ namespace Microsoft.BingAds.Internal.OAuth
                 if (oAuthScope == OAuthScope.MSA_PROD)
                 {
                     return OAuthEndpointType.MsaProd;
+                }
+                else if (oAuthScope == OAuthScope.GOOGLE_OPENID)
+                {
+                    return OAuthEndpointType.GoogleProduction; // Google uses same endpoint for prod/sandbox
                 }
                 else
                 {
@@ -99,6 +107,8 @@ namespace Microsoft.BingAds.Internal.OAuth
                     return OAuthEndpointType.ProductionMSIdentityV2;
                 case OAuthScope.BINGADS_MANAGE:
                     return OAuthEndpointType.ProductionLiveConnect;
+                case OAuthScope.GOOGLE_OPENID:
+                    return OAuthEndpointType.GoogleProduction;
             }
             return OAuthEndpointType.ProductionMSIdentityV2_MSScope;
         }
