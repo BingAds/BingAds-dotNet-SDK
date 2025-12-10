@@ -48,7 +48,7 @@ Other:
 		<dependency id="System.Dynamic.Runtime" version="4.3.0" exclude="Build,Analyzers" />
 		<dependency id="System.ServiceModel.Primitives" version="4.10.2" exclude="Build,Analyzers" />
 		<dependency id="System.Text.Json" version="9.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Security.Cryptography.Pkcs" version="9.0.0" exclude="Build,Analyzers" />
+		<dependency id="System.Security.Cryptography.Pkcs" version="6.0.3" exclude="Build,Analyzers" />
 	</dependencies>
     </metadata>
     <files>
