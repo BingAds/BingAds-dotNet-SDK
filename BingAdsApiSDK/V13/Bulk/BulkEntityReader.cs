@@ -114,6 +114,13 @@ namespace Microsoft.BingAds.V13.Bulk
         /// </remarks>
         private IEnumerable<BulkEntity> ReadNextBatch()
         {
+            // We only expect _bulkRecordReader to be null if this has been disposed, which currently
+            // happens when the wrapping Enumerator is disposed.
+            if(_bulkRecordReader == null)
+            {
+                throw new ObjectDisposedException("Results can only be enumerated once.");
+            }
+
             // Parse the next row in the source. The returned object can be:
             // * Object inherited from SingleLineBulkEntity - representing an entity from a single line, such as BulkCampaign or BulkKeyword or BulkSiteLink
             // * Object interited from BulkEntityIdentifier with Status = Deleted - representing a delete all row
