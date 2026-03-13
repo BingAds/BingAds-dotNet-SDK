@@ -55,9 +55,11 @@ namespace Microsoft.BingAds.Internal
     /// </summary>
     public static class ServiceClientFactoryFactory
     {
+        public static Func<IServiceClientFactory> CreateCustomClientFactory { get; set; }
+
         public static IServiceClientFactory CreateServiceClientFactory()
         {
-            return new ServiceClientFactory();
+            return CreateCustomClientFactory == null ? new ServiceClientFactory() : CreateCustomClientFactory();
         }
     }
 }

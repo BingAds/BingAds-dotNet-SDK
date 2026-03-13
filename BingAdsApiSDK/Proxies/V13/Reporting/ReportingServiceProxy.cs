@@ -9871,85 +9871,91 @@ namespace Microsoft.BingAds.V13.Reporting
         JobFunctionName = 10,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdDistribution = 11,
+        JobSeniorityName = 11,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Impressions = 12,
+        CustomLinkedInName = 12,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Clicks = 13,
+        AdDistribution = 13,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Spend = 14,
+        Impressions = 14,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Conversions = 15,
+        Clicks = 15,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Language = 16,
+        Spend = 16,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Assists = 17,
+        Conversions = 17,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Revenue = 18,
+        Language = 18,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AccountStatus = 19,
+        Assists = 19,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignStatus = 20,
+        Revenue = 20,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AdGroupStatus = 21,
+        AccountStatus = 21,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AveragePosition = 22,
+        CampaignStatus = 22,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AllConversions = 23,
+        AdGroupStatus = 23,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AllRevenue = 24,
+        AveragePosition = 24,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ViewThroughConversions = 25,
+        AllConversions = 25,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Goal = 26,
+        AllRevenue = 26,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        GoalType = 27,
+        ViewThroughConversions = 27,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AbsoluteTopImpressionRatePercent = 28,
+        Goal = 28,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        TopImpressionRatePercent = 29,
+        GoalType = 29,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ConversionsQualified = 30,
+        AbsoluteTopImpressionRatePercent = 30,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AllConversionsQualified = 31,
+        TopImpressionRatePercent = 31,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ViewThroughConversionsQualified = 32,
+        ConversionsQualified = 32,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        ViewThroughRevenue = 33,
+        AllConversionsQualified = 33,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        CampaignType = 34,
+        ViewThroughConversionsQualified = 34,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AssetGroupId = 35,
+        ViewThroughRevenue = 35,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AssetGroupName = 36,
+        CampaignType = 36,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        AssetGroupStatus = 37,
+        AssetGroupId = 37,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupName = 38,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupStatus = 39,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

@@ -680,6 +680,21 @@ namespace Microsoft.BingAds.V13.Bulk
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BrandKit = 195,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomSegment = 196,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupCustomSegmentAssociations = 197,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountContentNegativeKeywordList = 198,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountContentNegativeKeywordListAssociation = 199,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AccountContentNegativeKeyword = 200,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
