@@ -1245,6 +1245,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<GetOfflineConversionReportsResponse>("GetOfflineConversionReports", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetOfflineConversionReportByGoalIdsResponse GetOfflineConversionReportByGoalIds(GetOfflineConversionReportByGoalIdsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetOfflineConversionReportByGoalIdsResponse> GetOfflineConversionReportByGoalIdsAsync(GetOfflineConversionReportByGoalIdsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetOfflineConversionReportByGoalIdsResponse>("GetOfflineConversionReportByGoalIds", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public AddLabelsResponse AddLabels(AddLabelsRequest request)
         {
             throw new NotImplementedException();

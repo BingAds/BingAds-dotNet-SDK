@@ -104,7 +104,7 @@ namespace Microsoft.BingAds.Internal.OAuth
             {
                 values.Add(new KeyValuePair<string, string>("redirect_uri", oAuthParameters.RedirectUri.ToString()));
             }
-            
+
             if (!string.IsNullOrEmpty(oAuthParameters.ClientSecret))
             {
                 values.Add(new KeyValuePair<string, string>("client_secret", oAuthParameters.ClientSecret));
@@ -136,9 +136,13 @@ namespace Microsoft.BingAds.Internal.OAuth
 
                 var fragments = (Dictionary<string, string>)fragmentsSer.ReadObject(stream);
 
-                // Handle Google OAuth response where refresh_token might not be present in every response
-                string refreshToken = null;
-                if (fragments.ContainsKey("refresh_token"))
+                string refreshToken;
+
+                if (oAuthParameters.GrantType == "refresh_token" && oAuthScope == OAuthScope.GOOGLE_OPENID)
+                {
+                    refreshToken = oAuthParameters.GrantValue;                    
+                }
+                else
                 {
                     refreshToken = fragments["refresh_token"];
                 }
@@ -166,7 +170,7 @@ namespace Microsoft.BingAds.Internal.OAuth
         {
             return oAuthScope.ToOAuthEndpointType(env);
         }
-        
+
         public static Uri GetAuthorizationEndpoint(OAuthUrlParameters parameters, ApiEnvironment env, OAuthScope oAuthScope, string tenant)
         {
             OAuthEndpointType endpointType = GetOAuthEndpointType(env, oAuthScope);

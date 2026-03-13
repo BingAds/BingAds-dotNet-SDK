@@ -644,6 +644,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.GetOfflineConversionReportsAsync(r), request);
         }
 
+        public static Task<GetOfflineConversionReportByGoalIdsResponse> GetOfflineConversionReportByGoalIdsAsync(this ServiceClient<ICampaignManagementService> service, GetOfflineConversionReportByGoalIdsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetOfflineConversionReportByGoalIdsAsync(r), request);
+        }
+
         public static Task<AddLabelsResponse> AddLabelsAsync(this ServiceClient<ICampaignManagementService> service, AddLabelsRequest request)
         {
             return service.CallAsync((s, r) => s.AddLabelsAsync(r), request);

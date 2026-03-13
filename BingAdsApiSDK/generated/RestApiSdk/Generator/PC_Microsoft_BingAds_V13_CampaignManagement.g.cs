@@ -464,10 +464,10 @@ public static partial class RestApiGeneration
 
             return type switch
             {
-                "CustomSegment" => jsonObj.Deserialize<CustomSegment>(options),
                 "ImpressionBasedRemarketingList" => jsonObj.Deserialize<ImpressionBasedRemarketingList>(options),
-                "CustomerList" => jsonObj.Deserialize<CustomerList>(options),
+                "CustomSegment" => jsonObj.Deserialize<CustomSegment>(options),
                 "CombinedList" => jsonObj.Deserialize<CombinedList>(options),
+                "CustomerList" => jsonObj.Deserialize<CustomerList>(options),
                 "SimilarRemarketingList" => jsonObj.Deserialize<SimilarRemarketingList>(options),
                 "Product" => jsonObj.Deserialize<ProductAudience>(options),
                 "InMarket" => jsonObj.Deserialize<InMarketAudience>(options),
@@ -484,17 +484,17 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
-                case CustomSegment customSegment:
-                    JsonSerializer.Serialize(writer, customSegment, options);
-                    break;
                 case ImpressionBasedRemarketingList impressionBasedRemarketingList:
                     JsonSerializer.Serialize(writer, impressionBasedRemarketingList, options);
                     break;
-                case CustomerList customerList:
-                    JsonSerializer.Serialize(writer, customerList, options);
+                case CustomSegment customSegment:
+                    JsonSerializer.Serialize(writer, customSegment, options);
                     break;
                 case CombinedList combinedList:
                     JsonSerializer.Serialize(writer, combinedList, options);
+                    break;
+                case CustomerList customerList:
+                    JsonSerializer.Serialize(writer, customerList, options);
                     break;
                 case SimilarRemarketingList similarRemarketingList:
                     JsonSerializer.Serialize(writer, similarRemarketingList, options);
@@ -1268,7 +1268,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
-                "CompanyList" => jsonObj.Deserialize<CompanyList>(options),
+                "CompanyName" => jsonObj.Deserialize<CompanyList>(options),
                 "LinkedInSegment" => jsonObj.Deserialize<LinkedInSegment>(_originalOptions),
                 _ => throw new JsonException(null, _createUnsupportedTypeValueException($"Unsupported Type value '{type}'"))
             };
@@ -1519,6 +1519,8 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AISearchSetting" => jsonObj.Deserialize<AISearchSetting>(options),
+                "BaseDomainSetting" => jsonObj.Deserialize<BaseDomainSetting>(options),
                 "NewCustomerAcquisitionGoalSetting" => jsonObj.Deserialize<NewCustomerAcquisitionGoalSetting>(options),
                 "ThirdPartyMeasurementSetting" => jsonObj.Deserialize<ThirdPartyMeasurementSetting>(options),
                 "AppSetting" => jsonObj.Deserialize<AppSetting>(options),
@@ -1545,6 +1547,12 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AISearchSetting aISearchSetting:
+                    JsonSerializer.Serialize(writer, aISearchSetting, options);
+                    break;
+                case BaseDomainSetting baseDomainSetting:
+                    JsonSerializer.Serialize(writer, baseDomainSetting, options);
+                    break;
                 case NewCustomerAcquisitionGoalSetting newCustomerAcquisitionGoalSetting:
                     JsonSerializer.Serialize(writer, newCustomerAcquisitionGoalSetting, options);
                     break;
@@ -1625,6 +1633,7 @@ public static partial class RestApiGeneration
                 "AccountPlacementInclusionList" => jsonObj.Deserialize<AccountPlacementInclusionList>(options),
                 "AccountPlacementExclusionList" => jsonObj.Deserialize<AccountPlacementExclusionList>(options),
                 "BrandList" => jsonObj.Deserialize<BrandList>(options),
+                "AccountContentNegativeKeywordList" => jsonObj.Deserialize<AccountContentNegativeKeywordList>(options),
                 "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
                 "NegativeKeywordList" => jsonObj.Deserialize<NegativeKeywordList>(options),
@@ -1648,6 +1657,9 @@ public static partial class RestApiGeneration
                     break;
                 case BrandList brandList:
                     JsonSerializer.Serialize(writer, brandList, options);
+                    break;
+                case AccountContentNegativeKeywordList accountContentNegativeKeywordList:
+                    JsonSerializer.Serialize(writer, accountContentNegativeKeywordList, options);
                     break;
                 case AccountNegativeKeywordList accountNegativeKeywordList:
                     JsonSerializer.Serialize(writer, accountNegativeKeywordList, options);
@@ -1696,6 +1708,7 @@ public static partial class RestApiGeneration
                 "AccountPlacementInclusionList" => jsonObj.Deserialize<AccountPlacementInclusionList>(options),
                 "AccountPlacementExclusionList" => jsonObj.Deserialize<AccountPlacementExclusionList>(options),
                 "BrandList" => jsonObj.Deserialize<BrandList>(options),
+                "AccountContentNegativeKeywordList" => jsonObj.Deserialize<AccountContentNegativeKeywordList>(options),
                 "AccountNegativeKeywordList" => jsonObj.Deserialize<AccountNegativeKeywordList>(options),
                 "PlacementExclusionList" => jsonObj.Deserialize<PlacementExclusionList>(options),
                 "NegativeKeywordList" => jsonObj.Deserialize<NegativeKeywordList>(options),
@@ -1718,6 +1731,9 @@ public static partial class RestApiGeneration
                     break;
                 case BrandList brandList:
                     JsonSerializer.Serialize(writer, brandList, options);
+                    break;
+                case AccountContentNegativeKeywordList accountContentNegativeKeywordList:
+                    JsonSerializer.Serialize(writer, accountContentNegativeKeywordList, options);
                     break;
                 case AccountNegativeKeywordList accountNegativeKeywordList:
                     JsonSerializer.Serialize(writer, accountNegativeKeywordList, options);

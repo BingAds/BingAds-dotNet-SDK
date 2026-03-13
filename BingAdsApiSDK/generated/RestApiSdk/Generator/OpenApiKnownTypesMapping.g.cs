@@ -193,10 +193,10 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.Asset), "Asset" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Audience), new Dictionary<Type, string> {                
-                { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomSegment), "CustomSegment" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedRemarketingList), "ImpressionBasedRemarketingList" },
-                { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomerList), "CustomerList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomSegment), "CustomSegment" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CombinedList), "CombinedList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomerList), "CustomerList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.SimilarRemarketingList), "SimilarRemarketingList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ProductAudience), "Product" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.InMarketAudience), "InMarket" },
@@ -301,7 +301,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImportOption), "ImportOption" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.LinkedInSegment), new Dictionary<Type, string> {                
-                { typeof(Microsoft.BingAds.V13.CampaignManagement.CompanyList), "CompanyList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CompanyList), "CompanyName" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.LinkedInSegment), "LinkedInSegment" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Media), new Dictionary<Type, string> {                
@@ -325,6 +325,8 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.RuleItem), "RuleItem" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Setting), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting), "AISearchSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting), "BaseDomainSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NewCustomerAcquisitionGoalSetting), "NewCustomerAcquisitionGoalSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ThirdPartyMeasurementSetting), "ThirdPartyMeasurementSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AppSetting), "AppSetting" },
@@ -346,6 +348,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementInclusionList), "AccountPlacementInclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementExclusionList), "AccountPlacementExclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.BrandList), "BrandList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountContentNegativeKeywordList), "AccountContentNegativeKeywordList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList), "AccountNegativeKeywordList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList), "PlacementExclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList), "NegativeKeywordList" },
@@ -356,6 +359,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementInclusionList), "AccountPlacementInclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountPlacementExclusionList), "AccountPlacementExclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.BrandList), "BrandList" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountContentNegativeKeywordList), "AccountContentNegativeKeywordList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AccountNegativeKeywordList), "AccountNegativeKeywordList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementExclusionList), "PlacementExclusionList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NegativeKeywordList), "NegativeKeywordList" },
