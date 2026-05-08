@@ -41,7 +41,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@5
+- task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@6
   displayName: ESRP CodeSigning dll
   inputs:
     ConnectedServiceName: BingAdsSDKRelease
@@ -55,26 +55,40 @@ steps:
     signConfigType: 'inlineSignParams'
     inlineOperation: |
       [
-          {
-              "KeyCode" : "CP-230012",
-              "OperationCode" : "SigntoolSign",
-              "Parameters" : {
-                  "OpusName" : "Microsoft",
-                  "OpusInfo" : "http://www.microsoft.com",
-                  "FileDigest" : "/fd \"SHA256\"",
-                  "PageHash" : "/NPH",
-                  "TimeStamp" : "/tr \"http://rfc3161.gtm.corp.microsoft.com/TSS/HttpTspServer\" /td sha256"
-              },
-              "ToolName" : "sign",
-              "ToolVersion" : "1.0"
-          },
-          {
-              "KeyCode" : "CP-230012",
-              "OperationCode" : "SigntoolVerify",
-              "Parameters" : {},
-              "ToolName" : "sign",
-              "ToolVersion" : "1.0"
-          }
+       {
+        "KeyCode": "CP-233863-SN",
+        "OperationCode": "StrongNameSign",
+        "ToolName": "sign",
+        "ToolVersion": "1.0",
+        "Parameters": {}
+       },
+       {
+        "KeyCode": "CP-230012",
+        "OperationCode": "SigntoolSign",
+        "ToolName": "sign",
+        "ToolVersion": "1.0",
+        "Parameters": {
+         "OpusName": "Microsoft",
+         "OpusInfo": "http://www.microsoft.com",
+         "FileDigest": "/fd \"SHA256\"",
+         "PageHash": "/NPH",
+         "TimeStamp": "/tr \"http://rfc3161.gtm.corp.microsoft.com/TSS/HttpTspServer\" /td sha256"
+        }
+       },
+       {
+        "KeyCode": "CP-230012",
+        "OperationCode": "SigntoolVerify",
+        "ToolName": "sign",
+        "ToolVersion": "1.0",
+        "Parameters": {}
+       },
+       {
+        "KeyCode": "CP-233863-SN",
+        "OperationCode": "StrongNameVerify",
+        "ToolName": "sign",
+        "ToolVersion": "1.0",
+        "Parameters": {}
+       }
       ]
 
 - task: NuGetCommand@2
