@@ -469,6 +469,17 @@ public static partial class RestApiGeneration
                         break;
                 }
             }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ClientEntityCustomerNumber":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
         }
 
         private static void CustomizeContactInfo(JsonTypeInfo jsonTypeInfo)

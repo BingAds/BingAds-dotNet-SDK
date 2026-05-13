@@ -118,5 +118,20 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.DistributeCouponsAsync(r), request);
         }
+
+        public static Task<GetBillingGroupsResponse> GetBillingGroupsAsync(this ServiceClient<ICustomerBillingService> service, GetBillingGroupsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetBillingGroupsAsync(r), request);
+        }
+
+        public static Task<GetUngroupedAccountsResponse> GetUngroupedAccountsAsync(this ServiceClient<ICustomerBillingService> service, GetUngroupedAccountsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetUngroupedAccountsAsync(r), request);
+        }
+
+        public static Task<UpdateBillingGroupAccountsResponse> UpdateBillingGroupAccountsAsync(this ServiceClient<ICustomerBillingService> service, UpdateBillingGroupAccountsRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateBillingGroupAccountsAsync(r), request);
+        }
     }
 }

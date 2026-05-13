@@ -116,6 +116,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private bool IsPoliticalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MarketingObjectiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MultimediaAdsBidAdjustmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -411,6 +414,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string MarketingObjective
+        {
+            get
+            {
+                return this.MarketingObjectiveField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MarketingObjectiveField, value) != true))
+                {
+                    this.MarketingObjectiveField = value;
+                    this.RaisePropertyChanged("MarketingObjective");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> MultimediaAdsBidAdjustment
         {
             get
@@ -563,7 +583,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=23)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=24)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -580,7 +600,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=24)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=25)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -597,7 +617,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=25)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=26)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -614,7 +634,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=26)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=27)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -631,7 +651,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=27)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=28)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -648,7 +668,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=28)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=29)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -878,6 +898,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         App = 128,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UnifiedCampaign = 1024,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -901,6 +924,8 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NewCustomerAcquisitionGoalSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NetworkDistributionSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionTrackingSetting))]
     public partial class Setting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -2543,6 +2568,62 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="NetworkDistributionSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class NetworkDistributionSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.Network> NetworkOptionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.Network> NetworkOption
+        {
+            get
+            {
+                return this.NetworkOptionField;
+            }
+            set
+            {
+                if ((this.NetworkOptionField.Equals(value) != true))
+                {
+                    this.NetworkOptionField = value;
+                    this.RaisePropertyChanged("NetworkOption");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ImpressionTrackingSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class ImpressionTrackingSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImpressionTrackingUrlField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string ImpressionTrackingUrl
+        {
+            get
+            {
+                return this.ImpressionTrackingUrlField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ImpressionTrackingUrlField, value) != true))
+                {
+                    this.ImpressionTrackingUrlField = value;
+                    this.RaisePropertyChanged("ImpressionTrackingUrl");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DynamicSearchAdsSource", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum DynamicSearchAdsSource : int
@@ -2660,6 +2741,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         IncomeRange = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobSeniority = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CustomLinkedIn = 9,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -2758,6 +2845,27 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MicrosoftAppStore = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        XboxStore = 4,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Network", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum Network : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OwnedAndOperatedAndSyndicatedSearch = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OwnedAndOperatedOnly = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SyndicatedSearchOnly = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InHousePromotion = 3,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3602,6 +3710,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AISearchSetting = 17179869184,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PmaxXboxCampaign = 34359738368,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NetworkDistributionSetting = 68719476736,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MarketingObjective = 137438953472,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImpressionTrackingSetting = 274877906944,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4560,24 +4680,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Network", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    public enum Network : int
-    {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OwnedAndOperatedAndSyndicatedSearch = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        OwnedAndOperatedOnly = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        SyndicatedSearchOnly = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        InHousePromotion = 3,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AdGroupPrivacyStatus", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum AdGroupPrivacyStatus : int
     {
@@ -4851,6 +4953,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         BaseDomain = 4096,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetSettingForJobSeniority = 8192,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TargetSettingForCustomLinkedIn = 16384,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8362,6 +8470,12 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AcceptNielsenTermsAndConditions = 131072,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImageMissingWarningOptout = 262144,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OptOutFromSystemSourcedImagesInSWF = 524288,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -14284,6 +14398,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomSegment = 4294967296,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobSeniority = 8589934592,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17713,12 +17830,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string EntityTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsExclusionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> SharedEntityCustomerIdField;
         
         private long SharedEntityIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SharedEntityTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
@@ -17762,6 +17885,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.EntityTypeField = value;
                     this.RaisePropertyChanged("EntityType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsExclusion
+        {
+            get
+            {
+                return this.IsExclusionField;
+            }
+            set
+            {
+                if ((this.IsExclusionField.Equals(value) != true))
+                {
+                    this.IsExclusionField = value;
+                    this.RaisePropertyChanged("IsExclusion");
                 }
             }
         }
@@ -17817,6 +17957,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Status
+        {
+            get
+            {
+                return this.StatusField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.StatusField, value) != true))
+                {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -17827,6 +17984,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.FlagsAttribute()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SharedEntityAssociationAdditionalField", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum SharedEntityAssociationAdditionalField : int
+    {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        BrandListFields = 1,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18202,6 +18369,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImpressionBasedRemarketingList = 8388608,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobSeniority = 16777216,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -22598,9 +22768,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.PagesViewedPerVisitGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.EventGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AppInstallGoal))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AppDownloadGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.OfflineConversionGoal))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.InStoreTransactionGoal))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AppDownloadGoal))]
     public partial class ConversionGoal : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -23367,42 +23537,6 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OfflineConversionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    [System.SerializableAttribute()]
-    public partial class OfflineConversionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
-    {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<bool> IsExternallyAttributedField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<bool> IsExternallyAttributed
-        {
-            get
-            {
-                return this.IsExternallyAttributedField;
-            }
-            set
-            {
-                if ((this.IsExternallyAttributedField.Equals(value) != true))
-                {
-                    this.IsExternallyAttributedField = value;
-                    this.RaisePropertyChanged("IsExternallyAttributed");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="InStoreTransactionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
-    [System.SerializableAttribute()]
-    public partial class InStoreTransactionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
-    {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AppDownloadGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class AppDownloadGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
@@ -23447,6 +23581,42 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OfflineConversionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class OfflineConversionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsExternallyAttributedField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> IsExternallyAttributed
+        {
+            get
+            {
+                return this.IsExternallyAttributedField;
+            }
+            set
+            {
+                if ((this.IsExternallyAttributedField.Equals(value) != true))
+                {
+                    this.IsExternallyAttributedField = value;
+                    this.RaisePropertyChanged("IsExternallyAttributed");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InStoreTransactionGoal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class InStoreTransactionGoal : Microsoft.BingAds.V13.CampaignManagement.ConversionGoal
+    {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -25074,7 +25244,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.ExperimentArm> ExperimentArms
         {
             get
@@ -26101,6 +26271,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> ImageAssetAutomationOptOutField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> ImportNCAGoalWithSystemGeneratedAudienceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> NewAIMaxSettingsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -26603,6 +26776,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.ImageAssetAutomationOptOutField = value;
                     this.RaisePropertyChanged("ImageAssetAutomationOptOut");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> ImportNCAGoalWithSystemGeneratedAudience
+        {
+            get
+            {
+                return this.ImportNCAGoalWithSystemGeneratedAudienceField;
+            }
+            set
+            {
+                if ((this.ImportNCAGoalWithSystemGeneratedAudienceField.Equals(value) != true))
+                {
+                    this.ImportNCAGoalWithSystemGeneratedAudienceField = value;
+                    this.RaisePropertyChanged("ImportNCAGoalWithSystemGeneratedAudience");
                 }
             }
         }
@@ -28600,6 +28790,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         UpdateAIMaxSettings = 1073741824,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ImportNCAGoalWithSystemGeneratedAudience = 2147483648,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -29489,8 +29682,10 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long CampaignIdField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long GoalIdField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
@@ -29505,7 +29700,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public long CampaignId
         {
             get
@@ -29522,7 +29717,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public long GoalId
         {
             get
@@ -37842,6 +38037,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.OperationContractAttribute(Action="UpdateLinkedInSegments", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
             "pdateLinkedInSegmentsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateLinkedInSegmentsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetUetTagAuthKey", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etUetTagAuthKeyResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etUetTagAuthKeyAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etUetTagAuthKeyApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyResponse GetUetTagAuthKey(Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetUetTagAuthKey", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/G" +
+            "etUetTagAuthKeyResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyResponse> GetUetTagAuthKeyAsync(Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -43217,11 +43424,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociationAdditionalField> ReturnAdditionalFields;
+        
         public GetSharedEntityAssociationsBySharedEntityIdsRequest()
         {
         }
         
-        public GetSharedEntityAssociationsBySharedEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string EntityType, System.Collections.Generic.IList<long> SharedEntityIds, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
+        public GetSharedEntityAssociationsBySharedEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, string EntityType, System.Collections.Generic.IList<long> SharedEntityIds, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociationAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -43234,6 +43444,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.SharedEntityIds = SharedEntityIds;
             this.SharedEntityType = SharedEntityType;
             this.SharedEntityScope = SharedEntityScope;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -43303,11 +43514,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=3)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope;
         
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=4)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociationAdditionalField> ReturnAdditionalFields;
+        
         public GetSharedEntityAssociationsByEntityIdsRequest()
         {
         }
         
-        public GetSharedEntityAssociationsByEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> EntityIds, string EntityType, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope)
+        public GetSharedEntityAssociationsByEntityIdsRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, System.Collections.Generic.IList<long> EntityIds, string EntityType, string SharedEntityType, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.EntityScope> SharedEntityScope, System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SharedEntityAssociationAdditionalField> ReturnAdditionalFields)
         {
             this.ApplicationToken = ApplicationToken;
             this.AuthenticationToken = AuthenticationToken;
@@ -43320,6 +43534,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             this.EntityType = EntityType;
             this.SharedEntityType = SharedEntityType;
             this.SharedEntityScope = SharedEntityScope;
+            this.ReturnAdditionalFields = ReturnAdditionalFields;
         }
     }
     
@@ -52348,6 +52563,80 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUetTagAuthKeyRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetUetTagAuthKeyRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public long UetTagId;
+        
+        public GetUetTagAuthKeyRequest()
+        {
+        }
+        
+        public GetUetTagAuthKeyRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long UetTagId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.UetTagId = UetTagId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUetTagAuthKeyResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class GetUetTagAuthKeyResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public string UetTagAuthKey;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+        
+        public GetUetTagAuthKeyResponse()
+        {
+        }
+        
+        public GetUetTagAuthKeyResponse(string TrackingId, string UetTagAuthKey, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.UetTagAuthKey = UetTagAuthKey;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICampaignManagementServiceChannel : Microsoft.BingAds.V13.CampaignManagement.ICampaignManagementService, System.ServiceModel.IClientChannel
     {
@@ -54280,6 +54569,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateLinkedInSegmentsRequest request)
         {
             return base.Channel.UpdateLinkedInSegmentsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyResponse GetUetTagAuthKey(Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyRequest request)
+        {
+            return base.Channel.GetUetTagAuthKey(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyResponse> GetUetTagAuthKeyAsync(Microsoft.BingAds.V13.CampaignManagement.GetUetTagAuthKeyRequest request)
+        {
+            return base.Channel.GetUetTagAuthKeyAsync(request);
         }
     }
 }

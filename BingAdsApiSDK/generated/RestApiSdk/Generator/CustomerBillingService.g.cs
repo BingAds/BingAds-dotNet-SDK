@@ -194,5 +194,35 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<DistributeCouponsResponse>("DistributeCoupons", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public GetBillingGroupsResponse GetBillingGroups(GetBillingGroupsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetBillingGroupsResponse> GetBillingGroupsAsync(GetBillingGroupsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetBillingGroupsResponse>("GetBillingGroups", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetUngroupedAccountsResponse GetUngroupedAccounts(GetUngroupedAccountsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetUngroupedAccountsResponse> GetUngroupedAccountsAsync(GetUngroupedAccountsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetUngroupedAccountsResponse>("GetUngroupedAccounts", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public UpdateBillingGroupAccountsResponse UpdateBillingGroupAccounts(UpdateBillingGroupAccountsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateBillingGroupAccountsResponse> UpdateBillingGroupAccountsAsync(UpdateBillingGroupAccountsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateBillingGroupAccountsResponse>("UpdateBillingGroupAccounts", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }

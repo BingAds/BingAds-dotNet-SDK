@@ -854,9 +854,9 @@ public static partial class RestApiGeneration
 
             return type switch
             {
-                "AppDownload" => jsonObj.Deserialize<AppDownloadGoal>(options),
                 "InStoreTransaction" => jsonObj.Deserialize<InStoreTransactionGoal>(options),
                 "OfflineConversion" => jsonObj.Deserialize<OfflineConversionGoal>(options),
+                "AppDownload" => jsonObj.Deserialize<AppDownloadGoal>(options),
                 "AppInstall" => jsonObj.Deserialize<AppInstallGoal>(options),
                 "Event" => jsonObj.Deserialize<EventGoal>(options),
                 "PagesViewedPerVisit" => jsonObj.Deserialize<PagesViewedPerVisitGoal>(options),
@@ -873,14 +873,14 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
-                case AppDownloadGoal appDownloadGoal:
-                    JsonSerializer.Serialize(writer, appDownloadGoal, options);
-                    break;
                 case InStoreTransactionGoal inStoreTransactionGoal:
                     JsonSerializer.Serialize(writer, inStoreTransactionGoal, options);
                     break;
                 case OfflineConversionGoal offlineConversionGoal:
                     JsonSerializer.Serialize(writer, offlineConversionGoal, options);
+                    break;
+                case AppDownloadGoal appDownloadGoal:
+                    JsonSerializer.Serialize(writer, appDownloadGoal, options);
                     break;
                 case AppInstallGoal appInstallGoal:
                     JsonSerializer.Serialize(writer, appInstallGoal, options);
@@ -1519,6 +1519,8 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "ImpressionTrackingSetting" => jsonObj.Deserialize<ImpressionTrackingSetting>(options),
+                "NetworkDistributionSetting" => jsonObj.Deserialize<NetworkDistributionSetting>(options),
                 "AISearchSetting" => jsonObj.Deserialize<AISearchSetting>(options),
                 "BaseDomainSetting" => jsonObj.Deserialize<BaseDomainSetting>(options),
                 "NewCustomerAcquisitionGoalSetting" => jsonObj.Deserialize<NewCustomerAcquisitionGoalSetting>(options),
@@ -1547,6 +1549,12 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case ImpressionTrackingSetting impressionTrackingSetting:
+                    JsonSerializer.Serialize(writer, impressionTrackingSetting, options);
+                    break;
+                case NetworkDistributionSetting networkDistributionSetting:
+                    JsonSerializer.Serialize(writer, networkDistributionSetting, options);
+                    break;
                 case AISearchSetting aISearchSetting:
                     JsonSerializer.Serialize(writer, aISearchSetting, options);
                     break;

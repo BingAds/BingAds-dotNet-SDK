@@ -104,6 +104,7 @@ public static partial class RestApiGeneration
             { typeof(BatchError), static t => CustomizeBatchError(t) },
             { typeof(BillingDocument), static t => CustomizeBillingDocument(t) },
             { typeof(BillingDocumentInfo), static t => CustomizeBillingDocumentInfo(t) },
+            { typeof(BillingGroup), static t => CustomizeBillingGroup(t) },
             { typeof(CheckFeatureAdoptionCouponEligibilityRequest), static t => CustomizeCheckFeatureAdoptionCouponEligibilityRequest(t) },
             { typeof(CheckFeatureAdoptionCouponEligibilityResponse), static t => CustomizeCheckFeatureAdoptionCouponEligibilityResponse(t) },
             { typeof(ClaimFeatureAdoptionCouponsRequest), static t => CustomizeClaimFeatureAdoptionCouponsRequest(t) },
@@ -122,8 +123,12 @@ public static partial class RestApiGeneration
             { typeof(GetBillingDocumentsInfoResponse), static t => CustomizeGetBillingDocumentsInfoResponse(t) },
             { typeof(GetBillingDocumentsRequest), static t => CustomizeGetBillingDocumentsRequest(t) },
             { typeof(GetBillingDocumentsResponse), static t => CustomizeGetBillingDocumentsResponse(t) },
+            { typeof(GetBillingGroupsRequest), static t => CustomizeGetBillingGroupsRequest(t) },
+            { typeof(GetBillingGroupsResponse), static t => CustomizeGetBillingGroupsResponse(t) },
             { typeof(GetCouponInfoRequest), static t => CustomizeGetCouponInfoRequest(t) },
             { typeof(GetCouponInfoResponse), static t => CustomizeGetCouponInfoResponse(t) },
+            { typeof(GetUngroupedAccountsRequest), static t => CustomizeGetUngroupedAccountsRequest(t) },
+            { typeof(GetUngroupedAccountsResponse), static t => CustomizeGetUngroupedAccountsResponse(t) },
             { typeof(InsertionOrder), static t => CustomizeInsertionOrder(t) },
             { typeof(InsertionOrderPendingChanges), static t => CustomizeInsertionOrderPendingChanges(t) },
             { typeof(KeyValueEntityOflongdateTime), static t => CustomizeKeyValueEntityOflongdateTime(t) },
@@ -138,6 +143,9 @@ public static partial class RestApiGeneration
             { typeof(SearchCouponsResponse), static t => CustomizeSearchCouponsResponse(t) },
             { typeof(SearchInsertionOrdersRequest), static t => CustomizeSearchInsertionOrdersRequest(t) },
             { typeof(SearchInsertionOrdersResponse), static t => CustomizeSearchInsertionOrdersResponse(t) },
+            { typeof(UngroupedAccount), static t => CustomizeUngroupedAccount(t) },
+            { typeof(UpdateBillingGroupAccountsRequest), static t => CustomizeUpdateBillingGroupAccountsRequest(t) },
+            { typeof(UpdateBillingGroupAccountsResponse), static t => CustomizeUpdateBillingGroupAccountsResponse(t) },
             { typeof(UpdateInsertionOrderRequest), static t => CustomizeUpdateInsertionOrderRequest(t) },
             { typeof(UpdateInsertionOrderResponse), static t => CustomizeUpdateInsertionOrderResponse(t) }
         };
@@ -319,6 +327,20 @@ public static partial class RestApiGeneration
                     case "DocumentNumber":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeBillingGroup(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
                         break;
                 }
             }
@@ -615,6 +637,38 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetBillingGroupsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetBillingGroupsResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetCouponInfoRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -634,6 +688,38 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeGetCouponInfoResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetUngroupedAccountsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetUngroupedAccountsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
@@ -857,6 +943,52 @@ public static partial class RestApiGeneration
         }
 
         private static void CustomizeSearchInsertionOrdersResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUngroupedAccount(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateBillingGroupAccountsRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateBillingGroupAccountsResponse(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
             {
