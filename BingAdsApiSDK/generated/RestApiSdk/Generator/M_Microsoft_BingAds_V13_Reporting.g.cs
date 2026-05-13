@@ -166,6 +166,10 @@ public static partial class RestApiGeneration
             { typeof(KeywordPerformanceReportFilter), static t => CustomizeKeywordPerformanceReportFilter(t) },
             { typeof(KeywordPerformanceReportRequest), static t => CustomizeKeywordPerformanceReportRequest(t) },
             { typeof(KeywordPerformanceReportSort), static t => CustomizeKeywordPerformanceReportSort(t) },
+            { typeof(MMMPerformanceReportFilter), static t => CustomizeMMMPerformanceReportFilter(t) },
+            { typeof(MMMPerformanceReportRequest), static t => CustomizeMMMPerformanceReportRequest(t) },
+            { typeof(MSClickIdPerformanceReportFilter), static t => CustomizeMSClickIdPerformanceReportFilter(t) },
+            { typeof(MSClickIdPerformanceReportRequest), static t => CustomizeMSClickIdPerformanceReportRequest(t) },
             { typeof(NegativeKeywordConflictReportFilter), static t => CustomizeNegativeKeywordConflictReportFilter(t) },
             { typeof(NegativeKeywordConflictReportRequest), static t => CustomizeNegativeKeywordConflictReportRequest(t) },
             { typeof(OperationError), static t => CustomizeOperationError(t) },
@@ -532,6 +536,17 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "AssetGroupStatus":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
                         break;
                 }
             }
@@ -1323,6 +1338,68 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeMMMPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeMMMPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "MMMPerformanceReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
+        private static void CustomizeMSClickIdPerformanceReportFilter(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeMSClickIdPerformanceReportRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            var newJsonPropertyInfo = jsonTypeInfo.CreateJsonPropertyInfo(typeof(string), "Type");
+            newJsonPropertyInfo.Get = _ => "MSClickIdPerformanceReportRequest";
+            jsonTypeInfo.Properties.Add(newJsonPropertyInfo);
+        }
+
         private static void CustomizeNegativeKeywordConflictReportFilter(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -1752,6 +1829,17 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "AssetGroupStatus":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
                         break;
                 }
             }

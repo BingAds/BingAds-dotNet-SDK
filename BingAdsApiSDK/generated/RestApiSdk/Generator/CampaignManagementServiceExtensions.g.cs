@@ -1003,5 +1003,10 @@ namespace Microsoft.BingAds
         {
             return service.CallAsync((s, r) => s.UpdateLinkedInSegmentsAsync(r), request);
         }
+
+        public static Task<GetUetTagAuthKeyResponse> GetUetTagAuthKeyAsync(this ServiceClient<ICampaignManagementService> service, GetUetTagAuthKeyRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetUetTagAuthKeyAsync(r), request);
+        }
     }
 }

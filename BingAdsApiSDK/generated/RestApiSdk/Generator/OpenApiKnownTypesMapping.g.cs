@@ -244,9 +244,9 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignCriterion), "CampaignCriterion" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.ConversionGoal), new Dictionary<Type, string> {                
-                { typeof(Microsoft.BingAds.V13.CampaignManagement.AppDownloadGoal), "AppDownload" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.InStoreTransactionGoal), "InStoreTransaction" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.OfflineConversionGoal), "OfflineConversion" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AppDownloadGoal), "AppDownload" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AppInstallGoal), "AppInstall" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.EventGoal), "Event" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.PagesViewedPerVisitGoal), "PagesViewedPerVisit" },
@@ -325,6 +325,8 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.RuleItem), "RuleItem" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Setting), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionTrackingSetting), "ImpressionTrackingSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.NetworkDistributionSetting), "NetworkDistributionSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting), "AISearchSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting), "BaseDomainSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NewCustomerAcquisitionGoalSetting), "NewCustomerAcquisitionGoalSetting" },
@@ -399,6 +401,8 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.Reporting.ApplicationFault), "ApplicationFault" } }
             },
             { typeof(Microsoft.BingAds.V13.Reporting.ReportRequest), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.Reporting.MMMPerformanceReportRequest), "MMMPerformanceReportRequest" },
+                { typeof(Microsoft.BingAds.V13.Reporting.MSClickIdPerformanceReportRequest), "MSClickIdPerformanceReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.BidStrategyReportRequest), "BidStrategyReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.TravelQueryInsightReportRequest), "TravelQueryInsightReportRequest" },
                 { typeof(Microsoft.BingAds.V13.Reporting.FeedItemPerformanceReportRequest), "FeedItemPerformanceReportRequest" },

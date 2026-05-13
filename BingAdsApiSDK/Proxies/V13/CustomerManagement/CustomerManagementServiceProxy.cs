@@ -4865,6 +4865,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CustomerLinkPermissionField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClientEntityCustomerNumberField;
+        
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -5230,6 +5233,23 @@ namespace Microsoft.BingAds.V13.CustomerManagement
                 {
                     this.CustomerLinkPermissionField = value;
                     this.RaisePropertyChanged("CustomerLinkPermission");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=21)]
+        public string ClientEntityCustomerNumber
+        {
+            get
+            {
+                return this.ClientEntityCustomerNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ClientEntityCustomerNumberField, value) != true))
+                {
+                    this.ClientEntityCustomerNumberField = value;
+                    this.RaisePropertyChanged("ClientEntityCustomerNumber");
                 }
             }
         }

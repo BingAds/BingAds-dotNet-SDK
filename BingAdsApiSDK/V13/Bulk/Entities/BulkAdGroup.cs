@@ -265,7 +265,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.UseOptimizedTargeting,
-                c => 
+                c =>
                 {
                     if (c.AdGroup.UseOptimizedTargeting.HasValue)
                     {
@@ -275,6 +275,32 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 },
                 (v, c) => c.AdGroup.UseOptimizedTargeting = v.ParseOptional<bool>()
                 ),
+
+            new SimpleBulkMapping<BulkAdGroup>(StringTable.BaseDomain,
+                c =>
+                {
+                    var setting = c.GetSetting(typeof(BaseDomainSetting));
+
+                    if (setting != null)
+                    {
+                        var baseDomainSetting = setting as BaseDomainSetting;
+                        return baseDomainSetting?.BaseDomain;
+                    }
+                    return null;
+                },
+                (v, c) =>
+                {
+                    if (!string.IsNullOrEmpty(v))
+                    {
+                        var baseDomainSetting = new BaseDomainSetting
+                        {
+                            BaseDomain = v.Trim().ToLower(),
+                            Type = "BaseDomainSetting"
+                        };
+                        c.AddSetting(baseDomainSetting);
+                    }
+                }
+            ),
 
             new SimpleBulkMapping<BulkAdGroup>(StringTable.HotelAdGroupType,
                 c =>

@@ -3224,6 +3224,234 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BillingGroup", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class BillingGroup : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long BillingGroupIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long BillingGroupId
+        {
+            get
+            {
+                return this.BillingGroupIdField;
+            }
+            set
+            {
+                if ((this.BillingGroupIdField.Equals(value) != true))
+                {
+                    this.BillingGroupIdField = value;
+                    this.RaisePropertyChanged("BillingGroupId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long CustomerId
+        {
+            get
+            {
+                return this.CustomerIdField;
+            }
+            set
+            {
+                if ((this.CustomerIdField.Equals(value) != true))
+                {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name
+        {
+            get
+            {
+                return this.NameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.NameField, value) != true))
+                {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public string Description
+        {
+            get
+            {
+                return this.DescriptionField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true))
+                {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UngroupedAccount", Namespace="https://bingads.microsoft.com/Customer/v13/Entities")]
+    [System.SerializableAttribute()]
+    public partial class UngroupedAccount : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
+    {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long AccountIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AccountNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.KeyValueEntityOflongstring> PotentialBillingGroupsField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData
+        {
+            get
+            {
+                return this.extensionDataField;
+            }
+            set
+            {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long AccountId
+        {
+            get
+            {
+                return this.AccountIdField;
+            }
+            set
+            {
+                if ((this.AccountIdField.Equals(value) != true))
+                {
+                    this.AccountIdField = value;
+                    this.RaisePropertyChanged("AccountId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AccountNumber
+        {
+            get
+            {
+                return this.AccountNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountNumberField, value) != true))
+                {
+                    this.AccountNumberField = value;
+                    this.RaisePropertyChanged("AccountNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=2)]
+        public string AccountName
+        {
+            get
+            {
+                return this.AccountNameField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.AccountNameField, value) != true))
+                {
+                    this.AccountNameField = value;
+                    this.RaisePropertyChanged("AccountName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.KeyValueEntityOflongstring> PotentialBillingGroups
+        {
+            get
+            {
+                return this.PotentialBillingGroupsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PotentialBillingGroupsField, value) != true))
+                {
+                    this.PotentialBillingGroupsField = value;
+                    this.RaisePropertyChanged("PotentialBillingGroups");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName)
+        {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null))
+            {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", ConfigurationName="Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService", SessionMode=System.ServiceModel.SessionMode.NotAllowed)]
     public interface ICustomerBillingService
@@ -3388,6 +3616,42 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         [System.ServiceModel.OperationContractAttribute(Action="DistributeCoupons", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/DistributeCoupo" +
             "nsResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse> DistributeCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingGroups", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetBillingGroup" +
+            "sResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetBillingGroup" +
+            "sAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetBillingGroup" +
+            "sApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsResponse GetBillingGroups(Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetBillingGroups", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetBillingGroup" +
+            "sResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsResponse> GetBillingGroupsAsync(Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetUngroupedAccounts", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetUngroupedAcc" +
+            "ountsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetUngroupedAcc" +
+            "ountsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetUngroupedAcc" +
+            "ountsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsResponse GetUngroupedAccounts(Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetUngroupedAccounts", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/GetUngroupedAcc" +
+            "ountsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsResponse> GetUngroupedAccountsAsync(Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateBillingGroupAccounts", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/UpdateBillingGr" +
+            "oupAccountsResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.AdApiFaultDetail), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/UpdateBillingGr" +
+            "oupAccountsAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CustomerBilling.ApiFault), Action="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/UpdateBillingGr" +
+            "oupAccountsApiFault", Name="ApiFault")]
+        Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsResponse UpdateBillingGroupAccounts(Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateBillingGroupAccounts", ReplyAction="https://bingads.microsoft.com/Billing/v13/ICustomerBillingService/UpdateBillingGr" +
+            "oupAccountsResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsResponse> UpdateBillingGroupAccountsAsync(Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4284,6 +4548,200 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingGroupsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetBillingGroupsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public long CustomerId;
+        
+        public GetBillingGroupsRequest()
+        {
+        }
+        
+        public GetBillingGroupsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CustomerId = CustomerId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetBillingGroupsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetBillingGroupsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BillingGroup> BillingGroups;
+        
+        public GetBillingGroupsResponse()
+        {
+        }
+        
+        public GetBillingGroupsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.BillingGroup> BillingGroups)
+        {
+            this.TrackingId = TrackingId;
+            this.BillingGroups = BillingGroups;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUngroupedAccountsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetUngroupedAccountsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public long CustomerId;
+        
+        public GetUngroupedAccountsRequest()
+        {
+        }
+        
+        public GetUngroupedAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CustomerId = CustomerId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetUngroupedAccountsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class GetUngroupedAccountsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.UngroupedAccount> UngroupedAccounts;
+        
+        public GetUngroupedAccountsResponse()
+        {
+        }
+        
+        public GetUngroupedAccountsResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.UngroupedAccount> UngroupedAccounts)
+        {
+            this.TrackingId = TrackingId;
+            this.UngroupedAccounts = UngroupedAccounts;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateBillingGroupAccountsRequest", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class UpdateBillingGroupAccountsRequest
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string ApplicationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string AuthenticationToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string DeveloperToken;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string Password;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string UserName;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public long CustomerId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=1)]
+        public long BillingGroupId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=2)]
+        public System.Collections.Generic.IList<long> AccountsToAdd;
+        
+        public UpdateBillingGroupAccountsRequest()
+        {
+        }
+        
+        public UpdateBillingGroupAccountsRequest(string ApplicationToken, string AuthenticationToken, string DeveloperToken, string Password, string UserName, long CustomerId, long BillingGroupId, System.Collections.Generic.IList<long> AccountsToAdd)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.CustomerId = CustomerId;
+            this.BillingGroupId = BillingGroupId;
+            this.AccountsToAdd = AccountsToAdd;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateBillingGroupAccountsResponse", WrapperNamespace="https://bingads.microsoft.com/Billing/v13", IsWrapped=true)]
+    public partial class UpdateBillingGroupAccountsResponse
+    {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/Billing/v13")]
+        public string TrackingId;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/Billing/v13", Order=0)]
+        public System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors;
+        
+        public UpdateBillingGroupAccountsResponse()
+        {
+        }
+        
+        public UpdateBillingGroupAccountsResponse(string TrackingId, System.Collections.Generic.IList<System.Collections.Generic.IList<Microsoft.BingAds.V13.CustomerBilling.OperationError>> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface ICustomerBillingServiceChannel : Microsoft.BingAds.V13.CustomerBilling.ICustomerBillingService, System.ServiceModel.IClientChannel
     {
@@ -4446,6 +4904,36 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsResponse> DistributeCouponsAsync(Microsoft.BingAds.V13.CustomerBilling.DistributeCouponsRequest request)
         {
             return base.Channel.DistributeCouponsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsResponse GetBillingGroups(Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsRequest request)
+        {
+            return base.Channel.GetBillingGroups(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsResponse> GetBillingGroupsAsync(Microsoft.BingAds.V13.CustomerBilling.GetBillingGroupsRequest request)
+        {
+            return base.Channel.GetBillingGroupsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsResponse GetUngroupedAccounts(Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsRequest request)
+        {
+            return base.Channel.GetUngroupedAccounts(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsResponse> GetUngroupedAccountsAsync(Microsoft.BingAds.V13.CustomerBilling.GetUngroupedAccountsRequest request)
+        {
+            return base.Channel.GetUngroupedAccountsAsync(request);
+        }
+        
+        public Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsResponse UpdateBillingGroupAccounts(Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsRequest request)
+        {
+            return base.Channel.UpdateBillingGroupAccounts(request);
+        }
+        
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsResponse> UpdateBillingGroupAccountsAsync(Microsoft.BingAds.V13.CustomerBilling.UpdateBillingGroupAccountsRequest request)
+        {
+            return base.Channel.UpdateBillingGroupAccountsAsync(request);
         }
     }
 }

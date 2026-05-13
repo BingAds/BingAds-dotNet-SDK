@@ -561,6 +561,8 @@ public static partial class RestApiGeneration
             { typeof(GetSupportedClipchampAudioResponse), static t => CustomizeGetSupportedClipchampAudioResponse(t) },
             { typeof(GetSupportedFontsRequest), static t => CustomizeGetSupportedFontsRequest(t) },
             { typeof(GetSupportedFontsResponse), static t => CustomizeGetSupportedFontsResponse(t) },
+            { typeof(GetUetTagAuthKeyRequest), static t => CustomizeGetUetTagAuthKeyRequest(t) },
+            { typeof(GetUetTagAuthKeyResponse), static t => CustomizeGetUetTagAuthKeyResponse(t) },
             { typeof(GetUetTagsByIdsRequest), static t => CustomizeGetUetTagsByIdsRequest(t) },
             { typeof(GetUetTagsByIdsResponse), static t => CustomizeGetUetTagsByIdsResponse(t) },
             { typeof(GetVideosByIdsRequest), static t => CustomizeGetVideosByIdsRequest(t) },
@@ -595,6 +597,7 @@ public static partial class RestApiGeneration
             { typeof(ImportResult), static t => CustomizeImportResult(t) },
             { typeof(ImportSearchAndReplaceForStringProperty), static t => CustomizeImportSearchAndReplaceForStringProperty(t) },
             { typeof(ImpressionBasedRemarketingList), static t => CustomizeImpressionBasedRemarketingList(t) },
+            { typeof(ImpressionTrackingSetting), static t => CustomizeImpressionTrackingSetting(t) },
             { typeof(InheritFromParentBiddingScheme), static t => CustomizeInheritFromParentBiddingScheme(t) },
             { typeof(InMarketAudience), static t => CustomizeInMarketAudience(t) },
             { typeof(InStoreTransactionGoal), static t => CustomizeInStoreTransactionGoal(t) },
@@ -626,6 +629,7 @@ public static partial class RestApiGeneration
             { typeof(NegativeKeyword), static t => CustomizeNegativeKeyword(t) },
             { typeof(NegativeKeywordList), static t => CustomizeNegativeKeywordList(t) },
             { typeof(NegativeSite), static t => CustomizeNegativeSite(t) },
+            { typeof(NetworkDistributionSetting), static t => CustomizeNetworkDistributionSetting(t) },
             { typeof(NewCustomerAcquisitionGoal), static t => CustomizeNewCustomerAcquisitionGoal(t) },
             { typeof(NewCustomerAcquisitionGoalSetting), static t => CustomizeNewCustomerAcquisitionGoalSetting(t) },
             { typeof(NumberRuleItem), static t => CustomizeNumberRuleItem(t) },
@@ -3947,6 +3951,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => !EqualityComparer<bool>.Default.Equals(default, (bool)value);
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "MarketingObjective":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "MultimediaAdsBidAdjustment":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -6402,10 +6410,6 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
-                    case "ExperimentArms":
-                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
-                        jsonPropertyInfo.IsRequired = false;
-                        break;
                     case "ExperimentSubType":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -9284,6 +9288,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeGetUetTagAuthKeyRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeGetUetTagAuthKeyResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeGetUetTagsByIdsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -9410,6 +9448,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "ImageAssetAutomationOptOut":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "ImportNCAGoalWithSystemGeneratedAudience":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
@@ -10105,6 +10147,34 @@ public static partial class RestApiGeneration
                         break;
                     case "Type":
                         jsonPropertyInfo.Get = _ => AudienceType.ImpressionBasedRemarketingList;
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeImpressionTrackingSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ImpressionTrackingUrl":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "ImpressionTrackingSetting";
                         break;
                 }
             }
@@ -10814,6 +10884,34 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "NegativeSite";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeNetworkDistributionSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "NetworkOption":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "NetworkDistributionSetting";
                         break;
                 }
             }
@@ -12279,7 +12377,15 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "IsExclusion":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "SharedEntityCustomerId":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "Status":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;

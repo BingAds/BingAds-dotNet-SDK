@@ -1964,5 +1964,15 @@ namespace Microsoft.BingAds.Internal
         {
             return _restServiceClient.CallServiceAsync<UpdateLinkedInSegmentsResponse>("UpdateLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
+
+        public GetUetTagAuthKeyResponse GetUetTagAuthKey(GetUetTagAuthKeyRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetUetTagAuthKeyResponse> GetUetTagAuthKeyAsync(GetUetTagAuthKeyRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetUetTagAuthKeyResponse>("GetUetTagAuthKey", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
     }
 }
