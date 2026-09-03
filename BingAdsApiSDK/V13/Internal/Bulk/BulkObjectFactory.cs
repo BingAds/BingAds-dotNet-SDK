@@ -65,6 +65,7 @@ using BulkAdGroup = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroup;
 using BulkAdGroupActionAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupActionAdExtension;
 using BulkAdGroupAppAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupAppAdExtension;
 using BulkAdGroupCalloutAdExtension = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupCalloutAdExtension;
+using BulkAdGroupAIPromptAssociation = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupAIPromptAssociation;
 using BulkAdGroupCustomAudienceAssociation = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupCustomAudienceAssociation;
 using BulkAdGroupDynamicSearchAdTarget = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupDynamicSearchAdTarget;
 using BulkAdGroupUrlTarget = Microsoft.BingAds.V13.Bulk.Entities.BulkAdGroupUrlTarget;
@@ -262,6 +263,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignNegativeCustomAudienceAssociation, new EntityInfo(() => new BulkCampaignNegativeCustomAudienceAssociation())},
                 {StringTable.InMarketAudience,               new EntityInfo(() => new BulkInMarketAudience())},
                 {StringTable.AdGroupInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupInMarketAudienceAssociation())},
+                {StringTable.AdGroupAIPromptAssociation, new EntityInfo(() => new BulkAdGroupAIPromptAssociation())},
                 {StringTable.AdGroupNegativeInMarketAudienceAssociation, new EntityInfo(() => new BulkAdGroupNegativeInMarketAudienceAssociation())},
                 {StringTable.CampaignInMarketAudienceAssociation, new EntityInfo(() => new BulkCampaignInMarketAudienceAssociation())},
                 {StringTable.CampaignNegativeInMarketAudienceAssociation, new EntityInfo(() => new BulkCampaignNegativeInMarketAudienceAssociation())},

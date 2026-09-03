@@ -20899,6 +20899,9 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SubChannel = 34,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HeadlineSource = 35,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

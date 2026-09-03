@@ -1766,6 +1766,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         NGN = 92,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        RON = 93,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

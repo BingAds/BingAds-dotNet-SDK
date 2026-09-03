@@ -705,6 +705,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CampaignNegativeCustomAudienceAssociation = "Campaign Negative Custom Audience Association";
         public const string InMarketAudience = "In Market Audience";
         public const string AdGroupInMarketAudienceAssociation = "Ad Group In Market Audience Association";
+        public const string AdGroupAIPromptAssociation = "Ad Group AI Prompt Association";
         public const string AdGroupNegativeInMarketAudienceAssociation = "Ad Group Negative In Market Audience Association";
         public const string CampaignInMarketAudienceAssociation = "Campaign In Market Audience Association";
         public const string CampaignNegativeInMarketAudienceAssociation = "Campaign Negative In Market Audience Association";

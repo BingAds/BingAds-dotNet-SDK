@@ -254,6 +254,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ConversionGoal), "ConversionGoal" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Criterion), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.ChannelPlacementCriterion), "ChannelPlacementCriterion" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.TopicCriterion), "TopicCriterion" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.PlacementCriterion), "PlacementCriterion" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.GenreCriterion), "GenreCriterion" },
@@ -325,6 +326,11 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.RuleItem), "RuleItem" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Setting), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignPageFeedSetting), "CampaignPageFeedSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.UnifiedAutomationSetting), "UnifiedAutomationSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignFrequencyCapSetting), "CampaignFrequencyCapSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.ReachOptimizationGoalSetting), "ReachOptimizationGoalSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionTrackingSetting), "ImpressionTrackingSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NetworkDistributionSetting), "NetworkDistributionSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting), "AISearchSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting), "BaseDomainSetting" },

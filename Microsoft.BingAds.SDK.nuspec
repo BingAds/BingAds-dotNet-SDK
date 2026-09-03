@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.29</version>
+        <version>13.0.29.1</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -13,13 +13,17 @@
 		<readme>docs\README.md</readme>
         <summary />
         <releaseNotes>API Updates:
-* Update Bing Ads API Version 13 service proxies to reflect recent interface changes. For details please see the [Bing Ads API Release Notes](https://learn.microsoft.com/en-us/advertising/guides/release-notes?view=bingads-13).
-* New criterion type in Campaign Management Service: CustomLinkedInCriterion (LinkedIn segment targeting).
-* New report in Reporting Service: SearchTermLandingPageReport.
+* Refresh the Bing Ads API Version 13 Campaign Management, Customer Management, and Reporting service proxies.
+* Add Objective Based campaign support and related campaign fields.
+* Add AssetGroupId keyword support with optional AdGroupId requests and the GetKeywordsByAssetGroupId operation.
+* Add the GetLinkedInSegments and GetCompanyListDetails operations.
+* Add UnifiedCampaignFields while preserving the existing PageFeedInAISearchSettings flag value.
+* Add RON currency support in Customer Management.
+* Add the HeadlineSource report column in Reporting.
 
-Bulk Mapping Updates:
-* Add DownloadEntity.AssetGroupNegativeKeywords.
-* Add bulk mappings: BulkAdGroupUrlTarget and BulkCampaignNegativeDeviceCriterion.</releaseNotes>
+Bulk API Updates:
+* Add CompanyList, CompanyItem, AdGroupUrlTargets, and AdGroupAIPromptAssociations download selectors.
+* Add BulkAdGroupAIPromptAssociation and align BulkAdGroupUrlTarget with its supported fields.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

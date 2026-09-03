@@ -698,6 +698,18 @@ namespace Microsoft.BingAds.V13.Bulk
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AssetGroupNegativeKeywords = 201,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyList = 202,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        CompanyItem = 203,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupUrlTargets = 204,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdGroupAIPromptAssociations = 205,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

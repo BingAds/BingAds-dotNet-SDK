@@ -345,6 +345,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<GetKeywordsByAdGroupIdResponse>("GetKeywordsByAdGroupId", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public GetKeywordsByAssetGroupIdResponse GetKeywordsByAssetGroupId(GetKeywordsByAssetGroupIdRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetKeywordsByAssetGroupIdResponse> GetKeywordsByAssetGroupIdAsync(GetKeywordsByAssetGroupIdRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetKeywordsByAssetGroupIdResponse>("GetKeywordsByAssetGroupId", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public UpdateKeywordsResponse UpdateKeywords(UpdateKeywordsRequest request)
         {
             throw new NotImplementedException();
@@ -1963,6 +1973,26 @@ namespace Microsoft.BingAds.Internal
         public Task<UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(UpdateLinkedInSegmentsRequest request)
         {
             return _restServiceClient.CallServiceAsync<UpdateLinkedInSegmentsResponse>("UpdateLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetLinkedInSegmentsResponse GetLinkedInSegments(GetLinkedInSegmentsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetLinkedInSegmentsResponse> GetLinkedInSegmentsAsync(GetLinkedInSegmentsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetLinkedInSegmentsResponse>("GetLinkedInSegments", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
+        public GetCompanyListDetailsResponse GetCompanyListDetails(GetCompanyListDetailsRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<GetCompanyListDetailsResponse> GetCompanyListDetailsAsync(GetCompanyListDetailsRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<GetCompanyListDetailsResponse>("GetCompanyListDetails", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
         public GetUetTagAuthKeyResponse GetUetTagAuthKey(GetUetTagAuthKeyRequest request)

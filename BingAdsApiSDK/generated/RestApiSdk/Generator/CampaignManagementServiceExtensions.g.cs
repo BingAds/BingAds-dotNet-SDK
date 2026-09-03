@@ -194,6 +194,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.GetKeywordsByAdGroupIdAsync(r), request);
         }
 
+        public static Task<GetKeywordsByAssetGroupIdResponse> GetKeywordsByAssetGroupIdAsync(this ServiceClient<ICampaignManagementService> service, GetKeywordsByAssetGroupIdRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetKeywordsByAssetGroupIdAsync(r), request);
+        }
+
         public static Task<UpdateKeywordsResponse> UpdateKeywordsAsync(this ServiceClient<ICampaignManagementService> service, UpdateKeywordsRequest request)
         {
             return service.CallAsync((s, r) => s.UpdateKeywordsAsync(r), request);
@@ -1002,6 +1007,16 @@ namespace Microsoft.BingAds
         public static Task<UpdateLinkedInSegmentsResponse> UpdateLinkedInSegmentsAsync(this ServiceClient<ICampaignManagementService> service, UpdateLinkedInSegmentsRequest request)
         {
             return service.CallAsync((s, r) => s.UpdateLinkedInSegmentsAsync(r), request);
+        }
+
+        public static Task<GetLinkedInSegmentsResponse> GetLinkedInSegmentsAsync(this ServiceClient<ICampaignManagementService> service, GetLinkedInSegmentsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetLinkedInSegmentsAsync(r), request);
+        }
+
+        public static Task<GetCompanyListDetailsResponse> GetCompanyListDetailsAsync(this ServiceClient<ICampaignManagementService> service, GetCompanyListDetailsRequest request)
+        {
+            return service.CallAsync((s, r) => s.GetCompanyListDetailsAsync(r), request);
         }
 
         public static Task<GetUetTagAuthKeyResponse> GetUetTagAuthKeyAsync(this ServiceClient<ICampaignManagementService> service, GetUetTagAuthKeyRequest request)

@@ -925,6 +925,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "ChannelPlacementCriterion" => jsonObj.Deserialize<ChannelPlacementCriterion>(options),
                 "TopicCriterion" => jsonObj.Deserialize<TopicCriterion>(options),
                 "PlacementCriterion" => jsonObj.Deserialize<PlacementCriterion>(options),
                 "GenreCriterion" => jsonObj.Deserialize<GenreCriterion>(options),
@@ -960,6 +961,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case ChannelPlacementCriterion channelPlacementCriterion:
+                    JsonSerializer.Serialize(writer, channelPlacementCriterion, options);
+                    break;
                 case TopicCriterion topicCriterion:
                     JsonSerializer.Serialize(writer, topicCriterion, options);
                     break;
@@ -1519,6 +1523,11 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "CampaignPageFeedSetting" => jsonObj.Deserialize<CampaignPageFeedSetting>(options),
+                "UnifiedAutomationSetting" => jsonObj.Deserialize<UnifiedAutomationSetting>(options),
+                "CampaignFrequencyCapSetting" => jsonObj.Deserialize<CampaignFrequencyCapSetting>(options),
+                "ReachOptimizationGoalSetting" => jsonObj.Deserialize<ReachOptimizationGoalSetting>(options),
+                "ImpressionTrackingSetting" => jsonObj.Deserialize<ImpressionTrackingSetting>(options),
                 "NetworkDistributionSetting" => jsonObj.Deserialize<NetworkDistributionSetting>(options),
                 "AISearchSetting" => jsonObj.Deserialize<AISearchSetting>(options),
                 "BaseDomainSetting" => jsonObj.Deserialize<BaseDomainSetting>(options),
@@ -1548,6 +1557,21 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case CampaignPageFeedSetting campaignPageFeedSetting:
+                    JsonSerializer.Serialize(writer, campaignPageFeedSetting, options);
+                    break;
+                case UnifiedAutomationSetting unifiedAutomationSetting:
+                    JsonSerializer.Serialize(writer, unifiedAutomationSetting, options);
+                    break;
+                case CampaignFrequencyCapSetting campaignFrequencyCapSetting:
+                    JsonSerializer.Serialize(writer, campaignFrequencyCapSetting, options);
+                    break;
+                case ReachOptimizationGoalSetting reachOptimizationGoalSetting:
+                    JsonSerializer.Serialize(writer, reachOptimizationGoalSetting, options);
+                    break;
+                case ImpressionTrackingSetting impressionTrackingSetting:
+                    JsonSerializer.Serialize(writer, impressionTrackingSetting, options);
+                    break;
                 case NetworkDistributionSetting networkDistributionSetting:
                     JsonSerializer.Serialize(writer, networkDistributionSetting, options);
                     break;

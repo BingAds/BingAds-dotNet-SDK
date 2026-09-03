@@ -56,9 +56,9 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
     /// <para>
-    /// Represents an Ad Group Url Target (AIMax URL Inclusions) that can be read or written in a bulk file. It is the AI Max counterpart of the Ad Group Dynamic Search Ad Target record and shares the same BiddableAdGroupCriterion shape, differing only in the record-type label and the webpage-condition column headers (Ad Group Url Target Condition/Value/Operator N). 
+    /// Represents an Ad Group Url Target (AI Max URL Inclusions) that can be read or written in a bulk file. The underlying campaign management entity is a BiddableAdGroupCriterion; however, Ad Group Url Target records inherit bidding from their parent and do not read or write CriterionBid or the bulk Bid column. They use dedicated Ad Group Url Target Condition, Value, and Operator columns.
     /// </para>
-    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Dynamic Search Ad Target</see> </para>
+    /// <para>For more information, see <see href="https://go.microsoft.com/fwlink/?linkid=846127">Ad Group Url Target</see> </para>
     /// </summary>
     /// <seealso cref="BulkServiceManager"/>
     /// <seealso cref="BulkOperation{TStatus}"/>
@@ -110,70 +110,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.AdGroupName = v
             ),
            
-            new SimpleBulkMapping<BulkAdGroupUrlTarget>(StringTable.Bid,
-                c =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        var fixedBid = c.BiddableAdGroupCriterion.CriterionBid as FixedBid;
-
-                        if (fixedBid == null)
-                        {
-                            return null;
-                        }
-
-                        return fixedBid.ToAdGroupCriterionFixedBidBulkString();
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        c.BiddableAdGroupCriterion.CriterionBid = v.ParseAdGroupCriterionFixedBid();
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupUrlTarget>(StringTable.TrackingTemplate,
-                c =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        return c.BiddableAdGroupCriterion.TrackingUrlTemplate.ToOptionalBulkString(c.BiddableAdGroupCriterion.Id);
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        c.BiddableAdGroupCriterion.TrackingUrlTemplate = v.GetValueOrEmptyString();
-                    }
-                }
-            ),
-
-            new SimpleBulkMapping<BulkAdGroupUrlTarget>(StringTable.CustomParameter,
-                c =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        return c.BiddableAdGroupCriterion.UrlCustomParameters.ToBulkString(c.BiddableAdGroupCriterion.Id);
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    if (c.BiddableAdGroupCriterion != null)
-                    {
-                        c.BiddableAdGroupCriterion.UrlCustomParameters = v.ParseCustomParameters();
-                    }
-                }
-            ),
-
             new ComplexBulkMapping<BulkAdGroupUrlTarget>(
                 (c, v) =>
                 {
@@ -228,28 +164,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                     }
                 }
             ),
-            new SimpleBulkMapping<BulkAdGroupUrlTarget>(StringTable.FinalUrlSuffix,
-                c =>
-                {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        return criterion.FinalUrlSuffix.ToOptionalBulkString(criterion.Id);
-                    }
-
-                    return null;
-                },
-                (v, c) =>
-                {
-                    var criterion = c.BiddableAdGroupCriterion as BiddableAdGroupCriterion;
-
-                    if (criterion != null)
-                    {
-                        criterion.FinalUrlSuffix = v.GetValueOrEmptyString();
-                    }
-                }
-            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
@@ -268,10 +182,6 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 {
                     Parameter = new WebpageParameter(),
                     Type = typeof(Webpage).Name,
-                },
-                CriterionBid = new FixedBid
-                {
-                    Type = typeof(FixedBid).Name,
                 },
                 Type = typeof(BiddableAdGroupCriterion).Name
             };
