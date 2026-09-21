@@ -47,60 +47,59 @@
 //  fitness for a particular purpose and non-infringement.
 //=====================================================================================================================================================
 
-using Microsoft.BingAds.Internal;
-using System;
+using Microsoft.BingAds.V13.CampaignManagement;
+using Microsoft.BingAds.V13.Internal.Bulk;
+using Microsoft.BingAds.V13.Internal.Bulk.Entities;
+using Microsoft.BingAds.V13.Internal.Bulk.Mappings;
 
-namespace Microsoft.BingAds
+namespace Microsoft.BingAds.V13.Bulk.Entities
 {
     /// <summary>
-    /// Represents a user who intends to access the corresponding customer and account.
-    /// An instance of this class is required to authenticate with Bing Ads if you are using either
-    /// <see cref="ServiceClient{TService}"/>.
+    /// Represents a company item that can be read or written in a bulk file.
     /// </summary>
-    public class AuthorizationData
+    public class BulkCompanyItem : SingleRecordBulkEntity
     {
         /// <summary>
-        /// An object representing the authentication method that should be used in calls to the Bing Ads web services.
+        /// The identifier of the company list that contains the company item.
+        /// Corresponds to the 'Parent Id' field in the bulk file.
         /// </summary>
-        /// <seealso cref="OAuthDesktopMobileAuthCodeGrant"/>
-        /// <seealso cref="OAuthDesktopMobileImplicitGrant"/>
-        /// <seealso cref="OAuthWebAuthCodeGrant"/>
-        /// <seealso cref="PasswordAuthentication"/>
-        public Authentication Authentication { get; set; }
+        public long? CompanyListId { get; set; }
 
         /// <summary>
-        /// The identifier of the account that owns the entities in the request. Used as the CustomerAccountId header and the AccountId body elements in calls to the Bing Ads web services.
+        /// The company item.
         /// </summary>
-        public long AccountId { get; set; }
+        public CompanyName CompanyItem { get; set; }
 
-        /// <summary>
-        /// The identifier of the customer that owns the account. Used as the CustomerId header element in calls to the Bing Ads web services.
-        /// </summary>
-        public long CustomerId { get; set; }
-
-        /// <summary>
-        /// The Bing Ads developer access token. Used as the DeveloperToken header element in calls to the Bing Ads web services.
-        /// </summary>
-        public string DeveloperToken { get; set; }
-
-        /// <summary>
-        /// The revision date this SDK was built against, sent as the Api-Revision HTTP header on every outgoing
-        /// request. Update in the same PR that bumps the SDK version. Customers who want to pin to a different
-        /// revision must call the API over raw HTTP (no generated SDK proxy) and set the header themselves.
-        /// </summary>
-        public static readonly string SdkApiRevision = "2026-09-14";
-
-        internal void Validate()
+        private static readonly IBulkMapping<BulkCompanyItem>[] Mappings =
         {
-            if (Authentication == null)
-            {
-                throw new InvalidOperationException(ErrorMessages.UserDataAuthenticationIsNull);
-            }
+            new SimpleBulkMapping<BulkCompanyItem>(StringTable.Status,
+                c => c.CompanyItem.Status.ToBulkString(),
+                (v, c) => c.CompanyItem.Status = v.ParseOptional<CompanyNameStatus>()
+            ),
+            new SimpleBulkMapping<BulkCompanyItem>(StringTable.Id,
+                c => c.CompanyItem.Id.ToBulkString(),
+                (v, c) => c.CompanyItem.Id = v.ParseOptional<long>()
+            ),
+            new SimpleBulkMapping<BulkCompanyItem>(StringTable.ParentId,
+                c => c.CompanyListId.ToBulkString(),
+                (v, c) => c.CompanyListId = v.ParseOptional<long>()
+            ),
+            new SimpleBulkMapping<BulkCompanyItem>(StringTable.CompanyName,
+                c => c.CompanyItem.Name,
+                (v, c) => c.CompanyItem.Name = v
+            ),
+        };
 
-            if (DeveloperToken == null)
-            {
-                throw new InvalidOperationException(ErrorMessages.UserDataDeveloperTokenIsNull);
-            }
+        internal override void ProcessMappingsFromRowValues(RowValues values)
+        {
+            CompanyItem = new CompanyName();
+            values.ConvertToEntity(this, Mappings);
+        }
+
+        internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
+        {
+            ValidatePropertyNotNull(CompanyItem, nameof(CompanyItem));
+            this.ConvertToValues(values, Mappings);
         }
     }
 }

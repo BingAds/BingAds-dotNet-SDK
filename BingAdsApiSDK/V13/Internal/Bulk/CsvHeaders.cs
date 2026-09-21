@@ -151,6 +151,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.CashbackAdjustment,
             StringTable.RadiusTargetId,
             StringTable.Name,
+            StringTable.CompanyName,
+            StringTable.AudienceSize,
             StringTable.OsNames,
             StringTable.Radius,
             StringTable.Unit,

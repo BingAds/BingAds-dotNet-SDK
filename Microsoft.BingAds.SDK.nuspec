@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.29.1</version>
+        <version>13.0.30</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -13,17 +13,14 @@
 		<readme>docs\README.md</readme>
         <summary />
         <releaseNotes>API Updates:
-* Refresh the Bing Ads API Version 13 Campaign Management, Customer Management, and Reporting service proxies.
-* Add Objective Based campaign support and related campaign fields.
-* Add AssetGroupId keyword support with optional AdGroupId requests and the GetKeywordsByAssetGroupId operation.
-* Add the GetLinkedInSegments and GetCompanyListDetails operations.
-* Add UnifiedCampaignFields while preserving the existing PageFeedInAISearchSettings flag value.
-* Add RON currency support in Customer Management.
-* Add the HeadlineSource report column in Reporting.
+* Refresh the Bing Ads API Version 13 Campaign Management and Reporting service proxies and generated REST serialization support.
+* Add BrandExclusionSetting and its ProductAdsOptOut property while preserving published CampaignAdditionalField flag values.
+* Add the JobTitle campaign criterion type and Google import UpdateNCASettings support.
+* Add AssetGroupId and AdId columns to the Asset Performance report.
+* Update the SDK Api-Revision header to 2026-09-14.
 
 Bulk API Updates:
-* Add CompanyList, CompanyItem, AdGroupUrlTargets, and AdGroupAIPromptAssociations download selectors.
-* Add BulkAdGroupAIPromptAssociation and align BulkAdGroupUrlTarget with its supported fields.</releaseNotes>
+* Add BulkCompanyList and BulkCompanyItem entities with Company Name and Audience Size CSV mappings and bulk factory support.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

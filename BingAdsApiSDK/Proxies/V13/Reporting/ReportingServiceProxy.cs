@@ -19237,6 +19237,12 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         SubChannel = 25,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AssetGroupId = 26,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AdId = 27,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

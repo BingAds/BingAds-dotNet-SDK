@@ -331,6 +331,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignFrequencyCapSetting), "CampaignFrequencyCapSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ReachOptimizationGoalSetting), "ReachOptimizationGoalSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionTrackingSetting), "ImpressionTrackingSetting" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.BrandExclusionSetting), "BrandExclusionSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.NetworkDistributionSetting), "NetworkDistributionSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting), "AISearchSetting" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting), "BaseDomainSetting" },
