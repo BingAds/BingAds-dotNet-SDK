@@ -279,6 +279,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
                 {StringTable.CampaignNegativeCombinedListAssociation, new EntityInfo(() => new BulkCampaignNegativeCombinedListAssociation())},
                 {StringTable.CustomerList,               new EntityInfo(() => new BulkCustomerList())},
                 {StringTable.CustomerListItem,               new EntityInfo(() => new BulkCustomerListItem())},
+                {StringTable.CompanyList,                new EntityInfo(() => new BulkCompanyList())},
+                {StringTable.CompanyItem,                new EntityInfo(() => new BulkCompanyItem())},
                 {StringTable.AdGroupCustomerListAssociation, new EntityInfo(() => new BulkAdGroupCustomerListAssociation())},
                 {StringTable.AdGroupNegativeCustomerListAssociation, new EntityInfo(() => new BulkAdGroupNegativeCustomerListAssociation())},
                 {StringTable.CampaignCustomerListAssociation, new EntityInfo(() => new BulkCampaignCustomerListAssociation())},

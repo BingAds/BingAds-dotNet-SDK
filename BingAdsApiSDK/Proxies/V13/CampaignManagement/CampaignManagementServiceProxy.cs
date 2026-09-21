@@ -1137,6 +1137,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.BaseDomainSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AISearchSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.NetworkDistributionSetting))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.BrandExclusionSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionTrackingSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ReachOptimizationGoalSetting))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CampaignFrequencyCapSetting))]
@@ -3254,6 +3255,34 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="BrandExclusionSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class BrandExclusionSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> ProductAdsOptOutField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> ProductAdsOptOut
+        {
+            get
+            {
+                return this.ProductAdsOptOutField;
+            }
+            set
+            {
+                if ((this.ProductAdsOptOutField.Equals(value) != true))
+                {
+                    this.ProductAdsOptOutField = value;
+                    this.RaisePropertyChanged("ProductAdsOptOut");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImpressionTrackingSetting", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     [System.SerializableAttribute()]
     public partial class ImpressionTrackingSetting : Microsoft.BingAds.V13.CampaignManagement.Setting
@@ -4636,10 +4665,13 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         NetworkDistributionSetting = 68719476736,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
+        PageFeedInAISearchSettings = 137438953472,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
         UnifiedCampaignFields = 274877906944,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        PageFeedInAISearchSettings = 137438953472,
+        BrandExclusionSetting = 549755813888,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18985,6 +19017,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLinkedIn = 33554432,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        JobTitle = 67108864,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -27249,6 +27284,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Nullable<bool> UpdateLogoAdExtensionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> UpdateNCASettingsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<bool> UpdateNegativeKeywordListsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -29067,6 +29105,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<bool> UpdateNCASettings
+        {
+            get
+            {
+                return this.UpdateNCASettingsField;
+            }
+            set
+            {
+                if ((this.UpdateNCASettingsField.Equals(value) != true))
+                {
+                    this.UpdateNCASettingsField = value;
+                    this.RaisePropertyChanged("UpdateNCASettings");
+                }
+            }
+        }
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<bool> UpdateNegativeKeywordLists
         {
@@ -29659,6 +29714,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         ImportNCASettings = 549755813888,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UpdateNCASettings = 1099511627776,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

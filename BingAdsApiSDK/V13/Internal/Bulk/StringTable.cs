@@ -738,6 +738,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string CombinationRule = "Combination Rule";
         public const string CustomerList = "Customer List";
         public const string CustomerListItem = "Customer List Item";
+        public const string CompanyList = "Company List";
+        public const string CompanyItem = "Company Item";
+        public const string CompanyName = "Company Name";
+        public const string AudienceSize = "Audience Size";
         public const string AdGroupCustomerListAssociation = "Ad Group Customer List Association";
         public const string AdGroupNegativeCustomerListAssociation = "Ad Group Negative Customer List Association";
         public const string CampaignCustomerListAssociation = "Campaign Customer List Association";

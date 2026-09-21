@@ -1528,6 +1528,7 @@ public static partial class RestApiGeneration
                 "CampaignFrequencyCapSetting" => jsonObj.Deserialize<CampaignFrequencyCapSetting>(options),
                 "ReachOptimizationGoalSetting" => jsonObj.Deserialize<ReachOptimizationGoalSetting>(options),
                 "ImpressionTrackingSetting" => jsonObj.Deserialize<ImpressionTrackingSetting>(options),
+                "BrandExclusionSetting" => jsonObj.Deserialize<BrandExclusionSetting>(options),
                 "NetworkDistributionSetting" => jsonObj.Deserialize<NetworkDistributionSetting>(options),
                 "AISearchSetting" => jsonObj.Deserialize<AISearchSetting>(options),
                 "BaseDomainSetting" => jsonObj.Deserialize<BaseDomainSetting>(options),
@@ -1571,6 +1572,9 @@ public static partial class RestApiGeneration
                     break;
                 case ImpressionTrackingSetting impressionTrackingSetting:
                     JsonSerializer.Serialize(writer, impressionTrackingSetting, options);
+                    break;
+                case BrandExclusionSetting brandExclusionSetting:
+                    JsonSerializer.Serialize(writer, brandExclusionSetting, options);
                     break;
                 case NetworkDistributionSetting networkDistributionSetting:
                     JsonSerializer.Serialize(writer, networkDistributionSetting, options);

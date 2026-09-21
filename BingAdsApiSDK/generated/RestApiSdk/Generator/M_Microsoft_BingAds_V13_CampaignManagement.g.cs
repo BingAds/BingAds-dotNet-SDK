@@ -250,6 +250,7 @@ public static partial class RestApiGeneration
             { typeof(BidMultiplier), static t => CustomizeBidMultiplier(t) },
             { typeof(BidStrategy), static t => CustomizeBidStrategy(t) },
             { typeof(BMCStore), static t => CustomizeBMCStore(t) },
+            { typeof(BrandExclusionSetting), static t => CustomizeBrandExclusionSetting(t) },
             { typeof(BrandItem), static t => CustomizeBrandItem(t) },
             { typeof(BrandKit), static t => CustomizeBrandKit(t) },
             { typeof(BrandKitColor), static t => CustomizeBrandKitColor(t) },
@@ -3680,6 +3681,30 @@ public static partial class RestApiGeneration
                     case "StoreUrl":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeBrandExclusionSetting(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "BrandExclusionSetting";
                         break;
                 }
             }
@@ -9833,6 +9858,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "UpdateLogoAdExtensions":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "UpdateNCASettings":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
