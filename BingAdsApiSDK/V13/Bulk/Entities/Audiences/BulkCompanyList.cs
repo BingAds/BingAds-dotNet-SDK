@@ -76,11 +76,28 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public CompanyList CompanyList { get; set; }
 
+        /// <summary>
+        /// The bulk upload status (Active or Deleted). Only this property is written to 'Status'.
+        /// Downloaded processing status is available on <see cref="CompanyList"/>.
+        /// The service currently uses the same CSV column for both kinds of status.
+        /// </summary>
+        public Status? Status { get; set; }
+
         private static readonly IBulkMapping<BulkCompanyList>[] Mappings =
         {
             new SimpleBulkMapping<BulkCompanyList>(StringTable.Status,
-                c => c.CompanyList.Status.ToBulkString(),
-                (v, c) => c.CompanyList.Status = v.ParseOptional<LinkedInSegmentStatus>()
+                c => c.Status.ToBulkString(),
+                (v, c) =>
+                {
+                    if (!string.IsNullOrEmpty(v) && Enum.IsDefined(typeof(Status), v))
+                    {
+                        c.Status = v.ParseOptional<Status>();
+                    }
+                    else
+                    {
+                        c.CompanyList.Status = v.ParseOptional<LinkedInSegmentStatus>();
+                    }
+                }
             ),
             new SimpleBulkMapping<BulkCompanyList>(StringTable.Id,
                 c => c.CompanyList.Id.ToBulkString(),
@@ -103,6 +120,7 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
             CompanyList = new CompanyList();
+            Status = null;
             values.ConvertToEntity(this, Mappings);
         }
 
