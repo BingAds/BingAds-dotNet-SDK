@@ -798,6 +798,10 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string SourceUrl = "Source Url";
         public const string AspectRatio = "Aspect Ratio";
         public const string DurationInMillionSeconds = "Duration In Milliseconds";
+        public const string AIDetectedContentWatermarkPolicy = "AI Detected Content Watermark Policy";
+        public const string AdvertiserAILabel = "Advertiser AI Label";
+        public const string SystemAIDetectionSignal = "System AI Detection Signal";
+        public const string AIPromptAudience = "AI Prompt Audience";
 
         // Structured Snippet Ad Extension
         public const string AccountStructuredSnippetAdExtension = "Account Structured Snippet Ad Extension";

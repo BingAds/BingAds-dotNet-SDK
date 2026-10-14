@@ -710,6 +710,9 @@ namespace Microsoft.BingAds.V13.Bulk
 
         [System.Runtime.Serialization.EnumMemberAttribute()]
         AdGroupAIPromptAssociations = 205,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIPromptAudiences = 206,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]

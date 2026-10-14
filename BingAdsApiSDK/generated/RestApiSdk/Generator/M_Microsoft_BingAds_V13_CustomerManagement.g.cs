@@ -419,6 +419,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
+                    case "ParentCustomerNumber":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                 }
             }
         }

@@ -88,7 +88,7 @@ namespace Microsoft.BingAds
         /// request. Update in the same PR that bumps the SDK version. Customers who want to pin to a different
         /// revision must call the API over raw HTTP (no generated SDK proxy) and set the header themselves.
         /// </summary>
-        public static readonly string SdkApiRevision = "2026-09-14";
+        public static readonly string SdkApiRevision = "2026-10-12";
 
         internal void Validate()
         {

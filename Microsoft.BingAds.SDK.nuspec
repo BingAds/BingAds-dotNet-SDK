@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.30</version>
+        <version>13.0.30.1</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -13,14 +13,12 @@
 		<readme>docs\README.md</readme>
         <summary />
         <releaseNotes>API Updates:
-* Refresh the Bing Ads API Version 13 Campaign Management and Reporting service proxies and generated REST serialization support.
-* Add BrandExclusionSetting and its ProductAdsOptOut property while preserving published CampaignAdditionalField flag values.
-* Add the JobTitle campaign criterion type and Google import UpdateNCASettings support.
-* Add AssetGroupId and AdId columns to the Asset Performance report.
-* Update the SDK Api-Revision header to 2026-09-14.
+* Add Advertiser AI labels and system AI detection signals to supported Campaign Management media, including UpdateMedia and TermExclusions support.
+* Expose ParentCustomerNumber in Customer Management account data and Customer Billing additional fields.
 
 Bulk API Updates:
-* Add BulkCompanyList and BulkCompanyItem entities with Company Name and Audience Size CSV mappings and bulk factory support.</releaseNotes>
+* Add AI Prompt Audience bulk download and deletion support.
+* Add Advertiser AI Label and System AI Detection Signal columns for images and videos, and AI Detected Content Watermark Policy for accounts.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

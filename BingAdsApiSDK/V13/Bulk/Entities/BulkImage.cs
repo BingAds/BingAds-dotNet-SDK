@@ -114,6 +114,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public Status? Status { get; set; }
 
+        /// <summary>
+        /// Corresponds to the 'Advertiser AI Label' field in the bulk file.
+        /// </summary>
+        public string AdvertiserAILabel { get; set; }
+
+        /// <summary>
+        /// Corresponds to the read-only 'System AI Detection Signal' field in the bulk file.
+        /// </summary>
+        public string SystemAIDetectionSignal { get; set; }
+
         private static readonly IBulkMapping<BulkImage>[] Mappings =
         {
             new SimpleBulkMapping<BulkImage>(StringTable.Id,
@@ -155,16 +165,34 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 c => c.Width.ToBulkString(),
                 (v, c) => c.Width = v.ParseOptional<int>()
             ),
+
+            new SimpleBulkMapping<BulkImage>(StringTable.AdvertiserAILabel,
+                c => c.AdvertiserAILabel,
+                (v, c) => c.AdvertiserAILabel = v
+            ),
+        };
+
+        private static readonly IBulkMapping<BulkImage>[] ReadOnlyMappings =
+        {
+            new SimpleBulkMapping<BulkImage>(StringTable.SystemAIDetectionSignal,
+                c => c.SystemAIDetectionSignal,
+                (v, c) => c.SystemAIDetectionSignal = v
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
+            if (!excludeReadonlyData)
+            {
+                this.ConvertToValues(values, ReadOnlyMappings);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
             values.ConvertToEntity(this, Mappings);
+            values.ConvertToEntity(this, ReadOnlyMappings);
         }
     }
 }

@@ -779,6 +779,8 @@ public static partial class RestApiGeneration
             { typeof(UpdateLabelsResponse), static t => CustomizeUpdateLabelsResponse(t) },
             { typeof(UpdateLinkedInSegmentsRequest), static t => CustomizeUpdateLinkedInSegmentsRequest(t) },
             { typeof(UpdateLinkedInSegmentsResponse), static t => CustomizeUpdateLinkedInSegmentsResponse(t) },
+            { typeof(UpdateMediaRequest), static t => CustomizeUpdateMediaRequest(t) },
+            { typeof(UpdateMediaResponse), static t => CustomizeUpdateMediaResponse(t) },
             { typeof(UpdateNewCustomerAcquisitionGoalsRequest), static t => CustomizeUpdateNewCustomerAcquisitionGoalsRequest(t) },
             { typeof(UpdateNewCustomerAcquisitionGoalsResponse), static t => CustomizeUpdateNewCustomerAcquisitionGoalsResponse(t) },
             { typeof(UpdateSeasonalityAdjustmentsRequest), static t => CustomizeUpdateSeasonalityAdjustmentsRequest(t) },
@@ -4021,6 +4023,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "StartDate":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "TermExclusions":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
@@ -10233,6 +10239,10 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "AdvertiserAILabel":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Text":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -11021,6 +11031,10 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "AdvertiserAILabel":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Text":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -11063,6 +11077,14 @@ public static partial class RestApiGeneration
                 var jsonPropertyInfo = jsonTypeInfo.Properties[i];
                 switch (jsonPropertyInfo.Name)
                 {
+                    case "AdvertiserAILabel":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "SystemAIDetectionSignal":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
                     case "Text":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
@@ -14044,6 +14066,40 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeUpdateMediaRequest(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ApplicationToken":
+                    case "AuthenticationToken":
+                    case "CustomerAccountId":
+                    case "CustomerId":
+                    case "DeveloperToken":
+                    case "Password":
+                    case "UserName":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeUpdateMediaResponse(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "TrackingId":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeUpdateNewCustomerAcquisitionGoalsRequest(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -14323,6 +14379,21 @@ public static partial class RestApiGeneration
                 {
                     case "ExtensionData":
                         jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "AdvertiserAILabel":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "SystemAIDetectionSignal":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
                         break;
                 }
             }

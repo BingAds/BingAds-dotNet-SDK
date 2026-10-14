@@ -79,6 +79,16 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         /// </summary>
         public Video Video { get; set; }
 
+        /// <summary>
+        /// Corresponds to the 'Advertiser AI Label' field in the bulk file.
+        /// </summary>
+        public string AdvertiserAILabel { get; set; }
+
+        /// <summary>
+        /// Corresponds to the read-only 'System AI Detection Signal' field in the bulk file.
+        /// </summary>
+        public string SystemAIDetectionSignal { get; set; }
+
         private static readonly IBulkMapping<BulkVideo>[] Mappings =
         {
             new SimpleBulkMapping<BulkVideo>(StringTable.Id,
@@ -126,18 +136,35 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.Video.DurationInMilliseconds = v.ParseOptional<int>()
             ),
 
+            new SimpleBulkMapping<BulkVideo>(StringTable.AdvertiserAILabel,
+                c => c.AdvertiserAILabel,
+                (v, c) => c.AdvertiserAILabel = v
+            ),
+        };
+
+        private static readonly IBulkMapping<BulkVideo>[] ReadOnlyMappings =
+        {
+            new SimpleBulkMapping<BulkVideo>(StringTable.SystemAIDetectionSignal,
+                c => c.SystemAIDetectionSignal,
+                (v, c) => c.SystemAIDetectionSignal = v
+            ),
         };
 
         internal override void ProcessMappingsToRowValues(RowValues values, bool excludeReadonlyData)
         {
             this.ConvertToValues(values, Mappings);
+            if (!excludeReadonlyData)
+            {
+                this.ConvertToValues(values, ReadOnlyMappings);
+            }
         }
 
         internal override void ProcessMappingsFromRowValues(RowValues values)
         {
             Video = new Video { };
 
-            values.ConvertToEntity(this, Mappings); values.ConvertToEntity(this, Mappings);
+            values.ConvertToEntity(this, Mappings);
+            values.ConvertToEntity(this, ReadOnlyMappings);
         }
     }
 }

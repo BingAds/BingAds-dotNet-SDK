@@ -391,6 +391,8 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.SourceUrl,
             StringTable.AspectRatio,
             StringTable.DurationInMillionSeconds,
+            StringTable.AdvertiserAILabel,
+            StringTable.SystemAIDetectionSignal,
 
             // Callout Ad Extension
             StringTable.CalloutText,
@@ -526,6 +528,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.AutoApplyRecommendations,
             StringTable.AllowImageAutoRetrieve,
             StringTable.BusinessAttributes,
+            StringTable.AIDetectedContentWatermarkPolicy,
             //StringTable.NetflixTCAccepted,
 
             //Final Url Suffix

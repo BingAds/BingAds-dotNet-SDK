@@ -279,6 +279,11 @@ namespace Microsoft.BingAds
             return service.CallAsync((s, r) => s.AddMediaAsync(r), request);
         }
 
+        public static Task<UpdateMediaResponse> UpdateMediaAsync(this ServiceClient<ICampaignManagementService> service, UpdateMediaRequest request)
+        {
+            return service.CallAsync((s, r) => s.UpdateMediaAsync(r), request);
+        }
+
         public static Task<DeleteMediaResponse> DeleteMediaAsync(this ServiceClient<ICampaignManagementService> service, DeleteMediaRequest request)
         {
             return service.CallAsync((s, r) => s.DeleteMediaAsync(r), request);

@@ -135,6 +135,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
         public IList<string> BusinessAttributes { get; set; }
 
         /// <summary>
+        /// Corresponds to the 'AI Detected Content Watermark Policy' field in the bulk file.
+        /// </summary>
+        public string AIDetectedContentWatermarkPolicy { get; set; }
+
+        /// <summary>
         /// Corresponds to the 'Netflix TC Accepted' field in the bulk file. 
         /// </summary>
         //public bool? NetflixTCAccepted { get; set; }
@@ -199,6 +204,11 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
             new SimpleBulkMapping<BulkAccount>(StringTable.BusinessAttributes,
             c => c.BusinessAttributes.WriteBusinessAttributes(";"),
             (v, c) => c.BusinessAttributes = v.ParseBusinessAttributes()
+            ),
+
+            new SimpleBulkMapping<BulkAccount>(StringTable.AIDetectedContentWatermarkPolicy,
+            c => c.AIDetectedContentWatermarkPolicy,
+            (v, c) => c.AIDetectedContentWatermarkPolicy = v
             ),
             /*
             new SimpleBulkMapping<BulkAccount>(StringTable.NetflixTCAccepted,
