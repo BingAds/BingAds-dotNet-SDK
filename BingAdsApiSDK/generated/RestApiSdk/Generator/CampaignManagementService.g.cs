@@ -515,6 +515,16 @@ namespace Microsoft.BingAds.Internal
             return _restServiceClient.CallServiceAsync<AddMediaResponse>("AddMedia", request, _serviceType, (r, t) => { r.TrackingId = t; });
         }
 
+        public UpdateMediaResponse UpdateMedia(UpdateMediaRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<UpdateMediaResponse> UpdateMediaAsync(UpdateMediaRequest request)
+        {
+            return _restServiceClient.CallServiceAsync<UpdateMediaResponse>("UpdateMedia", request, _serviceType, (r, t) => { r.TrackingId = t; });
+        }
+
         public DeleteMediaResponse DeleteMedia(DeleteMediaRequest request)
         {
             throw new NotImplementedException();

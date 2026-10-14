@@ -635,6 +635,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AccountModeField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ParentCustomerNumberField;
+
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData
         {
             get
@@ -1123,6 +1126,23 @@ namespace Microsoft.BingAds.V13.CustomerManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=28)]
+        public string ParentCustomerNumber
+        {
+            get
+            {
+                return this.ParentCustomerNumberField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.ParentCustomerNumberField, value) != true))
+                {
+                    this.ParentCustomerNumberField = value;
+                    this.RaisePropertyChanged("ParentCustomerNumber");
+                }
+            }
+        }
+
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName)
@@ -3935,6 +3955,9 @@ namespace Microsoft.BingAds.V13.CustomerManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClaimInfo = 4,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ParentCustomerNumber = 8,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

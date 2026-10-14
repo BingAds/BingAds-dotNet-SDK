@@ -146,6 +146,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string SubTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> TermExclusionsField;
+
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TimeZoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -595,6 +598,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> TermExclusions
+        {
+            get
+            {
+                return this.TermExclusionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.TermExclusionsField, value) != true))
+                {
+                    this.TermExclusionsField = value;
+                    this.RaisePropertyChanged("TermExclusions");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string TimeZone
         {
@@ -663,7 +683,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=28)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=29)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -680,7 +700,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=29)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=30)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -697,7 +717,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=30)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=31)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -714,7 +734,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=31)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=32)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -731,7 +751,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=32)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=33)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -748,7 +768,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=33)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=34)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -14142,6 +14162,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabelField;
+
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<long> IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -14165,6 +14188,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabel
+        {
+            get
+            {
+                return this.AdvertiserAILabelField;
+            }
+            set
+            {
+                if ((this.AdvertiserAILabelField.Equals(value) != true))
+                {
+                    this.AdvertiserAILabelField = value;
+                    this.RaisePropertyChanged("AdvertiserAILabel");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<long> Id
         {
@@ -14274,6 +14314,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AdvertiserAILabel", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum AdvertiserAILabel : byte
+    {
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotSupportedForGivenRevision = 0,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIWithVisibleWatermark = 1,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIContent = 2,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoAIContent = 3,
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.FlagsAttribute()]
     [System.Runtime.Serialization.DataContractAttribute(Name="MediaEnabledEntityFilter", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
     public enum MediaEnabledEntityFilter : int
@@ -14378,6 +14436,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabelField;
+
         private long IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -14386,6 +14447,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.MediaRepresentation> RepresentationsField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SystemAIDetectionSignal> SystemAIDetectionSignalField;
+
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
         
@@ -14404,6 +14468,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabel
+        {
+            get
+            {
+                return this.AdvertiserAILabelField;
+            }
+            set
+            {
+                if ((this.AdvertiserAILabelField.Equals(value) != true))
+                {
+                    this.AdvertiserAILabelField = value;
+                    this.RaisePropertyChanged("AdvertiserAILabel");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public long Id
         {
@@ -14455,6 +14536,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SystemAIDetectionSignal> SystemAIDetectionSignal
+        {
+            get
+            {
+                return this.SystemAIDetectionSignalField;
+            }
+            set
+            {
+                if ((this.SystemAIDetectionSignalField.Equals(value) != true))
+                {
+                    this.SystemAIDetectionSignalField = value;
+                    this.RaisePropertyChanged("SystemAIDetectionSignal");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string Text
         {
@@ -14596,6 +14694,24 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SystemAIDetectionSignal", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    public enum SystemAIDetectionSignal : byte
+    {
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotSupportedForGivenRevision = 0,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        MicrosoftAIGenerated = 1,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AISignatureDetected = 2,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NoSignalDetected = 3,
+    }
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ImageMediaRepresentation", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
@@ -14845,6 +14961,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomLinkedIn = 17179869184,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIPrompt = 34359738368,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -17125,6 +17244,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CustomSegment = 256,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIPrompt = 512,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -19020,6 +19142,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         JobTitle = 67108864,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIPrompt = 134217728,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -30079,6 +30204,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabelField;
+
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AspectRatioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -30106,6 +30234,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SystemAIDetectionSignal> SystemAIDetectionSignalField;
+
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ThumbnailUrlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -30123,6 +30254,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.AdvertiserAILabel> AdvertiserAILabel
+        {
+            get
+            {
+                return this.AdvertiserAILabelField;
+            }
+            set
+            {
+                if ((this.AdvertiserAILabelField.Equals(value) != true))
+                {
+                    this.AdvertiserAILabelField = value;
+                    this.RaisePropertyChanged("AdvertiserAILabel");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string AspectRatio
         {
@@ -30276,6 +30424,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.SystemAIDetectionSignal> SystemAIDetectionSignal
+        {
+            get
+            {
+                return this.SystemAIDetectionSignalField;
+            }
+            set
+            {
+                if ((this.SystemAIDetectionSignalField.Equals(value) != true))
+                {
+                    this.SystemAIDetectionSignalField = value;
+                    this.RaisePropertyChanged("SystemAIDetectionSignal");
+                }
+            }
+        }
+
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string ThumbnailUrl
         {
@@ -37482,6 +37647,18 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             "ddMediaResponse")]
         System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.AddMediaResponse> AddMediaAsync(Microsoft.BingAds.V13.CampaignManagement.AddMediaRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateMedia", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateMediaResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateMediaAdApiFaultDetailFault", Name="AdApiFaultDetail", Namespace="https://adapi.microsoft.com")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateMediaApiFaultDetail2Fault", Name="ApiFaultDetail")]
+        Microsoft.BingAds.V13.CampaignManagement.UpdateMediaResponse UpdateMedia(Microsoft.BingAds.V13.CampaignManagement.UpdateMediaRequest request);
+
+        [System.ServiceModel.OperationContractAttribute(Action="UpdateMedia", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/U" +
+            "pdateMediaResponse")]
+        System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateMediaResponse> UpdateMediaAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateMediaRequest request);
+
         [System.ServiceModel.OperationContractAttribute(Action="DeleteMedia", ReplyAction="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
             "eleteMediaResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AdApiFaultDetail), Action="https://bingads.microsoft.com/CampaignManagement/v13/ICampaignManagementService/D" +
@@ -42793,6 +42970,80 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateMediaRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateMediaRequest
+    {
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string ApplicationToken;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string AuthenticationToken;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerAccountId;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string CustomerId;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string DeveloperToken;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string Password;
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string UserName;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public long AccountId;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=1)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Media> Media;
+
+        public UpdateMediaRequest()
+        {
+        }
+
+        public UpdateMediaRequest(string ApplicationToken, string AuthenticationToken, string CustomerAccountId, string CustomerId, string DeveloperToken, string Password, string UserName, long AccountId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Media> Media)
+        {
+            this.ApplicationToken = ApplicationToken;
+            this.AuthenticationToken = AuthenticationToken;
+            this.CustomerAccountId = CustomerAccountId;
+            this.CustomerId = CustomerId;
+            this.DeveloperToken = DeveloperToken;
+            this.Password = Password;
+            this.UserName = UserName;
+            this.AccountId = AccountId;
+            this.Media = Media;
+        }
+    }
+
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="UpdateMediaResponse", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
+    public partial class UpdateMediaResponse
+    {
+
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+        public string TrackingId;
+
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="https://bingads.microsoft.com/CampaignManagement/v13", Order=0)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors;
+
+        public UpdateMediaResponse()
+        {
+        }
+
+        public UpdateMediaResponse(string TrackingId, System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.BatchError> PartialErrors)
+        {
+            this.TrackingId = TrackingId;
+            this.PartialErrors = PartialErrors;
+        }
+    }
+
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.MessageContractAttribute(WrapperName="DeleteMediaRequest", WrapperNamespace="https://bingads.microsoft.com/CampaignManagement/v13", IsWrapped=true)]
@@ -54579,6 +54830,16 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             return base.Channel.AddMediaAsync(request);
         }
         
+        public Microsoft.BingAds.V13.CampaignManagement.UpdateMediaResponse UpdateMedia(Microsoft.BingAds.V13.CampaignManagement.UpdateMediaRequest request)
+        {
+            return base.Channel.UpdateMedia(request);
+        }
+
+        public System.Threading.Tasks.Task<Microsoft.BingAds.V13.CampaignManagement.UpdateMediaResponse> UpdateMediaAsync(Microsoft.BingAds.V13.CampaignManagement.UpdateMediaRequest request)
+        {
+            return base.Channel.UpdateMediaAsync(request);
+        }
+
         public Microsoft.BingAds.V13.CampaignManagement.DeleteMediaResponse DeleteMedia(Microsoft.BingAds.V13.CampaignManagement.DeleteMediaRequest request)
         {
             return base.Channel.DeleteMedia(request);

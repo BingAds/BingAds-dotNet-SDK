@@ -2058,6 +2058,9 @@ namespace Microsoft.BingAds.V13.CustomerBilling
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         CouponClaimInfo = 4,
+
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ParentCustomerNumber = 8,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
