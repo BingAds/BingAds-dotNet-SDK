@@ -128,6 +128,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         private string MarketingObjectiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> MessagingRestrictionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> MultimediaAdsBidAdjustmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -497,6 +500,23 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.AssetLink> MessagingRestrictions
+        {
+            get
+            {
+                return this.MessagingRestrictionsField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.MessagingRestrictionsField, value) != true))
+                {
+                    this.MessagingRestrictionsField = value;
+                    this.RaisePropertyChanged("MessagingRestrictions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<int> MultimediaAdsBidAdjustment
         {
             get
@@ -683,7 +703,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=29)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=30)]
         public System.Nullable<Microsoft.BingAds.V13.CampaignManagement.CampaignType> CampaignType
         {
             get
@@ -700,7 +720,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=30)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=31)]
         public System.Collections.Generic.IList<Microsoft.BingAds.V13.CampaignManagement.Setting> Settings
         {
             get
@@ -717,7 +737,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=31)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=32)]
         public System.Nullable<long> BudgetId
         {
             get
@@ -734,7 +754,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=32)]
+        [System.Runtime.Serialization.DataMemberAttribute(Order=33)]
         public System.Collections.Generic.IList<string> Languages
         {
             get
@@ -751,7 +771,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=33)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=34)]
         public System.Nullable<bool> AdScheduleUseSearcherTimeZone
         {
             get
@@ -768,7 +788,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=34)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=35)]
         public System.Nullable<long> BidStrategyId
         {
             get
@@ -808,6 +828,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.EnhancedCpcBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpvBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpmBiddingScheme))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetCpmBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.InheritFromParentBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.TargetRoasBiddingScheme))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.MaxRoasBiddingScheme))]
@@ -1407,6 +1428,14 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 }
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TargetCpmBiddingScheme", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class TargetCpmBiddingScheme : Microsoft.BingAds.V13.CampaignManagement.BiddingScheme
+    {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -8937,6 +8966,9 @@ namespace Microsoft.BingAds.V13.CampaignManagement
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         OptOutFromSystemSourcedImagesInSWF = 524288,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AIDetectedContentWatermarkPolicy = 1048576,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -21234,6 +21266,7 @@ namespace Microsoft.BingAds.V13.CampaignManagement
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CombinedList))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.CustomSegment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedRemarketingList))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Microsoft.BingAds.V13.CampaignManagement.AIPromptAudience))]
     public partial class Audience : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
     {
         
@@ -21905,6 +21938,34 @@ namespace Microsoft.BingAds.V13.CampaignManagement
                 {
                     this.EntityTypeField = value;
                     this.RaisePropertyChanged("EntityType");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AIPromptAudience", Namespace="https://bingads.microsoft.com/CampaignManagement/v13")]
+    [System.SerializableAttribute()]
+    public partial class AIPromptAudience : Microsoft.BingAds.V13.CampaignManagement.Audience
+    {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PromptField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Prompt
+        {
+            get
+            {
+                return this.PromptField;
+            }
+            set
+            {
+                if ((object.ReferenceEquals(this.PromptField, value) != true))
+                {
+                    this.PromptField = value;
+                    this.RaisePropertyChanged("Prompt");
                 }
             }
         }

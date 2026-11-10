@@ -18279,6 +18279,12 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 65,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 66,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionSharePercent = 67,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -18546,6 +18552,12 @@ namespace Microsoft.BingAds.V13.Reporting
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         MissedImpressionsInsufficientBid = 48,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        AbsoluteTopImpressionSharePercent = 49,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TopImpressionSharePercent = 50,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

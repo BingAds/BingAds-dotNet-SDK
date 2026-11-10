@@ -264,6 +264,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
         public const string DisplayUrl = "Display Url";
         public const string DestinationUrl = "Destination Url";
         public const string BusinessName = "Business Name";
+        public const string BrandLogo = "Brand Logo";
         public const string PhoneNumber = "Phone Number";
         public const string PromotionalText = "Promotion";
         public const string MatchType = "Match Type";

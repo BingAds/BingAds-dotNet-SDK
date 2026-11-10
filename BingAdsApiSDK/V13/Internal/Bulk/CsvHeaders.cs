@@ -127,6 +127,7 @@ namespace Microsoft.BingAds.V13.Internal.Bulk
             StringTable.DisplayUrl,
             StringTable.DestinationUrl,
             StringTable.BusinessName,
+            StringTable.BrandLogo,
             StringTable.PhoneNumber,
             StringTable.PromotionalText,
             StringTable.EditorialStatus,
