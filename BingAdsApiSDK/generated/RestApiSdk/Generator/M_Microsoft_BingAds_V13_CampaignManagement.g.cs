@@ -191,6 +191,7 @@ public static partial class RestApiGeneration
             { typeof(AdRotation), static t => CustomizeAdRotation(t) },
             { typeof(AgeCriterion), static t => CustomizeAgeCriterion(t) },
             { typeof(AgeDimension), static t => CustomizeAgeDimension(t) },
+            { typeof(AIPromptAudience), static t => CustomizeAIPromptAudience(t) },
             { typeof(AISearchSetting), static t => CustomizeAISearchSetting(t) },
             { typeof(AnnotationOptOut), static t => CustomizeAnnotationOptOut(t) },
             { typeof(ApiFaultDetail), static t => CustomizeApiFaultDetail(t) },
@@ -725,6 +726,7 @@ public static partial class RestApiGeneration
             { typeof(SupportedFont), static t => CustomizeSupportedFont(t) },
             { typeof(SupportedFontsData), static t => CustomizeSupportedFontsData(t) },
             { typeof(TargetCpaBiddingScheme), static t => CustomizeTargetCpaBiddingScheme(t) },
+            { typeof(TargetCpmBiddingScheme), static t => CustomizeTargetCpmBiddingScheme(t) },
             { typeof(TargetImpressionShareBiddingScheme), static t => CustomizeTargetImpressionShareBiddingScheme(t) },
             { typeof(TargetRoasBiddingScheme), static t => CustomizeTargetRoasBiddingScheme(t) },
             { typeof(TargetSetting), static t => CustomizeTargetSetting(t) },
@@ -2506,6 +2508,30 @@ public static partial class RestApiGeneration
             }
         }
 
+        private static void CustomizeAIPromptAudience(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => AudienceType.AIPrompt;
+                        break;
+                }
+            }
+        }
+
         private static void CustomizeAISearchSetting(JsonTypeInfo jsonTypeInfo)
         {
             for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
@@ -4011,6 +4037,10 @@ public static partial class RestApiGeneration
                         jsonPropertyInfo.IsRequired = false;
                         break;
                     case "MarketingObjective":
+                        jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
+                        jsonPropertyInfo.IsRequired = false;
+                        break;
+                    case "MessagingRestrictions":
                         jsonPropertyInfo.ShouldSerialize = (_, value) => value != null;
                         jsonPropertyInfo.IsRequired = false;
                         break;
@@ -13082,6 +13112,30 @@ public static partial class RestApiGeneration
                 {
                     case "Type":
                         jsonPropertyInfo.Get = _ => "TargetCpa";
+                        break;
+                }
+            }
+        }
+
+        private static void CustomizeTargetCpmBiddingScheme(JsonTypeInfo jsonTypeInfo)
+        {
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "ExtensionData":
+                        jsonTypeInfo.Properties.RemoveAt(i);
+                        break;
+                }
+            }
+            for (int i = jsonTypeInfo.Properties.Count - 1; i >= 0; i--)
+            {
+                var jsonPropertyInfo = jsonTypeInfo.Properties[i];
+                switch (jsonPropertyInfo.Name)
+                {
+                    case "Type":
+                        jsonPropertyInfo.Get = _ => "TargetCpm";
                         break;
                 }
             }

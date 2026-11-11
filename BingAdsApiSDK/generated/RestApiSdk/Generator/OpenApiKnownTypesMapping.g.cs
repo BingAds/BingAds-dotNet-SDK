@@ -193,6 +193,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.Asset), "Asset" } }
             },
             { typeof(Microsoft.BingAds.V13.CampaignManagement.Audience), new Dictionary<Type, string> {                
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.AIPromptAudience), "AIPrompt" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ImpressionBasedRemarketingList), "ImpressionBasedRemarketingList" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CustomSegment), "CustomSegment" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.CombinedList), "CombinedList" },
@@ -229,6 +230,7 @@ public static partial class RestApiGeneration
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.MaxRoasBiddingScheme), "MaxRoasBiddingScheme" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.TargetRoasBiddingScheme), "TargetRoasBiddingScheme" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.InheritFromParentBiddingScheme), "InheritFromParent" },
+                { typeof(Microsoft.BingAds.V13.CampaignManagement.TargetCpmBiddingScheme), "TargetCpm" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpmBiddingScheme), "ManualCpm" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.ManualCpvBiddingScheme), "ManualCpv" },
                 { typeof(Microsoft.BingAds.V13.CampaignManagement.EnhancedCpcBiddingScheme), "EnhancedCpc" },

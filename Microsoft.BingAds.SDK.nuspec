@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Microsoft.BingAds.SDK</id>
-        <version>13.0.30.1</version>
+        <version>13.0.31</version>
         <title>Bing Ads SDK</title>
         <authors>Microsoft</authors>
         <owners>Microsoft</owners>
@@ -13,12 +13,12 @@
 		<readme>docs\README.md</readme>
         <summary />
         <releaseNotes>API Updates:
-* Add Advertiser AI labels and system AI detection signals to supported Campaign Management media, including UpdateMedia and TermExclusions support.
-* Expose ParentCustomerNumber in Customer Management account data and Customer Billing additional fields.
+* Refresh Campaign Management, Bulk, and Reporting contracts for API revision 2026-11-09.
+* Add Campaign MessagingRestrictions and the Hotel report impression-share columns.
+* Expose AIDetectedContentWatermarkPolicy through the Campaign API.
 
 Bulk API Updates:
-* Add AI Prompt Audience bulk download and deletion support.
-* Add Advertiser AI Label and System AI Detection Signal columns for images and videos, and AI Detected Content Watermark Policy for accounts.</releaseNotes>
+* Add Campaign Business Name and Brand Logo mappings.</releaseNotes>
         <copyright>© Microsoft Corporation. All rights reserved.</copyright>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="" />

@@ -300,6 +300,18 @@ namespace Microsoft.BingAds.V13.Bulk.Entities
                 (v, c) => c.Campaign.Name = v 
             ),            
 
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BusinessName,
+                c => c.Campaign.BusinessName.ToOptionalBulkString(c.Campaign.Id),
+                (v, c) => c.Campaign.BusinessName = v == "delete_value" ? string.Empty : v
+            ),
+
+            new SimpleBulkMapping<BulkCampaign>(StringTable.BrandLogo,
+                c => c.Campaign.BrandLogo != null && c.Campaign.BrandLogo.Count == 0
+                    ? string.Empty.ToOptionalBulkString(c.Campaign.Id)
+                    : c.Campaign.BrandLogo.ToImageAssetLinksBulkString(),
+                (v, c) => c.Campaign.BrandLogo = v == "delete_value" ? new List<AssetLink>() : v.ParseImageAssetLinks()
+            ),
+
             new SimpleBulkMapping<BulkCampaign>(StringTable.TimeZone, 
                 c => c.Campaign.TimeZone, 
                 (v, c) => c.Campaign.TimeZone = v

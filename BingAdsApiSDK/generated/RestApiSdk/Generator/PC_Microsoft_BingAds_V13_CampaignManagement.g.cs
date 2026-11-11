@@ -464,6 +464,7 @@ public static partial class RestApiGeneration
 
             return type switch
             {
+                "AIPrompt" => jsonObj.Deserialize<AIPromptAudience>(options),
                 "ImpressionBasedRemarketingList" => jsonObj.Deserialize<ImpressionBasedRemarketingList>(options),
                 "CustomSegment" => jsonObj.Deserialize<CustomSegment>(options),
                 "CombinedList" => jsonObj.Deserialize<CombinedList>(options),
@@ -484,6 +485,9 @@ public static partial class RestApiGeneration
 
             switch (value)
             {
+                case AIPromptAudience aIPromptAudience:
+                    JsonSerializer.Serialize(writer, aIPromptAudience, options);
+                    break;
                 case ImpressionBasedRemarketingList impressionBasedRemarketingList:
                     JsonSerializer.Serialize(writer, impressionBasedRemarketingList, options);
                     break;
@@ -705,6 +709,7 @@ public static partial class RestApiGeneration
                 "MaxRoasBiddingScheme" => jsonObj.Deserialize<MaxRoasBiddingScheme>(options),
                 "TargetRoasBiddingScheme" => jsonObj.Deserialize<TargetRoasBiddingScheme>(options),
                 "InheritFromParent" => jsonObj.Deserialize<InheritFromParentBiddingScheme>(options),
+                "TargetCpm" => jsonObj.Deserialize<TargetCpmBiddingScheme>(options),
                 "ManualCpm" => jsonObj.Deserialize<ManualCpmBiddingScheme>(options),
                 "ManualCpv" => jsonObj.Deserialize<ManualCpvBiddingScheme>(options),
                 "EnhancedCpc" => jsonObj.Deserialize<EnhancedCpcBiddingScheme>(options),
@@ -749,6 +754,9 @@ public static partial class RestApiGeneration
                     break;
                 case InheritFromParentBiddingScheme inheritFromParentBiddingScheme:
                     JsonSerializer.Serialize(writer, inheritFromParentBiddingScheme, options);
+                    break;
+                case TargetCpmBiddingScheme targetCpmBiddingScheme:
+                    JsonSerializer.Serialize(writer, targetCpmBiddingScheme, options);
                     break;
                 case ManualCpmBiddingScheme manualCpmBiddingScheme:
                     JsonSerializer.Serialize(writer, manualCpmBiddingScheme, options);
